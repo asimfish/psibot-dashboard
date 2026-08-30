@@ -137,11 +137,11 @@ function cp(el){ if(navigator.clipboard){ navigator.clipboard.writeText(el.textC
     <td>评测管线对目标物体强制套用 GPU 粒子 SDF 碰撞近似（res=64），无液体回合也生效；薄壁烧杯碰撞面「增肥」，手指提前 ~0.23 rad 卡住、接触力 ~10 kN。证据：同段 GT 动作回放 SDF 开 <b class="bad">0/10</b>×2 轮，<code>CHEMBENCH_GPU_PARTICLE_COLLISION_MODE=off</code> 后 <b class="ok">9/10</b>。全部历史成绩被系统性压低，08-30 起统一 nosdf 口径。</td></tr>
 <tr><td><b>ACT 通关</b></td><td class="ok">满分</td>
     <td>nosdf + ±1cm 随机：<b class="ok">ACT slowmo2x×kl10（s3304）正式 50 集 44/50（88%）</b>（初筛 10/10；SSR 88%，θ0.100rad/F65.6N/ΔP16.1mm）（<a href="https://gist.github.com/asimfish/2dae7a26b2f1a05f7098b2e9aceef29a/raw/act_kl10_s3304_10of10_ep1.mp4">▶ 样例视频</a>）、chunk4（s3301）9/10（<a href="https://gist.github.com/asimfish/2dae7a26b2f1a05f7098b2e9aceef29a/raw/act_chunk4_s3301_9of10_ep1.mp4">▶ 样例</a>）。混合比例候选 s4121=1/10、s4141=0/10 淘汰。rep11：s1028 首种子 11/11 评完——<b class="ok">glass_cylinder 10/10 满分黑马</b>、brown_volumetric 1/10、其余 9 物体 0/10；KL10 逐物体双卡在评（alcohol_lamp / erlenmeyer 首两分均 0/10）。chunk4 正式 50 集 43/50。<b>⚠️ kl10 种子方差大：正式 50 集 s3304 88% / s3305 16% / s3306 66%</b>。</td></tr>
-<tr><td><b>DP state / ACT 复现</b></td><td class="ok">已出分</td><td>state-DP s6001 正式 50 集 <b>21/50（42%）</b>：state 观测显著优于图像 DP（3/10）但仍劣于 ACT。ACT kl10 跨硬件复现（A100）四种子定格：<b class="bad">s3305 8/50（16%）</b>、<b>s3306 33/50（66%）</b>、<b class="ok">s3307 45/50（90%）</b>（vs 原种子 s3304 88%）。判决：四种子均值 66%、双峰分布（两好两坏），配方有效但种子敏感；30109 补种子 s3308/s3309 在训（~04:30 出 ckpt），凑 6 种子钉死方差。</td></tr>
+<tr><td><b>DP state / ACT 复现</b></td><td class="ok">已出分</td><td>state-DP s6001 正式 50 集 <b>21/50（42%）</b>：state 观测显著优于图像 DP（3/10）但仍劣于 ACT。ACT kl10 跨硬件复现（A100）四种子定格：<b class="bad">s3305 8/50（16%）</b>、<b>s3306 33/50（66%）</b>、<b class="ok">s3307 45/50（90%）</b>（vs 原种子 s3304 88%）。判决：四种子均值 66%、双峰分布（两好两坏），配方有效但种子敏感；s3308/s3309 已训完（03:2x）并拉到 5090（SHA 验证过），nosdf50 评测排队中；chunk4 补种子 s3311/s3312 已在 30109 起跑（配方硬证据：aliyun launch_identity，chunk4 + kl_weight=1），~07:00 出 ckpt。</td></tr>
 <tr><td><b>DP 五路波收口</b></td><td class="bad">未破局</td>
     <td>「400 演示 + 慢放2x」不救 DP：治疗组 s5001-5003 = 1/3/1，对照组 s5004-5005 = 0/1（nosdf 各 10 集，<a href="https://gist.github.com/asimfish/2dae7a26b2f1a05f7098b2e9aceef29a/raw/dp_sm2x_s5001_fail_ep1.mp4">▶ 失败样例</a>）。DP 峰值仍 3/10。结合逐维探针（13 维 relMAE≤2.8%），问题在闭环执行链路而非拟合能力。下一步：对齐 owner 历史 2s 配方逐项 diff + state-based DP 对照。</td></tr>
 <tr><td>逐物体复制（rep11）</td><td class="run">训练+评测并行</td>
-    <td>训练收官。<b>s1028 首种子 11/11 判决齐</b>：glass_cylinder <b class="ok">10/10 满分</b>（圆柱形态友好，待复核视频）、brown_volumetric 1/10、其余 9 物体 0/10。KL10 逐物体已评 4/11 全 0/10（alcohol_lamp / erlenmeyer / brown_reagent_L / brown_volumetric）——KL10 增益疑似 beaker100 特异；余 7 物体排队。glass_cylinder 满分黑马的 50 集正式确认评测在跑。</td></tr>
+    <td>训练收官。<b>s1028 首种子 11/11 判决齐</b>：glass_cylinder <b class="ok">10/10 满分</b>（圆柱形态友好，待复核视频）、brown_volumetric 1/10、其余 9 物体 0/10。KL10 逐物体已评 6/11 全 0/10（+clear_reagent_L / glass_beaker_250）——KL10 增益确认 beaker100 特异；余 5 物体排队。<b class="bad">黑马证伪：cyl100 新种子 s3401 与 s3403 正式 50 集均 0/50</b>（vs s1028 10/10）——glass_cylinder 的满分纯属种子运气，s3404 第 4 种子在评。</td></tr>
 </table></div>
 
 <h2 id="sec1">§1 数据集</h2>
@@ -373,6 +373,12 @@ function cp(el){ if(navigator.clipboard){ navigator.clipboard.writeText(el.textC
 <tr><td><b>act-kl10 复现 s3305（A100）· 正式 50 集</b></td><td>grasp × beaker100</td><td class="c">ACT</td><td class="c bad"><b>8/50（16%）</b></td><td class="c bad">❌ 复现未过线 · 种子方差实锤</td><td class="c">08-30 22:1x</td></tr>
 <tr><td><b>dp-state-400d（s6001）· 正式 50 集</b></td><td>grasp × beaker100</td><td class="c">DP-state</td><td class="c bad"><b>21/50（42%）</b></td><td class="c bad">❌ 未过线（但 state 观测 ≫ 图像 DP 3/10）</td><td class="c">08-30 21:0x</td></tr>
 <tr><td>act-kl10 复现 s3305（10 集口径）</td><td>grasp × beaker100</td><td class="c">ACT</td><td class="c bad">1/10</td><td class="c bad">❌ 与正式 50 集一致偏低</td><td class="c">08-30 23:2x</td></tr>
+<tr><td><b>act-cyl100 新种子 s3401 · 正式 50 集</b></td><td>grasp × glass_cylinder_100ml</td><td class="c">ACT</td><td class="c bad"><b>0/50</b></td><td class="c bad">❌ 黑马物体种子敏感实锤（vs s1028 10/10）</td><td class="c">08-31 03:3x</td></tr>
+<tr><td><b>act-cyl100 新种子 s3403 · 正式 50 集</b></td><td>grasp × glass_cylinder_100ml</td><td class="c">ACT</td><td class="c bad"><b>0/50</b></td><td class="c bad">❌ 黑马证伪第二证（三种子 10/10 · 0/50 · 0/50）</td><td class="c">08-31 04:4x</td></tr>
+<tr><td>rep11 KL10 专属模型 s3304 配方</td><td>grasp × clear_reagent_bottle_small</td><td class="c">ACT</td><td class="c bad">0/10</td><td class="c bad">❌ KL10 亦未通关（7/11 全 0）</td><td class="c">08-31 04:3x</td></tr>
+<tr><td>dp-state 数据量消融 100demo（s6002c）· 正式 50 集</td><td>grasp × beaker100</td><td class="c">DP-state</td><td class="c bad">0/50</td><td class="c bad">❌ 100demo 数据量不足以支撑 state-DP</td><td class="c">08-31 04:0x</td></tr>
+<tr><td>rep11 KL10 专属模型 s3304 配方</td><td>grasp × clear_reagent_bottle_large</td><td class="c">ACT</td><td class="c bad">0/10</td><td class="c bad">❌ KL10 亦未通关</td><td class="c">08-31 03:0x</td></tr>
+<tr><td>rep11 KL10 专属模型 s3304 配方</td><td>grasp × glass_beaker_250ml</td><td class="c">ACT</td><td class="c bad">0/10</td><td class="c bad">❌ KL10 亦未通关</td><td class="c">08-31 03:1x</td></tr>
 <tr><td><b>rep11 专属模型 s1028（KL1 首种子）</b></td><td>grasp × glass_cylinder_100ml</td><td class="c">ACT</td><td class="c ok"><b>10/10</b></td><td class="c ok">✅️ 满分黑马（11 物体唯一通关）</td><td class="c">08-31 00:0x</td></tr>
 <tr><td>rep11 专属模型 s1028（KL1 首种子）</td><td>grasp × erlenmeyer_flask</td><td class="c">ACT</td><td class="c bad">0/10</td><td class="c bad">❌ 首种子未通关</td><td class="c">08-31 00:1x</td></tr>
 <tr><td>rep11 专属模型 s1028（KL1 首种子）</td><td>grasp × plastic_cylinder_100ml</td><td class="c">ACT</td><td class="c bad">0/10</td><td class="c bad">❌ 首种子未通关</td><td class="c">08-31 00:24</td></tr>
@@ -401,9 +407,9 @@ function cp(el){ if(navigator.clipboard){ navigator.clipboard.writeText(el.textC
 <h2 id="sec4">§4 基础设施</h2>
 <div class="table-wrap"><table>
 <tr><th>节点</th><th>当前用途</th><th>健康</th></tr>
-<tr><td>bjxy_5090（2 卡）</td><td>GPU1：cyl100 满分黑马 50 集正式确认在跑→KL10 队列；GPU0：SafeDuo 录制占用中→KL10 队列自动接力；已清 s3307 冗余评测残留（误记失败后原进程未死，白占 52min）</td><td class="run">🔄 评测推进</td></tr>
-<tr><td>30109（8 卡）</td><td>盘已清至 85%；GPU2/3 在训 kl10 补种子 s3308/s3309（~04:30 出 ckpt）；GPU4/6 为第三方 vLLM；GPU0/5/7 留给并行会话</td><td class="ok">✅️ 本项目收官</td></tr>
-<tr><td>PPU / aliyun（16 卡）</td><td>KL1 33/33 + KL10 11/11 <b class="ok">全部完成</b>；本项目卡空闲，待 5090 评测消化</td><td class="ok">✅️ 训练收官</td></tr>
+<tr><td>bjxy_5090（2 卡）</td><td>双卡连轴：KL10 逐物体余 5 + cyl100 s3403 在评；s3308/s3309 nosdf50 排队。评测积压为当前瓶颈</td><td class="run">🔄 评测推进</td></tr>
+<tr><td>30109（8 卡）</td><td>满负荷：GPU0=t053 DP 训练（并行会话）；GPU1=chunk4 s3311；GPU2=chunk4 s3312（与 fdpi 共卡）；GPU3/5/7=fdpi RL 波；GPU4/6=第三方 vLLM</td><td class="ok">✅️ 本项目收官</td></tr>
+<tr><td>PPU / aliyun（16 卡）</td><td>KL1+KL10 训练收官；并行会话在训 cyl100 新种子（s3401/s3403）；SSH 别名 ppu 失效，走 aliyun_safelab 可达</td><td class="ok">✅️ 训练收官</td></tr>
 <tr><td>lyf_4090（=daisi_4090 同机）</td><td>handover 续采 + PsiBot 权威数据仓</td><td class="bad">❌ SSH 即连即断（08-30 15:1x 起），走 NAS 镜像兜底，待恢复</td></tr>
 <tr><td>mainskill</td><td>数据生成 / NFS 网关</td><td class="bad">❌ 出向大文件通道瘫痪，走中继</td></tr>
 <tr><td>safelab_5090</td><td>FR3/UR5E 25 行采集责任机</td><td class="bad">❌ SSH 中断已催办</td></tr>
@@ -413,7 +419,7 @@ function cp(el){ if(navigator.clipboard){ navigator.clipboard.writeText(el.textC
 <div class="table-wrap"><table>
 <tr><th class="c">优先级</th><th>事项</th><th>状态</th></tr>
 <tr><td class="c">P0</td><td>DP 破局新方向：对齐 owner 历史 2s 配方逐项 diff + state-based DP 对照实验</td><td class="run">🔄 方案拟定中</td></tr>
-<tr><td class="c">P0</td><td>评完 KL10 逐物体余 7 路；等 cyl100 50 集正式分；收 s3308/s3309 补种子（在训）并评 nosdf50 凑 6 种子</td><td class="run">🔄 双卡在评 + 拉包</td></tr>
+<tr><td class="c">P0</td><td>评完 KL10 余 5 路；跑完 s3308/s3309 nosdf50（凑 6 种子）；收 chunk4 s3311/s3312（~07:00）；跟踪 cyl100 s3403</td><td class="run">🔄 双卡在评 + 拉包</td></tr>
 <tr><td class="c">P0</td><td>30109 清理 1.1T（已获 owner 批准）+ safelab_5090 / lyf_4090 联络恢复</td><td class="run">🔄</td></tr>
 <tr><td class="c">P1</td><td>采集补齐：oven_open 缺 18、pick_place brown_reagent_L 缺 36、handover cylinder100 复核、brown_reagent_S 慢放重做、long_horizon 重采（目标 200）</td><td class="wait">排队</td></tr>
 <tr><td class="c">P1</td><td>pour 新门配方修正；FR3/UR5E 18 格 0 数据补采</td><td class="wait">被基建阻塞</td></tr>
@@ -425,6 +431,8 @@ function cp(el){ if(navigator.clipboard){ navigator.clipboard.writeText(el.textC
 <tr><th>时间</th><th>变更</th></tr>
 <tr><td>2026-08-31 04:55</td><td><b>§S 服务器总览重建（合并事故修复）+ 三新判决</b>：①cylinder100 复现批 <b>s3401/s3403 均 0/50</b>（s3404 在评）——与 KL1-s1028 的 cylinder 10/10 矛盾，该批为 8/25 旧训练成品，训练血统待查；②state-DP 100demo（s6002c）<b>0/50</b> vs 400demo 21/50——state-DP 数据量敏感；③rep11-KL10 再 +3 物体 0/10（clear_L/beaker250/clear_S），非 beaker 已 7 败。30109：g1/g2 补种子 s3308/s3309 训练中、g0 跑 t053 pick_place 全流程；mainskill 仍空转（今日派活）；PPU 13 卡空闲。</td></tr>
 <tr><td>2026-08-31 02:05</td><td><b>s3307 复现创新高 45/50（90%）</b>：ACT kl10 第三复现种子正式 50 集 45/50，超原版 s3304 44/50——跨硬件复现成立，四种子 44/45/33/8（s3305 为离群）。夜间修复：评测队列改 tmux 承载并修复 stats 缺失（s3307 秒败根因）；PPU→bjxy 搬运链改 rsync 校验版，11 模型（cylinder×3+pickplace×8）全部到位；发现并清除半截损坏 ckpt。看板发布迁移至 GitHub Pages（国内可达）。队列接续：cylinder s3401 评测中 → cyl×2 → pickplace×2。</td></tr>
+<tr><td>2026-08-31 04:55</td><td><b>黑马证伪 + 消融推进</b>：①cyl100 第三种子 s3403 亦 0/50，glass_cylinder 三种子 10/10·0/50·0/50，满分证伪为种子运气（s3404 在评）；②DP-state 数据量消融：100demo 版 0/50（vs 400demo 21/50），state-DP 也需要 400 演示量级；na4 变体评测中（16/41 暂 ~39%）；③KL10 逐物体 7/11 全 0；④chunk4 补种子过半（ep ~790/2000，共卡版仅慢 3%）；s3308/s3309 nosdf50 仍在排队等双卡空档。本地→30109 通道抖动，5090 中转正常。</td></tr>
+<tr><td>2026-08-31 04:05</td><td><b>补种子流水线 + 黑马降温</b>：①kl10 补种子 s3308/s3309 于 03:2x 训完（COMPLETED + SHA 固化），已拉至 5090 验证并排入 nosdf50 队列——kl10 将有 6 种子；②aliyun 通道恢复（别名 ppu 失效、aliyun_safelab 可达），从 hp_20260829_wave2/launch_identity.json 拿到 chunk4 配方硬证据（chunk_size=4 + kl_weight=1 + lr1e-5 + 2000ep），chunk4 补种子 s3311（GPU1 净卡）/s3312（GPU2 与 fdpi 共卡）已在 30109 起跑；③<b>cyl100 新种子 s3401 正式 50 集 0/50</b>——glass_cylinder 黑马同样种子敏感（vs s1028 10/10），s3403 在评；④KL10 逐物体 6/11 全 0/10，beaker100 特异性确认。30109 满负荷：t053 DP + chunk4×2 + fdpi×4 + vLLM×2。</td></tr>
 <tr><td>2026-08-31 01:55</td><td><b>kl10 四种子定格 + 资源治理</b>：①s3307（并行会话训练）正式 50 集 <b>45/50（90%）</b>——四种子 88/16/66/90，均值 66%、双峰分布，配方有效但种子敏感；30109 GPU2/3 已启动补种子 s3308/s3309（同 trainer/数据/超参，PLAN 固化，~04:30 出 ckpt）凑 6 种子。②KL10 逐物体 4/11 全 0/10，增益疑似 beaker100 特异。③治理：s3307 首次评测误记 rc=2 但进程未死、白占 GPU0 52min 已清；glass_cylinder 满分黑马 50 集正式确认评测（并行会话）在 GPU1 跑。④aliyun SSH 通道中断待恢复；chunk4 补种子因 kl_weight 证据在 aliyun 暂缓。</td></tr>
 <tr><td>2026-08-31 00:30</td><td><b>rep11 首种子判决收齐</b>：s1028 全 11 物体出分——<b>glass_cylinder_100ml 10/10 满分黑马</b>（11 物体唯一通关，圆柱形态友好，视频待复核）、brown_volumetric 1/10、其余 9 物体 0/10；plastic_cylinder / erlenmeyer / clear_reagent_S 三个尾巴收口，priority 队列 00:24 收工。KL10 逐物体评测双卡接力开跑，首两分 alcohol_lamp / erlenmeyer 均 0/10——KL10 配方在难物体上同样不通，配方增益疑似 beaker100 特异。</td></tr>
 <tr><td>2026-08-30 23:55</td><td><b>复现判决与评测收口</b>：①ACT kl10 跨硬件复现（A100）正式 50 集出分：<b>s3305 8/50（16%）、s3306 33/50（66%）</b> vs 原种子 s3304 44/50（88%）——配方种子方差大，满分是最好种子而非均值，论文需如实报三种子；②state-DP s6001 正式 50 集 <b>21/50（42%）</b>，state 观测显著优于图像 DP（3/10）但仍劣于 ACT；③s1028 nosdf 复评推进至 8/11（brown_volumetric 1/10，其余 0/10）；④KL10 11 路 ckpt 从 aliyun 拉齐并 SHA 校验，硬链重组目录，双卡评测队列已挂；⑤治理 GPU0 双队列并发：rep11 队列 shell 已死致孤儿评测丢分（brown_volumetric 已补录），priority 队列存活接管 glass/plastic 两物体，remain 队列去重后只留 erlenmeyer 链路。</td></tr>
