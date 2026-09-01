@@ -439,6 +439,7 @@ function cp(el){ if(navigator.clipboard){ navigator.clipboard.writeText(el.textC
 <h2 id="sec6">§6 变更日志</h2>
 <div class="table-wrap"><table>
 <tr><th>时间</th><th>变更</th></tr>
+<tr><td>09-01 19:5x</td><td>v10.6</td><td>§S 评测/采集行详情化：任务名、集数进度、环境并行数、已跑时长、ETA（采集服务 v2 深度探测）</td><td>agent</td></tr>
 <tr><td>09-01 04:0x</td><td>v10.5</td><td>§S 接入本机 30s 实时逐卡数据（127.0.0.1:9889 采集服务 + 前端定点刷新，table-layout:fixed 零抖动，离线自动回退静态快照）；采集数据类型改两列网格排版</td><td>agent</td></tr>
 <tr><td>09-01 03:1x</td><td>v10.4</td><td>30109 NFS 写满事故记录（当晚新训练全灭、抢救中断、已清 1.1T 等回收）；cyl100fix s3411 首评 0/50 回填；§S 状态同步</td><td>agent</td></tr>
 <tr><td>09-01 02:2x</td><td>v10.3</td><td>grasp 安全指标按论文 Table 2 订正为 ΔPdiag（Grasp Vessel 属 Spatial 域；Lift Glass Vessel 才是 Liquid/θdev，本仓无该任务）；§0 顶部 s1028 虚分表述统一；图例改用论文九行为分组表述</td><td>agent+codex 交叉复核</td></tr>
@@ -498,33 +499,56 @@ function cp(el){ if(navigator.clipboard){ navigator.clipboard.writeText(el.textC
     [/transparent/, "数据管线", "other"],
     [/dppo|DPPO/, "DPPO · owner 项目", "other"]
   ];
+  function hrs(sec){
+    if(!sec) return "";
+    if(sec < 3600) return Math.round(sec/60) + "min";
+    return (sec/3600).toFixed(1) + "h";
+  }
   function classify(cmd){
     if(!cmd) return ["空闲", "idle"];
     for(var i=0;i<NAMES.length;i++){ if(NAMES[i][0].test(cmd)) return [NAMES[i][1], NAMES[i][2]]; }
     var tail = cmd.split("/").pop().slice(0,40);
     return [tail || "占用 · 他人", "other"];
   }
-  function fmt(g){
-    var gb = (g.mem/1024).toFixed(1);
-    return gb + "G · " + g.util + "%";
-  }
+  function fmt(g){ return (g.mem/1024).toFixed(1) + "G · " + g.util + "%"; }
   var dot = document.getElementById("livedot");
   function offline(){ if(dot){ dot.textContent = "○ 离线（静态快照）"; dot.style.color = "#8a94a6"; } }
+  function taskText(mk, g, ev){
+    var c = classify(g.cmd);
+    var label = c[0], cls = c[1];
+    if(mk === "bjxy" && ev && /评测|isaacsim|eval/.test(label + g.cmd) && g.cmd){
+      var name = ev.cand.replace(/^nosdf50-/, "").replace(/^act-/, "");
+      var t = "评测 " + name + " · " + ev.done + "/" + ev.total + " 集 · 单环境";
+      if(g.et && ev.done > 0){
+        var eta = Math.round(g.et / ev.done * (ev.total - ev.done));
+        t += " · 已 " + hrs(g.et) + " · 预计还需 " + hrs(eta);
+      }
+      return [t, "ours"];
+    }
+    if(cls === "ours" && g.et) label += " · 已 " + hrs(g.et);
+    if(mk === "lyf4090" && /数据采集/.test(label)){
+      var m = (g.cmd.match(/--task\s+(\S+)/) || [])[1];
+      var ne = (g.cmd.match(/--num_envs\s+(\d+)/) || [])[1];
+      if(m) label = "数据采集 " + m.replace("Psi-MP-", "").replace("-v1", "") + (ne ? " · " + ne + " 环境并行" : "") + (g.et ? " · 已 " + hrs(g.et) : "");
+    }
+    return [label, cls];
+  }
   function tick(){
     fetch("http://127.0.0.1:9889/gpu_live.json", {cache: "no-store"}).then(function(r){ return r.json(); }).then(function(d){
       if(dot){ dot.textContent = "● 在线 · " + (d.ts || ""); dot.style.color = "#0a7a33"; }
       var ms = d.machines || {};
       Object.keys(ms).forEach(function(mk){
+        var ev = ms[mk].eval;
         (ms[mk].gpus || []).forEach(function(g){
           var mtd = document.querySelector("[data-m=\"" + mk + ":" + g.i + "\"]");
           var ttd = document.querySelector("[data-t=\"" + mk + ":" + g.i + "\"]");
           if(mtd) mtd.textContent = fmt(g);
           if(ttd){
-            var c = classify(g.cmd);
+            var r = taskText(mk, g, ev);
             ttd.innerHTML = "";
             var sp = document.createElement("span");
-            sp.className = "st-" + c[1];
-            sp.textContent = c[0];
+            sp.className = "st-" + r[1];
+            sp.textContent = r[0];
             ttd.appendChild(sp);
           }
         });
