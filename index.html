@@ -84,9 +84,112 @@ td.famdt{min-width:330px}
 .gb-off{background:#3a0e0e;color:#e37f7f;border:1px solid #6b1e1e}
 .srvrole{font-weight:700;color:#9db8e8}
 .srcline{font-size:12px;color:#7d90b5;margin:4px 0 10px}
+
+.srvbar{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;margin:6px 0 4px;font-size:13px}
+#srvtime{font-weight:700;padding:2px 8px;border-radius:4px}
+.srv-fresh{color:#0a7a33;background:#ecfdf3}.srv-warn{color:#92400e;background:#fef3c7}.srv-stale{color:#991b1b;background:#fee2e2}
+.srvsum{display:flex;flex-wrap:wrap;gap:6px 10px;margin:4px 0 8px;font-size:12px}
+.srvsum span{padding:2px 8px;border:1px solid var(--line);border-radius:12px;background:#fff;white-space:nowrap}
+.srvsum b{font-family:ui-monospace,Menlo,monospace;font-weight:600}
+.srvsum .off{color:#94a3b8;border-style:dashed}
+.st-ours{color:#1e3a8a}.st-other{color:#6b7280}.st-idle{color:#94a3b8}.st-busy{color:#92400e}
+details.fold{margin:8px 0}details.fold>summary{cursor:pointer;color:#334155;font-size:13px;padding:6px 10px;background:#f1f5f9;border:1px solid var(--line);border-radius:6px}
 </style>
 <script>
-function cp(el){ if(navigator.clipboard){ navigator.clipboard.writeText(el.textContent); el.classList.add('copied'); setTimeout(function(){el.classList.remove('copied');},700);} }
+(function(){
+  var LIVE = "http://127.0.0.1:9889/gpu_live.json";
+  var SNAP = "https://raw.githubusercontent.com/asimfish/psibot-dashboard/data/gpu_snapshot.json";
+  var NAMES = [
+    [/act-pprlb/, "pick_place ACT 重标注训练", "ours"],
+    [/act-ppc4|act-c4fix8k-pp|act-c4fix16k-pp/, "pick_place ACT chunk4 训练", "ours"],
+    [/act-rlb/, "grasp ACT 重标注 8k 训练", "ours"],
+    [/act-beaker100c4/, "beaker 100demo 对照训练", "ours"],
+    [/act-ur5e/, "UR5E ACT 训练", "ours"],
+    [/act-c4fix|act-cylc4|act-slowmo2x|train_from_zarr|act_train/, "ACT 训练", "ours"],
+    [/dp-rep12|dp-relabel|train_ppu\.py|train_diffusion|diffusion_policy.*train/, "DP 训练", "ours"],
+    [/formal_play/, "数据采集", "ours"],
+    [/play\.py|eval_|isaacsim|omni\.isaac/, "评测", "ours"],
+    [/mbrd/, "mbrd 训练 · 他会话", "other"],
+    [/VLLM|vllm/, "vLLM 服务 · 他人", "other"],
+    [/lightwam|causal_commit|asbs/, "asbs 实验 · 他项目", "other"],
+    [/vggt|GAM|mocap|blender/, "他项目", "other"],
+    [/dppo|DPPO/, "DPPO · owner 项目", "other"]
+  ];
+  function hrs(sec){ if(!sec) return ""; return sec < 3600 ? Math.round(sec/60) + "min" : (sec/3600).toFixed(1) + "h"; }
+  function classify(cmd){
+    if(!cmd) return ["", "idle"];
+    for(var i=0;i<NAMES.length;i++){ if(NAMES[i][0].test(cmd)) return [NAMES[i][1], NAMES[i][2]]; }
+    var tail = cmd.split("/").pop().slice(0,40);
+    return [tail || "占用 · 他人", "other"];
+  }
+  function busy(g){ return (g.util > 10) || (g.mem > 2048); }
+  function fmt(g){ return (g.mem/1024).toFixed(1) + "G · " + (g.util < 0 ? "—" : g.util + "%"); }
+  function taskText(mk, g){
+    var c = classify(g.cmd), label = c[0], cls = c[1];
+    if(g.ev){
+      var name = g.ev.cand.replace(/^(nosdf50-|volc-)/, "");
+      var tt = "评测 " + name + " · " + g.ev.done + "/" + g.ev.total + " 集";
+      if(typeof g.ev.succ === "number") tt += "（成功 " + g.ev.succ + "）";
+      if(g.et){ tt += " · 已 " + hrs(g.et); if(g.ev.done > 0){ tt += " · 预计还需 " + hrs(Math.round(g.et / g.ev.done * (g.ev.total - g.ev.done))); } }
+      if(g.nproc && g.nproc > 2) tt += " · 本卡 " + Math.round(g.nproc/2) + " 场并行";
+      return [tt, "ours"];
+    }
+    if(!label){ return busy(g) ? ["占用（进程未识别）", "busy"] : ["空闲", "idle"]; }
+    if(mk === "lyf4090" && /数据采集/.test(label)){
+      var m = (g.cmd.match(/--task\s+(\S+)/) || [])[1], ne = (g.cmd.match(/--num_envs\s+(\d+)/) || [])[1];
+      if(m) label = "数据采集 " + m.replace("Psi-MP-", "").replace("-v1", "") + (ne ? " · " + ne + " 环境" : "");
+    } else if(cls === "ours" && /训练/.test(label)){
+      var run = (g.cmd.match(/wandb_run_name\s+(\S+)/) || g.cmd.match(/(act-[A-Za-z0-9_.-]+-v\d)/) || g.cmd.match(/logging\.name=(\S+)/) || [])[1];
+      if(run) label += " · " + run.replace(/-(ppu|mainskillg|30109g|volcg|a100g)\d+-v\d$/, "");
+    }
+    if(g.et) label += " · 已 " + hrs(g.et);
+    return [label, cls];
+  }
+  var LABEL = {"30109":"30109","mainskill":"mainskill","volc":"volc","ppu":"aliyun PPU","bjxy":"bjxy_5090","lyf4090":"lyf_4090"};
+  var ORDER = ["30109","mainskill","volc","ppu","bjxy","lyf4090"];
+  function render(d, src){
+    var ms = d.machines || {};
+    var sum = document.getElementById("srvsum"); if(sum) sum.innerHTML = "";
+    ORDER.forEach(function(mk){
+      var m = ms[mk]; var sp = document.createElement("span");
+      if(!m || !m.ok){
+        sp.className = "off"; sp.textContent = (LABEL[mk] || mk) + " 离线";
+        document.querySelectorAll("[data-m^=\"" + mk + ":\"]").forEach(function(td){ td.textContent = "离线"; });
+        document.querySelectorAll("[data-t^=\"" + mk + ":\"]").forEach(function(td){ td.innerHTML = "<span class=\"st-idle\">—</span>"; });
+      } else {
+        var nb = 0; (m.gpus || []).forEach(function(g){
+          if(busy(g)) nb++;
+          var mtd = document.querySelector("[data-m=\"" + mk + ":" + g.i + "\"]");
+          var ttd = document.querySelector("[data-t=\"" + mk + ":" + g.i + "\"]");
+          if(mtd) mtd.textContent = fmt(g);
+          if(ttd){ var r = taskText(mk, g); ttd.innerHTML = ""; var s = document.createElement("span"); s.className = "st-" + r[1]; s.textContent = r[0]; s.title = g.cmd || ""; ttd.appendChild(s); }
+        });
+        sp.innerHTML = (LABEL[mk] || mk) + " <b>" + nb + "/" + (m.gpus || []).length + "</b> 在用";
+      }
+      if(sum) sum.appendChild(sp);
+    });
+    var el = document.getElementById("srvtime"), sc = document.getElementById("srvsrc");
+    var ep = d.snapshot_epoch || d.epoch || 0, age = ep ? Math.max(0, Math.round(Date.now()/1000 - ep)) : null;
+    var ts = d.snapshot_ts ? d.snapshot_ts.replace("T", " ").slice(5, 16) : (d.ts || "");
+    if(el){
+      var ageTxt = age === null ? "" : (age < 90 ? "（刚刚）" : age < 3600 ? "（" + Math.round(age/60) + " 分钟前）" : "（" + (age/3600).toFixed(1) + " 小时前）");
+      el.textContent = "数据时间：" + ts + " " + ageTxt;
+      el.className = age === null ? "srv-warn" : (age < 1200 ? "srv-fresh" : age < 3600 ? "srv-warn" : "srv-stale");
+    }
+    if(sc) sc.textContent = src === "live" ? "来源：本机实时采集（30 秒刷新）" : "来源：云端快照（每 10 分钟发布；在维护者 Mac 上打开可升级为实时）";
+  }
+  var liveOK = false;
+  function fetchLive(){
+    var ctl = ("AbortController" in window) ? new AbortController() : null; if(ctl) setTimeout(function(){ ctl.abort(); }, 2500);
+    return fetch(LIVE, {cache: "no-store", signal: ctl ? ctl.signal : undefined}).then(function(r){ return r.json(); }).then(function(d){ liveOK = true; render(d, "live"); });
+  }
+  function fetchSnap(){
+    var bucket = Math.floor(Date.now()/120000);
+    return fetch(SNAP + "?v=" + bucket, {cache: "no-store"}).then(function(r){ return r.json(); }).then(function(d){ if(!liveOK) render(d, "snap"); });
+  }
+  function tick(){ fetchLive().catch(function(){ liveOK = false; fetchSnap().catch(function(){ var el = document.getElementById("srvtime"); if(el){ el.textContent = "数据时间：不可用（实时与云端快照均无法读取）"; el.className = "srv-stale"; } }); }); }
+  tick(); setInterval(tick, 30000);
+})();
 </script>
 </head>
 <body>
@@ -111,8 +214,7 @@ function cp(el){ if(navigator.clipboard){ navigator.clipboard.writeText(el.textC
 </nav>
 <main class="content">
 <h1>PsiBot 开源进度看板</h1>
-<p class="meta">最后更新：2026-09-04 18:40（UTC+8）· v11.5<b>2026-08-31 17:15</b>；维护契约见 §7。在线地址：<a href="https://htmlpreview.github.io/?https://gist.githubusercontent.com/asimfish/2dae7a26b2f1a05f7098b2e9aceef29a/raw/OPENSOURCE_PROGRESS.html">在线看板（主链接）</a>　·　<a href="https://gist.githack.com/asimfish/2dae7a26b2f1a05f7098b2e9aceef29a/raw/OPENSOURCE_PROGRESS.html">备用渲染（更新更快）</a>　·　<a href="https://gist.github.com/asimfish/2dae7a26b2f1a05f7098b2e9aceef29a">gist 源文件</a><br/>
-使用提示：主链接有 CDN 缓存（约 5 分钟），刚更新后请强刷（Cmd+Shift+R）或用备用渲染。表内虚线下划线路径<b>点击即复制</b>；「▶」为直接播放的样例视频。</p>
+<p class="meta">最后更新：2026-09-04 21:00（UTC+8）· v11.6 · 维护契约见 §7 · <a href="https://asimfish.github.io/psibot-dashboard/">GitHub Pages</a>（CDN 约 5 分钟，刚更新请强刷）· <a href="https://gist.github.com/asimfish/2dae7a26b2f1a05f7098b2e9aceef29a">gist 源</a><br/>表内虚线路径点击即复制；「▶」为样例视频；§S 的算力数据自动更新，数据时间见该节状态条。</p>
 <div class="banner">
 <div class="card">数据集采集（两本账口径）
     <b class="run">格子 52/75（69%）</b>
@@ -125,7 +227,9 @@ function cp(el){ if(navigator.clipboard){ navigator.clipboard.writeText(el.textC
 <span class="small">正式 nosdf50 四种子：kl10 六种子 s3304 88% / s3305 16% / s3306 66% / s3307 90%（复评 45/50）/ s3308 50% / s3309 0-2%（复评一致）——均值 52%、极差 90pt 双峰分布；chunk4 六种子 s3301 86% / s3311 62% / s3312 <b>94%</b> / s3315 70% / s3316 <b>94%</b> / s3317 <b class="bad">0%</b>（均值 68%，两配方都有归零种子）。<b>09-02 诊断链（非烧杯物体全 0 的根因）</b>：c4fix 首批评测 alcohol_lamp/brown_reagent_large/brown_volumetric 全 0/50——三种配方约 40 场评测无一成功，而烧杯任何配方都能过。逐一排除：评测 chunk 数自动识别无误；归一化统计逐字节一致；物体初始位姿与烧杯同一标称点；<b>alcohol_lamp 专家动作在评测环境开环回放 2/2 成功</b>——评测环境对该物体完全正常，问题在学到的策略。训练侧证据：400 条烧杯 chunk4 val loss 0.012-0.015；100 条物体 0.024-0.045 且 2000 epoch 时仍在下降；<b>同一烧杯只取 100 条训</b> val loss 也升到 0.027-0.030。训练按 epoch 计数 → 100 条数据的优化步数只有 400 条的 1/4，模型欠训练。<b>步数对齐批（100 条 × 8000 epoch）已全部完训</b>，训练侧判决成立：100 条物体 best val loss 从 0.024-0.045 降到 <b>0.0076-0.0108</b>（低于 400 条烧杯的 0.012-0.015），烧杯 100 条对照 0.0285→0.0082/0.0102，pick_place raw 0.039→0.018。<b>评测判决（volc 节点，50 集/场）</b>：烧杯 100 条 @2000ep = 0/13/0 /50（均值 9%）→ @8000ep = <b>37/50、38/50（75%）</b>——同样 100 条数据，步数对齐后从 9% 到 75%，<b>「100 条足够」成立，此前缺的是训练步数</b>。8k 后翻身：brown_reagent_bottle_large <b>45/50（90%）</b>、glass_cylinder_100ml <b>40/50（80%）</b>、clear_reagent_bottle_small 9/50；仍 ≈0 的 7 物体逐物体专家回放（3 集/物体）：plastic/beaker250/mortar/clear_large/brown_vol 均 3/3、clear_vol 2/3——<b>环境与示教无罪，失败在策略学习</b>；<b>erlenmeyer 回放 0/3</b>（示教抬 27-28cm 高于 21cm 阈值仍判败，末态判定条件待查，属评测配置问题）；plastic_cylinder 训练画面物体近乎不可见（透明渲染）属视觉不可学。下一轮对照已在训：失败 6 物体 raw 数据 16k epoch（排除 sm2x 低速段固定点假设）。<b>pick_place 全线 0/50</b>（raw8k/raw/sm2x），回放诊断进行中。alcohol_lamp 专家回放最终 <b>5/5</b>（ep5-9 因 bjxy 显存打满崩溃无效）。归零种子（s3317/s3309）为另一现象（预抓取悬停死锁），时间集成对照 q91 待排。；state-DP 26/50（52%）；图像 DP lr 扫参新高 p7105 lr2e4 20/50（40%），p7102 lr1e4 15/50</span></div>
 </div>
 <h2 id="secsrv">§S 服务器与算力总览</h2>
-<p class="srcline">数据源：本机实时采集服务（<code>127.0.0.1:9889</code>，30s 逐卡刷新；<b>09-03 volc 已兼任 Isaac 评测节点</b>，与 bjxy 双节点评测）· <a href="http://127.0.0.1:9888/">gpumgr 集群面板</a> · 实时通道 <span id="livedot">○ 连接中…</span><span class="small">（离线时显示静态快照 09-01 01:23；本页需在装有采集服务的 mac 上打开才有实时数据）</span></p><p class="srcline" style="background:#ecfdf3;border:1px solid #b7e4c7;padding:8px 10px;border-radius:6px"><b style="color:#0a7a33">✅ 09-01 盘满事故已解决</b>：30109 NFS 0 → 892G 可用（rescue 1.26T 逐项甄别删 ~810G + 旧目录 1.1T 延迟回收）；当晚阵亡训练全部代重启并完训（chunk4 种子扩展 s3313-17、c4fix 20 run）；训练输出已改写本地盘/NFS 双轨。bjxy /data 09-02 04:2x 同样写满致两场评测崩溃，已清死线 DP ckpt 腾 32G，崩溃场次进入自动重评。aliyun/PPU 未实际下线但按回收令只出不进，关键资产已全部回传核验。</p>
+<div class="srvbar"><span id="srvtime" class="srv-stale">数据时间：加载中…</span><span id="srvsrc" class="small"></span></div>
+<div id="srvsum" class="srvsum"></div>
+<p class="srcline small">口径：显存/利用率为采集瞬时值；「在用」= 利用率 &gt;10% 或显存 &gt;2G。来源两级：本机采集服务（127.0.0.1:9889，30 秒）在场时为<b>实时</b>；否则读取仓库 <code>data</code> 分支的<b>云端快照</b>（每 10 分钟发布）。数据时间超过 20 分钟标黄、60 分钟标红。近况：09-04 volc 根盘写满已清理（pip 缓存 6.2G）；bjxy <code>/data</code> 99%（67G）待处理；30109 NFS 702G 可用。</p>
 <div class="srvwrap"><table class="srvtbl" id="srvlive">
 <tr><th style="width:8%">职能</th><th style="width:13%">机器</th><th style="width:5%">卡</th><th style="width:13%">显存/利用率</th><th>当前任务</th></tr>
 <tr><td class="srvrole" rowspan="34">训练</td><td rowspan="8"><b>30109</b><br/><span class="small">8× A100-80G</span></td><td class="gc">g0</td><td class="lv-mem" data-m="30109:0">…</td><td class="lv-task" data-t="30109:0"><span class="st-idle">…</span></td></tr>
@@ -144,9 +248,9 @@ function cp(el){ if(navigator.clipboard){ navigator.clipboard.writeText(el.textC
 <tr><td class="gc">g5</td><td class="lv-mem" data-m="mainskill:5">…</td><td class="lv-task" data-t="mainskill:5"><span class="st-idle">…</span></td></tr>
 <tr><td class="gc">g6</td><td class="lv-mem" data-m="mainskill:6">…</td><td class="lv-task" data-t="mainskill:6"><span class="st-idle">…</span></td></tr>
 <tr><td class="gc">g7</td><td class="lv-mem" data-m="mainskill:7">…</td><td class="lv-task" data-t="mainskill:7"><span class="st-idle">…</span></td></tr>
-<tr><td rowspan="2"><b>volc-a100 🆕</b><br/><span class="small">2× A100-80G</span></td><td class="gc">g0</td><td class="lv-mem" data-m="volc:0">…</td><td class="lv-task" data-t="volc:0"><span class="st-idle">…</span></td></tr>
+<tr><td rowspan="2"><b>volc-a100</b><br/><span class="small">2× A100-80G</span></td><td class="gc">g0</td><td class="lv-mem" data-m="volc:0">…</td><td class="lv-task" data-t="volc:0"><span class="st-idle">…</span></td></tr>
 <tr><td class="gc">g1</td><td class="lv-mem" data-m="volc:1">…</td><td class="lv-task" data-t="volc:1"><span class="st-idle">…</span></td></tr>
-<tr><td rowspan="16"><b>aliyun</b>（PPU）<br/><span class="small">16× PPU-ZW810E 96G · owner 09-02 批准继续使用</span></td><td class="gc">g0</td><td class="lv-mem" data-m="ppu:0">…</td><td class="lv-task" data-t="ppu:0"><span class="st-idle">…</span></td></tr>
+<tr><td rowspan="16"><b>aliyun</b>（PPU）<br/><span class="small">16× PPU-ZW810E 96G</span></td><td class="gc">g0</td><td class="lv-mem" data-m="ppu:0">…</td><td class="lv-task" data-t="ppu:0"><span class="st-idle">…</span></td></tr>
 <tr><td class="gc">g1</td><td class="lv-mem" data-m="ppu:1">…</td><td class="lv-task" data-t="ppu:1"><span class="st-idle">…</span></td></tr>
 <tr><td class="gc">g2</td><td class="lv-mem" data-m="ppu:2">…</td><td class="lv-task" data-t="ppu:2"><span class="st-idle">…</span></td></tr>
 <tr><td class="gc">g3</td><td class="lv-mem" data-m="ppu:3">…</td><td class="lv-task" data-t="ppu:3"><span class="st-idle">…</span></td></tr>
@@ -168,6 +272,16 @@ function cp(el){ if(navigator.clipboard){ navigator.clipboard.writeText(el.textC
 </table></div>
 <h2 id="sec0">§0 今日焦点</h2>
 <div class="table-wrap"><table>
+<tr><th style="width:190px">结论</th><th>一句话</th><th style="width:150px">证据</th></tr>
+<tr><td><b>根因已定：手部标签</b></td><td>grasp 非烧杯全 0 是采集端两指浅捏标签所致；重标注后 DP RGB 5 模型 96–100%，ACT chunk4 8k 5/7 归零物体最佳种子 74–100%</td><td><a href="#sec2-1">§2.1</a> · <a href="#sec2-2">§2.2</a></td></tr>
+<tr><td><b>pick_place 全 0 作废</b></td><td>评测目标点错 9.5cm（<code>target_pose</code> 是放置目标而非物体位姿）；修正后专家回放任务成功 3/3，15 ckpt 重评中；首批画面显示策略抓起后悬停不放置，已排时间集成对照</td><td><a href="#sec2-1">§2.1 pick_place 行</a></td></tr>
+<tr><td><b>100 条示教足够</b></td><td>烧杯 100 条 × 2000ep 9% → 8000ep 75%；缺的是优化步数不是数据量</td><td><a href="#sec3">§3</a></td></tr>
+<tr><td><b>配方定格</b></td><td>ACT chunk4（chunk=4, kl=1, lr=1e-5, bs=8, 8000ep@100 条）；仍有约 1/6 种子归零（悬停死锁），三种子报告均值</td><td><a href="#sec2-1">§2.1</a></td></tr>
+<tr><td><b>待 owner 决策</b></td><td>① pick_place F_peak 安全阈值（示教 126–141N vs 套件 25N）② erlenmeyer 重采 ③ mortar 抬升阈值 0.21m vs 示教 0.177m ④ bjxy /data 99%</td><td><a href="#sec5">§5</a></td></tr>
+<tr><td><b>算力</b></td><td>volc 双卡 4 队列评测（待评约 18 场，明晨出齐）；PPU 9 卡 wave2 已完训 + pick_place 重标注训练；实时占用见 <a href="#secsrv">§S</a></td><td><a href="#secsrv">§S</a></td></tr>
+</table></div>
+<details class="fold"><summary>各专题详细记录（按时间倒序的长文，点击展开）</summary>
+<div class="table-wrap"><table>
 <tr><th style="width:180px">事项</th><th style="width:100px">状态</th><th>要点</th></tr>
 <tr><td><b>评测物理失真根因（SDF）</b></td><td class="ok">实锤 08-30</td>
 <td>评测管线对目标物体强制套用 GPU 粒子 SDF 碰撞近似（res=64），无液体回合也生效；薄壁烧杯碰撞面「增肥」，手指提前 ~0.23 rad 卡住、接触力 ~10 kN。证据：同段 GT 动作回放 SDF 开 <b class="bad">0/10</b>×2 轮，<code>CHEMBENCH_GPU_PARTICLE_COLLISION_MODE=off</code> 后 <b class="ok">9/10</b>。全部历史成绩被系统性压低，08-30 起统一 nosdf 口径。</td></tr>
@@ -183,6 +297,7 @@ function cp(el){ if(navigator.clipboard){ navigator.clipboard.writeText(el.textC
 <tr><td>逐物体复制（rep11）</td><td class="run">训练+评测并行</td>
 <td>训练收官。<b>s1028 首种子 11/11 判决齐</b>：glass_cylinder 10/10 <b class="bad">已判虚分</b>（当时评测端物体注入未生效，实际仍测 beaker）、brown_volumetric 1/10、其余 9 物体 0/10。KL10 逐物体已评 10/11 全 0/10（+mortar / clear_volumetric）——KL10 增益确认 beaker100 特异；余 1 物体（plastic_cylinder）。<b class="bad">cyl100 三种子 s3401/03/04 全 0/50 根因定案（08-31 21:40）：训练误用 FR3 pick_place 数据</b>——WAVE3 zarr 源为 <code>canonical_v3_zarr/fr3/pick_place/glass_cylinder_100ml.zarr</code>，训练 HDF5 首帧 qpos 是 franka ready 姿态（0.04 平行夹爪、295 帧/集），模型学的是 FR3 轨迹，PsiBot 上必然双臂乱挥。训练收敛（val_loss 0.043）、ckpt/stats 搬运（md5 两端一致）、评测管线全部无罪。s1028 的 10/10 与本批 0/50 均非 glass_cylinder 真实成绩，<b>真实成绩空缺——正源（lyf_4090 lerobot grasp/glass_cylinder_100ml）重训 act-cyl100fix-s3411/12/13 已完训（best epoch 1962/1895/1974），ckpt 已搬 bjxy，q6cyl 50 集评测出分中</b>。</td></tr>
 </table></div>
+</details>
 <h2 id="sec1">§1 数据集</h2>
 <p class="meta">口径说明：主数以 <b>08-26 任务优先制普查（严格验收门）</b>为准；与 08-27 owner 登记矩阵冲突的行标 ⚠️。论文目标 64 原子任务 / 6400 轨迹。<b>泛化条件、数据位置逐物体一格；采集数据类型同任务共用一格（rowspan）</b>；标「✅ 实测」的格有 lerobot meta / 采集配置证据，标 ⚠️ 的待责任机恢复后补实测。</p>
 <h3 id="sec1-1">§1.1 PsiBot（双臂 RM75-6F + G0-R 灵巧手）— 11 类任务 / 36 格 / 严格门 32 格完成</h3>
@@ -465,6 +580,7 @@ function cp(el){ if(navigator.clipboard){ navigator.clipboard.writeText(el.textC
 <h2 id="sec6">§6 变更日志</h2>
 <div class="table-wrap"><table>
 <tr><th>时间</th><th>变更</th></tr>
+<tr><td>09-04 21:0x</td><td>v11.6</td><td>§S 增数据时间/距今/来源状态条与逐机器在用概览；云端快照兜底（仓库 data 分支，每 10 分钟发布），非维护者机器也能看到最新算力；采集端改为按 /proc CUDA_VISIBLE_DEVICES 识别容器内进程并直读评测 progress.json（volc 评测行显示候选/集数/成功数/预计）；§0 增速览表、长文折叠；页头与 §S 过时横幅清理</td><td>agent(grok)</td></tr>
 <tr><td>09-04 18:3x</td><td>v11.5</td><td>ACT chunk4 8k × v2 重标注 17 分回填（5 物体最佳种子 74–100%，plastic_cylinder「不可见」假设推翻）；pick_place 全 0 真根因定案为评测几何（target_pose 语义 + 默认目标点错 9.5cm），16 场旧分作废，修正回放 2/2，15 ckpt 重评中；SSR 口径（grasp 仅 ΔP / pick_place 含 F_peak≤25N）写明；rlb8k s3951 评测链解锁（训练日志被原地编辑清空）；wave2 9 run 改派 PPU；erlenmeyer 回放拆解（0 抬升、F 20kN）；glass_beaker_250ml 行误记的回放结果勘误</td><td>agent(grok)</td></tr>
 <tr><td>09-04 17:0x</td><td>v11.4</td><td>11 物体 DP RGB 首轮 10 分回填（3 物体 ≥84% 过线、3 物体 ≤14%）；逐集视频判读三类失败（量筒打滑 / 棕瓶预抓取停滞 / mortar 判据 0.21m 高于示教 0.177m，阈值对齐后同 ckpt 38/50）；训练-评测图像几何一致性排除；8 路 RGB v2 重标注开训（30109×5、mainskill×3）；state 验证组 9 分入账后停止；RGB 观测含 target_pose 口径标注；§0/§2.2/§3/§5 回填</td><td>agent(DP)</td></tr>
 <tr><td>09-03 16:3x</td><td>v11.3</td><td>7 物体专家回放：6 物体环境无罪、erlenmeyer 评测判定疑误；pick_place 全 0 回填并启动回放诊断；PPU 12 run（补种子 + raw 16k 对照）、mainskill 5 run（pick_place 8k/16k）派发</td><td>agent</td></tr>
