@@ -214,7 +214,7 @@ details.fold{margin:8px 0}details.fold>summary{cursor:pointer;color:#334155;font
 </nav>
 <main class="content">
 <h1>PsiBot 开源进度看板</h1>
-<p class="meta">最后更新：2026-09-05 04:50（UTC+8）· v11.8 · 维护契约见 §7 · <a href="https://asimfish.github.io/psibot-dashboard/">GitHub Pages</a>（CDN 约 5 分钟，刚更新请强刷）· <a href="https://gist.github.com/asimfish/2dae7a26b2f1a05f7098b2e9aceef29a">gist 源</a><br/>表内虚线路径点击即复制；「▶」为样例视频；§S 的算力数据自动更新，数据时间见该节状态条。</p>
+<p class="meta">最后更新：2026-09-05 16:45（UTC+8）· v11.8 · 维护契约见 §7 · <a href="https://asimfish.github.io/psibot-dashboard/">GitHub Pages</a>（CDN 约 5 分钟，刚更新请强刷）· <a href="https://gist.github.com/asimfish/2dae7a26b2f1a05f7098b2e9aceef29a">gist 源</a><br/>表内虚线路径点击即复制；「▶」为样例视频；§S 的算力数据自动更新，数据时间见该节状态条。</p>
 <div class="banner">
 <div class="card">数据集采集（两本账口径）
     <b class="run">格子 52/75（69%）</b>
@@ -273,6 +273,7 @@ details.fold{margin:8px 0}details.fold>summary{cursor:pointer;color:#334155;font
 <h2 id="sec0">§0 今日焦点</h2>
 <div class="table-wrap"><table>
 <tr><th style="width:190px">结论</th><th>一句话</th><th style="width:150px">证据</th></tr>
+<tr><td><b class="bad">ACT 评测协议伪影（09-05 新发现）</b></td><td>ACT 训练图像 224×224，评测 runner 却直接喂相机原生 480×640（缩放代码默认关闭）。A/B：grasp「归零种子」alcohol_lamp 重标注 s3953 在旧口径 0/50，改 224 后 <b class="ok">15/16</b>（在跑）→ 「约 1/6 种子归零」是评测伪影，此前<b>全部 ACT 成绩系统性低估</b>。已将 runner 默认改为 224 并停掉旧口径队列，hp2 中全部 ACT ckpt 按 <code>img224</code> 协议重评中（归零种子 → 重标注三种子表 → beaker 主线 → 原标签 8k → pick_place）。离线判决：把训练集观测逐步喂给 pick_place 策略，搬运段预测误差仅 0.006–0.016 rad——模型学会了，闭环失败源于分布漂移。pick_place 224 口径 A/B 前 5 集仍 0，待定。</td><td><a href="#sec3">§3</a> · STATUS 09-05</td></tr>
 <tr><td><b>根因已定：手部标签</b></td><td>grasp 非烧杯全 0 是采集端两指浅捏标签所致；重标注后 DP RGB 5 模型 96–100%，ACT chunk4 8k 5/7 归零物体最佳种子 74–100%；三种子均值出齐：brown_volumetric 67%（50/50、50/50、1/50）、clear_reagent_L 43%（27/37/0）；brown_reagent_L 重标注 s3951 24/50（原标签最佳 45/50）</td><td><a href="#sec2-1">§2.1</a> · <a href="#sec2-2">§2.2</a></td></tr>
 <tr><td><b>pick_place：几何修正后策略仍 0</b></td><td>旧评测目标点错 9.5cm 已修（专家回放 3/3）；修正协议下 ACT 各变体仍 0：chunk4 原标签 0/50、0/50、0/18；raw-16k 0/50；重标注 chunk16 0/50（另一种子 0/35 在跑）、chunk8 0/15 在跑、时间集成 0/40 在跑。画面一致：抓牢并抬起后<b>停在原地不搬运</b>（重标注后 F_peak 650N，抓取本身已解决）。判据分量 dump 诊断评测已排队</td><td><a href="#sec2-1">§2.1 pick_place 行</a></td></tr>
 <tr><td><b>100 条示教足够</b></td><td>烧杯 100 条 × 2000ep 9% → 8000ep 75%；缺的是优化步数不是数据量</td><td><a href="#sec3">§3</a></td></tr>
@@ -584,6 +585,7 @@ details.fold{margin:8px 0}details.fold>summary{cursor:pointer;color:#334155;font
 <tr><th>时间</th><th>变更</th></tr>
 <tr><td>09-05 04:5x</td><td>v11.8</td><td>DP rep12 RGB v2 终分 8 路回填：brown_vol 88% / brown_reagent_L 84% / clear_vol 82% / alcohol 80% 过线，mortar 0.14m 阈值 100%（现协议 0%），glass_cyl 42%（打滑→stall）、plastic_cyl v2 低于 orig、erlenmeyer 32%；§2.2 逐物体标注现役最好与 orig/v2 双成绩；11 物体现役最好 8/11 ≥78%</td><td>agent(DP)</td></tr>
 <tr><td>09-04 23:3x</td><td>v11.7</td><td>DP：过线 3 物体 owner 2s 口径回填（84/78/78%）；v2 半程快照首批（brown_reagent_large 24/50（epoch 506 半程，orig 标签 7/50 → 48%；F_peak 1888N 已为饱和握紧，失败多为撞倒 θ0.34rad））；erlenmeyer 回放复核：位姿/资产一致、接近阶段撞瓶（20kN 哨兵）；渲染域差/几何不一致假设排除留档；bjxy 与 safeduo/mbrd 共卡说明</td><td>agent(DP)</td></tr>
+<tr><td>09-05 16:4x</td><td>v11.8</td><td>ACT 评测分辩率伪影定案：训练 224 / 评测 480×640；归零种子 s3953 0/50→15/16（img224 A/B）；runner 默认改 224，旧口径队列停止，全部 ACT ckpt 按 img224 重评（vq_img224）；pick_place 判据 dump 定量（抬升中位 1.8cm、沿桌拖 8cm、50/50 不释放）；夜间补分（beaker100-8k 三种子均值 78%、cylinder 8k 77%、clear_small 重标注 78%）</td><td>agent(grok)</td></tr>
 <tr><td>09-05 05:4x</td><td>v11.7</td><td>夜间回填：brown_volumetric 重标注三种子 50/50·50/50·1/50、brown_reagent_L 重标注 s3951 24/50；pick_place 修正协议下 ACT 各变体（chunk4/8/16、原/重标注、raw-16k、时间集成）全 0，形态为抓起后原地悬停；评测超时机制修复（外层超时连带杀 tee 致 python 卡死；内置超时 3h→7h、编码 fast）；wave2 5 个 0 字节 ckpt（PPU 盘满）由 relabel 会话重训；bjxy GPU1 留给 owner</td><td>agent(grok)</td></tr>
 <tr><td>09-04 21:0x</td><td>v11.6</td><td>§S 增数据时间/距今/来源状态条与逐机器在用概览；云端快照兜底（仓库 data 分支，每 10 分钟发布），非维护者机器也能看到最新算力；采集端改为按 /proc CUDA_VISIBLE_DEVICES 识别容器内进程并直读评测 progress.json（volc 评测行显示候选/集数/成功数/预计）；§0 增速览表、长文折叠；页头与 §S 过时横幅清理</td><td>agent(grok)</td></tr>
 <tr><td>09-04 18:3x</td><td>v11.5</td><td>ACT chunk4 8k × v2 重标注 17 分回填（5 物体最佳种子 74–100%，plastic_cylinder「不可见」假设推翻）；pick_place 全 0 真根因定案为评测几何（target_pose 语义 + 默认目标点错 9.5cm），16 场旧分作废，修正回放 2/2，15 ckpt 重评中；SSR 口径（grasp 仅 ΔP / pick_place 含 F_peak≤25N）写明；rlb8k s3951 评测链解锁（训练日志被原地编辑清空）；wave2 9 run 改派 PPU；erlenmeyer 回放拆解（0 抬升、F 20kN）；glass_beaker_250ml 行误记的回放结果勘误</td><td>agent(grok)</td></tr>
