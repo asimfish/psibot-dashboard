@@ -215,7 +215,7 @@ details.fold{margin:8px 0}details.fold>summary{cursor:pointer;color:#334155;font
 </nav>
 <main class="content">
 <h1>PsiBot 开源进度看板</h1>
-<p class="meta">最后更新：2026-09-08 05:00（UTC+8）· v12.11 · 维护契约见 §7 · <a href="https://asimfish.github.io/psibot-dashboard/">GitHub Pages</a>（CDN 约 5 分钟，刚更新请强刷）· <a href="https://gist.github.com/asimfish/2dae7a26b2f1a05f7098b2e9aceef29a">gist 源</a><br/>表内虚线路径点击即复制；「▶」为样例视频；§S 的算力数据自动更新，数据时间见该节状态条。</p>
+<p class="meta">最后更新：2026-09-08 19:30（UTC+8）· v12.12 · <a href="grasp.html" style="background:#0066cc;color:#fff;padding:3px 10px;border-radius:6px;font-weight:600">▶ Grasp 专题面板</a> · 维护契约见 §7 · <a href="https://asimfish.github.io/psibot-dashboard/">GitHub Pages</a>（CDN 约 5 分钟，刚更新请强刷）· <a href="https://gist.github.com/asimfish/2dae7a26b2f1a05f7098b2e9aceef29a">gist 源</a><br/>表内虚线路径点击即复制；「▶」为样例视频；§S 的算力数据自动更新，数据时间见该节状态条。</p>
 <div class="banner">
 <div class="card">数据集采集（两本账口径）
     <b class="run">格子 52/75（69%）</b>
@@ -603,6 +603,7 @@ details.fold{margin:8px 0}details.fold>summary{cursor:pointer;color:#334155;font
 <tr><th>时间</th><th>变更</th></tr>
 <tr><td>09-05 04:5x</td><td>v11.8</td><td>DP rep12 RGB v2 终分 8 路回填：brown_vol 88% / brown_reagent_L 84% / clear_vol 82% / alcohol 80% 过线，mortar 0.14m 阈值 100%（现协议 0%），glass_cyl 42%（打滑→stall）、plastic_cyl v2 低于 orig、erlenmeyer 32%；§2.2 逐物体标注现役最好与 orig/v2 双成绩；11 物体现役最好 8/11 ≥78%</td><td>agent(DP)</td></tr>
 <tr><td>09-04 23:3x</td><td>v11.7</td><td>DP：过线 3 物体 owner 2s 口径回填（84/78/78%）；v2 半程快照首批（brown_reagent_large 24/50（epoch 506 半程，orig 标签 7/50 → 48%；F_peak 1888N 已为饱和握紧，失败多为撞倒 θ0.34rad））；erlenmeyer 回放复核：位姿/资产一致、接近阶段撞瓶（20kN 哨兵）；渲染域差/几何不一致假设排除留档；bjxy 与 safeduo/mbrd 共卡说明</td><td>agent(DP)</td></tr>
+<tr><td>09-08 19:3x</td><td>v12.12</td><td>主面板顶栏新增「▶ Grasp 专题面板」按钮，专题页顶部固定「← 返回主面板」导航；示教抬升余量审计：glass_cyl / beaker250 示教终抬升低于评测阈值、alcohol / clear_S / beaker100 仅高 0.3–1.3cm → 对 glass_cyl、beaker250、alcohol、clear_S、plastic、erlenmeyer(ro60) 做末段外推重训（s9741–s9746，30109 在训）；bjxy 端口转发自 05:00 起离线，评测暂停</td><td>agent(DP)</td></tr>
 <tr><td>09-08 05:0x</td><td>v12.11</td><td>新增 <a href="grasp.html">Grasp 专题面板</a>：13 物体每个一段实际训练数据样本（从训练 zarr 渲染，三相机）+ 评测成功 + 评测失败视频（现役模型 nosdf50 正式评测首个成功/失败集），附口径与采集/评测一致性核对说明；媒体 <code>media/grasp/</code> 37 段共 2.2MB</td><td>agent(DP)</td></tr>
 <tr><td>09-08 17:4x</td><td>v12.10</td><td>§0 新增「任务闭环门」行（owner 原则：先通一个物体再扩规模）；pick_place 打通 glass_beaker_100ml 的自动化链已挂（marker 修复数据同步→转换→PPU 训练→volc 评测）；bjxy 上 21 个原标签第 2–5 种子 + 10 个 beaker relabelv2 种子补评中；pick_place ACT img224 重评停止</td><td>agent(grok)</td></tr>
 <tr><td>09-08 16:0x</td><td>v12.8</td><td>原标签 vs 重标注消融（img224）出齐：原标签 ACT 8k 亦普遍过线（beaker250/clear_S/erlenmeyer 100%），重标注仅对 alcohol、glass_cylinder 有益、对 beaker250 等有害 → §0 根因行改写为"分辩率错配主因、标签物体相关"；按物体取优 ACT 10/11 ≥93%；beaker400 主线八种子 70%、重标注+8k 88%；beaker100 8k/2k 81%/75%；停止 pick_place ACT 的 img224 重评（线已关闭）</td><td>agent(grok)</td></tr>
