@@ -23,20 +23,21 @@ a{color:#0066cc;text-decoration:none}
 </style></head><body><div class="wrap">
 <div class="nav"><a class="btn" href="index.html">← 返回主面板</a><span class="navt">PsiBot 开源进度 · Grasp 专题</span><a class="btn" href="https://asimfish.github.io/psibot-dashboard/">主面板（线上）</a></div>
 <h1>PsiBot Grasp · Diffusion Policy（RGB）专题面板</h1>
-<div class="meta">13 个物体 · 每个物体：一段实际训练数据样本 + 一段评测成功 + 一段评测失败 · 最后更新 2026-09-08 · <a href="index.html">← 返回主面板</a> · 交付包 <code>30109:/home/dataset-assist-0/yf/rep12_dp/release_grasp_dp_20260907/</code>（ckpt + MANIFEST.tsv + README）</div>
+<div class="meta">13 个物体 · 每个物体：一段实际训练数据样本 + 一段评测成功 + 一段评测失败 · 最后更新 2026-09-09 05:10 · <a href="index.html">← 返回主面板</a> · 交付包 <code>30109:/home/dataset-assist-0/yf/rep12_dp/release_grasp_dp_20260907/</code>（ckpt + MANIFEST.tsv + README）</div>
 <div class="summary">
-<div class="card"><b>13 / 13</b><span>物体在标准口径（nosdf50）≥ 76%</span></div>
-<div class="card"><b>92%</b><span>13 物体标准口径平均成功率（6 个 ≥ 90%）</span></div>
+<div class="card"><b>11 / 13</b><span>物体在正式口径（nosdf50r2 ±2cm）≥ 82%；beaker250 68%、erlenmeyer 54% 修复中</span></div>
+<div class="card"><b>84%</b><span>13 物体 ±2cm 正式口径平均成功率（旧口径 ±1cm 为 92%；6 物体放宽后不掉分）</span></div>
 <div class="card"><b>12 / 13</b><span>owner 固定位 2s 口径 ≥ 70%（glass_cylinder 20%，改进中）</span></div>
 <div class="card"><b>5 种数据处理</b><span>原标签 / 手部重标注 v2 / 末段外推 v2ext / 评测环境重采 rc / 自采干净 rollout ro60</span></div>
 </div>
 <table>
-<tr><th>物体 · 训练数据</th><th>采集/训练数据样本</th><th>评测：成功</th><th>评测：失败</th><th>nosdf50<br/>±1cm · 6s · 50 集</th><th>owner 2s<br/>固定位 · 50 集</th><th>现役模型 · 备注</th></tr>
+<tr><th>物体 · 训练数据</th><th>采集/训练数据样本</th><th>评测：成功</th><th>评测：失败</th><th>nosdf50r2 <b>正式</b><br/>±2cm · 6s · 50 集</th><th>nosdf50（旧口径）<br/>±1cm · 6s · 50 集</th><th>owner 2s<br/>固定位 · 50 集</th><th>现役模型 · 备注</th></tr>
 <tr>
 <td class="obj"><b>100ml 玻璃烧杯</b><br/><code>glass_beaker_100ml</code><br/><span class="small">重标注 v2（400 集示教，owner 手部模板）</span></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/glass_beaker_100ml_train.mp4"></video><div class="cap">训练数据样本 · 第 3 集 · 三相机（chest / head / third）</div></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/glass_beaker_100ml_eval_ok.mp4"></video><div class="cap">评测成功样例（首个成功集）</div></td>
 <td><span class="none">—（该模型 50 集全部成功，无失败样例）</span><div class="cap">评测失败样例（首个失败集）</div></td>
+<td class="score ok"><b>50/50</b><br/>100%</td>
 <td class="score ok"><b>50/50</b><br/>100%</td>
 <td class="score">50/50<br/>100%</td>
 <td class="small"><code>dp-relabelv2-rgb-400d-s8107</code><br/></td>
@@ -45,6 +46,7 @@ a{color:#0066cc;text-decoration:none}
 <td><video controls muted loop preload="metadata" src="media/grasp/glass_beaker_250ml_train.mp4"></video><div class="cap">训练数据样本 · 第 3 集 · 三相机（chest / head / third）</div></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/glass_beaker_250ml_eval_ok.mp4"></video><div class="cap">评测成功样例（首个成功集）</div></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/glass_beaker_250ml_eval_fail.mp4"></video><div class="cap">评测失败样例（首个失败集）</div></td>
+<td class="score bad"><b>34/50</b><br/>68%</td>
 <td class="score ok"><b>46/50</b><br/>92%</td>
 <td class="score">42/50<br/>84%</td>
 <td class="small"><code>dp-rep12-orig-rgb-glass_beaker_250ml-s9101</code><br/></td>
@@ -53,6 +55,7 @@ a{color:#0066cc;text-decoration:none}
 <td><video controls muted loop preload="metadata" src="media/grasp/clear_reagent_bottle_large_train.mp4"></video><div class="cap">训练数据样本 · 第 3 集 · 三相机（chest / head / third）</div></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/clear_reagent_bottle_large_eval_ok.mp4"></video><div class="cap">评测成功样例（首个成功集）</div></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/clear_reagent_bottle_large_eval_fail.mp4"></video><div class="cap">评测失败样例（首个失败集）</div></td>
+<td class="score ok"><b>41/50</b><br/>82%</td>
 <td class="score ok"><b>45/50</b><br/>90%</td>
 <td class="score">39/50<br/>78%</td>
 <td class="small"><code>dp-rep12-orig-rgb-clear_reagent_bottle_large-s9104</code><br/></td>
@@ -61,6 +64,7 @@ a{color:#0066cc;text-decoration:none}
 <td><video controls muted loop preload="metadata" src="media/grasp/clear_reagent_bottle_small_train.mp4"></video><div class="cap">训练数据样本 · 第 3 集 · 三相机（chest / head / third）</div></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/clear_reagent_bottle_small_eval_ok.mp4"></video><div class="cap">评测成功样例（首个成功集）</div></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/clear_reagent_bottle_small_eval_fail.mp4"></video><div class="cap">评测失败样例（首个失败集）</div></td>
+<td class="score ok"><b>45/50</b><br/>90%</td>
 <td class="score ok"><b>42/50</b><br/>84%</td>
 <td class="score">39/50<br/>78%</td>
 <td class="small"><code>dp-rep12-orig-rgb-clear_reagent_bottle_small-s9106</code><br/></td>
@@ -69,6 +73,7 @@ a{color:#0066cc;text-decoration:none}
 <td><video controls muted loop preload="metadata" src="media/grasp/brown_reagent_bottle_large_train.mp4"></video><div class="cap">训练数据样本 · 第 3 集 · 三相机（chest / head / third）</div></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/brown_reagent_bottle_large_eval_ok.mp4"></video><div class="cap">评测成功样例（首个成功集）</div></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/brown_reagent_bottle_large_eval_fail.mp4"></video><div class="cap">评测失败样例（首个失败集）</div></td>
+<td class="score ok"><b>45/50</b><br/>90%</td>
 <td class="score ok"><b>42/50</b><br/>84%</td>
 <td class="score">42/50<br/>84%</td>
 <td class="small"><code>dp-rep12-v2-rgb-brown_reagent_bottle_large-s9202</code><br/></td>
@@ -78,6 +83,7 @@ a{color:#0066cc;text-decoration:none}
 <td><video controls muted loop preload="metadata" src="media/grasp/brown_reagent_bottle_small_eval_ok.mp4"></video><div class="cap">评测成功样例（首个成功集）</div></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/brown_reagent_bottle_small_eval_fail.mp4"></video><div class="cap">评测失败样例（首个失败集）</div></td>
 <td class="score ok"><b>47/50</b><br/>94%</td>
+<td class="score ok"><b>47/50</b><br/>94%</td>
 <td class="score">46/50<br/>92%</td>
 <td class="small"><code>dp-rep12-rc-rgb-brown_reagent_bottle_small-s9513</code><br/>源数据仅 1 集，在评测环境重采 100 集；三种子 70/44/94%，种子方差大</td>
 </tr><tr>
@@ -85,6 +91,7 @@ a{color:#0066cc;text-decoration:none}
 <td><video controls muted loop preload="metadata" src="media/grasp/brown_volumetric_flask_250ml_train.mp4"></video><div class="cap">训练数据样本 · 第 3 集 · 三相机（chest / head / third）</div></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/brown_volumetric_flask_250ml_eval_ok.mp4"></video><div class="cap">评测成功样例（首个成功集）</div></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/brown_volumetric_flask_250ml_eval_fail.mp4"></video><div class="cap">评测失败样例（首个失败集）</div></td>
+<td class="score ok"><b>41/50</b><br/>82%</td>
 <td class="score ok"><b>44/50</b><br/>88%</td>
 <td class="score">40/50<br/>80%</td>
 <td class="small"><code>dp-rep12-v2-rgb-brown_volumetric_flask_250ml-s9204</code><br/></td>
@@ -93,6 +100,7 @@ a{color:#0066cc;text-decoration:none}
 <td><video controls muted loop preload="metadata" src="media/grasp/clear_volumetric_flask_250ml_train.mp4"></video><div class="cap">训练数据样本 · 第 3 集 · 三相机（chest / head / third）</div></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/clear_volumetric_flask_250ml_eval_ok.mp4"></video><div class="cap">评测成功样例（首个成功集）</div></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/clear_volumetric_flask_250ml_eval_fail.mp4"></video><div class="cap">评测失败样例（首个失败集）</div></td>
+<td class="score ok"><b>43/50</b><br/>86%</td>
 <td class="score ok"><b>41/50</b><br/>82%</td>
 <td class="score">35/50<br/>70%</td>
 <td class="small"><code>dp-rep12-v2-rgb-clear_volumetric_flask_250ml-s9207</code><br/></td>
@@ -101,6 +109,7 @@ a{color:#0066cc;text-decoration:none}
 <td><video controls muted loop preload="metadata" src="media/grasp/glass_cylinder_100ml_train.mp4"></video><div class="cap">训练数据样本 · 第 3 集 · 三相机（chest / head / third）</div></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/glass_cylinder_100ml_eval_ok.mp4"></video><div class="cap">评测成功样例（首个成功集）</div></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/glass_cylinder_100ml_eval_fail.mp4"></video><div class="cap">评测失败样例（首个失败集）</div></td>
+<td class="score ok"><b>43/50</b><br/>86%</td>
 <td class="score ok"><b>42/50</b><br/>84%</td>
 <td class="score">10/50<br/>20%</td>
 <td class="small"><code>dp-rep12-v2-rgb-glass_cylinder_100ml-s9301</code><br/>失败集多为抓住后抬升缓慢/停滞（成功步数均值 70），owner 2s 窗口内来不及；ro60 改进版 s9731/s9732 训练中</td>
@@ -109,6 +118,7 @@ a{color:#0066cc;text-decoration:none}
 <td><video controls muted loop preload="metadata" src="media/grasp/plastic_cylinder_100ml_train.mp4"></video><div class="cap">训练数据样本 · 第 3 集 · 三相机（chest / head / third）</div></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/plastic_cylinder_100ml_eval_ok.mp4"></video><div class="cap">评测成功样例（首个成功集）</div></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/plastic_cylinder_100ml_eval_fail.mp4"></video><div class="cap">评测失败样例（首个失败集）</div></td>
+<td class="score ok"><b>41/50</b><br/>82%</td>
 <td class="score ok"><b>39/50</b><br/>78%</td>
 <td class="score">37/50<br/>74%</td>
 <td class="small"><code>dp-rep12-orig-rgb-plastic_cylinder_100ml-s9103</code><br/>v2 重标注反而变差（44/72%），原标签 78% 为现役；逐集诊断评测进行中</td>
@@ -117,6 +127,7 @@ a{color:#0066cc;text-decoration:none}
 <td><video controls muted loop preload="metadata" src="media/grasp/alcohol_lamp_train.mp4"></video><div class="cap">训练数据样本 · 第 3 集 · 三相机（chest / head / third）</div></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/alcohol_lamp_eval_ok.mp4"></video><div class="cap">评测成功样例（首个成功集）</div></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/alcohol_lamp_eval_fail.mp4"></video><div class="cap">评测失败样例（首个失败集）</div></td>
+<td class="score ok"><b>41/50</b><br/>82%</td>
 <td class="score ok"><b>40/50</b><br/>80%</td>
 <td class="score">37/50<br/>74%</td>
 <td class="small"><code>dp-rep12-v2-rgb-alcohol_lamp-s9205</code><br/>逐集诊断评测进行中</td>
@@ -126,6 +137,7 @@ a{color:#0066cc;text-decoration:none}
 <td><video controls muted loop preload="metadata" src="media/grasp/mortar_eval_ok.mp4"></video><div class="cap">评测成功样例（首个成功集）</div></td>
 <td><span class="none">—（该模型 50 集全部成功，无失败样例）</span><div class="cap">评测失败样例（首个失败集）</div></td>
 <td class="score ok"><b>50/50</b><br/>100%</td>
+<td class="score ok"><b>50/50</b><br/>100%</td>
 <td class="score">50/50<br/>100%</td>
 <td class="small"><code>dp-rep12-v2ext-rgb-mortar-s9542</code><br/>owner 示教抬升 0.177m 低于阈值 0.21m，v2 策略 0%；末段外推抬升后 100%</td>
 </tr><tr>
@@ -133,15 +145,16 @@ a{color:#0066cc;text-decoration:none}
 <td><video controls muted loop preload="metadata" src="media/grasp/erlenmeyer_flask_train.mp4"></video><div class="cap">训练数据样本 · 第 3 集 · 三相机（chest / head / third）</div></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/erlenmeyer_flask_eval_ok.mp4"></video><div class="cap">评测成功样例（首个成功集）</div></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/erlenmeyer_flask_eval_fail.mp4"></video><div class="cap">评测失败样例（首个失败集）</div></td>
+<td class="score bad"><b>27/50</b><br/>54%</td>
 <td class="score ok"><b>41/50</b><br/>82%</td>
 <td class="score">45/50<br/>90%</td>
 <td class="small"><code>dp-rep12-ro60-rgb-erlenmeyer_flask-s9723</code><br/>owner 示教在评测环境不可回放（薄壁凹形瓶穿透），v2 上限 52%；改用策略自身干净 rollout 训练后 82%</td>
 </tr>
 </table>
 <div class="proto">
-<b>口径说明</b>：nosdf50 = 物体 xy 在标称位周围独立随机 ±1cm、6 秒窗口、50 集，成功 = 抬升 ≥ 0.7×lift_height_desired 且连续保持 6 步、xy 漂移 ≤ 12cm；owner 2s = owner 原始协议（固定标称位、2 秒窗口、50 集）。评测器 <code>eval_core_obj3_50ep.sh</code>（bjxy_5090，patched psilab_tasks），<code>CHEMBENCH_GPU_PARTICLE_COLLISION_MODE=off</code>、<code>CHEMBENCH_DP_EVAL_CROP_MODE=center</code>。<br/>
+<b>口径说明</b>：<b>nosdf50r2（正式，09-08 起）</b> = 物体 xy 在标称位周围独立随机 <b>±2cm（与采集同范围）</b>、6 秒窗口、50 集；nosdf50（旧口径）= 同上但 ±1cm；成功 = 抬升 ≥ 0.7×lift_height_desired 且连续保持 6 步、xy 漂移 ≤ 12cm；owner 2s = owner 原始协议（固定标称位、2 秒窗口、50 集）。评测器 <code>eval_core_obj3_50ep.sh</code>（bjxy_5090，patched psilab_tasks），<code>CHEMBENCH_GPU_PARTICLE_COLLISION_MODE=off</code>、<code>CHEMBENCH_DP_EVAL_CROP_MODE=center</code>。<br/>
 <b>训练配方（所有物体一致）</b>：owner 等效 DP —— lr 1e-4 全组、bs 128、n_obs 1、n_act 8、warmup 2000、cosine、EMA、50k 步（ro60 因 1300 epoch 上限为 31.2k 步）；观测 = 三相机 224×224 RGB + <code>arm2_pos / hand2_pos / arm2_eef_pos / arm2_eef_quat / target_pose</code>。<br/>
-<b>采集与评测一致性核对</b>：位置随机（采集 ±2cm ⊃ 评测 ±1cm）、光照（穹顶光固定 3000 / 0.75，随机化未启用）、相机与场景 cfg、物理步长与 decimation（120Hz / 4）、手部执行器增益（评测镜像采集配置）均一致；成功判据评测端更宽松（不检查姿态）。已知评测器缺陷：episode 切换时关节驱动目标不复位（A/B 验证对分数无实质影响）。<br/>
+<b>采集与评测一致性核对</b>：位置随机（采集 ±2cm = 正式评测 ±2cm；旧口径 ±1cm 已降为历史）、光照（穹顶光固定 3000 / 0.75，随机化未启用）、相机与场景 cfg、物理步长与 decimation（120Hz / 4）、手部执行器增益（评测镜像采集配置）均一致；成功判据评测端更宽松（不检查姿态）。已知评测器缺陷：episode 切换时关节驱动目标不复位（A/B 验证对分数无实质影响）。<br/>
 <b>视频来源</b>：训练样本直接从现役模型实际训练的 zarr 渲染（第 3 集，三相机横排，2× 放大）；评测片段取该模型 nosdf50 正式评测的首个成功集 / 首个失败集（第三视角，转码 480p）。
 </div>
 </div></body></html>
