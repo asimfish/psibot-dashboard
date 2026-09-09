@@ -23,10 +23,10 @@ a{color:#0066cc;text-decoration:none}
 </style></head><body><div class="wrap">
 <div class="nav"><a class="btn" href="index.html">← 返回主面板</a><span class="navt">PsiBot 开源进度 · Grasp 专题</span><a class="btn" href="https://asimfish.github.io/psibot-dashboard/">主面板（线上）</a></div>
 <h1>PsiBot Grasp · Diffusion Policy（RGB）专题面板</h1>
-<div class="meta">13 个物体 · 每个物体：一段实际训练数据样本 + 一段评测成功 + 一段评测失败 · 最后更新 2026-09-09 05:10 · <a href="index.html">← 返回主面板</a> · 交付包 <code>30109:/home/dataset-assist-0/yf/rep12_dp/release_grasp_dp_20260907/</code>（ckpt + MANIFEST.tsv + README）</div>
+<div class="meta">13 个物体 · 每个物体：一段实际训练数据样本 + 一段评测成功 + 一段评测失败 · 最后更新 2026-09-09 16:20 · <a href="index.html">← 返回主面板</a> · 交付包 <code>30109:/home/dataset-assist-0/yf/rep12_dp/release_grasp_dp_20260907/</code>（ckpt + MANIFEST.tsv + README）</div>
 <div class="summary">
-<div class="card"><b>11 / 13</b><span>物体在正式口径（nosdf50r2 ±2cm）≥ 82%；beaker250 68%、erlenmeyer 54% 修复中</span></div>
-<div class="card"><b>84%</b><span>13 物体 ±2cm 正式口径平均成功率（旧口径 ±1cm 为 92%；6 物体放宽后不掉分）</span></div>
+<div class="card"><b>12 / 13</b><span>物体在正式口径（nosdf50r2 ±2cm）≥ 82%；仅 erlenmeyer 54% 修复中（ro60r2 在训）</span></div>
+<div class="card"><b>86%</b><span>13 物体 ±2cm 正式口径平均成功率（beaker250 origext 96%；旧口径 ±1cm 为 92%）</span></div>
 <div class="card"><b>12 / 13</b><span>owner 固定位 2s 口径 ≥ 70%（glass_cylinder 20%，改进中）</span></div>
 <div class="card"><b>5 种数据处理</b><span>原标签 / 手部重标注 v2 / 末段外推 v2ext / 评测环境重采 rc / 自采干净 rollout ro60</span></div>
 </div>
@@ -42,14 +42,14 @@ a{color:#0066cc;text-decoration:none}
 <td class="score">50/50<br/>100%</td>
 <td class="small"><code>dp-relabelv2-rgb-400d-s8107</code><br/></td>
 </tr><tr>
-<td class="obj"><b>250ml 玻璃烧杯</b><br/><code>glass_beaker_250ml</code><br/><span class="small">原标签（100 集示教）</span></td>
+<td class="obj"><b>250ml 玻璃烧杯</b><br/><code>glass_beaker_250ml</code><br/><span class="small">原标签 + 末段外推抬升（origext）</span></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/glass_beaker_250ml_train.mp4"></video><div class="cap">训练数据样本 · 第 3 集 · 三相机（chest / head / third）</div></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/glass_beaker_250ml_eval_ok.mp4"></video><div class="cap">评测成功样例（首个成功集）</div></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/glass_beaker_250ml_eval_fail.mp4"></video><div class="cap">评测失败样例（首个失败集）</div></td>
-<td class="score bad"><b>34/50</b><br/>68%</td>
+<td class="score ok"><b>48/50</b><br/>96%</td>
 <td class="score ok"><b>46/50</b><br/>92%</td>
 <td class="score">42/50<br/>84%</td>
-<td class="small"><code>dp-rep12-orig-rgb-glass_beaker_250ml-s9101</code><br/></td>
+<td class="small"><code>dp-rep12-origext-rgb-glass_beaker_250ml-s9742</code><br/>orig s9101 ±2cm 68%；末段外推后 96%</td>
 </tr><tr>
 <td class="obj"><b>透明试剂瓶·大</b><br/><code>clear_reagent_bottle_large</code><br/><span class="small">原标签（100 集示教）</span></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/clear_reagent_bottle_large_train.mp4"></video><div class="cap">训练数据样本 · 第 3 集 · 三相机（chest / head / third）</div></td>
@@ -67,7 +67,7 @@ a{color:#0066cc;text-decoration:none}
 <td class="score ok"><b>45/50</b><br/>90%</td>
 <td class="score ok"><b>42/50</b><br/>84%</td>
 <td class="score">39/50<br/>78%</td>
-<td class="small"><code>dp-rep12-orig-rgb-clear_reagent_bottle_small-s9106</code><br/></td>
+<td class="small"><code>dp-rep12-orig-rgb-clear_reagent_bottle_small-s9106</code><br/>origext s9744 70% 判负，保留 orig 90%</td>
 </tr><tr>
 <td class="obj"><b>棕色试剂瓶·大</b><br/><code>brown_reagent_bottle_large</code><br/><span class="small">重标注 v2（100 集示教）</span></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/brown_reagent_bottle_large_train.mp4"></video><div class="cap">训练数据样本 · 第 3 集 · 三相机（chest / head / third）</div></td>
@@ -112,7 +112,7 @@ a{color:#0066cc;text-decoration:none}
 <td class="score ok"><b>43/50</b><br/>86%</td>
 <td class="score ok"><b>42/50</b><br/>84%</td>
 <td class="score">10/50<br/>20%</td>
-<td class="small"><code>dp-rep12-v2-rgb-glass_cylinder_100ml-s9301</code><br/>失败集多为抓住后抬升缓慢/停滞（成功步数均值 70），owner 2s 窗口内来不及；ro60 改进版 s9731/s9732 训练中</td>
+<td class="small"><code>dp-rep12-v2-rgb-glass_cylinder_100ml-s9301</code><br/>失败集多为抓住后抬升缓慢/停滞（成功步数均值 70），owner 2s 窗口内来不及；v2ext s9741 14% / ro60 72%/28% 均判负，保留 v2 86%</td>
 </tr><tr>
 <td class="obj"><b>100ml 塑料量筒</b><br/><code>plastic_cylinder_100ml</code><br/><span class="small">原标签（100 集示教）</span></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/plastic_cylinder_100ml_train.mp4"></video><div class="cap">训练数据样本 · 第 3 集 · 三相机（chest / head / third）</div></td>
@@ -121,7 +121,7 @@ a{color:#0066cc;text-decoration:none}
 <td class="score ok"><b>41/50</b><br/>82%</td>
 <td class="score ok"><b>39/50</b><br/>78%</td>
 <td class="score">37/50<br/>74%</td>
-<td class="small"><code>dp-rep12-orig-rgb-plastic_cylinder_100ml-s9103</code><br/>v2 重标注反而变差（44/72%），原标签 78% 为现役；逐集诊断评测进行中</td>
+<td class="small"><code>dp-rep12-orig-rgb-plastic_cylinder_100ml-s9103</code><br/>v2 重标注反而变差（44/72%）；origext s9745 80% 未超 orig 82%</td>
 </tr><tr>
 <td class="obj"><b>酒精灯</b><br/><code>alcohol_lamp</code><br/><span class="small">重标注 v2（100 集示教）</span></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/alcohol_lamp_train.mp4"></video><div class="cap">训练数据样本 · 第 3 集 · 三相机（chest / head / third）</div></td>
@@ -130,7 +130,7 @@ a{color:#0066cc;text-decoration:none}
 <td class="score ok"><b>41/50</b><br/>82%</td>
 <td class="score ok"><b>40/50</b><br/>80%</td>
 <td class="score">37/50<br/>74%</td>
-<td class="small"><code>dp-rep12-v2-rgb-alcohol_lamp-s9205</code><br/>逐集诊断评测进行中</td>
+<td class="small"><code>dp-rep12-v2-rgb-alcohol_lamp-s9205</code><br/>v2ext s9743 74% 未超 v2 82%</td>
 </tr><tr>
 <td class="obj"><b>研钵</b><br/><code>mortar</code><br/><span class="small">v2 + 末段外推抬升 10 帧（示教抬升 0.241m）</span></td>
 <td><video controls muted loop preload="metadata" src="media/grasp/mortar_train.mp4"></video><div class="cap">训练数据样本 · 第 3 集 · 三相机（chest / head / third）</div></td>
@@ -148,7 +148,7 @@ a{color:#0066cc;text-decoration:none}
 <td class="score bad"><b>27/50</b><br/>54%</td>
 <td class="score ok"><b>41/50</b><br/>82%</td>
 <td class="score">45/50<br/>90%</td>
-<td class="small"><code>dp-rep12-ro60-rgb-erlenmeyer_flask-s9723</code><br/>owner 示教在评测环境不可回放（薄壁凹形瓶穿透），v2 上限 52%；改用策略自身干净 rollout 训练后 82%</td>
+<td class="small"><code>dp-rep12-ro60-rgb-erlenmeyer_flask-s9723</code><br/>±2cm 掉到 54%（ΔP100mm 推倒）；ro60ext 58% 未超；ro60r2 s9751/s9752 在训</td>
 </tr>
 </table>
 <div class="proto">
