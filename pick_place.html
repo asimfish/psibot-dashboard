@@ -50,7 +50,7 @@ section{margin-top:32px}.section-head{display:flex;justify-content:space-between
 <tr><td>数据</td><td>100 条位置/倾角已补算，力和物理子步仍缺测</td><td>数据与动作合同一致，安全测量完整，训练/验证集独立</td></tr>
 <tr><td>指标物理部署</td><td>p9821 真实运行：717/717 三类指标采样完整，正常退出</td><td>只通过测量链路；不代表模型合格</td></tr>
 <tr><td>DP 闭环</td><td>新 p9821 单集失败：ΔP 124.20 mm，最大倾角 1.5548 rad</td><td>完成有对照的偏差诊断，再做单模型修复</td></tr>
-<tr><td>专家对照</td><td>专家动态回放成功 1/1：ΔP 15.78 mm，倾角 0.1275 rad，未过滤手部净力峰 105.04 N；613/613 采样完整。仅初态恢复，无逐帧状态写回</td><td>只证明该条示范可执行；论文力度口径未校准，SSR 尚未合格。相同初态的 p9821 DP 单集对照正在运行</td></tr>
+<tr><td>专家对照</td><td>专家动态回放成功 1/1：ΔP 15.78 mm，倾角 0.1275 rad，未过滤手部净力峰 105.04 N；613/613 采样完整。仅初态恢复，无逐帧状态写回</td><td>只证明该条示范可执行；论文力度口径未校准，SSR 尚未合格。相同初态的 p9821 DP 失败：ΔP 138.20 mm，倾角 0.5153 rad，释放/退离未完成。初始物体坐标逐值相同；继续核对模型输入与动作链路</td></tr>
 <tr><td>规模训练</td><td>禁止；控制器没有自动训练或扩容分支</td><td>单任务正式验收和审查全部通过</td></tr>
 </tbody></table></div><p><a href="results/pick_place_acceptance_20260910.json">查看验收状态与实测记录</a> · <a href="https://openreview.net/pdf?id=ojwpa0wXo9">论文原文</a></p></section><!-- T323_END --><section class="panel" id="repair-status"><h2>核查与修复 · 9 月 10 日</h2>
 <p><strong>代码修复已通过 15 项测试；新物理 SSR 尚未验收。</strong> 原 ACT 38/50 视频和历史统计保留。修正坐标后的 DP p9821、p9831 烟测各为 0/3，说明坐标修复尚未解决全部闭环失败。</p>
