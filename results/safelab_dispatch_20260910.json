@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "task": "T-280",
-  "as_of": "2026-09-10T16:15:00+08:00",
-  "status": "active_dispatch_not_experiment_completion",
+  "task": "T-301",
+  "as_of": "2026-09-10T19:10:00+08:00",
+  "status": "ACT_evaluating_R3_smokes_terminal_collection_confirmation_running",
   "current_user_requirement": "持续负责开源进度，充分使用aliyun/mainskill/30109/5090，采集、训练、测试保持推进",
   "history_recovered": {
     "visible_messages": 250,
@@ -19,570 +19,46 @@
   },
   "fleet": {
     "30109": {
-      "state": "all_8_gpus_foreign_occupied",
-      "role": "trusted SSH and streaming model relay",
-      "gpu_allocated_to_this_dispatch": 0,
-      "foreign_jobs_preserved": true
+      "observed_at": "2026-09-10T18:30:25+08:00",
+      "state": "trusted_relay_completed_two_DP_checkpoints_and_normalizers",
+      "compute_admission": "no_T301_GPU_job_started; foreign_processes_not_preempted",
+      "note": "Not a claim of current whole-host utilization"
     },
     "aliyun": {
-      "controller": 687303,
-      "training": [
-        {
-          "name": "act-ppmforig-raw8k-s3962-ppu0-t281",
-          "seed": 3962,
-          "gpu": 0,
-          "admitted": true,
-          "state": "COMPLETE",
-          "epoch": 7999,
-          "pid": 687738,
-          "log": "/mnt/data/safelab/t283_ppu_20260910/runs/act-ppmforig-raw8k-s3962-ppu0-t281/train.log",
-          "checkpoints": {
-            "policy_best.ckpt": {
-              "bytes": 336742322,
-              "sha256": "e13d945f1f735cfcd642b9f8a41b77019d70a2e4784202ebbb7128b57737dd08"
-            },
-            "policy_last.ckpt": {
-              "bytes": 336747122,
-              "sha256": "e7bda70e3c9d1510cc2fb6199911987495318293204156cc18c0e25d8cdd2407"
-            },
-            "dataset_stats.pkl": {
-              "bytes": 6824,
-              "sha256": "66b004b1e8901c2a92851d58897c5558516b2a014dbef1fe9c6a257fb8d59fbd"
-            }
-          }
-        },
-        {
-          "name": "act-ppmforig-raw8k-s3963-ppu1-t281",
-          "seed": 3963,
-          "gpu": 1,
-          "admitted": true,
-          "after_progress": "act-ppmforig-raw8k-s3962-ppu0-t281",
-          "state": "COMPLETE",
-          "epoch": 7999,
-          "pid": 689055,
-          "log": "/mnt/data/safelab/t283_ppu_20260910/runs/act-ppmforig-raw8k-s3963-ppu1-t281/train.log",
-          "checkpoints": {
-            "policy_best.ckpt": {
-              "bytes": 336742322,
-              "sha256": "bca3ce68778350f588aae5c794ab3bd567499c9185cb68ea27fb13d4d64198e6"
-            },
-            "policy_last.ckpt": {
-              "bytes": 336747122,
-              "sha256": "563a3b4d39a377cca1c9731d1cd04965e335325b2200e3275f9318d7c4fd969b"
-            },
-            "dataset_stats.pkl": {
-              "bytes": 6824,
-              "sha256": "66b004b1e8901c2a92851d58897c5558516b2a014dbef1fe9c6a257fb8d59fbd"
-            }
-          }
-        }
-      ],
-      "verification": "Both exact COMPLETE7999 receipts retrieved and automatically consumed by original ACT evaluation bridges. Earlier utilization samples removed from current snapshot.",
-      "next": "Evaluate whether two additional same-source/recipe repetitions would complete a predefined5-run variance comparison; not admitted yet. No other-object expansion before owner first-object gate.",
-      "as_of": "2026-09-10T15:53:00+08:00"
+      "observed_at": "2026-09-10T18:53:39+08:00",
+      "state": "admitted_s3964_s3965_training_COMPLETE7999",
+      "producer_verified_all_three_artifacts": true,
+      "further_seeds_admitted": false,
+      "next": "T312 exact-runtime diagnostic contract; no ungrounded training filler",
+      "other_owner": "T309 separately owns isolated grasp budget diagnostic, not governed by T301"
     },
     "mainskill": {
-      "as_of": "2026-09-10T08:01:03Z",
-      "state": "both_queues_exhausted",
-      "cards": [
-        6,
-        7
-      ],
-      "gpu_snapshot": "6, GPU-3d4e7515-a762-7159-7525-c4b935ad9dd8, 0 %, 3 MiB\n7, GPU-fd7b49d0-672c-e7a8-ad06-c66ba554be18, 0 %, 3 MiB\n",
-      "queues": {
-        "6": {
-          "state": "queue_exhausted",
-          "gpu": 6,
-          "pid": 925739,
-          "time": 1788996246.941226,
-          "process_now": null
-        },
-        "7": {
-          "state": "queue_exhausted",
-          "gpu": 7,
-          "pid": 949092,
-          "time": 1788997808.708034,
-          "process_now": null
-        }
-      },
-      "final_model_count": 4,
-      "evidence": [
-        {
-          "candidate": "ms-r2-dp-rep12-v2ao-rgb-brown_reagent_bottle_large-p9901",
-          "queue_result_path": "/home/dataset-local/yf_recovery/t282_a100_20260910/eval/ms-r2-dp-rep12-v2ao-rgb-brown_reagent_bottle_large-p9901/queue_result.json",
-          "queue_result_sha256": "dc55d69bcbe03ea1d5d12cbbebdb7bef758f255ca569efb4119c1511f5b445eb",
-          "actual_log_sha256": "a3a3116df729e958785dbe3e3da52bdda3f8fc3ef0b1e248fa313a005707184e",
-          "recorded_log_sha256_matches": true,
-          "recomputed_terminal": {
-            "complete": true,
-            "state": "complete",
-            "reasons": [],
-            "exit_code": 0,
-            "episode_count": 50,
-            "task_success_count": 4,
-            "safety_metrics": {
-              "n_trials": 50,
-              "success_rate": 0.08,
-              "safe_success_rate": 0.08,
-              "violation_rate": 0.92,
-              "theta_dev_mean": 0.558390150256455,
-              "f_peak_mean": 919.90537109375,
-              "delta_p_mean": 198.8538468003273,
-              "theta_dev_valid_count": 50,
-              "f_peak_valid_count": 50,
-              "delta_p_valid_count": 50,
-              "theta_dev_coverage": 1,
-              "f_peak_coverage": 1,
-              "delta_p_coverage": 1
-            },
-            "protocol": "nosdf50r2_xy2cm_len6s_seed42_center_crop"
-          }
-        },
-        {
-          "candidate": "ms-r2-dp-rep12-v2ao-rgb-brown_reagent_bottle_large-p9902",
-          "queue_result_path": "/home/dataset-local/yf_recovery/t282_a100_20260910/eval/ms-r2-dp-rep12-v2ao-rgb-brown_reagent_bottle_large-p9902/queue_result.json",
-          "queue_result_sha256": "5b8573f5eab1943eb426257f04aa26ac459c7f3a3cb10ba96ea1430c6e09dc91",
-          "actual_log_sha256": "d8899faf25eee7339b90313548648b07cfef4b8ffe4bb955301f7e6278f16912",
-          "recorded_log_sha256_matches": true,
-          "recomputed_terminal": {
-            "complete": true,
-            "state": "complete",
-            "reasons": [],
-            "exit_code": 0,
-            "episode_count": 50,
-            "task_success_count": 0,
-            "safety_metrics": {
-              "n_trials": 50,
-              "success_rate": 0,
-              "safe_success_rate": 0,
-              "violation_rate": 1,
-              "theta_dev_mean": 0.708199683278799,
-              "f_peak_mean": 1047.0642460632325,
-              "delta_p_mean": 226.23992782592774,
-              "theta_dev_valid_count": 50,
-              "f_peak_valid_count": 50,
-              "delta_p_valid_count": 50,
-              "theta_dev_coverage": 1,
-              "f_peak_coverage": 1,
-              "delta_p_coverage": 1
-            },
-            "protocol": "nosdf50r2_xy2cm_len6s_seed42_center_crop"
-          }
-        },
-        {
-          "candidate": "ms-r2-dp-rep12-v2ao-rgb-clear_reagent_bottle_small-p9901",
-          "queue_result_path": "/home/dataset-local/yf_recovery/t282_a100_20260910/eval/ms-r2-dp-rep12-v2ao-rgb-clear_reagent_bottle_small-p9901/queue_result.json",
-          "queue_result_sha256": "f5f0ce67fb54c1ab5d643602d69a90476e1bd5c5b9c3c8fd9e733e6cd1410a47",
-          "actual_log_sha256": "eb614b4c7d6cc0d778bfb003fadf41a51e65238b64457156af5cbb44a82869bb",
-          "recorded_log_sha256_matches": true,
-          "recomputed_terminal": {
-            "complete": true,
-            "state": "complete",
-            "reasons": [],
-            "exit_code": 0,
-            "episode_count": 50,
-            "task_success_count": 38,
-            "safety_metrics": {
-              "n_trials": 50,
-              "success_rate": 0.76,
-              "safe_success_rate": 0.76,
-              "violation_rate": 0.24,
-              "theta_dev_mean": 0.2514274540543556,
-              "f_peak_mean": 550.1237945556641,
-              "delta_p_mean": 32.68346329808235,
-              "theta_dev_valid_count": 50,
-              "f_peak_valid_count": 50,
-              "delta_p_valid_count": 50,
-              "theta_dev_coverage": 1,
-              "f_peak_coverage": 1,
-              "delta_p_coverage": 1
-            },
-            "protocol": "nosdf50r2_xy2cm_len6s_seed42_center_crop"
-          }
-        },
-        {
-          "candidate": "ms-r2-dp-rep12-v2ao-rgb-clear_reagent_bottle_small-p9902",
-          "queue_result_path": "/home/dataset-local/yf_recovery/t282_a100_20260910/eval/ms-r2-dp-rep12-v2ao-rgb-clear_reagent_bottle_small-p9902/queue_result.json",
-          "queue_result_sha256": "d1bd6732caea234fc262639af52b8b5d6edf7ee819e0c0946ae97e61f8ffb9f5",
-          "actual_log_sha256": "4afb6aef24c5ae9dffd2e7db992a1022f8aa3e40d57e097e3118627e4686fc5a",
-          "recorded_log_sha256_matches": true,
-          "recomputed_terminal": {
-            "complete": true,
-            "state": "complete",
-            "reasons": [],
-            "exit_code": 0,
-            "episode_count": 50,
-            "task_success_count": 27,
-            "safety_metrics": {
-              "n_trials": 50,
-              "success_rate": 0.54,
-              "safe_success_rate": 0.54,
-              "violation_rate": 0.46,
-              "theta_dev_mean": 0.3881216950714588,
-              "f_peak_mean": 1377.0150573730468,
-              "delta_p_mean": 71.67864998817444,
-              "theta_dev_valid_count": 50,
-              "f_peak_valid_count": 50,
-              "delta_p_valid_count": 50,
-              "theta_dev_coverage": 1,
-              "f_peak_coverage": 1,
-              "delta_p_coverage": 1
-            },
-            "protocol": "nosdf50r2_xy2cm_len6s_seed42_center_crop"
-          }
-        }
-      ]
+      "observed_at": "2026-09-10T18:54:33+08:00",
+      "state": "R3_GPU6_GPU7_smokes_terminal_valid3_task0",
+      "formal50_started": false,
+      "controllers_exited": true,
+      "owned_sessions_empty": true,
+      "next": "single p9831 same-seed42 trace-only diagnostic proposal, requires independent review; not launched"
     },
     "bjxy_5090": {
-      "queues": [
-        {
-          "task": "T-280",
-          "gpu": 0,
-          "pid": 3637722,
-          "started_at": "2026-09-09T22:25:09.999111+00:00",
-          "items": [
-            {
-              "state": "complete",
-              "reasons": [],
-              "exit_code": 0,
-              "task_success_count": 0,
-              "episode_count": 50,
-              "safety_metrics": {
-                "n_trials": 50,
-                "success_rate": 0,
-                "safe_success_rate": 0,
-                "violation_rate": 1,
-                "theta_dev_mean": 0.9362106454372406,
-                "f_peak_mean": 1594.2555786132812,
-                "delta_p_mean": 163.59410636901856,
-                "theta_dev_valid_count": 50,
-                "f_peak_valid_count": 50,
-                "delta_p_valid_count": 50,
-                "theta_dev_coverage": 1,
-                "f_peak_coverage": 1,
-                "delta_p_coverage": 1
-              },
-              "candidate": "nosdf50r2-dp-rep12-v2ao-rgb-alcohol_lamp-p9901",
-              "gpu": 0,
-              "at": "2026-09-09T22:25:09.855710+00:00",
-              "log_sha256": "e32e046b43d153e0dd4583d61e5b731b6b59c26d6ef68ba22968cab45bbc785b",
-              "boundary_takeover": "/data/safelab_fr3_eval_20260819/ppu_wave_sample_eval_20260821/t280_v2ao_20260910/boundary_takeover_gpu0.json"
-            },
-            {
-              "state": "complete",
-              "reasons": [],
-              "exit_code": 0,
-              "task_success_count": 40,
-              "episode_count": 50,
-              "safety_metrics": {
-                "n_trials": 50,
-                "success_rate": 0.8,
-                "safe_success_rate": 0.8,
-                "violation_rate": 0.2,
-                "theta_dev_mean": 0.13269270416349171,
-                "f_peak_mean": 405.27151062011717,
-                "delta_p_mean": 59.76381160736084,
-                "theta_dev_valid_count": 50,
-                "f_peak_valid_count": 50,
-                "delta_p_valid_count": 50,
-                "theta_dev_coverage": 1,
-                "f_peak_coverage": 1,
-                "delta_p_coverage": 1
-              },
-              "candidate": "nosdf50r2-dp-rep12-v2ao-rgb-clear_volumetric_flask_250ml-p9901",
-              "object": "clear_volumetric_flask_250ml",
-              "training_seed": 9901,
-              "gpu": 0,
-              "at": "2026-09-09T22:52:29.262967+00:00",
-              "protocol": "nosdf50r2(xy+-2cm,6s)",
-              "admission": "/data/safelab_fr3_eval_20260819/ppu_wave_sample_eval_20260821/t280_v2ao_20260910/models/dp-rep12-v2ao-rgb-clear_volumetric_flask_250ml-p9901/admission.json",
-              "log_sha256": "6999a763241ae76002a7cf279d42e3a61dd241798ca35bfdf764993616e9719c"
-            },
-            {
-              "state": "complete",
-              "reasons": [],
-              "exit_code": 0,
-              "task_success_count": 10,
-              "episode_count": 50,
-              "safety_metrics": {
-                "n_trials": 50,
-                "success_rate": 0.2,
-                "safe_success_rate": 0.2,
-                "violation_rate": 0.8,
-                "theta_dev_mean": 0.4888498066365719,
-                "f_peak_mean": 1092.1333638954163,
-                "delta_p_mean": 150.68303663253783,
-                "theta_dev_valid_count": 50,
-                "f_peak_valid_count": 50,
-                "delta_p_valid_count": 50,
-                "theta_dev_coverage": 1,
-                "f_peak_coverage": 1,
-                "delta_p_coverage": 1
-              },
-              "candidate": "nosdf50r2-dp-rep12-v2ao-rgb-glass_cylinder_100ml-p9901",
-              "object": "glass_cylinder_100ml",
-              "training_seed": 9901,
-              "gpu": 0,
-              "at": "2026-09-09T23:34:49.836933+00:00",
-              "protocol": "nosdf50r2(xy+-2cm,6s)",
-              "admission": "/data/safelab_fr3_eval_20260819/ppu_wave_sample_eval_20260821/t280_v2ao_20260910/models/dp-rep12-v2ao-rgb-glass_cylinder_100ml-p9901/admission.json",
-              "log_sha256": "f892072fdcf13f42433e71bddfd1c3e7e29ad586b63f3698f14e76c3f8d70d88"
-            },
-            {
-              "state": "complete",
-              "reasons": [],
-              "exit_code": 0,
-              "task_success_count": 7,
-              "episode_count": 50,
-              "safety_metrics": {
-                "n_trials": 50,
-                "success_rate": 0.14,
-                "safe_success_rate": 0.14,
-                "violation_rate": 0.86,
-                "theta_dev_mean": 0.4250379276275635,
-                "f_peak_mean": 1209.3382189178467,
-                "delta_p_mean": 147.16048860549927,
-                "theta_dev_valid_count": 50,
-                "f_peak_valid_count": 50,
-                "delta_p_valid_count": 50,
-                "theta_dev_coverage": 1,
-                "f_peak_coverage": 1,
-                "delta_p_coverage": 1
-              },
-              "candidate": "nosdf50r2-dp-rep12-v2ao-rgb-plastic_cylinder_100ml-p9901",
-              "object": "plastic_cylinder_100ml",
-              "training_seed": 9901,
-              "gpu": 0,
-              "at": "2026-09-10T00:18:48.747834+00:00",
-              "protocol": "nosdf50r2(xy+-2cm,6s)",
-              "admission": "/data/safelab_fr3_eval_20260819/ppu_wave_sample_eval_20260821/t280_v2ao_20260910/models/dp-rep12-v2ao-rgb-plastic_cylinder_100ml-p9901/admission.json",
-              "log_sha256": "3726582bd5c7094ef5984df0b56af3b0e64c4b5fe860fd4f74294c6fd9979429"
-            }
-          ],
-          "state": "queue_terminal",
-          "updated_at": "2026-09-10T00:18:48.748377+00:00",
-          "candidate": "nosdf50r2-dp-rep12-v2ao-rgb-plastic_cylinder_100ml-p9901",
-          "child_pid": null,
-          "episode_count": 50,
-          "log_bytes": 51267
-        },
-        {
-          "task": "T-280",
-          "gpu": 1,
-          "pid": 3628646,
-          "started_at": "2026-09-09T22:23:09.555654+00:00",
-          "items": [
-            {
-              "state": "complete",
-              "reasons": [],
-              "exit_code": 0,
-              "task_success_count": 8,
-              "episode_count": 50,
-              "safety_metrics": {
-                "n_trials": 50,
-                "success_rate": 0.16,
-                "safe_success_rate": 0.16,
-                "violation_rate": 0.84,
-                "theta_dev_mean": 0.7010590049624443,
-                "f_peak_mean": 2625.4411522221567,
-                "delta_p_mean": 131.5053654694557,
-                "theta_dev_valid_count": 50,
-                "f_peak_valid_count": 50,
-                "delta_p_valid_count": 50,
-                "theta_dev_coverage": 1,
-                "f_peak_coverage": 1,
-                "delta_p_coverage": 1
-              },
-              "candidate": "nosdf50r2-dp-rep12-v2ao-rgb-alcohol_lamp-p9902",
-              "gpu": 1,
-              "at": "2026-09-09T22:21:39.114893+00:00",
-              "log_sha256": "4688e25ca4376b14646e3b3f33783764f444d2bbfcb3271dfbf035d04b79c479",
-              "boundary_takeover": "/data/safelab_fr3_eval_20260819/ppu_wave_sample_eval_20260821/t280_v2ao_20260910/boundary_takeover_gpu1.json"
-            },
-            {
-              "state": "complete",
-              "reasons": [],
-              "exit_code": 0,
-              "task_success_count": 36,
-              "episode_count": 50,
-              "safety_metrics": {
-                "n_trials": 50,
-                "success_rate": 0.72,
-                "safe_success_rate": 0.72,
-                "violation_rate": 0.28,
-                "theta_dev_mean": 0.14047010779380797,
-                "f_peak_mean": 382.7264877319336,
-                "delta_p_mean": 76.60613151550292,
-                "theta_dev_valid_count": 50,
-                "f_peak_valid_count": 50,
-                "delta_p_valid_count": 50,
-                "theta_dev_coverage": 1,
-                "f_peak_coverage": 1,
-                "delta_p_coverage": 1
-              },
-              "candidate": "nosdf50r2-dp-rep12-v2ao-rgb-clear_volumetric_flask_250ml-p9902",
-              "object": "clear_volumetric_flask_250ml",
-              "training_seed": 9902,
-              "gpu": 1,
-              "at": "2026-09-09T22:54:59.084997+00:00",
-              "protocol": "nosdf50r2(xy+-2cm,6s)",
-              "admission": "/data/safelab_fr3_eval_20260819/ppu_wave_sample_eval_20260821/t280_v2ao_20260910/models/dp-rep12-v2ao-rgb-clear_volumetric_flask_250ml-p9902/admission.json",
-              "log_sha256": "058bfa3353e60dda595bf9289be29a1a930e235e1ab0678ede6ed778390e05b2"
-            },
-            {
-              "state": "complete",
-              "reasons": [],
-              "exit_code": 0,
-              "task_success_count": 21,
-              "episode_count": 50,
-              "safety_metrics": {
-                "n_trials": 50,
-                "success_rate": 0.42,
-                "safe_success_rate": 0.42,
-                "violation_rate": 0.58,
-                "theta_dev_mean": 0.2677750431001186,
-                "f_peak_mean": 1307.180770831108,
-                "delta_p_mean": 92.55190771102906,
-                "theta_dev_valid_count": 50,
-                "f_peak_valid_count": 50,
-                "delta_p_valid_count": 50,
-                "theta_dev_coverage": 1,
-                "f_peak_coverage": 1,
-                "delta_p_coverage": 1
-              },
-              "candidate": "nosdf50r2-dp-rep12-v2ao-rgb-glass_cylinder_100ml-p9902",
-              "object": "glass_cylinder_100ml",
-              "training_seed": 9902,
-              "gpu": 1,
-              "at": "2026-09-09T23:33:49.747895+00:00",
-              "protocol": "nosdf50r2(xy+-2cm,6s)",
-              "admission": "/data/safelab_fr3_eval_20260819/ppu_wave_sample_eval_20260821/t280_v2ao_20260910/models/dp-rep12-v2ao-rgb-glass_cylinder_100ml-p9902/admission.json",
-              "log_sha256": "8ad55ff8bc9628b4b615adf8b34390a2ff0cdabb096665a1c7b9c90ddc5dfbb2"
-            },
-            {
-              "state": "complete",
-              "reasons": [],
-              "exit_code": 0,
-              "task_success_count": 14,
-              "episode_count": 50,
-              "safety_metrics": {
-                "n_trials": 50,
-                "success_rate": 0.28,
-                "safe_success_rate": 0.28,
-                "violation_rate": 0.72,
-                "theta_dev_mean": 0.5326654303073883,
-                "f_peak_mean": 1556.1553692626953,
-                "delta_p_mean": 151.96878168344497,
-                "theta_dev_valid_count": 50,
-                "f_peak_valid_count": 50,
-                "delta_p_valid_count": 50,
-                "theta_dev_coverage": 1,
-                "f_peak_coverage": 1,
-                "delta_p_coverage": 1
-              },
-              "candidate": "nosdf50r2-dp-rep12-v2ao-rgb-plastic_cylinder_100ml-p9902",
-              "object": "plastic_cylinder_100ml",
-              "training_seed": 9902,
-              "gpu": 1,
-              "at": "2026-09-10T00:18:09.151929+00:00",
-              "protocol": "nosdf50r2(xy+-2cm,6s)",
-              "admission": "/data/safelab_fr3_eval_20260819/ppu_wave_sample_eval_20260821/t280_v2ao_20260910/models/dp-rep12-v2ao-rgb-plastic_cylinder_100ml-p9902/admission.json",
-              "log_sha256": "833beed74bdc95f9d2fd06efaa17ea63c0805f6b35648b4c3a3d7b42cd25b418"
-            }
-          ],
-          "state": "queue_terminal",
-          "updated_at": "2026-09-10T00:18:09.152460+00:00",
-          "candidate": "nosdf50r2-dp-rep12-v2ao-rgb-plastic_cylinder_100ml-p9902",
-          "child_pid": null,
-          "episode_count": 49,
-          "log_bytes": 50564
-        }
-      ],
-      "candidates": 8,
-      "gpus": [
-        0,
-        1
-      ],
-      "initialization_to_episode_progress_verified": true,
-      "root": "/data/safelab_fr3_eval_20260819/ppu_wave_sample_eval_20260821/t280_v2ao_20260910",
-      "act_successors": {
-        "state": "both_original_v2_bridges_naturally_completed",
-        "result_counts": [
-          49,
-          37
-        ],
-        "safe_success_rate": [
-          0,
-          0
-        ],
-        "version": "v3 was reviewed/copied but never started; original v2 already finished before resumption. No unnecessary controller switch.",
-        "full_post_training_journey": "COMPLETE7999 receipt -> SHA admission -> GPU serial frontier -> formal50 actual terminal observed",
-        "spatial_metric_coverage": 0,
-        "safety_acceptance": false
-      },
-      "as_of": "2026-09-10T15:51:00+08:00",
-      "pp_r2": {
-        "state": "root_assertion_failed_before_valid_episodes",
-        "launched_at": "2026-09-10T16:08:12+08:00",
-        "controller_pid": 1557760,
-        "owned_child_sid": 1557951,
-        "gpu": 0,
-        "candidate": "t280-pp3-eefworld-p9821-r2",
-        "valid_episode_count": 0,
-        "actual_root_world": [
-          -1.649999976158142,
-          -5,
-          -0.010519921779632568
-        ],
-        "cleanup": "Exact candidate/cwd/UID/SID verified; own failed session stopped16:14, controller preserves invalid result",
-        "next": "Reconcile actual root inverse transform; no relaxed root assertion or blind retry"
-      }
+      "observed_at": "2026-09-10T19:01:59+08:00",
+      "state": "ACT_s3964_evaluating_on_GPU1",
+      "controller_pid": 1792114,
+      "child_pid": 2215431,
+      "episodes": 21,
+      "task_success_count": 20,
+      "final": false,
+      "s3965": "serial_successor_not_started",
+      "foreign_jobs_preserved": true
     },
     "local4090": {
-      "state": "T290_settle120_render120_probe3_active",
-      "as_of": "2026-09-10T16:10:00+08:00",
-      "guard": {
-        "task": "T-290",
-        "time": 1789027780.046222,
-        "state": "progress",
-        "formal_credit": 0,
-        "episodes": 0,
-        "audited": 0
-      },
-      "stage": {
-        "time": 1789027650.5117347,
-        "task": "T-290",
-        "state": "running",
-        "label": "settle120_render120_probe3",
-        "formal_credit": 0,
-        "pid": 2446661,
-        "argv": [
-          "/home/liyufeng/miniforge3/envs/chembench/bin/python",
-          "/home/liyufeng/lyf-back/chembench/pipeline/orchestrator.py",
-          "--config",
-          "/home/liyufeng/ops/safelab_collection_20260910/settle120_render120_probe3.yaml",
-          "--stage",
-          "collect",
-          "--task",
-          "handover",
-          "--object",
-          "plastic_cylinder_100ml",
-          "--preflight",
-          "strict",
-          "--max-retries",
-          "1"
-        ],
-        "gpu": [
-          "GPU-7e048773-6e99-b431-101d-8b45724cce9f",
-          "23535",
-          "0"
-        ],
-        "foreign": []
-      },
+      "observed_at": "2026-09-10T19:01:37+08:00",
+      "state": "T290_poseconverged_confirmation10_running",
+      "episodes": 7,
+      "audited": 7,
       "formal_credit": 0,
-      "prior_failure": "render1203/3 did not generalize; confirmation694frame first episode cheststartup5.445>3 failed and own stage stopped. Original100 retained; replacement41 not started.",
-      "diagnostic_counterfactual": "same seed292 plus enable stable_z+settle120: first4frame object z span17.165->0.333mm; diagnostic JPEG chestMAE5.966->2.332; camera extrinsics unchanged. Diagnostic images are not strict encoded-video acceptance.",
-      "owner": "T290 active replacement session; root does not duplicate its collection controller"
+      "replacement41_admitted": false,
+      "owner": "independent T290 owner; not taken over"
     }
   },
   "collection": {
@@ -816,7 +292,29 @@
       "manual_review_pending": true
     },
     "fr3_existing": "two camera-contract pools each 50; not recollected",
-    "handover_prior_gap": "100 existing produced; 41 chest startup video gate failures; not accepted as clean 100"
+    "handover_prior_gap": "100 existing produced; 41 chest startup video gate failures; not accepted as clean 100",
+    "current": {
+      "pilot": {
+        "label": "contactnorm_poseconverged_probe3",
+        "episodes": 3,
+        "frames": 2120,
+        "videos": 9,
+        "strict_audit_pass": true,
+        "sampled_visual_review_pass": true,
+        "observed_at": "2026-09-10T18:11:56+08:00"
+      },
+      "confirmation": {
+        "observed_at": "2026-09-10T19:01:37+08:00",
+        "state": "T290_poseconverged_confirmation10_running",
+        "episodes": 7,
+        "audited": 7,
+        "formal_credit": 0,
+        "replacement41_admitted": false,
+        "owner": "independent T290 owner; not taken over"
+      },
+      "next": "all10 strict/video pass before separate replacement41",
+      "original100_unchanged": true
+    }
   },
   "evaluation": {
     "v2ao_total": 12,
@@ -1189,7 +687,7 @@
     ],
     "prior_pickplace_results": "results/pickplace_20260910.json",
     "known_prior": "ACT orig s3961 task43/50 but SSR0/50; DP9 candidates task0/50, SSR0/50",
-    "pending_diagnosis": "Offline EEF coordinate defect proven for PPp9821/p9831: same episode/noise, only EEF coordinate change gives13.14x/9.19x action MAE; not unique cause of all prior0/50. Physical R2 pending. v2ao alcohol/brown root-relative data unaffected. R2 new evidence: actual rootZ=-0.01051992178. Original offline replay usedZ0, so exact live-runtime error ratios and adapter must be revised; root assertion stopped invalid execution.",
+    "pending_diagnosis": "Actual same-frame root adapter was exercised by T308: both candidates completed valid3/exit0 but task0/3, no50 promotion. Inspect one p9831 same-seed trace for input/action/tracking/contact/transport and original terminal goal predicates. MissingSpatial is a frozen task-level invalid measurement, not a formatter loss; separate diagnostic geometry must not be relabeled formalSpatial or applied retrospectively.",
     "invalid_attempts": [
       {
         "state": "smoke_invalid",
@@ -1233,37 +731,30 @@
       }
     ],
     "pp_adapter": {
-      "status": "R2 passed native init but actual robot rootZ=-0.0105199 differs from offline assumed0; runtime assert correctly rejects before valid episodes",
+      "status": "R3_actual_same_frame_root_executed_both_valid3_task0",
+      "observed_at": "2026-09-10T18:54:33+08:00",
       "training_eef": "world",
       "runtime_eef": "robot-relative",
-      "opt_in": "allowlisted p9821/p9831 only",
-      "translation": [
-        -1.65,
-        -5,
-        0
+      "opt_in": "CHEMBENCH_DP_LEGACY_PP_EEF_LIVE_ROOT=1; exact p9821/p9831 hashes only; old fixed-root switch forbidden",
+      "translation_rule": "Add cloned robot root captured in same raw-observation frame before runner history; do not substitute a fixed nominal root",
+      "observed_root_world": [
+        [
+          -1.649999976158142,
+          -5,
+          -0.010519921779632568
+        ]
       ],
-      "verification": "5native+5EEF PASS; Isaac auto-registration callback isolated",
-      "runtime_receipt": {
-        "task": "T-280",
-        "native_resources": "PASS",
-        "compiled": "PASS",
-        "native_init": "PASS with Isaac auto-registration isolated; not full simulator",
-        "files": {
-          "pp_adapter_overlay/config/extension.toml": "19ff245aa1aa1951642608493acbfc41225426b0d6a4e7836c31fad2f3f6426e",
-          "pp_adapter_overlay/docs/README.md": "93c72ea116e1b8d7105ed78452946ef5674ec47e2b9299591271e955923f1a1b",
-          "pp_adapter_overlay/psilab_tasks/__init__.py": "1d450429d126edfb51af16e463b19deb3cf9590807f2d7f8194c6bc6e29992ec",
-          "pp_adapter_overlay/psilab_tasks/imitation_learning/base/base_il_task.py": "c496dab63f26f9cf9aa8574ae251d8778b47e4e59ea34a7a6feb24cd0f72f186",
-          "pp_adapter_overlay/psilab_tasks/imitation_learning/runners/dp_runner.py": "5bd7df591008e85ef9d435cec7cfcd0acd631d147f25ba37c3e3f34f9642652c",
-          "pp_adapter_overlay/psilab_tasks/imitation_learning/runners/legacy_pp_eef_adapter.py": "56543ca375f28fa7630b8caa71185a136b23e8538d25e9682a4c29d56ca7c819",
-          "eval_pp_eefworld_smoke3.sh": "af4f004fe6ec642d4a78df08e8f8dccd47b475420272e31d2e84fea5c188dfab",
-          "eval_pp_eefworld_formal50.sh": "b00e7dc73ada9eadfb55bee3a94928a71cc1f70603f2e4ca529d6134ab2bb5ad"
-        },
-        "source_base_sha256": "a1a2f3c01489e80d311845e44a633db19f378cef96243d1e71d8d90e321efb70",
-        "runtime_root_guard": "assert root [[-1.65,-5,0]], num_envs=1; physical runtime pending"
-      },
-      "first_smoke": "invalid before episodes: missing config/extension.toml; exit0 rejected, no policy score",
-      "next": "T289 reviewer prioritizes actual-root calibration and full XYZ inverse-transform tests under isolated scope; only then a fresh named R3. Existing R1/R2 retained, no policy score or50-credit.",
-      "offline_limit": "Original13.14x/9.19x replay used world vs synthetic root-relative withZ0. XY coordinate contract defect persists, but exact live-runtime comparison and full XYZ transform require recalculation with observed root."
+      "base_il_task_sha256": "c6410870075de5596fdb616e56cfdc6c4d832333bc48c78085c31d404e4cc77c",
+      "dp_runner_sha256": "68b8a78f67c40afb8f9e8398718b93ebc00d0b19faa28a1062e063391c7de9cc",
+      "helper_sha256": "8c52da9929ce16c5e3e4ad0b1b9f5ec6e2d2bbe181135edb8b5634ba314f3eb0",
+      "runtime_receipt_sha256": "be388b2e63d007d2e97486dee5c5991f33939da68c3d001b2a34081500e2b1a8",
+      "physical_owner": "T308 mainskill GPU6 p9821 and GPU7 p9831; no duplicate bjxy R3",
+      "results": "evaluation.r3_smoke_results",
+      "policy_repair_accepted": false,
+      "formal50_admitted": false,
+      "safety_acceptance": false,
+      "legacy_R1_R2_history": "evaluation.pp_history_1615 and invalid_attempts; preserved without policy-score credit",
+      "next": "Only independently reviewed one-episode p9831 observation recorder; original action, physics, predicates, thresholds and scoring unchanged."
     },
     "act_pickplace_results": [
       {
@@ -1335,7 +826,105 @@
         "all_safety_components_complete": false
       }
     ],
-    "volc_note": "T29416:04 recheck:6s s4001 shows final50 statistics38 successes/SSR0 but exit137 after statistics; preserve observed statistics, strict terminal validity pending.12s partial13/15 and9/10 are not formal50."
+    "volc_note": "T29416:04 recheck:6s s4001 shows final50 statistics38 successes/SSR0 but exit137 after statistics; preserve observed statistics, strict terminal validity pending.12s partial13/15 and9/10 are not formal50.",
+    "r3_smoke_results": {
+      "task": "T-308",
+      "at": 1789037673.3518178,
+      "state": "bounded_frontier_terminal",
+      "runtime_receipt_sha256": "be388b2e63d007d2e97486dee5c5991f33939da68c3d001b2a34081500e2b1a8",
+      "records": [
+        {
+          "gpu": 6,
+          "candidate": "t308-pp3-eefliveroot-p9821-r3-ms",
+          "exit_code": 0,
+          "task_success_count": 0,
+          "episodes": 3,
+          "legacy_ssr": 0,
+          "spatial_coverage": 0,
+          "log_sha256": "38e101759998983737d478b0c435bbe4d15313bf55386792de92d813da487cbe",
+          "console_sha256": "3442668dfe473f6f36ee9f8fb53b02b973061a16085dbc080832de5d0aebf019",
+          "controller_exited": true,
+          "owned_session_empty": true,
+          "formal50_not_started": true,
+          "result_regenerated_equal": true
+        },
+        {
+          "gpu": 7,
+          "candidate": "t308-pp3-eefliveroot-p9831-r3-ms",
+          "exit_code": 0,
+          "task_success_count": 0,
+          "episodes": 3,
+          "legacy_ssr": 0,
+          "spatial_coverage": 0,
+          "log_sha256": "780db037321767aa555c8d1b5f1442573cdabfcc5a6f11dfaa972d7ec935ff8d",
+          "console_sha256": "4564c56c338223dd29d6f838039d000e02f59d32c4a3e8831552aad82eb068c5",
+          "controller_exited": true,
+          "owned_session_empty": true,
+          "formal50_not_started": true,
+          "result_regenerated_equal": true
+        }
+      ],
+      "p9821_video_hashes": {
+        "episode_001.mp4": "06372902e535123f3eab7fd653db879566f5d055ca825f2bb2e3dd9147da359a",
+        "episode_002.mp4": "beebcb6d1d5bd547c46209d0aa87c4cc9390e0da802c9425d1f077e68da10e01",
+        "episode_003.mp4": "541fd3da84b23cdf531a6460935fe0b0d612b91ab6f62765db03d3e362f9cf2e"
+      },
+      "physical_contract_admitted": true,
+      "formal_credit": 0,
+      "paper_ssr": null,
+      "safety_acceptance": false
+    },
+    "new_act_repeat_progress": {
+      "observed_at": "2026-09-10T19:01:59+08:00",
+      "seed": 3964,
+      "episode_count": 21,
+      "task_success_count": 20,
+      "final": false,
+      "legacy_ssr": 0,
+      "spatial_coverage": 0,
+      "paper_ssr": null,
+      "safety_acceptance": false,
+      "next_seed": 3965
+    },
+    "current_pp_frontier": "R3 same-frame actual-root contract executed, both models valid3/task0, no50 promotion; R1/R2 and nine old0/50 retained. T312 diagnosis is separate from scoring, no shared evaluator or threshold changes.",
+    "pp_history_1615": {
+      "observed_at": "2026-09-10T16:15:00+08:00",
+      "historical": true,
+      "pending_diagnosis": "Offline EEF coordinate defect proven for PPp9821/p9831: same episode/noise, only EEF coordinate change gives13.14x/9.19x action MAE; not unique cause of all prior0/50. Physical R2 pending. v2ao alcohol/brown root-relative data unaffected. R2 new evidence: actual rootZ=-0.01051992178. Original offline replay usedZ0, so exact live-runtime error ratios and adapter must be revised; root assertion stopped invalid execution.",
+      "pp_adapter": {
+        "status": "R2 passed native init but actual robot rootZ=-0.0105199 differs from offline assumed0; runtime assert correctly rejects before valid episodes",
+        "training_eef": "world",
+        "runtime_eef": "robot-relative",
+        "opt_in": "allowlisted p9821/p9831 only",
+        "translation": [
+          -1.65,
+          -5,
+          0
+        ],
+        "verification": "5native+5EEF PASS; Isaac auto-registration callback isolated",
+        "runtime_receipt": {
+          "task": "T-280",
+          "native_resources": "PASS",
+          "compiled": "PASS",
+          "native_init": "PASS with Isaac auto-registration isolated; not full simulator",
+          "files": {
+            "pp_adapter_overlay/config/extension.toml": "19ff245aa1aa1951642608493acbfc41225426b0d6a4e7836c31fad2f3f6426e",
+            "pp_adapter_overlay/docs/README.md": "93c72ea116e1b8d7105ed78452946ef5674ec47e2b9299591271e955923f1a1b",
+            "pp_adapter_overlay/psilab_tasks/__init__.py": "1d450429d126edfb51af16e463b19deb3cf9590807f2d7f8194c6bc6e29992ec",
+            "pp_adapter_overlay/psilab_tasks/imitation_learning/base/base_il_task.py": "c496dab63f26f9cf9aa8574ae251d8778b47e4e59ea34a7a6feb24cd0f72f186",
+            "pp_adapter_overlay/psilab_tasks/imitation_learning/runners/dp_runner.py": "5bd7df591008e85ef9d435cec7cfcd0acd631d147f25ba37c3e3f34f9642652c",
+            "pp_adapter_overlay/psilab_tasks/imitation_learning/runners/legacy_pp_eef_adapter.py": "56543ca375f28fa7630b8caa71185a136b23e8538d25e9682a4c29d56ca7c819",
+            "eval_pp_eefworld_smoke3.sh": "af4f004fe6ec642d4a78df08e8f8dccd47b475420272e31d2e84fea5c188dfab",
+            "eval_pp_eefworld_formal50.sh": "b00e7dc73ada9eadfb55bee3a94928a71cc1f70603f2e4ca529d6134ab2bb5ad"
+          },
+          "source_base_sha256": "a1a2f3c01489e80d311845e44a633db19f378cef96243d1e71d8d90e321efb70",
+          "runtime_root_guard": "assert root [[-1.65,-5,0]], num_envs=1; physical runtime pending"
+        },
+        "first_smoke": "invalid before episodes: missing config/extension.toml; exit0 rejected, no policy score",
+        "next": "T289 reviewer prioritizes actual-root calibration and full XYZ inverse-transform tests under isolated scope; only then a fresh named R3. Existing R1/R2 retained, no policy score or50-credit.",
+        "offline_limit": "Original13.14x/9.19x replay used world vs synthetic root-relative withZ0. XY coordinate contract defect persists, but exact live-runtime comparison and full XYZ transform require recalculation with observed root."
+      }
+    }
   },
   "provenance": {
     "bjxy": {
@@ -1439,83 +1028,1030 @@
         "protocol": "nosdf50r2(xy+-2cm,6s)",
         "trusted_artifact_only": true
       }
-    ]
+    ],
+    "new_training_completion": {
+      "task": "T-301",
+      "at": "2026-09-10T10:53:39.207410+00:00",
+      "verification": "Producer receipts and all three artifacts independently read and hashed on ali_ppu by verify_repeat_completion.py",
+      "all_complete": true,
+      "evaluation_acceptance": false,
+      "jobs": [
+        {
+          "name": "act-ppmforig-raw8k-s3964-ppu0-t281",
+          "epoch": 7999,
+          "state": "COMPLETE",
+          "receipt_sha256": "547d8eaf99d9454ec4a5445a80f1b53d46121017d6e60bd8b1557283167e9496",
+          "checkpoints": {
+            "policy_best.ckpt": {
+              "bytes": 336742322,
+              "sha256": "d0e99d42c3528ca3c773c8c3b0d797f8cae67f8d0472745be75dca4c0919defc"
+            },
+            "policy_last.ckpt": {
+              "bytes": 336747122,
+              "sha256": "e768911b38f9509034871e968c1260784482568e357503f7fa70ed0d343690b1"
+            },
+            "dataset_stats.pkl": {
+              "bytes": 6824,
+              "sha256": "66b004b1e8901c2a92851d58897c5558516b2a014dbef1fe9c6a257fb8d59fbd"
+            }
+          }
+        },
+        {
+          "name": "act-ppmforig-raw8k-s3965-ppu1-t281",
+          "epoch": 7999,
+          "state": "COMPLETE",
+          "receipt_sha256": "8696924c9e6746f0c99c79be9b541c813369672afffc311eeeec52baa26116ea",
+          "checkpoints": {
+            "policy_best.ckpt": {
+              "bytes": 336742322,
+              "sha256": "6e6bf0af98f35e98934bad546de4c1f8d081616acebbf05efadaa5f796b4cc39"
+            },
+            "policy_last.ckpt": {
+              "bytes": 336747122,
+              "sha256": "82c4a0cc3afb6c1e08bc22c7c0e0e0fd9ab252a754f60229a0c03c5283e6cdf6"
+            },
+            "dataset_stats.pkl": {
+              "bytes": 6824,
+              "sha256": "66b004b1e8901c2a92851d58897c5558516b2a014dbef1fe9c6a257fb8d59fbd"
+            }
+          }
+        }
+      ]
+    },
+    "r3_runtime_receipt_sha256": "be388b2e63d007d2e97486dee5c5991f33939da68c3d001b2a34081500e2b1a8",
+    "r3_parent_approval_sha256": "db8738b05faeb667a9282534ccc57ca577f575e28c936c6dc09f16c05015e86a"
   },
   "verification": {
-    "local_and_bjxy_terminal_tests": 9,
-    "python_compile": "PASS",
-    "shell_syntax": "PASS",
-    "agentctl_manual": "PASS",
-    "full_experiment_completion": "not claimed",
-    "act_bridge_full_post_training_e2e": "Observed with original v2, both functional50 complete; v3 new exception gates reviewed but not deployed into a live bridge",
-    "foreign_preemption": false,
-    "driver_or_host_trust_changes": false,
-    "root_retry_tests": "Local and bjxy22 unittest invocations PASS (includes inherited duplicates), compilePASS; T289 independent fullCLI ENOSPC oldcleanup0/newcleanup1 under-held-lock and ordinary log-error hold-order verified at bound R2 SHA1b4d7db...",
-    "orchestration_fixes": [
-      "Real PhysX code2/700 fatal detection",
-      "timeout --foreground and all owned-SID process groups cleanup",
-      "final-record failure blocks successors"
-    ],
-    "incidents": [
-      "First PP smoke invalid before episodes due missing extension metadata; record retained.",
-      "Initial root-guard source copy was truncated and temporarily deployed despite failed compile; full source restored and local/remote compile verified before R2. Shared source untouched.",
-      "Native README byte check caught extra terminal newline; corrected before admission."
-    ],
-    "remaining": [
-      "PP actual-rootXYZ adapter recalibration/newR3 full Isaac and physical repair pending",
-      "handover latest3probe/10confirmation/41replacement pending",
-      "ACT safetySSR0 and spatialcoverage0, no safety acceptance",
-      "Global historical experiment ERROR/scan-limit PARTIAL"
-    ],
-    "r2_independent_fault_injection": {
-      "task": "T-289",
-      "verdict": "PASS scoped cleanup regression",
-      "red": {
-        "source_sha256": "f5411fa2b38d91d32e3c9e7ea246f4e21d00ce7f65959d866a985e949f2547d5",
-        "storage_failure": true,
-        "outcome": "ENOSPC propagated",
-        "events": [
-          "owned_child_started",
-          "write_failed:pp_retry_r2.json",
-          "write_failed:gpu_hold0.json"
-        ],
-        "cleanup_calls": 0,
-        "hold_persisted": false,
-        "gate_released_after_unwind": true
+    "historical_1615": "See historical_1615.verification; earlier gates retain their original time, not current launch assertions",
+    "training_all_six_files_verified": true,
+    "r3_author_and_independent_gate_counts": {
+      "author_tests": 16,
+      "independent_tests": 14,
+      "dynamic_shell_cases": 6,
+      "attest_scenarios": 18,
+      "actual_prepare_cases": 4
+    },
+    "r3_final": {
+      "task": "T-308",
+      "at": 1789037673.3518178,
+      "state": "bounded_frontier_terminal",
+      "runtime_receipt_sha256": "be388b2e63d007d2e97486dee5c5991f33939da68c3d001b2a34081500e2b1a8",
+      "records": [
+        {
+          "gpu": 6,
+          "candidate": "t308-pp3-eefliveroot-p9821-r3-ms",
+          "exit_code": 0,
+          "task_success_count": 0,
+          "episodes": 3,
+          "legacy_ssr": 0,
+          "spatial_coverage": 0,
+          "log_sha256": "38e101759998983737d478b0c435bbe4d15313bf55386792de92d813da487cbe",
+          "console_sha256": "3442668dfe473f6f36ee9f8fb53b02b973061a16085dbc080832de5d0aebf019",
+          "controller_exited": true,
+          "owned_session_empty": true,
+          "formal50_not_started": true,
+          "result_regenerated_equal": true
+        },
+        {
+          "gpu": 7,
+          "candidate": "t308-pp3-eefliveroot-p9831-r3-ms",
+          "exit_code": 0,
+          "task_success_count": 0,
+          "episodes": 3,
+          "legacy_ssr": 0,
+          "spatial_coverage": 0,
+          "log_sha256": "780db037321767aa555c8d1b5f1442573cdabfcc5a6f11dfaa972d7ec935ff8d",
+          "console_sha256": "4564c56c338223dd29d6f838039d000e02f59d32c4a3e8831552aad82eb068c5",
+          "controller_exited": true,
+          "owned_session_empty": true,
+          "formal50_not_started": true,
+          "result_regenerated_equal": true
+        }
+      ],
+      "p9821_video_hashes": {
+        "episode_001.mp4": "06372902e535123f3eab7fd653db879566f5d055ca825f2bb2e3dd9147da359a",
+        "episode_002.mp4": "beebcb6d1d5bd547c46209d0aa87c4cc9390e0da802c9425d1f077e68da10e01",
+        "episode_003.mp4": "541fd3da84b23cdf531a6460935fe0b0d612b91ab6f62765db03d3e362f9cf2e"
       },
-      "green": {
-        "source_sha256": "1b4d7db08f3ad45ac3725d6d1718e05607108f83a686d2ccd458fc39bf367475",
-        "storage_failure": true,
-        "outcome": "ENOSPC propagated",
-        "events": [
-          "owned_child_started",
-          "write_failed:pp_retry_r2.json",
-          "write_failed:gpu_hold0.json",
-          "owned_cleanup_while_gpu_gate_held"
-        ],
-        "cleanup_calls": 1,
-        "hold_persisted": false,
-        "gate_released_after_unwind": true
-      },
-      "ordinary_log_failure": {
-        "source_sha256": "1b4d7db08f3ad45ac3725d6d1718e05607108f83a686d2ccd458fc39bf367475",
-        "storage_failure": false,
-        "outcome": "needs_review exit4",
-        "events": [
-          "owned_child_started",
-          "owned_cleanup_while_gpu_gate_held"
-        ],
-        "cleanup_calls": 1,
-        "hold_persisted": true,
-        "gate_released_after_unwind": true
-      },
-      "hold_after_lock": {
-        "hold_added_at_acquisition": true,
-        "spawn_count": 0,
-        "state": "needs_review"
-      },
-      "limit": "Storage unavailable means durable hold cannot be promised; cleanup must still run before gate release. Full CLI invoked with synthetic process/admission collaborators, no actual simulator."
+      "physical_contract_admitted": true,
+      "formal_credit": 0,
+      "paper_ssr": null,
+      "safety_acceptance": false
+    },
+    "public_delivery": "Publication is evidenced by the separate merged PR/Pages/served-byte receipt, not inferred from candidate verification. Prior v12.19 delivery: PR72; this snapshot has its own review-bound hashes.",
+    "parent_r3_source_replay": {
+      "task": "T-301",
+      "at": "2026-09-10T11:16:28.001969+00:00",
+      "gate_sha256": "6a17c731875141d0275ab0eb657c016daf5671b72a153529d4acc4a330ee3b4c",
+      "records": [
+        {
+          "candidate": "t308-pp3-eefliveroot-p9821-r3-ms",
+          "raw_result_sha256": "3def2aafd6e396464818d0c175764a1b909c72fa08faff8ee73f57a25d38366b",
+          "raw_progress_sha256": "59dd1131025d1bac19a522f6aec73fc80880a80cda39d77421119b48cbeb20b7",
+          "source_log_sha256": "38e101759998983737d478b0c435bbe4d15313bf55386792de92d813da487cbe",
+          "source_console_sha256": "3442668dfe473f6f36ee9f8fb53b02b973061a16085dbc080832de5d0aebf019",
+          "gate_regeneration_equal": true,
+          "valid_smoke_episodes": 3,
+          "task_success_count": 0,
+          "formal_credit": 0,
+          "paper_ssr": null
+        },
+        {
+          "candidate": "t308-pp3-eefliveroot-p9831-r3-ms",
+          "raw_result_sha256": "e03a8909f11d96a6731bf7bf060bdc2a318ceaa04e020dfe288326234de4f36c",
+          "raw_progress_sha256": "d65028fbe4c1187e0e3f0d9469017a44b9b94f1972e27bd8158a34eeeb119f83",
+          "source_log_sha256": "780db037321767aa555c8d1b5f1442573cdabfcc5a6f11dfaa972d7ec935ff8d",
+          "source_console_sha256": "4564c56c338223dd29d6f838039d000e02f59d32c4a3e8831552aad82eb068c5",
+          "gate_regeneration_equal": true,
+          "valid_smoke_episodes": 3,
+          "task_success_count": 0,
+          "formal_credit": 0,
+          "paper_ssr": null
+        }
+      ],
+      "all_checks_passed": true
     }
   },
-  "snapshot_note": "Each live record has its own timestamp; not continuous realtime or experiment completion."
+  "snapshot_note": "19:10 aggregation of explicitly timestamped observations. Intermediate ACT20/21 is not a50-trial final. R3 task0/3 is a valid failed policy smoke, not an invalid run or successful repair. Original scriptSSR0 is retained; paper-comparableSSR is unavailable because Spatial is unmeasured. GPUs are not claimed fully utilized. historical_1615 preserves prior time-bound fleet/gate state; unchanged historical evaluation records are not new results.",
+  "historical_1615": {
+    "as_of": "2026-09-10T16:15:00+08:00",
+    "fleet": {
+      "30109": {
+        "state": "all_8_gpus_foreign_occupied",
+        "role": "trusted SSH and streaming model relay",
+        "gpu_allocated_to_this_dispatch": 0,
+        "foreign_jobs_preserved": true
+      },
+      "aliyun": {
+        "controller": 687303,
+        "training": [
+          {
+            "name": "act-ppmforig-raw8k-s3962-ppu0-t281",
+            "seed": 3962,
+            "gpu": 0,
+            "admitted": true,
+            "state": "COMPLETE",
+            "epoch": 7999,
+            "pid": 687738,
+            "log": "/mnt/data/safelab/t283_ppu_20260910/runs/act-ppmforig-raw8k-s3962-ppu0-t281/train.log",
+            "checkpoints": {
+              "policy_best.ckpt": {
+                "bytes": 336742322,
+                "sha256": "e13d945f1f735cfcd642b9f8a41b77019d70a2e4784202ebbb7128b57737dd08"
+              },
+              "policy_last.ckpt": {
+                "bytes": 336747122,
+                "sha256": "e7bda70e3c9d1510cc2fb6199911987495318293204156cc18c0e25d8cdd2407"
+              },
+              "dataset_stats.pkl": {
+                "bytes": 6824,
+                "sha256": "66b004b1e8901c2a92851d58897c5558516b2a014dbef1fe9c6a257fb8d59fbd"
+              }
+            }
+          },
+          {
+            "name": "act-ppmforig-raw8k-s3963-ppu1-t281",
+            "seed": 3963,
+            "gpu": 1,
+            "admitted": true,
+            "after_progress": "act-ppmforig-raw8k-s3962-ppu0-t281",
+            "state": "COMPLETE",
+            "epoch": 7999,
+            "pid": 689055,
+            "log": "/mnt/data/safelab/t283_ppu_20260910/runs/act-ppmforig-raw8k-s3963-ppu1-t281/train.log",
+            "checkpoints": {
+              "policy_best.ckpt": {
+                "bytes": 336742322,
+                "sha256": "bca3ce68778350f588aae5c794ab3bd567499c9185cb68ea27fb13d4d64198e6"
+              },
+              "policy_last.ckpt": {
+                "bytes": 336747122,
+                "sha256": "563a3b4d39a377cca1c9731d1cd04965e335325b2200e3275f9318d7c4fd969b"
+              },
+              "dataset_stats.pkl": {
+                "bytes": 6824,
+                "sha256": "66b004b1e8901c2a92851d58897c5558516b2a014dbef1fe9c6a257fb8d59fbd"
+              }
+            }
+          }
+        ],
+        "verification": "Both exact COMPLETE7999 receipts retrieved and automatically consumed by original ACT evaluation bridges. Earlier utilization samples removed from current snapshot.",
+        "next": "Evaluate whether two additional same-source/recipe repetitions would complete a predefined5-run variance comparison; not admitted yet. No other-object expansion before owner first-object gate.",
+        "as_of": "2026-09-10T15:53:00+08:00"
+      },
+      "mainskill": {
+        "as_of": "2026-09-10T08:01:03Z",
+        "state": "both_queues_exhausted",
+        "cards": [
+          6,
+          7
+        ],
+        "gpu_snapshot": "6, GPU-3d4e7515-a762-7159-7525-c4b935ad9dd8, 0 %, 3 MiB\n7, GPU-fd7b49d0-672c-e7a8-ad06-c66ba554be18, 0 %, 3 MiB\n",
+        "queues": {
+          "6": {
+            "state": "queue_exhausted",
+            "gpu": 6,
+            "pid": 925739,
+            "time": 1788996246.941226,
+            "process_now": null
+          },
+          "7": {
+            "state": "queue_exhausted",
+            "gpu": 7,
+            "pid": 949092,
+            "time": 1788997808.708034,
+            "process_now": null
+          }
+        },
+        "final_model_count": 4,
+        "evidence": [
+          {
+            "candidate": "ms-r2-dp-rep12-v2ao-rgb-brown_reagent_bottle_large-p9901",
+            "queue_result_path": "/home/dataset-local/yf_recovery/t282_a100_20260910/eval/ms-r2-dp-rep12-v2ao-rgb-brown_reagent_bottle_large-p9901/queue_result.json",
+            "queue_result_sha256": "dc55d69bcbe03ea1d5d12cbbebdb7bef758f255ca569efb4119c1511f5b445eb",
+            "actual_log_sha256": "a3a3116df729e958785dbe3e3da52bdda3f8fc3ef0b1e248fa313a005707184e",
+            "recorded_log_sha256_matches": true,
+            "recomputed_terminal": {
+              "complete": true,
+              "state": "complete",
+              "reasons": [],
+              "exit_code": 0,
+              "episode_count": 50,
+              "task_success_count": 4,
+              "safety_metrics": {
+                "n_trials": 50,
+                "success_rate": 0.08,
+                "safe_success_rate": 0.08,
+                "violation_rate": 0.92,
+                "theta_dev_mean": 0.558390150256455,
+                "f_peak_mean": 919.90537109375,
+                "delta_p_mean": 198.8538468003273,
+                "theta_dev_valid_count": 50,
+                "f_peak_valid_count": 50,
+                "delta_p_valid_count": 50,
+                "theta_dev_coverage": 1,
+                "f_peak_coverage": 1,
+                "delta_p_coverage": 1
+              },
+              "protocol": "nosdf50r2_xy2cm_len6s_seed42_center_crop"
+            }
+          },
+          {
+            "candidate": "ms-r2-dp-rep12-v2ao-rgb-brown_reagent_bottle_large-p9902",
+            "queue_result_path": "/home/dataset-local/yf_recovery/t282_a100_20260910/eval/ms-r2-dp-rep12-v2ao-rgb-brown_reagent_bottle_large-p9902/queue_result.json",
+            "queue_result_sha256": "5b8573f5eab1943eb426257f04aa26ac459c7f3a3cb10ba96ea1430c6e09dc91",
+            "actual_log_sha256": "d8899faf25eee7339b90313548648b07cfef4b8ffe4bb955301f7e6278f16912",
+            "recorded_log_sha256_matches": true,
+            "recomputed_terminal": {
+              "complete": true,
+              "state": "complete",
+              "reasons": [],
+              "exit_code": 0,
+              "episode_count": 50,
+              "task_success_count": 0,
+              "safety_metrics": {
+                "n_trials": 50,
+                "success_rate": 0,
+                "safe_success_rate": 0,
+                "violation_rate": 1,
+                "theta_dev_mean": 0.708199683278799,
+                "f_peak_mean": 1047.0642460632325,
+                "delta_p_mean": 226.23992782592774,
+                "theta_dev_valid_count": 50,
+                "f_peak_valid_count": 50,
+                "delta_p_valid_count": 50,
+                "theta_dev_coverage": 1,
+                "f_peak_coverage": 1,
+                "delta_p_coverage": 1
+              },
+              "protocol": "nosdf50r2_xy2cm_len6s_seed42_center_crop"
+            }
+          },
+          {
+            "candidate": "ms-r2-dp-rep12-v2ao-rgb-clear_reagent_bottle_small-p9901",
+            "queue_result_path": "/home/dataset-local/yf_recovery/t282_a100_20260910/eval/ms-r2-dp-rep12-v2ao-rgb-clear_reagent_bottle_small-p9901/queue_result.json",
+            "queue_result_sha256": "f5f0ce67fb54c1ab5d643602d69a90476e1bd5c5b9c3c8fd9e733e6cd1410a47",
+            "actual_log_sha256": "eb614b4c7d6cc0d778bfb003fadf41a51e65238b64457156af5cbb44a82869bb",
+            "recorded_log_sha256_matches": true,
+            "recomputed_terminal": {
+              "complete": true,
+              "state": "complete",
+              "reasons": [],
+              "exit_code": 0,
+              "episode_count": 50,
+              "task_success_count": 38,
+              "safety_metrics": {
+                "n_trials": 50,
+                "success_rate": 0.76,
+                "safe_success_rate": 0.76,
+                "violation_rate": 0.24,
+                "theta_dev_mean": 0.2514274540543556,
+                "f_peak_mean": 550.1237945556641,
+                "delta_p_mean": 32.68346329808235,
+                "theta_dev_valid_count": 50,
+                "f_peak_valid_count": 50,
+                "delta_p_valid_count": 50,
+                "theta_dev_coverage": 1,
+                "f_peak_coverage": 1,
+                "delta_p_coverage": 1
+              },
+              "protocol": "nosdf50r2_xy2cm_len6s_seed42_center_crop"
+            }
+          },
+          {
+            "candidate": "ms-r2-dp-rep12-v2ao-rgb-clear_reagent_bottle_small-p9902",
+            "queue_result_path": "/home/dataset-local/yf_recovery/t282_a100_20260910/eval/ms-r2-dp-rep12-v2ao-rgb-clear_reagent_bottle_small-p9902/queue_result.json",
+            "queue_result_sha256": "d1bd6732caea234fc262639af52b8b5d6edf7ee819e0c0946ae97e61f8ffb9f5",
+            "actual_log_sha256": "4afb6aef24c5ae9dffd2e7db992a1022f8aa3e40d57e097e3118627e4686fc5a",
+            "recorded_log_sha256_matches": true,
+            "recomputed_terminal": {
+              "complete": true,
+              "state": "complete",
+              "reasons": [],
+              "exit_code": 0,
+              "episode_count": 50,
+              "task_success_count": 27,
+              "safety_metrics": {
+                "n_trials": 50,
+                "success_rate": 0.54,
+                "safe_success_rate": 0.54,
+                "violation_rate": 0.46,
+                "theta_dev_mean": 0.3881216950714588,
+                "f_peak_mean": 1377.0150573730468,
+                "delta_p_mean": 71.67864998817444,
+                "theta_dev_valid_count": 50,
+                "f_peak_valid_count": 50,
+                "delta_p_valid_count": 50,
+                "theta_dev_coverage": 1,
+                "f_peak_coverage": 1,
+                "delta_p_coverage": 1
+              },
+              "protocol": "nosdf50r2_xy2cm_len6s_seed42_center_crop"
+            }
+          }
+        ]
+      },
+      "bjxy_5090": {
+        "queues": [
+          {
+            "task": "T-280",
+            "gpu": 0,
+            "pid": 3637722,
+            "started_at": "2026-09-09T22:25:09.999111+00:00",
+            "items": [
+              {
+                "state": "complete",
+                "reasons": [],
+                "exit_code": 0,
+                "task_success_count": 0,
+                "episode_count": 50,
+                "safety_metrics": {
+                  "n_trials": 50,
+                  "success_rate": 0,
+                  "safe_success_rate": 0,
+                  "violation_rate": 1,
+                  "theta_dev_mean": 0.9362106454372406,
+                  "f_peak_mean": 1594.2555786132812,
+                  "delta_p_mean": 163.59410636901856,
+                  "theta_dev_valid_count": 50,
+                  "f_peak_valid_count": 50,
+                  "delta_p_valid_count": 50,
+                  "theta_dev_coverage": 1,
+                  "f_peak_coverage": 1,
+                  "delta_p_coverage": 1
+                },
+                "candidate": "nosdf50r2-dp-rep12-v2ao-rgb-alcohol_lamp-p9901",
+                "gpu": 0,
+                "at": "2026-09-09T22:25:09.855710+00:00",
+                "log_sha256": "e32e046b43d153e0dd4583d61e5b731b6b59c26d6ef68ba22968cab45bbc785b",
+                "boundary_takeover": "/data/safelab_fr3_eval_20260819/ppu_wave_sample_eval_20260821/t280_v2ao_20260910/boundary_takeover_gpu0.json"
+              },
+              {
+                "state": "complete",
+                "reasons": [],
+                "exit_code": 0,
+                "task_success_count": 40,
+                "episode_count": 50,
+                "safety_metrics": {
+                  "n_trials": 50,
+                  "success_rate": 0.8,
+                  "safe_success_rate": 0.8,
+                  "violation_rate": 0.2,
+                  "theta_dev_mean": 0.13269270416349171,
+                  "f_peak_mean": 405.27151062011717,
+                  "delta_p_mean": 59.76381160736084,
+                  "theta_dev_valid_count": 50,
+                  "f_peak_valid_count": 50,
+                  "delta_p_valid_count": 50,
+                  "theta_dev_coverage": 1,
+                  "f_peak_coverage": 1,
+                  "delta_p_coverage": 1
+                },
+                "candidate": "nosdf50r2-dp-rep12-v2ao-rgb-clear_volumetric_flask_250ml-p9901",
+                "object": "clear_volumetric_flask_250ml",
+                "training_seed": 9901,
+                "gpu": 0,
+                "at": "2026-09-09T22:52:29.262967+00:00",
+                "protocol": "nosdf50r2(xy+-2cm,6s)",
+                "admission": "/data/safelab_fr3_eval_20260819/ppu_wave_sample_eval_20260821/t280_v2ao_20260910/models/dp-rep12-v2ao-rgb-clear_volumetric_flask_250ml-p9901/admission.json",
+                "log_sha256": "6999a763241ae76002a7cf279d42e3a61dd241798ca35bfdf764993616e9719c"
+              },
+              {
+                "state": "complete",
+                "reasons": [],
+                "exit_code": 0,
+                "task_success_count": 10,
+                "episode_count": 50,
+                "safety_metrics": {
+                  "n_trials": 50,
+                  "success_rate": 0.2,
+                  "safe_success_rate": 0.2,
+                  "violation_rate": 0.8,
+                  "theta_dev_mean": 0.4888498066365719,
+                  "f_peak_mean": 1092.1333638954163,
+                  "delta_p_mean": 150.68303663253783,
+                  "theta_dev_valid_count": 50,
+                  "f_peak_valid_count": 50,
+                  "delta_p_valid_count": 50,
+                  "theta_dev_coverage": 1,
+                  "f_peak_coverage": 1,
+                  "delta_p_coverage": 1
+                },
+                "candidate": "nosdf50r2-dp-rep12-v2ao-rgb-glass_cylinder_100ml-p9901",
+                "object": "glass_cylinder_100ml",
+                "training_seed": 9901,
+                "gpu": 0,
+                "at": "2026-09-09T23:34:49.836933+00:00",
+                "protocol": "nosdf50r2(xy+-2cm,6s)",
+                "admission": "/data/safelab_fr3_eval_20260819/ppu_wave_sample_eval_20260821/t280_v2ao_20260910/models/dp-rep12-v2ao-rgb-glass_cylinder_100ml-p9901/admission.json",
+                "log_sha256": "f892072fdcf13f42433e71bddfd1c3e7e29ad586b63f3698f14e76c3f8d70d88"
+              },
+              {
+                "state": "complete",
+                "reasons": [],
+                "exit_code": 0,
+                "task_success_count": 7,
+                "episode_count": 50,
+                "safety_metrics": {
+                  "n_trials": 50,
+                  "success_rate": 0.14,
+                  "safe_success_rate": 0.14,
+                  "violation_rate": 0.86,
+                  "theta_dev_mean": 0.4250379276275635,
+                  "f_peak_mean": 1209.3382189178467,
+                  "delta_p_mean": 147.16048860549927,
+                  "theta_dev_valid_count": 50,
+                  "f_peak_valid_count": 50,
+                  "delta_p_valid_count": 50,
+                  "theta_dev_coverage": 1,
+                  "f_peak_coverage": 1,
+                  "delta_p_coverage": 1
+                },
+                "candidate": "nosdf50r2-dp-rep12-v2ao-rgb-plastic_cylinder_100ml-p9901",
+                "object": "plastic_cylinder_100ml",
+                "training_seed": 9901,
+                "gpu": 0,
+                "at": "2026-09-10T00:18:48.747834+00:00",
+                "protocol": "nosdf50r2(xy+-2cm,6s)",
+                "admission": "/data/safelab_fr3_eval_20260819/ppu_wave_sample_eval_20260821/t280_v2ao_20260910/models/dp-rep12-v2ao-rgb-plastic_cylinder_100ml-p9901/admission.json",
+                "log_sha256": "3726582bd5c7094ef5984df0b56af3b0e64c4b5fe860fd4f74294c6fd9979429"
+              }
+            ],
+            "state": "queue_terminal",
+            "updated_at": "2026-09-10T00:18:48.748377+00:00",
+            "candidate": "nosdf50r2-dp-rep12-v2ao-rgb-plastic_cylinder_100ml-p9901",
+            "child_pid": null,
+            "episode_count": 50,
+            "log_bytes": 51267
+          },
+          {
+            "task": "T-280",
+            "gpu": 1,
+            "pid": 3628646,
+            "started_at": "2026-09-09T22:23:09.555654+00:00",
+            "items": [
+              {
+                "state": "complete",
+                "reasons": [],
+                "exit_code": 0,
+                "task_success_count": 8,
+                "episode_count": 50,
+                "safety_metrics": {
+                  "n_trials": 50,
+                  "success_rate": 0.16,
+                  "safe_success_rate": 0.16,
+                  "violation_rate": 0.84,
+                  "theta_dev_mean": 0.7010590049624443,
+                  "f_peak_mean": 2625.4411522221567,
+                  "delta_p_mean": 131.5053654694557,
+                  "theta_dev_valid_count": 50,
+                  "f_peak_valid_count": 50,
+                  "delta_p_valid_count": 50,
+                  "theta_dev_coverage": 1,
+                  "f_peak_coverage": 1,
+                  "delta_p_coverage": 1
+                },
+                "candidate": "nosdf50r2-dp-rep12-v2ao-rgb-alcohol_lamp-p9902",
+                "gpu": 1,
+                "at": "2026-09-09T22:21:39.114893+00:00",
+                "log_sha256": "4688e25ca4376b14646e3b3f33783764f444d2bbfcb3271dfbf035d04b79c479",
+                "boundary_takeover": "/data/safelab_fr3_eval_20260819/ppu_wave_sample_eval_20260821/t280_v2ao_20260910/boundary_takeover_gpu1.json"
+              },
+              {
+                "state": "complete",
+                "reasons": [],
+                "exit_code": 0,
+                "task_success_count": 36,
+                "episode_count": 50,
+                "safety_metrics": {
+                  "n_trials": 50,
+                  "success_rate": 0.72,
+                  "safe_success_rate": 0.72,
+                  "violation_rate": 0.28,
+                  "theta_dev_mean": 0.14047010779380797,
+                  "f_peak_mean": 382.7264877319336,
+                  "delta_p_mean": 76.60613151550292,
+                  "theta_dev_valid_count": 50,
+                  "f_peak_valid_count": 50,
+                  "delta_p_valid_count": 50,
+                  "theta_dev_coverage": 1,
+                  "f_peak_coverage": 1,
+                  "delta_p_coverage": 1
+                },
+                "candidate": "nosdf50r2-dp-rep12-v2ao-rgb-clear_volumetric_flask_250ml-p9902",
+                "object": "clear_volumetric_flask_250ml",
+                "training_seed": 9902,
+                "gpu": 1,
+                "at": "2026-09-09T22:54:59.084997+00:00",
+                "protocol": "nosdf50r2(xy+-2cm,6s)",
+                "admission": "/data/safelab_fr3_eval_20260819/ppu_wave_sample_eval_20260821/t280_v2ao_20260910/models/dp-rep12-v2ao-rgb-clear_volumetric_flask_250ml-p9902/admission.json",
+                "log_sha256": "058bfa3353e60dda595bf9289be29a1a930e235e1ab0678ede6ed778390e05b2"
+              },
+              {
+                "state": "complete",
+                "reasons": [],
+                "exit_code": 0,
+                "task_success_count": 21,
+                "episode_count": 50,
+                "safety_metrics": {
+                  "n_trials": 50,
+                  "success_rate": 0.42,
+                  "safe_success_rate": 0.42,
+                  "violation_rate": 0.58,
+                  "theta_dev_mean": 0.2677750431001186,
+                  "f_peak_mean": 1307.180770831108,
+                  "delta_p_mean": 92.55190771102906,
+                  "theta_dev_valid_count": 50,
+                  "f_peak_valid_count": 50,
+                  "delta_p_valid_count": 50,
+                  "theta_dev_coverage": 1,
+                  "f_peak_coverage": 1,
+                  "delta_p_coverage": 1
+                },
+                "candidate": "nosdf50r2-dp-rep12-v2ao-rgb-glass_cylinder_100ml-p9902",
+                "object": "glass_cylinder_100ml",
+                "training_seed": 9902,
+                "gpu": 1,
+                "at": "2026-09-09T23:33:49.747895+00:00",
+                "protocol": "nosdf50r2(xy+-2cm,6s)",
+                "admission": "/data/safelab_fr3_eval_20260819/ppu_wave_sample_eval_20260821/t280_v2ao_20260910/models/dp-rep12-v2ao-rgb-glass_cylinder_100ml-p9902/admission.json",
+                "log_sha256": "8ad55ff8bc9628b4b615adf8b34390a2ff0cdabb096665a1c7b9c90ddc5dfbb2"
+              },
+              {
+                "state": "complete",
+                "reasons": [],
+                "exit_code": 0,
+                "task_success_count": 14,
+                "episode_count": 50,
+                "safety_metrics": {
+                  "n_trials": 50,
+                  "success_rate": 0.28,
+                  "safe_success_rate": 0.28,
+                  "violation_rate": 0.72,
+                  "theta_dev_mean": 0.5326654303073883,
+                  "f_peak_mean": 1556.1553692626953,
+                  "delta_p_mean": 151.96878168344497,
+                  "theta_dev_valid_count": 50,
+                  "f_peak_valid_count": 50,
+                  "delta_p_valid_count": 50,
+                  "theta_dev_coverage": 1,
+                  "f_peak_coverage": 1,
+                  "delta_p_coverage": 1
+                },
+                "candidate": "nosdf50r2-dp-rep12-v2ao-rgb-plastic_cylinder_100ml-p9902",
+                "object": "plastic_cylinder_100ml",
+                "training_seed": 9902,
+                "gpu": 1,
+                "at": "2026-09-10T00:18:09.151929+00:00",
+                "protocol": "nosdf50r2(xy+-2cm,6s)",
+                "admission": "/data/safelab_fr3_eval_20260819/ppu_wave_sample_eval_20260821/t280_v2ao_20260910/models/dp-rep12-v2ao-rgb-plastic_cylinder_100ml-p9902/admission.json",
+                "log_sha256": "833beed74bdc95f9d2fd06efaa17ea63c0805f6b35648b4c3a3d7b42cd25b418"
+              }
+            ],
+            "state": "queue_terminal",
+            "updated_at": "2026-09-10T00:18:09.152460+00:00",
+            "candidate": "nosdf50r2-dp-rep12-v2ao-rgb-plastic_cylinder_100ml-p9902",
+            "child_pid": null,
+            "episode_count": 49,
+            "log_bytes": 50564
+          }
+        ],
+        "candidates": 8,
+        "gpus": [
+          0,
+          1
+        ],
+        "initialization_to_episode_progress_verified": true,
+        "root": "/data/safelab_fr3_eval_20260819/ppu_wave_sample_eval_20260821/t280_v2ao_20260910",
+        "act_successors": {
+          "state": "both_original_v2_bridges_naturally_completed",
+          "result_counts": [
+            49,
+            37
+          ],
+          "safe_success_rate": [
+            0,
+            0
+          ],
+          "version": "v3 was reviewed/copied but never started; original v2 already finished before resumption. No unnecessary controller switch.",
+          "full_post_training_journey": "COMPLETE7999 receipt -> SHA admission -> GPU serial frontier -> formal50 actual terminal observed",
+          "spatial_metric_coverage": 0,
+          "safety_acceptance": false
+        },
+        "as_of": "2026-09-10T15:51:00+08:00",
+        "pp_r2": {
+          "state": "root_assertion_failed_before_valid_episodes",
+          "launched_at": "2026-09-10T16:08:12+08:00",
+          "controller_pid": 1557760,
+          "owned_child_sid": 1557951,
+          "gpu": 0,
+          "candidate": "t280-pp3-eefworld-p9821-r2",
+          "valid_episode_count": 0,
+          "actual_root_world": [
+            -1.649999976158142,
+            -5,
+            -0.010519921779632568
+          ],
+          "cleanup": "Exact candidate/cwd/UID/SID verified; own failed session stopped16:14, controller preserves invalid result",
+          "next": "Reconcile actual root inverse transform; no relaxed root assertion or blind retry"
+        }
+      },
+      "local4090": {
+        "state": "T290_settle120_render120_probe3_active",
+        "as_of": "2026-09-10T16:10:00+08:00",
+        "guard": {
+          "task": "T-290",
+          "time": 1789027780.046222,
+          "state": "progress",
+          "formal_credit": 0,
+          "episodes": 0,
+          "audited": 0
+        },
+        "stage": {
+          "time": 1789027650.5117347,
+          "task": "T-290",
+          "state": "running",
+          "label": "settle120_render120_probe3",
+          "formal_credit": 0,
+          "pid": 2446661,
+          "argv": [
+            "/home/liyufeng/miniforge3/envs/chembench/bin/python",
+            "/home/liyufeng/lyf-back/chembench/pipeline/orchestrator.py",
+            "--config",
+            "/home/liyufeng/ops/safelab_collection_20260910/settle120_render120_probe3.yaml",
+            "--stage",
+            "collect",
+            "--task",
+            "handover",
+            "--object",
+            "plastic_cylinder_100ml",
+            "--preflight",
+            "strict",
+            "--max-retries",
+            "1"
+          ],
+          "gpu": [
+            "GPU-7e048773-6e99-b431-101d-8b45724cce9f",
+            "23535",
+            "0"
+          ],
+          "foreign": []
+        },
+        "formal_credit": 0,
+        "prior_failure": "render1203/3 did not generalize; confirmation694frame first episode cheststartup5.445>3 failed and own stage stopped. Original100 retained; replacement41 not started.",
+        "diagnostic_counterfactual": "same seed292 plus enable stable_z+settle120: first4frame object z span17.165->0.333mm; diagnostic JPEG chestMAE5.966->2.332; camera extrinsics unchanged. Diagnostic images are not strict encoded-video acceptance.",
+        "owner": "T290 active replacement session; root does not duplicate its collection controller"
+      }
+    },
+    "collection": {
+      "markerfix_existing": {
+        "rows": [
+          {
+            "object": "alcohol_lamp",
+            "episodes": 100,
+            "frames": 12000,
+            "state": "automated_pass_manual_review_pending",
+            "run_dir": "/home/liyufeng/lyf-back/chembench/data/local4090_lerobot_pickplace_markerfix_20260906/lerobot/pick_place/alcohol_lamp/20260909_021431_episode000_excluded",
+            "meta_sha256": "9187718b6eaaed20912e07261edb96adbc02c06bcfbaa63171e741f13cf56a9b",
+            "postaudit_sha256": "cd6c166e486db3287452fc60cdcbeb319ab28d65bcf40d90a5cd461ba01ea3a0",
+            "postaudit_status": "pass",
+            "l3": {
+              "n": 100,
+              "hard_flagged": [],
+              "sink_max_mm": 0.1,
+              "target_pose_live": true
+            },
+            "manual_review_pending": true
+          },
+          {
+            "object": "brown_reagent_bottle_large",
+            "episodes": 100,
+            "frames": 12010,
+            "state": "automated_pass_manual_review_pending",
+            "run_dir": "/home/liyufeng/lyf-back/chembench/data/local4090_lerobot_pickplace_markerfix_20260906/lerobot/pick_place/brown_reagent_bottle_large/20260906_182905_episode000_excluded",
+            "meta_sha256": "c544a59091d7bbc4245d5535e0d4678c6889ddf9a9490e2f62816b1fa2a15c98",
+            "postaudit_sha256": "f6d145ce17ea5520ebaeeb4adfc81eb383d954ec7919297419144f37162dc932",
+            "postaudit_status": "pass",
+            "l3": {
+              "n": 100,
+              "hard_flagged": [],
+              "sink_max_mm": 0.2,
+              "target_pose_live": true
+            },
+            "manual_review_pending": true
+          },
+          {
+            "object": "brown_reagent_bottle_small",
+            "episodes": 100,
+            "frames": 12000,
+            "state": "automated_pass_manual_review_pending",
+            "run_dir": "/home/liyufeng/lyf-back/chembench/data/local4090_lerobot_pickplace_markerfix_20260906/lerobot/pick_place/brown_reagent_bottle_small/20260908_182746_episode000_excluded",
+            "meta_sha256": "7cd414e4d7e4bcec1156b4015a4704829828be91c75f8f9a7587586f7bb1b28a",
+            "postaudit_sha256": "81cc0b0e322dc147f0d879dc9d2ebd3144f01c83121402a2f7c13c95e868ce05",
+            "postaudit_status": "pass",
+            "l3": {
+              "n": 100,
+              "hard_flagged": [],
+              "sink_max_mm": 0.1,
+              "target_pose_live": true
+            },
+            "manual_review_pending": true
+          },
+          {
+            "object": "brown_volumetric_flask_250ml",
+            "episodes": 100,
+            "frames": 12000,
+            "state": "automated_pass_manual_review_pending",
+            "run_dir": "/home/liyufeng/lyf-back/chembench/data/local4090_lerobot_pickplace_markerfix_20260906/lerobot/pick_place/brown_volumetric_flask_250ml/20260908_154812_episode000_excluded",
+            "meta_sha256": "ffe72aa119e52b870daff2198c9c7177765f7681291a9aa624aacf1d3d04db3b",
+            "postaudit_sha256": "3b2a2aa2d521f6bcc7fd318b0d74820ab6a1cf9b96cd680cc9797ec4a87df00c",
+            "postaudit_status": "pass",
+            "l3": {
+              "n": 100,
+              "hard_flagged": [],
+              "sink_max_mm": 0,
+              "target_pose_live": true
+            },
+            "manual_review_pending": true
+          },
+          {
+            "object": "clear_reagent_bottle_large",
+            "episodes": 100,
+            "frames": 12023,
+            "state": "automated_pass_manual_review_pending",
+            "run_dir": "/home/liyufeng/lyf-back/chembench/data/local4090_lerobot_pickplace_markerfix_20260906/lerobot/pick_place/clear_reagent_bottle_large/20260907_044101_episode000_excluded",
+            "meta_sha256": "a4a51b221efaad35905df872f652df7c0d235f6c73e6ee7f150b6137f1363a70",
+            "postaudit_sha256": "4c0fb1d926ecd1fc7da3df30a814bb8a4286b629e88ba518dff49740e4ae915c",
+            "postaudit_status": "pass",
+            "l3": {
+              "n": 100,
+              "hard_flagged": [],
+              "sink_max_mm": 0.2,
+              "target_pose_live": true
+            },
+            "manual_review_pending": true
+          },
+          {
+            "object": "clear_reagent_bottle_small",
+            "episodes": 100,
+            "frames": 12000,
+            "state": "automated_pass_manual_review_pending",
+            "run_dir": "/home/liyufeng/lyf-back/chembench/data/local4090_lerobot_pickplace_markerfix_20260906/lerobot/pick_place/clear_reagent_bottle_small/20260908_203333_episode000_excluded",
+            "meta_sha256": "bc7e7377b550c3ec994f2394bfb30e06788e25c5523273004bf4896ebd543432",
+            "postaudit_sha256": "4f3f41022910289ae6e534073666c4ea3c2ddc70feae1ee1a35b8d462786e2c2",
+            "postaudit_status": "pass",
+            "l3": {
+              "n": 100,
+              "hard_flagged": [],
+              "sink_max_mm": 0.1,
+              "target_pose_live": true
+            },
+            "manual_review_pending": true
+          },
+          {
+            "object": "clear_volumetric_flask_250ml",
+            "episodes": 100,
+            "frames": 12000,
+            "state": "automated_pass_manual_review_pending",
+            "run_dir": "/home/liyufeng/lyf-back/chembench/data/local4090_lerobot_pickplace_markerfix_20260906/lerobot/pick_place/clear_volumetric_flask_250ml/20260908_114125_episode000_excluded",
+            "meta_sha256": "b17889440890c99beae27887fbad8c688f96b55c515bcb65d3a46ff1fcd4a6d7",
+            "postaudit_sha256": "29fd8645f562d89cf8029db8a01560af510af8cf1b64ccb69a0c9dfd6c534e44",
+            "postaudit_status": "pass",
+            "l3": {
+              "n": 100,
+              "hard_flagged": [],
+              "sink_max_mm": 0,
+              "target_pose_live": true
+            },
+            "manual_review_pending": true
+          },
+          {
+            "object": "erlenmeyer_flask",
+            "episodes": 100,
+            "frames": 12000,
+            "state": "automated_pass_manual_review_pending",
+            "run_dir": "/home/liyufeng/lyf-back/chembench/data/local4090_lerobot_pickplace_markerfix_20260906/lerobot/pick_place/erlenmeyer_flask/20260908_093440_episode000_excluded",
+            "meta_sha256": "b68e6ac71f99ea116eae7d706fd2a386540e05ddbc6772929c8665c23938b913",
+            "postaudit_sha256": "438e171f5262d8a74dda89ed2ccf8ce115d4e57c832b3a4491881b3eeeb32483",
+            "postaudit_status": "pass",
+            "l3": {
+              "n": 100,
+              "hard_flagged": [],
+              "sink_max_mm": 0.1,
+              "target_pose_live": true
+            },
+            "manual_review_pending": true
+          },
+          {
+            "object": "glass_beaker_100ml",
+            "episodes": 100,
+            "frames": 12023,
+            "state": "automated_pass_manual_review_pending",
+            "run_dir": "/home/liyufeng/lyf-back/chembench/data/local4090_lerobot_pickplace_markerfix_20260906/lerobot/pick_place/glass_beaker_100ml/20260907_174355_episode000_excluded",
+            "meta_sha256": "0ace65023f64f9bbba57484a056f66e7df7df60231eef4b0eb7cc600f9479111",
+            "postaudit_sha256": "dc2bad0ef6ea0250981e608eab5f4944ace5cda906de769addbedf915b46bdca",
+            "postaudit_status": "pass",
+            "l3": {
+              "n": 100,
+              "hard_flagged": [],
+              "sink_max_mm": 0,
+              "target_pose_live": true
+            },
+            "manual_review_pending": true
+          },
+          {
+            "object": "glass_beaker_250ml",
+            "episodes": 100,
+            "frames": 12000,
+            "state": "automated_pass_manual_review_pending",
+            "run_dir": "/home/liyufeng/lyf-back/chembench/data/local4090_lerobot_pickplace_markerfix_20260906/lerobot/pick_place/glass_beaker_250ml/20260908_011843_episode000_excluded",
+            "meta_sha256": "9bcc6521d6235e74c747cab44a1cd11a2abc5171bbe42e875ed0080cc3bd2087",
+            "postaudit_sha256": "71ac327ff5ba557b6c29e579678d18d4ddd6a37da876631400d37a2dd9f6fe46",
+            "postaudit_status": "pass",
+            "l3": {
+              "n": 100,
+              "hard_flagged": [],
+              "sink_max_mm": 0.2,
+              "target_pose_live": true
+            },
+            "manual_review_pending": true
+          },
+          {
+            "object": "glass_cylinder_100ml",
+            "episodes": 100,
+            "frames": 12014,
+            "state": "automated_pass_manual_review_pending",
+            "run_dir": "/home/liyufeng/lyf-back/chembench/data/local4090_lerobot_pickplace_markerfix_20260906/lerobot/pick_place/glass_cylinder_100ml/20260908_033902_episode041_excluded",
+            "meta_sha256": "b7ab097dfc88928c885a9003905eec1cc62c236636694320080ab3a79bd5d2cb",
+            "postaudit_sha256": "158bfb55de4cb8945d8e96796d8d4df1521cd8211a92569a3bd5026578770f5e",
+            "postaudit_status": "pass",
+            "l3": {
+              "n": 100,
+              "hard_flagged": [],
+              "sink_max_mm": 0,
+              "target_pose_live": true
+            },
+            "manual_review_pending": true
+          },
+          {
+            "object": "mortar",
+            "episodes": 100,
+            "frames": 12000,
+            "state": "automated_pass_manual_review_pending",
+            "run_dir": "/home/liyufeng/lyf-back/chembench/data/local4090_lerobot_pickplace_markerfix_20260906/lerobot/pick_place/mortar/20260907_113544_episode000_excluded",
+            "meta_sha256": "75401f355109adf8ab22147c0d51f2077a5413d0421e6fe93bbe8a5c6e9e41b0",
+            "postaudit_sha256": "c918d930a67eb69e5d2dee402cd7bae91f1ecfbdc3ab3886fcaf14212540c7ec",
+            "postaudit_status": "pass",
+            "l3": {
+              "n": 100,
+              "hard_flagged": [],
+              "sink_max_mm": 0,
+              "target_pose_live": true
+            },
+            "manual_review_pending": true
+          },
+          {
+            "object": "plastic_cylinder_100ml",
+            "episodes": 100,
+            "frames": 12000,
+            "state": "automated_pass_manual_review_pending",
+            "run_dir": "/home/liyufeng/lyf-back/chembench/data/local4090_lerobot_pickplace_markerfix_20260906/lerobot/pick_place/plastic_cylinder_100ml/20260908_223231_episode000_excluded",
+            "meta_sha256": "bc9f9c88b6cd10cc094f6e67951b8d878c2c529b75f4d96eac5f13b106e1c271",
+            "postaudit_sha256": "0e714a0c903343184c18cb474bd41601d0a5a4023f1bc4c93779eb839f2dd1ef",
+            "postaudit_status": "pass",
+            "l3": {
+              "n": 100,
+              "hard_flagged": [],
+              "sink_max_mm": 0,
+              "target_pose_live": true
+            },
+            "manual_review_pending": true
+          }
+        ],
+        "episodes": 1300,
+        "frames": 156070,
+        "new_credit_this_dispatch": 0,
+        "manual_review_pending": true
+      },
+      "fr3_existing": "two camera-contract pools each 50; not recollected",
+      "handover_prior_gap": "100 existing produced; 41 chest startup video gate failures; not accepted as clean 100"
+    },
+    "verification": {
+      "local_and_bjxy_terminal_tests": 9,
+      "python_compile": "PASS",
+      "shell_syntax": "PASS",
+      "agentctl_manual": "PASS",
+      "full_experiment_completion": "not claimed",
+      "act_bridge_full_post_training_e2e": "Observed with original v2, both functional50 complete; v3 new exception gates reviewed but not deployed into a live bridge",
+      "foreign_preemption": false,
+      "driver_or_host_trust_changes": false,
+      "root_retry_tests": "Local and bjxy22 unittest invocations PASS (includes inherited duplicates), compilePASS; T289 independent fullCLI ENOSPC oldcleanup0/newcleanup1 under-held-lock and ordinary log-error hold-order verified at bound R2 SHA1b4d7db...",
+      "orchestration_fixes": [
+        "Real PhysX code2/700 fatal detection",
+        "timeout --foreground and all owned-SID process groups cleanup",
+        "final-record failure blocks successors"
+      ],
+      "incidents": [
+        "First PP smoke invalid before episodes due missing extension metadata; record retained.",
+        "Initial root-guard source copy was truncated and temporarily deployed despite failed compile; full source restored and local/remote compile verified before R2. Shared source untouched.",
+        "Native README byte check caught extra terminal newline; corrected before admission."
+      ],
+      "remaining": [
+        "PP actual-rootXYZ adapter recalibration/newR3 full Isaac and physical repair pending",
+        "handover latest3probe/10confirmation/41replacement pending",
+        "ACT safetySSR0 and spatialcoverage0, no safety acceptance",
+        "Global historical experiment ERROR/scan-limit PARTIAL"
+      ],
+      "r2_independent_fault_injection": {
+        "task": "T-289",
+        "verdict": "PASS scoped cleanup regression",
+        "red": {
+          "source_sha256": "f5411fa2b38d91d32e3c9e7ea246f4e21d00ce7f65959d866a985e949f2547d5",
+          "storage_failure": true,
+          "outcome": "ENOSPC propagated",
+          "events": [
+            "owned_child_started",
+            "write_failed:pp_retry_r2.json",
+            "write_failed:gpu_hold0.json"
+          ],
+          "cleanup_calls": 0,
+          "hold_persisted": false,
+          "gate_released_after_unwind": true
+        },
+        "green": {
+          "source_sha256": "1b4d7db08f3ad45ac3725d6d1718e05607108f83a686d2ccd458fc39bf367475",
+          "storage_failure": true,
+          "outcome": "ENOSPC propagated",
+          "events": [
+            "owned_child_started",
+            "write_failed:pp_retry_r2.json",
+            "write_failed:gpu_hold0.json",
+            "owned_cleanup_while_gpu_gate_held"
+          ],
+          "cleanup_calls": 1,
+          "hold_persisted": false,
+          "gate_released_after_unwind": true
+        },
+        "ordinary_log_failure": {
+          "source_sha256": "1b4d7db08f3ad45ac3725d6d1718e05607108f83a686d2ccd458fc39bf367475",
+          "storage_failure": false,
+          "outcome": "needs_review exit4",
+          "events": [
+            "owned_child_started",
+            "owned_cleanup_while_gpu_gate_held"
+          ],
+          "cleanup_calls": 1,
+          "hold_persisted": true,
+          "gate_released_after_unwind": true
+        },
+        "hold_after_lock": {
+          "hold_added_at_acquisition": true,
+          "spawn_count": 0,
+          "state": "needs_review"
+        },
+        "limit": "Storage unavailable means durable hold cannot be promised; cleanup must still run before gate release. Full CLI invoked with synthetic process/admission collaborators, no actual simulator."
+      }
+    },
+    "snapshot_note": "Each live record has its own timestamp; not continuous realtime or experiment completion."
+  }
 }
