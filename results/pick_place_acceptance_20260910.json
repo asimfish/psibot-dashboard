@@ -1,0 +1,358 @@
+{
+  "hold": {
+    "task": "T-323",
+    "owner": "codex-pickplace-owner",
+    "task_id": "pick_place/glass_beaker_100ml",
+    "state": "in_progress",
+    "scale_training_allowed": false,
+    "reason": "User requires one completed task before scale training",
+    "scope": "SafeLab new scale-training admission; existing unrelated workloads are not preempted",
+    "stages": [
+      {
+        "name": "data",
+        "passed": false,
+        "criteria": "100 demos: explicit object/goal/action/frame contracts, finite complete safety measurements and reviewed exclusions"
+      },
+      {
+        "name": "training",
+        "passed": false,
+        "criteria": "one model first; held-out split and same-unit action MSE, optimizer update count, deterministic source/checkpoint hashes"
+      },
+      {
+        "name": "physical_pilot",
+        "passed": false,
+        "criteria": "fixed seeds; actual completed trials, video and per-step metrics, no missingness or runtime failure"
+      },
+      {
+        "name": "formal_single_task",
+        "passed": false,
+        "criteria": "3 seeds x50 episodes with predeclared distribution, SR/SSR and uncertainty; task goal and active thresholds bound before scoring"
+      },
+      {
+        "name": "release_review",
+        "passed": false,
+        "criteria": "all preceding stages accepted; no automatic scale launch from smoke or process exit"
+      }
+    ],
+    "next": "Deploy isolated measured PP eval using original p9821 baseline; validate terminal telemetry before changing policy or training more models",
+    "reference_target": {
+      "source": "https://openreview.net/pdf?id=ojwpa0wXo9",
+      "table": 20,
+      "task": "100 mL Glass Beaker / Pick & Place",
+      "policy": "DP",
+      "sr_percent": 68,
+      "ssr_percent": 31,
+      "episodes_per_seed": 50,
+      "seeds": 3,
+      "note": "Minimum reproduction target; current pilot is not paper-comparable. Protocol/active constraint mapping must be bound before formal scoring. No lowering target after seeing results."
+    },
+    "metrics_instrumentation": {
+      "state": "physical_pilot_verified",
+      "candidate": "t323-pp1-metrics-p9821",
+      "samples": 717,
+      "all_metric_samples_valid": true,
+      "task_success": false,
+      "formal_credit": 0
+    },
+    "current_frontier": "同原始示范 episode0 初始状态的 p9821 DP 单集对照正在运行；规模训练禁止",
+    "expert_dynamic_replay": {
+      "native_success": true,
+      "delta_p_mm": 15.776063919067383,
+      "theta_peak_rad": 0.12752312421798706,
+      "unfiltered_force_N": 105.04052734375,
+      "samples": 613,
+      "paper_ssr": null,
+      "formal_credit": 0
+    }
+  },
+  "metric_pilot": {
+    "controller.json": {
+      "task": "T-323",
+      "state": "metrics_pilot_valid",
+      "scale_training_allowed": false,
+      "child_identity": {
+        "pid": 3600191,
+        "state": "R",
+        "ppid": 3599372,
+        "pgid": 3600191,
+        "sid": 3600191,
+        "start_ticks": 10523311,
+        "uid": 1000,
+        "cmd": "bash /home/dataset-local/yf_recovery/pickplace_acceptance_20260910/eval_one.sh",
+        "cwd": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910",
+        "exiting": false
+      },
+      "updated_at": 1789054772.7414606,
+      "log_bytes": 26654,
+      "result": {
+        "state": "metrics_pilot_valid",
+        "reasons": [],
+        "rows": [
+          {
+            "env_id": 0,
+            "episode_index": 0,
+            "success": false,
+            "sample_count": 717,
+            "theta_valid_samples": 717,
+            "force_valid_samples": 717,
+            "spatial_valid_samples": 717,
+            "object_world_m": [
+              -1.0377448797225952,
+              -5.097380638122559,
+              0.9681358933448792
+            ],
+            "goal_world_m": [
+              -1.0533684492111206,
+              -5.21942138671875,
+              0.9850781559944153
+            ],
+            "theta_dev_peak": 1.5548352003097534,
+            "theta_valid": true,
+            "f_peak_observed": 7027.9072265625,
+            "force_valid": true,
+            "delta_p_final": 124.19774627685547,
+            "delta_p_valid": true,
+            "frame": "world",
+            "position_units": "mm",
+            "goal_contract": "il_native_initial_position_plus_effective_place_offset",
+            "force_contract": "sum_hand_body_net_force_l2_unfiltered",
+            "paper_ssr": null,
+            "paper_status": "task_calibration_manifest_required",
+            "screening_safe_success": false,
+            "missing_required": []
+          }
+        ],
+        "scale_training_allowed": false,
+        "formal_credit": 0,
+        "exit_code": 0,
+        "owned_session_clean": true
+      }
+    },
+    "result.json": {
+      "state": "metrics_pilot_valid",
+      "reasons": [],
+      "rows": [
+        {
+          "env_id": 0,
+          "episode_index": 0,
+          "success": false,
+          "sample_count": 717,
+          "theta_valid_samples": 717,
+          "force_valid_samples": 717,
+          "spatial_valid_samples": 717,
+          "object_world_m": [
+            -1.0377448797225952,
+            -5.097380638122559,
+            0.9681358933448792
+          ],
+          "goal_world_m": [
+            -1.0533684492111206,
+            -5.21942138671875,
+            0.9850781559944153
+          ],
+          "theta_dev_peak": 1.5548352003097534,
+          "theta_valid": true,
+          "f_peak_observed": 7027.9072265625,
+          "force_valid": true,
+          "delta_p_final": 124.19774627685547,
+          "delta_p_valid": true,
+          "frame": "world",
+          "position_units": "mm",
+          "goal_contract": "il_native_initial_position_plus_effective_place_offset",
+          "force_contract": "sum_hand_body_net_force_l2_unfiltered",
+          "paper_ssr": null,
+          "paper_status": "task_calibration_manifest_required",
+          "screening_safe_success": false,
+          "missing_required": []
+        }
+      ],
+      "scale_training_allowed": false,
+      "formal_credit": 0,
+      "exit_code": 0,
+      "owned_session_clean": true
+    },
+    "parent_launch.log": "",
+    "logs/t323-pp1-metrics-p9821.log": "92],\"goal_world_m\":[-1.0533684492111206,-5.21942138671875,0.9850781559944153],\"theta_dev_peak\":1.5548352003097534,\"theta_valid\":true,\"f_peak_observed\":7027.9072265625,\"force_valid\":true,\"delta_p_final\":124.19774627685547,\"delta_p_valid\":true,\"frame\":\"world\",\"position_units\":\"mm\",\"goal_contract\":\"il_native_initial_position_plus_effective_place_offset\",\"force_contract\":\"sum_hand_body_net_force_l2_unfiltered\",\"paper_ssr\":null,\"paper_status\":\"task_calibration_manifest_required\",\"screening_safe_success\":false,\"missing_required\":[]}\n\n==================================================\n[Episode 1/1] 评估统计\n  Policy成功率: 0.00%\n  成功次数/总次数: 0/1\n  测试时间: 3.63 分钟 (218.0 秒)\n  测试效率: 0.28 episode/分钟\n==================================================\n\n[INFO] IL evaluation video encoding: fps=30 {'codec': 'libx264', 'macro_block_size': None, 'ffmpeg_params': ['-crf', '10', '-preset', 'slow', '-pix_fmt', 'yuv444p']}\nMultiple -pix_fmt options specified for stream 0, only the last option '-pix_fmt yuv444p' will be used.\n[INFO] Saved IL evaluation video to: /home/dataset-local/yf_recovery/pickplace_acceptance_20260910/videos/t323-pp1-metrics-p9821/episode_001.mp4\n#################  Statistics #################\n运行时长: 3.7 分钟\n运行次数: 1 次数\n成功率: 0/1 次\nSSR: 0.0000 (0/1)\n安全违例率: 1.0000\ntheta_dev_mean: 1.5548 rad (1/1 measured) | F_peak_mean: 7027.9072 N (1/1 measured) | delta_P_mean: 124.1977 mm (1/1 measured)\n#################  Statistics #################\n[INFO]: Simulation is stopped. Shutting down the app.\n",
+    "checked_at_epoch": 1789054833.6007802
+  },
+  "expert_comparison": {
+    "controller.json": {
+      "task": "T-323",
+      "state": "metrics_pilot_valid",
+      "scale_training_allowed": false,
+      "child_identity": {
+        "pid": 3638765,
+        "state": "R",
+        "ppid": 3638527,
+        "pgid": 3638765,
+        "sid": 3638765,
+        "start_ticks": 10582113,
+        "uid": 1000,
+        "cmd": "bash /home/dataset-local/yf_recovery/pickplace_acceptance_20260910/expert/eval_one.sh",
+        "cwd": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/expert",
+        "exiting": false
+      },
+      "updated_at": 1789055340.7792597,
+      "log_bytes": 25370,
+      "result": {
+        "state": "metrics_pilot_valid",
+        "reasons": [],
+        "rows": [
+          {
+            "env_id": 0,
+            "episode_index": 0,
+            "success": true,
+            "sample_count": 613,
+            "theta_valid_samples": 613,
+            "force_valid_samples": 613,
+            "spatial_valid_samples": 613,
+            "object_world_m": [
+              -1.0896061658859253,
+              -5.2085137367248535,
+              0.9801532030105591
+            ],
+            "goal_world_m": [
+              -1.0766041278839111,
+              -5.201044082641602,
+              0.9850558042526245
+            ],
+            "theta_dev_peak": 0.12752312421798706,
+            "theta_valid": true,
+            "f_peak_observed": 105.04052734375,
+            "force_valid": true,
+            "delta_p_final": 15.776063919067383,
+            "delta_p_valid": true,
+            "frame": "world",
+            "position_units": "mm",
+            "goal_contract": "il_native_initial_position_plus_effective_place_offset",
+            "force_contract": "sum_hand_body_net_force_l2_unfiltered",
+            "paper_ssr": null,
+            "paper_status": "task_calibration_manifest_required",
+            "screening_safe_success": false,
+            "missing_required": [],
+            "native_success_components": {
+              "pos_error": 0.01499495655298233,
+              "position_check": true,
+              "height_diff": 0.00490260124206543,
+              "height_check": true,
+              "orientation_check": true,
+              "released": true,
+              "retreat_check": true,
+              "lin_speed": 0.002929610898718238,
+              "lin_speed_check": true,
+              "ang_speed": 0.08019919693470001,
+              "ang_speed_check": true,
+              "time_check": true,
+              "stable_success": true,
+              "success_hold_count": 173,
+              "success": true,
+              "contact_force_num": 0
+            },
+            "initial_object_world_m": [
+              -1.1636041402816772,
+              -5.089044094085693,
+              0.9800558090209961
+            ]
+          }
+        ],
+        "scale_training_allowed": false,
+        "formal_credit": 0,
+        "exit_code": 0,
+        "owned_session_clean": true
+      }
+    },
+    "result.json": {
+      "state": "metrics_pilot_valid",
+      "reasons": [],
+      "rows": [
+        {
+          "env_id": 0,
+          "episode_index": 0,
+          "success": true,
+          "sample_count": 613,
+          "theta_valid_samples": 613,
+          "force_valid_samples": 613,
+          "spatial_valid_samples": 613,
+          "object_world_m": [
+            -1.0896061658859253,
+            -5.2085137367248535,
+            0.9801532030105591
+          ],
+          "goal_world_m": [
+            -1.0766041278839111,
+            -5.201044082641602,
+            0.9850558042526245
+          ],
+          "theta_dev_peak": 0.12752312421798706,
+          "theta_valid": true,
+          "f_peak_observed": 105.04052734375,
+          "force_valid": true,
+          "delta_p_final": 15.776063919067383,
+          "delta_p_valid": true,
+          "frame": "world",
+          "position_units": "mm",
+          "goal_contract": "il_native_initial_position_plus_effective_place_offset",
+          "force_contract": "sum_hand_body_net_force_l2_unfiltered",
+          "paper_ssr": null,
+          "paper_status": "task_calibration_manifest_required",
+          "screening_safe_success": false,
+          "missing_required": [],
+          "native_success_components": {
+            "pos_error": 0.01499495655298233,
+            "position_check": true,
+            "height_diff": 0.00490260124206543,
+            "height_check": true,
+            "orientation_check": true,
+            "released": true,
+            "retreat_check": true,
+            "lin_speed": 0.002929610898718238,
+            "lin_speed_check": true,
+            "ang_speed": 0.08019919693470001,
+            "ang_speed_check": true,
+            "time_check": true,
+            "stable_success": true,
+            "success_hold_count": 173,
+            "success": true,
+            "contact_force_num": 0
+          },
+          "initial_object_world_m": [
+            -1.1636041402816772,
+            -5.089044094085693,
+            0.9800558090209961
+          ]
+        }
+      ],
+      "scale_training_allowed": false,
+      "formal_credit": 0,
+      "exit_code": 0,
+      "owned_session_clean": true
+    },
+    "parent_launch.log": "",
+    "logs/t323-expert-episode0.log": "rror\":0.01499495655298233,\"position_check\":true,\"height_diff\":0.00490260124206543,\"height_check\":true,\"orientation_check\":true,\"released\":true,\"retreat_check\":true,\"lin_speed\":0.002929610898718238,\"lin_speed_check\":true,\"ang_speed\":0.08019919693470001,\"ang_speed_check\":true,\"time_check\":true,\"stable_success\":true,\"success_hold_count\":173,\"success\":true,\"contact_force_num\":0},\"initial_object_world_m\":[-1.1636041402816772,-5.089044094085693,0.9800558090209961]}\n\n==================================================\n[Episode 1/1] 评估统计\n  Policy成功率: 100.00%\n  成功次数/总次数: 1/1\n  成功步数: 平均=153.0, 最小=153, 最大=153\n  最近成功步数: [153]\n  测试时间: 3.07 分钟 (184.0 秒)\n  测试效率: 0.33 episode/分钟\n==================================================\n\n[INFO] IL evaluation video encoding: fps=30 {'codec': 'libx264', 'macro_block_size': None, 'ffmpeg_params': ['-crf', '10', '-preset', 'slow', '-pix_fmt', 'yuv444p']}\nMultiple -pix_fmt options specified for stream 0, only the last option '-pix_fmt yuv444p' will be used.\n[INFO] Saved IL evaluation video to: /home/dataset-local/yf_recovery/pickplace_acceptance_20260910/expert/videos/t323-expert-episode0/episode_001.mp4\n#################  Statistics #################\n运行时长: 3.1166666666666667 分钟\n运行次数: 1 次数\n成功率: 1/1 次\nSSR: 0.0000 (0/1)\n安全违例率: 1.0000\ntheta_dev_mean: 0.1275 rad (1/1 measured) | F_peak_mean: 105.0405 N (1/1 measured) | delta_P_mean: 15.7761 mm (1/1 measured)\n#################  Statistics #################\n[INFO]: Simulation is stopped. Shutting down the app.\n",
+    "checked_at_epoch": 1789055593.5956316
+  },
+  "matched_dp": {
+    "controller.json": {
+      "task": "T-323",
+      "state": "running",
+      "scale_training_allowed": false,
+      "child_identity": {
+        "pid": 3699400,
+        "state": "R",
+        "ppid": 3698431,
+        "pgid": 3699400,
+        "sid": 3699400,
+        "start_ticks": 10666828,
+        "uid": 1000,
+        "cmd": "bash /home/dataset-local/yf_recovery/pickplace_acceptance_20260910/matched_dp/eval_one.sh",
+        "cwd": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/matched_dp",
+        "exiting": false
+      },
+      "updated_at": 1789055877.4411397,
+      "log_bytes": 0
+    },
+    "parent_launch.log": "",
+    "logs/t323-matched-p9821.log": "g located at: '/home/dataset-local/liyufeng/evalnode/chembench/.conda_envs/chembench_isaacsim51/lib/python3.11/site-packages/isaacsim/kit/data/Kit/Isaac-Sim/5.1/user.config.json'\n[Info] [carb] Logging to file: /home/dataset-local/liyufeng/evalnode/chembench/.conda_envs/chembench_isaacsim51/lib/python3.11/site-packages/isaacsim/kit/logs/Kit/Isaac-Sim/5.1/kit_20260910_155759.log\n2026-09-10T15:57:59Z [3ms] [Warning] [omni.ext.plugin] [ext: psi_agent] Extensions config 'extension.toml' doesn't exist '/home/dataset-local/liyufeng/evalnode/chembench/psilab/source/psi_agent' or '/home/dataset-local/liyufeng/evalnode/chembench/psilab/source/psi_agent/config'\n2026-09-10T15:57:59Z [167ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.\n2026-09-10T15:57:59Z [167ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.5]) (impl: carb.windowing-glfw.plugin)\n2026-09-10T15:57:59Z [225ms] [Warning] [omni.platforminfo.plugin] failed to open the default display.  Can't verify X Server version.\n2026-09-10T15:57:59Z [230ms] [Warning] [carb.cudainterop.plugin] CUDA_VISIBLE_DEVICES environment variable is set.\n2026-09-10T15:57:59Z [230ms] [Warning] [carb.cudainterop.plugin] Note CUDA device enumeration and Omniverse device enumeration are different.\n2026-09-10T15:57:59Z [230ms] [Warning] [carb.cudainterop.plugin] Setting CUDA_VISIBLE_DEVICES can lead to undesired behavior or crashes.\n",
+    "checked_at_epoch": 1789055881.9329693
+  }
+}
