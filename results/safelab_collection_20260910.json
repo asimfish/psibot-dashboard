@@ -1,9 +1,9 @@
 {
-  "as_of": "2026-09-12T02:35:52.976094+08:00",
+  "as_of": "2026-09-12T02:53:52.073253+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
-    "state": "ur5_exactviews_ended_failed_reference_comparison_queued",
+    "state": "ur5e_gripper_pad_geometry_diagnosis_in_progress",
     "accepted_replacements": 41,
     "target": 41,
     "confirmation_episodes": 10,
@@ -15,7 +15,7 @@
     "full_automatic_audit": "pass",
     "collector_exit_code": 0,
     "visual_review": "sampled5episodes45frames: transfer visible; chest elevated target crop and head occlusion; final acceptance pending",
-    "next": "Same-engine trace2 comparison; FR3 candidate100 merge review"
+    "next": "Compare live finger pad geometry with configuredTCP; original success and physics gates retained"
   },
   "panel_scope": {
     "fr3": {
@@ -261,7 +261,7 @@
     "cause": "configured Bottle/Beaker003 mismatched USD defaultprim remap; actual rigid body Bottle/base"
   },
   "robot_worklist": {
-    "as_of": "2026-09-12T02:35:52.976094+08:00",
+    "as_of": "2026-09-12T02:53:52.073253+08:00",
     "target_datasets": 16,
     "rows": [
       {
@@ -271,7 +271,8 @@
         "target": 100,
         "formal_accepted": 50,
         "formal_remaining": 50,
-        "state": "selected43_inventory_plus7_new_pass_pool100_building"
+        "state": "independently_reviewed_candidate100_ready_no_canonical_promotion",
+        "candidate_episodes": 100
       },
       {
         "robot": "fr3",
@@ -365,14 +366,14 @@
         "target": 100,
         "formal_accepted": 50,
         "formal_remaining": 50,
-        "state": "iron_stand_candidate100_integrity_L3_pass_panel_semantics_mismatch",
+        "state": "independently_reviewed_iron_stand_candidate100_ready_mapping_resolved",
         "review": {
           "decision_path": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/pipeline/canonical_datasets/t035_candidate_audit/new_fr3_stack_glass_beaker_100ml_v120_hold4_formal50_max100/decision.json",
           "decision_sha256": "398e43f063c6b821ef358556b4155a89cbef815a31f1c76ca69aeffd0304758b",
           "recipe_file": null,
           "recipe_sha256": null,
-          "largest_blocker": "Dataset task is iron-stand placement, not into-beaker wording; reconcile target semantics before credit",
-          "next_action": "Independent merged review passed; retain inherited visual limitations; no canonical promotion",
+          "largest_blocker": "Canonical promotion pending",
+          "next_action": "Preserve original iron-stand task; dashboard descriptions corrected by stableID mapping",
           "source_dataset": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/data/bjxy_5090_t035_stack_beaker100_fr3_v120_hold4_task_camera_rig_random3cm_formal50_max100_gpu1_20260724_084505/lerobot/stack/glass_beaker_100ml__fr3/20260724_084704"
         },
         "candidate_episodes": 100,
@@ -451,7 +452,7 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "local_exactviews_0of1_carry_retention_failed_reference_queued_remote_waiting"
+        "state": "local_gripper_geometry_diagnosis_remote_exactviews_waiting"
       },
       {
         "robot": "ur5e",
@@ -496,14 +497,14 @@
         "target": 100,
         "formal_accepted": 50,
         "formal_remaining": 50,
-        "state": "iron_stand_candidate100_integrity_L3_pass_panel_semantics_mismatch",
+        "state": "independently_reviewed_iron_stand_candidate100_ready_mapping_resolved",
         "review": {
           "decision_path": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/pipeline/canonical_datasets/t035_candidate_audit/new_ur5e_2f85_stack_glass_beaker_100ml_v244_handcontinuity_random3cm_formal50/decision.json",
           "decision_sha256": "6a11ecbf034bedea4881072739976bcb52aa9dc682cada864be0a5409d89faa6",
           "recipe_file": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/data/bjxy_5090_t035_stack_beaker100_ur5e_2f85_v244_reference_branch_handcontinuity_freeze_setdown14mm_random3cm_formal50_max150_gpu0_20260726_034413/env_overrides.v244.json",
           "recipe_sha256": "acba4150b936dddb78d1a3deefbb14ada7d29af2438c3afa97544ec463cee64a",
-          "largest_blocker": "Dataset task is iron-stand placement, not into-beaker wording; reconcile target semantics before credit",
-          "next_action": "Independent merged review passed; retain inherited visual limitations; no canonical promotion",
+          "largest_blocker": "Canonical promotion pending",
+          "next_action": "Preserve original iron-stand task; dashboard descriptions corrected by stableID mapping",
           "source_dataset": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/data/bjxy_5090_t035_stack_beaker100_ur5e_2f85_v244_reference_branch_handcontinuity_freeze_setdown14mm_random3cm_formal50_max150_gpu0_20260726_034413/lerobot/stack/glass_beaker_100ml__ur5e_2f85/20260726_034556"
         },
         "candidate_episodes": 100,
@@ -531,7 +532,7 @@
     "policy": "Retain every unfinished row; no formal credit for candidates or diagnostics; admit exact pinned recipes with native physical,scene,video and visual checks."
   },
   "fr3_beaker100_filterfix": {
-    "state": "local_topup10_complete_selected7_pass_pool100_building",
+    "state": "candidate100_independently_reviewed_pass",
     "filter": "/World/envs/env_[0-9]+/Bottle/base",
     "seed": 260912101,
     "formal_credit": 0,
@@ -596,7 +597,12 @@
     "local_failure": "carry_retention_failed: lift0.0011m below0.06m, tcp_object_distance0.2071m above0.16m",
     "local_trace_audit": "complete;184 external contact samples,1472 backend pairs, no trace errors; no collection credit",
     "local_reference_unit": "chembench-t290-ur5e-trace2-local4090-reference.service",
-    "local_reference_state": "queued_same_engine_seed_physics_without_exactviews"
+    "local_reference_state": "complete0of1_same_carry_retention_failure",
+    "local_comparison_boundary": "184 matching tcp_pose_pair samples by identical step: maximum absolute coordinate difference, not Euclidean or full continuous trajectory difference; same failure does not mean trajectory equality or5.1 equivalence",
+    "handtrace": "actual driven joint0.506 follows0.5 command at endgrasp; read-only pad body pose followup started",
+    "padpose_unit": "chembench-t290-ur5e-padpose-local4090.service",
+    "local_reference_sampled_max_coordinate_difference_m": 0.003661513328552246,
+    "local_reference_matched_tcp_samples": 184
   },
   "ur5e_grasp100_pool_candidate": {
     "state": "independently_reviewed_repaired_candidate100_ready",
@@ -621,7 +627,7 @@
     "root_images_viewed": 216,
     "visual_boundary": "Inherited complementary cameras: chest grasp/transport occluded/offscreen, old FR3 placement PreviewSurface milky; no HDF5 original runs",
     "pool_state": "four independent100 candidate merges and full100 defaultL3 passed; independent final review passed",
-    "stack_semantic_mismatch": "FR3/UR5 stack100 actual task is iron-stand placement per original tasks.parquet and decision; dashboard says into larger beaker. No into-beaker completion credit.",
+    "stack_semantic_mismatch": "Resolved: dashboard descriptions for stable100ml/250ml_stack IDs were swapped; original iron-stand100 candidates satisfy their existing ID task, not an invented goal.",
     "formal_credit": 0,
     "merged_pools": {
       "fr3_pp100": {
@@ -645,7 +651,7 @@
         "frames": 58303,
         "videos": 300,
         "integrity": "independent_PASS",
-        "semantic_scope": "HOLD_into_beaker_not_demonstrated",
+        "semantic_scope": "PASS_original_iron_stand_task_id_mapping_verified",
         "review_sha256": "1b597bf64c969f2c82e11e95a464ec380c2627970dc55177d1b8675bafc3ff12"
       },
       "ur5_stack100": {
@@ -653,9 +659,65 @@
         "frames": 72900,
         "videos": 300,
         "integrity": "independent_PASS",
-        "semantic_scope": "HOLD_into_beaker_not_demonstrated",
+        "semantic_scope": "PASS_original_iron_stand_task_id_mapping_verified",
         "review_sha256": "39aa9c5edb61049dd7b017b864cfad547a09a79c235be65e5c0aee92236c666c"
       }
     }
+  },
+  "robot_candidate_progress": {
+    "complete_reviewed_candidate_pools": 7,
+    "target_robot_datasets": 16,
+    "remaining_without_complete_candidate_pool": 9,
+    "canonical_promoted_in_this_phase": 0,
+    "pool_keys": [
+      "fr3_grasp100",
+      "fr3_grasp250",
+      "fr3_pickplace100",
+      "fr3_pickplace_cylinder100",
+      "fr3_iron_stand100",
+      "ur5e_grasp100",
+      "ur5e_iron_stand100"
+    ]
+  },
+  "fr3_beaker100_pool100": {
+    "state": "independently_reviewed_complete_candidate",
+    "episodes": 100,
+    "frames": 11285,
+    "videos": 300,
+    "unique_trajectories": 100,
+    "original_base": 50,
+    "inventory": 43,
+    "new_collected_selected": 7,
+    "default_L3_flags": 0,
+    "strict3mm_flags": 0,
+    "engines": {
+      "5.1": 93,
+      "4.5": 7
+    },
+    "review_sha256": "52187ca813c6ff4fbb1767a2459cc3305078218ec81b0e89ea6c666ab699ff17",
+    "formal_credit": 0
+  },
+  "stack_row_mapping": {
+    "state": "resolved_descriptions_swapped_by_stable_task_id",
+    "glass_beaker_100ml": "Place100ml beaker on upper iron stand",
+    "glass_beaker_250ml_stack": "Place100ml beaker physically inside250ml beaker",
+    "robots": [
+      "fr3",
+      "ur5e"
+    ],
+    "review_sha256": "db42f9b0ac636f0fae58867b63a7c01014db20cfe38c9405b7344c4474a96850",
+    "goal_unchanged": true,
+    "ur5e_inside250_accepted": 0
+  },
+  "ur5e_pickplace_overlay416_inventory6": {
+    "eligible": 0,
+    "held": 6,
+    "frames": 3659,
+    "videos": 18,
+    "decoded_frames": 10977,
+    "L3_flag": "all6 table penetration5.8005–7.0562mm",
+    "review_sha256": "ec6700ed8c8002ea96182e1ee38583ef77e7fa55ff753675c40d09008092956e",
+    "native_video_uniqueness": "pass",
+    "formal_credit": 0
   }
 }
