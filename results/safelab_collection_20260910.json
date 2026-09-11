@@ -1,9 +1,9 @@
 {
-  "as_of": "2026-09-11T03:51:04+08:00",
+  "as_of": "2026-09-11T21:37:10+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
-    "state": "replacement41_completed_next_candidate_preparing",
+    "state": "cabinet_close_topup50_auto_pass_open_trace_admission_timeout",
     "accepted_replacements": 41,
     "target": 41,
     "confirmation_episodes": 10,
@@ -15,7 +15,7 @@
     "full_automatic_audit": "pass",
     "collector_exit_code": 0,
     "visual_review": "sampled5episodes45frames: transfer visible; chest elevated target crop and head occlusion; final acceptance pending",
-    "next": "cabinet close isolated smoke1 preparation; not launched"
+    "next": "open diagnosis pending; previous admission timed out"
   },
   "panel_scope": {
     "fr3": {
@@ -50,7 +50,8 @@
         30,
         36,
         47
-      ]
+      ],
+      "visual_review": "sampled6episodes54frames/source contract pass; 18 videos fully decoded; canonical merge pending"
     }
   },
   "candidate_acceptance": "native physical/L3/video passed; scene and visual final review pending; no new canonical credit",
@@ -113,5 +114,42 @@
     ]
   ],
   "source_old_sha256": "6c43e87423eafc94597173406d3faf14eab9e158330c5afef0088e4f227ffcf6",
-  "reference": "https://asimfish.github.io/psibot-dashboard/#sec1"
+  "reference": "https://asimfish.github.io/psibot-dashboard/#sec1",
+  "dataset_counts": {
+    "psibot": 45,
+    "fr3": 8,
+    "ur5e": 8,
+    "total": 61,
+    "note": "target datasets; candidates are not canonical promotion"
+  },
+  "cabinet_close_topup50": {
+    "episodes": 50,
+    "frames": 6462,
+    "videos": 150,
+    "full_automatic_audit": "pass",
+    "unique_action_trajectories": 50,
+    "sampled_visual": "5 episodes / 45 frames pass",
+    "canonical_promotion": false,
+    "merge": "old50 + new50 pending",
+    "robot_base_random_xy_m": 0.015
+  },
+  "cabinet_open": {
+    "random3_saved": 0,
+    "random3_attempts": 9,
+    "reference_saved": 0,
+    "reference_attempts": 3,
+    "trace": "not executed: admission deadline",
+    "formal_credit": 0
+  },
+  "fr3_smoke1": {
+    "state": "retry1_supervisor_started_admission_pending",
+    "host": "bjxy_5090",
+    "gpu": 0,
+    "unit": "chembench-t290-fr3-b250-gpu0-smoke1-retry1.service",
+    "target": 1,
+    "max_episode": 3,
+    "root": "/data/safelab_collection_t290_20260910/fr3_beaker250_gpu0_retry1",
+    "formal_credit": 0,
+    "previous_attempt": "0 saved; import failed: missing extract_ground_truth_pointcloud; Isaac returned 0 despite traceback; failure preserved"
+  }
 }
