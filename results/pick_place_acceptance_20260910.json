@@ -34,7 +34,7 @@
         "criteria": "all preceding stages accepted; no automatic scale launch from smoke or process exit"
       }
     ],
-    "next": "专家提前2帧仍成功；warm8单集正在验证起步动作影响，整体未验收",
+    "next": "warm8与horizon1失败，warm60仅辅助成功；已确认epoch衰减预算不匹配，native23真实更新及checkpoint验证通过，准备单个50000步预算修复候选；独立闭环/验证集/论文SSR合同仍未通过。",
     "reference_target": {
       "source": "https://openreview.net/pdf?id=ojwpa0wXo9",
       "table": 20,
@@ -54,7 +54,7 @@
       "task_success": false,
       "formal_credit": 0
     },
-    "current_frontier": "专家提前2帧仍成功；warm8单集正在验证起步动作影响，整体未验收",
+    "current_frontier": "warm8与horizon1失败，warm60仅辅助成功；已确认epoch衰减预算不匹配，native23真实更新及checkpoint验证通过，准备单个50000步预算修复候选；独立闭环/验证集/论文SSR合同仍未通过。",
     "expert_dynamic_replay": {
       "native_success": true,
       "delta_p_mm": 15.776063919067383,
@@ -1360,5 +1360,560 @@
     "parent_launch.log": "",
     "logs/t323-expert-advance2.log": "os_error\":0.013771536760032177,\"position_check\":true,\"height_diff\":0.004901230335235596,\"height_check\":true,\"orientation_check\":true,\"released\":true,\"retreat_check\":true,\"lin_speed\":0.006045724730938673,\"lin_speed_check\":true,\"ang_speed\":0.13742174208164215,\"ang_speed_check\":true,\"time_check\":true,\"stable_success\":true,\"success_hold_count\":181,\"success\":true,\"contact_force_num\":0},\"initial_object_world_m\":[-1.1636041402816772,-5.089044094085693,0.9800558090209961]}\n\n==================================================\n[Episode 1/1] 评估统计\n  Policy成功率: 100.00%\n  成功次数/总次数: 1/1\n  成功步数: 平均=153.0, 最小=153, 最大=153\n  最近成功步数: [153]\n  测试时间: 3.20 分钟 (192.0 秒)\n  测试效率: 0.31 episode/分钟\n==================================================\n\n[INFO] IL evaluation video encoding: fps=30 {'codec': 'libx264', 'macro_block_size': None, 'ffmpeg_params': ['-crf', '10', '-preset', 'slow', '-pix_fmt', 'yuv444p']}\nMultiple -pix_fmt options specified for stream 0, only the last option '-pix_fmt yuv444p' will be used.\n[INFO] Saved IL evaluation video to: /home/dataset-local/yf_recovery/pickplace_acceptance_20260910/expert_advance2/videos/t323-expert-advance2/episode_001.mp4\n#################  Statistics #################\n运行时长: 3.25 分钟\n运行次数: 1 次数\n成功率: 1/1 次\nSSR: 0.0000 (0/1)\n安全违例率: 1.0000\ntheta_dev_mean: 0.1182 rad (1/1 measured) | F_peak_mean: 87.9209 N (1/1 measured) | delta_P_mean: 14.6177 mm (1/1 measured)\n#################  Statistics #################\n[INFO]: Simulation is stopped. Shutting down the app.\n",
     "checked_at_epoch": 1789091668.3015063
+  },
+  "interventions": {
+    "warm8_retry": {
+      "controller.json": {
+        "task": "T-323",
+        "state": "metrics_pilot_valid",
+        "scale_training_allowed": false,
+        "child_identity": {
+          "pid": 2037932,
+          "state": "R",
+          "ppid": 2036949,
+          "pgid": 2037932,
+          "sid": 2037932,
+          "start_ticks": 14268210,
+          "uid": 1000,
+          "cmd": "bash /home/dataset-local/yf_recovery/pickplace_acceptance_20260910/warm8_retry/eval_one.sh",
+          "cwd": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/warm8_retry",
+          "exiting": false
+        },
+        "updated_at": 1789092462.184709,
+        "log_bytes": 27779,
+        "result": {
+          "state": "metrics_pilot_valid",
+          "reasons": [],
+          "rows": [
+            {
+              "env_id": 0,
+              "episode_index": 0,
+              "success": false,
+              "sample_count": 717,
+              "theta_valid_samples": 717,
+              "force_valid_samples": 717,
+              "spatial_valid_samples": 717,
+              "object_world_m": [
+                -1.1261461973190308,
+                -5.128183364868164,
+                0.9801002144813538
+              ],
+              "goal_world_m": [
+                -1.0766041278839111,
+                -5.201044082641602,
+                0.9850558042526245
+              ],
+              "theta_dev_peak": 0.6376391649246216,
+              "theta_valid": true,
+              "f_peak_observed": 105.04052734375,
+              "force_valid": true,
+              "delta_p_final": 88.24771118164062,
+              "delta_p_valid": true,
+              "frame": "world",
+              "position_units": "mm",
+              "goal_contract": "il_native_initial_position_plus_effective_place_offset",
+              "force_contract": "sum_hand_body_net_force_l2_unfiltered",
+              "paper_ssr": null,
+              "paper_status": "task_calibration_manifest_required",
+              "screening_safe_success": false,
+              "missing_required": [],
+              "native_success_components": {
+                "pos_error": 0.08810845762491226,
+                "position_check": false,
+                "height_diff": 0.004955589771270752,
+                "height_check": true,
+                "orientation_check": true,
+                "released": true,
+                "retreat_check": true,
+                "lin_speed": 0.003679700428619981,
+                "lin_speed_check": true,
+                "ang_speed": 0.0827588215470314,
+                "ang_speed_check": true,
+                "time_check": true,
+                "stable_success": false,
+                "success_hold_count": 0,
+                "success": false,
+                "contact_force_num": 0
+              },
+              "initial_object_world_m": [
+                -1.1636041402816772,
+                -5.089044094085693,
+                0.9800558090209961
+              ]
+            }
+          ],
+          "scale_training_allowed": false,
+          "formal_credit": 0,
+          "exit_code": 0,
+          "owned_session_clean": true
+        }
+      },
+      "result.json": {
+        "state": "metrics_pilot_valid",
+        "reasons": [],
+        "rows": [
+          {
+            "env_id": 0,
+            "episode_index": 0,
+            "success": false,
+            "sample_count": 717,
+            "theta_valid_samples": 717,
+            "force_valid_samples": 717,
+            "spatial_valid_samples": 717,
+            "object_world_m": [
+              -1.1261461973190308,
+              -5.128183364868164,
+              0.9801002144813538
+            ],
+            "goal_world_m": [
+              -1.0766041278839111,
+              -5.201044082641602,
+              0.9850558042526245
+            ],
+            "theta_dev_peak": 0.6376391649246216,
+            "theta_valid": true,
+            "f_peak_observed": 105.04052734375,
+            "force_valid": true,
+            "delta_p_final": 88.24771118164062,
+            "delta_p_valid": true,
+            "frame": "world",
+            "position_units": "mm",
+            "goal_contract": "il_native_initial_position_plus_effective_place_offset",
+            "force_contract": "sum_hand_body_net_force_l2_unfiltered",
+            "paper_ssr": null,
+            "paper_status": "task_calibration_manifest_required",
+            "screening_safe_success": false,
+            "missing_required": [],
+            "native_success_components": {
+              "pos_error": 0.08810845762491226,
+              "position_check": false,
+              "height_diff": 0.004955589771270752,
+              "height_check": true,
+              "orientation_check": true,
+              "released": true,
+              "retreat_check": true,
+              "lin_speed": 0.003679700428619981,
+              "lin_speed_check": true,
+              "ang_speed": 0.0827588215470314,
+              "ang_speed_check": true,
+              "time_check": true,
+              "stable_success": false,
+              "success_hold_count": 0,
+              "success": false,
+              "contact_force_num": 0
+            },
+            "initial_object_world_m": [
+              -1.1636041402816772,
+              -5.089044094085693,
+              0.9800558090209961
+            ]
+          }
+        ],
+        "scale_training_allowed": false,
+        "formal_credit": 0,
+        "exit_code": 0,
+        "owned_session_clean": true
+      },
+      "parent_launch.log": "",
+      "logs/t323-warm8-retry-p9821.log": "ired\":[],\"native_success_components\":{\"pos_error\":0.08810845762491226,\"position_check\":false,\"height_diff\":0.004955589771270752,\"height_check\":true,\"orientation_check\":true,\"released\":true,\"retreat_check\":true,\"lin_speed\":0.003679700428619981,\"lin_speed_check\":true,\"ang_speed\":0.0827588215470314,\"ang_speed_check\":true,\"time_check\":true,\"stable_success\":false,\"success_hold_count\":0,\"success\":false,\"contact_force_num\":0},\"initial_object_world_m\":[-1.1636041402816772,-5.089044094085693,0.9800558090209961]}\n\n==================================================\n[Episode 1/1] 评估统计\n  Policy成功率: 0.00%\n  成功次数/总次数: 0/1\n  测试时间: 6.68 分钟 (401.0 秒)\n  测试效率: 0.15 episode/分钟\n==================================================\n\n[INFO] IL evaluation video encoding: fps=30 {'codec': 'libx264', 'macro_block_size': None, 'ffmpeg_params': ['-crf', '10', '-preset', 'slow', '-pix_fmt', 'yuv444p']}\nMultiple -pix_fmt options specified for stream 0, only the last option '-pix_fmt yuv444p' will be used.\n[INFO] Saved IL evaluation video to: /home/dataset-local/yf_recovery/pickplace_acceptance_20260910/warm8_retry/videos/t323-warm8-retry-p9821/episode_001.mp4\n#################  Statistics #################\n运行时长: 6.783333333333333 分钟\n运行次数: 1 次数\n成功率: 0/1 次\nSSR: 0.0000 (0/1)\n安全违例率: 1.0000\ntheta_dev_mean: 0.6376 rad (1/1 measured) | F_peak_mean: 105.0405 N (1/1 measured) | delta_P_mean: 88.2477 mm (1/1 measured)\n#################  Statistics #################\n[INFO]: Simulation is stopped. Shutting down the app.\n",
+      "checked_at_epoch": 1789092511.1171954
+    },
+    "h1": {
+      "controller.json": {
+        "task": "T-323",
+        "state": "metrics_pilot_valid",
+        "scale_training_allowed": false,
+        "child_identity": {
+          "pid": 2048079,
+          "state": "S",
+          "ppid": 2046939,
+          "pgid": 2048079,
+          "sid": 2048079,
+          "start_ticks": 14280062,
+          "uid": 1000,
+          "cmd": "bash /home/dataset-local/yf_recovery/pickplace_acceptance_20260910/horizon1/eval_one.sh",
+          "cwd": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/horizon1",
+          "exiting": false
+        },
+        "updated_at": 1789092470.4823902,
+        "log_bytes": 27640,
+        "result": {
+          "state": "metrics_pilot_valid",
+          "reasons": [],
+          "rows": [
+            {
+              "env_id": 0,
+              "episode_index": 0,
+              "success": false,
+              "sample_count": 717,
+              "theta_valid_samples": 717,
+              "force_valid_samples": 717,
+              "spatial_valid_samples": 717,
+              "object_world_m": [
+                -1.1179734468460083,
+                -5.131010055541992,
+                0.9630122184753418
+              ],
+              "goal_world_m": [
+                -1.0766041278839111,
+                -5.201044082641602,
+                0.9850558042526245
+              ],
+              "theta_dev_peak": 1.5948584079742432,
+              "theta_valid": true,
+              "f_peak_observed": 173.100830078125,
+              "force_valid": true,
+              "delta_p_final": 84.27399444580078,
+              "delta_p_valid": true,
+              "frame": "world",
+              "position_units": "mm",
+              "goal_contract": "il_native_initial_position_plus_effective_place_offset",
+              "force_contract": "sum_hand_body_net_force_l2_unfiltered",
+              "paper_ssr": null,
+              "paper_status": "task_calibration_manifest_required",
+              "screening_safe_success": false,
+              "missing_required": [],
+              "native_success_components": {
+                "pos_error": 0.08133994042873383,
+                "position_check": false,
+                "height_diff": 0.022043585777282715,
+                "height_check": false,
+                "orientation_check": false,
+                "released": true,
+                "retreat_check": true,
+                "lin_speed": 0.001464791945181787,
+                "lin_speed_check": true,
+                "ang_speed": 0.03825945407152176,
+                "ang_speed_check": true,
+                "time_check": true,
+                "stable_success": false,
+                "success_hold_count": 0,
+                "success": false,
+                "contact_force_num": 0
+              },
+              "initial_object_world_m": [
+                -1.1636041402816772,
+                -5.089044094085693,
+                0.9800558090209961
+              ]
+            }
+          ],
+          "scale_training_allowed": false,
+          "formal_credit": 0,
+          "exit_code": 0,
+          "owned_session_clean": true
+        }
+      },
+      "result.json": {
+        "state": "metrics_pilot_valid",
+        "reasons": [],
+        "rows": [
+          {
+            "env_id": 0,
+            "episode_index": 0,
+            "success": false,
+            "sample_count": 717,
+            "theta_valid_samples": 717,
+            "force_valid_samples": 717,
+            "spatial_valid_samples": 717,
+            "object_world_m": [
+              -1.1179734468460083,
+              -5.131010055541992,
+              0.9630122184753418
+            ],
+            "goal_world_m": [
+              -1.0766041278839111,
+              -5.201044082641602,
+              0.9850558042526245
+            ],
+            "theta_dev_peak": 1.5948584079742432,
+            "theta_valid": true,
+            "f_peak_observed": 173.100830078125,
+            "force_valid": true,
+            "delta_p_final": 84.27399444580078,
+            "delta_p_valid": true,
+            "frame": "world",
+            "position_units": "mm",
+            "goal_contract": "il_native_initial_position_plus_effective_place_offset",
+            "force_contract": "sum_hand_body_net_force_l2_unfiltered",
+            "paper_ssr": null,
+            "paper_status": "task_calibration_manifest_required",
+            "screening_safe_success": false,
+            "missing_required": [],
+            "native_success_components": {
+              "pos_error": 0.08133994042873383,
+              "position_check": false,
+              "height_diff": 0.022043585777282715,
+              "height_check": false,
+              "orientation_check": false,
+              "released": true,
+              "retreat_check": true,
+              "lin_speed": 0.001464791945181787,
+              "lin_speed_check": true,
+              "ang_speed": 0.03825945407152176,
+              "ang_speed_check": true,
+              "time_check": true,
+              "stable_success": false,
+              "success_hold_count": 0,
+              "success": false,
+              "contact_force_num": 0
+            },
+            "initial_object_world_m": [
+              -1.1636041402816772,
+              -5.089044094085693,
+              0.9800558090209961
+            ]
+          }
+        ],
+        "scale_training_allowed": false,
+        "formal_credit": 0,
+        "exit_code": 0,
+        "owned_session_clean": true
+      },
+      "parent_launch.log": "",
+      "logs/t323-h1-p9821.log": "sing_required\":[],\"native_success_components\":{\"pos_error\":0.08133994042873383,\"position_check\":false,\"height_diff\":0.022043585777282715,\"height_check\":false,\"orientation_check\":false,\"released\":true,\"retreat_check\":true,\"lin_speed\":0.001464791945181787,\"lin_speed_check\":true,\"ang_speed\":0.03825945407152176,\"ang_speed_check\":true,\"time_check\":true,\"stable_success\":false,\"success_hold_count\":0,\"success\":false,\"contact_force_num\":0},\"initial_object_world_m\":[-1.1636041402816772,-5.089044094085693,0.9800558090209961]}\n\n==================================================\n[Episode 1/1] 评估统计\n  Policy成功率: 0.00%\n  成功次数/总次数: 0/1\n  测试时间: 5.08 分钟 (305.0 秒)\n  测试效率: 0.20 episode/分钟\n==================================================\n\n[INFO] IL evaluation video encoding: fps=30 {'codec': 'libx264', 'macro_block_size': None, 'ffmpeg_params': ['-crf', '10', '-preset', 'slow', '-pix_fmt', 'yuv444p']}\nMultiple -pix_fmt options specified for stream 0, only the last option '-pix_fmt yuv444p' will be used.\n[INFO] Saved IL evaluation video to: /home/dataset-local/yf_recovery/pickplace_acceptance_20260910/horizon1/videos/t323-h1-p9821/episode_001.mp4\n#################  Statistics #################\n运行时长: 5.183333333333334 分钟\n运行次数: 1 次数\n成功率: 0/1 次\nSSR: 0.0000 (0/1)\n安全违例率: 1.0000\ntheta_dev_mean: 1.5949 rad (1/1 measured) | F_peak_mean: 173.1008 N (1/1 measured) | delta_P_mean: 84.2740 mm (1/1 measured)\n#################  Statistics #################\n[INFO]: Simulation is stopped. Shutting down the app.\n",
+      "checked_at_epoch": 1789092512.9489915
+    },
+    "warm60_queue": {
+      "controller.json": {
+        "task": "T-323",
+        "state": "metrics_pilot_valid",
+        "scale_training_allowed": false,
+        "child_identity": {
+          "pid": 2135931,
+          "state": "R",
+          "ppid": 2123421,
+          "pgid": 2135931,
+          "sid": 2135931,
+          "start_ticks": 14389565,
+          "uid": 1000,
+          "cmd": "bash /home/dataset-local/yf_recovery/pickplace_acceptance_20260910/warm60_queue/eval_one.sh",
+          "cwd": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/warm60_queue",
+          "exiting": false
+        },
+        "updated_at": 1789093525.467754,
+        "log_bytes": 29190,
+        "result": {
+          "state": "metrics_pilot_valid",
+          "reasons": [],
+          "rows": [
+            {
+              "env_id": 0,
+              "episode_index": 0,
+              "success": true,
+              "sample_count": 613,
+              "theta_valid_samples": 613,
+              "force_valid_samples": 613,
+              "spatial_valid_samples": 613,
+              "object_world_m": [
+                -1.087388277053833,
+                -5.20354700088501,
+                0.9801523685455322
+              ],
+              "goal_world_m": [
+                -1.0766041278839111,
+                -5.201044082641602,
+                0.9850558042526245
+              ],
+              "theta_dev_peak": 0.11124081909656525,
+              "theta_valid": true,
+              "f_peak_observed": 105.04052734375,
+              "force_valid": true,
+              "delta_p_final": 12.108102798461914,
+              "delta_p_valid": true,
+              "frame": "world",
+              "position_units": "mm",
+              "goal_contract": "il_native_initial_position_plus_effective_place_offset",
+              "force_contract": "sum_hand_body_net_force_l2_unfiltered",
+              "paper_ssr": null,
+              "paper_status": "task_calibration_manifest_required",
+              "screening_safe_success": false,
+              "missing_required": [],
+              "native_success_components": {
+                "pos_error": 0.011070793494582176,
+                "position_check": true,
+                "height_diff": 0.004903435707092285,
+                "height_check": true,
+                "orientation_check": true,
+                "released": true,
+                "retreat_check": true,
+                "lin_speed": 0.005147555377334356,
+                "lin_speed_check": true,
+                "ang_speed": 0.09572158008813858,
+                "ang_speed_check": true,
+                "time_check": true,
+                "stable_success": true,
+                "success_hold_count": 160,
+                "success": true,
+                "contact_force_num": 0
+              },
+              "initial_object_world_m": [
+                -1.1636041402816772,
+                -5.089044094085693,
+                0.9800558090209961
+              ]
+            }
+          ],
+          "scale_training_allowed": false,
+          "formal_credit": 0,
+          "exit_code": 0,
+          "owned_session_clean": true
+        }
+      },
+      "result.json": {
+        "state": "metrics_pilot_valid",
+        "reasons": [],
+        "rows": [
+          {
+            "env_id": 0,
+            "episode_index": 0,
+            "success": true,
+            "sample_count": 613,
+            "theta_valid_samples": 613,
+            "force_valid_samples": 613,
+            "spatial_valid_samples": 613,
+            "object_world_m": [
+              -1.087388277053833,
+              -5.20354700088501,
+              0.9801523685455322
+            ],
+            "goal_world_m": [
+              -1.0766041278839111,
+              -5.201044082641602,
+              0.9850558042526245
+            ],
+            "theta_dev_peak": 0.11124081909656525,
+            "theta_valid": true,
+            "f_peak_observed": 105.04052734375,
+            "force_valid": true,
+            "delta_p_final": 12.108102798461914,
+            "delta_p_valid": true,
+            "frame": "world",
+            "position_units": "mm",
+            "goal_contract": "il_native_initial_position_plus_effective_place_offset",
+            "force_contract": "sum_hand_body_net_force_l2_unfiltered",
+            "paper_ssr": null,
+            "paper_status": "task_calibration_manifest_required",
+            "screening_safe_success": false,
+            "missing_required": [],
+            "native_success_components": {
+              "pos_error": 0.011070793494582176,
+              "position_check": true,
+              "height_diff": 0.004903435707092285,
+              "height_check": true,
+              "orientation_check": true,
+              "released": true,
+              "retreat_check": true,
+              "lin_speed": 0.005147555377334356,
+              "lin_speed_check": true,
+              "ang_speed": 0.09572158008813858,
+              "ang_speed_check": true,
+              "time_check": true,
+              "stable_success": true,
+              "success_hold_count": 160,
+              "success": true,
+              "contact_force_num": 0
+            },
+            "initial_object_world_m": [
+              -1.1636041402816772,
+              -5.089044094085693,
+              0.9800558090209961
+            ]
+          }
+        ],
+        "scale_training_allowed": false,
+        "formal_credit": 0,
+        "exit_code": 0,
+        "owned_session_clean": true
+      },
+      "parent_launch.log": "",
+      "logs/t323-warm60-queue-p9821.log": "1070793494582176,\"position_check\":true,\"height_diff\":0.004903435707092285,\"height_check\":true,\"orientation_check\":true,\"released\":true,\"retreat_check\":true,\"lin_speed\":0.005147555377334356,\"lin_speed_check\":true,\"ang_speed\":0.09572158008813858,\"ang_speed_check\":true,\"time_check\":true,\"stable_success\":true,\"success_hold_count\":160,\"success\":true,\"contact_force_num\":0},\"initial_object_world_m\":[-1.1636041402816772,-5.089044094085693,0.9800558090209961]}\n\n==================================================\n[Episode 1/1] 评估统计\n  Policy成功率: 100.00%\n  成功次数/总次数: 1/1\n  成功步数: 平均=153.0, 最小=153, 最大=153\n  最近成功步数: [153]\n  测试时间: 4.53 分钟 (272.0 秒)\n  测试效率: 0.22 episode/分钟\n==================================================\n\n[INFO] IL evaluation video encoding: fps=30 {'codec': 'libx264', 'macro_block_size': None, 'ffmpeg_params': ['-crf', '10', '-preset', 'slow', '-pix_fmt', 'yuv444p']}\nMultiple -pix_fmt options specified for stream 0, only the last option '-pix_fmt yuv444p' will be used.\n[INFO] Saved IL evaluation video to: /home/dataset-local/yf_recovery/pickplace_acceptance_20260910/warm60_queue/videos/t323-warm60-queue-p9821/episode_001.mp4\n#################  Statistics #################\n运行时长: 4.666666666666667 分钟\n运行次数: 1 次数\n成功率: 1/1 次\nSSR: 0.0000 (0/1)\n安全违例率: 1.0000\ntheta_dev_mean: 0.1112 rad (1/1 measured) | F_peak_mean: 105.0405 N (1/1 measured) | delta_P_mean: 12.1081 mm (1/1 measured)\n#################  Statistics #################\n[INFO]: Simulation is stopped. Shutting down the app.\n",
+      "checked_at_epoch": 1789093761.6429884
+    }
+  },
+  "training_repair": {
+    "state": "native23_passed_candidate50000_running",
+    "data_episodes": 100,
+    "data_frames": 12023,
+    "seed": 9821,
+    "original_pp_lr_at_49999": 6.555024456248843e-05,
+    "original_grasp_lr_at_49999": 8.45422682190517e-06,
+    "change": "explicit optimizer budget controls cosine decay and update counter",
+    "candidate": {
+      "state": "running",
+      "child": {
+        "pid": 742627,
+        "state": "R",
+        "ppid": 742335,
+        "pgid": 742627,
+        "sid": 742627,
+        "start_ticks": 187414615,
+        "uid": 0,
+        "cmd": "bash /root/safelab/pickplace_acceptance_20260911/candidate50000/launch.sh",
+        "cwd": "/mnt/data/safelab/pickplace_acceptance_20260911/candidate50000",
+        "exiting": false
+      },
+      "optimizer_progress": {
+        "task": "T-323",
+        "mode": "candidate50000",
+        "optimizer_updates": 1,
+        "state_step_min": 1.0,
+        "state_step_max": 1.0,
+        "updated_at": 1789094490.7295184,
+        "last_loss": 1.3083807229995728,
+        "amp": "no",
+        "device": "cuda:0"
+      },
+      "updated_at": 1789094517.3438032,
+      "scale_training_allowed": false
+    },
+    "native23": {
+      "state": "native23_complete",
+      "exit_code": 0,
+      "orphans_at_exit": false,
+      "owned_session_clean": true,
+      "scale_training_allowed": false,
+      "formal_credit": 0,
+      "training_complete": {
+        "task": "T-323",
+        "mode": "smoke23",
+        "optimizer_updates": 23,
+        "global_step": 23,
+        "epoch": 1,
+        "checkpoint_sha256": "4f220759265e3972816c3edef1a881208c94fadd3bde954fc9d6f8c34e18ccf0",
+        "checkpoint_bytes": 1403895198,
+        "normalizer_sha256": "1155f04bf33b56ee31964143d0b333c0578cd12fee0359f213ab543792deecac",
+        "formal_credit": 0,
+        "physical_acceptance": false,
+        "completed_at": 1789094219.0137098
+      },
+      "checkpoint_verified": {
+        "task": "T-323",
+        "mode": "smoke23",
+        "complete": true,
+        "global_step": 23,
+        "epoch": 1,
+        "optimizer_updates": 23,
+        "checkpoint_sha256": "4f220759265e3972816c3edef1a881208c94fadd3bde954fc9d6f8c34e18ccf0",
+        "checkpoint_bytes": 1403895198,
+        "normalizer_sha256": "1155f04bf33b56ee31964143d0b333c0578cd12fee0359f213ab543792deecac",
+        "logs": {
+          "raw_rows": 24,
+          "unique_step_count": 23,
+          "first_step": 0,
+          "last_step": 22,
+          "permitted_terminal_epoch_summary_duplicate": true,
+          "last_lr": 0.0,
+          "last_train_loss": 1.1647312667058862
+        },
+        "logs_sha256": "31e2e7e5f45e65e02e586d4c3e4527a426b343ca1e113bad343f3b1209b08e59",
+        "runtime_receipt_sha256": "f6b01426cd9ecfdb22b06aacbf6a1a081081dc607d6e395a931ab4049b1de58b",
+        "artifact_kind": "training_internal_not_eval_export",
+        "formal_credit": 0,
+        "physical_acceptance": false
+      }
+    },
+    "formal_credit": 0,
+    "scale_training_allowed": false
   }
 }
