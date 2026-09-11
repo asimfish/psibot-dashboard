@@ -1,9 +1,9 @@
 {
-  "as_of": "2026-09-12T03:24:27.924426+08:00",
+  "as_of": "2026-09-12T04:22:36.672196+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
-    "state": "fr3_nesting250_smoke1_running",
+    "state": "ur5e_side90_diagnostic_running",
     "accepted_replacements": 41,
     "target": 41,
     "confirmation_episodes": 10,
@@ -15,11 +15,11 @@
     "full_automatic_audit": "pass",
     "collector_exit_code": 0,
     "visual_review": "sampled5episodes45frames: transfer visible; chest elevated target crop and head occlusion; final acceptance pending",
-    "next": "UR5 approach clearance1attempt queued; FR3 native/video/physical/scene review before batch",
-    "unit": "chembench-t290-fr3-nesting250-local4090-smoke1.service",
-    "sample_gpu_utilization_percent": 64,
-    "sample_memory_used_mib": 12699,
-    "sample_scope": "single live sample, not average utilization"
+    "next": "FR3 independent-camera confirmation3 queued; UR5grasp250 residual-controller recovery onCPU",
+    "unit": "chembench-t290-ur5e-side90-local4090.service",
+    "sample_gpu_utilization_percent": 3,
+    "sample_memory_used_mib": 1403,
+    "sample_scope": "single startup sample2026-09-12T04:21:52+08:00, not average utilization"
   },
   "panel_scope": {
     "fr3": {
@@ -265,7 +265,7 @@
     "cause": "configured Bottle/Beaker003 mismatched USD defaultprim remap; actual rigid body Bottle/base"
   },
   "robot_worklist": {
-    "as_of": "2026-09-12T03:21:50.934175+08:00",
+    "as_of": "2026-09-12T04:21:45.366852+08:00",
     "target_datasets": 16,
     "rows": [
       {
@@ -391,16 +391,17 @@
         "target": 100,
         "formal_accepted": 50,
         "formal_remaining": 50,
-        "state": "isolated_local4090_smoke1_running_seed260912201_before_missing50",
+        "state": "native_smoke1_plus_confirmation3_pass_legacycam_smoke1_pass_new_camera_confirmation3_queued",
         "review": {
           "decision_path": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/pipeline/canonical_datasets/t035_candidate_audit/new_fr3_stack_glass_beaker_250ml_v108_dualrandom3cm_formal50/decision.json",
           "decision_sha256": "3aa6ecf6e6aaf844d5d1ca523edb5f0d42c5d2a72770593bf1d909e79a4fe833",
           "recipe_file": null,
           "recipe_sha256": null,
-          "largest_blocker": "Preserve independent source AND receiver±3cm and dynamic receiver; v107 quarantined for receiver±1cm, not reusable substitute.",
-          "next_action": "Recover/pin executable source and full configuration, run isolated native/scene-checked smoke with new seed, then schedule missing batch.",
+          "largest_blocker": "New third-camera view improved but differs v108; independent camera confirmation3 before missing50 batch",
+          "next_action": "Audit all3 native, physical, dualrandom±3cm and three-camera temporal visibility; retain generic scene-check failures and inherited optical limitations explicitly",
           "source_dataset": "data/bjxy_5090_t035_stack_beaker250_fr3_v108_fr3_dualrandom3cm_formal50_max75_gpu0_20260727_081206/lerobot/stack/glass_beaker_250ml_stack__fr3/20260727_081401"
-        }
+        },
+        "native_diagnostic_successes": 5
       },
       {
         "robot": "ur5e",
@@ -418,14 +419,14 @@
         "target": 100,
         "formal_accepted": 50,
         "formal_remaining": 50,
-        "state": "historical50_only3_anchors_randomized_recipe_required",
+        "state": "random_smoke1_failed_0of1_residual_controller_missing_recovery_in_progress",
         "review": {
           "decision_path": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/pipeline/canonical_datasets/t035_candidate_audit/new_ur5e_2f85_grasp_glass_beaker_250ml_v355_pool50_three_anchor/decision.json",
           "decision_sha256": "1e6bd337146f14bf991911f8e5b2bbf88dcd236d5a2994c9ad4e8b94b9dee026",
           "recipe_file": null,
           "recipe_sha256": null,
-          "largest_blocker": "Accepted50 contains only3 explicit XY anchors; continuous random generalization is not established. No source excess:50source datasets sum50.",
-          "next_action": "Recover/pin executable source and full configuration, run isolated native/scene-checked smoke with new seed, then schedule missing batch.",
+          "largest_blocker": "Frozen base skipped original residual descent .0044 config; contact-stop at10.265N, no lift. Historical3anchor50 not continuous random.",
+          "next_action": "Restore provenance-bound minimal residual controller in independent overlay, same seed/gates diagnostic then qualify random generalization",
           "source_dataset": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/data/bjxy_5090_t035_grasp_beaker250_ur5e_2f85_v355_pool50_20260803_014826/lerobot/grasp/glass_beaker_250ml__ur5e_2f85/pool50"
         }
       },
@@ -458,7 +459,7 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "xycal1_0of1_hold_failed_2p1mm_lift_diagnosis_continues"
+        "state": "z225_original_distance_gate_failed_side90_diagnostic_running"
       },
       {
         "robot": "ur5e",
@@ -731,11 +732,11 @@
     "formal_credit": 0
   },
   "fr3_nesting250_continuation": {
-    "state": "isolated_smoke1_running",
-    "seed": 260912201,
+    "state": "first_smoke1_and_confirmation3_native_pass_new_camera_smoke1_pass_confirmation3_queued",
+    "seed": 260912401,
     "missing_topup": 50,
-    "attempt_limit": 1,
-    "target": 1,
+    "attempt_limit": 3,
+    "target": 3,
     "source_and_receiver_randomization_m": [
       -0.03,
       0.03
@@ -746,7 +747,13 @@
     "engine": "Isaac4.5; historical5.1 equivalence not established",
     "cpu_review_sha256": "f135c2518fde0cd65db546f56b841c59854fffa12ee7a51b6c30f732d42dc74e",
     "asset_crosshost_pins": 14,
-    "formal_credit": 0
+    "formal_credit": 0,
+    "native_diagnostic_successes": 5,
+    "confirmation3_frames": 1749,
+    "confirmation3_videos": 9,
+    "third_camera": "legacy June reconstruction improves visibility; differs historical v108, new independent camera contract awaiting3random trials",
+    "camera_review_sha256": "c45e6ac1f446ddddce14779221211ff526cd6def5315c0758457bca89e442611",
+    "current_unit": "chembench-t290-fr3-nesting250-legacycam-confirmation3.service"
   },
   "ur5e_cylinder_xycal1": {
     "state": "failed_hold_no_saved_episode",
@@ -763,11 +770,39 @@
     "formal_credit": 0
   },
   "ur5e_cylinder_approach019": {
-    "state": "queued_after_fr3_local4090",
+    "state": "native_failed0of1",
     "seed": 260911803,
     "attempt_limit": 1,
     "single_change": "curobo_grasp_approach_offset0.08->0.19m from XYcal1",
     "goal_Z_XY_and_physics_and_success_gates": "unchanged",
+    "formal_credit": 0,
+    "object_downward_press_m": 0.0983125567
+  },
+  "ur5e_cylinder_graspz225": {
+    "state": "native_failed0of1_original_distance_gate",
+    "actual_lift_m": 0.1159,
+    "minimum_lift_m": 0.06,
+    "original_tcp_distance_m": 0.2152,
+    "maximum_distance_m": 0.16,
+    "contact_filtered_force_max_n": 0,
+    "formal_credit": 0
+  },
+  "ur5e_cylinder_side90": {
+    "state": "isolated_diagnostic_running",
+    "unit": "chembench-t290-ur5e-side90-local4090.service",
+    "seed": 260911803,
+    "attempt_limit": 1,
+    "original_TCP_and_gates_retained": true,
+    "geometry_review_sha256": "9f446199d55208ce482eeaee4d09d291ccdd9bf486461e8be7597b5976318b2c",
+    "qualification": false,
+    "formal_credit": 0
+  },
+  "ur5e_grasp250_random": {
+    "state": "first_random_smoke_native_failed0of1_controller_recovery_in_progress",
+    "seed": 260912301,
+    "first_trial_contact_force_n": 10.265238,
+    "failure": "No lift; frozen runtime skipped original contact_stop_rebase_z_residual_delta0.0044; restore minimal versioned controller before retry",
+    "historical50": "three anchors, not continuous random",
     "formal_credit": 0
   }
 }
