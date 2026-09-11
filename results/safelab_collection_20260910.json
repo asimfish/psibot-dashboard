@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-11T23:43:26+08:00",
+  "as_of": "2026-09-12T00:09:28+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
@@ -30,8 +30,13 @@
   "inventory_candidates": {
     "fr3_grasp100": {
       "extra": 54,
-      "select": 50,
-      "full_videos_checked": 162
+      "select": 43,
+      "full_videos_checked": 162,
+      "scene_pass": 43,
+      "scene_failed": 11,
+      "remaining_if_accepted": 7,
+      "scene_failure": "third camera initial area below original0.004 threshold",
+      "source_review": "effective recipe and scene provenance pass; exact historical code hashes/calibration unrecovered"
     },
     "fr3_grasp250": {
       "extra": 14,
@@ -56,7 +61,7 @@
       "visual_review": "sampled6episodes54frames/source contract pass; 18 videos fully decoded; canonical merge pending"
     }
   },
-  "candidate_acceptance": "FR3 topup36 full native/L3/video passed, scene/visual pending; old14 scene passed; no new canonical credit",
+  "candidate_acceptance": "FR3 topup36 native/L3/full videos/original scene/sampled visual passed; merged pool100 integrity and L3 passed independent review; no canonical promotion.",
   "corrected_rows": [
     [
       "pick_place",
@@ -191,19 +196,52 @@
     "root_cause": "not resolved; error formed before release"
   },
   "fr3_topup36": {
-    "state": "full_auto_pass_visual_scene_pending",
+    "state": "native_L3_full_video_scene_and_sampled_visual_pass",
     "episodes": 36,
     "frames": 4311,
     "videos": 108,
     "seed": 260911254,
     "formal_credit": 0,
-    "audit_correction": "contacted is1N stop/proxy diagnostic, not native success gate; native valid force and25N limit unchanged; original failed audit preserved"
+    "audit_correction": "contacted is1N stop/proxy diagnostic, not native success gate; native valid force and25N limit unchanged; original failed audit preserved",
+    "sampled_images": 54
   },
   "ur5e_cylinder_pp_trace2": {
-    "state": "deployed_queued",
+    "state": "diagnostic_complete_saved0",
     "seed": 260911803,
     "max_episode": 1,
     "formal_credit": 0,
-    "difference": "dense read-only cache vs PhysX force and planned vs actual TCP observations; unchanged physics and30mm gate"
+    "difference": "dense read-only cache vs PhysX force and planned vs actual TCP observations; unchanged physics and30mm gate",
+    "saved": 0,
+    "final_error_m": 0.039867,
+    "backend_pairs": 1720,
+    "tcp_samples": 215,
+    "true_zero_tensor_reads": 5590
+  },
+  "fr3_beaker250_pool100": {
+    "state": "candidate_integrity_and_L3_pass_independently_reviewed",
+    "episodes": 100,
+    "frames": 11967,
+    "videos": 300,
+    "base_accepted": 50,
+    "reused_extra": 14,
+    "newly_collected": 36,
+    "formal_credit": 0
+  },
+  "ur5e_cylinder_pp_report0": {
+    "state": "diagnostic_complete_saved0",
+    "seed": 260911803,
+    "max_episode": 1,
+    "formal_credit": 0,
+    "change": "8 hand PhysxContactReport reporting thresholds1N->0N before init;25N force and30mm placement acceptance unchanged",
+    "saved": 0,
+    "final_error_m": 0.039867,
+    "observation": "zero forces persist; report threshold hypothesis not supported"
+  },
+  "fr3_beaker100_smoke1": {
+    "state": "queued_after_verified_runtime_normalization",
+    "seed": 260912101,
+    "target": 1,
+    "max_episode": 3,
+    "formal_credit": 0
   }
 }
