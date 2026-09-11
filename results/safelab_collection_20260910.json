@@ -1,9 +1,9 @@
 {
-  "as_of": "2026-09-12T00:09:28+08:00",
+  "as_of": "2026-09-12T01:36:09.448983+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
-    "state": "cabinet_close50_complete_open_trace0of2",
+    "state": "fr3_b100_qualification_retry1_initialization_failed_cuda_header_missing",
     "accepted_replacements": 41,
     "target": 41,
     "confirmation_episodes": 10,
@@ -15,7 +15,7 @@
     "full_automatic_audit": "pass",
     "collector_exit_code": 0,
     "visual_review": "sampled5episodes45frames: transfer visible; chest elevated target crop and head occlusion; final acceptance pending",
-    "next": "open diagnosis still pending; prioritize FR3/UR5e"
+    "next": "native/L3/scene/video/visual acceptance before bulk"
   },
   "panel_scope": {
     "fr3": {
@@ -58,7 +58,20 @@
         36,
         47
       ],
-      "visual_review": "sampled6episodes54frames/source contract pass; 18 videos fully decoded; canonical merge pending"
+      "visual_review": "sampled6episodes54frames/source contract pass; 18 videos fully decoded; canonical merge pending",
+      "merge_state": "independent100candidate integrity pass; L3 flags16 from old accepted50, supplementary50 no default L3 flags; hold"
+    },
+    "ur5e_pickplace100": {
+      "source": "v412 episodes4-49 unused by prior v413 pool",
+      "state": "hold_all46_physical_flags",
+      "hdf5": "not recorded by original run; no HDF5 segmentation gate replay claimed",
+      "accepted_extra": 0,
+      "new_needed_now": 50,
+      "full_video_decode": "138 videos,85146 decoded frames pass",
+      "native": "50 success-reset and save chain verified; selected46 pass",
+      "physical": "all46 initial-reference sink flags5.3-7.3mm; ep20 downward step91.35mm, ep36 25.04mm",
+      "root_visual": "27 actual event images viewed; ep20 cup detached below gripper; small penetration not excluded visually",
+      "held_extra": 46
     }
   },
   "candidate_acceptance": "FR3 topup36 native/L3/full videos/original scene/sampled visual passed; merged pool100 integrity and L3 passed independent review; no canonical promotion.",
@@ -238,10 +251,304 @@
     "observation": "zero forces persist; report threshold hypothesis not supported"
   },
   "fr3_beaker100_smoke1": {
-    "state": "queued_after_verified_runtime_normalization",
+    "state": "terminal_failed_zero_force",
     "seed": 260912101,
     "target": 1,
     "max_episode": 3,
-    "formal_credit": 0
+    "formal_credit": 0,
+    "saved": 0,
+    "attempts": 3,
+    "cause": "configured Bottle/Beaker003 mismatched USD defaultprim remap; actual rigid body Bottle/base"
+  },
+  "robot_worklist": {
+    "as_of": "2026-09-12T01:36:09.448983+08:00",
+    "target_datasets": 16,
+    "rows": [
+      {
+        "robot": "fr3",
+        "task": "grasp",
+        "object": "glass_beaker_100ml",
+        "target": 100,
+        "formal_accepted": 50,
+        "formal_remaining": 50,
+        "state": "inventory43_qualified_remote_filterfix_queued_local4090_CuRobo_build_fix"
+      },
+      {
+        "robot": "fr3",
+        "task": "grasp",
+        "object": "glass_beaker_250ml",
+        "target": 100,
+        "formal_accepted": 50,
+        "formal_remaining": 50,
+        "state": "independently_reviewed_candidate100_ready_no_canonical_promotion"
+      },
+      {
+        "robot": "fr3",
+        "task": "pick_place",
+        "object": "glass_beaker_100ml",
+        "target": 100,
+        "formal_accepted": 50,
+        "formal_remaining": 50,
+        "state": "historical_recipe_reviewed_new_smoke_preparation_pending",
+        "review": {
+          "decision_path": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/pipeline/canonical_datasets/t035_candidate_audit/new_fr3_pick_place_glass_beaker_100ml_v146_semiglass085_formal50_max100/decision.json",
+          "decision_sha256": "29a889cde82ce7e6e0b6d3be416f577d68fa8450e85bce900a1e7c09d2fbc42c",
+          "recipe_file": null,
+          "recipe_sha256": null,
+          "largest_blocker": "PreviewSurface opacity .85 historical recipe; current camera/material contract needs smoke validation before bulk.",
+          "next_action": "Recover/pin executable source and full configuration, run isolated native/scene-checked smoke with new seed, then schedule missing batch.",
+          "source_dataset": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/data/bjxy_5090_t035_pickplace_beaker100_fr3_v146_semiglass085_strict3cam_random3cm_formal50_max100_gpu0_20260724_152044/lerobot/pick_place/glass_beaker_100ml__fr3/20260724_152306"
+        }
+      },
+      {
+        "robot": "fr3",
+        "task": "pick_place",
+        "object": "glass_cylinder_100ml",
+        "target": 100,
+        "formal_accepted": 50,
+        "formal_remaining": 50,
+        "state": "historical_recipe_reviewed_new_smoke_preparation_pending",
+        "review": {
+          "decision_path": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/pipeline/canonical_datasets/t035_candidate_audit/new_fr3_pick_place_glass_cylinder_100ml_v149_open_hold_vertical6cm_formal50_max100/decision.json",
+          "decision_sha256": "9243cd2ac4fe51c76f6542b76573942c569fb44170526d415800c43297bdbff0",
+          "recipe_file": null,
+          "recipe_sha256": null,
+          "largest_blocker": "PreviewSurface opacity .68; current source/force/contact/camera contract needs isolated smoke before bulk.",
+          "next_action": "Recover/pin executable source and full configuration, run isolated native/scene-checked smoke with new seed, then schedule missing batch.",
+          "source_dataset": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/data/bjxy_5090_t035_pickplace_cylinder100_fr3_v149_open_hold_vertical6cm_strict3cam_random3cm_formal50_max100_gpu1_20260724_161314/lerobot/pick_place/glass_cylinder_100ml__fr3/20260724_161528"
+        }
+      },
+      {
+        "robot": "fr3",
+        "task": "pour",
+        "object": "glass_beaker_100ml",
+        "target": 100,
+        "formal_accepted": 0,
+        "formal_remaining": 100,
+        "state": "blocked_recipe_diagnosis_required",
+        "review": {
+          "decision_path": null,
+          "decision_sha256": null,
+          "recipe_file": null,
+          "recipe_sha256": null,
+          "largest_blocker": "Legacy failed actual pour semantics, floating/disappearing geometry and action continuity; newer true-liquid/probe candidate directories lack decision.json.",
+          "next_action": "Validate correct embodiment and actual liquid transfer in isolated smoke; require native physics, liquid evidence, camera/metadata and scene checks before any100 batch.",
+          "source_dataset": null
+        }
+      },
+      {
+        "robot": "fr3",
+        "task": "pour",
+        "object": "glass_cylinder_100ml",
+        "target": 100,
+        "formal_accepted": 0,
+        "formal_remaining": 100,
+        "state": "blocked_recipe_diagnosis_required",
+        "review": {
+          "decision_path": null,
+          "decision_sha256": null,
+          "recipe_file": null,
+          "recipe_sha256": null,
+          "largest_blocker": "Legacy failed actual pour semantics, floating/disappearing geometry and action continuity; newer true-liquid/probe candidate directories lack decision.json.",
+          "next_action": "Validate correct embodiment and actual liquid transfer in isolated smoke; require native physics, liquid evidence, camera/metadata and scene checks before any100 batch.",
+          "source_dataset": null
+        }
+      },
+      {
+        "robot": "fr3",
+        "task": "stack",
+        "object": "glass_beaker_100ml",
+        "target": 100,
+        "formal_accepted": 50,
+        "formal_remaining": 50,
+        "state": "historical_recipe_reviewed_new_smoke_preparation_pending",
+        "review": {
+          "decision_path": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/pipeline/canonical_datasets/t035_candidate_audit/new_fr3_stack_glass_beaker_100ml_v120_hold4_formal50_max100/decision.json",
+          "decision_sha256": "398e43f063c6b821ef358556b4155a89cbef815a31f1c76ca69aeffd0304758b",
+          "recipe_file": null,
+          "recipe_sha256": null,
+          "largest_blocker": "Native source50 exactly; old v80 is two-camera and contains continuity exclusions, so cannot treat it as interchangeable extra50.",
+          "next_action": "Recover/pin executable source and full configuration, run isolated native/scene-checked smoke with new seed, then schedule missing batch.",
+          "source_dataset": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/data/bjxy_5090_t035_stack_beaker100_fr3_v120_hold4_task_camera_rig_random3cm_formal50_max100_gpu1_20260724_084505/lerobot/stack/glass_beaker_100ml__fr3/20260724_084704"
+        }
+      },
+      {
+        "robot": "fr3",
+        "task": "stack",
+        "object": "glass_beaker_250ml_stack",
+        "target": 100,
+        "formal_accepted": 50,
+        "formal_remaining": 50,
+        "state": "historical_recipe_reviewed_new_smoke_preparation_pending",
+        "review": {
+          "decision_path": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/pipeline/canonical_datasets/t035_candidate_audit/new_fr3_stack_glass_beaker_250ml_v108_dualrandom3cm_formal50/decision.json",
+          "decision_sha256": "3aa6ecf6e6aaf844d5d1ca523edb5f0d42c5d2a72770593bf1d909e79a4fe833",
+          "recipe_file": null,
+          "recipe_sha256": null,
+          "largest_blocker": "Preserve independent source AND receiver±3cm and dynamic receiver; v107 quarantined for receiver±1cm, not reusable substitute.",
+          "next_action": "Recover/pin executable source and full configuration, run isolated native/scene-checked smoke with new seed, then schedule missing batch.",
+          "source_dataset": "data/bjxy_5090_t035_stack_beaker250_fr3_v108_fr3_dualrandom3cm_formal50_max75_gpu0_20260727_081206/lerobot/stack/glass_beaker_250ml_stack__fr3/20260727_081401"
+        }
+      },
+      {
+        "robot": "ur5e",
+        "task": "grasp",
+        "object": "glass_beaker_100ml",
+        "target": 100,
+        "formal_accepted": 50,
+        "formal_remaining": 50,
+        "state": "candidate100_integrity_pass_original_base16_L3_flags_hold"
+      },
+      {
+        "robot": "ur5e",
+        "task": "grasp",
+        "object": "glass_beaker_250ml",
+        "target": 100,
+        "formal_accepted": 50,
+        "formal_remaining": 50,
+        "state": "historical50_only3_anchors_randomized_recipe_required",
+        "review": {
+          "decision_path": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/pipeline/canonical_datasets/t035_candidate_audit/new_ur5e_2f85_grasp_glass_beaker_250ml_v355_pool50_three_anchor/decision.json",
+          "decision_sha256": "1e6bd337146f14bf991911f8e5b2bbf88dcd236d5a2994c9ad4e8b94b9dee026",
+          "recipe_file": null,
+          "recipe_sha256": null,
+          "largest_blocker": "Accepted50 contains only3 explicit XY anchors; continuous random generalization is not established. No source excess:50source datasets sum50.",
+          "next_action": "Recover/pin executable source and full configuration, run isolated native/scene-checked smoke with new seed, then schedule missing batch.",
+          "source_dataset": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/data/bjxy_5090_t035_grasp_beaker250_ur5e_2f85_v355_pool50_20260803_014826/lerobot/grasp/glass_beaker_250ml__ur5e_2f85/pool50"
+        }
+      },
+      {
+        "robot": "ur5e",
+        "task": "pick_place",
+        "object": "glass_beaker_100ml",
+        "target": 100,
+        "formal_accepted": 50,
+        "formal_remaining": 50,
+        "state": "inventory46_held_physical_flags_new_collection50_remaining",
+        "review": {
+          "decision_path": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/pipeline/canonical_datasets/t035_candidate_audit/new_ur5e_2f85_pick_place_glass_beaker_100ml_v413_pool50/decision.json",
+          "decision_sha256": "49369102388712eea4c845f3a1590a594246753a3f89c047102f836d7ce7f8e1",
+          "recipe_file": null,
+          "recipe_sha256": null,
+          "largest_blocker": "Full audit complete: all46 sink flags; ep20/36 downward jumps; not accepted.",
+          "next_action": "Diagnose physical flags and repair collection recipe; new collection requirement stays50 until individual qualification.",
+          "source_dataset": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/data/bjxy_5090_t035_pickplace_beaker100_ur5e_2f85_v413_pool50_20260805_162121/lerobot/pick_place/glass_beaker_100ml__ur5e_2f85/pool50"
+        },
+        "accepted_extra": 0,
+        "new_collection_needed": 50,
+        "held_extra": 46
+      },
+      {
+        "robot": "ur5e",
+        "task": "pick_place",
+        "object": "glass_cylinder_100ml",
+        "target": 100,
+        "formal_accepted": 0,
+        "formal_remaining": 100,
+        "state": "independent_exact_contact_views_diagnostic_queued"
+      },
+      {
+        "robot": "ur5e",
+        "task": "pour",
+        "object": "glass_beaker_100ml",
+        "target": 100,
+        "formal_accepted": 0,
+        "formal_remaining": 100,
+        "state": "blocked_recipe_diagnosis_required",
+        "review": {
+          "decision_path": null,
+          "decision_sha256": null,
+          "recipe_file": null,
+          "recipe_sha256": null,
+          "largest_blocker": "Legacy labels are UR5 but videos show PsiBot; identity mismatch plus continuity/scene defects. No newUR5pour decision found in bounded catalog.",
+          "next_action": "Validate correct embodiment and actual liquid transfer in isolated smoke; require native physics, liquid evidence, camera/metadata and scene checks before any100 batch.",
+          "source_dataset": null
+        }
+      },
+      {
+        "robot": "ur5e",
+        "task": "pour",
+        "object": "glass_cylinder_100ml",
+        "target": 100,
+        "formal_accepted": 0,
+        "formal_remaining": 100,
+        "state": "blocked_recipe_diagnosis_required",
+        "review": {
+          "decision_path": null,
+          "decision_sha256": null,
+          "recipe_file": null,
+          "recipe_sha256": null,
+          "largest_blocker": "Legacy labels are UR5 but videos show PsiBot; identity mismatch plus continuity/scene defects. No newUR5pour decision found in bounded catalog.",
+          "next_action": "Validate correct embodiment and actual liquid transfer in isolated smoke; require native physics, liquid evidence, camera/metadata and scene checks before any100 batch.",
+          "source_dataset": null
+        }
+      },
+      {
+        "robot": "ur5e",
+        "task": "stack",
+        "object": "glass_beaker_100ml",
+        "target": 100,
+        "formal_accepted": 50,
+        "formal_remaining": 50,
+        "state": "historical_recipe_reviewed_new_smoke_preparation_pending",
+        "review": {
+          "decision_path": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/pipeline/canonical_datasets/t035_candidate_audit/new_ur5e_2f85_stack_glass_beaker_100ml_v244_handcontinuity_random3cm_formal50/decision.json",
+          "decision_sha256": "6a11ecbf034bedea4881072739976bcb52aa9dc682cada864be0a5409d89faa6",
+          "recipe_file": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/data/bjxy_5090_t035_stack_beaker100_ur5e_2f85_v244_reference_branch_handcontinuity_freeze_setdown14mm_random3cm_formal50_max150_gpu0_20260726_034413/env_overrides.v244.json",
+          "recipe_sha256": "acba4150b936dddb78d1a3deefbb14ada7d29af2438c3afa97544ec463cee64a",
+          "largest_blocker": "Freeze branch references, passive hand continuity/recovery, actual robot USD and contact/runtime source before smoke; historical50/55.",
+          "next_action": "Recover/pin executable source and full configuration, run isolated native/scene-checked smoke with new seed, then schedule missing batch.",
+          "source_dataset": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/data/bjxy_5090_t035_stack_beaker100_ur5e_2f85_v244_reference_branch_handcontinuity_freeze_setdown14mm_random3cm_formal50_max150_gpu0_20260726_034413/lerobot/stack/glass_beaker_100ml__ur5e_2f85/20260726_034556"
+        }
+      },
+      {
+        "robot": "ur5e",
+        "task": "stack",
+        "object": "glass_beaker_250ml_stack",
+        "target": 100,
+        "formal_accepted": 0,
+        "formal_remaining": 100,
+        "state": "blocked_recipe_diagnosis_required",
+        "review": {
+          "decision_path": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/pipeline/canonical_datasets/t035_candidate_audit/new_ur5e_2f85_stack_glass_beaker_250ml_v256_simultaneous_open_lift0of2_rejected/decision.json",
+          "decision_sha256": "1225a13a59a912bb41662327b05a59a3fcdf29b24a36cbb625a0b81242bd1c23",
+          "recipe_file": null,
+          "recipe_sha256": null,
+          "largest_blocker": "Latest v2560/2: EEF lift before fast opening completes and instability after guard. v2531/6 and v2540/6 fail dualrandom; fixed v2521/1 is not publishable.",
+          "next_action": "One bounded paired release-timing diagnosis; no bulk until original randomized gate passes.",
+          "source_dataset": null
+        }
+      }
+    ],
+    "policy": "Retain every unfinished row; no formal credit for candidates or diagnostics; admit exact pinned recipes with native physical,scene,video and visual checks."
+  },
+  "fr3_beaker100_filterfix": {
+    "state": "remote_gpu0_waiting_admission_local4090_build_dependency_repair",
+    "filter": "/World/envs/env_[0-9]+/Bottle/base",
+    "seed": 260912101,
+    "formal_credit": 0,
+    "local_engine": "Isaac Sim4.5",
+    "remote_engine": "Isaac Sim5.1",
+    "thresholds_unchanged": true,
+    "local_first_attempt": "0 episodes; CuRobo missing CUDA_HOME, initialization aborted; preserved",
+    "local_retry1": "CUDA_HOME resolved; CuRobo compile failed cuda_runtime_api.h missing; fix in progress,0 episodes"
+  },
+  "ur5e_cylinder_exactviews": {
+    "state": "gpu0_waiting_admission",
+    "seed": 260911803,
+    "formal_credit": 0,
+    "diagnostic": "independent exact path net contact views for target+8 hand bodies; original task aggregation stays8",
+    "previous_report0": "zero-force threshold hypothesis not supported"
+  },
+  "ur5e_grasp100_pool_candidate": {
+    "state": "integrity_pass_L3_hold",
+    "episodes": 100,
+    "frames": 32814,
+    "videos": 300,
+    "unique_trajectories": 100,
+    "formal_credit": 0,
+    "physical_flags": 16,
+    "flag_source": "all16 are from original accepted50; supplementary50 has no default L3 flags",
+    "next": "source-specific flag review and qualified replacements; no formal promotion"
   }
 }
