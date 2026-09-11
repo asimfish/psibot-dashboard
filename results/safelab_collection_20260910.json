@@ -1,9 +1,9 @@
 {
-  "as_of": "2026-09-12T04:54:09.923094+08:00",
+  "as_of": "2026-09-12T05:20:19.849173+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
-    "state": "ur5e_close55_native_failed_cleanup_then_fr3_topup50",
+    "state": "fr3_nesting250_topup50_collecting",
     "accepted_replacements": 41,
     "target": 41,
     "confirmation_episodes": 10,
@@ -15,8 +15,16 @@
     "full_automatic_audit": "pass",
     "collector_exit_code": 0,
     "visual_review": "sampled5episodes45frames: transfer visible; chest elevated target crop and head occlusion; final acceptance pending",
-    "next": "FR3topup50 waitsclose55processcleanup and90s admission",
-    "unit": "chembench-t290-ur5e-side90-close55-local4090.service"
+    "next": "UR5 close55 report0 then UR5 grasp250 fixed historical reference; nonpreemptive ordered queue",
+    "unit": "chembench-t290-fr3-nesting250-legacycam-topup50.service",
+    "current_gpu_sample": {
+      "utilization_percent": 3,
+      "memory_used_mib": 9779,
+      "mean_of_30s_running_samples_percent": 38.857142857142854,
+      "sample_count": 49
+    },
+    "current_saved": 6,
+    "current_target": 50
   },
   "panel_scope": {
     "fr3": {
@@ -262,7 +270,7 @@
     "cause": "configured Bottle/Beaker003 mismatched USD defaultprim remap; actual rigid body Bottle/base"
   },
   "robot_worklist": {
-    "as_of": "2026-09-12T04:50:55.840662+08:00",
+    "as_of": "2026-09-12T05:20:19.849173+08:00",
     "target_datasets": 16,
     "rows": [
       {
@@ -390,19 +398,19 @@
         "target": 100,
         "formal_accepted": 50,
         "formal_remaining": 50,
-        "state": "new_camera_confirmation3_PASS_topup50_armed_waiting_priorUR5",
+        "state": "topup50_collecting_fullaudit_pending",
         "review": {
           "decision_path": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/pipeline/canonical_datasets/t035_candidate_audit/new_fr3_stack_glass_beaker_250ml_v108_dualrandom3cm_formal50/decision.json",
           "decision_sha256": "3aa6ecf6e6aaf844d5d1ca523edb5f0d42c5d2a72770593bf1d909e79a4fe833",
           "recipe_file": null,
           "recipe_sha256": null,
           "largest_blocker": "Topup50 must finish full physical, video, randomization and source-overlap review before candidate merge; formal credit unchanged",
-          "next_action": "Admitted new-camera topup50 queued after UR5close55 with original physics/dualrandomgates",
+          "next_action": "Finish50 then all-data physics/video audit, independent visual/randomization and old50 overlap review",
           "source_dataset": "data/bjxy_5090_t035_stack_beaker250_fr3_v108_fr3_dualrandom3cm_formal50_max75_gpu0_20260727_081206/lerobot/stack/glass_beaker_250ml_stack__fr3/20260727_081401"
         },
         "native_diagnostic_successes": 8,
         "topup50_target": 50,
-        "topup50_saved": 0
+        "topup50_saved": 6
       },
       {
         "robot": "ur5e",
@@ -420,14 +428,14 @@
         "target": 100,
         "formal_accepted": 50,
         "formal_remaining": 50,
-        "state": "residual_controller_repaired_runtimeaccepted_still0of1_fixedreference_diagnosis",
+        "state": "fixedhistoricalreference_armed_after_report0",
         "review": {
           "decision_path": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/pipeline/canonical_datasets/t035_candidate_audit/new_ur5e_2f85_grasp_glass_beaker_250ml_v355_pool50_three_anchor/decision.json",
           "decision_sha256": "1e6bd337146f14bf991911f8e5b2bbf88dcd236d5a2994c9ad4e8b94b9dee026",
           "recipe_file": null,
           "recipe_sha256": null,
           "largest_blocker": "No lift despite valid13.371N contact; residual4.4mm noweffective. Earlier-thanreference contact-stop geometry remains.",
-          "next_action": "One historical fixed anchor andseed82341 diagnostic withrestoredresidual, originalgates; distinguish initialrandomposition from remainingengine/runtime/contacttiming differences",
+          "next_action": "fixedhistoricalreference seed82341 armed after report0; oldfixedanchor andrestored4.4mmresidual; originalsuccessgates",
           "source_dataset": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/data/bjxy_5090_t035_grasp_beaker250_ur5e_2f85_v355_pool50_20260803_014826/lerobot/grasp/glass_beaker_250ml__ur5e_2f85/pool50"
         }
       },
@@ -460,7 +468,7 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "close55_lift20p7mm_original_uncontacted_guard_failed_contact_reporting_diagnosis"
+        "state": "close55_nativefailed_report0_diagnostic_armed_after_fr3bulk"
       },
       {
         "robot": "ur5e",
@@ -735,11 +743,11 @@
     "formal_credit": 0
   },
   "fr3_nesting250_continuation": {
-    "state": "new_camera_confirmation3_PASS_topup50_admitted_queued",
-    "seed": 260912401,
+    "state": "topup50_collecting",
+    "seed": 260912501,
     "missing_topup": 50,
-    "attempt_limit": 3,
-    "target": 3,
+    "attempt_limit": 75,
+    "target": 50,
     "source_and_receiver_randomization_m": [
       -0.03,
       0.03
@@ -766,19 +774,33 @@
         []
       ],
       "actual_exported_visual_frames": 27,
-      "review_sha256": "89797fe12d79ea7fd1c44db03a6e7563a1055f5797f8208bea6e3442e864fe8c"
+      "review_sha256": "89797fe12d79ea7fd1c44db03a6e7563a1055f5797f8208bea6e3442e864fe8c",
+      "seed": 260912401,
+      "target": 3,
+      "attempt_limit": 3
     },
     "topup50": {
       "target": 50,
       "attempt_limit": 75,
-      "saved": 0,
-      "state": "admitted_queued_after_ur5_close55",
+      "saved": 6,
+      "state": "collecting",
       "unit": "chembench-t290-fr3-nesting250-legacycam-topup50.service",
       "review_sha256": "ca6d11c257b4ecbf90d24c246a49f0c76ce013ca1f080bb69da18a1cd0fbe72d",
-      "formal_credit": 0
+      "formal_credit": 0,
+      "saved_frames": 3498,
+      "progress_as_of": "2026-09-12T05:19:56.674125+08:00",
+      "gpu_sample": {
+        "utilization_percent": 3,
+        "memory_used_mib": 9779,
+        "mean_of_30s_running_samples_percent": 38.857142857142854,
+        "sample_count": 49
+      },
+      "qualification": "Native saved counts are provisional; full audit, randomization, visual review and old50 overlap checks remain.",
+      "seed": 260912501
     },
     "previous_confirmation_unit": "chembench-t290-fr3-nesting250-legacycam-confirmation3.service",
-    "current_unit": "chembench-t290-fr3-nesting250-legacycam-topup50.service"
+    "current_unit": "chembench-t290-fr3-nesting250-legacycam-topup50.service",
+    "next": "Finish50 then all-data physics/video audit, independent visual/randomization and old50 overlap review"
   },
   "ur5e_cylinder_xycal1": {
     "state": "failed_hold_no_saved_episode",
@@ -836,7 +858,7 @@
     "restored_residual_m": 0.0044,
     "contact_force_peak_n": 13.371134,
     "actual_final_lift_m": 0,
-    "next": "fixedhistoricalreference CPUdiagnosis; no blindrandomrepeat",
+    "next": "fixedhistoricalreference seed82341 armed after report0; oldfixedanchor andrestored4.4mmresidual; originalsuccessgates",
     "first_trial_failure": "No lift; frozen runtime skipped original contact_stop_rebase_z_residual_delta0.0044; restore minimal versioned controller before retry"
   },
   "pour_recipe_recovery": {
@@ -859,6 +881,30 @@
     "observed_filtered_force_max_n": 0,
     "observed_force_matrix_reads": 2832,
     "formal_credit": 0,
-    "next": "contact reporting diagnosis with original gate retained; clean own erroredsimprocess then FR3topup50"
+    "next": "report0 threshold observation plus9 independent exact contact views armed afterFR3bulk; original25N and allsuccessgates unchanged"
+  },
+  "ur5e_cylinder_contact_report0": {
+    "state": "armed_waiting_fr3_bulk_terminal",
+    "unit": "chembench-t290-ur5e-close55-report0-local4090.service",
+    "original_override_sha256": "e7d3a4609ad9ecf34683cd3364b413f5827e714a4597723930c9c655e01661b3",
+    "review_sha256": "adc71627d2ae9a0b4cec654e0ce1481b69aa3233381f8399732e3b644f8958e9",
+    "hypothesis": "Source passes True positionally as report threshold, expected1N; actual target and8hand attributes to verify at runtime. Lowforce suppression is a hypothesis, not established cause.",
+    "formal_credit": 0
+  },
+  "ur5e_grasp250_fixed_reference": {
+    "state": "armed_waiting_report0_terminal",
+    "unit": "chembench-t290-ur5e-grasp250-fixed-reference-local4090.service",
+    "seed": 82341,
+    "anchor": [
+      -1.153,
+      -5.302,
+      1.05
+    ],
+    "enable_random": false,
+    "target": 1,
+    "attempt_limit": 1,
+    "override_sha256": "1f734e1ea121390563d90cb78285a839c53d8e28bfd79da8a8013ea8c5b50191",
+    "cpu_review_sha256": "9e6cc8a37c63e7c8397d6af0c0dac356fa6eec6d63cfeb68b276269097829db1",
+    "formal_credit": 0
   }
 }
