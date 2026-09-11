@@ -34,7 +34,7 @@
         "criteria": "all preceding stages accepted; no automatic scale launch from smoke or process exit"
       }
     ],
-    "next": "warm8与horizon1失败，warm60仅辅助成功；已确认epoch衰减预算不匹配，native23真实更新及checkpoint验证通过，准备单个50000步预算修复候选；独立闭环/验证集/论文SSR合同仍未通过。",
+    "next": "单候选约21500/50000更新；18894步中途固定阶段动作MSE未改善；独立监督器1246361等待最终验证checkpoint后复测，随后仍需无辅助物理/SSR验收。",
     "reference_target": {
       "source": "https://openreview.net/pdf?id=ojwpa0wXo9",
       "table": 20,
@@ -54,7 +54,7 @@
       "task_success": false,
       "formal_credit": 0
     },
-    "current_frontier": "warm8与horizon1失败，warm60仅辅助成功；已确认epoch衰减预算不匹配，native23真实更新及checkpoint验证通过，准备单个50000步预算修复候选；独立闭环/验证集/论文SSR合同仍未通过。",
+    "current_frontier": "单候选约21500/50000更新；18894步中途固定阶段动作MSE未改善；独立监督器1246361等待最终验证checkpoint后复测，随后仍需无辅助物理/SSR验收。",
     "expert_dynamic_replay": {
       "native_success": true,
       "delta_p_mm": 15.776063919067383,
@@ -1856,15 +1856,15 @@
       "optimizer_progress": {
         "task": "T-323",
         "mode": "candidate50000",
-        "optimizer_updates": 1,
-        "state_step_min": 1.0,
-        "state_step_max": 1.0,
-        "updated_at": 1789094490.7295184,
-        "last_loss": 1.3083807229995728,
+        "optimizer_updates": 21200,
+        "state_step_min": 21200.0,
+        "state_step_max": 21200.0,
+        "updated_at": 1789106600.1675794,
+        "last_loss": 0.007281831000000238,
         "amp": "no",
         "device": "cuda:0"
       },
-      "updated_at": 1789094517.3438032,
+      "updated_at": 1789106637.948121,
       "scale_training_allowed": false
     },
     "native23": {
@@ -1915,5 +1915,44 @@
     },
     "formal_credit": 0,
     "scale_training_allowed": false
+  },
+  "action_mse_diagnostic": {
+    "scope": "fixed500_windows_100_training_episodes",
+    "seed": 42,
+    "batch_size": 8,
+    "unseen_validation": false,
+    "formal_credit": 0,
+    "scale_training_allowed": false,
+    "gpu_uuid": "GPU-01deb21c-8881-010c-0000-000040147b34",
+    "models": {
+      "original50k": {
+        "checkpoint_sha256": "9c9815fa47f33a56774680af8637ab22b8c8d31b5e3271ccc06293e30696c3c7",
+        "global_step": 50001,
+        "epoch": 532,
+        "mean_action_mse": 0.02233722533288528,
+        "phase_action_mse": {
+          "start0": 0.051182034935918636,
+          "start1": 0.037260074762161824,
+          "start2": 0.021643467625253834,
+          "middle": 0.00047019526733492966,
+          "last8": 0.0011303540737571892
+        }
+      },
+      "budget_fixed_midrun": {
+        "checkpoint_sha256": "49b6fc3f2da90578cfd0347813941de770d8ad50c3899c3ef520ee00298ed46a",
+        "global_step": 18894,
+        "epoch": 200,
+        "mean_action_mse": 0.027315410408511525,
+        "phase_action_mse": {
+          "start0": 0.07703974258620291,
+          "start1": 0.03932130869012326,
+          "start2": 0.017408515678835102,
+          "middle": 0.0009495540763600729,
+          "last8": 0.0018579310110362712
+        }
+      }
+    },
+    "interpretation": "阶段均衡诊断，前3起步窗口占60%，不是按原数据帧频率加权的训练MSE；两模型相同输入/种子/PPU。新模型为18894步中途快照，未证明改善，无新SR/SSR。",
+    "seed_schedule": "42 + batch_start_index; reset identically for both models"
   }
 }
