@@ -1,9 +1,9 @@
 {
-  "as_of": "2026-09-11T21:55:36+08:00",
+  "as_of": "2026-09-11T23:43:26+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
-    "state": "cabinet_close_topup50_auto_pass_open_trace_admission_timeout",
+    "state": "cabinet_close50_complete_open_trace0of2",
     "accepted_replacements": 41,
     "target": 41,
     "confirmation_episodes": 10,
@@ -15,7 +15,7 @@
     "full_automatic_audit": "pass",
     "collector_exit_code": 0,
     "visual_review": "sampled5episodes45frames: transfer visible; chest elevated target crop and head occlusion; final acceptance pending",
-    "next": "open diagnosis pending; previous admission timed out"
+    "next": "open diagnosis still pending; prioritize FR3/UR5e"
   },
   "panel_scope": {
     "fr3": {
@@ -35,8 +35,10 @@
     },
     "fr3_grasp250": {
       "extra": 14,
-      "remaining_if_accepted": 36,
-      "full_videos_checked": 42
+      "remaining_if_accepted": 0,
+      "full_videos_checked": 42,
+      "scene_review": "original gate reproduced;14 episodes42 camera evaluations PASS",
+      "topup36_collected": 36
     },
     "ur5e_grasp100": {
       "selected": 50,
@@ -54,7 +56,7 @@
       "visual_review": "sampled6episodes54frames/source contract pass; 18 videos fully decoded; canonical merge pending"
     }
   },
-  "candidate_acceptance": "native physical/L3/video passed; scene and visual final review pending; no new canonical credit",
+  "candidate_acceptance": "FR3 topup36 full native/L3/video passed, scene/visual pending; old14 scene passed; no new canonical credit",
   "corrected_rows": [
     [
       "pick_place",
@@ -138,7 +140,7 @@
     "random3_attempts": 9,
     "reference_saved": 0,
     "reference_attempts": 3,
-    "trace": "not executed: admission deadline",
+    "trace": "completed0/2; target and robot roots stationary; handle trace instrumentation incomplete",
     "formal_credit": 0
   },
   "fr3_smoke1": {
@@ -159,16 +161,20 @@
     "visual": "9 sampled frames pass; upper gripper cropped in chest final view; no canonical promotion"
   },
   "fr3_confirmation3": {
-    "state": "running",
+    "state": "automatic_and_sampled_visual_pass",
     "seed": 260911253,
     "target": 3,
     "max_episode": 9,
     "unit": "chembench-t290-fr3-b250-gpu0-confirmation3.service",
     "root": "/data/safelab_collection_t290_20260910/fr3_beaker250_gpu0_confirmation3",
-    "formal_credit": 0
+    "formal_credit": 0,
+    "episodes": 3,
+    "frames": 358,
+    "videos": 9,
+    "sampled_images": 27
   },
   "ur5e_cylinder_pp_trace1": {
-    "state": "queued_waiting_gpu0",
+    "state": "diagnostic_complete_saved0",
     "unit": "chembench-t290-ur5e-cylinder-pp-trace1.service",
     "seed": 260911803,
     "target": 1,
@@ -176,6 +182,28 @@
     "place_threshold_m": 0.03,
     "cpu_trace_equivalence_cases": 6,
     "formal_credit": 0,
-    "forty_mm_root_cause_resolved": false
+    "forty_mm_root_cause_resolved": false,
+    "saved": 0,
+    "final_error_m": 0.039867,
+    "pre_release_error_m": 0.04006,
+    "force_sampled_tensor_reads": 858,
+    "force_sampled_all_zero": true,
+    "root_cause": "not resolved; error formed before release"
+  },
+  "fr3_topup36": {
+    "state": "full_auto_pass_visual_scene_pending",
+    "episodes": 36,
+    "frames": 4311,
+    "videos": 108,
+    "seed": 260911254,
+    "formal_credit": 0,
+    "audit_correction": "contacted is1N stop/proxy diagnostic, not native success gate; native valid force and25N limit unchanged; original failed audit preserved"
+  },
+  "ur5e_cylinder_pp_trace2": {
+    "state": "deployed_queued",
+    "seed": 260911803,
+    "max_episode": 1,
+    "formal_credit": 0,
+    "difference": "dense read-only cache vs PhysX force and planned vs actual TCP observations; unchanged physics and30mm gate"
   }
 }
