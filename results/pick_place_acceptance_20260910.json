@@ -1832,7 +1832,7 @@
     }
   },
   "training_repair": {
-    "state": "candidate50000_verified_physical_pending",
+    "state": "candidate50000_verified_physical_failed",
     "data_episodes": 100,
     "data_frames": 12023,
     "seed": 9821,
@@ -1933,6 +1933,169 @@
     },
     "formal_credit": 0,
     "scale_training_allowed": false
+  },
+  "physical_final": {
+    "controller.json": {
+      "task": "T-323",
+      "state": "metrics_pilot_valid",
+      "scale_training_allowed": false,
+      "child_identity": {
+        "pid": 1217185,
+        "state": "R",
+        "ppid": 1216203,
+        "pgid": 1217185,
+        "sid": 1217185,
+        "start_ticks": 18525313,
+        "uid": 1000,
+        "cmd": "bash /home/dataset-local/yf_recovery/pickplace_acceptance_20260910/physical_final/eval_one.sh",
+        "cwd": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/physical_final",
+        "exiting": false
+      },
+      "updated_at": 1789134742.6969235,
+      "log_bytes": 27394,
+      "result": {
+        "state": "metrics_pilot_valid",
+        "reasons": [],
+        "rows": [
+          {
+            "env_id": 0,
+            "episode_index": 0,
+            "success": false,
+            "sample_count": 717,
+            "theta_valid_samples": 717,
+            "force_valid_samples": 717,
+            "spatial_valid_samples": 717,
+            "object_world_m": [
+              -1.1067001819610596,
+              -5.1466593742370605,
+              0.963024914264679
+            ],
+            "goal_world_m": [
+              -1.0766041278839111,
+              -5.201044082641602,
+              0.9850558042526245
+            ],
+            "theta_dev_peak": 1.88041353225708,
+            "theta_valid": true,
+            "f_peak_observed": 283.1403503417969,
+            "force_valid": true,
+            "delta_p_final": 65.9456558227539,
+            "delta_p_valid": true,
+            "frame": "world",
+            "position_units": "mm",
+            "goal_contract": "il_native_initial_position_plus_effective_place_offset",
+            "force_contract": "sum_hand_body_net_force_l2_unfiltered",
+            "paper_ssr": null,
+            "paper_status": "task_calibration_manifest_required",
+            "screening_safe_success": false,
+            "missing_required": [],
+            "native_success_components": {
+              "pos_error": 0.062156811356544495,
+              "position_check": false,
+              "height_diff": 0.022030889987945557,
+              "height_check": false,
+              "orientation_check": false,
+              "released": true,
+              "retreat_check": true,
+              "lin_speed": 0.0030831291805952787,
+              "lin_speed_check": true,
+              "ang_speed": 0.052140165120363235,
+              "ang_speed_check": true,
+              "time_check": true,
+              "stable_success": false,
+              "success_hold_count": 0,
+              "success": false,
+              "contact_force_num": 0
+            },
+            "initial_object_world_m": [
+              -1.1636041402816772,
+              -5.089044094085693,
+              0.9800558090209961
+            ]
+          }
+        ],
+        "scale_training_allowed": false,
+        "formal_credit": 0,
+        "exit_code": 0,
+        "owned_session_clean": true
+      }
+    },
+    "result.json": {
+      "state": "metrics_pilot_valid",
+      "reasons": [],
+      "rows": [
+        {
+          "env_id": 0,
+          "episode_index": 0,
+          "success": false,
+          "sample_count": 717,
+          "theta_valid_samples": 717,
+          "force_valid_samples": 717,
+          "spatial_valid_samples": 717,
+          "object_world_m": [
+            -1.1067001819610596,
+            -5.1466593742370605,
+            0.963024914264679
+          ],
+          "goal_world_m": [
+            -1.0766041278839111,
+            -5.201044082641602,
+            0.9850558042526245
+          ],
+          "theta_dev_peak": 1.88041353225708,
+          "theta_valid": true,
+          "f_peak_observed": 283.1403503417969,
+          "force_valid": true,
+          "delta_p_final": 65.9456558227539,
+          "delta_p_valid": true,
+          "frame": "world",
+          "position_units": "mm",
+          "goal_contract": "il_native_initial_position_plus_effective_place_offset",
+          "force_contract": "sum_hand_body_net_force_l2_unfiltered",
+          "paper_ssr": null,
+          "paper_status": "task_calibration_manifest_required",
+          "screening_safe_success": false,
+          "missing_required": [],
+          "native_success_components": {
+            "pos_error": 0.062156811356544495,
+            "position_check": false,
+            "height_diff": 0.022030889987945557,
+            "height_check": false,
+            "orientation_check": false,
+            "released": true,
+            "retreat_check": true,
+            "lin_speed": 0.0030831291805952787,
+            "lin_speed_check": true,
+            "ang_speed": 0.052140165120363235,
+            "ang_speed_check": true,
+            "time_check": true,
+            "stable_success": false,
+            "success_hold_count": 0,
+            "success": false,
+            "contact_force_num": 0
+          },
+          "initial_object_world_m": [
+            -1.1636041402816772,
+            -5.089044094085693,
+            0.9800558090209961
+          ]
+        }
+      ],
+      "scale_training_allowed": false,
+      "formal_credit": 0,
+      "exit_code": 0,
+      "owned_session_clean": true
+    },
+    "adapter_admission.json": {
+      "export_sha256": "644e055098da9fef7b3127e654f0556360de0fada35698448252e4eeff3eb1f0",
+      "source_sha256": "8c52da9929ce16c5e3e4ad0b1b9f5ec6e2d2bbe181135edb8b5634ba314f3eb0",
+      "sealed_sha256": "e54583a27c0b591cf11a02849d68e728ae9897942f9916e184f767ecdd7bf56f",
+      "training_eef_contract": "world",
+      "formal_credit": 0
+    },
+    "parent_launch.log": "",
+    "logs/t323-budget-fixed-final.log": "ative_success_components\":{\"pos_error\":0.062156811356544495,\"position_check\":false,\"height_diff\":0.022030889987945557,\"height_check\":false,\"orientation_check\":false,\"released\":true,\"retreat_check\":true,\"lin_speed\":0.0030831291805952787,\"lin_speed_check\":true,\"ang_speed\":0.052140165120363235,\"ang_speed_check\":true,\"time_check\":true,\"stable_success\":false,\"success_hold_count\":0,\"success\":false,\"contact_force_num\":0},\"initial_object_world_m\":[-1.1636041402816772,-5.089044094085693,0.9800558090209961]}\n\n==================================================\n[Episode 1/1] 评估统计\n  Policy成功率: 0.00%\n  成功次数/总次数: 0/1\n  测试时间: 3.10 分钟 (186.0 秒)\n  测试效率: 0.32 episode/分钟\n==================================================\n\n[INFO] IL evaluation video encoding: fps=30 {'codec': 'libx264', 'macro_block_size': None, 'ffmpeg_params': ['-crf', '10', '-preset', 'slow', '-pix_fmt', 'yuv444p']}\nMultiple -pix_fmt options specified for stream 0, only the last option '-pix_fmt yuv444p' will be used.\n[INFO] Saved IL evaluation video to: /home/dataset-local/yf_recovery/pickplace_acceptance_20260910/physical_final/videos/t323-budget-fixed-final/episode_001.mp4\n#################  Statistics #################\n运行时长: 3.1666666666666665 分钟\n运行次数: 1 次数\n成功率: 0/1 次\nSSR: 0.0000 (0/1)\n安全违例率: 1.0000\ntheta_dev_mean: 1.8804 rad (1/1 measured) | F_peak_mean: 283.1404 N (1/1 measured) | delta_P_mean: 65.9457 mm (1/1 measured)\n#################  Statistics #################\n[INFO]: Simulation is stopped. Shutting down the app.\n",
+    "checked_at_epoch": 1789134931.4119937
   },
   "action_mse_final": {
     "scope": "fixed500_windows_100_training_episodes",
