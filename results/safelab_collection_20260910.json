@@ -1,13 +1,13 @@
 {
-  "as_of": "2026-09-13T06:24:11.427621+08:00",
+  "as_of": "2026-09-13T06:51:56.276847+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
-    "as_of": "2026-09-13T06:24:11.427621+08:00",
-    "gpu_observed_at": "2026-09-13T06:24:11.427621+08:00",
+    "as_of": "2026-09-13T06:51:56.276847+08:00",
     "snapshot_only": true,
-    "gpu": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 0 %, 557 MiB, 23512 MiB",
-    "state": "V10 supervisor launched with original resource and90s stability admission; V24 bundle prepared pending final independent admission. No claim of continuous GPU occupancy."
+    "gpu_observed_at": "2026-09-13T06:48:43.387136+08:00",
+    "gpu": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 0 %, 535 MiB, 23534 MiB",
+    "state": "V25 independently reviewed terminal failure; no active next GPU run, next readback route under source investigation."
   },
   "panel_scope": {
     "fr3": {
@@ -253,7 +253,7 @@
     "cause": "configured Bottle/Beaker003 mismatched USD defaultprim remap; actual rigid body Bottle/base"
   },
   "robot_worklist": {
-    "as_of": "2026-09-13T06:22:32.022644+08:00",
+    "as_of": "2026-09-13T06:51:56.276847+08:00",
     "target_datasets": 16,
     "rows": [
       {
@@ -322,18 +322,18 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "V23_explicit_output_static_readback_reviewed_V24_CPU_prepared",
+        "state": "V25_NATIVE_FAILURE_INDEPENDENTLY_REVIEWED_EXPLICIT_OUTPUT_STATIC",
         "review": {
           "decision_path": null,
           "decision_sha256": null,
           "recipe_file": null,
           "recipe_sha256": null,
-          "largest_blocker": "No fresh particle readback or qualified pour. V22 device getter mismatch reproduced in CPU source chain; V24 native compatibility awaits runtime.",
-          "next_action": "After independent admission, run V24 single diagnostic after V10; retain original receiver writes and gates.",
+          "largest_blocker": "V25 explicit output underFalse still yields frozen32particle samples; GPU particle statistics alone do not establish fresh positions.",
+          "next_action": "Investigate existing Fabric/particle output access using installed API; no next GPU experiment admitted yet.",
           "source_dataset": null,
           "cpu_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_actual_joint_limits_prepare/PARSER_CPU.json",
-          "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v23_independent_review/REVIEW.json",
-          "latest_terminal_review_sha256": "668711c7495cb2f5c011e66dcbc223c3d996aad9a19b91a624839d76a7c87860",
+          "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v25_independent_review/REVIEW.json",
+          "latest_terminal_review_sha256": "5d6a84f44290ada6aa4509a37d282502cd966f5d847a5d3d6a84e28af286b8ca",
           "historical_interpretation_superseded_by_V20": "V19 native/cavity counters classified630outside moving source; V20 exact constant particle readback means physical particle motion/spill is not established."
         },
         "recovery_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/pour_recipe_recovery/RECOVERY_STATUS.json",
@@ -342,10 +342,10 @@
           "particle_evaluation_readback_frozen_actual_fluid_state_unverified",
           "force_receiver_physical_acceptance_unqualified"
         ],
-        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v23_independent_review/REVIEW.json",
-        "next_action": "V22 dynamic Context.device becomesCPU after suppressReadbackFalse while existingGPUviews remain; V24 locally preserves original Context.device and rejects Context reset, keeps original Scene reset. Await independent runtime admission.",
-        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v23_independent_review/REVIEW.json",
-        "terminal_review_sha256": "668711c7495cb2f5c011e66dcbc223c3d996aad9a19b91a624839d76a7c87860",
+        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v25_independent_review/REVIEW.json",
+        "next_action": "Investigate existing Fabric/particle output access using installed API; no next GPU experiment admitted yet.",
+        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v25_independent_review/REVIEW.json",
+        "terminal_review_sha256": "5d6a84f44290ada6aa4509a37d282502cd966f5d847a5d3d6a84e28af286b8ca",
         "historical_quality_blockers": [
           "empty_CuRobo_YAML_skipped_planner_despite_required_flags",
           "interpolation_branch_ignored_finger_close_fraction",
@@ -353,12 +353,12 @@
           "force_receiver_physical_acceptance_unqualified",
           "V18_actual_held_lift_failed; superseded by V19 observed held lift"
         ],
-        "next_candidate": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour100_device_readback_v24_local4090_smoke1",
-        "next_manifest_sha256": "39bb6c558bfb5d282eaafe5e99afa7ec19bf515d8fdeceb00ed4b9bdb596d0bf",
-        "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v23_independent_review/REVIEW.json",
-        "latest_terminal_review_sha256": "668711c7495cb2f5c011e66dcbc223c3d996aad9a19b91a624839d76a7c87860",
+        "next_candidate": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour100_enabled_output_v25_local4090_smoke1",
+        "next_manifest_sha256": "f6ca8305086b1ab59456651f6d9c51ed1e868cb83af41e80d2e893f834b777d8",
+        "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v25_independent_review/REVIEW.json",
+        "latest_terminal_review_sha256": "5d6a84f44290ada6aa4509a37d282502cd966f5d847a5d3d6a84e28af286b8ca",
         "formal_credit": 0,
-        "next_candidate_state": "PREPARED_REQUIRES_INDEPENDENT_ADMISSION"
+        "next_candidate_state": "V25_TERMINAL_INDEPENDENTLY_REVIEWED"
       },
       {
         "robot": "fr3",
@@ -484,27 +484,27 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "V9_cooked_query_terminal_native_failure_independently_reviewed",
+        "state": "V10_NATIVE_FAILURE_INDEPENDENTLY_REVIEWED_EFFECTIVE_OFFSETS_VALID",
         "candidate_episodes": 0,
-        "next_action": "V10 read existing target128/robot18 effective contact/rest offset arrays and runtime133colliderUSD ownership/attrs; no array-to-path mapping, no physics writes.",
-        "terminal_review_sha256": "06af7e7c6fb04d481a5e370b151c27ba2e1d89152fe5035e2563db323d067ef1",
+        "next_action": "Analyze existing recorded force/velocity/pose consistency and installed contact accumulation or solver position-correction semantics; no repeated GPU observation yet.",
+        "terminal_review_sha256": "a83af129d674abb8db8f16bf6139f29ecc3b1c011216668af73932bbb352c9be",
         "review": {
           "largest_blocker": "Original close-near-cup motion raises cylinder, table force but observed hand contactzero. V9 cooked shape metadata valid; detailed finger-shell contact geometry unresolved.",
-          "next_action": "V10 existing backend effective offsets diagnostic queued; authored hull gaps alone do not exclude contact offsets.",
-          "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_cooked_v9_terminal_review/REVIEW.json",
-          "latest_terminal_review_sha256": "06af7e7c6fb04d481a5e370b151c27ba2e1d89152fe5035e2563db323d067ef1"
+          "next_action": "CPU target-table manifold localization using existing recorded contacts.",
+          "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_offsets_v10_terminal_review/REVIEW.json",
+          "latest_terminal_review_sha256": "a83af129d674abb8db8f16bf6139f29ecc3b1c011216668af73932bbb352c9be"
         },
-        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_cooked_v9_terminal_review/REVIEW.json",
-        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_cooked_v9_terminal_review/REVIEW.json",
+        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_offsets_v10_terminal_review/REVIEW.json",
+        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_offsets_v10_terminal_review/REVIEW.json",
         "next_candidate": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_offsets_v10_local4090",
         "next_manifest_sha256": "87554f3ea8a6c51172dd0731eb324e7f0b73e3186a3bc3097edf652f23beff0f",
-        "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_cooked_v9_terminal_review/REVIEW.json",
-        "latest_terminal_review_sha256": "06af7e7c6fb04d481a5e370b151c27ba2e1d89152fe5035e2563db323d067ef1",
+        "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_offsets_v10_terminal_review/REVIEW.json",
+        "latest_terminal_review_sha256": "a83af129d674abb8db8f16bf6139f29ecc3b1c011216668af73932bbb352c9be",
         "historical_terminal_reviews": [
           "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_handstatic_v7_terminal_review/REVIEW.json",
           "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_armstatic_v8_terminal_review/REVIEW.json"
         ],
-        "next_candidate_state": "INDEPENDENTLY_ADMITTED_SUPERVISOR_LAUNCHED"
+        "next_candidate_state": "TERMINAL_INDEPENDENTLY_REVIEWED"
       },
       {
         "robot": "ur5e",
@@ -12064,50 +12064,2406 @@
     "boundary": "CPU source chain identifies device mismatch; actual native compatibility not yet proved."
   },
   "fr3_pour100_device_readback_v24": {
-    "state": "PREPARED_REQUIRES_INDEPENDENT_ADMISSION",
-    "candidate": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour100_device_readback_v24_local4090_smoke1",
+    "state": "TERMINAL_INDEPENDENTLY_REVIEWED_NATIVE_FAILURE",
     "manifest_sha256": "39bb6c558bfb5d282eaafe5e99afa7ec19bf515d8fdeceb00ed4b9bdb596d0bf",
+    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v24_independent_review/REVIEW.json",
+    "review_sha256": "293a7e28f6fa9666d8cf02eeab33d1439b3ad3d30171cf8ec45f79441f59b150",
+    "evidence": {
+      "status": "REVIEWED_NATIVE_FAILURE_DEVICE_COMPATIBILITY_SURVIVED_PARTICLE_READBACK_STILL_STATIC",
+      "native_success": 0,
+      "attempts": 1,
+      "formal_credit": 0,
+      "process_exit": {
+        "returncode": 0,
+        "error": null,
+        "formal_credit": 0,
+        "classification": "diagnostic_only_not_formal"
+      },
+      "log_sha256": "63fe004a963c55b8e6eb2b880c14dc951c2fe244bb3a9e719eb7d4409231f5d8",
+      "context_capture": [
+        {
+          "event": "captured",
+          "device": "cuda:0",
+          "assets": [
+            "target",
+            "receiver",
+            "robot",
+            "scene.rigid.t_beaker",
+            "scene.rigid.bottle",
+            "scene.rigid.sphere",
+            "scene.rigid.pour_source_proxy_bottom",
+            "scene.rigid.pour_source_proxy_x_pos",
+            "scene.rigid.pour_source_proxy_x_neg",
+            "scene.rigid.pour_source_proxy_y_pos",
+            "scene.rigid.pour_source_proxy_y_neg",
+            "scene.rigid.pour_target_proxy_bottom",
+            "scene.rigid.pour_target_proxy_x_pos",
+            "scene.rigid.pour_target_proxy_x_neg",
+            "scene.rigid.pour_target_proxy_y_pos",
+            "scene.rigid.pour_target_proxy_y_neg"
+          ],
+          "context_identity_preserved": true,
+          "boundary": "Only this context property frozen. Global SimulationManager getter is unchanged; after suppressionFalse it can reportcpu. No global compatibility claim."
+        }
+      ],
+      "readback_toggle": [
+        {
+          "event": "applied",
+          "control_step": 0,
+          "setting": "/physics/suppressReadback",
+          "before": true,
+          "after": false,
+          "boundary": "Applied after first existing hook, initial physics events already elapsed. Only this setting changed once; measure subsequent original-step particle readback. Original GPU pipeline/fabric, physical configuration, state/reset writes and all native gates retained. Diagnostic only."
+        }
+      ],
+      "fluid_state_snapshots": 32,
+      "all_selected_settings_suppressionFalse": true,
+      "all_original_raw_positions_static": true,
+      "raw_velocities_all_zero": true,
+      "simulationPoints_all_None": true,
+      "system_subtree_mesh_points_all_None": true,
+      "particle_count_rows630_finite": 954,
+      "source_backend_lift_m": 0.13985371589660645,
+      "original_failure": [
+        "[PourStrictFailureGate] irreversible particle spill envs=[0]"
+      ],
+      "traceback_present": false,
+      "media": {
+        "videos": [
+          {
+            "camera": "head",
+            "sha256": "5966b05c11e29c6d55c346b413e59bc87a69cb1dd60b0eb4f162e9a07b8820ca",
+            "full_decode": true,
+            "probe": {
+              "programs": [],
+              "streams": [
+                {
+                  "width": 640,
+                  "height": 480,
+                  "r_frame_rate": "30/1",
+                  "nb_read_frames": "238"
+                }
+              ]
+            }
+          },
+          {
+            "camera": "chest",
+            "sha256": "1fe24600113487eefce74345244f545bc4017cee255dacaf6bfcd5d2473aa90c",
+            "full_decode": true,
+            "probe": {
+              "programs": [],
+              "streams": [
+                {
+                  "width": 640,
+                  "height": 480,
+                  "r_frame_rate": "30/1",
+                  "nb_read_frames": "238"
+                }
+              ]
+            }
+          },
+          {
+            "camera": "third",
+            "sha256": "6af7b71f16a4d26b40e747eaa864ecb207a4c6eeb0bc7c42d783f17c2d745d07",
+            "full_decode": true,
+            "probe": {
+              "programs": [],
+              "streams": [
+                {
+                  "width": 640,
+                  "height": 480,
+                  "r_frame_rate": "30/1",
+                  "nb_read_frames": "238"
+                }
+              ]
+            }
+          }
+        ],
+        "selection": [
+          0,
+          124,
+          154,
+          175,
+          193,
+          210,
+          225,
+          237
+        ]
+      },
+      "actual_visual_review": "Viewed24panels across0/124/154/175/193/210/225/237 threecameras. Sourcecup visibly follows hand off table late; receiver remains ontable. A smallbright object moves in background/table region, identity not established from montage; do not classify it as liquid. Transparentfluid motion remains unresolved.",
+      "interpretation": [
+        "ExistingGPUcontextdevice freeze and originalreceiver writes survived this boundedrun with suppressionFalse, unlikeV22 indexmismatch. No universalbackendcompatibility claim.",
+        "Disabling suppression with devicecompatibility didnotestablish particlepositionfreshness; originalspill stillbased onstaticobservedarrays.",
+        "CPU lifecycleguard didnottrigger inactualrun; originalScene.reset behavior notclaimed exercisedunless logs prove it.",
+        "630finite counts are readbackarray count, notindependentphysicalconservation proof.",
+        "No extraoutputAPI inV24; combiningwithV23output is a separate nextintervention. Originalforce25N/receiverqualification unresolved."
+      ],
+      "next_test_scope": "V24baseline devicecompatibility+False with explicitoutputAPI afteroriginalhook, preservevalidate before/after and alloriginalsteps/receiver/gates. Verify actualcombinedroute and runtime side effects before countinganything."
+    },
     "formal_credit": 0
   },
   "ur5e_cylinder_offsets_v10": {
-    "state": "SUPERVISOR_LAUNCHED",
-    "candidate": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_offsets_v10_local4090",
+    "state": "TERMINAL_INDEPENDENTLY_REVIEWED_NATIVE_FAILURE",
     "manifest_sha256": "87554f3ea8a6c51172dd0731eb324e7f0b73e3186a3bc3097edf652f23beff0f",
+    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_offsets_v10_terminal_review/REVIEW.json",
+    "review_sha256": "a83af129d674abb8db8f16bf6139f29ecc3b1c011216668af73932bbb352c9be",
+    "evidence": {
+      "status": "REVIEWED_NATIVE_FAILURE_RUNTIME_OFFSETS_OBSERVED",
+      "native_success": 0,
+      "attempts": 1,
+      "formal_credit": 0,
+      "process_exit": {
+        "returncode": -15,
+        "error": null,
+        "formal_credit": 0,
+        "classification": "diagnostic_only_not_formal"
+      },
+      "log_sha256": "6531454c91091ff1046b49b2a0015d771113813888dcf3b59e23578bdf656e13",
+      "native_guard": [
+        "[PickPlaceStateGuard] uncontacted lift failure: episode=0, height_diff=[0.02068042755126953], threshold=0.02, contacted=[False], pos=[[-0.921505868434906, -4.979360103607178, 1.092182993888855]], init=[[-0.9215530157089233, -4.979654788970947, 1.0715025663375854]]"
+      ],
+      "post_failure_planning_exception": [
+        "RuntimeError: cuRobo planning partially failed for phase=approach: 0/1 envs planned"
+      ],
+      "offset_sample_controls": [
+        0,
+        215,
+        230,
+        232,
+        233
+      ],
+      "offsets": {
+        "target.contact_offsets": {
+          "shape": [
+            1,
+            128
+          ],
+          "unique_values_m": [
+            0.0020000000949949026
+          ],
+          "constant_across_samples": true,
+          "max_change_m": 0.0
+        },
+        "target.rest_offsets": {
+          "shape": [
+            1,
+            128
+          ],
+          "unique_values_m": [
+            0.0010000000474974513
+          ],
+          "constant_across_samples": true,
+          "max_change_m": 0.0
+        },
+        "robot.contact_offsets": {
+          "shape": [
+            1,
+            18
+          ],
+          "unique_values_m": [
+            0.0013625002466142178,
+            0.0014998960541561246,
+            0.0015299005899578333,
+            0.0015740212984383106,
+            0.0019819755107164383,
+            0.0021976742427796125,
+            0.002357215154916048,
+            0.0023937667720019817
+          ],
+          "constant_across_samples": true,
+          "max_change_m": 0.0
+        },
+        "robot.rest_offsets": {
+          "shape": [
+            1,
+            18
+          ],
+          "unique_values_m": [
+            0.0
+          ],
+          "constant_across_samples": true,
+          "max_change_m": 0.0
+        }
+      },
+      "runtime133_unique_colliders_owner_validated": true,
+      "body_reporter_thresholds": {
+        "/World/envs/env_0/Bottle/GraduatedCylinder004": {
+          "available": true,
+          "schemas": [
+            "PhysxRigidBodyAPI",
+            "PhysicsRigidBodyAPI",
+            "PhysicsMassAPI",
+            "PhysxContactReportAPI"
+          ],
+          "threshold": 1.0,
+          "reason": null
+        },
+        "/World/envs/env_0/Robot/Robotiq_2F_85/left_inner_finger": {
+          "available": true,
+          "schemas": [
+            "PhysxRigidBodyAPI",
+            "PhysxContactReportAPI",
+            "MaterialBindingAPI",
+            "PhysicsRigidBodyAPI"
+          ],
+          "threshold": 1.0,
+          "reason": null
+        },
+        "/World/envs/env_0/Robot/Robotiq_2F_85/right_inner_finger": {
+          "available": true,
+          "schemas": [
+            "PhysxRigidBodyAPI",
+            "PhysxContactReportAPI",
+            "MaterialBindingAPI",
+            "PhysicsRigidBodyAPI"
+          ],
+          "threshold": 1.0,
+          "reason": null
+        },
+        "/World/envs/env_0/Robot/Robotiq_2F_85/right_inner_knuckle": {
+          "available": true,
+          "schemas": [
+            "PhysxRigidBodyAPI",
+            "PhysxContactReportAPI",
+            "PhysicsRigidBodyAPI"
+          ],
+          "threshold": 1.0,
+          "reason": null
+        }
+      },
+      "observer_errors": [],
+      "postphysics_callbacks": 692,
+      "preguard_matched_V9_indices": 632,
+      "preguard_initial_pose_force_identical": true,
+      "V9_matched_pose_differences": {
+        "target": {
+          "max_xyz_coordinate_difference_m": 2.9146671295166016e-05,
+          "max_raw_quaternion_component_difference": 0.0005818498320877552
+        },
+        "table": {
+          "max_xyz_coordinate_difference_m": 2.4437904357910156e-06,
+          "max_raw_quaternion_component_difference": 1.207049353979528e-05
+        }
+      },
+      "V9_max_netforce_coordinate_difference_N": 1.1748621463775635,
+      "target_table_net_matrix_difference_N": 0.0,
+      "peak_net_N": 13.235116189759088,
+      "peak_index": 3885,
+      "positive_pairs": {
+        "target_to_table": 627
+      },
+      "media": {
+        "selection": [
+          0,
+          80,
+          135,
+          198,
+          232
+        ],
+        "media": [
+          {
+            "camera": "head",
+            "all233_JPG_decoded": true,
+            "mp4_sha256": "bf1b3f383a1631903b2a15d136bf855555d70c4cc72d394b09b93b15dee88d30",
+            "mp4_decode_rc": 1,
+            "stderr": "[mov,mp4,m4a,3gp,3g2,mj2 @ 0x5e69273971c0] moov atom not found\n/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_offsets_v10_local4090/cylinder_offsets_v10_seed260911803/diagnostic_videos/head_camera.mp4: Invalid data found when processing input\n"
+          },
+          {
+            "camera": "chest",
+            "all233_JPG_decoded": true,
+            "mp4_sha256": "e3688adb3bca885414ed74ea7c5be0131fa90a791b6e57e42655ab9aaa2a8907",
+            "mp4_decode_rc": 1,
+            "stderr": "[mov,mp4,m4a,3gp,3g2,mj2 @ 0x595dab9eb1c0] moov atom not found\n/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_offsets_v10_local4090/cylinder_offsets_v10_seed260911803/diagnostic_videos/chest_camera.mp4: Invalid data found when processing input\n"
+          },
+          {
+            "camera": "third",
+            "all233_JPG_decoded": true,
+            "mp4_sha256": "da123bb85c2c6f0f8a6fc3b6dca5dab41145deb4a3f994ab3e6b05dae998a7e0",
+            "mp4_decode_rc": 1,
+            "stderr": "[mov,mp4,m4a,3gp,3g2,mj2 @ 0x5f3e18b341c0] moov atom not found\n/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_offsets_v10_local4090/cylinder_offsets_v10_seed260911803/diagnostic_videos/third_camera.mp4: Invalid data found when processing input\n"
+          }
+        ]
+      },
+      "actual_visual_review": "Viewed15panels0/80/135/198/232 across head/chest/third. Cylinder stays nearupright while sidegripper approaches/closes; pictures alone cannot resolve origin of20mmrise or prove stableheldgrasp.",
+      "evidence_sha256": {
+        "OFFSETS_REVIEW.json": "f8cf357d76b68956cc3c3e7749764b417ced860c2b80fa1b3ffb5f380049253f",
+        "CALLBACK_EVIDENCE.json": "358db98ba25e4f94a12475a1d09150751f0bc6d4727f5d073c4d61b754e1438f",
+        "MEDIA_REVIEW.json": "ac57e1e6d2d4397057fc3ee1dc59542a0d3798fe336849da9e1656383edaec38"
+      },
+      "limits": [
+        "Uniformtarget128 offsets and robot18 distributions are actualbackendvalues; robotshapeordering notmappedto133USDpaths.",
+        "Nohandforce in observedviews is not proof ofglobalnocontact. Historicalthreshold0repeat alreadyfailed; donotrepeatthresholdguess.",
+        "V10/V9 initialmatchedstates identical but trajectories/forces notbyteidentical; observationscost and numeric variation notcausallyseparated.",
+        "3MP4moov failures retained; all699rawJPGdecoded and15actualviewed, notqualifieddataset.",
+        "Authoredhull0.77–0.98mmselectedgap cannotexcludecontact/restoffsets, andcookedhullsnotprovedequal."
+      ]
+    },
     "formal_credit": 0,
+    "contact_spatial_review": {
+      "sha256": "fae2c24ca30122974479946d5beae0015ee5d13ca66885916327cfe0db5e9003",
+      "evidence": {
+        "status": "CPU_CONTACT_SPATIAL_CONSISTENCY_ONLY",
+        "installed_api_sha256": "bb5e684dce25e0ad7f3e03ec395ec4729d55203f3b3a58bfa824b8d106c0e54b",
+        "api_contract": "get_contact_data(dt) converts impulses toforces; sixbuffers, contactpointXYZ andnormalXYZ; Python doc doesnot explicitly label coordinate frame. Sumscalar*normal matchespair matrix independently.",
+        "frame_evidence": {
+          "classification": "WORLD_FRAME_EMPIRICALLY_SUPPORTED_NOT_EXPLICIT_PYDOC_GUARANTEE",
+          "positive_nonzero_contacts": 66,
+          "positive_max_point_to_object_center_m": 0.06103280221101032,
+          "positive_raw_coordinate_norm_range_m": [
+            5.5187437526288505,
+            5.564503739615568
+          ],
+          "positive_log_sha256": "87091a897f9fafbc162ecb684ee9202f193108478edd1e66ea48a986712dfac9"
+        },
+        "runs": [
+          {
+            "version": "V9",
+            "log_sha256": "139ac50240b4cb238849050c08ef0b1698a31f2a6192d64b38676fd24d9b8374",
+            "pre_guard_230_233_rows": 60,
+            "nonzero_scalar_contacts": 37,
+            "reportedpoint_xyz_min": [
+              -0.9379987716674805,
+              -5.007559776306152,
+              0.9397367238998413
+            ],
+            "reportedpoint_xyz_max": [
+              -0.8897229433059692,
+              -4.951260566711426,
+              0.9404034614562988
+            ],
+            "wood_gap_range_m": [
+              0.0005369048642354102,
+              0.0012030108481877466
+            ],
+            "target_actor_z_range_m": [
+              -0.13174540520864558,
+              -0.1309016860806121
+            ],
+            "all_rays_hit_wood": true,
+            "records": [
+              {
+                "index": 3853,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371389746665955,
+                  -5.007460117340088,
+                  0.9397605657577515
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.01593674185293556,
+                  0.027578930293023666,
+                  -0.13174409788389113
+                ],
+                "normal_reported_xyz": [
+                  0.0005666206125169992,
+                  -0.00036770166479982436,
+                  -0.999999463558197
+                ],
+                "scalar_force_N": -1.0345983505249023,
+                "normal_impulse_Ns": -0.008621652921040853,
+                "reported_separation_m": 0.0010011921403929591,
+                "nearest_vertical_wood_surface_z_m": 0.9392125096839323,
+                "point_z_minus_nearest_wood_m": 0.0005480560738191365
+              },
+              {
+                "index": 3853,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9377296566963196,
+                  -4.952293872833252,
+                  0.9397403001785278
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015920134044599864,
+                  -0.027590477652754554,
+                  -0.13174391092758617
+                ],
+                "normal_reported_xyz": [
+                  0.0005666206125169992,
+                  -0.00036770166479982436,
+                  -0.999999463558197
+                ],
+                "scalar_force_N": -1.2892385721206665,
+                "normal_impulse_Ns": -0.010743654767672221,
+                "reported_separation_m": 0.001001546042971313,
+                "nearest_vertical_wood_surface_z_m": 0.9391998404724693,
+                "point_z_minus_nearest_wood_m": 0.0005404597060585381
+              },
+              {
+                "index": 3854,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371368885040283,
+                  -5.007461071014404,
+                  0.9397603273391724
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015930752149986023,
+                  0.027580935429137275,
+                  -0.1317444509999639
+                ],
+                "normal_reported_xyz": [
+                  0.000563298468478024,
+                  -0.00036589958472177386,
+                  -0.9999993443489075
+                ],
+                "scalar_force_N": -1.0275425910949707,
+                "normal_impulse_Ns": -0.008562854925791423,
+                "reported_separation_m": 0.0010010695550590754,
+                "nearest_vertical_wood_surface_z_m": 0.9392127843339231,
+                "point_z_minus_nearest_wood_m": 0.0005475430052492847
+              },
+              {
+                "index": 3854,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9377269744873047,
+                  -4.952294826507568,
+                  0.9397398829460144
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.01591327659698443,
+                  -0.02758846593584934,
+                  -0.13174470187496284
+                ],
+                "normal_reported_xyz": [
+                  0.000563298468478024,
+                  -0.00036589958472177386,
+                  -0.9999993443489075
+                ],
+                "scalar_force_N": -1.1636937856674194,
+                "normal_impulse_Ns": -0.009697448213895161,
+                "reported_separation_m": 0.001001147786155343,
+                "nearest_vertical_wood_surface_z_m": 0.9391999606567756,
+                "point_z_minus_nearest_wood_m": 0.0005399222892388256
+              },
+              {
+                "index": 3855,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371407628059387,
+                  -5.00745964050293,
+                  0.9397604465484619
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.01594767608051351,
+                  0.027574352236178167,
+                  -0.1317440798269812
+                ],
+                "normal_reported_xyz": [
+                  0.0005691673140972853,
+                  -0.000368642300600186,
+                  -0.9999996423721313
+                ],
+                "scalar_force_N": -0.9163971543312073,
+                "normal_impulse_Ns": -0.007636642952760061,
+                "reported_separation_m": 0.0010009650141000748,
+                "nearest_vertical_wood_surface_z_m": 0.9392122572866883,
+                "point_z_minus_nearest_wood_m": 0.0005481892617735795
+              },
+              {
+                "index": 3855,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.937731146812439,
+                  -4.952293395996094,
+                  0.9397402405738831
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015931043079606806,
+                  -0.027595052477849564,
+                  -0.13174290184567883
+                ],
+                "normal_reported_xyz": [
+                  0.0005691673140972853,
+                  -0.000368642300600186,
+                  -0.9999996423721313
+                ],
+                "scalar_force_N": -1.6889967918395996,
+                "normal_impulse_Ns": -0.014074973265329997,
+                "reported_separation_m": 0.0010014306753873825,
+                "nearest_vertical_wood_surface_z_m": 0.9391998231963665,
+                "point_z_minus_nearest_wood_m": 0.0005404173775165333
+              },
+              {
+                "index": 3856,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371276497840881,
+                  -5.007464408874512,
+                  0.9397602081298828
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015931944603120588,
+                  0.027580225265448052,
+                  -0.13174457100428102
+                ],
+                "normal_reported_xyz": [
+                  0.000553832040168345,
+                  -0.0003617415495682508,
+                  -0.9999993443489075
+                ],
+                "scalar_force_N": -0.8394561409950256,
+                "normal_impulse_Ns": -0.006995467841625213,
+                "reported_separation_m": 0.0010012228740379214,
+                "nearest_vertical_wood_surface_z_m": 0.939212284369257,
+                "point_z_minus_nearest_wood_m": 0.0005479237606258458
+              },
+              {
+                "index": 3856,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9377174377441406,
+                  -4.952298164367676,
+                  0.9397388100624084
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015914851115484636,
+                  -0.027589173393188615,
+                  -0.13174497128138984
+                ],
+                "normal_reported_xyz": [
+                  0.000553832040168345,
+                  -0.0003617415495682508,
+                  -0.9999993443489075
+                ],
+                "scalar_force_N": -1.490083932876587,
+                "normal_impulse_Ns": -0.012417366107304892,
+                "reported_separation_m": 0.0010001090122386813,
+                "nearest_vertical_wood_surface_z_m": 0.9391997628807651,
+                "point_z_minus_nearest_wood_m": 0.0005390471816433262
+              },
+              {
+                "index": 3857,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.937130331993103,
+                  -5.0074639320373535,
+                  0.9397604465484619
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015929229574494917,
+                  0.027581480593596962,
+                  -0.1317443797614677
+                ],
+                "normal_reported_xyz": [
+                  0.0005571668152697384,
+                  -0.0003632955194916576,
+                  -0.9999992847442627
+                ],
+                "scalar_force_N": -0.9364498257637024,
+                "normal_impulse_Ns": -0.0078037485480308534,
+                "reported_separation_m": 0.001001442433334887,
+                "nearest_vertical_wood_surface_z_m": 0.9392124856798585,
+                "point_z_minus_nearest_wood_m": 0.0005479608686034254
+              },
+              {
+                "index": 3857,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.937720000743866,
+                  -4.952297687530518,
+                  0.939739465713501
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.0159118357873911,
+                  -0.02758791653708545,
+                  -0.13174471485807723
+                ],
+                "normal_reported_xyz": [
+                  0.0005571668152697384,
+                  -0.0003632955194916576,
+                  -0.9999992847442627
+                ],
+                "scalar_force_N": -1.3079167604446411,
+                "normal_impulse_Ns": -0.010899306337038676,
+                "reported_separation_m": 0.0010008352110162377,
+                "nearest_vertical_wood_surface_z_m": 0.9391998117357105,
+                "point_z_minus_nearest_wood_m": 0.000539653977790433
+              },
+              {
+                "index": 3858,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371357560157776,
+                  -5.007462024688721,
+                  0.9397604465484619
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.01592988988976636,
+                  0.02758152343707182,
+                  -0.1317444765503572
+                ],
+                "normal_reported_xyz": [
+                  0.0005627979408018291,
+                  -0.00036599996383301914,
+                  -0.9999995827674866
+                ],
+                "scalar_force_N": -0.9869584441184998,
+                "normal_impulse_Ns": -0.008224653700987497,
+                "reported_separation_m": 0.0010012262500822544,
+                "nearest_vertical_wood_surface_z_m": 0.9392128553073407,
+                "point_z_minus_nearest_wood_m": 0.000547591241121248
+              },
+              {
+                "index": 3858,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9377256035804749,
+                  -4.952295780181885,
+                  0.9397398233413696
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015912459342385037,
+                  -0.02758787545793827,
+                  -0.13174491647721054
+                ],
+                "normal_reported_xyz": [
+                  0.0005627979408018291,
+                  -0.00036599996383301914,
+                  -0.9999995827674866
+                ],
+                "scalar_force_N": -1.1057016849517822,
+                "normal_impulse_Ns": -0.009214180707931518,
+                "reported_separation_m": 0.0010011219419538975,
+                "nearest_vertical_wood_surface_z_m": 0.9392000256280568,
+                "point_z_minus_nearest_wood_m": 0.0005397977133128062
+              },
+              {
+                "index": 3859,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371405243873596,
+                  -5.007460117340088,
+                  0.9397605657577515
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.01594504879559764,
+                  0.027575809636327813,
+                  -0.1317440974449237
+                ],
+                "normal_reported_xyz": [
+                  0.0005694183055311441,
+                  -0.00036875062505714595,
+                  -0.9999995827674866
+                ],
+                "scalar_force_N": -0.9585495591163635,
+                "normal_impulse_Ns": -0.007987912992636362,
+                "reported_separation_m": 0.001000950112938881,
+                "nearest_vertical_wood_surface_z_m": 0.9392123010375293,
+                "point_z_minus_nearest_wood_m": 0.0005482647202221802
+              },
+              {
+                "index": 3859,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.937730610370636,
+                  -4.952293872833252,
+                  0.9397403597831726
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.01592837987994896,
+                  -0.02759359188191178,
+                  -0.1317430956527224
+                ],
+                "normal_reported_xyz": [
+                  0.0005694183055311441,
+                  -0.00036875062505714595,
+                  -0.9999995827674866
+                ],
+                "scalar_force_N": -1.6006304025650024,
+                "normal_impulse_Ns": -0.013338586688041687,
+                "reported_separation_m": 0.0010014232248067856,
+                "nearest_vertical_wood_surface_z_m": 0.9391998352981077,
+                "point_z_minus_nearest_wood_m": 0.0005405244850649193
+              },
+              {
+                "index": 3860,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371300339698792,
+                  -5.0074639320373535,
+                  0.9397603273391724
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015931319562441097,
+                  0.027580787784060406,
+                  -0.1317444823951972
+                ],
+                "normal_reported_xyz": [
+                  0.0005549057386815548,
+                  -0.0003623065713327378,
+                  -0.9999998211860657
+                ],
+                "scalar_force_N": -0.8214660286903381,
+                "normal_impulse_Ns": -0.006845550239086151,
+                "reported_separation_m": 0.0010013302089646459,
+                "nearest_vertical_wood_surface_z_m": 0.9392123223232827,
+                "point_z_minus_nearest_wood_m": 0.0005480050158896965
+              },
+              {
+                "index": 3860,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9377195835113525,
+                  -4.952297687530518,
+                  0.9397391080856323
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015913882319200465,
+                  -0.027588608150409255,
+                  -0.13174475598613702
+                ],
+                "normal_reported_xyz": [
+                  0.0005549057386815548,
+                  -0.0003623065713327378,
+                  -0.9999998211860657
+                ],
+                "scalar_force_N": -1.4587312936782837,
+                "normal_impulse_Ns": -0.012156094113985697,
+                "reported_separation_m": 0.0010004249634221196,
+                "nearest_vertical_wood_surface_z_m": 0.9391997112156647,
+                "point_z_minus_nearest_wood_m": 0.0005393968699676233
+              },
+              {
+                "index": 3861,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371333718299866,
+                  -5.007462501525879,
+                  0.9397604465484619
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.01592936784424047,
+                  0.02758170041447562,
+                  -0.1317446470770144
+                ],
+                "normal_reported_xyz": [
+                  0.0005608901265077293,
+                  -0.0003648824349511415,
+                  -0.9999992847442627
+                ],
+                "scalar_force_N": -0.9582841396331787,
+                "normal_impulse_Ns": -0.007985701163609823,
+                "reported_separation_m": 0.0010012929560616612,
+                "nearest_vertical_wood_surface_z_m": 0.9392126981239897,
+                "point_z_minus_nearest_wood_m": 0.0005477484244722497
+              },
+              {
+                "index": 3861,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9377231597900391,
+                  -4.952296257019043,
+                  0.9397395253181458
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015912255001512346,
+                  -0.027587698055578588,
+                  -0.13174500302926637
+                ],
+                "normal_reported_xyz": [
+                  0.0005608901265077293,
+                  -0.0003648824349511415,
+                  -0.9999992847442627
+                ],
+                "scalar_force_N": -1.2870434522628784,
+                "normal_impulse_Ns": -0.010725362102190654,
+                "reported_separation_m": 0.0010008347453549504,
+                "nearest_vertical_wood_surface_z_m": 0.9391999543481901,
+                "point_z_minus_nearest_wood_m": 0.000539570969955605
+              },
+              {
+                "index": 3862,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371386766433716,
+                  -5.007460594177246,
+                  0.939760684967041
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.0159318553916698,
+                  0.027580858721230356,
+                  -0.13174430833918974
+                ],
+                "normal_reported_xyz": [
+                  0.0005309479311108589,
+                  -0.00035830409615300596,
+                  -0.9999997615814209
+                ],
+                "scalar_force_N": -0.9969115257263184,
+                "normal_impulse_Ns": -0.00830759604771932,
+                "reported_separation_m": 0.0010011106496676803,
+                "nearest_vertical_wood_surface_z_m": 0.9392129873902264,
+                "point_z_minus_nearest_wood_m": 0.0005476975768146097
+              },
+              {
+                "index": 3862,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9377283453941345,
+                  -4.95229434967041,
+                  0.9397401213645935
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015914138416465384,
+                  -0.027588538150399054,
+                  -0.1317444300551431
+                ],
+                "normal_reported_xyz": [
+                  0.0005309479311108589,
+                  -0.00035830409615300596,
+                  -0.9999997615814209
+                ],
+                "scalar_force_N": -1.2341588735580444,
+                "normal_impulse_Ns": -0.01028465727965037,
+                "reported_separation_m": 0.0010011442936956882,
+                "nearest_vertical_wood_surface_z_m": 0.939200164643095,
+                "point_z_minus_nearest_wood_m": 0.0005399567214985357
+              },
+              {
+                "index": 3863,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.937141478061676,
+                  -5.00745964050293,
+                  0.9397606253623962
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.01595334305646639,
+                  0.027572538716035738,
+                  -0.13174372809806187
+                ],
+                "normal_reported_xyz": [
+                  0.0005696330335922539,
+                  -0.0003686243435367942,
+                  -0.9999996423721313
+                ],
+                "scalar_force_N": -0.7858757376670837,
+                "normal_impulse_Ns": -0.006548964480559031,
+                "reported_separation_m": 0.0010010437108576298,
+                "nearest_vertical_wood_surface_z_m": 0.9392119535134966,
+                "point_z_minus_nearest_wood_m": 0.0005486718488996178
+              },
+              {
+                "index": 3863,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9377316832542419,
+                  -4.952293395996094,
+                  0.9397401809692383
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015937385775351885,
+                  -0.02759686435548836,
+                  -0.1317419315916285
+                ],
+                "normal_reported_xyz": [
+                  0.0005696330335922539,
+                  -0.0003686243435367942,
+                  -0.9999996423721313
+                ],
+                "scalar_force_N": -2.028764247894287,
+                "normal_impulse_Ns": -0.016906368732452392,
+                "reported_separation_m": 0.0010012746788561344,
+                "nearest_vertical_wood_surface_z_m": 0.9391996018902897,
+                "point_z_minus_nearest_wood_m": 0.0005405790789485554
+              },
+              {
+                "index": 3864,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371227025985718,
+                  -5.007466793060303,
+                  0.9397599697113037
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015935448844845233,
+                  0.027579701397135482,
+                  -0.13174470366036653
+                ],
+                "normal_reported_xyz": [
+                  0.0005508250906132162,
+                  -0.00036028047907166183,
+                  -0.9999997615814209
+                ],
+                "scalar_force_N": -0.8153047561645508,
+                "normal_impulse_Ns": -0.006794206301371257,
+                "reported_separation_m": 0.00100126292090863,
+                "nearest_vertical_wood_surface_z_m": 0.9392118946176704,
+                "point_z_minus_nearest_wood_m": 0.0005480750936333045
+              },
+              {
+                "index": 3864,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9377116560935974,
+                  -4.952300548553467,
+                  0.9397377371788025
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015918220346190445,
+                  -0.027589688621430082,
+                  -0.13174341873134243
+                ],
+                "normal_reported_xyz": [
+                  0.0005508250906132162,
+                  -0.00036028047907166183,
+                  -0.9999997615814209
+                ],
+                "scalar_force_N": -0.8682011365890503,
+                "normal_impulse_Ns": -0.007235009471575419,
+                "reported_separation_m": 0.0009992214618250728,
+                "nearest_vertical_wood_surface_z_m": 0.9391996218328726,
+                "point_z_minus_nearest_wood_m": 0.000538115345929846
+              },
+              {
+                "index": 3865,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371219277381897,
+                  -5.007466793060303,
+                  0.9397603273391724
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.01593079301706207,
+                  0.02758159247148371,
+                  -0.13174421379380633
+                ],
+                "normal_reported_xyz": [
+                  0.0005471708136610687,
+                  -0.0003589015977922827,
+                  -0.9999997615814209
+                ],
+                "scalar_force_N": -0.946090579032898,
+                "normal_impulse_Ns": -0.007884088158607482,
+                "reported_separation_m": 0.0010016578016802669,
+                "nearest_vertical_wood_surface_z_m": 0.9392121000898266,
+                "point_z_minus_nearest_wood_m": 0.0005482272493457785
+              },
+              {
+                "index": 3865,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9377108812332153,
+                  -4.952300548553467,
+                  0.9397367835044861
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.01591265539467282,
+                  -0.027587797814559216,
+                  -0.13174432509143993
+                ],
+                "normal_reported_xyz": [
+                  0.0005471708136610687,
+                  -0.0003589015977922827,
+                  -0.9999997615814209
+                ],
+                "scalar_force_N": -0.8639587163925171,
+                "normal_impulse_Ns": -0.0071996559699376425,
+                "reported_separation_m": 0.0009982342598959804,
+                "nearest_vertical_wood_surface_z_m": 0.9391996704702492,
+                "point_z_minus_nearest_wood_m": 0.0005371130342368691
+              },
+              {
+                "index": 3866,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371258020401001,
+                  -5.00746488571167,
+                  0.9397602081298828
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015927829045377054,
+                  0.027582728161512898,
+                  -0.13174463622888327
+                ],
+                "normal_reported_xyz": [
+                  0.0005523277795873582,
+                  -0.0003616894828155637,
+                  -0.9999997019767761
+                ],
+                "scalar_force_N": -0.8758686184883118,
+                "normal_impulse_Ns": -0.007298905154069265,
+                "reported_separation_m": 0.0010014420840889215,
+                "nearest_vertical_wood_surface_z_m": 0.9392124343137596,
+                "point_z_minus_nearest_wood_m": 0.0005477738161232537
+              },
+              {
+                "index": 3866,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9377157092094421,
+                  -4.952298641204834,
+                  0.9397367238998413
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015910018103795807,
+                  -0.027586672391376608,
+                  -0.1317452450845007
+                ],
+                "normal_reported_xyz": [
+                  0.0005523277795873582,
+                  -0.0003616894828155637,
+                  -0.9999997019767761
+                ],
+                "scalar_force_N": -0.841667115688324,
+                "normal_impulse_Ns": -0.007013892630736033,
+                "reported_separation_m": 0.0009982420597225428,
+                "nearest_vertical_wood_surface_z_m": 0.9391998190356059,
+                "point_z_minus_nearest_wood_m": 0.0005369048642354102
+              },
+              {
+                "index": 3867,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371326565742493,
+                  -5.007462024688721,
+                  0.9397604465484619
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015927924745291373,
+                  0.02758258640372196,
+                  -0.13174480923842874
+                ],
+                "normal_reported_xyz": [
+                  0.0005607420462183654,
+                  -0.00036495638778433204,
+                  -0.9999997019767761
+                ],
+                "scalar_force_N": -0.8983216285705566,
+                "normal_impulse_Ns": -0.007486013571421305,
+                "reported_separation_m": 0.0010013299761340022,
+                "nearest_vertical_wood_surface_z_m": 0.9392127042898062,
+                "point_z_minus_nearest_wood_m": 0.0005477422586557257
+              },
+              {
+                "index": 3867,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9377231597900391,
+                  -4.952295780181885,
+                  0.9397375583648682
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015910526809553984,
+                  -0.027586820407131677,
+                  -0.13174540520864558
+                ],
+                "normal_reported_xyz": [
+                  0.0005607420462183654,
+                  -0.00036495638778433204,
+                  -0.9999997019767761
+                ],
+                "scalar_force_N": -0.7562259435653687,
+                "normal_impulse_Ns": -0.006301882863044739,
+                "reported_separation_m": 0.000998901086859405,
+                "nearest_vertical_wood_surface_z_m": 0.9391999007767711,
+                "point_z_minus_nearest_wood_m": 0.0005376575880970957
+              },
+              {
+                "index": 3868,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371393918991089,
+                  -5.0074591636657715,
+                  0.9397609233856201
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015940598536049393,
+                  0.027577209028469763,
+                  -0.13174443126957736
+                ],
+                "normal_reported_xyz": [
+                  0.0005685677751898766,
+                  -0.00036827928852289915,
+                  -0.9999995231628418
+                ],
+                "scalar_force_N": -0.7605949640274048,
+                "normal_impulse_Ns": -0.00633829136689504,
+                "reported_separation_m": 0.0010014495346695185,
+                "nearest_vertical_wood_surface_z_m": 0.9392124746154911,
+                "point_z_minus_nearest_wood_m": 0.0005484487701290508
+              },
+              {
+                "index": 3868,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.937730073928833,
+                  -4.9522929191589355,
+                  0.9397386312484741
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015923917091196726,
+                  -0.02759219966639684,
+                  -0.13174334692697573
+                ],
+                "normal_reported_xyz": [
+                  0.0005685677751898766,
+                  -0.00036827928852289915,
+                  -0.9999995231628418
+                ],
+                "scalar_force_N": -1.0147818326950073,
+                "normal_impulse_Ns": -0.008456515272458394,
+                "reported_separation_m": 0.0009998178575187922,
+                "nearest_vertical_wood_surface_z_m": 0.9391998408373177,
+                "point_z_minus_nearest_wood_m": 0.0005387904111564534
+              },
+              {
+                "index": 3885,
+                "control": 232,
+                "point_reported_xyz": [
+                  -0.9366345405578613,
+                  -4.952380657196045,
+                  0.9404034614562988
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.014749191596534808,
+                  -0.027577172130019964,
+                  -0.1309075124403817
+                ],
+                "normal_reported_xyz": [
+                  0.0005526230088435113,
+                  -0.00036117032868787646,
+                  -0.9999995231628418
+                ],
+                "scalar_force_N": -1.304092526435852,
+                "normal_impulse_Ns": -0.010867437720298767,
+                "reported_separation_m": 0.0016642920672893524,
+                "nearest_vertical_wood_surface_z_m": 0.9392004506081111,
+                "point_z_minus_nearest_wood_m": 0.0012030108481877466
+              },
+              {
+                "index": 3885,
+                "control": 232,
+                "point_reported_xyz": [
+                  -0.9372103810310364,
+                  -5.007559776306152,
+                  0.9402945637702942
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.01591517025105709,
+                  0.027591922870450997,
+                  -0.1312076579554135
+                ],
+                "normal_reported_xyz": [
+                  0.0005526230088435113,
+                  -0.00036117032868787646,
+                  -0.9999995231628418
+                ],
+                "scalar_force_N": -3.5864083766937256,
+                "normal_impulse_Ns": -0.029886736472447713,
+                "reported_separation_m": 0.0015357648953795433,
+                "nearest_vertical_wood_surface_z_m": 0.939212441153018,
+                "point_z_minus_nearest_wood_m": 0.0010821226172761378
+              },
+              {
+                "index": 3885,
+                "control": 232,
+                "point_reported_xyz": [
+                  -0.9377864599227905,
+                  -4.952393054962158,
+                  0.9402546882629395
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015901514652236156,
+                  -0.027577604012522735,
+                  -0.13105365203030328
+                ],
+                "normal_reported_xyz": [
+                  0.0005526230088435113,
+                  -0.00036117032868787646,
+                  -0.9999995231628418
+                ],
+                "scalar_force_N": -6.526509761810303,
+                "normal_impulse_Ns": -0.05438758134841919,
+                "reported_separation_m": 0.0015161288902163506,
+                "nearest_vertical_wood_surface_z_m": 0.9391998748246677,
+                "point_z_minus_nearest_wood_m": 0.00105481343827174
+              },
+              {
+                "index": 3885,
+                "control": 232,
+                "point_reported_xyz": [
+                  -0.9379987716674805,
+                  -4.951260566711426,
+                  0.9404022097587585
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.016101369072838292,
+                  -0.02871177025580862,
+                  -0.1309016860806121
+                ],
+                "normal_reported_xyz": [
+                  0.0005526230088435113,
+                  -0.00036117032868787646,
+                  -0.9999995231628418
+                ],
+                "scalar_force_N": -0.016329273581504822,
+                "normal_impulse_Ns": -0.00013607727984587352,
+                "reported_separation_m": 0.00166421034373343,
+                "nearest_vertical_wood_surface_z_m": 0.9391995161648157,
+                "point_z_minus_nearest_wood_m": 0.0012026935939428718
+              },
+              {
+                "index": 3885,
+                "control": 232,
+                "point_reported_xyz": [
+                  -0.8897229433059692,
+                  -4.979477405548096,
+                  0.9402894973754883
+                ],
+                "target_actor_local_under_world_assumption": [
+                  -0.03186964847395903,
+                  1.8618515249576814e-05,
+                  -0.1312250103679066
+                ],
+                "normal_reported_xyz": [
+                  0.0005526230088435113,
+                  -0.00036117032868787646,
+                  -0.9999995231628418
+                ],
+                "scalar_force_N": -1.6790393590927124,
+                "normal_impulse_Ns": -0.013991994659105937,
+                "reported_separation_m": 0.0015145977959036827,
+                "nearest_vertical_wood_surface_z_m": 0.9392296882281015,
+                "point_z_minus_nearest_wood_m": 0.001059809147386792
+              }
+            ]
+          },
+          {
+            "version": "V10",
+            "log_sha256": "6531454c91091ff1046b49b2a0015d771113813888dcf3b59e23578bdf656e13",
+            "pre_guard_230_233_rows": 60,
+            "nonzero_scalar_contacts": 37,
+            "reportedpoint_xyz_min": [
+              -0.9379671812057495,
+              -5.007556438446045,
+              0.9397338032722473
+            ],
+            "reportedpoint_xyz_max": [
+              -0.8896948099136353,
+              -4.951257705688477,
+              0.940399169921875
+            ],
+            "wood_gap_range_m": [
+              0.0005340845906247615,
+              0.0011987573713083677
+            ],
+            "target_actor_z_range_m": [
+              -0.13174572944309987,
+              -0.1308939698301152
+            ],
+            "all_rays_hit_wood": true,
+            "records": [
+              {
+                "index": 3853,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371411204338074,
+                  -5.0074615478515625,
+                  0.939761221408844
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015952139597718157,
+                  0.02757309515292657,
+                  -0.13174365337451902
+                ],
+                "normal_reported_xyz": [
+                  0.0005692593986168504,
+                  -0.0003685395640786737,
+                  -0.9999994039535522
+                ],
+                "scalar_force_N": -0.8777257800102234,
+                "normal_impulse_Ns": -0.007314381500085195,
+                "reported_separation_m": 0.0010017105378210545,
+                "nearest_vertical_wood_surface_z_m": 0.9392120698050097,
+                "point_z_minus_nearest_wood_m": 0.0005491516038342859
+              },
+              {
+                "index": 3853,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9377081990242004,
+                  -4.95229434967041,
+                  0.9397372007369995
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015936458727265398,
+                  -0.027597020468168806,
+                  -0.1317410564212459
+                ],
+                "normal_reported_xyz": [
+                  0.0005692593986168504,
+                  -0.0003685395640786737,
+                  -0.9999994039535522
+                ],
+                "scalar_force_N": -1.370228886604309,
+                "normal_impulse_Ns": -0.011418574055035909,
+                "reported_separation_m": 0.0009983466006815434,
+                "nearest_vertical_wood_surface_z_m": 0.9391997025978363,
+                "point_z_minus_nearest_wood_m": 0.0005374981391632616
+              },
+              {
+                "index": 3854,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371235370635986,
+                  -5.007468223571777,
+                  0.9397605061531067
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015934419275825465,
+                  0.027579367913005883,
+                  -0.13174458386233046
+                ],
+                "normal_reported_xyz": [
+                  0.0005515376105904579,
+                  -0.0003607586841098964,
+                  -0.9999998211860657
+                ],
+                "scalar_force_N": -0.6069219708442688,
+                "normal_impulse_Ns": -0.005057683090368906,
+                "reported_separation_m": 0.0010017624590545893,
+                "nearest_vertical_wood_surface_z_m": 0.939211939691992,
+                "point_z_minus_nearest_wood_m": 0.0005485664611146746
+              },
+              {
+                "index": 3854,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9376890659332275,
+                  -4.952301502227783,
+                  0.9397338628768921
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015916952102184485,
+                  -0.027590255715788173,
+                  -0.1317449931322472
+                ],
+                "normal_reported_xyz": [
+                  0.0005515376105904579,
+                  -0.0003607586841098964,
+                  -0.9999998211860657
+                ],
+                "scalar_force_N": -1.450243353843689,
+                "normal_impulse_Ns": -0.012085361282030742,
+                "reported_separation_m": 0.000995340058580041,
+                "nearest_vertical_wood_surface_z_m": 0.9391996509359097,
+                "point_z_minus_nearest_wood_m": 0.0005342119409823542
+              },
+              {
+                "index": 3855,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.937123715877533,
+                  -5.0074687004089355,
+                  0.9397608637809753
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015929953267020864,
+                  0.02758177182310265,
+                  -0.13174435194884598
+                ],
+                "normal_reported_xyz": [
+                  0.0005488001625053585,
+                  -0.0003593803849071264,
+                  -0.9999996423721313
+                ],
+                "scalar_force_N": -0.6685823798179626,
+                "normal_impulse_Ns": -0.005571519831816355,
+                "reported_separation_m": 0.0010022246278822422,
+                "nearest_vertical_wood_surface_z_m": 0.9392122928981692,
+                "point_z_minus_nearest_wood_m": 0.000548570882806132
+              },
+              {
+                "index": 3855,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9376895427703857,
+                  -4.952301979064941,
+                  0.9397346377372742
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.01591263667930537,
+                  -0.02758785470712708,
+                  -0.13174496408096348
+                ],
+                "normal_reported_xyz": [
+                  0.0005488001625053585,
+                  -0.0003593803849071264,
+                  -0.9999996423721313
+                ],
+                "scalar_force_N": -1.311434030532837,
+                "normal_impulse_Ns": -0.010928616921106974,
+                "reported_separation_m": 0.0009961300529539585,
+                "nearest_vertical_wood_surface_z_m": 0.939199820520102,
+                "point_z_minus_nearest_wood_m": 0.0005348172171721899
+              },
+              {
+                "index": 3856,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371284246444702,
+                  -5.007466793060303,
+                  0.9397609829902649
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015927841515048582,
+                  0.02758351865543043,
+                  -0.13174451780118118
+                ],
+                "normal_reported_xyz": [
+                  0.0005564099992625415,
+                  -0.00036262813955545425,
+                  -0.9999995231628418
+                ],
+                "scalar_force_N": -0.629535973072052,
+                "normal_impulse_Ns": -0.005246133108933767,
+                "reported_separation_m": 0.0010020160116255283,
+                "nearest_vertical_wood_surface_z_m": 0.9392123297333936,
+                "point_z_minus_nearest_wood_m": 0.0005486532568712565
+              },
+              {
+                "index": 3856,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9376943707466125,
+                  -4.952300071716309,
+                  0.9397353529930115
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015910213278133068,
+                  -0.027586108708821125,
+                  -0.13174572944309987
+                ],
+                "normal_reported_xyz": [
+                  0.0005564099992625415,
+                  -0.00036262813955545425,
+                  -0.9999995231628418
+                ],
+                "scalar_force_N": -1.1408109664916992,
+                "normal_impulse_Ns": -0.009506758054097493,
+                "reported_separation_m": 0.0009967037476599216,
+                "nearest_vertical_wood_surface_z_m": 0.9391997056416144,
+                "point_z_minus_nearest_wood_m": 0.0005356473513971061
+              },
+              {
+                "index": 3857,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371352791786194,
+                  -5.007462978363037,
+                  0.9397611618041992
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015929479296892004,
+                  0.027581955037105588,
+                  -0.131744382845861
+                ],
+                "normal_reported_xyz": [
+                  0.0005617568967863917,
+                  -0.0003653223975561559,
+                  -0.9999996423721313
+                ],
+                "scalar_force_N": -0.8608496189117432,
+                "normal_impulse_Ns": -0.007173746824264526,
+                "reported_separation_m": 0.001002105069346726,
+                "nearest_vertical_wood_surface_z_m": 0.9392128021679318,
+                "point_z_minus_nearest_wood_m": 0.0005483596362674259
+              },
+              {
+                "index": 3857,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9377017021179199,
+                  -4.952296257019043,
+                  0.9397367238998413
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.01591207025573629,
+                  -0.027587676762287842,
+                  -0.131744601654629
+                ],
+                "normal_reported_xyz": [
+                  0.0005617568967863917,
+                  -0.0003653223975561559,
+                  -0.9999996423721313
+                ],
+                "scalar_force_N": -1.0432428121566772,
+                "normal_impulse_Ns": -0.008693690101305643,
+                "reported_separation_m": 0.000998137635178864,
+                "nearest_vertical_wood_surface_z_m": 0.9391999826107307,
+                "point_z_minus_nearest_wood_m": 0.0005367412891106316
+              },
+              {
+                "index": 3858,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371404647827148,
+                  -5.007461071014404,
+                  0.939761221408844
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015945462446233367,
+                  0.027575449446628333,
+                  -0.13174392854493375
+                ],
+                "normal_reported_xyz": [
+                  0.0005695474101230502,
+                  -0.0003687811840791255,
+                  -0.9999993443489075
+                ],
+                "scalar_force_N": -0.8527517914772034,
+                "normal_impulse_Ns": -0.007106264928976694,
+                "reported_separation_m": 0.0010016360320150852,
+                "nearest_vertical_wood_surface_z_m": 0.939212247720874,
+                "point_z_minus_nearest_wood_m": 0.0005489736879700224
+              },
+              {
+                "index": 3858,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9377071261405945,
+                  -4.952293872833252,
+                  0.9397369623184204
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015929146695640564,
+                  -0.027594661846825647,
+                  -0.13174237268375677
+                ],
+                "normal_reported_xyz": [
+                  0.0005695474101230502,
+                  -0.0003687811840791255,
+                  -0.9999993443489075
+                ],
+                "scalar_force_N": -1.268655776977539,
+                "normal_impulse_Ns": -0.010572131474812825,
+                "reported_separation_m": 0.000998044852167368,
+                "nearest_vertical_wood_surface_z_m": 0.9391997958570288,
+                "point_z_minus_nearest_wood_m": 0.0005371664613915694
+              },
+              {
+                "index": 3859,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.937129557132721,
+                  -5.007465362548828,
+                  0.9397609233856201
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.01593135081641984,
+                  0.027580919213191484,
+                  -0.1317444661709584
+                ],
+                "normal_reported_xyz": [
+                  0.0005550006753765047,
+                  -0.0003622612857725471,
+                  -0.9999992847442627
+                ],
+                "scalar_force_N": -0.6755265593528748,
+                "normal_impulse_Ns": -0.005629387994607289,
+                "reported_separation_m": 0.0010020016925409436,
+                "nearest_vertical_wood_surface_z_m": 0.9392123465061561,
+                "point_z_minus_nearest_wood_m": 0.0005485768794639689
+              },
+              {
+                "index": 3859,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.937695324420929,
+                  -4.952299118041992,
+                  0.9397351145744324
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015913855787756507,
+                  -0.027588229643376063,
+                  -0.13174473637944673
+                ],
+                "normal_reported_xyz": [
+                  0.0005550006753765047,
+                  -0.0003622612857725471,
+                  -0.9999992847442627
+                ],
+                "scalar_force_N": -1.3174841403961182,
+                "normal_impulse_Ns": -0.010979034503300985,
+                "reported_separation_m": 0.0009964919881895185,
+                "nearest_vertical_wood_surface_z_m": 0.9391997610098393,
+                "point_z_minus_nearest_wood_m": 0.0005353535645931107
+              },
+              {
+                "index": 3860,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371328949928284,
+                  -5.007464408874512,
+                  0.9397611618041992
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015929395109101598,
+                  0.027582644307656008,
+                  -0.13174453124068966
+                ],
+                "normal_reported_xyz": [
+                  0.0005606612539850175,
+                  -0.00036463746801018715,
+                  -0.9999993443489075
+                ],
+                "scalar_force_N": -0.6897781491279602,
+                "normal_impulse_Ns": -0.005748151242733002,
+                "reported_separation_m": 0.0010020682821050286,
+                "nearest_vertical_wood_surface_z_m": 0.9392125514224261,
+                "point_z_minus_nearest_wood_m": 0.000548610381773118
+              },
+              {
+                "index": 3860,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9376989603042603,
+                  -4.952297687530518,
+                  0.9397356510162354
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.01591182239580578,
+                  -0.02758698425033687,
+                  -0.1317452767944693
+                ],
+                "normal_reported_xyz": [
+                  0.0005606612539850175,
+                  -0.00036463746801018715,
+                  -0.9999993443489075
+                ],
+                "scalar_force_N": -1.1857267618179321,
+                "normal_impulse_Ns": -0.009881056348482768,
+                "reported_separation_m": 0.0009969869861379266,
+                "nearest_vertical_wood_surface_z_m": 0.9391998782895439,
+                "point_z_minus_nearest_wood_m": 0.0005357727266914747
+              },
+              {
+                "index": 3861,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371381402015686,
+                  -5.007462024688721,
+                  0.9397613406181335
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015931656197857694,
+                  0.027580937743881075,
+                  -0.1317445046713251
+                ],
+                "normal_reported_xyz": [
+                  0.0005641351453959942,
+                  -0.0003661857917904854,
+                  -0.999999463558197
+                ],
+                "scalar_force_N": -0.7683385014533997,
+                "normal_impulse_Ns": -0.006402820845444997,
+                "reported_separation_m": 0.0010020420886576176,
+                "nearest_vertical_wood_surface_z_m": 0.9392128631078231,
+                "point_z_minus_nearest_wood_m": 0.0005484775103103967
+              },
+              {
+                "index": 3861,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9377046227455139,
+                  -4.952295303344727,
+                  0.9397366046905518
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015914161670514685,
+                  -0.02758869477359547,
+                  -0.13174461741535423
+                ],
+                "normal_reported_xyz": [
+                  0.0005641351453959942,
+                  -0.0003661857917904854,
+                  -0.999999463558197
+                ],
+                "scalar_force_N": -1.155307650566101,
+                "normal_impulse_Ns": -0.00962756375471751,
+                "reported_separation_m": 0.0009978287853300571,
+                "nearest_vertical_wood_surface_z_m": 0.9392000634756041,
+                "point_z_minus_nearest_wood_m": 0.0005365412149476168
+              },
+              {
+                "index": 3862,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371411204338074,
+                  -5.007461071014404,
+                  0.9397614598274231
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.01595278993090979,
+                  0.027572529063124677,
+                  -0.13174366009338526
+                ],
+                "normal_reported_xyz": [
+                  0.0005688683013431728,
+                  -0.0003684264374896884,
+                  -0.9999996423721313
+                ],
+                "scalar_force_N": -0.6462864875793457,
+                "normal_impulse_Ns": -0.0053857207298278805,
+                "reported_separation_m": 0.0010018664179369807,
+                "nearest_vertical_wood_surface_z_m": 0.9392121420495911,
+                "point_z_minus_nearest_wood_m": 0.0005493177778319591
+              },
+              {
+                "index": 3862,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9377079010009766,
+                  -4.952294826507568,
+                  0.9397368431091309
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015937034219871825,
+                  -0.027596630118898277,
+                  -0.13174119263979728
+                ],
+                "normal_reported_xyz": [
+                  0.0005688683013431728,
+                  -0.0003684264374896884,
+                  -0.9999996423721313
+                ],
+                "scalar_force_N": -1.5541349649429321,
+                "normal_impulse_Ns": -0.012951124707857767,
+                "reported_separation_m": 0.0009978989837691188,
+                "nearest_vertical_wood_surface_z_m": 0.9391997850295968,
+                "point_z_minus_nearest_wood_m": 0.0005370580795340807
+              },
+              {
+                "index": 3863,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371229410171509,
+                  -5.007468223571777,
+                  0.9397609233856201
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015935340464388353,
+                  0.027579012000853283,
+                  -0.1317437811746616
+                ],
+                "normal_reported_xyz": [
+                  0.0005511369672603905,
+                  -0.00036058443947695196,
+                  -0.9999995231628418
+                ],
+                "scalar_force_N": -0.7554854154586792,
+                "normal_impulse_Ns": -0.006295711795488993,
+                "reported_separation_m": 0.0010020607151091099,
+                "nearest_vertical_wood_surface_z_m": 0.939211989646564,
+                "point_z_minus_nearest_wood_m": 0.0005489337390560678
+              },
+              {
+                "index": 3863,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9376882314682007,
+                  -4.952301979064941,
+                  0.9397338032722473
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015917136136695514,
+                  -0.027590132364776178,
+                  -0.13174437226896832
+                ],
+                "normal_reported_xyz": [
+                  0.0005511369672603905,
+                  -0.00036058443947695196,
+                  -0.9999995231628418
+                ],
+                "scalar_force_N": -1.4159035682678223,
+                "normal_impulse_Ns": -0.011799196402231852,
+                "reported_separation_m": 0.0009951465763151646,
+                "nearest_vertical_wood_surface_z_m": 0.9391997186816226,
+                "point_z_minus_nearest_wood_m": 0.0005340845906247615
+              },
+              {
+                "index": 3864,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371222257614136,
+                  -5.007469177246094,
+                  0.9397604465484619
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.01593026281491338,
+                  0.027581708161574736,
+                  -0.13174411347451076
+                ],
+                "normal_reported_xyz": [
+                  0.0005484707653522491,
+                  -0.00035906519042328,
+                  -0.9999994039535522
+                ],
+                "scalar_force_N": -0.9039047360420227,
+                "normal_impulse_Ns": -0.007532539467016856,
+                "reported_separation_m": 0.0010018037864938378,
+                "nearest_vertical_wood_surface_z_m": 0.9392121933563433,
+                "point_z_minus_nearest_wood_m": 0.0005482531921185974
+              },
+              {
+                "index": 3864,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9376885294914246,
+                  -4.952302932739258,
+                  0.9397339224815369
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015912506966707658,
+                  -0.0275874464466746,
+                  -0.1317450982031795
+                ],
+                "normal_reported_xyz": [
+                  0.0005484707653522491,
+                  -0.00035906519042328,
+                  -0.9999994039535522
+                ],
+                "scalar_force_N": -1.1777902841567993,
+                "normal_impulse_Ns": -0.009814919034639994,
+                "reported_separation_m": 0.0009954000124707818,
+                "nearest_vertical_wood_surface_z_m": 0.9391997576697875,
+                "point_z_minus_nearest_wood_m": 0.0005341648117493936
+              },
+              {
+                "index": 3865,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371265769004822,
+                  -5.007467269897461,
+                  0.9397603273391724
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.01592774276205178,
+                  0.027582667727720157,
+                  -0.13174461291565778
+                ],
+                "normal_reported_xyz": [
+                  0.0005547752371057868,
+                  -0.00036197740701027215,
+                  -0.999999463558197
+                ],
+                "scalar_force_N": -0.8727885484695435,
+                "normal_impulse_Ns": -0.007273237903912862,
+                "reported_separation_m": 0.0010014238068833947,
+                "nearest_vertical_wood_surface_z_m": 0.9392124214675546,
+                "point_z_minus_nearest_wood_m": 0.0005479058716177931
+              },
+              {
+                "index": 3865,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9376934766769409,
+                  -4.952301025390625,
+                  0.9397348165512085
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.01591004637247656,
+                  -0.027586492545510193,
+                  -0.1317454668927532
+                ],
+                "normal_reported_xyz": [
+                  0.0005547752371057868,
+                  -0.00036197740701027215,
+                  -0.999999463558197
+                ],
+                "scalar_force_N": -1.0799304246902466,
+                "normal_impulse_Ns": -0.008999420205752055,
+                "reported_separation_m": 0.0009961972245946527,
+                "nearest_vertical_wood_surface_z_m": 0.9391998160440551,
+                "point_z_minus_nearest_wood_m": 0.0005350005071533825
+              },
+              {
+                "index": 3866,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371334910392761,
+                  -5.00746488571167,
+                  0.9397605657577515
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015928426564743588,
+                  0.027582608653538034,
+                  -0.1317446395327089
+                ],
+                "normal_reported_xyz": [
+                  0.0005610669613815844,
+                  -0.0003649843274615705,
+                  -0.9999995827674866
+                ],
+                "scalar_force_N": -0.951128363609314,
+                "normal_impulse_Ns": -0.007926069696744283,
+                "reported_separation_m": 0.001001419615931809,
+                "nearest_vertical_wood_surface_z_m": 0.9392126938226346,
+                "point_z_minus_nearest_wood_m": 0.0005478719351168504
+              },
+              {
+                "index": 3866,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9377008676528931,
+                  -4.952298164367676,
+                  0.9397358894348145
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015911102506751037,
+                  -0.027587033072447545,
+                  -0.1317454713352646
+                ],
+                "normal_reported_xyz": [
+                  0.0005610669613815844,
+                  -0.0003649843274615705,
+                  -0.9999995827674866
+                ],
+                "scalar_force_N": -0.9329132437705994,
+                "normal_impulse_Ns": -0.007774277031421661,
+                "reported_separation_m": 0.0009971914114430547,
+                "nearest_vertical_wood_surface_z_m": 0.9391999125685522,
+                "point_z_minus_nearest_wood_m": 0.0005359768662622777
+              },
+              {
+                "index": 3867,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371397495269775,
+                  -5.007462024688721,
+                  0.9397608637809753
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.01594377778495024,
+                  0.027576400527156385,
+                  -0.13174436799978662
+                ],
+                "normal_reported_xyz": [
+                  0.0005677144508808851,
+                  -0.0003680968948174268,
+                  -0.9999997019767761
+                ],
+                "scalar_force_N": -0.8717354536056519,
+                "normal_impulse_Ns": -0.007264462113380432,
+                "reported_separation_m": 0.0010014564031735063,
+                "nearest_vertical_wood_surface_z_m": 0.93921239860175,
+                "point_z_minus_nearest_wood_m": 0.0005484651792253548
+              },
+              {
+                "index": 3867,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.937707245349884,
+                  -4.952295303344727,
+                  0.9397369623184204
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.01592742258756022,
+                  -0.02759324236774828,
+                  -0.13174295695713825
+                ],
+                "normal_reported_xyz": [
+                  0.0005677144508808851,
+                  -0.0003680968948174268,
+                  -0.9999997019767761
+                ],
+                "scalar_force_N": -1.1937471628189087,
+                "normal_impulse_Ns": -0.009947893023490906,
+                "reported_separation_m": 0.0009981855982914567,
+                "nearest_vertical_wood_surface_z_m": 0.9391998698282882,
+                "point_z_minus_nearest_wood_m": 0.0005370924901322294
+              },
+              {
+                "index": 3868,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9371305108070374,
+                  -5.007465362548828,
+                  0.9397608637809753
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015930708099898695,
+                  0.027581826453436754,
+                  -0.13174438093468818
+                ],
+                "normal_reported_xyz": [
+                  0.0005573494709096849,
+                  -0.00036362578975968063,
+                  -0.9999999403953552
+                ],
+                "scalar_force_N": -0.7612378597259521,
+                "normal_impulse_Ns": -0.006343648831049601,
+                "reported_separation_m": 0.0010017732856795192,
+                "nearest_vertical_wood_surface_z_m": 0.9392123615518628,
+                "point_z_minus_nearest_wood_m": 0.000548502229112513
+              },
+              {
+                "index": 3868,
+                "control": 230,
+                "point_reported_xyz": [
+                  -0.9376972317695618,
+                  -4.952299118041992,
+                  0.9397355318069458
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015913309049096783,
+                  -0.027587331997230267,
+                  -0.13174506248160006
+                ],
+                "normal_reported_xyz": [
+                  0.0005573494709096849,
+                  -0.00036362578975968063,
+                  -0.9999999403953552
+                ],
+                "scalar_force_N": -1.1257671117782593,
+                "normal_impulse_Ns": -0.00938139259815216,
+                "reported_separation_m": 0.0009968223748728633,
+                "nearest_vertical_wood_surface_z_m": 0.9391997066366857,
+                "point_z_minus_nearest_wood_m": 0.0005358251702600736
+              },
+              {
+                "index": 3885,
+                "control": 232,
+                "point_reported_xyz": [
+                  -0.9366030693054199,
+                  -4.952377796173096,
+                  0.940399169921875
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.014774718211590139,
+                  -0.02758812838292645,
+                  -0.13090000151233197
+                ],
+                "normal_reported_xyz": [
+                  0.0005695584695786238,
+                  -0.00036860446562059224,
+                  -0.9999997019767761
+                ],
+                "scalar_force_N": -1.7619551420211792,
+                "normal_impulse_Ns": -0.01468295951684316,
+                "reported_separation_m": 0.0016594275366514921,
+                "nearest_vertical_wood_surface_z_m": 0.9392004125505666,
+                "point_z_minus_nearest_wood_m": 0.0011987573713083677
+              },
+              {
+                "index": 3885,
+                "control": 232,
+                "point_reported_xyz": [
+                  -0.9371857643127441,
+                  -5.007556438446045,
+                  0.940287709236145
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.01593899118107546,
+                  0.02758053533642744,
+                  -0.13121230251376093
+                ],
+                "normal_reported_xyz": [
+                  0.0005695584695786238,
+                  -0.00036860446562059224,
+                  -0.9999997019767761
+                ],
+                "scalar_force_N": -4.73230504989624,
+                "normal_impulse_Ns": -0.039435875415802,
+                "reported_separation_m": 0.0015279417857527733,
+                "nearest_vertical_wood_surface_z_m": 0.9392121874107309,
+                "point_z_minus_nearest_wood_m": 0.0010755218254141496
+              },
+              {
+                "index": 3885,
+                "control": 232,
+                "point_reported_xyz": [
+                  -0.9377549886703491,
+                  -4.952390193939209,
+                  0.9402501583099365
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.015927068056988576,
+                  -0.027588407179261133,
+                  -0.13104617313912323
+                ],
+                "normal_reported_xyz": [
+                  0.0005695584695786238,
+                  -0.00036860446562059224,
+                  -0.9999997019767761
+                ],
+                "scalar_force_N": -5.829179763793945,
+                "normal_impulse_Ns": -0.04857649803161621,
+                "reported_separation_m": 0.0015110475942492485,
+                "nearest_vertical_wood_surface_z_m": 0.9391998471525154,
+                "point_z_minus_nearest_wood_m": 0.0010503111574211577
+              },
+              {
+                "index": 3885,
+                "control": 232,
+                "point_reported_xyz": [
+                  -0.9379671812057495,
+                  -4.951257705688477,
+                  0.9403976798057556
+                ],
+                "target_actor_local_under_world_assumption": [
+                  0.016126953162788095,
+                  -0.028722513875768064,
+                  -0.1308939698301152
+                ],
+                "normal_reported_xyz": [
+                  0.0005695584695786238,
+                  -0.00036860446562059224,
+                  -0.9999997019767761
+                ],
+                "scalar_force_N": -0.021475955843925476,
+                "normal_impulse_Ns": -0.00017896629869937897,
+                "reported_separation_m": 0.0016591479070484638,
+                "nearest_vertical_wood_surface_z_m": 0.9391994949368185,
+                "point_z_minus_nearest_wood_m": 0.00119818486893708
+              },
+              {
+                "index": 3885,
+                "control": 232,
+                "point_reported_xyz": [
+                  -0.8896948099136353,
+                  -4.979480266571045,
+                  0.9402936100959778
+                ],
+                "target_actor_local_under_world_assumption": [
+                  -0.031844995625638944,
+                  6.04141007911306e-06,
+                  -0.13122236603451357
+                ],
+                "normal_reported_xyz": [
+                  0.0005695584695786238,
+                  -0.00036860446562059224,
+                  -0.9999997019767761
+                ],
+                "scalar_force_N": -0.8902013897895813,
+                "normal_impulse_Ns": -0.007418344914913178,
+                "reported_separation_m": 0.0015171421691775322,
+                "nearest_vertical_wood_surface_z_m": 0.9392291170765636,
+                "point_z_minus_nearest_wood_m": 0.0010644930194141367
+              }
+            ]
+          }
+        ],
+        "limits": [
+          "Computations conditional on empiricallysupportedworldpointframe; no code-level frame conversion added.",
+          "Table authoredwoodtriangles transformedwithfullancestorstretch andsame-rowruntimebodypose; notproof ofexactcookedface.",
+          "Same-rowforce/pose solverphase alignment remainsunproved; no mΔv causalclaim.",
+          "Reported scalarisforceNbecausegetterdt1/120, impulse reconstructedbydt multiplication, not independentlyreturnedimpulse.",
+          "Noactualtargetshapeid in sixbuffers; pointnearbase narrowsregion but doesnotassign128colliderindex. Nohandorigininference frommissinghandcontacts."
+        ]
+      }
+    }
+  },
+  "fr3_pour100_enabled_output_v25": {
+    "state": "TERMINAL_INDEPENDENTLY_REVIEWED_NATIVE_FAILURE",
+    "manifest_sha256": "f6ca8305086b1ab59456651f6d9c51ed1e868cb83af41e80d2e893f834b777d8",
     "admission": {
       "status": "PASS",
-      "scope": "Single original-controller offsets observation diagnostic only",
-      "manifest_sha256": "87554f3ea8a6c51172dd0731eb324e7f0b73e3186a3bc3097edf652f23beff0f",
-      "collector_sha256": "13dc94001faa9e0765ecb568524f68e602837eaf65c111f55985c007da3945b6",
-      "override_sha256": "e7d3a4609ad9ecf34683cd3364b413f5827e714a4597723930c9c655e01661b3",
-      "supervisor_sha256": "e051feb07df14625a56da6c316d8e0a402d21acfc4852334465085afed83c1f4",
-      "candidate_sha256": "578e467807cb71e594f6b75422be6bc1b28099b5df4209a320aaac08eb3db977",
+      "scope": "One bounded V25 device-compatible False plus explicit USD output diagnostic only",
+      "manifest_sha256": "f6ca8305086b1ab59456651f6d9c51ed1e868cb83af41e80d2e893f834b777d8",
+      "collector_sha256": "e85cc07a371d311758eb3ca53318b3490bb149b7c3b59aa918a818eeb24c8706",
+      "override_sha256": "c356909507b884a59ac5b1ca78b60f9dce7f4df5a8d105328cdcadb8cdb17b4e",
+      "supervisor_sha256": "e124bbc78812cc248d2da8d70d8c5cb4664732392a19ab918ecb35c8a4bab7dd",
+      "output_helper_sha256": "c783189271343cf67cc3244b12aec476040068a5fc7ba552affc915bff098325",
+      "stats_helper_sha256": "abb61545c1c15dee3c78f5b8fa1d0b9fb8d12c4e372fb37344c949edbba14be0",
+      "actual_combined_route_sha256": "1ce03c7c04bafc945ea5ae40030234dba890576a014234fccd6d07e597416b35",
       "checks": [
-        "All bundle/dependency/frozen pins passed; actual binds exist; normalizedargv/env equalV9.",
-        "V9 exactBaseprefix+finalinstalledreadonlyobserver; originaloverride and allotherobservations unchanged.",
-        "ActualfinalBase dispatcher+installer AST executed; originalhook invokedonce.",
-        "Actualinstalled4getterAST/realUSD133fixtureCPU rerun passed; finalhelper bytesmatch testedcandidate."
+        "Allfinalbundle/dependency/frozen pins passed; actualROsourcesexist; normalizedargv/envsameV24.",
+        "V24 exactPourprefix+newinstaller; originalphysics/gates/receiverpin/override unchanged.",
+        "ActualBase dispatcher and all3finalinstallers executed with realV24validator: capture→originaldamping→singleFalse→validate→explicitoutput→validate, originalreceiverGPUindices retained.",
+        "300hookCPUfixture and realUSD scene-owner statisticsquery CPU rerun; finalhelper hashesmatch.",
+        "Nativequery missing/false/exception yieldsunavailable; sevenfields matchinstalledbinding. Noattach/simulate/fetch/render/newphysicsstep."
       ],
-      "limitations": [
-        "Backend offset array order notmapped to133paths. Sourceauthoredattrs and backendvalues separate.",
-        "Getters allocate cachedhostbuffers onexistingviews; no physicswrites ornewviews, but observationaloverhead exists.",
-        "Getterfailures are UNAVAILABLE; noactualruntimeeffectiveoffsets established untilrun.",
-        "Only firstselectedcontrolsample per episode/control, not fullphysicscoverage.",
-        "If nonfiniteUSDdefaults preventstrictJSON emission, diagnosticrow canbeunavailable; noPASSfrommissingmetadata."
+      "limits": [
+        "Output updatesUSD andmayalterdownstreamreadback/feedback/timing; no trajectoryequivalence claim.",
+        "CombinedrouteCPU metadata/nativebackendmocked. MissingparticleScene andPhysicsSchemaTools inroutefixture produce explicitunavailable; realUSD statisticsfixture separatelycoversqueryflowwithmockednativeAPI.",
+        "GlobalManager stillcpu underFalse; localContext semanticguard is scoped andnotuniversalnativecompatibility proof.",
+        "Scene stats reportaggregate memory/capacity, not particlecount or simulationmotion; zeros/missing inconclusive.",
+        "Onlyselectedoutputrecords; no fullphysics readbackcoverage. Originalforce25N andreceiverqualification unresolved."
       ],
       "formal_credit": 0,
-      "independent_review_sha256": "9e4845efa649d055e27addb4f337da4743306af5eafdd072386ecb1dc190a0eb"
+      "independent_review_sha256": "d4ca122e0ab285205442348b379362cbc865fcaf2b288c9509c93089d69a0dde"
     },
-    "admission_sha256": "50d14f426d0929d278c235579f11028a18c4d9458e42683a60ae323b509f7e31",
-    "resource_admission": {
-      "state": "waiting_admission",
-      "time": 1789251850.9584255,
+    "admission_sha256": "7e5130f49f7e1c18d795f9018039b1bdda11ec343cc2f13cbdea1d5500b10a9a",
+    "resource_state": {
+      "state": "diagnostic_ended_review_required",
+      "time": 1789253213.5255532,
       "formal_credit": 0,
-      "gpu": [
-        "GPU-7e048773-6e99-b431-101d-8b45724cce9f",
-        " 23512"
+      "returncode": 0
+    },
+    "formal_credit": 0,
+    "boundary": "V24 plus explicit output underFalse and existing-scene read-only aggregate statistics; no extra step/settings/gate change. Actual fresh particle state still requires runtime review.",
+    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v25_independent_review/REVIEW.json",
+    "review_sha256": "5d6a84f44290ada6aa4509a37d282502cd966f5d847a5d3d6a84e28af286b8ca",
+    "evidence": {
+      "status": "REVIEWED_NATIVE_FAILURE_DEVICE_COMPATIBILITY_SURVIVED_PARTICLE_READBACK_STILL_STATIC",
+      "native_success": 0,
+      "attempts": 1,
+      "formal_credit": 0,
+      "process_exit": {
+        "returncode": 0,
+        "error": null,
+        "formal_credit": 0,
+        "classification": "diagnostic_only_not_formal"
+      },
+      "log_sha256": "5de29ee338bf2f259702ca063884ce2533d6ca1a7e48316f69ad3c35f68663e3",
+      "context_capture": [
+        {
+          "event": "captured",
+          "device": "cuda:0",
+          "assets": [
+            "target",
+            "receiver",
+            "robot",
+            "scene.rigid.t_beaker",
+            "scene.rigid.bottle",
+            "scene.rigid.sphere",
+            "scene.rigid.pour_source_proxy_bottom",
+            "scene.rigid.pour_source_proxy_x_pos",
+            "scene.rigid.pour_source_proxy_x_neg",
+            "scene.rigid.pour_source_proxy_y_pos",
+            "scene.rigid.pour_source_proxy_y_neg",
+            "scene.rigid.pour_target_proxy_bottom",
+            "scene.rigid.pour_target_proxy_x_pos",
+            "scene.rigid.pour_target_proxy_x_neg",
+            "scene.rigid.pour_target_proxy_y_pos",
+            "scene.rigid.pour_target_proxy_y_neg"
+          ],
+          "context_identity_preserved": true,
+          "boundary": "Only this context property frozen. Global SimulationManager getter is unchanged; after suppressionFalse it can reportcpu. No global compatibility claim."
+        }
       ],
-      "compute": ""
+      "readback_toggle": [
+        {
+          "event": "applied",
+          "control_step": 0,
+          "setting": "/physics/suppressReadback",
+          "before": true,
+          "after": false,
+          "boundary": "Applied after first existing hook, initial physics events already elapsed. Only this setting changed once; measure subsequent original-step particle readback. Original GPU pipeline/fabric, physical configuration, state/reset writes and all native gates retained. Diagnostic only."
+        }
+      ],
+      "fluid_state_snapshots": 32,
+      "all_selected_settings_suppressionFalse": true,
+      "all_original_raw_positions_static": true,
+      "raw_velocities_all_zero": true,
+      "simulationPoints_all_None": true,
+      "system_subtree_mesh_points_all_None": true,
+      "particle_count_rows630_finite": 954,
+      "source_backend_lift_m": 0.13991820812225342,
+      "original_failure": [
+        "[PourStrictFailureGate] irreversible particle spill envs=[0]"
+      ],
+      "traceback_present": false,
+      "output_selected_rows": 31,
+      "output_all_before_after_arrays_equal": true,
+      "output_all_indices_unchanged": true,
+      "last_logged_output_call": 951,
+      "statistics_ranges": {
+        "nb_dynamic_rigids": [
+          17,
+          17
+        ],
+        "nb_active_dynamic_rigids": [
+          4,
+          4
+        ],
+        "nb_articulations": [
+          1,
+          1
+        ],
+        "gpu_mem_particles": [
+          0,
+          0
+        ],
+        "gpu_mem_heap_particles": [
+          494949068,
+          494949068
+        ],
+        "gpu_mem_heap_simulation_particles": [
+          34807538,
+          34807538
+        ],
+        "gpu_mem_particle_contacts": [
+          90,
+          843
+        ]
+      },
+      "statistics_all_available": true,
+      "media": {
+        "videos": [
+          {
+            "camera": "head",
+            "sha256": "2cb3c05406c5561e9d8b3a03f8d014656753caec640cacdc43e666c95649f472",
+            "full_decode": true,
+            "probe": {
+              "programs": [],
+              "streams": [
+                {
+                  "width": 640,
+                  "height": 480,
+                  "r_frame_rate": "30/1",
+                  "nb_read_frames": "238"
+                }
+              ]
+            }
+          },
+          {
+            "camera": "chest",
+            "sha256": "9cb12016f0d36e0ffc97d338830b717dc97ac93a03968c62860e4df3209d1770",
+            "full_decode": true,
+            "probe": {
+              "programs": [],
+              "streams": [
+                {
+                  "width": 640,
+                  "height": 480,
+                  "r_frame_rate": "30/1",
+                  "nb_read_frames": "238"
+                }
+              ]
+            }
+          },
+          {
+            "camera": "third",
+            "sha256": "eb8ef73b37f2f326ad4d9f80b188bbab4603c762e1e7091cf429d2708d67f9ac",
+            "full_decode": true,
+            "probe": {
+              "programs": [],
+              "streams": [
+                {
+                  "width": 640,
+                  "height": 480,
+                  "r_frame_rate": "30/1",
+                  "nb_read_frames": "238"
+                }
+              ]
+            }
+          }
+        ],
+        "selection": [
+          0,
+          124,
+          154,
+          175,
+          193,
+          210,
+          225,
+          237
+        ]
+      },
+      "actual_visual_review": "Viewed24panels across0/124/154/175/193/210/225/237 threecameras. Sourcecup visibly follows hand off table late; receiver remains ontable. The receiving cup remains visible on the table while the source follows the hand upward. No visually resolved particle trajectory establishes liquid motion or escape.",
+      "interpretation": [
+        "ExistingGPUcontextdevice freeze and originalreceiver writes survived this boundedrun with suppressionFalse, unlikeV22 indexmismatch. No universalbackendcompatibility claim.",
+        "Disabling suppression with devicecompatibility didnotestablish particlepositionfreshness; originalspill stillbased onstaticobservedarrays.",
+        "CPU lifecycleguard didnottrigger inactualrun; originalScene.reset behavior notclaimed exercisedunless logs prove it.",
+        "630finite counts are readbackarray count, notindependentphysicalconservation proof.",
+        "Explicit output with suppressionFalse did not establish fresh particle arrays. Backend statistics memory/capacity values are not particle counts; zero gpu_mem_particles does not prove absent particles. Original force25N/receiver qualification unresolved."
+      ],
+      "next_test_scope": "Read installed particle output registration and supported state access semantics before another runtime intervention; existing output combinations did not establish freshness."
     }
   }
 }
