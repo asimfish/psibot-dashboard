@@ -1,12 +1,12 @@
 {
-  "as_of": "2026-09-12T22:11:40.311512+08:00",
+  "as_of": "2026-09-12T22:39:01.639690+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
-    "as_of": "2026-09-12T22:11:40.311512+08:00",
-    "state": "UR5 bulk active; V12/V13 and cylinderV3/V4 terminal reviewed; V14 pending independent admission",
+    "as_of": "2026-09-12T22:39:01.639690+08:00",
+    "state": "UR5 bulk active; V15=diagnostic_running; V5=waiting_predecessor",
     "snapshot_only": true,
-    "gpu": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 62 %, 13039 MiB"
+    "gpu": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 2 %, 22698 MiB"
   },
   "panel_scope": {
     "fr3": {
@@ -252,7 +252,7 @@
     "cause": "configured Bottle/Beaker003 mismatched USD defaultprim remap; actual rigid body Bottle/base"
   },
   "robot_worklist": {
-    "as_of": "2026-09-12T22:11:40.311512+08:00",
+    "as_of": "2026-09-12T22:39:01.639690+08:00",
     "target_datasets": 16,
     "rows": [
       {
@@ -321,28 +321,35 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "V13_empty_lift_missing_required_planner_V14_execution_chain_CPU_prepared",
+        "state": "V15_actual_diagnostic_running_after_V14_endpoint_mismatch",
         "review": {
           "decision_path": null,
           "decision_sha256": null,
           "recipe_file": null,
           "recipe_sha256": null,
-          "largest_blocker": "Missing actual required planner; V13 closure parameter ineffective in actual interpolation path, no effective grasp.",
-          "next_action": "Verify pinned FR3 YAML/URDF/FK dependencies and admit V14 explicit planner with fail-closed initialization; fraction resets default1; original gains/630/nativegates unchanged.",
+          "largest_blocker": "V14 original endpoint joint error3.085329>0.08 whileCartesianerrors pass; actualstagedmode composed invalid joint placeholders at grasp; notspill",
+          "next_action": "Independently review actual V15 terminal joint reference/FK/control and originalnative outcome",
           "source_dataset": null,
-          "cpu_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v13_failure_prepare/ACTUAL_BOUND_MISSING_PLANNER_CPU.json"
+          "cpu_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v13_failure_prepare/ACTUAL_BOUND_MISSING_PLANNER_CPU.json",
+          "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v14_independent_review/REVIEW.json",
+          "latest_terminal_review_sha256": "d4c42bd55b6cae0fb631b46cef5404edbb83ba66204295b532ae0af1adb95eb8"
         },
         "recovery_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/pour_recipe_recovery/RECOVERY_STATUS.json",
         "candidate_episodes": 0,
         "quality_blockers": [
+          "endpoint_joint_reference_and_actual_grasp_not_qualified",
+          "force_receiver_physical_acceptance_unqualified"
+        ],
+        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v14_independent_review/REVIEW.json",
+        "next_action": "Independently review actual V15 terminal joint reference/FK/control and originalnative outcome",
+        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v14_independent_review/REVIEW.json",
+        "terminal_review_sha256": "d4c42bd55b6cae0fb631b46cef5404edbb83ba66204295b532ae0af1adb95eb8",
+        "historical_quality_blockers": [
           "empty_CuRobo_YAML_skipped_planner_despite_required_flags",
           "interpolation_branch_ignored_finger_close_fraction",
           "V13_empty_lift_then_originalspill386",
           "force_receiver_physical_acceptance_unqualified"
-        ],
-        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v13_independent_review/REVIEW.json",
-        "next_action": "Verify pinned FR3 YAML/URDF/FK dependencies and admit V14 explicit planner with fail-closed initialization; fraction resets default1; original gains/630/nativegates unchanged.",
-        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v13_independent_review/REVIEW.json"
+        ]
       },
       {
         "robot": "fr3",
@@ -424,17 +431,17 @@
         "target": 100,
         "formal_accepted": 50,
         "formal_remaining": 50,
-        "state": "33_independently_qualified_unique_topup_bulk_continues",
-        "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST27.json",
-        "qualified_topup": 33,
-        "candidate_topup_remaining": 17,
-        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST27.json",
+        "state": "38_independently_qualified_unique_topup_bulk_continues",
+        "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST32.json",
+        "qualified_topup": 38,
+        "candidate_topup_remaining": 12,
+        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST32.json",
         "historical_dedup_boundary": "Original accepted50 contain only3 unique action arrays; retained historical counts do not imply100 globally unique trajectories.",
-        "new_collection_needed": 17,
-        "unique_topup_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST27.json",
+        "new_collection_needed": 12,
+        "unique_topup_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST32.json",
         "next_action": "Continue bounded bulk with independent per-episode reviews; no formal promotion.",
-        "remaining_topup": 17,
-        "review_sha256": "7e721c30970fe822caa7a6dc4c6465610a33a0516cb8923b219fa90b082f4cc5"
+        "remaining_topup": 12,
+        "review_sha256": "cfc89741922671223a39f672faf9c05960c040707fe6d03d1234aaca1dd6b5d8"
       },
       {
         "robot": "ur5e",
@@ -465,13 +472,13 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "V4_terminal_native0of1_table_force_positive_reverse_hand_zero_original20mm_guard",
+        "state": "V5_independently_admitted_queue_waiting_V15_original_guards",
         "candidate_episodes": 0,
-        "next_action": "Trace actual physics counter+4 between existing hooks before designing finer observation; preserve native control and reporting thresholds",
+        "next_action": "Review explicit postphysics callback delivery, dt/index cadence, table-positive control and actual late lift contact after V15; no gate changes",
         "terminal_review_sha256": "7bed71001aa84e036c34069ed86893ddd8cf8dc31dbd3a2ea9350396ca4a4210",
         "review": {
           "largest_blocker": "Target lifts after last observed table force; sampled net/reverse hand forces zero during late rise; native20mm guard remains",
-          "next_action": "Trace actual physics counter+4 between existing hooks before designing finer observation; preserve native control and reporting thresholds",
+          "next_action": "Review explicit postphysics callback delivery, dt/index cadence, table-positive control and actual late lift contact after V15; no gate changes",
           "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_reverse_v4_terminal_review/REVIEW.json",
           "latest_terminal_review_sha256": "7bed71001aa84e036c34069ed86893ddd8cf8dc31dbd3a2ea9350396ca4a4210"
         }
@@ -1271,19 +1278,20 @@
   },
   "ur5e_grasp250_topup_unique": {
     "target": 50,
-    "qualified_unique_candidates": 33,
-    "remaining": 17,
+    "qualified_unique_candidates": 38,
+    "remaining": 12,
     "components": {
       "reused": 4,
       "cold_batch6_new": 4,
       "triangle_D_E_F": 3,
-      "bulk_first27_new": 22
+      "bulk_first32_new": 27
     },
-    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST27.json",
+    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST32.json",
     "formal_credit": 0,
-    "frames": 17091,
-    "videos": 99,
-    "review_sha256": "7e721c30970fe822caa7a6dc4c6465610a33a0516cb8923b219fa90b082f4cc5"
+    "frames": 19681,
+    "videos": 114,
+    "review_sha256": "cfc89741922671223a39f672faf9c05960c040707fe6d03d1234aaca1dd6b5d8",
+    "time_axis_boundary": "30fps is original encoding and metadata rate, not claimed equivalent to wall-clock or true physics cadence."
   },
   "fr3_pour100_plain_frame_v8": {
     "status": "NATIVE_FAILED_AFTER_SUCCESSFUL_INITIALIZATION",
@@ -1315,17 +1323,17 @@
     "state": "ACTIVE_BATCH_SNAPSHOT",
     "required_new_unique": 39,
     "max_attempts": 75,
-    "completed_qualified_in_bulk": 22,
+    "completed_qualified_in_bulk": 27,
     "unit": "chembench-t290-ur5-grasp250-triangle-bulk.service",
     "admission_sha256": "091d91c0006d42b643980dc23c4269a5a10d2b454eb0ccc6d04ec93b4ae5dee2",
     "independent_review_sha256": "3a48fd1293af4c7f2085391e6636f815383e9eaefff6a19e3089603568bac8c6",
     "formal_credit": 0,
-    "audited_attempts": 29,
-    "unique_automatic_candidates": 24,
+    "audited_attempts": 33,
+    "unique_automatic_candidates": 28,
     "native_failures": 5,
-    "later_automatic_pending_independent": 2,
-    "reviewed_scope": "positions000-026",
-    "batch_state_evidence_sha256": "cef38838eeac16c1698a6c45605bcd38ce4075e527e77a67c0df929494ebe83c"
+    "later_automatic_pending_independent": 1,
+    "reviewed_scope": "positions000-031",
+    "batch_state_evidence_sha256": "d1fb1e7fb527dfc1d5f0f227676ed6d748257a46e464ed0063e00627ca02c999"
   },
   "fr3_pour100_cavity_v9": {
     "state": "TERMINAL_NATIVE0OF1_ORIGINAL_SPILL",
@@ -2611,9 +2619,147 @@
     "correction": "V14 explicit FR3 YAML plus required-planner checks before initialization and after actual SkillLibrary binding; reset ineffective .5 to default1. Real CuRobo path/timing are a changed execution chain, not trajectory-equivalent."
   },
   "fr3_pour100_requiredplanner_v14": {
-    "state": "FINAL_CPU_BUNDLE_PENDING_INDEPENDENT_ADMISSION",
+    "state": "TERMINAL_NATIVE0OF1_ENDPOINT_GATE_INDEPENDENTLY_REVIEWED",
     "manifest_sha256": "6e23b271022b00273dab8b7df7583eb0ecf9f36f44de368ec773ae9a2eb7f51e",
-    "preparation": {
+    "formal_credit": 0,
+    "limits": "Actual planner warmup and bound execution branch confirmed. Terminal original endpoint joint gate failed with closure blocked; no successful grasp/lift or qualified pour. Force and receiver qualification remain open; original630/proxy/nativegates retained.",
+    "native_result_reviewed": true,
+    "terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v14_independent_review/REVIEW.json",
+    "terminal_review_sha256": "d4c42bd55b6cae0fb631b46cef5404edbb83ba66204295b532ae0af1adb95eb8",
+    "runtime_result": {
+      "status": "REVIEWED_NATIVE_FAILURE_NO_CANDIDATE_CREDIT",
+      "log_sha256": "147b320b09ebddea95980cffb96c4b7835951bc5d408e1594ba544c93b6815ad",
+      "native_success": 0,
+      "attempts": 1,
+      "returncode": 0,
+      "failure": "curobo_grasp_endpoint_tracking_mismatch at grasp:start control122, closure blocked through original30 retries; not irreversible spill",
+      "gate_first": "[PourEndpointTrackingGate] env=0 phase=grasp:start pass=0/1 max_error_rad=3.083504 threshold_rad=0.080000 position_error_m=0.018846 position_threshold_m=0.020000 orientation_error_rad=0.032872 orientation_threshold_rad=0.150000 settle_hold=True retry=1/30 closure_blocked=True",
+      "gate_last": "[PourEndpointTrackingGate] env=0 phase=grasp:start pass=0/1 max_error_rad=3.085329 threshold_rad=0.080000 position_error_m=0.013826 position_threshold_m=0.020000 orientation_error_rad=0.024307 orientation_threshold_rad=0.150000 closure_blocked=True",
+      "actual_planner_binding": "Log confirms CuroboPlanner warmup and same planner instance; this run genuinely uses planner branch",
+      "count_samples": 612,
+      "all_counts_630_finite_unchanged": false,
+      "last_cavity": {
+        "event": "independent_cavity_partition",
+        "generation": 2,
+        "N0": 630,
+        "N": 630,
+        "actual_cavity_source": 630,
+        "native_source_outside_cavity": 0,
+        "native_receiver_exclusive": 0,
+        "outside_cavity_and_native_receiver": 0,
+        "invalid": 0,
+        "fractions_of_fixed_N0": {
+          "actual_cavity_source": 1.0,
+          "native_source_outside_cavity": 0.0,
+          "native_receiver_exclusive": 0.0,
+          "outside_cavity_and_native_receiver": 0.0,
+          "invalid": 0.0
+        },
+        "region": "actor-centered conservative cylinder r18.5mm z[-36,+30]mm; centers, not particle envelopes",
+        "receiver_boundary": "native receiver mask, independently measured receiver cavity pending",
+        "native_success_and_spill_unchanged": true,
+        "quality_verdict": "observation only; no formal qualification"
+      },
+      "media": {
+        "videos": [
+          {
+            "camera": "head",
+            "sha256": "4f2126696cd1fc8976a96c98645b8ca9b99c6f3861b28fedf01ecccdc365e8c2",
+            "full_decode": true,
+            "probe": {
+              "programs": [],
+              "streams": [
+                {
+                  "width": 640,
+                  "height": 480,
+                  "r_frame_rate": "30/1",
+                  "nb_read_frames": "153"
+                }
+              ]
+            }
+          },
+          {
+            "camera": "chest",
+            "sha256": "a846735338e0d472d4e90d3f9cf528dfbbdca01633c278011140053455c51fa8",
+            "full_decode": true,
+            "probe": {
+              "programs": [],
+              "streams": [
+                {
+                  "width": 640,
+                  "height": 480,
+                  "r_frame_rate": "30/1",
+                  "nb_read_frames": "153"
+                }
+              ]
+            }
+          },
+          {
+            "camera": "third",
+            "sha256": "e8536d18b86629957b861d437b4e53615835c624270d9bfa41bef5799e7dc640",
+            "full_decode": true,
+            "probe": {
+              "programs": [],
+              "streams": [
+                {
+                  "width": 640,
+                  "height": 480,
+                  "r_frame_rate": "30/1",
+                  "nb_read_frames": "153"
+                }
+              ]
+            }
+          }
+        ],
+        "selection": [
+          0,
+          40,
+          80,
+          100,
+          120,
+          152
+        ]
+      },
+      "actual_visual_review": {
+        "frames": 18,
+        "result": "Viewed all montage panels including terminal frame152. Robot approaches and remains at open grasp above/around tabletop source cup; no held lift or pour observed. Source remains on table. Fine contact cannot be certified from RGB."
+      },
+      "cause_boundary": "Actual bound Skill composition uses Cartesian stages with zero-filled joint positions and false joint_mask; original Pour gate does not test mask. Root actual-source CPU reproduction supports mismatch mechanism. Runtime planned array was not dumped; exact zeros at actual gate remain source inference, not direct runtime measurement.",
+      "next": "Independently review supported joint-descend mode plus read-only gate array logging; retain all original thresholds and physics.",
+      "formal_credit": 0
+    },
+    "admission_snapshot": {
+      "state": "diagnostic_ended_review_required",
+      "time": 1789222702.5373194,
+      "formal_credit": 0,
+      "returncode": 0
+    },
+    "runtime_planner_binding": {
+      "as_of": "2026-09-12T22:18:07.851506+08:00",
+      "status": "ACTUAL_PLANNER_INITIALIZATION_AND_BRANCH_CONFIRMED_RUNTIME_NOT_TERMINAL",
+      "guard": {
+        "required": true,
+        "planner_class": "CuroboPlanner",
+        "planner_yaml": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour100_compound_v7_metadata_local4090_smoke1/mirror/psilab/source/psilab/psilab/assets/robot/curobo/fr3.yml",
+        "declared_yaml": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour100_compound_v7_metadata_local4090_smoke1/mirror/psilab/source/psilab/psilab/assets/robot/curobo/fr3.yml",
+        "yaml_sha256": "f0fb17aa3241073c44b1ede3290372ef2a9e6163d1d1038603a5925feb8d441a",
+        "skills_source": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour100_compound_v7_metadata_local4090_smoke1/mirror/psilab/source/psilab_tasks/psilab_tasks/imitation_learning/base/skill_library.py",
+        "skills_sha256": "f5ba502ac4a7caa1ba02907c16b2941ea13be085ed9e075c7c98be1a0939f54d",
+        "collision_avoidance_enabled": true,
+        "same_planner_identity": true,
+        "boundary": "Initialization binding only; actual planned trajectory/FK/native quality still require verification."
+      },
+      "runtime_lines": [
+        "[CuroboPlanner] single MotionGen warmup done",
+        "[CuroboPlanner] batch MotionGen warmup done",
+        "[grasp_and_lift] cuRobo 各段步数: [('approach', 82), ('descend', 18), ('dwell', 22), ('grasp', 54), ('lift', 51)], 总计=227, plan_mode=staged_pregrasp, time_dilation=1.0, raw_path_len=(approach=1.3400, lift=0.1400), path_weight=0.16, max_joint_delta_per_step=0.0250, smooth_finger_close=True, finger_close_fraction=1.000, descend_hand_close_fraction=0.000, pre_open_steps=0, lift_mode=interp"
+      ],
+      "source_log": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour100_requiredplanner_v14_local4090_smoke1/pour100_requiredplanner_v14_seed260912601/collection.log",
+      "snapshot_log_sha256": "a47c344fde8d4bfe58eecc48a335566d51c5e916dfaf9286e5739461b88fe305",
+      "formal_credit": 0,
+      "boundary": "Warmup and actual branch are confirmed, not successful execution or qualified liquid data."
+    },
+    "inherited_pre_run_preparation": {
       "status": "FINAL_BUNDLE_CPU_VERIFIED_PENDING_INDEPENDENT_ADMISSION",
       "make_spec_normalized_equal": true,
       "actual_RO_bind_sources_exist": true,
@@ -2626,8 +2772,48 @@
       "base_guard_only_difference_verified": true,
       "guard_final_module_cpu": "ROOT_CPU_TEST.json",
       "verify_only": "PASS"
+    }
+  },
+  "fr3_pour_joint_reference_correction": {
+    "evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v14_failure_prepare/JOINT_REFERENCE_CPU.json",
+    "sha256": "c59c4c493e67d96a56dcbbcdb484731ac06a3743d5a7b4d0c467ed507a5365e7",
+    "finding": "Actual staged_pregrasp has Cartesian descend/dwell/grasp; composed joint placeholders have false mask, but original endpoint gate compares those entries. CPU actual Skill+gate reproduces mismatch with a synthetic planner. Exact runtime zero reference is source inference, not directly dumped V14 target.",
+    "next": "Use existing staged_pregrasp_joint_descend mode for real terminal joint reference; unchanged original gate and explicit actual-reference logging."
+  },
+  "fr3_pour100_jointdescend_v15": {
+    "state": "diagnostic_running",
+    "admission_snapshot": {
+      "state": "diagnostic_running",
+      "time": 1789223909.4893131,
+      "formal_credit": 0,
+      "pid": 1097916,
+      "supervisor_sha256": "0dcccabeb0ecaffa8eb301632055d1c65fbad88845f9e51242120a1f234eaee7",
+      "gpu": [
+        "GPU-7e048773-6e99-b431-101d-8b45724cce9f",
+        " 23534"
+      ],
+      "compute": ""
     },
+    "unit": "chembench-t290-fr3-pour100-jointdescend-v15.service",
+    "manifest_sha256": "1bca05c60e60614ed91fbc0a99ffe88dafd9150f5ba50904106bcdecbcaa56f4",
+    "review_sha256": "c5d07a2581b77d3ce0e9652696d9e182b164de041ce3add6c6b9d17ec2050ab2",
+    "admission_sha256": "14d88028835b32130b7f4c213deff225152c87c23db195b51da96bb9293b4500",
     "formal_credit": 0,
-    "limits": "Actual runtime planner/FK/path/grasp/liquid pending; original630/sourcephysics/nativegates retained. Force and receiver qualification still pending."
+    "native_result_reviewed": false
+  },
+  "ur5e_cylinder_postphysics_v5": {
+    "state": "waiting_predecessor",
+    "admission_snapshot": {
+      "state": "waiting_predecessor"
+    },
+    "unit": "chembench-t290-ur5-cylinder-postphysics-v5.service",
+    "manifest_sha256": "53a72e593eceeb388e73eb93f3cc30b19435ba04fe5de4466c02410302b3750b",
+    "review_sha256": "91554f2c8d65b3aa87b848225f26ccd5f5d61f57c380ddac684ac3a629ee6d57",
+    "admission_sha256": "b1995f5332d1ae0a9dcf9460c7bf572659489245d962cee621727029cbfe8b19",
+    "formal_credit": 0,
+    "native_result_reviewed": false,
+    "change": "Explicit subscribe_physics_on_step_events pre_step=False, order1; reuse independentV3/V4 tensors without original cache reads or new physics writes. First registration misses preceding events; actual callback/tensor freshness requires runtime qualification.",
+    "mechanism_review_sha256": "547d99519a4e121f2f9506501294183cfcd183919c078bbee53b48290c208118",
+    "mechanism": "physics1/120, rendering1/30; single app update yields4physics callbacks, extra render disables simulation. Existing hook missed intermediate events; callback timer order not presumed."
   }
 }
