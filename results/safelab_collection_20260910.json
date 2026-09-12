@@ -1,12 +1,12 @@
 {
-  "as_of": "2026-09-12T18:30:30.088381+08:00",
+  "as_of": "2026-09-12T19:26:47.241803+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
-    "as_of": "2026-09-12T18:30:30.088381+08:00",
-    "current": "UR5 bulk39 firstposition running",
-    "fr3_next": "V8 spill/geometry diagnosis, no nextGPU admitted",
-    "snapshot_only": true
+    "state": "UR5 bounded bulk active; FR3 V9 queued",
+    "as_of": "2026-09-12T19:26:47.241803+08:00",
+    "gpu": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 0 %, 23534 MiB",
+    "not_live_telemetry": true
   },
   "panel_scope": {
     "fr3": {
@@ -1249,18 +1249,19 @@
   },
   "ur5e_grasp250_topup_unique": {
     "target": 50,
-    "qualified_unique_candidates": 11,
-    "remaining": 39,
+    "qualified_unique_candidates": 18,
+    "remaining": 32,
     "components": {
       "reused": 4,
       "cold_batch6_new": 4,
-      "triangle_D_E_F": 3
+      "triangle_D_E_F": 3,
+      "bulk_first9_new": 7
     },
-    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_reuse_triangle_review/PROGRESS.json",
+    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST9.json",
     "formal_credit": 0,
-    "frames": 5697,
-    "videos": 33,
-    "review_sha256": "a58d179151cb442e66fbd75af99cb29bb077b373f075e56514ca95161e715bf9"
+    "frames": 9323,
+    "videos": 54,
+    "review_sha256": "4a8b75e8d16de982d8f137865280dc40a2d254c92212a26085c8818668bfa739"
   },
   "fr3_pour100_plain_frame_v8": {
     "status": "NATIVE_FAILED_AFTER_SUCCESSFUL_INITIALIZATION",
@@ -1284,18 +1285,52 @@
       "visual_cup_halfheight_m": 0.0403467417,
       "configured_source_halfheight_m": 0.075,
       "hidden_liner_bottom_actor_z_m": -0.097,
-      "actual_cavity_measurement_pending": true
+      "actual_cavity_measurement_pending": false
     },
     "correction": "Do not interpret configured source1000/1000 as real cavity acceptance"
   },
   "ur5e_grasp250_bulk39": {
-    "state": "RUNNING_FIRST_POSITION",
+    "state": "ACTIVE_BATCH_SNAPSHOT",
     "required_new_unique": 39,
     "max_attempts": 75,
-    "completed_qualified_in_bulk": 0,
+    "completed_qualified_in_bulk": 7,
     "unit": "chembench-t290-ur5-grasp250-triangle-bulk.service",
     "admission_sha256": "091d91c0006d42b643980dc23c4269a5a10d2b454eb0ccc6d04ec93b4ae5dee2",
     "independent_review_sha256": "3a48fd1293af4c7f2085391e6636f815383e9eaefff6a19e3089603568bac8c6",
-    "formal_credit": 0
+    "formal_credit": 0,
+    "audited_attempts": 9,
+    "unique_automatic_candidates": 7,
+    "native_failures": 2,
+    "later_automatic_pending_independent": 0,
+    "reviewed_scope": "positions000-008",
+    "state_evidence_sha256": "801ea256eaabac1cbc9026f675b5f3bcf1fc064a5c86e49d59b58264e4faaa77"
+  },
+  "fr3_pour100_cavity_v9": {
+    "state": "QUEUED_WAITING_NONPREEMPTIVE_ADMISSION",
+    "unit": "chembench-t290-fr3-pour100-cavity-v9.service",
+    "expected_initial_particles": 630,
+    "original_initial_particles": 1000,
+    "original_native_gates_unchanged": true,
+    "additional_cavity_partition": true,
+    "actual_runtime_verified": false,
+    "manifest_sha256": "792bf1eaed131591227dc38ea2a4dc031def9f744157dd02227c270f3df8c7a1",
+    "independent_review_sha256": "d08fd4834b81dedf128056e3309295952045f99491f34c3ca25f36b8fee7c5c3",
+    "admission_sha256": "8deab0daf2d3ce2f885d99fba12ccf5afd836d9ae3418f38759e709ad2872523",
+    "admission_snapshot": {
+      "state": "waiting_admission",
+      "time": 1789212405.1526,
+      "formal_credit": 0,
+      "gpu": [
+        "GPU-7e048773-6e99-b431-101d-8b45724cce9f",
+        " 23534"
+      ],
+      "compute": ""
+    },
+    "formal_credit": 0,
+    "limitations": [
+      "Reduced fill, conservative17mesh proxy and uniformrim; not original1000/cookedglass/inertia equivalence",
+      "Native expanded source mask retained, independent measured-cavity audit required",
+      "Receiver cavity and effective25Nforce still unqualified"
+    ]
   }
 }
