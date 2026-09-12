@@ -1,13 +1,13 @@
 {
-  "as_of": "2026-09-13T06:51:56.276847+08:00",
+  "as_of": "2026-09-13T07:42:40.410231+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
-    "as_of": "2026-09-13T06:51:56.276847+08:00",
+    "as_of": "2026-09-13T07:42:40.410231+08:00",
     "snapshot_only": true,
-    "gpu_observed_at": "2026-09-13T06:48:43.387136+08:00",
+    "gpu_observed_at": "2026-09-13T07:42:40.410231+08:00",
     "gpu": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 0 %, 535 MiB, 23534 MiB",
-    "state": "V25 independently reviewed terminal failure; no active next GPU run, next readback route under source investigation."
+    "state": "V27 terminal independently reviewed; V28 read-only latepose diagnostic prepared, independent admission pending; no active next GPU launch."
   },
   "panel_scope": {
     "fr3": {
@@ -253,7 +253,7 @@
     "cause": "configured Bottle/Beaker003 mismatched USD defaultprim remap; actual rigid body Bottle/base"
   },
   "robot_worklist": {
-    "as_of": "2026-09-13T06:51:56.276847+08:00",
+    "as_of": "2026-09-13T07:42:40.410231+08:00",
     "target_datasets": 16,
     "rows": [
       {
@@ -322,30 +322,31 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "V25_NATIVE_FAILURE_INDEPENDENTLY_REVIEWED_EXPLICIT_OUTPUT_STATIC",
+        "state": "V27_REVIEWED_FRESH_READBACK_NATIVE_SPILL_FAILURE",
         "review": {
           "decision_path": null,
           "decision_sha256": null,
           "recipe_file": null,
           "recipe_sha256": null,
-          "largest_blocker": "V25 explicit output underFalse still yields frozen32particle samples; GPU particle statistics alone do not establish fresh positions.",
-          "next_action": "Investigate existing Fabric/particle output access using installed API; no next GPU experiment admitted yet.",
+          "largest_blocker": "V27 fresh particles established but originalspill at return507; receiver count remains zero; late phase body geometry not yet sampled.",
+          "next_action": "Review V28 latepose observation before GPU launch; resolve actual source tilt/receiver relation and particle path under unchanged gates.",
           "source_dataset": null,
           "cpu_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_actual_joint_limits_prepare/PARSER_CPU.json",
-          "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v25_independent_review/REVIEW.json",
-          "latest_terminal_review_sha256": "5d6a84f44290ada6aa4509a37d282502cd966f5d847a5d3d6a84e28af286b8ca",
+          "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v27_independent_review/REVIEW.json",
+          "latest_terminal_review_sha256": "b9af17fa8391682549277c8f09965357cd12845fbd8af6b85e5adb20c60a01f4",
           "historical_interpretation_superseded_by_V20": "V19 native/cavity counters classified630outside moving source; V20 exact constant particle readback means physical particle motion/spill is not established."
         },
         "recovery_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/pour_recipe_recovery/RECOVERY_STATUS.json",
         "candidate_episodes": 0,
         "quality_blockers": [
-          "particle_evaluation_readback_frozen_actual_fluid_state_unverified",
-          "force_receiver_physical_acceptance_unqualified"
+          "tilt_hold_return_particle_transfer_failed_receiver_count_zero",
+          "force_receiver_physical_acceptance_unqualified",
+          "support_USD_shear_geometry_unsupported"
         ],
-        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v25_independent_review/REVIEW.json",
-        "next_action": "Investigate existing Fabric/particle output access using installed API; no next GPU experiment admitted yet.",
-        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v25_independent_review/REVIEW.json",
-        "terminal_review_sha256": "5d6a84f44290ada6aa4509a37d282502cd966f5d847a5d3d6a84e28af286b8ca",
+        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v27_independent_review/REVIEW.json",
+        "next_action": "Review V28 latepose observation before GPU launch; resolve actual source tilt/receiver relation and particle path under unchanged gates.",
+        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v27_independent_review/REVIEW.json",
+        "terminal_review_sha256": "b9af17fa8391682549277c8f09965357cd12845fbd8af6b85e5adb20c60a01f4",
         "historical_quality_blockers": [
           "empty_CuRobo_YAML_skipped_planner_despite_required_flags",
           "interpolation_branch_ignored_finger_close_fraction",
@@ -353,12 +354,12 @@
           "force_receiver_physical_acceptance_unqualified",
           "V18_actual_held_lift_failed; superseded by V19 observed held lift"
         ],
-        "next_candidate": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour100_enabled_output_v25_local4090_smoke1",
-        "next_manifest_sha256": "f6ca8305086b1ab59456651f6d9c51ed1e868cb83af41e80d2e893f834b777d8",
-        "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v25_independent_review/REVIEW.json",
-        "latest_terminal_review_sha256": "5d6a84f44290ada6aa4509a37d282502cd966f5d847a5d3d6a84e28af286b8ca",
+        "next_candidate": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour100_late_motion_v28_local4090_smoke1",
+        "next_manifest_sha256": "33cfc95371f006cdb6cadaf9c35767ffd27bbf8f7e603b64433a8c90b2e8dc4f",
+        "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v27_independent_review/REVIEW.json",
+        "latest_terminal_review_sha256": "b9af17fa8391682549277c8f09965357cd12845fbd8af6b85e5adb20c60a01f4",
         "formal_credit": 0,
-        "next_candidate_state": "V25_TERMINAL_INDEPENDENTLY_REVIEWED"
+        "next_candidate_state": "PREPARED_INDEPENDENT_ADMISSION_PENDING"
       },
       {
         "robot": "fr3",
@@ -486,7 +487,7 @@
         "formal_remaining": 100,
         "state": "V10_NATIVE_FAILURE_INDEPENDENTLY_REVIEWED_EFFECTIVE_OFFSETS_VALID",
         "candidate_episodes": 0,
-        "next_action": "Analyze existing recorded force/velocity/pose consistency and installed contact accumulation or solver position-correction semantics; no repeated GPU observation yet.",
+        "next_action": "Resolve phase/accumulation of existing GPU contact forces versus kinematics; matched PhysX5.5.1 CPU code does not support bias-only impulse without velocity update.",
         "terminal_review_sha256": "a83af129d674abb8db8f16bf6139f29ecc3b1c011216668af73932bbb352c9be",
         "review": {
           "largest_blocker": "Original close-near-cup motion raises cylinder, table force but observed hand contactzero. V9 cooked shape metadata valid; detailed finger-shell contact geometry unresolved.",
@@ -14255,7 +14256,8 @@
           "Noactualtargetshapeid in sixbuffers; pointnearbase narrowsregion but doesnotassign128colliderindex. Nohandorigininference frommissinghandcontacts."
         ]
       }
-    }
+    },
+    "force_contract_followup": "632 preguard samples form two segments; never integrate the gap. Tested lags do not close late ~16m/s velocity residual. Public CPU TGS impulse also changes velocity, not proof of installed GPU tensor accumulation contract."
   },
   "fr3_pour100_enabled_output_v25": {
     "state": "TERMINAL_INDEPENDENTLY_REVIEWED_NATIVE_FAILURE",
@@ -14465,5 +14467,51 @@
       ],
       "next_test_scope": "Read installed particle output registration and supported state access semantics before another runtime intervention; existing output combinations did not establish freshness."
     }
+  },
+  "fr3_pour100_fabric_off_v26": {
+    "state": "REVIEWED_NATIVE_FAILURE_PARTICLE_STATIC_RENDER_ROBOT_STALE",
+    "formal_credit": 0,
+    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v26_independent_review/REVIEW.json",
+    "review_sha256": "1c6e2c62829dfde622378520e1fb20aedf6cb68db19373acec2999ed71446c56",
+    "particle_snapshots": 32,
+    "positions_static": true,
+    "output_selected_rows": 32,
+    "full_decoded_videos": 3,
+    "frames_per_video": 238,
+    "actual_images_reviewed": 24,
+    "visual_result": "Robot rendered pose stays nearinitial while backend source moves; held lift cannot be visually confirmed."
+  },
+  "fr3_pour100_cpu_tensor_v27": {
+    "as_of": "2026-09-13T07:42:40.410231+08:00",
+    "state": "REVIEWED_NATIVE_SPILL_FAILURE_FRESH_PARTICLE_READBACK",
+    "bundle": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour100_cpu_tensor_v27_local4090_smoke1",
+    "manifest_sha256": "97b24006af4ce1b3253cdae6f33abc595fcac9384f2d605e1c136e9a7d1261d2",
+    "admission_review_sha256": "b0a2573eac91180739a408afa6eab493cfe8ff6a3decc1bad96758075920b811",
+    "formal_credit": 0,
+    "change": "Initialize CPU tensors with original forcedGPUphysics and CUDAplanner; no V22-V26 runtime toggles/device wrappers",
+    "admission_snapshot": {
+      "state": "diagnostic_ended_review_required",
+      "time": 1789256331.107246,
+      "formal_credit": 0,
+      "returncode": 0
+    },
+    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v27_independent_review/REVIEW.json",
+    "review_sha256": "b9af17fa8391682549277c8f09965357cd12845fbd8af6b85e5adb20c60a01f4",
+    "full_decoded_videos": 3,
+    "frames_per_video": 508,
+    "actual_images_reviewed": 24,
+    "unique_raw_positions": 32,
+    "unique_raw_velocities": 32,
+    "native_receiver_max": 0,
+    "native_final_source": 610,
+    "native_final_unaccounted": 20,
+    "support_observer_errors": 27
+  },
+  "fr3_pour100_late_motion_v28": {
+    "state": "PREPARED_INDEPENDENT_ADMISSION_PENDING",
+    "bundle": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour100_late_motion_v28_local4090_smoke1",
+    "manifest_sha256": "33cfc95371f006cdb6cadaf9c35767ffd27bbf8f7e603b64433a8c90b2e8dc4f",
+    "formal_credit": 0,
+    "change": "Extend fluid snapshots through tilt/hold/return, add current receiver/robot body/joint tensor reads; original physical settings and gates unchanged; support USD shear remains unsupported."
   }
 }
