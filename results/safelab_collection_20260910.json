@@ -1,12 +1,12 @@
 {
-  "as_of": "2026-09-12T19:54:43.277961+08:00",
+  "as_of": "2026-09-12T20:27:19.901894+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
-    "as_of": "2026-09-12T19:54:43.277961+08:00",
-    "state": "UR5 bounded bulk continues; cylinder diagnostic queued; FR3 V9 terminal failure under diagnosis",
+    "as_of": "2026-09-12T20:27:19.901894+08:00",
+    "state": "UR5 bulk active; FR3 V10 guarded diagnostic queue; cylinder diagnostic terminal under review",
     "snapshot_only": true,
-    "gpu": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 3 %, 22698 MiB"
+    "gpu": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 59 %, 13629 MiB"
   },
   "panel_scope": {
     "fr3": {
@@ -252,7 +252,7 @@
     "cause": "configured Bottle/Beaker003 mismatched USD defaultprim remap; actual rigid body Bottle/base"
   },
   "robot_worklist": {
-    "as_of": "2026-09-12T19:52:36.752949+08:00",
+    "as_of": "2026-09-12T20:27:19.901894+08:00",
     "target_datasets": 16,
     "rows": [
       {
@@ -321,7 +321,7 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "V9_initialized630_but_native0of1_spill_descend71_support_geometry_unresolved",
+        "state": "V9_native0of1_dynamic_support_unresolved_V10_observer_queued",
         "review": {
           "decision_path": null,
           "decision_sha256": null,
@@ -422,23 +422,17 @@
         "target": 100,
         "formal_accepted": 50,
         "formal_remaining": 50,
-        "state": "bulk_active_independent_topup21of50",
-        "review": {
-          "decision_path": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/pipeline/canonical_datasets/t035_candidate_audit/new_ur5e_2f85_grasp_glass_beaker_250ml_v355_pool50_three_anchor/decision.json",
-          "decision_sha256": "1e6bd337146f14bf991911f8e5b2bbf88dcd236d5a2994c9ad4e8b94b9dee026",
-          "recipe_file": null,
-          "recipe_sha256": null,
-          "largest_blocker": "No lift despite valid13.371N contact; residual4.4mm noweffective. Earlier-thanreference contact-stop geometry remains.",
-          "next_action": "fixedhistoricalreference seed82341 armed after report0; oldfixedanchor andrestored4.4mmresidual; originalsuccessgates",
-          "source_dataset": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/data/bjxy_5090_t035_grasp_beaker250_ur5e_2f85_v355_pool50_20260803_014826/lerobot/grasp/glass_beaker_250ml__ur5e_2f85/pool50"
-        },
-        "qualified_topup": 21,
+        "state": "23_independently_qualified_unique_topup_bulk_continues",
+        "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST17.json",
+        "qualified_topup": 23,
         "candidate_topup_remaining": 39,
         "latest_evidence": "astra_candidates/ur5e_grasp250_reuse_triangle_review/FINAL_REVIEW.json",
         "historical_dedup_boundary": "Original accepted50 contain only3 unique action arrays; retained historical counts do not imply100 globally unique trajectories.",
         "new_collection_needed": 29,
         "unique_topup_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST13.json",
-        "next_action": "Continue bounded bulk with independent per-episode reviews; no formal promotion."
+        "next_action": "Continue bounded bulk with independent per-episode reviews; no formal promotion.",
+        "remaining_topup": 27,
+        "review_sha256": "59396f249c5bc33839476f513bfef3557d1d2efd91d3d55e8af55f731b96874b"
       },
       {
         "robot": "ur5e",
@@ -469,9 +463,9 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "manifold_diagnostic_queued_no_runtime_yet",
+        "state": "manifold_diagnostic_original20mm_guard_failed_reset_IK_exception_review_pending",
         "candidate_episodes": 0,
-        "next_action": "Observe actual contact mapping/forces and native20mmguard result; no acceptance override."
+        "next_action": "Review terminal evidence and prepare read-only observations of unobserved palm/wrist/table interactions; retain original20mm guard and controller."
       },
       {
         "robot": "ur5e",
@@ -1268,19 +1262,19 @@
   },
   "ur5e_grasp250_topup_unique": {
     "target": 50,
-    "qualified_unique_candidates": 21,
-    "remaining": 29,
+    "qualified_unique_candidates": 23,
+    "remaining": 27,
     "components": {
       "reused": 4,
       "cold_batch6_new": 4,
       "triangle_D_E_F": 3,
-      "bulk_first13_new": 10
+      "bulk_first17_new": 12
     },
-    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST13.json",
+    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST17.json",
     "formal_credit": 0,
-    "frames": 10877,
-    "videos": 63,
-    "review_sha256": "9ce08e32d3519b65b2c3c698a7592b6802fdb8f91768245699b19cfa66a31c3b"
+    "frames": 11911,
+    "videos": 69,
+    "review_sha256": "59396f249c5bc33839476f513bfef3557d1d2efd91d3d55e8af55f731b96874b"
   },
   "fr3_pour100_plain_frame_v8": {
     "status": "NATIVE_FAILED_AFTER_SUCCESSFUL_INITIALIZATION",
@@ -1312,17 +1306,17 @@
     "state": "ACTIVE_BATCH_SNAPSHOT",
     "required_new_unique": 39,
     "max_attempts": 75,
-    "completed_qualified_in_bulk": 10,
+    "completed_qualified_in_bulk": 12,
     "unit": "chembench-t290-ur5-grasp250-triangle-bulk.service",
     "admission_sha256": "091d91c0006d42b643980dc23c4269a5a10d2b454eb0ccc6d04ec93b4ae5dee2",
     "independent_review_sha256": "3a48fd1293af4c7f2085391e6636f815383e9eaefff6a19e3089603568bac8c6",
     "formal_credit": 0,
-    "audited_attempts": 14,
-    "unique_automatic_candidates": 10,
-    "native_failures": 4,
-    "later_automatic_pending_independent": 0,
-    "reviewed_scope": "positions000-012",
-    "batch_state_evidence_sha256": "49563ea9ddb1892572ff9fd8aafb7b42149103c0e36c65e34ba97cb9472b603d"
+    "audited_attempts": 18,
+    "unique_automatic_candidates": 13,
+    "native_failures": 5,
+    "later_automatic_pending_independent": 1,
+    "reviewed_scope": "positions000-016",
+    "batch_state_evidence_sha256": "cc741d4a7d9dbc3774900db3f70f7ff3fe74085b36c59f144f89911e50db17ab"
   },
   "fr3_pour100_cavity_v9": {
     "state": "TERMINAL_NATIVE0OF1_ORIGINAL_SPILL",
@@ -1364,7 +1358,7 @@
     "dynamic_table_boundary_review_sha256": "cfef505a94fb23a5ad58c9a688855824d733b6fabfbc676825e5fa66a3320216"
   },
   "ur5e_cylinder_manifold_v1": {
-    "state": "QUEUED_DIAGNOSTIC_NO_RUNTIME_YET",
+    "state": "TERMINAL_ORIGINAL20MM_GUARD_FAILURE_RESET_IK_EXCEPTION",
     "unit": "chembench-t290-ur5-cylinder-manifold-v1.service",
     "original_close55_seed": 260911803,
     "original_controller_and_physics_unchanged": true,
@@ -1373,6 +1367,46 @@
     "manifest_sha256": "8214e335f5f0469b13c139e9584b1de7ea3ed1a9a5ffbb7e9a47fa9782a12686",
     "review_sha256": "2fe4c54d213e3d6a07dfc7d256ab6cc5bbdba36c924a5dc12360014fcaa2fc35",
     "admission_sha256": "224172a76f6d338578e54529b77098242b07a7495c7034637a798de20d4d6499",
-    "formal_credit": 0
+    "formal_credit": 0,
+    "process_exit": {
+      "returncode": -15,
+      "error": null,
+      "formal_credit": 0,
+      "classification": "diagnostic_only_not_formal"
+    },
+    "log_sha256": "d0254cbee1d281bb0afdb86df42641470030bb4972f28fdbc9e7bad53ffdaf4a",
+    "uncontacted_lift_m": 0.02068042755126953,
+    "independent_terminal_review_pending": true,
+    "root_trace_summary_sha256": "7e254d0e650b861ef5816d71c3012710afe6191e31e2b495a3782706b7fc7a42",
+    "sample_count": 24,
+    "sampled_hand_pairs": 192,
+    "sampled_stored_contact_count": 0,
+    "boundary": "8 hand bodies sampled every10 steps; not all robot body or all physics step contact coverage. Subsequent reset approach IK_FAIL is separate from original20mm failure."
+  },
+  "fr3_pour100_support_v10": {
+    "state": "waiting_admission",
+    "admission_snapshot": {
+      "state": "waiting_admission",
+      "time": 1789216038.9586003,
+      "formal_credit": 0,
+      "gpu": [
+        "GPU-7e048773-6e99-b431-101d-8b45724cce9f",
+        " 13663"
+      ],
+      "compute": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 733859"
+    },
+    "manifest_sha256": "bd51177447bc831d88d7716af55a5ff0da7ef69934a47899e1d123cf609df38d",
+    "review_sha256": "1db60d3ef786317ab113ab8b33a4676c2fbe2d688736f6d1820a058405140da4",
+    "approval_sha256": "f92cc2a0f4ee1a82278eecb4b0d925d1a1ab098fbf8cae14545ea93b88588591",
+    "unit": "chembench-t290-fr3-pour100-support-v10.service",
+    "physics_override_unchanged_from_v9": true,
+    "new_readonly_observation": "Dynamic table actor pose/mass and transformed authored mesh rays at sourceXY; source and FR3 hand/body poses",
+    "formal_credit": 0,
+    "runtime_result": null,
+    "limits": [
+      "Current resolved 5-root asset pins captured; stock MDL/legacy sky unresolved, not full renderer closure",
+      "No support, force or native success claim before runtime review",
+      "Read-only observation overhead is not trajectory equivalence"
+    ]
   }
 }
