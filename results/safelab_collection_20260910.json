@@ -1,12 +1,12 @@
 {
-  "as_of": "2026-09-12T19:26:47.241803+08:00",
+  "as_of": "2026-09-12T19:54:43.277961+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
-    "state": "UR5 bounded bulk active; FR3 V9 queued",
-    "as_of": "2026-09-12T19:26:47.241803+08:00",
-    "gpu": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 0 %, 23534 MiB",
-    "not_live_telemetry": true
+    "as_of": "2026-09-12T19:54:43.277961+08:00",
+    "state": "UR5 bounded bulk continues; cylinder diagnostic queued; FR3 V9 terminal failure under diagnosis",
+    "snapshot_only": true,
+    "gpu": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 3 %, 22698 MiB"
   },
   "panel_scope": {
     "fr3": {
@@ -252,7 +252,7 @@
     "cause": "configured Bottle/Beaker003 mismatched USD defaultprim remap; actual rigid body Bottle/base"
   },
   "robot_worklist": {
-    "as_of": "2026-09-12T16:02:25.635243+08:00",
+    "as_of": "2026-09-12T19:52:36.752949+08:00",
     "target_datasets": 16,
     "rows": [
       {
@@ -321,17 +321,26 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "versioned_true_liquid_recipe_recovered_CPU_binding_PASS_runtimequalification_pending",
+        "state": "V9_initialized630_but_native0of1_spill_descend71_support_geometry_unresolved",
         "review": {
           "decision_path": null,
           "decision_sha256": null,
           "recipe_file": null,
           "recipe_sha256": null,
-          "largest_blocker": "Legacy failed actual pour semantics, floating/disappearing geometry and action continuity; newer true-liquid/probe candidate directories lack decision.json.",
-          "next_action": "Validate correct embodiment and actual liquid transfer in isolated smoke; require native physics, liquid evidence, camera/metadata and scene checks before any100 batch.",
-          "source_dataset": null
+          "largest_blocker": "Bottle has2dynamicrigids; actualIsaacLab initializer raises. FixedJoint/frame/reset semantics require review before isolatedadapter.",
+          "next_action": "Review originaljoint anchor consistency and assetroot semantics; repair only isolated derivedcandidate, then CPUreview beforeGPUdiagnostic",
+          "source_dataset": null,
+          "cpu_review": "astra_candidates/fr3_pour100_v420_local4090_smoke1/REVIEW.json"
         },
-        "recovery_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/pour_recipe_recovery/RECOVERY_STATUS.json"
+        "recovery_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/pour_recipe_recovery/RECOVERY_STATUS.json",
+        "candidate_episodes": 0,
+        "quality_blockers": [
+          "actual_V8_init_and_particleN0_pending",
+          "native_Pour_force25N_not_effective"
+        ],
+        "latest_evidence": "astra_candidates/fr3_pour100_plain_frame_v8_local4090_smoke1/INDEPENDENT_REVIEW.json",
+        "next_action": "Resolve runtime/table support and pregrasp contact geometry before further physical correction; native thresholds retained.",
+        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v9_failure_review/REVIEW.json"
       },
       {
         "robot": "fr3",
@@ -380,21 +389,22 @@
         "target": 100,
         "formal_accepted": 50,
         "formal_remaining": 50,
-        "state": "complete_candidate100_independent_review_PASS_not_canonical",
+        "state": "candidate100_independent_review_PASS",
         "review": {
           "decision_path": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/pipeline/canonical_datasets/t035_candidate_audit/new_fr3_stack_glass_beaker_250ml_v108_dualrandom3cm_formal50/decision.json",
           "decision_sha256": "3aa6ecf6e6aaf844d5d1ca523edb5f0d42c5d2a72770593bf1d909e79a4fe833",
           "recipe_file": null,
           "recipe_sha256": null,
-          "largest_blocker": "Canonical promotion pending",
-          "next_action": "Preserve reviewed candidate100 pending canonical registration; continue other incomplete tasks",
-          "source_dataset": "data/bjxy_5090_t035_stack_beaker250_fr3_v108_fr3_dualrandom3cm_formal50_max75_gpu0_20260727_081206/lerobot/stack/glass_beaker_250ml_stack__fr3/20260727_081401"
+          "largest_blocker": "Canonicalpromotionpending; mixedengine/cameraprovenanceexplicit",
+          "next_action": "Preserve independentcandidate100 andoriginalsources; canonicalpromotionseparate",
+          "source_dataset": "data/bjxy_5090_t035_stack_beaker250_fr3_v108_fr3_dualrandom3cm_formal50_max75_gpu0_20260727_081206/lerobot/stack/glass_beaker_250ml_stack__fr3/20260727_081401",
+          "merged_candidate_review": "astra_candidates/fr3_nesting250_pool100/REVIEW.json"
         },
+        "native_diagnostic_successes": 8,
         "topup50_target": 50,
         "topup50_saved": 50,
         "candidate_episodes": 100,
-        "qualified_topup": 50,
-        "review_sha256": "1c1de95477397dfe1c872148e39e2b58ad2c7a0fcbdd4d22f2d89d90c2d6e455"
+        "qualified_topup": 50
       },
       {
         "robot": "ur5e",
@@ -412,16 +422,23 @@
         "target": 100,
         "formal_accepted": 50,
         "formal_remaining": 50,
-        "state": "fixedconfirmation0of3_pose_badseed_diagnostic_running_goodseed_queued",
+        "state": "bulk_active_independent_topup21of50",
         "review": {
           "decision_path": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/pipeline/canonical_datasets/t035_candidate_audit/new_ur5e_2f85_grasp_glass_beaker_250ml_v355_pool50_three_anchor/decision.json",
           "decision_sha256": "1e6bd337146f14bf991911f8e5b2bbf88dcd236d5a2994c9ad4e8b94b9dee026",
           "recipe_file": null,
           "recipe_sha256": null,
-          "largest_blocker": "Fixedreference1/1 but confirmation0/3; continuous random qualification absent; appearance FAIL retained",
-          "next_action": "Fixed confirmation3 ended0/3; compare read-only pose traces for seeds82342 and82341",
+          "largest_blocker": "No lift despite valid13.371N contact; residual4.4mm noweffective. Earlier-thanreference contact-stop geometry remains.",
+          "next_action": "fixedhistoricalreference seed82341 armed after report0; oldfixedanchor andrestored4.4mmresidual; originalsuccessgates",
           "source_dataset": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/data/bjxy_5090_t035_grasp_beaker250_ur5e_2f85_v355_pool50_20260803_014826/lerobot/grasp/glass_beaker_250ml__ur5e_2f85/pool50"
-        }
+        },
+        "qualified_topup": 21,
+        "candidate_topup_remaining": 39,
+        "latest_evidence": "astra_candidates/ur5e_grasp250_reuse_triangle_review/FINAL_REVIEW.json",
+        "historical_dedup_boundary": "Original accepted50 contain only3 unique action arrays; retained historical counts do not imply100 globally unique trajectories.",
+        "new_collection_needed": 29,
+        "unique_topup_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST13.json",
+        "next_action": "Continue bounded bulk with independent per-episode reviews; no formal promotion."
       },
       {
         "robot": "ur5e",
@@ -452,7 +469,9 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "complete_native0of1_original_uncontacted_lift_guard"
+        "state": "manifold_diagnostic_queued_no_runtime_yet",
+        "candidate_episodes": 0,
+        "next_action": "Observe actual contact mapping/forces and native20mmguard result; no acceptance override."
       },
       {
         "robot": "ur5e",
@@ -532,7 +551,7 @@
         }
       }
     ],
-    "policy": "All16 robot tasks continue. Eight independently reviewed100-episode candidate pools, eight remaining. Original stack taskID mapping resolved by four-way evidence; canonical promotion pending. Preserve original gates, historical data and nonpreemptive resource admission.",
+    "policy": "All16 robot tasks continue. Eight independently reviewed100-episode candidate pools, eight remaining. Canonical promotion pending. Preserve original gates, historical data and nonpreemptive resource admission.",
     "complete_candidate_pools": 8,
     "remaining_candidate_pools": 8
   },
@@ -1249,19 +1268,19 @@
   },
   "ur5e_grasp250_topup_unique": {
     "target": 50,
-    "qualified_unique_candidates": 18,
-    "remaining": 32,
+    "qualified_unique_candidates": 21,
+    "remaining": 29,
     "components": {
       "reused": 4,
       "cold_batch6_new": 4,
       "triangle_D_E_F": 3,
-      "bulk_first9_new": 7
+      "bulk_first13_new": 10
     },
-    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST9.json",
+    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST13.json",
     "formal_credit": 0,
-    "frames": 9323,
-    "videos": 54,
-    "review_sha256": "4a8b75e8d16de982d8f137865280dc40a2d254c92212a26085c8818668bfa739"
+    "frames": 10877,
+    "videos": 63,
+    "review_sha256": "9ce08e32d3519b65b2c3c698a7592b6802fdb8f91768245699b19cfa66a31c3b"
   },
   "fr3_pour100_plain_frame_v8": {
     "status": "NATIVE_FAILED_AFTER_SUCCESSFUL_INITIALIZATION",
@@ -1293,44 +1312,67 @@
     "state": "ACTIVE_BATCH_SNAPSHOT",
     "required_new_unique": 39,
     "max_attempts": 75,
-    "completed_qualified_in_bulk": 7,
+    "completed_qualified_in_bulk": 10,
     "unit": "chembench-t290-ur5-grasp250-triangle-bulk.service",
     "admission_sha256": "091d91c0006d42b643980dc23c4269a5a10d2b454eb0ccc6d04ec93b4ae5dee2",
     "independent_review_sha256": "3a48fd1293af4c7f2085391e6636f815383e9eaefff6a19e3089603568bac8c6",
     "formal_credit": 0,
-    "audited_attempts": 9,
-    "unique_automatic_candidates": 7,
-    "native_failures": 2,
+    "audited_attempts": 14,
+    "unique_automatic_candidates": 10,
+    "native_failures": 4,
     "later_automatic_pending_independent": 0,
-    "reviewed_scope": "positions000-008",
-    "state_evidence_sha256": "801ea256eaabac1cbc9026f675b5f3bcf1fc064a5c86e49d59b58264e4faaa77"
+    "reviewed_scope": "positions000-012",
+    "batch_state_evidence_sha256": "49563ea9ddb1892572ff9fd8aafb7b42149103c0e36c65e34ba97cb9472b603d"
   },
   "fr3_pour100_cavity_v9": {
-    "state": "QUEUED_WAITING_NONPREEMPTIVE_ADMISSION",
+    "state": "TERMINAL_NATIVE0OF1_ORIGINAL_SPILL",
     "unit": "chembench-t290-fr3-pour100-cavity-v9.service",
     "expected_initial_particles": 630,
     "original_initial_particles": 1000,
     "original_native_gates_unchanged": true,
     "additional_cavity_partition": true,
-    "actual_runtime_verified": false,
-    "manifest_sha256": "792bf1eaed131591227dc38ea2a4dc031def9f744157dd02227c270f3df8c7a1",
-    "independent_review_sha256": "d08fd4834b81dedf128056e3309295952045f99491f34c3ca25f36b8fee7c5c3",
-    "admission_sha256": "8deab0daf2d3ce2f885d99fba12ccf5afd836d9ae3418f38759e709ad2872523",
+    "actual_runtime_verified": true,
+    "manifest_sha256": "6ad0c8c6620e832e59a025e3363e8b801c801e54211a7a1d337da117b12ec359",
+    "independent_review_sha256": "06e1e4bfa7a362ef17381e120306f21a852ca32568f5f0604669cd5e551bcb70",
+    "admission_sha256": "a4880406a7527895d31ebb3e5709110835933892d8888fb7ee873be6647b2072",
     "admission_snapshot": {
-      "state": "waiting_admission",
-      "time": 1789212405.1526,
+      "state": "diagnostic_ended_review_required",
+      "time": 1789213634.9714534,
       "formal_credit": 0,
-      "gpu": [
-        "GPU-7e048773-6e99-b431-101d-8b45724cce9f",
-        " 23534"
-      ],
-      "compute": ""
+      "returncode": 0
     },
     "formal_credit": 0,
     "limitations": [
       "Reduced fill, conservative17mesh proxy and uniformrim; not original1000/cookedglass/inertia equivalence",
       "Native expanded source mask retained, independent measured-cavity audit required",
       "Receiver cavity and effective25Nforce still unqualified"
-    ]
+    ],
+    "native_success": 0,
+    "attempts": 1,
+    "initial_N0": 630,
+    "initial_independent_cavity_centers": 630,
+    "last_independent_cavity_centers": 280,
+    "receiver_native_count": 0,
+    "all_particle_counts_finite630": true,
+    "failure_phase": "descend",
+    "failure_step": 71,
+    "support_geometry_qualified": false,
+    "static_table_is_dynamic_body": true,
+    "diagnostic_video_frames_per_camera": 72,
+    "independent_actual_visual_samples": 18,
+    "terminal_review_sha256": "4d24e28f13c5d271eb44c9ba3be83fb73730938b02b95b545291761a760352d8",
+    "dynamic_table_boundary_review_sha256": "cfef505a94fb23a5ad58c9a688855824d733b6fabfbc676825e5fa66a3320216"
+  },
+  "ur5e_cylinder_manifold_v1": {
+    "state": "QUEUED_DIAGNOSTIC_NO_RUNTIME_YET",
+    "unit": "chembench-t290-ur5-cylinder-manifold-v1.service",
+    "original_close55_seed": 260911803,
+    "original_controller_and_physics_unchanged": true,
+    "original_uncontacted_lift_guard_m": 0.02,
+    "independent_observer_feeds_original_force": false,
+    "manifest_sha256": "8214e335f5f0469b13c139e9584b1de7ea3ed1a9a5ffbb7e9a47fa9782a12686",
+    "review_sha256": "2fe4c54d213e3d6a07dfc7d256ab6cc5bbdba36c924a5dc12360014fcaa2fc35",
+    "admission_sha256": "224172a76f6d338578e54529b77098242b07a7495c7034637a798de20d4d6499",
+    "formal_credit": 0
   }
 }
