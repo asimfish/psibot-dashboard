@@ -1,13 +1,13 @@
 {
-  "as_of": "2026-09-12T14:58:58.758932+08:00",
+  "as_of": "2026-09-12T15:38:47.482076+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
-    "state": "ur5_grasp250_pose_badseed_diagnostic_running",
+    "state": "waiting_admission_foreign_astra_simulation",
     "canonical_promotion": false,
-    "next": "Cold-start goodseed82341 observer comparison queued after badseed82342; original gates retained",
-    "unit": "chembench-t290-ur5e-grasp250-posetrace-badseed.service",
-    "current_target": 1,
+    "next": "observed confirmation3 -> center_y10 -> raw contact positive control; no automatic bulk promotion",
+    "unit": "chembench-t290-ur5e-grasp250-observed-confirmation3.service",
+    "current_target": 3,
     "inherited_previous_collection": {
       "accepted_replacements": 41,
       "target": 41,
@@ -21,18 +21,16 @@
       "visual_review": "sampled5episodes45frames: transfer visible; chest elevated target crop and head occlusion; final acceptance pending"
     },
     "admission": {
-      "state": "diagnostic_running",
-      "time": 1789196164.4333744,
+      "state": "waiting_admission",
+      "time": 1789198720.4712389,
       "formal_credit": 0,
-      "pid": 4063393,
-      "supervisor_sha256": "026ff78ae8445b7fb532cd7705a2c496ad262722056ae1315db0dc51e047cf10",
       "gpu": [
         "GPU-7e048773-6e99-b431-101d-8b45724cce9f",
-        " 23534"
+        " 18512"
       ],
-      "compute": ""
+      "compute": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 4121383"
     },
-    "current_seed": 82342
+    "current_seed": 82343
   },
   "panel_scope": {
     "fr3": {
@@ -278,7 +276,7 @@
     "cause": "configured Bottle/Beaker003 mismatched USD defaultprim remap; actual rigid body Bottle/base"
   },
   "robot_worklist": {
-    "as_of": "2026-09-12T14:58:58.758932+08:00",
+    "as_of": "2026-09-12T15:38:47.482076+08:00",
     "target_datasets": 16,
     "rows": [
       {
@@ -986,18 +984,32 @@
     "canonical_promoted": false
   },
   "ur5e_grasp250_pose_comparison": {
-    "as_of": "2026-09-12T14:58:58.758932+08:00",
-    "badseed": 82342,
-    "badseed_state": "diagnostic_running",
-    "badseed_unit": "chembench-t290-ur5e-grasp250-posetrace-badseed.service",
-    "goodseed": 82341,
-    "goodseed_state": "queued_after_badseed",
-    "goodseed_unit": "chembench-t290-ur5e-grasp250-posetrace-goodseed.service",
-    "target_each": 1,
-    "attempt_limit_each": 1,
-    "observer_sha256": "0909b2b8d7598706c01320aa156e85c39833cbc91643172d9d4fed788e4b85d8",
-    "review_sha256": "6eae230d5c429bbf464ae8125ef523e784cad85c636f15c01728655fde312ea6",
-    "original_physics_and_gates_retained": true,
+    "state": "two_cold_runs_native_success_full_video_L3_checked",
+    "runs": [
+      {
+        "seed": 82342,
+        "native_success": 1,
+        "attempts": 1,
+        "frames": 518,
+        "videos": 3,
+        "audit_sha256": "41430128b3e820d660671df813bdfbaa84c75c492bb0089f8b716e84e0056ee3"
+      },
+      {
+        "seed": 82341,
+        "native_success": 1,
+        "attempts": 1,
+        "frames": 518,
+        "videos": 3,
+        "audit_sha256": "95237c2d3aace27ab175f38f2399adc51266ffc6a6cece869eca0f255f4f7348"
+      }
+    ],
+    "original_uninstrumented_confirmation": "0/3 retained",
+    "limitations": [
+      "appearance check failed",
+      "fixed anchor only",
+      "read-only observation may affect timing; not a demonstrated physical fix"
+    ],
+    "next": "seed82343 same-process confirmation3 queued, not yet started",
     "formal_credit": 0
   },
   "ur5e_cylinder_allreport0": {
@@ -1021,5 +1033,25 @@
     "formal_credit": 0,
     "evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_allreport0_local4090/allreport0_seed260911803/collection.log",
     "qualification": "Report-threshold observation only; original success gate still failed"
+  },
+  "ur5e_cylinder_rawcontacts": {
+    "state": "completed_native0of1",
+    "subscription_registered": true,
+    "target_events": 0,
+    "callback_liveness": "not measured in cylinder run; do not infer absence of physical contacts",
+    "next": "known-positive beaker seed82341 raw callback heartbeat diagnostic queued",
+    "formal_credit": 0
+  },
+  "fr3_pour100_compound_repair": {
+    "state": "CPU_integration_v4_PASS_new_isolated_bundle_preparation",
+    "review_sha256": "58fef9c7469cb04f535020f1ea127a1fc9aed6bbe14c5e93e39ce59d15fee966",
+    "gpu_admitted": false,
+    "changes": [
+      "two-body fixed-joint frame correction",
+      "explicit initialization-only compound writes",
+      "read-only particle conservation observation with fixed N0"
+    ],
+    "original_60_step_initialization_retained": true,
+    "formal_credit": 0
   }
 }
