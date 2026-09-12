@@ -1,12 +1,12 @@
 {
-  "as_of": "2026-09-13T04:08:02.209395+08:00",
+  "as_of": "2026-09-13T05:18:14.847518+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
-    "as_of": "2026-09-13T04:08:02.209395+08:00",
+    "as_of": "2026-09-13T05:18:14.847518+08:00",
     "snapshot_only": true,
-    "gpu": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 1 %, 13801 MiB",
-    "state": "046 qualified and merged100 reviewed; CPU camera cache matched45 actual running; V19 queued after cache terminal."
+    "gpu": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 0 %, 23534 MiB",
+    "state": "FR3 V20 terminal0/1 with frozen particle readback under review; UR5 V8 admitted original protected supervisor launched."
   },
   "panel_scope": {
     "fr3": {
@@ -252,7 +252,7 @@
     "cause": "configured Bottle/Beaker003 mismatched USD defaultprim remap; actual rigid body Bottle/base"
   },
   "robot_worklist": {
-    "as_of": "2026-09-13T04:08:02.209395+08:00",
+    "as_of": "2026-09-13T05:18:14.847518+08:00",
     "target_datasets": 16,
     "rows": [
       {
@@ -321,35 +321,39 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "V18_valid_jointlimits_terminal_emptylift_geometry_diagnosis",
+        "state": "V19_held_lift139_7mm_native_spill_gate_failure_V20_frozen_particle_readback_under_review",
         "review": {
           "decision_path": null,
           "decision_sha256": null,
           "recipe_file": null,
           "recipe_sha256": null,
-          "largest_blocker": "V18 valid joint references and .0009301rad endpoint still empty lift; actual grip contact unresolved",
-          "next_action": "CPU compare authored shell local section and pad geometry; preserve actual collision filters and original physical gates",
+          "largest_blocker": "Held lift observed but USD-derived particle evaluation arrays constant; actual liquid simulation and readback unresolved",
+          "next_action": "Diagnose actual particle simulation/readback; V20 completed0/1 and32 snapshots identical particle positions despite moving cup. Not yet proof of physical spill.",
           "source_dataset": null,
           "cpu_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_actual_joint_limits_prepare/PARSER_CPU.json",
-          "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v18_independent_review/REVIEW.json",
-          "latest_terminal_review_sha256": "5c07a1553d024de6d99c0138f3f8fcb7f27d16acfd9eb122573bf07f887c6343"
+          "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v19_independent_review/REVIEW.json",
+          "latest_terminal_review_sha256": "7144ea73e19ef08f7fd12c4dfca518ce3a968d06943199dafe21c2630e08cca7",
+          "historical_interpretation_superseded_by_V20": "V19 native/cavity counters classified630outside moving source; V20 exact constant particle readback means physical particle motion/spill is not established."
         },
         "recovery_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/pour_recipe_recovery/RECOVERY_STATUS.json",
         "candidate_episodes": 0,
         "quality_blockers": [
-          "actual_held_lift_failed",
+          "particle_evaluation_readback_frozen_actual_fluid_state_unverified",
           "force_receiver_physical_acceptance_unqualified"
         ],
-        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v18_independent_review/REVIEW.json",
-        "next_action": "CPU compare authored shell local section and pad geometry; preserve actual collision filters and original physical gates",
-        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v18_independent_review/REVIEW.json",
-        "terminal_review_sha256": "5c07a1553d024de6d99c0138f3f8fcb7f27d16acfd9eb122573bf07f887c6343",
+        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v19_independent_review/REVIEW.json",
+        "next_action": "Diagnose actual particle simulation/readback; V20 completed0/1 and32 snapshots identical particle positions despite moving cup. Not yet proof of physical spill.",
+        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v19_independent_review/REVIEW.json",
+        "terminal_review_sha256": "7144ea73e19ef08f7fd12c4dfca518ce3a968d06943199dafe21c2630e08cca7",
         "historical_quality_blockers": [
           "empty_CuRobo_YAML_skipped_planner_despite_required_flags",
           "interpolation_branch_ignored_finger_close_fraction",
           "V13_empty_lift_then_originalspill386",
-          "force_receiver_physical_acceptance_unqualified"
-        ]
+          "force_receiver_physical_acceptance_unqualified",
+          "V18_actual_held_lift_failed; superseded by V19 observed held lift"
+        ],
+        "next_candidate": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour100_fluidtrace_v20_local4090_smoke1",
+        "next_manifest_sha256": "ecc31a63bbf3810fd2caf6aa968bc8ebfc217c54e527a307a036eaf10f8c4522"
       },
       {
         "robot": "fr3",
@@ -475,9 +479,9 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "V7_handstatic_terminal_matched_comparison_reviewed",
+        "state": "V7_handstatic_reviewed_V8_armstatic_independently_admitted_supervisor_launched",
         "candidate_episodes": 0,
-        "next_action": "Localize hand closure drive dependency without changing original physics or acceptance",
+        "next_action": "Observe original hand closure with arm drive held; require actual joint/link and relative geometry checks; no qualified grasp.",
         "terminal_review_sha256": "10f72b26de46abcf62da763e5dde9258e00a02c6456ec5de3670f3953f922a34",
         "review": {
           "largest_blocker": "V7 arm moves while hand held and target stays stable in matched window; specific contacting body/solver cause unresolved",
@@ -486,7 +490,9 @@
           "latest_terminal_review_sha256": "10f72b26de46abcf62da763e5dde9258e00a02c6456ec5de3670f3953f922a34"
         },
         "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_handstatic_v7_terminal_review/REVIEW.json",
-        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_handstatic_v7_terminal_review/REVIEW.json"
+        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_handstatic_v7_terminal_review/REVIEW.json",
+        "next_candidate": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_armstatic_v8_local4090",
+        "next_manifest_sha256": "0ae07d6254327ec5d52a0ec8e1032560591a4426dac8433cfcb8e27c6b34e5de"
       },
       {
         "robot": "ur5e",
@@ -566,10 +572,9 @@
         }
       }
     ],
-    "policy": "All16 robot tasks continue. Eight independently reviewed100-episode candidate pools, eight remaining. Canonical promotion pending. Preserve original gates, historical data and nonpreemptive resource admission.",
+    "policy": "All16 robot tasks continue. Nine independently reviewed100-episode candidate pools, seven remaining. Canonical promotion pending. Preserve original gates, historical data and nonpreemptive resource admission.",
     "complete_candidate_pools": 9,
-    "remaining_candidate_pools": 7,
-    "ledger_sync_at": "2026-09-13T04:06:57.998691+08:00"
+    "remaining_candidate_pools": 7
   },
   "fr3_beaker100_filterfix": {
     "state": "candidate100_independently_reviewed_pass",
@@ -5368,8 +5373,8 @@
     "formal_credit": 0
   },
   "local4090_parallel_preparation": {
-    "state": "CPU_CACHE_MATCHED_SINGLE_ACTUALLY_RUNNING_NO_DUAL_ADMISSION",
-    "as_of": "2026-09-13T04:08:02.209395+08:00",
+    "state": "CPU_CACHE_SINGLE_INDEPENDENT_QUALITY_PASS_DUAL_NOT_ADMITTED",
+    "as_of": "2026-09-13T05:18:14.847518+08:00",
     "original_total_peak_mib": 13623,
     "original_increment_peak_mib": 13088,
     "reserve_mib": 3000,
@@ -5378,7 +5383,7 @@
     "cache_admission_sha256": "f5e9c5028d34e9de4c01f57e8979e387d15446999ee5f75bd9eaf2402ded5703",
     "unit": "chembench-t290-4090-cpu-cache-peak45.service",
     "new_candidate_credit": 0,
-    "pending": "Actual complete peak and independent quality still pending. Repeat position gives zero new candidate credit.",
+    "pending": "Dual budget still exceeds card capacity. CPU cache repeat gives zero new credit. Actual own PSS peak22.31GiB; cross-run pixels and original own-host-memory delta not proven.",
     "start": {
       "job": "matched_position45_cpu_camera_cache_peak",
       "pid": 1961458,
@@ -5397,7 +5402,14 @@
       },
       "run_did_not_exist": true,
       "formal_credit": 0
-    }
+    },
+    "total_peak_before_mib": 13623,
+    "total_peak_after_mib": 10269,
+    "peak_reduction_mib": 3354,
+    "dual_budget_with_reserves_mib": 27099,
+    "gpu_capacity_mib": 24070,
+    "quality_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/local4090_parallel_prepare/single_cpu_cache45_independent_review/position_045_seed260912846/REVIEW.json",
+    "quality_review_sha256": "b3e9a913a3bcff0188ff8be2d92621793da2e884de4ffd5b2b04cb5c31098313"
   },
   "ur5e_grasp250_pool100": {
     "state": "INDEPENDENT_REVIEW_PASS_CANDIDATE_ONLY",
@@ -5444,13 +5456,266 @@
     "canonical_promotion": false
   },
   "fr3_pour100_gripwidth_v19": {
-    "state": "INDEPENDENTLY_ADMITTED_QUEUED_AFTER_CACHE_TERMINAL",
+    "state": "INDEPENDENT_REVIEW_HELD_LIFT_NATIVE_SPILL_GATE_FAILURE",
     "change": "Only finger_close_scale .33 to .38, per finger target .0268 to .0248m; fraction.5 and V18 legal limits, original physical configuration and all original gates unchanged.",
     "manifest_sha256": "ef45b0457a22d4e03b7606a82ebb0e078e42933a39f0aca52eefac4e41fb702d",
     "review_sha256": "48f9cb33d8977889527177416c83fe9d30a052eb2458c6a911633a222edadf13",
     "admission_sha256": "7e478a6e1b7d90853ac0e7b2a1cfb88050b115744f0ae834344ed6cbd3671f32",
     "unit": "chembench-t290-fr3-pour100-gripwidth-v19.service",
     "formal_credit": 0,
-    "boundary": "Authored local shell width is geometric clue only; actual contact/held-lift/force/receiver unqualified."
+    "boundary": "Held cup confirmed by backend pose and real images. Native spill gate uses USD-derived particle coordinates; V20 found frozen readback, so physical fluid spill mechanism not established. Original force/receiver qualification remains missing.",
+    "terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v19_independent_review/REVIEW.json",
+    "terminal_review_sha256": "7144ea73e19ef08f7fd12c4dfca518ce3a968d06943199dafe21c2630e08cca7",
+    "held_lift_m": 0.1397342085838318,
+    "native_success": "0/1"
+  },
+  "fr3_pour100_fluidtrace_v20": {
+    "state": "TERMINAL_NATIVE0_1_INDEPENDENT_REVIEW_PENDING",
+    "manifest_sha256": "ecc31a63bbf3810fd2caf6aa968bc8ebfc217c54e527a307a036eaf10f8c4522",
+    "start_local": "2026-09-13T05:10:48+08:00",
+    "process_exit": {
+      "returncode": 0,
+      "error": null,
+      "formal_credit": 0,
+      "classification": "diagnostic_only_not_formal"
+    },
+    "preliminary_root_observation": {
+      "scope": "root preliminary synchronous readback only, not cooked physics proof",
+      "rows": [
+        {
+          "step": 0,
+          "counter": 0,
+          "source_z": 0.9801592230796814,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 150,
+          "counter": 2400,
+          "source_z": 0.9801578521728516,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 175,
+          "counter": 2800,
+          "source_z": 0.9801636934280396,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 180,
+          "counter": 2880,
+          "source_z": 0.9801623821258545,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 185,
+          "counter": 2960,
+          "source_z": 0.9803659915924072,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 190,
+          "counter": 3040,
+          "source_z": 0.9822072982788086,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 191,
+          "counter": 3056,
+          "source_z": 0.982827365398407,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 192,
+          "counter": 3072,
+          "source_z": 0.9834516644477844,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 193,
+          "counter": 3088,
+          "source_z": 0.9840514659881592,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 194,
+          "counter": 3104,
+          "source_z": 0.9845945239067078,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 195,
+          "counter": 3120,
+          "source_z": 0.9850532412528992,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 196,
+          "counter": 3136,
+          "source_z": 0.9854081869125366,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 197,
+          "counter": 3152,
+          "source_z": 0.9858261346817017,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 198,
+          "counter": 3168,
+          "source_z": 0.9866566061973572,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 199,
+          "counter": 3184,
+          "source_z": 0.9878860116004944,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 200,
+          "counter": 3200,
+          "source_z": 0.9899270534515381,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 201,
+          "counter": 3216,
+          "source_z": 0.994708776473999,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 202,
+          "counter": 3232,
+          "source_z": 1.011899709701538,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 203,
+          "counter": 3248,
+          "source_z": 1.0387537479400635,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 204,
+          "counter": 3264,
+          "source_z": 1.054837703704834,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 205,
+          "counter": 3280,
+          "source_z": 1.064781665802002,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 206,
+          "counter": 3296,
+          "source_z": 1.0721027851104736,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 207,
+          "counter": 3312,
+          "source_z": 1.0782779455184937,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 208,
+          "counter": 3328,
+          "source_z": 1.0838226079940796,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 209,
+          "counter": 3344,
+          "source_z": 1.0888972282409668,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 210,
+          "counter": 3360,
+          "source_z": 1.0935930013656616,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 215,
+          "counter": 3440,
+          "source_z": 1.1109704971313477,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 220,
+          "counter": 3520,
+          "source_z": 1.1185144186019897,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 225,
+          "counter": 3600,
+          "source_z": 1.1199944019317627,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 230,
+          "counter": 3680,
+          "source_z": 1.1200430393218994,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 235,
+          "counter": 3760,
+          "source_z": 1.1200754642486572,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        },
+        {
+          "step": 237,
+          "counter": 3792,
+          "source_z": 1.119922161102295,
+          "particle_max_displacement": 0.0,
+          "particle_mean_z": 0.9761607561792646
+        }
+      ]
+    },
+    "boundary": "32 sampled original particle arrays exactly unchanged while source backend rises ~140mm. Frozen evaluation readback is not proof of physical spill or absence of underlying simulation. No formal credit."
+  },
+  "ur5e_cylinder_armstatic_v8": {
+    "state": "INDEPENDENTLY_ADMITTED_SUPERVISOR_LAUNCHED",
+    "manifest_sha256": "0ae07d6254327ec5d52a0ec8e1032560591a4426dac8433cfcb8e27c6b34e5de",
+    "review_sha256": "2a547e1eeb33ddd46855ccca061bd9c767f65175e51f7328e8cb1f4a54dadc1c",
+    "unit": "chembench-t290-ur5-cylinder-armstatic-v8.service",
+    "change": "Only6 arm position drive targets held at firstcontrol0;8 original hand targets preserved at each write. Real actual arm/hand motion and relative cup geometry required; not pose pin or qualified grasp.",
+    "formal_credit": 0
   }
 }
