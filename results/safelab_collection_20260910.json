@@ -1,12 +1,13 @@
 {
-  "as_of": "2026-09-13T05:18:14.847518+08:00",
+  "as_of": "2026-09-13T05:49:02.274484+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
-    "as_of": "2026-09-13T05:18:14.847518+08:00",
+    "as_of": "2026-09-13T05:49:02.274484+08:00",
     "snapshot_only": true,
     "gpu": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 0 %, 23534 MiB",
-    "state": "FR3 V20 terminal0/1 with frozen particle readback under review; UR5 V8 admitted original protected supervisor launched."
+    "state": "V9 terminal reviewed. V22 runtime error after setting applied; own cleanup state recorded in process_exit. Further readback-compatible diagnostic preparation.",
+    "gpu_observed_at": "2026-09-13T05:49:16.473924+08:00"
   },
   "panel_scope": {
     "fr3": {
@@ -252,7 +253,7 @@
     "cause": "configured Bottle/Beaker003 mismatched USD defaultprim remap; actual rigid body Bottle/base"
   },
   "robot_worklist": {
-    "as_of": "2026-09-13T05:18:14.847518+08:00",
+    "as_of": "2026-09-13T05:49:02.274484+08:00",
     "target_datasets": 16,
     "rows": [
       {
@@ -321,18 +322,18 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "V19_held_lift139_7mm_native_spill_gate_failure_V20_frozen_particle_readback_under_review",
+        "state": "V22_readback_setting_applied_then_original_receiver_tensor_device_error",
         "review": {
           "decision_path": null,
           "decision_sha256": null,
           "recipe_file": null,
           "recipe_sha256": null,
-          "largest_blocker": "Held lift observed but USD-derived particle evaluation arrays constant; actual liquid simulation and readback unresolved",
-          "next_action": "Diagnose actual particle simulation/readback; V20 completed0/1 and32 snapshots identical particle positions despite moving cup. Not yet proof of physical spill.",
+          "largest_blocker": "V22 live suppression toggle causes original receiver CPU/GPU index-device mismatch before particle evaluation; no fresh fluid result.",
+          "next_action": "Diagnose readback/pipeline compatibility. No V22 fluid snapshot reached; preserve original receiver pin and all physical gates.",
           "source_dataset": null,
           "cpu_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_actual_joint_limits_prepare/PARSER_CPU.json",
-          "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v19_independent_review/REVIEW.json",
-          "latest_terminal_review_sha256": "7144ea73e19ef08f7fd12c4dfca518ce3a968d06943199dafe21c2630e08cca7",
+          "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v21_independent_review/REVIEW.json",
+          "latest_terminal_review_sha256": "dcc29439bd9e5680286c62189470d4251857882c437fa29cea03f8ecf39690ba",
           "historical_interpretation_superseded_by_V20": "V19 native/cavity counters classified630outside moving source; V20 exact constant particle readback means physical particle motion/spill is not established."
         },
         "recovery_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/pour_recipe_recovery/RECOVERY_STATUS.json",
@@ -341,10 +342,10 @@
           "particle_evaluation_readback_frozen_actual_fluid_state_unverified",
           "force_receiver_physical_acceptance_unqualified"
         ],
-        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v19_independent_review/REVIEW.json",
-        "next_action": "Diagnose actual particle simulation/readback; V20 completed0/1 and32 snapshots identical particle positions despite moving cup. Not yet proof of physical spill.",
-        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v19_independent_review/REVIEW.json",
-        "terminal_review_sha256": "7144ea73e19ef08f7fd12c4dfca518ce3a968d06943199dafe21c2630e08cca7",
+        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v21_independent_review/REVIEW.json",
+        "next_action": "Diagnose readback/pipeline compatibility. No V22 fluid snapshot reached; preserve original receiver pin and all physical gates.",
+        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v21_independent_review/REVIEW.json",
+        "terminal_review_sha256": "dcc29439bd9e5680286c62189470d4251857882c437fa29cea03f8ecf39690ba",
         "historical_quality_blockers": [
           "empty_CuRobo_YAML_skipped_planner_despite_required_flags",
           "interpolation_branch_ignored_finger_close_fraction",
@@ -352,8 +353,8 @@
           "force_receiver_physical_acceptance_unqualified",
           "V18_actual_held_lift_failed; superseded by V19 observed held lift"
         ],
-        "next_candidate": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour100_fluidtrace_v20_local4090_smoke1",
-        "next_manifest_sha256": "ecc31a63bbf3810fd2caf6aa968bc8ebfc217c54e527a307a036eaf10f8c4522"
+        "next_candidate": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour100_readback_enable_v22_local4090_smoke1",
+        "next_manifest_sha256": "674aa00ed253a5448de80a96f8831d178de3a6a7c61d8436471e79668c321960"
       },
       {
         "robot": "fr3",
@@ -479,20 +480,26 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "V7_handstatic_reviewed_V8_armstatic_independently_admitted_supervisor_launched",
+        "state": "V9_cooked_query_terminal_native_failure_independently_reviewed",
         "candidate_episodes": 0,
-        "next_action": "Observe original hand closure with arm drive held; require actual joint/link and relative geometry checks; no qualified grasp.",
-        "terminal_review_sha256": "10f72b26de46abcf62da763e5dde9258e00a02c6456ec5de3670f3953f922a34",
+        "next_action": "V9 reviewed native20.69199mm guard/resetIK and owncleanup.18validfinished149colliders;632matched V5 pose/force exact. Next scale-aware world geometry CPU before further contact diagnosis.",
+        "terminal_review_sha256": "06af7e7c6fb04d481a5e370b151c27ba2e1d89152fe5035e2563db323d067ef1",
         "review": {
-          "largest_blocker": "V7 arm moves while hand held and target stays stable in matched window; specific contacting body/solver cause unresolved",
-          "next_action": "Localize hand closure drive dependency without changing original physics or acceptance",
-          "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_handstatic_v7_terminal_review/REVIEW.json",
-          "latest_terminal_review_sha256": "10f72b26de46abcf62da763e5dde9258e00a02c6456ec5de3670f3953f922a34"
+          "largest_blocker": "Original close-near-cup motion raises cylinder, table force but observed hand contactzero. V9 cooked shape metadata valid; detailed finger-shell contact geometry unresolved.",
+          "next_action": "Scale-aware sampled world AABBs exclude hand-table overlap in reviewed window; focus3 finger/knuckle bodies versus128target shell hulls, retaining no-contact-proof boundary.",
+          "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_cooked_v9_terminal_review/REVIEW.json",
+          "latest_terminal_review_sha256": "06af7e7c6fb04d481a5e370b151c27ba2e1d89152fe5035e2563db323d067ef1"
         },
-        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_handstatic_v7_terminal_review/REVIEW.json",
-        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_handstatic_v7_terminal_review/REVIEW.json",
-        "next_candidate": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_armstatic_v8_local4090",
-        "next_manifest_sha256": "0ae07d6254327ec5d52a0ec8e1032560591a4426dac8433cfcb8e27c6b34e5de"
+        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_cooked_v9_terminal_review/REVIEW.json",
+        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_cooked_v9_terminal_review/REVIEW.json",
+        "next_candidate": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_cooked_v9_local4090",
+        "next_manifest_sha256": "7b6b942fe1af7759ac5af79a7e567b123c17527b2e1ad07301caf8493828380e",
+        "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_cooked_v9_terminal_review/REVIEW.json",
+        "latest_terminal_review_sha256": "06af7e7c6fb04d481a5e370b151c27ba2e1d89152fe5035e2563db323d067ef1",
+        "historical_terminal_reviews": [
+          "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_handstatic_v7_terminal_review/REVIEW.json",
+          "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_armstatic_v8_terminal_review/REVIEW.json"
+        ]
       },
       {
         "robot": "ur5e",
@@ -5470,7 +5477,7 @@
     "native_success": "0/1"
   },
   "fr3_pour100_fluidtrace_v20": {
-    "state": "TERMINAL_NATIVE0_1_INDEPENDENT_REVIEW_PENDING",
+    "state": "INDEPENDENT_TERMINAL_REVIEW_COMPLETE_NATIVE0_1",
     "manifest_sha256": "ecc31a63bbf3810fd2caf6aa968bc8ebfc217c54e527a307a036eaf10f8c4522",
     "start_local": "2026-09-13T05:10:48+08:00",
     "process_exit": {
@@ -5708,14 +5715,850 @@
         }
       ]
     },
-    "boundary": "32 sampled original particle arrays exactly unchanged while source backend rises ~140mm. Frozen evaluation readback is not proof of physical spill or absence of underlying simulation. No formal credit."
+    "boundary": "32 sampled original particle arrays exactly unchanged while source backend rises ~140mm. Frozen evaluation readback is not proof of physical spill or absence of underlying simulation. No formal credit.",
+    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v20_independent_review/REVIEW.json",
+    "review_sha256": "4c1e073fa2a4a3af0e2786bece68290ac57a49c2485d6a9b5f6be3735d4afe0b",
+    "review_evidence": {
+      "status": "REVIEWED_NATIVE_FAILURE_PARTICLE_READBACK_VALIDITY_HOLD",
+      "native_success": 0,
+      "attempts": 1,
+      "process_exit": {
+        "returncode": 0,
+        "error": null,
+        "formal_credit": 0,
+        "classification": "diagnostic_only_not_formal"
+      },
+      "log_sha256": "5c50cee8998b364f9b2bf13d1fae7288c0cd4381049fb91b92b47fef331a2f2c",
+      "original_failure": [
+        3398,
+        "[PourStrictFailureGate] irreversible particle spill envs=[0]"
+      ],
+      "original_endpoint": [
+        {
+          "control_step": 154,
+          "env": 0,
+          "arm_joint_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "joint_space_mask": true,
+          "planned_joint": [
+            0.3622904419898987,
+            0.06362970918416977,
+            -0.8620945811271667,
+            -3.038890838623047,
+            0.6683096289634705,
+            3.063605308532715,
+            -0.38024264574050903
+          ],
+          "actual_joint": [
+            0.363078236579895,
+            0.06375165283679962,
+            -0.8611568212509155,
+            -3.039193868637085,
+            0.6683353781700134,
+            3.0635812282562256,
+            -0.38024309277534485
+          ],
+          "wrapped_error": [
+            -0.0007877945899963379,
+            -0.0001219436526298523,
+            -0.0009377598762512207,
+            0.0003030300431419164,
+            -2.574920654296875e-05,
+            2.4080276489257812e-05,
+            4.470348358154297e-07
+          ],
+          "max_error_rad": 0.0009377598762512207,
+          "threshold_rad": 0.08,
+          "boundary": "Read existing gate arrays only; original comparison and control unchanged."
+        }
+      ],
+      "valid_reference": [
+        {
+          "phase": [
+            154,
+            176
+          ],
+          "all_composed_and_applied_masks_true": true,
+          "max_wrapped_application_difference_rad": 0.0,
+          "composed_first": [
+            [
+              0.3622904419898987,
+              0.06362970918416977,
+              -0.8620945811271667,
+              -3.038890838623047,
+              0.6683096289634705,
+              3.063605308532715,
+              -0.38024264574050903
+            ]
+          ],
+          "applied_first": [
+            [
+              0.3622904419898987,
+              0.06362970918416977,
+              -0.8620945811271667,
+              -3.038890838623047,
+              0.6683096289634705,
+              3.063605308532715,
+              -0.38024264574050903
+            ]
+          ],
+          "boundary": "Reference integrity only. Real planner feasibility/FK, tracking, force and liquid qualification still require review."
+        },
+        {
+          "phase": [
+            154,
+            176
+          ],
+          "all_composed_and_applied_masks_true": true,
+          "max_wrapped_application_difference_rad": 5.960464477539063e-08,
+          "composed_first": [
+            [
+              0.8419526815414429,
+              0.23960061371326447,
+              -1.2038617134094238,
+              -2.9645533561706543,
+              1.1964876651763916,
+              2.900599479675293,
+              -0.7531510591506958
+            ]
+          ],
+          "applied_first": [
+            [
+              0.8419526815414429,
+              0.23960061371326447,
+              -1.2038617134094238,
+              -2.9645533561706543,
+              1.1964876651763916,
+              2.900599479675293,
+              -0.753150999546051
+            ]
+          ],
+          "boundary": "Reference integrity only. Real planner feasibility/FK, tracking, force and liquid qualification still require review."
+        }
+      ],
+      "actual_joint_limits": [
+        {
+          "phase": [
+            154,
+            176
+          ],
+          "actual_joint_names": [
+            "fr3_joint1",
+            "fr3_joint2",
+            "fr3_joint3",
+            "fr3_joint4",
+            "fr3_joint5",
+            "fr3_joint6",
+            "fr3_joint7"
+          ],
+          "backend_limits": [
+            [
+              [
+                -2.743699789047241,
+                2.743699789047241
+              ],
+              [
+                -1.7836999893188477,
+                1.7836999893188477
+              ],
+              [
+                -2.9006998538970947,
+                2.9006998538970947
+              ],
+              [
+                -3.042099952697754,
+                -0.1517999917268753
+              ],
+              [
+                -2.80649995803833,
+                2.80649995803833
+              ],
+              [
+                0.544499933719635,
+                4.516899585723877
+              ],
+              [
+                -3.015899658203125,
+                3.015899658203125
+              ]
+            ]
+          ],
+          "planner_limits": [
+            [
+              -2.743699789047241,
+              -1.7627999782562256,
+              -2.8973000049591064,
+              -3.042099952697754,
+              -2.80649995803833,
+              0.544499933719635,
+              -2.8973000049591064
+            ],
+            [
+              2.743699789047241,
+              1.7627999782562256,
+              2.8973000049591064,
+              -0.1517999917268753,
+              2.80649995803833,
+              3.752500057220459,
+              2.8973000049591064
+            ]
+          ],
+          "max_model_range_outside_backend_rad": 0.0,
+          "max_applied_grasp_outside_backend_rad": 0.0,
+          "comparison_epsilon_rad": 1e-05,
+          "boundary": "Added diagnostic invariant only; original endpoint and physical acceptance gates unchanged. No commanded state, limit, or physics writes."
+        },
+        {
+          "phase": [
+            154,
+            176
+          ],
+          "actual_joint_names": [
+            "fr3_joint1",
+            "fr3_joint2",
+            "fr3_joint3",
+            "fr3_joint4",
+            "fr3_joint5",
+            "fr3_joint6",
+            "fr3_joint7"
+          ],
+          "backend_limits": [
+            [
+              [
+                -2.743699789047241,
+                2.743699789047241
+              ],
+              [
+                -1.7836999893188477,
+                1.7836999893188477
+              ],
+              [
+                -2.9006998538970947,
+                2.9006998538970947
+              ],
+              [
+                -3.042099952697754,
+                -0.1517999917268753
+              ],
+              [
+                -2.80649995803833,
+                2.80649995803833
+              ],
+              [
+                0.544499933719635,
+                4.516899585723877
+              ],
+              [
+                -3.015899658203125,
+                3.015899658203125
+              ]
+            ]
+          ],
+          "planner_limits": [
+            [
+              -2.743699789047241,
+              -1.7627999782562256,
+              -2.8973000049591064,
+              -3.042099952697754,
+              -2.80649995803833,
+              0.544499933719635,
+              -2.8973000049591064
+            ],
+            [
+              2.743699789047241,
+              1.7627999782562256,
+              2.8973000049591064,
+              -0.1517999917268753,
+              2.80649995803833,
+              3.752500057220459,
+              2.8973000049591064
+            ]
+          ],
+          "max_model_range_outside_backend_rad": 0.0,
+          "max_applied_grasp_outside_backend_rad": 0.0,
+          "comparison_epsilon_rad": 1e-05,
+          "boundary": "Added diagnostic invariant only; original endpoint and physical acceptance gates unchanged. No commanded state, limit, or physics writes."
+        }
+      ],
+      "count_evidence": {
+        "all_count_rows630_finite": true,
+        "count_rows": 955,
+        "fixed_N0_630_delta0": true,
+        "established_rows": 952,
+        "last_partition": {
+          "event": "independent_cavity_partition",
+          "generation": 2,
+          "N0": 630,
+          "N": 630,
+          "actual_cavity_source": 0,
+          "native_source_outside_cavity": 560,
+          "native_receiver_exclusive": 0,
+          "outside_cavity_and_native_receiver": 630,
+          "invalid": 0,
+          "fractions_of_fixed_N0": {
+            "actual_cavity_source": 0.0,
+            "native_source_outside_cavity": 0.8888888888888888,
+            "native_receiver_exclusive": 0.0,
+            "outside_cavity_and_native_receiver": 1.0,
+            "invalid": 0.0
+          },
+          "region": "actor-centered conservative cylinder r18.5mm z[-36,+30]mm; centers, not particle envelopes",
+          "receiver_boundary": "native receiver mask, independently measured receiver cavity pending",
+          "native_success_and_spill_unchanged": true,
+          "quality_verdict": "observation only; no formal qualification"
+        }
+      },
+      "motion_evidence_sha256": "5d7c624985d35b8cbae2641010b8e80ec3a2dcf53aae3d8cd9d503dff00fea68",
+      "motion_findings": {
+        "selected_snapshots": 32,
+        "original_world_positions_max_change": 0,
+        "raw_USD_positions_max_change": 0,
+        "raw_USD_velocities_max_abs": 0,
+        "PI_USD_matrix_max_change": 0,
+        "source_backend_lift_m": 0.13991624116897583,
+        "no_observer_errors": true,
+        "sampled_backend_cached_pos_equal": true
+      },
+      "media": {
+        "videos": [
+          {
+            "camera": "head",
+            "sha256": "d79ab02b88d5fa02e5eceb802b3062fb9ba3c0b32142c243dc1ce349796de7e8",
+            "full_decode": true,
+            "probe": {
+              "programs": [],
+              "streams": [
+                {
+                  "width": 640,
+                  "height": 480,
+                  "r_frame_rate": "30/1",
+                  "nb_read_frames": "238"
+                }
+              ]
+            }
+          },
+          {
+            "camera": "chest",
+            "sha256": "eb3ae4ec02f5b96231258c916d554a5df5556828ce5bfeb2007ee419e15a96cd",
+            "full_decode": true,
+            "probe": {
+              "programs": [],
+              "streams": [
+                {
+                  "width": 640,
+                  "height": 480,
+                  "r_frame_rate": "30/1",
+                  "nb_read_frames": "238"
+                }
+              ]
+            }
+          },
+          {
+            "camera": "third",
+            "sha256": "897ecdc80f929f2467d907189c6b477f971f305520c8b92e51d0c6a934abfee9",
+            "full_decode": true,
+            "probe": {
+              "programs": [],
+              "streams": [
+                {
+                  "width": 640,
+                  "height": 480,
+                  "r_frame_rate": "30/1",
+                  "nb_read_frames": "238"
+                }
+              ]
+            }
+          }
+        ],
+        "selection": [
+          0,
+          124,
+          154,
+          175,
+          193,
+          210,
+          225,
+          237
+        ]
+      },
+      "actual_visual_review": "Actually viewed all24 panels0/124/154/175/193/210/225/237 and original640x480 chest225. Source cup visibly follows gripper above tabletop at210/225; receiver stays table. Transparent contents/isosurface are not discernible enough to establish particle motion or real escape. Robot/image moves, but this does not establish a dynamic fluid renderer.",
+      "namespace_finding": {
+        "source": "/home/liyufeng/miniforge3/envs/chembench/lib/python3.10/site-packages/isaacsim/extsPhysics/omni.usd.schema.physx/plugins/PhysxSchema/resources/generatedSchema.usda",
+        "sha256": "829db2f41e2558fd5797fb3d211f7ec327e7468f377ff1316051ca2da51e3176",
+        "lines": [
+          3506,
+          3597,
+          3617,
+          3684
+        ],
+        "actual_fields": [
+          "particleSystemEnabled",
+          "nonParticleCollisionEnabled",
+          "solverPositionIterationCount"
+        ],
+        "finding": "Observer filters only physxParticleSystem: names. Actual typed PhysxParticleSystem fields are unprefixed; attributes {} is an observation gap, not evidence absent settings/system. Next readonly capture should include all attributes/type/APIs plus PointInstancer particle attributes."
+      },
+      "interpretation": [
+        "Original irreversible-spill predicate failed using its existing USD-derived particle coordinates. Its failure remains0/1; observation does not prove actual physical liquid spilled or penetrated liner.",
+        "All32 sampled world particle arrays static while source moves139.916mm. This explains coordinate-based occupancy loss, but cannot distinguish frozen simulation from stale USD readback of dynamic GPU particles.",
+        "Count630/finite is evidence of observed arrays only; it is not proof of actual solver conservation.",
+        "17 authored children have correct nearest rigid body, but cooked registration, enabled system/particle states and actual GPU positions remain unverified.",
+        "No physics/gate/particle-hold changes recommended until enabled/simulation/readback paths distinguished. Retain original failure data and force/receiver qualification gaps."
+      ],
+      "next_minimal_observation": [
+        "Read actual unprefixed ParticleSystem properties, applied schemas/type, PointInstancer particleEnabled/fluid/simulationOwner relationships and full relevant settings.",
+        "Use installed supported runtime query/readback mechanism to distinguish simulated particle coordinates from unchanged USD arrays; no guessed tensor API or artificial particle pin.",
+        "Async Physx property query may separately establish cooked17liner body ownership; it cannot itself prove particle simulation/readback correctness."
+      ],
+      "formal_credit": 0,
+      "pour_qualified": false
+    },
+    "formal_credit": 0
   },
   "ur5e_cylinder_armstatic_v8": {
-    "state": "INDEPENDENTLY_ADMITTED_SUPERVISOR_LAUNCHED",
+    "state": "INDEPENDENT_TERMINAL_REVIEW_COMPLETE_NATIVE0_1",
     "manifest_sha256": "0ae07d6254327ec5d52a0ec8e1032560591a4426dac8433cfcb8e27c6b34e5de",
-    "review_sha256": "2a547e1eeb33ddd46855ccca061bd9c767f65175e51f7328e8cb1f4a54dadc1c",
+    "review_sha256": "2c9b5e4058922795f81ed86fa957dbd83d2639d1dbd8d5d01fe586840dc0d5c2",
     "unit": "chembench-t290-ur5-cylinder-armstatic-v8.service",
     "change": "Only6 arm position drive targets held at firstcontrol0;8 original hand targets preserved at each write. Real actual arm/hand motion and relative cup geometry required; not pose pin or qualified grasp.",
+    "formal_credit": 0,
+    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_armstatic_v8_terminal_review/REVIEW.json",
+    "review_evidence": {
+      "status": "REVIEWED_ARM_DRIVE_CONTROL_NEGATIVE_NOT_GRASP_QUALIFIED",
+      "native_success": 0,
+      "attempts": 1,
+      "returncode": 0,
+      "log_sha256": "a764655e73ecfcbc2c43ccb505270bede51d7ecb21b8515a9593f95eaef6cbfc",
+      "evidence_sha256": {
+        "MATCHED_EVIDENCE.json": "60d717719e00d0626319f233344b8e72c62338cf840901882cad180d00cc1676",
+        "CALLBACK_EVIDENCE.json": "a279b6807cab1276404faf83d26eea712aa05a5b322cfd949101d1c18d45b641",
+        "POSE_EVIDENCE.json": "63345153b0cb2eb5727fb78769cb3cda84e549957d7fb45878bf4dadd4091fcc"
+      },
+      "matched_episode0_callback_indices": 632,
+      "matched_indices_first_last": [
+        177,
+        3912
+      ],
+      "initial_target_table_fullposes_exact_V5": true,
+      "comparison": {
+        "V5": {
+          "target_xyz_range_m": [
+            0.0013563036918640137,
+            0.0010881423950195312,
+            0.020754098892211914
+          ],
+          "target_first": [
+            -0.9215584397315979,
+            -4.979651927947998,
+            1.0715028047561646
+          ],
+          "target_last": [
+            -0.9215056300163269,
+            -4.979366779327393,
+            1.0921945571899414
+          ],
+          "table_xyz_range_m": [
+            3.7550926208496094e-06,
+            1.430511474609375e-06,
+            5.066394805908203e-07
+          ],
+          "net_peak_N": 13.112376209476244
+        },
+        "V8": {
+          "target_xyz_range_m": [
+            7.331371307373047e-05,
+            2.193450927734375e-05,
+            4.172325134277344e-06
+          ],
+          "target_first": [
+            -0.9215584397315979,
+            -4.979651927947998,
+            1.0715028047561646
+          ],
+          "target_last": [
+            -0.9215965270996094,
+            -4.979652404785156,
+            1.071502447128296
+          ],
+          "table_xyz_range_m": [
+            3.7550926208496094e-06,
+            1.430511474609375e-06,
+            5.066394805908203e-07
+          ],
+          "net_peak_N": 0.8122212749635918
+        }
+      },
+      "actual_motion": {
+        "trace_samples": 184,
+        "control_step_first_last": [
+          [
+            0
+          ],
+          [
+            240
+          ]
+        ],
+        "arm6_max_actual_joint_change_rad": 7.975101470947266e-05,
+        "active_hand_actual_first_last_rad": [
+          0.017996111884713173,
+          0.5362867116928101
+        ],
+        "armbody0to6_max_translation_m": 7.252756268354141e-05,
+        "handbody7to15_max_translation_m": 0.03212465825953445,
+        "body_names_order": [
+          "base_link",
+          "shoulder_link",
+          "upper_arm_link",
+          "forearm_link",
+          "wrist_1_link",
+          "wrist_2_link",
+          "wrist_3_link",
+          "base_link",
+          "left_outer_knuckle",
+          "right_outer_knuckle",
+          "left_outer_finger",
+          "right_outer_finger",
+          "left_inner_finger",
+          "right_inner_finger",
+          "left_inner_knuckle",
+          "right_inner_knuckle"
+        ],
+        "min_hand_body_origin_to_target_root_m": 0.7500474835898335,
+        "tcp_to_target_distance_range_m": [
+          0.7763148360675598,
+          0.7763696928608389
+        ],
+        "V5_original_tcp_distance_min_m": 0.12239698225330879,
+        "boundary": "Body-origin distances are not collider-surface distances. Trace sampled at original force-getter hooks; these ranges are not continuous whole-physics bounds. Arm-held target is not a kinematic pose pin."
+      },
+      "callbacks": 668,
+      "net_table_exact": true,
+      "positive_pairs": {
+        "target_to_table": 668
+      },
+      "net_peak_N": 0.8122212749635918,
+      "native_failure": "Original carry retention: lift0<.06m and tcpdistance.7763>.16; no20mm uncontacted guard, no resetIK exception.",
+      "media": [
+        {
+          "camera": "head",
+          "raw_jpg_count": 241,
+          "all_jpg_decode": true,
+          "mp4_sha256": "872b7cea5a090028edf9000068e295c847293b775a15d8fcb78a1bf0e482c653",
+          "probe_rc": 0,
+          "probe_stderr": ""
+        },
+        {
+          "camera": "chest",
+          "raw_jpg_count": 241,
+          "all_jpg_decode": true,
+          "mp4_sha256": "4a8d40926d945c34e9107578d6670ef9f1b292f2f0e492c3ad4f6fe227b5578f",
+          "probe_rc": 0,
+          "probe_stderr": ""
+        },
+        {
+          "camera": "third",
+          "raw_jpg_count": 241,
+          "all_jpg_decode": true,
+          "mp4_sha256": "9056c7720e3abaf46a8ce1d344a1f8d5d99f9f5c9456f70be21c4f8a50d2b21a",
+          "probe_rc": 0,
+          "probe_stderr": ""
+        }
+      ],
+      "all3_MP4_full_decode": true,
+      "actual_visual_frames": 15,
+      "visual_review": "Actually viewed all3views0/80/135/198/239. Arm stays in starting elevated location, hand closes away from target; cylinder remains upright on table. No object lift/transfer.",
+      "causal_interpretation": [
+        "V8 actualhandjoint.018→.5363 while arm joints vary only7.98e-5rad and wrist/arm body translation72.5um; so original hand closure is physically exercised, not merely commanded.",
+        "Hand-body origins stay at least750mm from targetroot, TCP776mm, unlike V5 minTCP122mm. Negative outcome does not exclude close-range hand-contact/configuration dependence.",
+        "Together V7 hand-held+movingarm and V8 arm-held+closinghand suppress V5 rise, suggesting original approached configuration plus closure matters. Not proof of which collider, filtering, force-report or solver mechanism.",
+        "V8 target sampleZrange4.17um/net.812221 matches earlier controls; same selected632indices, not a continuous whole-episode sampling guarantee.",
+        "Force and pose exact solver-phase relation unresolved; zero observed handpair forces cannot establish no physical contact in original V5."
+      ],
+      "next_recommendation": "A one-run original-V5-control readonly cooked-collider property query is justified before changing physical parameters. Query target/table and exacthand bodies via installed query_prim mode QUERY_RIGID_BODY_WITH_COLLIDERS; retain callbacks and report missing/error/timeout as unavailable. Capture colliderpath/owner/localAABB/volume plus same-time bodypose and authored-relative transforms. No schema writes/extra step. This tests cooked ownership/shape coverage; AABB alone cannot establish convex-decomposition hull topology, actual manifold or contact cause.",
+      "formal_credit": 0
+    }
+  },
+  "fr3_pour100_readback_v21": {
+    "state": "INDEPENDENT_TERMINAL_REVIEW_COMPLETE_NATIVE0_1",
+    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v21_independent_review/REVIEW.json",
+    "review_sha256": "dcc29439bd9e5680286c62189470d4251857882c437fa29cea03f8ecf39690ba",
+    "review_evidence": {
+      "status": "REVIEWED_NATIVE_FAILURE_SUPPRESSED_USD_READBACK_HYPOTHESIS",
+      "native_success": 0,
+      "attempts": 1,
+      "process_exit": {
+        "returncode": 0,
+        "error": null,
+        "formal_credit": 0,
+        "classification": "diagnostic_only_not_formal"
+      },
+      "log_sha256": "bba7b9a38a5ff6478f6ed238a39c982a8b72464a82c1b92fe376632caf71fad2",
+      "snapshots": 32,
+      "all_original_raw_particle_positions_static": true,
+      "raw_velocity_all_zero": true,
+      "simulationPoints_all_valid_but_unwritten_None": true,
+      "particleSystem_subtree_isosurfacePoints_all_None": true,
+      "settings_all32": {
+        "/physics/updateToUsd": true,
+        "/physics/updateParticlesToUsd": true,
+        "/physics/updateVelocitiesToUsd": true,
+        "/physics/suppressReadback": true,
+        "/physics/disableSimulation": null,
+        "/physics/enableGPU": null,
+        "/physics/fabricEnabled": true
+      },
+      "particle_enabled_system_enabled_gpu_dynamics_all_true": true,
+      "source_backend_lift_m": 0.1397811770439148,
+      "particle_count_rows_observed630_finite": 955,
+      "original_failure": [
+        "[PourStrictFailureGate] irreversible particle spill envs=[0]"
+      ],
+      "media": {
+        "videos": [
+          {
+            "camera": "head",
+            "sha256": "20170289f630539d6b8661c112e0b4dfe9ad94003bddb82d40a1cd92dce18874",
+            "full_decode": true,
+            "probe": {
+              "programs": [],
+              "streams": [
+                {
+                  "width": 640,
+                  "height": 480,
+                  "r_frame_rate": "30/1",
+                  "nb_read_frames": "238"
+                }
+              ]
+            }
+          },
+          {
+            "camera": "chest",
+            "sha256": "cb60a4ab455ec073d3919d3eca3537c30a6ca48e48c4133be77f9d956be30b0b",
+            "full_decode": true,
+            "probe": {
+              "programs": [],
+              "streams": [
+                {
+                  "width": 640,
+                  "height": 480,
+                  "r_frame_rate": "30/1",
+                  "nb_read_frames": "238"
+                }
+              ]
+            }
+          },
+          {
+            "camera": "third",
+            "sha256": "52e073e0ba86159862d49858d7e7fe5e54fade9f778eb63038a4aeed33cb1910",
+            "full_decode": true,
+            "probe": {
+              "programs": [],
+              "streams": [
+                {
+                  "width": 640,
+                  "height": 480,
+                  "r_frame_rate": "30/1",
+                  "nb_read_frames": "238"
+                }
+              ]
+            }
+          }
+        ],
+        "selection": [
+          0,
+          124,
+          154,
+          175,
+          193,
+          210,
+          225,
+          237
+        ]
+      },
+      "actual_visual_frames": 24,
+      "visual_review": "Actually viewed24panels0/124/154/175/193/210/225/237: sourcecup visibly follows gripper off table, receiver stays table; transparent fluid not visually resolved to prove simulated motion.",
+      "installed_setting_source": {
+        "path": "/home/liyufeng/miniforge3/envs/chembench/lib/python3.10/site-packages/isaacsim/exts/isaacsim.core.api/isaacsim/core/api/physics_context/physics_context.py",
+        "sha256": "e88e30c5959964443dfbd9a69a43eaf264c89bcaae8f116c2953dc8bd5516a03",
+        "lines": [
+          90,
+          101,
+          127,
+          131,
+          137,
+          287
+        ],
+        "evidence": "GPU pipeline config sets /physics/suppressReadback; GPU path enables Fabric separately. Thus CLI disable_fabric is not sufficient evidence of actual setting false."
+      },
+      "interpretation": [
+        "Enabled USD schemas and GPUDynamics do not establish actual particle solver registration or particle motion. None simulationPoints does not prove no GPU simulation.",
+        "Actual suppressReadbackTrue conflicts with intended USD-based evaluator readback and explains a plausible stale-read mechanism; source code and settings establish configuration, not yet causal repair.",
+        "Original0/1spill predicate preserved. No physical leak claim, no simulation conservation claim from630 static arrays, no formal pour credit."
+      ],
+      "next_single_factor": "At first originalcontrol0 hook after initial4physics, set only suppressReadback=False once, verify effective setting and unchanged Fabric/GPU/control settings; keep original advances/gates. Next originalstep readbacks compare simulationPoints/render/raw velocities/source motion and native outcome. This is readback-path intervention with potential overhead/feedback effects, not a guarantee mechanics stay numerically identical.",
+      "formal_credit": 0
+    },
+    "formal_credit": 0
+  },
+  "fr3_pour100_readback_enable_v22": {
+    "state": "RUNTIME_FAILED_DEVICE_MISMATCH_IN_ORIGINAL_RECEIVER_PIN",
+    "actual_start_local": "2026-09-13T05:42:23+08:00",
+    "manifest_sha256": "674aa00ed253a5448de80a96f8831d178de3a6a7c61d8436471e79668c321960",
+    "review_sha256": "833e62354a6c3438d9b0ec02dbb186aa722bc962080657a9c1426dfda508672b",
+    "route_correction": {
+      "initial_manifest_sha256": "50f763232bd32756b19c41b507fb981e1e1068a18b31c3c7225fad44be279c02",
+      "issue": "BaseMPTask lacks hook; actual PourMPTask defines it and shadows any parent wrapper. Initial helper-only CPU did not cover class binding. No GPU launch occurred.",
+      "fix": "Remove Base installer; append actual PourMPTask installer after unchanged original observers.",
+      "corrected_manifest_sha256": "674aa00ed253a5448de80a96f8831d178de3a6a7c61d8436471e79668c321960"
+    },
+    "admission": {
+      "status": "PASS",
+      "scope": "Single seed260912601 readback-setting diagnostic after first originalcontrol0 hook",
+      "manifest_sha256": "674aa00ed253a5448de80a96f8831d178de3a6a7c61d8436471e79668c321960",
+      "collector_sha256": "ac6675285b916bd35554ddc835e75c44f42b50deb470f622def45e5322634fd3",
+      "override_sha256": "c356909507b884a59ac5b1ca78b60f9dce7f4df5a8d105328cdcadb8cdb17b4e",
+      "supervisor_sha256": "580947b1b04287736c42e2d287ae3924c1b3296fd244ba7d7651b72cd6b7a684",
+      "helper_sha256": "817ce9130f00648f68ee712441d45cb2bff91549635508325a23228ecbb33e31",
+      "route_CPU_sha256": "5e89aafd39f51794ef1cdfec0ea336a8c6c3a8f9dd5e149e8566a9561e955ffe",
+      "helper_CPU_sha256": "2c20f4a5e14afcf1ebc2b3577bbb19b6d029eed0d486ca063203a276453e30f0",
+      "initial_binding_rejection_preserved_sha256": "9ce8124623565fb8f7c61c5407d9a01ed737a73b858f12b489c931c040b06a17",
+      "actual_spec_equal_V21": true,
+      "all_bind_sources_exist": true,
+      "Base_exact_V21_bytes": true,
+      "changed_existing_files": [
+        "supervisor_parent.py",
+        "collect.py",
+        "bindings/pour_mp_task.py"
+      ],
+      "pin_counts": [
+        25,
+        2032
+      ],
+      "boundaries": [
+        "Original actualPourhook _damp_target_root_velocity executes once before enable; finalinstaller targetsPour ratherthan nonexistentBasehook. ActualBasegetattrdispatch/Pourmethod/appendAST executed with dampingrecorder and mockedCarb.",
+        "Only suppressReadbackFalse once; firstphysics alreadyelapsed, no initialsettle/N0 retroactivecorrection.",
+        "No pipeline/Fabric/physicalthreshold/trajectory/particlepose changes; readbacktiming/feedbackmay nevertheless change numericmechanicalresult.",
+        "Verify False persists and livearrays change ratherthanassuming successfulfix. Missing/None arrays not solverabsence proof.",
+        "Initialbinding rejectedbeforeGPU; correctedmanifest supersedes initial50f… withoutclaiming oldbundleworked.",
+        "Originalthree locks/no foreigncompute/90s/23000MiB/V9terminal predecessor unchanged; noformalcredit orforce/receiverqualification."
+      ],
+      "formal_credit": 0,
+      "independent_review_sha256": "833e62354a6c3438d9b0ec02dbb186aa722bc962080657a9c1426dfda508672b",
+      "allow_target1_diagnostic": true
+    },
+    "change": "Only suppressReadback True->False once after actual first PourMPTask hook. Original physical/pipeline/Fabric/control/gates unchanged; preinterventionsettle/N0 retained. No credit before validation.",
+    "unit": "chembench-t290-fr3-pour100-readback-enable-v22.service",
+    "formal_credit": 0,
+    "setting_applied": true,
+    "fluid_snapshots": 0,
+    "error": "setTransforms index tensor expected device0,received-1 via original receiver write_root_pose_to_sim; no original receiver pin removed",
+    "process_exit": {
+      "returncode": -15,
+      "error": null,
+      "formal_credit": 0,
+      "classification": "diagnostic_only_not_formal"
+    }
+  },
+  "ur5e_cylinder_cooked_v9": {
+    "state": "INDEPENDENT_TERMINAL_REVIEW_COMPLETE_NATIVE_FAILURE",
+    "terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_cooked_v9_terminal_review/REVIEW.json",
+    "terminal_review_sha256": "06af7e7c6fb04d481a5e370b151c27ba2e1d89152fe5035e2563db323d067ef1",
+    "terminal_review_evidence": {
+      "status": "REVIEWED_NATIVE_GUARD_FAILURE_COOKED_OWNERSHIP_VERIFIED",
+      "native_success": 0,
+      "attempts": 1,
+      "process_exit": {
+        "returncode": -15,
+        "error": null,
+        "formal_credit": 0,
+        "classification": "diagnostic_only_not_formal"
+      },
+      "log_sha256": "139ac50240b4cb238849050c08ef0b1698a31f2a6192d64b38676fd24d9b8374",
+      "query_evidence_sha256": "cac1a5ca626d9d0b36973349de783865f4d961a498484f2ecc635b91ffe47867",
+      "callback_evidence_sha256": "abed803e7df90039d546ae25b5f6af96d1b4afb8fc6c8c3f1f0a9876509cbb57",
+      "requested_valid_finished_bodies": 18,
+      "valid_collider_records": 149,
+      "targetcolliders": 128,
+      "tablecolliders": 3,
+      "query_errors": 0,
+      "matched632_V5_max_coordinate_difference": {
+        "target_pose": 0.0,
+        "table_pose": 0.0,
+        "net_force": 0.0
+      },
+      "native_failure": [
+        "[PickPlaceStateGuard] uncontacted lift failure: episode=0, height_diff=[0.020691990852355957], threshold=0.02, contacted=[False], pos=[[-0.9215056300163269, -4.979366779327393, 1.0921945571899414]], init=[[-0.9215530157089233, -4.979654788970947, 1.0715025663375854]]",
+        "RuntimeError: cuRobo planning partially failed for phase=approach: 0/1 envs planned"
+      ],
+      "failure_order": "Original20.691990852mm uncontactedliftguard first; nexttrajectoryreset approachIKfails; owncollectorcleanup -15. Propertyquery callbacks completed earlier without errors.",
+      "callback_counts": {
+        "total": 692,
+        "pre_guard": 632,
+        "reset": 60
+      },
+      "net_peak_N": 13.112376209476244,
+      "net_equals_table_every_sample": true,
+      "positive_matrix_counts": {
+        "target_to_table": 627
+      },
+      "media": {
+        "selection": [
+          0,
+          80,
+          135,
+          198,
+          232
+        ],
+        "media": [
+          {
+            "camera": "head",
+            "all233_JPG_decoded": true,
+            "mp4_sha256": "bfe1c3e3936e674c7497d8fc2116f527878ddda0b835c9e717bc7052fa8ff921",
+            "mp4_decode_rc": 1,
+            "stderr": "[mov,mp4,m4a,3gp,3g2,mj2 @ 0x64431b0c51c0] moov atom not found\n/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_cooked_v9_local4090/cylinder_cooked_v9_seed260911803/diagnostic_videos/head_camera.mp4: Invalid data found when processing input\n"
+          },
+          {
+            "camera": "chest",
+            "all233_JPG_decoded": true,
+            "mp4_sha256": "a85e242f9298382227bac3caf6362297096889c12ad91dc2b4764a2ba2d206f9",
+            "mp4_decode_rc": 1,
+            "stderr": "[mov,mp4,m4a,3gp,3g2,mj2 @ 0x5d7c374811c0] moov atom not found\n/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_cooked_v9_local4090/cylinder_cooked_v9_seed260911803/diagnostic_videos/chest_camera.mp4: Invalid data found when processing input\n"
+          },
+          {
+            "camera": "third",
+            "all233_JPG_decoded": true,
+            "mp4_sha256": "a0262507cfabbf8478168d244478696794cbbc620c4f46bb2379855d6fa91769",
+            "mp4_decode_rc": 1,
+            "stderr": "[mov,mp4,m4a,3gp,3g2,mj2 @ 0x5c83c4a4c1c0] moov atom not found\n/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_cooked_v9_local4090/cylinder_cooked_v9_seed260911803/diagnostic_videos/third_camera.mp4: Invalid data found when processing input\n"
+          }
+        ]
+      },
+      "actual_visual_frames": 15,
+      "visual_review": "Actually viewed3views0/80/135/198/232: hand approaches cylinder on tabletop, closes near its base region; no sustained qualifiedheldlift established from these frames. Cannot visually isolate a20mm physical contactcause.",
+      "geometry_boundaries": [
+        "Runtime confirms128cylindershapes owned byactual target plus3table shapes and robot16bodyshapes; missingbasicrigidshape registration hypothesis is weakened.",
+        "Targetcollider union afterlocal transforms approx±37.62/32.784/131.744mm matches authoredrange. This doesnot prove exactdecomposition surface/manifold/contactresponse.",
+        "Tablebody localAABB large units retainsouterbodyancestor scale; must combine actualbodypose with scale-aware geometry before metre/world comparison.",
+        "All queriesatcontrol0/index176; staticpropertybounds do not directly show contactduringclosure230–233.",
+        "No reporter handforce with availablecookedshapes leaves contactpair/filter/solverinteraction open. Need rigorous dynamicshapeproximity/handtablepair evidence, not blindfriction/reportthreshold changes."
+      ],
+      "next_minimal_cpu": "Project query AABB corners to real actorframes preservingbodyworldscale, combine actual230–233bodyposes; compare hand-table and hand-cylinder broadphase distances. Any overlap is onlyscreening; if hand-table candidate overlaps, add independentlyfiltered hand→table contacts at actualpostphysicscallbacks under unchangedoriginalcontrol.",
+      "formal_credit": 0
+    },
+    "manifest_sha256": "7b6b942fe1af7759ac5af79a7e567b123c17527b2e1ad07301caf8493828380e",
+    "review_sha256": "2e840e538c5d696a06ae5ce722079d83471ecb9231192017f65dcb6d27aa77d3",
+    "actual_start_local": "2026-09-13T05:35:45+08:00",
+    "valid_body_responses": 18,
+    "finished_queries": 18,
+    "collider_responses": 149,
+    "boundary": "Original V5 arm and hand motion. Query metadata only; local AABB+authored transforms are not exact surfaces or contact proof; inherited scale must be applied before metre interpretation.",
     "formal_credit": 0
   }
 }
