@@ -1,13 +1,13 @@
 {
-  "as_of": "2026-09-12T16:02:25.635243+08:00",
+  "as_of": "2026-09-12T16:52:57.124834+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
-    "state": "diagnostic_running",
+    "state": "between_diagnostics_next_batch_preparing",
     "canonical_promotion": false,
-    "next": "raw contact positive control -> FR3 compound pour1; UR5 reset-transition diagnostic under CPU review",
-    "unit": "chembench-t290-ur5e-grasp250-raw-positive.service",
-    "current_target": 1,
+    "next": "UR5 six cold attempts awaiting final runner review; FR3 USD CPU reference fix",
+    "unit": null,
+    "current_target": null,
     "inherited_previous_collection": {
       "accepted_replacements": 41,
       "target": 41,
@@ -20,19 +20,8 @@
       "collector_exit_code": 0,
       "visual_review": "sampled5episodes45frames: transfer visible; chest elevated target crop and head occlusion; final acceptance pending"
     },
-    "admission": {
-      "state": "diagnostic_running",
-      "time": 1789200112.362226,
-      "formal_credit": 0,
-      "pid": 30516,
-      "supervisor_sha256": "4c2a4a7ecd4d4db7071dbc483175f0d324649d2f48a560d73c4b00492614b8ce",
-      "gpu": [
-        "GPU-7e048773-6e99-b431-101d-8b45724cce9f",
-        " 23534"
-      ],
-      "compute": ""
-    },
-    "current_seed": 82341
+    "admission": null,
+    "current_seed": null
   },
   "panel_scope": {
     "fr3": {
@@ -1045,8 +1034,7 @@
     "formal_credit": 0
   },
   "fr3_pour100_compound_repair": {
-    "state": "one_diagnostic_CPU_admitted_queued_after_raw_positive",
-    "review_sha256": "58fef9c7469cb04f535020f1ea127a1fc9aed6bbe14c5e93e39ce59d15fee966",
+    "state": "v6_initialization_failed_missing_defaultPrim",
     "gpu_admitted": false,
     "changes": [
       "two-body fixed-joint frame correction",
@@ -1055,9 +1043,21 @@
     ],
     "original_60_step_initialization_retained": true,
     "formal_credit": 0,
-    "cpu_admission_sha256": "09a8eace1012b5d8d80279c65a7306bfdf460163ef8243a3208a608c97d5771d",
-    "unit": "chembench-t290-fr3-pour100-compound-v4.service",
-    "max_attempts": 1
+    "max_attempts": 1,
+    "saved": 0,
+    "force_ssr_active": false,
+    "correction": "Pour does not call Grasp SSR; skipped25N/requireforce not effective",
+    "v4_failure": "constructor selected plain asset",
+    "v5_failure": "Pour config skipped target field",
+    "v6_failure": "field fixed; referenced layer defaultPrim missing; startup no rigid body",
+    "next": "CPU full external reference RED GREEN metadata fix passed; no GPU admission yet",
+    "inherited_v4_provenance": {
+      "unit": "chembench-t290-fr3-pour100-compound-v4.service",
+      "cpu_admission_sha256": "09a8eace1012b5d8d80279c65a7306bfdf460163ef8243a3208a608c97d5771d",
+      "review_sha256": "58fef9c7469cb04f535020f1ea127a1fc9aed6bbe14c5e93e39ce59d15fee966"
+    },
+    "unit": null,
+    "latest_terminal_unit": "chembench-t290-fr3-pour100-compound-v6.service"
   },
   "ur5e_grasp250_observed_confirmation3": {
     "state": "completed_native1of3",
@@ -1108,5 +1108,63 @@
     "physics_original": "UR5 v418 ratio.65 * lift.12 = .078m; no FR3 .05 reuse",
     "gpu_admitted": false,
     "root_cause_proven": false
+  },
+  "ur5e_grasp250_cold_bc": {
+    "b": {
+      "native": "1/1",
+      "episodes": 1,
+      "frames": 518,
+      "videos": 3,
+      "L3_flags": [
+        []
+      ],
+      "audit_sha256": "854d86f61c2528515c5bf81cf9511d73059c2a0d1aebba2608689661ce0a7982",
+      "visual": "root9samples each; visible approach/held lift; fine contact unproven",
+      "initial_audit": "failed due missing L3 script; original failure preserved; fixed external pinned checker rerun",
+      "formal_credit": 0
+    },
+    "c": {
+      "native": "1/1",
+      "episodes": 1,
+      "frames": 518,
+      "videos": 3,
+      "L3_flags": [
+        []
+      ],
+      "audit_sha256": "c3b619439f93c154fb5d5931817129437432bd2f47cca90c27ba4a79c1bf6383",
+      "visual": "root9samples each; visible approach/held lift; fine contact unproven",
+      "initial_audit": "failed due missing L3 script; original failure preserved; fixed external pinned checker rerun",
+      "formal_credit": 0
+    }
+  },
+  "ur5e_grasp250_resettrace_confirmation3": {
+    "native": "3/3",
+    "frames": 1554,
+    "videos": 9,
+    "L3_flags": [
+      [],
+      [],
+      []
+    ],
+    "prior_same_seed_pose_only": "1/3 preserved",
+    "reset_bug_fixed": false,
+    "formal_credit": 0
+  },
+  "ur5e_grasp250_historical_cold_protocol": {
+    "source_runs": 50,
+    "v354_ABC_target1max1_runs": 44,
+    "old50_unique_action_sha256": 3,
+    "protocol": "three fixed anchors with process cold start each episode",
+    "next": "six ABCABC attempts under preparation, not yet armed",
+    "new_ABC_actions": "3 unique, no overlap old3SHA",
+    "appearance": "blue opacity.68 original contract; generic transparency failure retained"
+  },
+  "ur5e_grasp250_raw_positive": {
+    "native": "1/1",
+    "lift_m": 0.0806435943,
+    "original_force_n": 2.750542,
+    "heartbeats": 26,
+    "callbacks": 0,
+    "verdict": "callback delivery not established; cannot infer no contact"
   }
 }
