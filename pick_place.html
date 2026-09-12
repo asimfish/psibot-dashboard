@@ -17,8 +17,9 @@ section{margin-top:32px}.section-head{display:flex;justify-content:space-between
 </style></head><body>
 <header><div class="top"><div class="brand">SafeLab <span style="font-weight:400;color:#627389">/ 任务实验室</span></div><a href="./index.html">← 返回总看板</a></div></header>
 <main>
-<div class="eyebrow">PICK & PLACE · ACT POLICY</div><h1>100 mL 玻璃烧杯<br>抓取 · 搬运 · 放置</h1>
-<p class="subtitle">一个完整测试已得到 38/50 次任务成功。下面直接查看成功与失败回合，了解策略的实际表现。</p>
+<!-- DP50_VIDEO_BEGIN --><section id="latest-dp"><div class="eyebrow">最新结果 · DIFFUSION POLICY</div><h1>新 DP · 100 mL 烧杯 pick_place</h1><p class="subtitle"><strong>完整评测：1 / 50 成功（2%）</strong> · 2026-09-12 01:28 结束。以下两段均来自这次新模型评测。</p><p class="meta">模型：训练预算修复后的 DP，50,000 次更新 · 评测 seed 42 · 单回合上限 6 秒 · 自主执行，无专家动作辅助。</p><div class="video-grid"><article class="panel video-card" style="padding:0"><video controls playsinline preload="metadata" poster="media/pick-place-dp-20260912/episode_001.jpg" aria-label="最新DP第1集失败回合"><source src="media/pick-place-dp-20260912/episode_001-web.mp4" type="video/mp4"></video><div class="caption"><h3><span class="tag fail-tag">失败回合</span>新 DP · 第 01 / 50 集</h3><p>终态 ΔP 246.96 mm · 峰值倾角 1.556 rad。任务判定：失败。</p><a class="small" href="media/pick-place-dp-20260912/episode_001-web.mp4">打开 / 下载这段 DP 视频</a></div></article><article class="panel video-card" style="padding:0"><video controls playsinline preload="metadata" poster="media/pick-place-dp-20260912/episode_039.jpg" aria-label="最新DP第39集唯一成功回合"><source src="media/pick-place-dp-20260912/episode_039-web.mp4" type="video/mp4"></video><div class="caption"><h3><span class="tag">唯一成功回合</span>新 DP · 第 39 / 50 集</h3><p>终态 ΔP 23.69 mm · 峰值倾角 0.298 rad。任务判定：成功。</p><a class="small" href="media/pick-place-dp-20260912/episode_039-web.mp4">打开 / 下载这段 DP 视频</a></div></article></div><div class="note"><p>当前任务未通过验收。记录的初始 XY 跨回合变化仅约 0.51 / 0.55 mm，与配置的 ±1 cm 不符，随机化待核查；这批 1/50 仅代表实际运行结果。论文 SSR 仍缺校准，不能用任务成功代替安全成功。</p><p>视频仅做浏览器兼容转码，保留全部原始帧和原播放帧率；视频时间不代表计算耗时。第 39 集是本批唯一成功，第 1 集作为失败对照。</p></div><p class="small"><a href="results/pick_place_acceptance_20260910.json">查看逐集指标与视频来源</a></p></section><hr style="border:0;border-top:1px solid #dbe3e7;margin:36px 0"><!-- DP50_VIDEO_END -->
+<div class="eyebrow">历史对照 · ACT POLICY（非上方新 DP）</div><h2>旧 ACT · 100 mL 烧杯抓取与放置</h2>
+<p class="subtitle">旧 ACT 模型的历史结果：38/50（76%）。下方视频属于旧 ACT，与上方新 DP 分开查看。</p>
 <span class="badge">任务能力已展示 · 论文口径 SSR 待补测</span>
 <div class="meta">数据核验：2026-09-10 16:04（北京时间） · ACT / sm2x8k-s4001 · 6 秒评测</div>
 <div class="metrics">
@@ -27,7 +28,7 @@ section{margin-top:32px}.section-head{display:flex;justify-content:space-between
 <div class="card"><div class="label">完成评测</div><div class="number">50<small> 集</small></div><p>有逐集记录及完整末尾统计</p></div>
 <div class="card"><div class="label">物体位置扰动</div><div class="number">±1<small> cm</small></div><p>XY 随机偏移 · 单个策略种子</p></div>
 </div>
-<section><div class="section-head"><div><h2>先看动作效果</h2><p>同一模型、同一轮评测的两段原始录像；逐集日志确认任务结果。</p></div></div>
+<section><div class="section-head"><div><h2>旧 ACT 录像</h2><p>同一模型、同一轮评测的两段原始录像；逐集日志确认任务结果。</p></div></div>
 <div class="video-grid">
 <article class="panel video-card" style="padding:0"><video controls playsinline preload="metadata" poster="media/pick-place-20260910/episode_001.jpg" aria-label="第1集任务成功录像"><source src="media/pick-place-20260910/episode_001-web.mp4" type="video/mp4">请下载下方视频查看。</video><div class="caption"><h3><span class="tag">任务成功</span>第 01 集 · 烧杯抓取放置</h3><p>日志累计成功 1/1。任务成功不等于安全成功。</p><a class="small" href="media/pick-place-20260910/episode_001-web.mp4">打开 / 下载视频</a></div></article>
 <article class="panel video-card" style="padding:0"><video controls playsinline preload="metadata" poster="media/pick-place-20260910/episode_007.jpg" aria-label="第7集任务失败录像"><source src="media/pick-place-20260910/episode_007-web.mp4" type="video/mp4">请下载下方视频查看。</video><div class="caption"><h3><span class="tag fail-tag">任务失败</span>第 07 集 · 对照回合</h3><p>累计成功从第 6 集的 6/6 变为 6/7。</p><a class="small" href="media/pick-place-20260910/episode_007-web.mp4">打开 / 下载视频</a></div></article>
