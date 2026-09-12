@@ -1,12 +1,12 @@
 {
-  "as_of": "2026-09-12T22:39:01.639690+08:00",
+  "as_of": "2026-09-12T23:30:14.168715+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
-    "as_of": "2026-09-12T22:39:01.639690+08:00",
-    "state": "UR5 bulk active; V15=diagnostic_running; V5=waiting_predecessor",
+    "as_of": "2026-09-12T23:30:14.168715+08:00",
+    "state": "UR5 bulk active;V6=waiting_admission;V17=independently_admitted_waiting_V6_predecessor",
     "snapshot_only": true,
-    "gpu": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 2 %, 22698 MiB"
+    "gpu": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 0 %, 23534 MiB"
   },
   "panel_scope": {
     "fr3": {
@@ -252,7 +252,7 @@
     "cause": "configured Bottle/Beaker003 mismatched USD defaultprim remap; actual rigid body Bottle/base"
   },
   "robot_worklist": {
-    "as_of": "2026-09-12T22:39:01.639690+08:00",
+    "as_of": "2026-09-12T23:28:02.564289+08:00",
     "target_datasets": 16,
     "rows": [
       {
@@ -321,29 +321,29 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "V15_actual_diagnostic_running_after_V14_endpoint_mismatch",
+        "state": "V16_terminal_emptylift_V17_timing_independently_admitted_queued",
         "review": {
           "decision_path": null,
           "decision_sha256": null,
           "recipe_file": null,
           "recipe_sha256": null,
-          "largest_blocker": "V14 original endpoint joint error3.085329>0.08 whileCartesianerrors pass; actualstagedmode composed invalid joint placeholders at grasp; notspill",
-          "next_action": "Independently review actual V15 terminal joint reference/FK/control and originalnative outcome",
+          "largest_blocker": "V16 actual reference valid and original endpoint gate passed; fingers lag closure, cup not held through lift. Timing is a hypothesis, not established sole cause.",
+          "next_action": "V17 admitted and queued behind V6; measure actual closure, held lift and original gates",
           "source_dataset": null,
-          "cpu_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v13_failure_prepare/ACTUAL_BOUND_MISSING_PLANNER_CPU.json",
-          "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v14_independent_review/REVIEW.json",
-          "latest_terminal_review_sha256": "d4c42bd55b6cae0fb631b46cef5404edbb83ba66204295b532ae0af1adb95eb8"
+          "cpu_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v16_independent_review/CLOSE_FRACTION_CPU.json",
+          "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v16_independent_review/REVIEW.json",
+          "latest_terminal_review_sha256": "c604d1f0f1f33dd60d93a1fdb70e3538659490318856a9158dbb84d817c6f4ce"
         },
         "recovery_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/pour_recipe_recovery/RECOVERY_STATUS.json",
         "candidate_episodes": 0,
         "quality_blockers": [
-          "endpoint_joint_reference_and_actual_grasp_not_qualified",
+          "actual_held_lift_failed",
           "force_receiver_physical_acceptance_unqualified"
         ],
-        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v14_independent_review/REVIEW.json",
-        "next_action": "Independently review actual V15 terminal joint reference/FK/control and originalnative outcome",
-        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v14_independent_review/REVIEW.json",
-        "terminal_review_sha256": "d4c42bd55b6cae0fb631b46cef5404edbb83ba66204295b532ae0af1adb95eb8",
+        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v16_independent_review/REVIEW.json",
+        "next_action": "V17 admitted and queued behind V6; measure actual closure, held lift and original gates",
+        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v16_independent_review/REVIEW.json",
+        "terminal_review_sha256": "c604d1f0f1f33dd60d93a1fdb70e3538659490318856a9158dbb84d817c6f4ce",
         "historical_quality_blockers": [
           "empty_CuRobo_YAML_skipped_planner_despite_required_flags",
           "interpolation_branch_ignored_finger_close_fraction",
@@ -431,17 +431,17 @@
         "target": 100,
         "formal_accepted": 50,
         "formal_remaining": 50,
-        "state": "38_independently_qualified_unique_topup_bulk_continues",
-        "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST32.json",
-        "qualified_topup": 38,
-        "candidate_topup_remaining": 12,
-        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST32.json",
+        "state": "44_independently_qualified_unique_topup_bulk_continues",
+        "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST38.json",
+        "qualified_topup": 44,
+        "candidate_topup_remaining": 6,
+        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST38.json",
         "historical_dedup_boundary": "Original accepted50 contain only3 unique action arrays; retained historical counts do not imply100 globally unique trajectories.",
-        "new_collection_needed": 12,
-        "unique_topup_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST32.json",
+        "new_collection_needed": 6,
+        "unique_topup_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST38.json",
         "next_action": "Continue bounded bulk with independent per-episode reviews; no formal promotion.",
-        "remaining_topup": 12,
-        "review_sha256": "cfc89741922671223a39f672faf9c05960c040707fe6d03d1234aaca1dd6b5d8"
+        "remaining_topup": 6,
+        "review_sha256": "e82bcccb02fff97c7d2cc76c89c574515f4facab07d4fe03480665ad175d493f"
       },
       {
         "robot": "ur5e",
@@ -472,16 +472,18 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "V5_independently_admitted_queue_waiting_V15_original_guards",
+        "state": "V5_terminal_reviewed_V6_static_drive_queued",
         "candidate_episodes": 0,
-        "next_action": "Review explicit postphysics callback delivery, dt/index cadence, table-positive control and actual late lift contact after V15; no gate changes",
-        "terminal_review_sha256": "7bed71001aa84e036c34069ed86893ddd8cf8dc31dbd3a2ea9350396ca4a4210",
+        "next_action": "V6 independently admitted and queued: hold position drive targets to test motion necessity; measure actual robot motion and matched time window",
+        "terminal_review_sha256": "1417d6f2b4d3ee62f3957998141201872474c9471ec5472d5157a995592ebccc",
         "review": {
-          "largest_blocker": "Target lifts after last observed table force; sampled net/reverse hand forces zero during late rise; native20mm guard remains",
-          "next_action": "Review explicit postphysics callback delivery, dt/index cadence, table-positive control and actual late lift contact after V15; no gate changes",
-          "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_reverse_v4_terminal_review/REVIEW.json",
-          "latest_terminal_review_sha256": "7bed71001aa84e036c34069ed86893ddd8cf8dc31dbd3a2ea9350396ca4a4210"
-        }
+          "largest_blocker": "V5 observed table/net peak13.112376N in632preguard postphysics rows; sampled hand pairs zero. Original20.69199mm guard, cause unproven.",
+          "next_action": "V6 independently admitted and queued: hold position drive targets to test motion necessity; measure actual robot motion and matched time window",
+          "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_postphysics_v5_terminal_review/REVIEW.json",
+          "latest_terminal_review_sha256": "1417d6f2b4d3ee62f3957998141201872474c9471ec5472d5157a995592ebccc"
+        },
+        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_postphysics_v5_terminal_review/REVIEW.json",
+        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_postphysics_v5_terminal_review/REVIEW.json"
       },
       {
         "robot": "ur5e",
@@ -1278,19 +1280,19 @@
   },
   "ur5e_grasp250_topup_unique": {
     "target": 50,
-    "qualified_unique_candidates": 38,
-    "remaining": 12,
+    "qualified_unique_candidates": 44,
+    "remaining": 6,
     "components": {
       "reused": 4,
       "cold_batch6_new": 4,
       "triangle_D_E_F": 3,
-      "bulk_first32_new": 27
+      "bulk_first38_new": 33
     },
-    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST32.json",
+    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST38.json",
     "formal_credit": 0,
-    "frames": 19681,
-    "videos": 114,
-    "review_sha256": "cfc89741922671223a39f672faf9c05960c040707fe6d03d1234aaca1dd6b5d8",
+    "frames": 22788,
+    "videos": 132,
+    "review_sha256": "e82bcccb02fff97c7d2cc76c89c574515f4facab07d4fe03480665ad175d493f",
     "time_axis_boundary": "30fps is original encoding and metadata rate, not claimed equivalent to wall-clock or true physics cadence."
   },
   "fr3_pour100_plain_frame_v8": {
@@ -1323,17 +1325,17 @@
     "state": "ACTIVE_BATCH_SNAPSHOT",
     "required_new_unique": 39,
     "max_attempts": 75,
-    "completed_qualified_in_bulk": 27,
+    "completed_qualified_in_bulk": 33,
     "unit": "chembench-t290-ur5-grasp250-triangle-bulk.service",
     "admission_sha256": "091d91c0006d42b643980dc23c4269a5a10d2b454eb0ccc6d04ec93b4ae5dee2",
     "independent_review_sha256": "3a48fd1293af4c7f2085391e6636f815383e9eaefff6a19e3089603568bac8c6",
     "formal_credit": 0,
-    "audited_attempts": 33,
-    "unique_automatic_candidates": 28,
+    "audited_attempts": 39,
+    "unique_automatic_candidates": 34,
     "native_failures": 5,
     "later_automatic_pending_independent": 1,
-    "reviewed_scope": "positions000-031",
-    "batch_state_evidence_sha256": "d1fb1e7fb527dfc1d5f0f227676ed6d748257a46e464ed0063e00627ca02c999"
+    "reviewed_scope": "positions000-037",
+    "batch_state_evidence_sha256": "02c8f5dfe784e68ae6e0d86497c23cebe99d0e0dac0ff6241476ea5dc155100d"
   },
   "fr3_pour100_cavity_v9": {
     "state": "TERMINAL_NATIVE0OF1_ORIGINAL_SPILL",
@@ -2777,43 +2779,727 @@
   "fr3_pour_joint_reference_correction": {
     "evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v14_failure_prepare/JOINT_REFERENCE_CPU.json",
     "sha256": "c59c4c493e67d96a56dcbbcdb484731ac06a3743d5a7b4d0c467ed507a5365e7",
-    "finding": "Actual staged_pregrasp has Cartesian descend/dwell/grasp; composed joint placeholders have false mask, but original endpoint gate compares those entries. CPU actual Skill+gate reproduces mismatch with a synthetic planner. Exact runtime zero reference is source inference, not directly dumped V14 target.",
-    "next": "Use existing staged_pregrasp_joint_descend mode for real terminal joint reference; unchanged original gate and explicit actual-reference logging."
+    "finding": "V15 actual outer Pour wrapper removed planner for automatic-goal route; absent goal maps left home-like references and false masks. Earlier Skill-only CPU missed outer route. V16 existing alias retains actual planner; runtime composed/applied masks true and original .08rad endpoint gate passes at .024634rad. Empty lift remains.",
+    "next": "V17 fraction1to.5 only in now validated actual route; original physics and gates unchanged",
+    "historical_incomplete_scope": {
+      "evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v14_failure_prepare/JOINT_REFERENCE_CPU.json",
+      "sha256": "c59c4c493e67d96a56dcbbcdb484731ac06a3743d5a7b4d0c467ed507a5365e7",
+      "finding": "Actual staged_pregrasp has Cartesian descend/dwell/grasp; composed joint placeholders have false mask, but original endpoint gate compares those entries. CPU actual Skill+gate reproduces mismatch with a synthetic planner. Exact runtime zero reference is source inference, not directly dumped V14 target.",
+      "next": "Use existing staged_pregrasp_joint_descend mode for real terminal joint reference; unchanged original gate and explicit actual-reference logging."
+    },
+    "full_route_review_sha256": "88cb21ab3a7387d30383cc237168fbe999971f4b5435a862a1b47dba2c1496d3"
   },
   "fr3_pour100_jointdescend_v15": {
-    "state": "diagnostic_running",
-    "admission_snapshot": {
+    "state": "TERMINAL_NATIVE_FAILURE_INDEPENDENTLY_REVIEWED",
+    "native_result_reviewed": true,
+    "terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v15_independent_review/REVIEW.json",
+    "terminal_review_sha256": "f50b1932b3d913ce17c2ff11516ef6eb338310b8bcb4a2dd28d6d2122d86895e",
+    "runtime_result": {
+      "status": "REVIEWED_NATIVE_FAILURE_NO_CANDIDATE_CREDIT",
+      "returncode": 0,
+      "native_success": 0,
+      "attempts": 1,
+      "log_sha256": "c4164e83731e94368e0876c0155ac19f8256cb8f0e1042d37b0e9b85e39677ba",
+      "failure": "Original endpoint tracking mismatch grasp:start107 after30retries; closure blocked, not spill",
+      "gate_first": "[PourEndpointTrackingGate] env=0 phase=grasp:start pass=0/1 max_error_rad=1.514722 threshold_rad=0.080000 position_error_m=0.017498 position_threshold_m=0.020000 orientation_error_rad=0.030634 orientation_threshold_rad=0.150000 settle_hold=True retry=1/30 closure_blocked=True",
+      "gate_last": "[PourEndpointTrackingGate] env=0 phase=grasp:start pass=0/1 max_error_rad=1.517067 threshold_rad=0.080000 position_error_m=0.013246 position_threshold_m=0.020000 orientation_error_rad=0.023549 orientation_threshold_rad=0.150000 closure_blocked=True",
+      "actual_reference_records": [
+        {
+          "control_step": 107,
+          "env": 0,
+          "arm_joint_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "joint_space_mask": false,
+          "planned_joint": [
+            0.0,
+            -0.7850000262260437,
+            0.0,
+            -2.3559999465942383,
+            0.0,
+            1.5709999799728394,
+            0.7850000262260437
+          ],
+          "actual_joint": [
+            9.327678708359599e-05,
+            0.017441853880882263,
+            -0.6487460136413574,
+            -3.042097806930542,
+            0.18003696203231812,
+            3.0857222080230713,
+            -0.04323114454746246
+          ],
+          "wrapped_error": [
+            -9.327678708359599e-05,
+            -0.8024419546127319,
+            0.6487460136413574,
+            0.6860978603363037,
+            -0.18003696203231812,
+            -1.514722228050232,
+            0.828231155872345
+          ],
+          "max_error_rad": 1.514722228050232,
+          "threshold_rad": 0.08,
+          "boundary": "Read existing gate arrays only; original comparison and control unchanged."
+        },
+        {
+          "control_step": 107,
+          "env": 0,
+          "arm_joint_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "joint_space_mask": false,
+          "planned_joint": [
+            0.0,
+            -0.7850000262260437,
+            0.0,
+            -2.3559999465942383,
+            0.0,
+            1.5709999799728394,
+            0.7850000262260437
+          ],
+          "actual_joint": [
+            -0.016589375212788582,
+            0.03012879565358162,
+            -0.5892008543014526,
+            -3.0420982837677,
+            0.31421831250190735,
+            3.0880672931671143,
+            -0.13465456664562225
+          ],
+          "wrapped_error": [
+            0.016589375212788582,
+            -0.8151288032531738,
+            0.5892008543014526,
+            0.6860983371734619,
+            -0.31421831250190735,
+            -1.517067313194275,
+            0.9196546673774719
+          ],
+          "max_error_rad": 1.517067313194275,
+          "threshold_rad": 0.08,
+          "boundary": "Read existing gate arrays only; original comparison and control unchanged."
+        }
+      ],
+      "count_samples": 552,
+      "all_count630_finite_equal": false,
+      "last_cavity": {
+        "event": "independent_cavity_partition",
+        "generation": 2,
+        "N0": 630,
+        "N": 630,
+        "actual_cavity_source": 630,
+        "native_source_outside_cavity": 0,
+        "native_receiver_exclusive": 0,
+        "outside_cavity_and_native_receiver": 0,
+        "invalid": 0,
+        "fractions_of_fixed_N0": {
+          "actual_cavity_source": 1.0,
+          "native_source_outside_cavity": 0.0,
+          "native_receiver_exclusive": 0.0,
+          "outside_cavity_and_native_receiver": 0.0,
+          "invalid": 0.0
+        },
+        "region": "actor-centered conservative cylinder r18.5mm z[-36,+30]mm; centers, not particle envelopes",
+        "receiver_boundary": "native receiver mask, independently measured receiver cavity pending",
+        "native_success_and_spill_unchanged": true,
+        "quality_verdict": "observation only; no formal qualification"
+      },
+      "media": {
+        "videos": [
+          {
+            "camera": "head",
+            "sha256": "fe006668bfa8b208ec3b9a49abea39c9c5bab73b7d9416f0c832af91826846ca",
+            "full_decode": true,
+            "probe": {
+              "programs": [],
+              "streams": [
+                {
+                  "width": 640,
+                  "height": 480,
+                  "r_frame_rate": "30/1",
+                  "nb_read_frames": "138"
+                }
+              ]
+            }
+          },
+          {
+            "camera": "chest",
+            "sha256": "d5bcd42562a63b395508c72b93dca391f61a1f28694c93648669ca88baa8e9bf",
+            "full_decode": true,
+            "probe": {
+              "programs": [],
+              "streams": [
+                {
+                  "width": 640,
+                  "height": 480,
+                  "r_frame_rate": "30/1",
+                  "nb_read_frames": "138"
+                }
+              ]
+            }
+          },
+          {
+            "camera": "third",
+            "sha256": "d0a8990770902f16536753bbad74eb4479b05fa4f56d0f98fd6b26d81321565b",
+            "full_decode": true,
+            "probe": {
+              "programs": [],
+              "streams": [
+                {
+                  "width": 640,
+                  "height": 480,
+                  "r_frame_rate": "30/1",
+                  "nb_read_frames": "138"
+                }
+              ]
+            }
+          }
+        ],
+        "selection": [
+          0,
+          40,
+          80,
+          100,
+          107,
+          137
+        ]
+      },
+      "actual_visual_review": {
+        "frames": 18,
+        "result": "Viewed all18 panels including final137. Open hand approaches source cup on table and stays there; no closed held lift or pour. Fine contact cannot be certified from image."
+      },
+      "actual_execution_gap": {
+        "source_sha256": "4d3bbe7c8a171a87f6afdca8f7e628f3df153b85d3419a6f533b78592f9789a9",
+        "mode_applied": "staged_pregrasp_joint_descend",
+        "actual_log": "automatic cuRobo branch replan skips redundant pose planning",
+        "mechanism": "Pour _create_trajectory recognizes this mode as automatic_branch_replan and temporarily sets sk._planner=None. _constrain_staged_descend_to_automatic_joint_goal returns unchanged segments when both goal maps absent. Actual logged maskfalse and home-like joint reference confirm expected joint-descend reference was not installed.",
+        "audit_correction": "Prior CPU final gate test exercised actual Skill/compose/gate with an external planner stub but omitted this Pour mode-routing wrapper. It established local function behavior, not end-to-end execution.",
+        "next": "Require actual Pour front wrapper+Skill/compose+applied joint mask chain test and failclosed valid-reference check before another diagnostic; original gate thresholds retained."
+      },
+      "formal_credit": 0
+    },
+    "manifest_sha256": "1bca05c60e60614ed91fbc0a99ffe88dafd9150f5ba50904106bcdecbcaa56f4",
+    "formal_credit": 0,
+    "historical_preparation": {
       "state": "diagnostic_running",
-      "time": 1789223909.4893131,
+      "admission_snapshot": {
+        "state": "diagnostic_running",
+        "time": 1789223909.4893131,
+        "formal_credit": 0,
+        "pid": 1097916,
+        "supervisor_sha256": "0dcccabeb0ecaffa8eb301632055d1c65fbad88845f9e51242120a1f234eaee7",
+        "gpu": [
+          "GPU-7e048773-6e99-b431-101d-8b45724cce9f",
+          " 23534"
+        ],
+        "compute": ""
+      },
+      "unit": "chembench-t290-fr3-pour100-jointdescend-v15.service",
+      "manifest_sha256": "1bca05c60e60614ed91fbc0a99ffe88dafd9150f5ba50904106bcdecbcaa56f4",
+      "review_sha256": "c5d07a2581b77d3ce0e9652696d9e182b164de041ce3add6c6b9d17ec2050ab2",
+      "admission_sha256": "14d88028835b32130b7f4c213deff225152c87c23db195b51da96bb9293b4500",
       "formal_credit": 0,
-      "pid": 1097916,
-      "supervisor_sha256": "0dcccabeb0ecaffa8eb301632055d1c65fbad88845f9e51242120a1f234eaee7",
+      "native_result_reviewed": false
+    }
+  },
+  "ur5e_cylinder_postphysics_v5": {
+    "state": "TERMINAL_NATIVE_FAILURE_INDEPENDENTLY_REVIEWED",
+    "native_result_reviewed": true,
+    "terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_postphysics_v5_terminal_review/REVIEW.json",
+    "terminal_review_sha256": "1417d6f2b4d3ee62f3957998141201872474c9471ec5472d5157a995592ebccc",
+    "runtime_result": {
+      "status": "REVIEWED_NATIVE_FAILURE_POSTPHYSICS_DELIVERY_OBSERVED",
+      "native_success": 0,
+      "attempts": 1,
+      "process_returncode": -15,
+      "failure_order": "Original20mm uncontacted-lift guard at20.691990852mm, then reset planning IK failure, then own cleanup; callback did not trigger failure",
+      "callback_evidence_sha256": "02260fd462846c67e759a1a9d22d90e9f90fdc7df542e39a61c17d2c91c58113",
+      "trace_media_evidence_sha256": "49d2fc14ac2c7a5d425996c2beb65e1f1ce430ddcfdc1238c8e16a4907ea1f79",
+      "observations": {
+        "registered": 1,
+        "observed_callbacks": 692,
+        "before_original_guard": 632,
+        "after_original_guard_reset": 60,
+        "consecutive_actual_index_increment": 1,
+        "callback_dt": 0.008333333767950535,
+        "peak_net_N": 13.112376209476244,
+        "peak_index": 3885,
+        "peak_control": 232,
+        "peak_origin": "target_to_table; net equals target-table matrix allrows",
+        "forward12_reverse8": "All observed matrices zero; earlyforwardnotcreatedexplicitlyUNAVAILABLE",
+        "normal_sum_matrix_max_abs_difference_N": 3.069063652105797e-07,
+        "all_matrices_finite_and_nonsaturated": true,
+        "pose_velocity_freshness": "No identical pose or velocity among690 adjacentcallback pairs, unlike a simple four-step held buffer. Backend values change at eachcallback; this alone doesnot establish force/pose samephase synchronization or exact integration dynamics.",
+        "original_target_writes": 9,
+        "writes_before_guard": 0,
+        "original_cache_observer_unchanged": true
+      },
+      "media": {
+        "three_mp4_unprobeable": true,
+        "three_times233JPG_all_decoded": true,
+        "actual_sampled_frames": 15,
+        "viewed": "Approach/sidegrasp and slightlate vertical shift; no successful held transfer. RGB cannot identifyforce provenance/cooked contact. Rawframes retained as evidence; brokenMP4 not accepted."
+      },
+      "boundary": [
+        "Captureinitial0–20 andlate215–233 windows only; registrationprecedinggap and60postguardreset rows excludedfrompre-failure inference",
+        "Actual post-step callback delivery established, but tensor force and pose exact temporal synchronization still requires controlled backend validation",
+        "Extra observed table impulse doesnot prove table alone causes rise or hand never interacts",
+        "Originalphysics/reportthreshold1/20mm/nativeprotocol unchanged; no data candidate credit"
+      ],
+      "next": "Retain measured table impulse and per-eventpose evidence. Analyze their temporal lag/integration and same-target contact representation before any physical correction; do not reduce20mm gate.",
+      "formal_credit": 0
+    },
+    "manifest_sha256": "53a72e593eceeb388e73eb93f3cc30b19435ba04fe5de4466c02410302b3750b",
+    "formal_credit": 0,
+    "historical_preparation": {
+      "state": "waiting_predecessor",
+      "admission_snapshot": {
+        "state": "waiting_predecessor"
+      },
+      "unit": "chembench-t290-ur5-cylinder-postphysics-v5.service",
+      "manifest_sha256": "53a72e593eceeb388e73eb93f3cc30b19435ba04fe5de4466c02410302b3750b",
+      "review_sha256": "91554f2c8d65b3aa87b848225f26ccd5f5d61f57c380ddac684ac3a629ee6d57",
+      "admission_sha256": "b1995f5332d1ae0a9dcf9460c7bf572659489245d962cee621727029cbfe8b19",
+      "formal_credit": 0,
+      "native_result_reviewed": false,
+      "change": "Explicit subscribe_physics_on_step_events pre_step=False, order1; reuse independentV3/V4 tensors without original cache reads or new physics writes. First registration misses preceding events; actual callback/tensor freshness requires runtime qualification.",
+      "mechanism_review_sha256": "547d99519a4e121f2f9506501294183cfcd183919c078bbee53b48290c208118",
+      "mechanism": "physics1/120, rendering1/30; single app update yields4physics callbacks, extra render disables simulation. Existing hook missed intermediate events; callback timer order not presumed."
+    }
+  },
+  "fr3_pour100_skillroute_v16": {
+    "state": "TERMINAL_NATIVE_FAILURE_INDEPENDENTLY_REVIEWED",
+    "native_result_reviewed": true,
+    "terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v16_independent_review/REVIEW.json",
+    "terminal_review_sha256": "c604d1f0f1f33dd60d93a1fdb70e3538659490318856a9158dbb84d817c6f4ce",
+    "runtime_result": {
+      "status": "REVIEWED_NATIVE_FAILURE_VALID_REFERENCE_EMPTY_LIFT",
+      "native_success": 0,
+      "attempts": 1,
+      "returncode": 0,
+      "log_sha256": "1afdcba065779bb2c8bdda0de9dab3727077179303855e4ffc6bfe6fe181aa9a",
+      "actual_valid_reference": {
+        "phase": [
+          154,
+          176
+        ],
+        "all_composed_and_applied_masks_true": true,
+        "max_wrapped_application_difference_rad": 8.940696716308594e-08,
+        "composed_first": [
+          [
+            -0.03500097244977951,
+            0.0313306488096714,
+            -0.5654455423355103,
+            -3.066734552383423,
+            0.33403879404067993,
+            3.0903756618499756,
+            -0.14845910668373108
+          ]
+        ],
+        "applied_first": [
+          [
+            -0.03500097244977951,
+            0.0313306488096714,
+            -0.5654455423355103,
+            -3.066734552383423,
+            0.33403879404067993,
+            3.0903756618499756,
+            -0.14845919609069824
+          ]
+        ],
+        "boundary": "Reference integrity only. Real planner feasibility/FK, tracking, force and liquid qualification still require review."
+      },
+      "actual_endpoint_reference": {
+        "control_step": 154,
+        "env": 0,
+        "arm_joint_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "joint_space_mask": true,
+        "planned_joint": [
+          -0.03500097244977951,
+          0.0313306488096714,
+          -0.5654455423355103,
+          -3.066734552383423,
+          0.33403879404067993,
+          3.0903756618499756,
+          -0.14845919609069824
+        ],
+        "actual_joint": [
+          -0.03466733172535896,
+          0.031559113413095474,
+          -0.5650883316993713,
+          -3.042100191116333,
+          0.3340131640434265,
+          3.090355634689331,
+          -0.14845848083496094
+        ],
+        "wrapped_error": [
+          -0.00033364075352437794,
+          -0.00022846460342407227,
+          -0.000357210636138916,
+          -0.024634359404444695,
+          2.562999725341797e-05,
+          2.002716064453125e-05,
+          -7.152557373046875e-07
+        ],
+        "max_error_rad": 0.024634359404444695,
+        "threshold_rad": 0.08,
+        "boundary": "Read existing gate arrays only; original comparison and control unchanged."
+      },
+      "failure": "Original irreversible spill atpour step387 after emptylift; initialendpoint gate passed .024634rad<.08, not prior referencefailure",
+      "actual_visual_frames": 24,
+      "visual_verdict": "Viewed all24 panels across3cams; cup remains tabletop while hand rises at200/225, then emptyhand transports/tilts nearcup. No heldlift/pour success. FinecontactnotcertifiedbyRGB.",
+      "media": {
+        "videos": [
+          {
+            "camera": "head",
+            "sha256": "dcd437aad70cdab0b6a65e63c3e4b2161a2bf5f99fbd68be61dca1b2c4b68b7f",
+            "full_decode": true,
+            "probe": {
+              "programs": [],
+              "streams": [
+                {
+                  "width": 640,
+                  "height": 480,
+                  "r_frame_rate": "30/1",
+                  "nb_read_frames": "388"
+                }
+              ]
+            }
+          },
+          {
+            "camera": "chest",
+            "sha256": "2b373d9ea049a9c35b76eae9ab5598ee362433e278996056e82bb0e6a0d5d05c",
+            "full_decode": true,
+            "probe": {
+              "programs": [],
+              "streams": [
+                {
+                  "width": 640,
+                  "height": 480,
+                  "r_frame_rate": "30/1",
+                  "nb_read_frames": "388"
+                }
+              ]
+            }
+          },
+          {
+            "camera": "third",
+            "sha256": "7c6d10b8593416f61c004816231aaaa5f856db15acfd429fb6917a104163fc6c",
+            "full_decode": true,
+            "probe": {
+              "programs": [],
+              "streams": [
+                {
+                  "width": 640,
+                  "height": 480,
+                  "r_frame_rate": "30/1",
+                  "nb_read_frames": "388"
+                }
+              ]
+            }
+          }
+        ],
+        "selection": [
+          0,
+          154,
+          175,
+          200,
+          225,
+          306,
+          350,
+          387
+        ]
+      },
+      "all_count630_finite_equal": false,
+      "last_cavity": {
+        "event": "independent_cavity_partition",
+        "generation": 2,
+        "N0": 630,
+        "N": 630,
+        "actual_cavity_source": 114,
+        "native_source_outside_cavity": 401,
+        "native_receiver_exclusive": 0,
+        "outside_cavity_and_native_receiver": 516,
+        "invalid": 0,
+        "fractions_of_fixed_N0": {
+          "actual_cavity_source": 0.18095238095238095,
+          "native_source_outside_cavity": 0.6365079365079365,
+          "native_receiver_exclusive": 0.0,
+          "outside_cavity_and_native_receiver": 0.819047619047619,
+          "invalid": 0.0
+        },
+        "region": "actor-centered conservative cylinder r18.5mm z[-36,+30]mm; centers, not particle envelopes",
+        "receiver_boundary": "native receiver mask, independently measured receiver cavity pending",
+        "native_success_and_spill_unchanged": true,
+        "quality_verdict": "observation only; no formal qualification"
+      },
+      "joint_support_samples": [
+        {
+          "debug_step": 159,
+          "actual_finger_joints": [
+            0.03953002020716667,
+            0.039530057460069656
+          ],
+          "last_command_fingers": [
+            0.03932856023311615,
+            0.03932856023311615
+          ],
+          "finger_body_origin_distance_m": 0.07906010640472905,
+          "worldY_origin_separation_m": 0.07905244827270508,
+          "source_z": 0.9801579713821411,
+          "source_worldY_bbox_width_m": 0.053299639165437895,
+          "hand_minus_source": [
+            0.01007390022277832,
+            -0.006574153900146484,
+            0.13462674617767334
+          ],
+          "raw_command_matches_grasp_local_sample": 4
+        },
+        {
+          "debug_step": 160,
+          "actual_finger_joints": [
+            0.039109062403440475,
+            0.03910910338163376
+          ],
+          "last_command_fingers": [
+            0.03879404067993164,
+            0.03879404067993164
+          ],
+          "finger_body_origin_distance_m": 0.07821793059665963,
+          "worldY_origin_separation_m": 0.07821035385131836,
+          "source_z": 0.9801579713821411,
+          "source_worldY_bbox_width_m": 0.05329963837382223,
+          "hand_minus_source": [
+            0.01006472110748291,
+            -0.006572723388671875,
+            0.13462674617767334
+          ],
+          "raw_command_matches_grasp_local_sample": 5
+        },
+        {
+          "debug_step": 161,
+          "actual_finger_joints": [
+            0.03852608799934387,
+            0.038526128977537155
+          ],
+          "last_command_fingers": [
+            0.03808993846178055,
+            0.03808993846178055
+          ],
+          "finger_body_origin_distance_m": 0.07705242549361624,
+          "worldY_origin_separation_m": 0.07704496383666992,
+          "source_z": 0.9801580309867859,
+          "source_worldY_bbox_width_m": 0.053299640023454664,
+          "hand_minus_source": [
+            0.01007080078125,
+            -0.006574153900146484,
+            0.13462668657302856
+          ],
+          "raw_command_matches_grasp_local_sample": 6
+        },
+        {
+          "debug_step": 175,
+          "actual_finger_joints": [
+            0.03323504701256752,
+            0.033235810697078705
+          ],
+          "last_command_fingers": [
+            0.026813248172402382,
+            0.026813248172402382
+          ],
+          "finger_body_origin_distance_m": 0.06647083758350185,
+          "worldY_origin_separation_m": 0.06646394729614258,
+          "source_z": 0.9802253246307373,
+          "source_worldY_bbox_width_m": 0.05329763928142661,
+          "hand_minus_source": [
+            0.010363757610321045,
+            -0.0055408477783203125,
+            0.13455641269683838
+          ],
+          "raw_command_matches_grasp_local_sample": 20
+        },
+        {
+          "debug_step": 193,
+          "actual_finger_joints": [
+            0.02919231913983822,
+            0.029192455112934113
+          ],
+          "last_command_fingers": [
+            0.026799999177455902,
+            0.026799999177455902
+          ],
+          "finger_body_origin_distance_m": 0.058384667020665276,
+          "worldY_origin_separation_m": 0.058379173278808594,
+          "source_z": 0.9822914600372314,
+          "source_worldY_bbox_width_m": 0.06157557755317811,
+          "hand_minus_source": [
+            0.011451303958892822,
+            -0.004714488983154297,
+            0.13729000091552734
+          ]
+        },
+        {
+          "debug_step": 210,
+          "actual_finger_joints": [
+            0.026800014078617096,
+            0.02680002897977829
+          ],
+          "last_command_fingers": [
+            0.026799999177455902,
+            0.026799999177455902
+          ],
+          "finger_body_origin_distance_m": 0.05359961780503569,
+          "worldY_origin_separation_m": 0.0535893440246582,
+          "source_z": 0.9801610708236694,
+          "source_worldY_bbox_width_m": 0.05330166550339843,
+          "hand_minus_source": [
+            0.005096137523651123,
+            -0.01017904281616211,
+            0.25130975246429443
+          ]
+        },
+        {
+          "debug_step": 225,
+          "actual_finger_joints": [
+            0.0268000066280365,
+            0.0268000029027462
+          ],
+          "last_command_fingers": [
+            0.026799999177455902,
+            0.026799999177455902
+          ],
+          "finger_body_origin_distance_m": 0.053600144998588124,
+          "worldY_origin_separation_m": 0.05359983444213867,
+          "source_z": 0.9801601767539978,
+          "source_worldY_bbox_width_m": 0.05330162493278756,
+          "hand_minus_source": [
+            0.0003044605255126953,
+            -0.001895904541015625,
+            0.27172309160232544
+          ]
+        }
+      ],
+      "interpretation": [
+        "Actualgrasp154–175 only22samples after32endpointsettle borrowedbudget. Debug175rawtarget matches local20, not21: observerstep label is one beyond lastdispatchedcommand in these4samples; no naive offbyone assumption.",
+        "At175 fingersactual .033235/.033236 versuslasttargets .026813 each; bodyorigin separation66.47mm versus sourceworldYbbox53.30mm. These are bodyorigins andvisualbbox, not actualinnerpadgap orcontactproof.",
+        "By210/225 jointvaluesreach .0268 while cup remains z~.9802; delayed closure is a supported contributor hypothesis, not established solecause; position/height/collision geometry remain possible."
+      ],
+      "cpu_fraction_contrast_sha256": "2c473ddb5f957730709999bdb73524d28c5e9c384212dd1919ac236d76932dae",
+      "next": "One isolatedfraction1→.5 diagnostic is supported now: actualjoint_hold branch consumes it, same22grasp/32settle/EEF/arm/masks/closedtarget/gains/alloriginalgates. CPU firstexactclosedtarget local21→11, outsidegrasp handtargets unchanged. No GPU admission from thisreport.",
+      "formal_credit": 0
+    },
+    "manifest_sha256": "30fb3e9e053778ad323f642182eeab13d73c29e3dc232c9e247b5557f6de445e",
+    "formal_credit": 0,
+    "historical_preparation": null,
+    "count_scope_erratum": {
+      "path": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v16_independent_review/COUNT_SCOPE_ERRATUM.json",
+      "sha256": "dfca62c07ac493442dbc40c66c445cd7f5ff65c3065c19e3b1d773cfaf2dbd24",
+      "evidence": {
+        "status": "ERRATUM_SCOPE_CORRECTION_ORIGINAL_REPORT_PRESERVED",
+        "original_review_sha256": "c604d1f0f1f33dd60d93a1fdb70e3538659490318856a9158dbb84d817c6f4ce",
+        "original_field": "all_count630_finite_equal",
+        "original_value": false,
+        "explanation": "Original aggregation required observed_count_delta==0 for every count record, including3 pre-baseline rows whose N0 and delta are correctly null. False does not mean particle count changed or nonfinite positions. This is an aggregation-scope error, not nonparticle lines.",
+        "count_records": 1552,
+        "pending_baseline_rows": [
+          {
+            "event": "count",
+            "generation": 1,
+            "N0": null,
+            "N": 630,
+            "finite": 630,
+            "missing": false,
+            "raw_positions_count_when_getter_missing": null,
+            "observed_count_delta": null,
+            "conservation_equal_count": null,
+            "baseline_status": "pending_post_reset_resync"
+          },
+          {
+            "event": "count",
+            "generation": 2,
+            "N0": null,
+            "N": 630,
+            "finite": 630,
+            "missing": false,
+            "raw_positions_count_when_getter_missing": null,
+            "observed_count_delta": null,
+            "conservation_equal_count": null,
+            "baseline_status": "pending_post_reset_resync"
+          },
+          {
+            "event": "count",
+            "generation": 3,
+            "N0": null,
+            "N": 630,
+            "finite": 630,
+            "missing": false,
+            "raw_positions_count_when_getter_missing": null,
+            "observed_count_delta": null,
+            "conservation_equal_count": null,
+            "baseline_status": "pending_post_reset_resync"
+          }
+        ],
+        "all1552_count_N_and_finite630": true,
+        "established_baseline_records": 1549,
+        "all_established_N0_N_finite630_delta0": true,
+        "original_native_spill_and_emptylift_unchanged": true,
+        "formal_credit": 0
+      }
+    }
+  },
+  "fr3_pour100_earlyclose_v17": {
+    "state": "independently_admitted_waiting_V6_predecessor",
+    "admission_snapshot": {
+      "state": "waiting_V6_predecessor",
+      "unit_started": true
+    },
+    "unit": "chembench-t290-fr3-pour100-earlyclose-v17.service",
+    "manifest_sha256": "8e189532924d1aa62cd3122a943f596d72b80e039e53127030edab879ac771a2",
+    "formal_credit": 0,
+    "native_result_reviewed": false,
+    "review_sha256": "cf9dc9afb8a6f80acc84eb9712a3df772dbdb47c71f31336f6f6231a308c6db5",
+    "admission_sha256": "8297fa8f3048af1dd4e7af383967b0abac45754230b852d26126872085c7b1ec",
+    "change": "Only fraction1 to .5; actual route CPU closed target local21 to11 in same22grasp samples. No claim timing is sole cause. Final independent admission passed; unit queued behind V6."
+  },
+  "ur5e_cylinder_staticdrive_v6": {
+    "state": "waiting_admission",
+    "admission_snapshot": {
+      "state": "waiting_admission",
+      "time": 1789227014.1151655,
+      "formal_credit": 0,
       "gpu": [
         "GPU-7e048773-6e99-b431-101d-8b45724cce9f",
         " 23534"
       ],
       "compute": ""
     },
-    "unit": "chembench-t290-fr3-pour100-jointdescend-v15.service",
-    "manifest_sha256": "1bca05c60e60614ed91fbc0a99ffe88dafd9150f5ba50904106bcdecbcaa56f4",
-    "review_sha256": "c5d07a2581b77d3ce0e9652696d9e182b164de041ce3add6c6b9d17ec2050ab2",
-    "admission_sha256": "14d88028835b32130b7f4c213deff225152c87c23db195b51da96bb9293b4500",
-    "formal_credit": 0,
-    "native_result_reviewed": false
-  },
-  "ur5e_cylinder_postphysics_v5": {
-    "state": "waiting_predecessor",
-    "admission_snapshot": {
-      "state": "waiting_predecessor"
-    },
-    "unit": "chembench-t290-ur5-cylinder-postphysics-v5.service",
-    "manifest_sha256": "53a72e593eceeb388e73eb93f3cc30b19435ba04fe5de4466c02410302b3750b",
-    "review_sha256": "91554f2c8d65b3aa87b848225f26ccd5f5d61f57c380ddac684ac3a629ee6d57",
-    "admission_sha256": "b1995f5332d1ae0a9dcf9460c7bf572659489245d962cee621727029cbfe8b19",
+    "unit": "chembench-t290-ur5-cylinder-staticdrive-v6.service",
+    "manifest_sha256": "96cb4f24621ba68690e2eaf1fd332357543212312654510bf7862bfb5d18766f",
     "formal_credit": 0,
     "native_result_reviewed": false,
-    "change": "Explicit subscribe_physics_on_step_events pre_step=False, order1; reuse independentV3/V4 tensors without original cache reads or new physics writes. First registration misses preceding events; actual callback/tensor freshness requires runtime qualification.",
-    "mechanism_review_sha256": "547d99519a4e121f2f9506501294183cfcd183919c078bbee53b48290c208118",
-    "mechanism": "physics1/120, rendering1/30; single app update yields4physics callbacks, extra render disables simulation. Existing hook missed intermediate events; callback timer order not presumed."
+    "review_sha256": "f5a0ea5b04c34602f777cfdf81f7e24eba6264a95dbe999400dc7120cda0673e",
+    "admission_sha256": "256d582db3deba38a501a15a0179d9d5ea7e0e3f13c95319b29787d4555b8fa4",
+    "change": "Hold full robot joint position drive targets at firstcontrol0 actual positions before original scene writes. Dynamic robot may move; measure backend links and matched V5 horizon. First4physics before capture excluded; early native guard means incomplete comparison. No pose writes or physics/gate changes; never qualified grasp."
   }
 }
