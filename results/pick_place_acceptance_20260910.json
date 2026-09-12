@@ -5025,6 +5025,11 @@
         "sha256": "666150915fcfcaab41c23479155df1ee9dd03af46946fe335a30ee329ea35180",
         "source_sha256": "c5ee7a1e694120f1e13b4202e3eac1aa1d9e2c667fdf05c078b10104234c197e"
       }
+    ],
+    "protocol_valid_for_generalization_comparison": false,
+    "protocol_issues": [
+      "randomization flag missing",
+      "visible marker not synchronized to randomized scoring goal"
     ]
   },
   "training_data_preview": {
@@ -5160,5 +5165,102 @@
       58.52651596069336,
       0.0559687614440918
     ]
+  },
+  "parallel_rebuild": {
+    "updated_at": "2026-09-12T18:04:32+08:00",
+    "status": "in_progress",
+    "scale_training_allowed": false,
+    "collection_control_validation": {
+      "attempts": 20,
+      "successes": 15,
+      "rate": 0.75,
+      "images_used_for_training": false
+    },
+    "visual_validation": {
+      "attempts": 3,
+      "successes": 3,
+      "max_live_marker_goal_xy_error_m": 0,
+      "samples": 1440,
+      "physics_hz": 120,
+      "images": [
+        {
+          "path": "media/pick-place-dp-20260912/repaired-marker-1.jpg",
+          "sha256": "934c405c149b87caeef20b2473ef314653a7a578e716b2e74c4cf016a0efc61c",
+          "source_video": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/collection_visual_pilot/integral/lerobot/20260912_093514/videos/observation.images.third_rgb/chunk-000/file-000.mp4",
+          "source_time_s": 1,
+          "red_centroid_pixels": [
+            169.91633466135457,
+            333.1075697211155
+          ]
+        },
+        {
+          "path": "media/pick-place-dp-20260912/repaired-marker-2.jpg",
+          "sha256": "263d37128fcf3cab890dbcf4d38a68ed0cba3fa61ecea6a4d00c5484a5797f22",
+          "source_video": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/collection_visual_pilot/integral/lerobot/20260912_093514/videos/observation.images.third_rgb/chunk-000/file-001.mp4",
+          "source_time_s": 1,
+          "red_centroid_pixels": [
+            192.11467889908258,
+            325.77522935779814
+          ]
+        },
+        {
+          "path": "media/pick-place-dp-20260912/repaired-marker-3.jpg",
+          "sha256": "3d3ca2c3ab39725a9af4f2246c7725695614ad2d21390ae92b889d9ef4d338d0",
+          "source_video": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/collection_visual_pilot/integral/lerobot/20260912_093514/videos/observation.images.third_rgb/chunk-000/file-002.mp4",
+          "source_time_s": 1,
+          "red_centroid_pixels": [
+            196.5040322580645,
+            333.0040322580645
+          ]
+        }
+      ],
+      "not_dp_evaluation": true
+    },
+    "new_100ml": {
+      "state": "collecting_101_accepted",
+      "target_retained_episodes": 100,
+      "exclude_first_episode": true,
+      "training_state": "awaiting_audited_release",
+      "planned_optimizer_updates": 50000,
+      "paper_ssr": null
+    },
+    "other_250ml": {
+      "raw_collection_successes": 101,
+      "raw_collection_attempts": 101,
+      "training_episodes": 100,
+      "training_frames": 12000,
+      "training_state": "running",
+      "progress": {
+        "task": "T-323",
+        "mode": "candidate50000",
+        "optimizer_updates": 500,
+        "state_step_min": 500.0,
+        "state_step_max": 500.0,
+        "updated_at": 1789206627.9490442,
+        "last_loss": 0.10928882658481598,
+        "amp": "no",
+        "device": "cuda:0"
+      },
+      "planned_optimizer_updates": 50000,
+      "eval50_state": "pending_training_completion"
+    },
+    "eval_repair": {
+      "missing_enable_random_confirmed": true,
+      "static_visual_marker_confirmed": true,
+      "random_only_retry": {
+        "episodes": 11,
+        "successes": 0,
+        "valid": false,
+        "stopped_due_to_visual_mismatch": true
+      },
+      "corrected_first_policy_input_validation": "in_progress",
+      "new_final_success_rate": null
+    },
+    "ssr": {
+      "delta_p_threshold_mm": 20,
+      "paper_ssr": null,
+      "force_25N_not_applicable": "only registered for glass_beaker_250ml/grasp",
+      "remaining": "task active constraints and collision protocol"
+    }
   }
 }
