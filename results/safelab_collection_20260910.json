@@ -1,13 +1,13 @@
 {
-  "as_of": "2026-09-12T15:38:47.482076+08:00",
+  "as_of": "2026-09-12T16:02:25.635243+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
-    "state": "waiting_admission_foreign_astra_simulation",
+    "state": "diagnostic_running",
     "canonical_promotion": false,
-    "next": "observed confirmation3 -> center_y10 -> raw contact positive control; no automatic bulk promotion",
-    "unit": "chembench-t290-ur5e-grasp250-observed-confirmation3.service",
-    "current_target": 3,
+    "next": "raw contact positive control -> FR3 compound pour1; UR5 reset-transition diagnostic under CPU review",
+    "unit": "chembench-t290-ur5e-grasp250-raw-positive.service",
+    "current_target": 1,
     "inherited_previous_collection": {
       "accepted_replacements": 41,
       "target": 41,
@@ -21,16 +21,18 @@
       "visual_review": "sampled5episodes45frames: transfer visible; chest elevated target crop and head occlusion; final acceptance pending"
     },
     "admission": {
-      "state": "waiting_admission",
-      "time": 1789198720.4712389,
+      "state": "diagnostic_running",
+      "time": 1789200112.362226,
       "formal_credit": 0,
+      "pid": 30516,
+      "supervisor_sha256": "4c2a4a7ecd4d4db7071dbc483175f0d324649d2f48a560d73c4b00492614b8ce",
       "gpu": [
         "GPU-7e048773-6e99-b431-101d-8b45724cce9f",
-        " 18512"
+        " 23534"
       ],
-      "compute": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 4121383"
+      "compute": ""
     },
-    "current_seed": 82343
+    "current_seed": 82341
   },
   "panel_scope": {
     "fr3": {
@@ -276,7 +278,7 @@
     "cause": "configured Bottle/Beaker003 mismatched USD defaultprim remap; actual rigid body Bottle/base"
   },
   "robot_worklist": {
-    "as_of": "2026-09-12T15:38:47.482076+08:00",
+    "as_of": "2026-09-12T16:02:25.635243+08:00",
     "target_datasets": 16,
     "rows": [
       {
@@ -1009,7 +1011,7 @@
       "fixed anchor only",
       "read-only observation may affect timing; not a demonstrated physical fix"
     ],
-    "next": "seed82343 same-process confirmation3 queued, not yet started",
+    "next": "observed confirmation3 completed1/3; reset-transition instrumentation under review",
     "formal_credit": 0
   },
   "ur5e_cylinder_allreport0": {
@@ -1043,7 +1045,7 @@
     "formal_credit": 0
   },
   "fr3_pour100_compound_repair": {
-    "state": "CPU_integration_v4_PASS_new_isolated_bundle_preparation",
+    "state": "one_diagnostic_CPU_admitted_queued_after_raw_positive",
     "review_sha256": "58fef9c7469cb04f535020f1ea127a1fc9aed6bbe14c5e93e39ce59d15fee966",
     "gpu_admitted": false,
     "changes": [
@@ -1052,6 +1054,59 @@
       "read-only particle conservation observation with fixed N0"
     ],
     "original_60_step_initialization_retained": true,
+    "formal_credit": 0,
+    "cpu_admission_sha256": "09a8eace1012b5d8d80279c65a7306bfdf460163ef8243a3208a608c97d5771d",
+    "unit": "chembench-t290-fr3-pour100-compound-v4.service",
+    "max_attempts": 1
+  },
+  "ur5e_grasp250_observed_confirmation3": {
+    "state": "completed_native1of3",
+    "seed": 82343,
+    "saved": 1,
+    "attempts": 3,
+    "frames": 518,
+    "videos": 3,
+    "full_video_decode": "PASS",
+    "L3_flags": [],
+    "audit_sha256": "ed3a84a70e362ad922040d13737526071273a8b3dcec1caff833033ab1ca9133",
+    "failure_observations": [
+      "second episode peak lift approx72.8mm then fell; original rotation threshold failed",
+      "third episode object displaced approx14.6mm from original anchor before grasp; initial cause under investigation"
+    ],
     "formal_credit": 0
+  },
+  "ur5e_grasp250_center_y10": {
+    "native_success": 0,
+    "attempts": 1,
+    "formal_credit": 0,
+    "single_change": "object-frame target Y .015 -> .005",
+    "interpretation": "No improvement shown in this one fixed-anchor cold diagnostic; no bulk expansion",
+    "log_sha256": "4d893b084dd56aca328a3ae4c772545ce9d02937ee6cac2c15310edb71bc0650",
+    "native_summary": [
+      {
+        "pre_xy_max": 0.001,
+        "ssr_theta_max": 0.178,
+        "ssr_cum_theta_max": 0.6111,
+        "ssr_xy_max": 0.0063,
+        "ssr_force_max": 14.8602,
+        "max_lift": 0.0,
+        "hand_joint_actual_mean": 0.4354
+      },
+      {
+        "pre_xy_max": 0.001,
+        "ssr_theta_max": 0.178,
+        "ssr_cum_theta_max": 0.6111,
+        "ssr_xy_max": 0.0063,
+        "ssr_force_max": 14.8602,
+        "max_lift": 0.0,
+        "hand_joint_actual_mean": 0.4354
+      }
+    ]
+  },
+  "ur5e_pour100_frame_recovery": {
+    "state": "single_rigid_spawn_to_actor_conversion_CPU_candidate_only",
+    "physics_original": "UR5 v418 ratio.65 * lift.12 = .078m; no FR3 .05 reuse",
+    "gpu_admitted": false,
+    "root_cause_proven": false
   }
 }
