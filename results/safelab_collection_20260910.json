@@ -1,12 +1,11 @@
 {
-  "as_of": "2026-09-12T18:10:37.913686+08:00",
+  "as_of": "2026-09-12T18:30:30.088381+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
-    "as_of": "2026-09-12T18:10:37.913686+08:00",
-    "current": "UR5 triangle3 F queue",
-    "next": "contact manifold positive diagnostic",
-    "fr3_next": "V8 armed after manifold positive terminal",
+    "as_of": "2026-09-12T18:30:30.088381+08:00",
+    "current": "UR5 bulk39 firstposition running",
+    "fr3_next": "V8 spill/geometry diagnosis, no nextGPU admitted",
     "snapshot_only": true
   },
   "panel_scope": {
@@ -1062,7 +1061,7 @@
       "latest_terminal_unit": "chembench-t290-fr3-pour100-compound-v6.service"
     },
     "latest_terminal_unit": "chembench-t290-fr3-pour100-compound-v7.service",
-    "next": "See fr3_pour100_plain_frame_v8: independently reviewed, armed after manifold positive terminal, no GPU result yet"
+    "next": "V8 plain actual initialization/N0 passed, native spill failure under investigation; see separate V8 record"
   },
   "ur5e_grasp250_observed_confirmation3": {
     "state": "completed_native1of3",
@@ -1231,35 +1230,40 @@
     "review_completion_after_snapshot": "Final6 review completed;78actual frames viewed;4unique2071frames12videos"
   },
   "ur5e_grasp250_triangle3": {
-    "status": "D_E_QUALIFIED_F_PENDING",
-    "qualified": 2,
-    "frames": 1036,
-    "videos": 6,
+    "status": "ALL_THREE_INDEPENDENTLY_QUALIFIED",
+    "qualified": 3,
+    "frames": 1554,
+    "videos": 9,
     "visual_independent_review": true,
-    "batch_admitted": false
+    "batch_admitted": true
   },
   "ur5e_grasp250_manifold_positive": {
-    "state": "armed_waiting_triangle3_terminal",
-    "purpose": "knownpositive validation for futurecylinder contactdiagnosis",
-    "independent_views": true,
-    "original_force_and_gates_unchanged": true,
-    "fullstep_force_gate": false,
+    "state": "NATIVE1OF1_FULL_QUALITY_PASS_DUPLICATE_NO_NEW_CREDIT",
+    "frames": 518,
+    "videos": 3,
+    "nonzero_force_first_step": 360,
+    "contact_scalar_peak_N": 8.187313079833984,
+    "every_physics_step_coverage": false,
+    "review_sha256": "70104938d87b907a50908af084259c320e806c7813bee4a20b17a6c192df37cd",
     "formal_credit": 0
   },
   "ur5e_grasp250_topup_unique": {
     "target": 50,
-    "qualified_unique_candidates": 10,
-    "remaining": 40,
+    "qualified_unique_candidates": 11,
+    "remaining": 39,
     "components": {
       "reused": 4,
       "cold_batch6_new": 4,
-      "triangle_D_E": 2
+      "triangle_D_E_F": 3
     },
     "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_reuse_triangle_review/PROGRESS.json",
-    "formal_credit": 0
+    "formal_credit": 0,
+    "frames": 5697,
+    "videos": 33,
+    "review_sha256": "a58d179151cb442e66fbd75af99cb29bb077b373f075e56514ca95161e715bf9"
   },
   "fr3_pour100_plain_frame_v8": {
-    "status": "ARMED_WAITING_MANIFOLD_POSITIVE_TERMINAL",
+    "status": "NATIVE_FAILED_AFTER_SUCCESSFUL_INITIALIZATION",
     "historical_plain_asset_restored": true,
     "physics_equivalence_to_v7": false,
     "original_upright60_CPU_pass": true,
@@ -1267,6 +1271,31 @@
     "formal_credit": 0,
     "unit": "chembench-t290-fr3-pour100-plain-v8.service",
     "independent_review_sha256": "b916671386f07836f56a6d4031e370bf7769d67f56570037a7cec1963e3330b4",
-    "admission_sha256": "b139fb865275558f70c654f259bab95594ef7a7f253e564cece135c4524eb529"
+    "admission_sha256": "b139fb865275558f70c654f259bab95594ef7a7f253e564cece135c4524eb529",
+    "native_success": 0,
+    "attempts": 1,
+    "valid_initial_N0": 1000,
+    "initial_source_fraction": 1,
+    "trigger": "PourStrictFailureGate irreversible particle spill in descend",
+    "returncode": 0,
+    "log_sha256": "3b4be1b3d1a62721685354e2966a37a45d85482021c7aa7d9201d6a03873730a",
+    "initial_source_fraction_semantics": "Original configured source counting region, not measured real glass cavity occupancy; physical containment NOT qualified",
+    "geometry_findings": {
+      "visual_cup_halfheight_m": 0.0403467417,
+      "configured_source_halfheight_m": 0.075,
+      "hidden_liner_bottom_actor_z_m": -0.097,
+      "actual_cavity_measurement_pending": true
+    },
+    "correction": "Do not interpret configured source1000/1000 as real cavity acceptance"
+  },
+  "ur5e_grasp250_bulk39": {
+    "state": "RUNNING_FIRST_POSITION",
+    "required_new_unique": 39,
+    "max_attempts": 75,
+    "completed_qualified_in_bulk": 0,
+    "unit": "chembench-t290-ur5-grasp250-triangle-bulk.service",
+    "admission_sha256": "091d91c0006d42b643980dc23c4269a5a10d2b454eb0ccc6d04ec93b4ae5dee2",
+    "independent_review_sha256": "3a48fd1293af4c7f2085391e6636f815383e9eaefff6a19e3089603568bac8c6",
+    "formal_credit": 0
   }
 }
