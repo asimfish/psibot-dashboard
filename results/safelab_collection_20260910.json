@@ -1,13 +1,13 @@
 {
-  "as_of": "2026-09-12T16:52:57.124834+08:00",
+  "as_of": "2026-09-12T17:43:27.923369+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
-    "state": "between_diagnostics_next_batch_preparing",
+    "state": "diagnostic_running",
     "canonical_promotion": false,
-    "next": "UR5 six cold attempts awaiting final runner review; FR3 USD CPU reference fix",
-    "unit": null,
-    "current_target": null,
+    "next": "FR3V7 -> UR5 three newpositions -> knownpositive independentcontactmanifold; no bulk/canonical promotion",
+    "unit": "chembench-t290-fr3-pour100-compound-v7.service",
+    "current_target": 1,
     "inherited_previous_collection": {
       "accepted_replacements": 41,
       "target": 41,
@@ -20,8 +20,19 @@
       "collector_exit_code": 0,
       "visual_review": "sampled5episodes45frames: transfer visible; chest elevated target crop and head occlusion; final acceptance pending"
     },
-    "admission": null,
-    "current_seed": null
+    "admission": {
+      "state": "diagnostic_running",
+      "time": 1789206178.688542,
+      "formal_credit": 0,
+      "pid": 296132,
+      "supervisor_sha256": "c798fd6da43a154e9fd4e2105cf26f985957767d8c40e1a3f2837b596812061c",
+      "gpu": [
+        "GPU-7e048773-6e99-b431-101d-8b45724cce9f",
+        " 23534"
+      ],
+      "compute": ""
+    },
+    "current_seed": 260912601
   },
   "panel_scope": {
     "fr3": {
@@ -1034,8 +1045,8 @@
     "formal_credit": 0
   },
   "fr3_pour100_compound_repair": {
-    "state": "v6_initialization_failed_missing_defaultPrim",
-    "gpu_admitted": false,
+    "state": "v7_diagnostic_running",
+    "gpu_admitted": true,
     "changes": [
       "two-body fixed-joint frame correction",
       "explicit initialization-only compound writes",
@@ -1050,14 +1061,21 @@
     "v4_failure": "constructor selected plain asset",
     "v5_failure": "Pour config skipped target field",
     "v6_failure": "field fixed; referenced layer defaultPrim missing; startup no rigid body",
-    "next": "CPU full external reference RED GREEN metadata fix passed; no GPU admission yet",
+    "next": "actual two-body init and original particle observer N0 check; forceSSRstillabsent",
     "inherited_v4_provenance": {
       "unit": "chembench-t290-fr3-pour100-compound-v4.service",
       "cpu_admission_sha256": "09a8eace1012b5d8d80279c65a7306bfdf460163ef8243a3208a608c97d5771d",
       "review_sha256": "58fef9c7469cb04f535020f1ea127a1fc9aed6bbe14c5e93e39ce59d15fee966"
     },
-    "unit": null,
-    "latest_terminal_unit": "chembench-t290-fr3-pour100-compound-v6.service"
+    "unit": "chembench-t290-fr3-pour100-compound-v7.service",
+    "latest_terminal_unit": "chembench-t290-fr3-pour100-compound-v6.service",
+    "inherited_v6_terminal": {
+      "state": "v6_initialization_failed_missing_defaultPrim",
+      "v6_failure": "field fixed; referenced layer defaultPrim missing; startup no rigid body"
+    },
+    "latest_candidate": "Explicit defaultPrim Beaker003/metersPerUnit1/upAxisZ;12externalreference/adapter CPU poses checked; runtime unproven",
+    "current_cpu_admission_sha256": "2cfb0ddb25764b38d3d0bfbe81867fd8cfbb3e10674dfc0feebfa50e9772e335",
+    "formal_collection_admitted": false
   },
   "ur5e_grasp250_observed_confirmation3": {
     "state": "completed_native1of3",
@@ -1155,7 +1173,7 @@
     "v354_ABC_target1max1_runs": 44,
     "old50_unique_action_sha256": 3,
     "protocol": "three fixed anchors with process cold start each episode",
-    "next": "six ABCABC attempts under preparation, not yet armed",
+    "next": "Six attempts completed5success,4newunique; threeedge-midpoint diagnostics armed afterFR3V7; largebatchnotarmed",
     "new_ABC_actions": "3 unique, no overlap old3SHA",
     "appearance": "blue opacity.68 original contract; generic transparency failure retained"
   },
@@ -1166,5 +1184,95 @@
     "heartbeats": 26,
     "callbacks": 0,
     "verdict": "callback delivery not established; cannot infer no contact"
+  },
+  "ur5e_grasp250_cold_batch6": {
+    "state": "ended",
+    "attempts": 6,
+    "native_successes": 5,
+    "unique_automatic_candidates": 4,
+    "duplicates_excluded": 1,
+    "native_failures": 1,
+    "rows": [
+      {
+        "run": "anchor_a_seed260912711",
+        "native_success": true,
+        "new_unique": true,
+        "frames": 517,
+        "action_sha256": "8c33f516c1f2a8db2f8f38fbc4bcbb822c7702461e0696ccd8b788cdef9509ce"
+      },
+      {
+        "run": "anchor_b_seed260912712",
+        "native_success": true,
+        "new_unique": true,
+        "frames": 518,
+        "action_sha256": "061fa1d43c76fc9a92864ee99974f6f18efbb8c4358ef245245c285d292a3797"
+      },
+      {
+        "run": "anchor_c_seed260912713",
+        "native_success": true,
+        "new_unique": false,
+        "frames": 518,
+        "action_sha256": "c19451516f535bef3a059807a11978407758840737ade5b2a552f2a393971d1a"
+      },
+      {
+        "run": "anchor_a_seed260912714",
+        "native_success": true,
+        "new_unique": true,
+        "frames": 518,
+        "action_sha256": "c7e5a3932fa19ee230533bf1288b84c5c2ddbf0dcc1fecd3f16a98b6011c231d"
+      },
+      {
+        "run": "anchor_b_seed260912715",
+        "native_success": true,
+        "new_unique": true,
+        "frames": 518,
+        "action_sha256": "236e1159826b09555a072c7dd14ea80eba97e33f24f64c959656b1940f503236"
+      },
+      {
+        "run": "anchor_c_seed260912716",
+        "native_success": false,
+        "new_unique": false,
+        "frames": null,
+        "action_sha256": null
+      }
+    ],
+    "quality": "five success datasets full3video/nativeSSR/finite/time/L3 pass; independent actualvisual checks, final failed-case review pending",
+    "failure": "C716 lift then drop, finaltheta.5245>.12/cum1.3793>.55/XY.0266>.02; validforce17.4139<25; terminalmax_lift0 not wholetrajectory peak",
+    "batch_state_sha256": "df336cfd4a4bb84c6d085c2372985fcdeea1cbec70a1e64f24dbaa09b8894adf",
+    "formal_credit": 0,
+    "subsequent_final_review_sha256": "1bcc48be942eee3a3d4d399f22c3faf9bf2ab9095535f29c2d6c0fdb696ed4d4",
+    "review_completion_after_snapshot": "Final6 review completed;78actual frames viewed;4unique2071frames12videos"
+  },
+  "ur5e_grasp250_triangle3": {
+    "state": "armed_waiting_V7_terminal",
+    "positions": [
+      [
+        -1.133,
+        -5.312,
+        1.05
+      ],
+      [
+        -1.123,
+        -5.302,
+        1.05
+      ],
+      [
+        -1.143,
+        -5.292,
+        1.05
+      ]
+    ],
+    "attempts": 3,
+    "protocol": "new edge-midpoints within historicaltriangle; qualification not original threefixedanchors equivalence",
+    "native_gates_unchanged": true,
+    "formal_credit": 0
+  },
+  "ur5e_grasp250_manifold_positive": {
+    "state": "armed_waiting_triangle3_terminal",
+    "purpose": "knownpositive validation for futurecylinder contactdiagnosis",
+    "independent_views": true,
+    "original_force_and_gates_unchanged": true,
+    "fullstep_force_gate": false,
+    "formal_credit": 0
   }
 }
