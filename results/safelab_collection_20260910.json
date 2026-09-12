@@ -1,14 +1,13 @@
 {
-  "as_of": "2026-09-12T14:34:47.338913+08:00",
+  "as_of": "2026-09-12T14:58:58.758932+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
-    "state": "resumed_ur5_fixedreference_confirmation3",
+    "state": "ur5_grasp250_pose_badseed_diagnostic_running",
     "canonical_promotion": false,
-    "next": "Evaluate confirmation3 before any bulkqualification",
-    "unit": "chembench-t290-ur5e-grasp250-fixed-confirmation3-local4090.service",
-    "current_saved": 0,
-    "current_target": 3,
+    "next": "Cold-start goodseed82341 observer comparison queued after badseed82342; original gates retained",
+    "unit": "chembench-t290-ur5e-grasp250-posetrace-badseed.service",
+    "current_target": 1,
     "inherited_previous_collection": {
       "accepted_replacements": 41,
       "target": 41,
@@ -20,7 +19,20 @@
       "full_automatic_audit": "pass",
       "collector_exit_code": 0,
       "visual_review": "sampled5episodes45frames: transfer visible; chest elevated target crop and head occlusion; final acceptance pending"
-    }
+    },
+    "admission": {
+      "state": "diagnostic_running",
+      "time": 1789196164.4333744,
+      "formal_credit": 0,
+      "pid": 4063393,
+      "supervisor_sha256": "026ff78ae8445b7fb532cd7705a2c496ad262722056ae1315db0dc51e047cf10",
+      "gpu": [
+        "GPU-7e048773-6e99-b431-101d-8b45724cce9f",
+        " 23534"
+      ],
+      "compute": ""
+    },
+    "current_seed": 82342
   },
   "panel_scope": {
     "fr3": {
@@ -266,7 +278,7 @@
     "cause": "configured Bottle/Beaker003 mismatched USD defaultprim remap; actual rigid body Bottle/base"
   },
   "robot_worklist": {
-    "as_of": "2026-09-12T14:34:47.338913+08:00",
+    "as_of": "2026-09-12T14:58:58.758932+08:00",
     "target_datasets": 16,
     "rows": [
       {
@@ -394,19 +406,21 @@
         "target": 100,
         "formal_accepted": 50,
         "formal_remaining": 50,
-        "state": "topup50_completed_automatic_audit_PASS_independent_review_pending",
+        "state": "complete_candidate100_independent_review_PASS_not_canonical",
         "review": {
           "decision_path": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/pipeline/canonical_datasets/t035_candidate_audit/new_fr3_stack_glass_beaker_250ml_v108_dualrandom3cm_formal50/decision.json",
           "decision_sha256": "3aa6ecf6e6aaf844d5d1ca523edb5f0d42c5d2a72770593bf1d909e79a4fe833",
           "recipe_file": null,
           "recipe_sha256": null,
-          "largest_blocker": "Topup50 must finish full physical, video, randomization and source-overlap review before candidate merge; formal credit unchanged",
-          "next_action": "Complete independentvisual and mergedold50candidate integrityreview; noformalpromotion",
+          "largest_blocker": "Canonical promotion pending",
+          "next_action": "Preserve reviewed candidate100 pending canonical registration; continue other incomplete tasks",
           "source_dataset": "data/bjxy_5090_t035_stack_beaker250_fr3_v108_fr3_dualrandom3cm_formal50_max75_gpu0_20260727_081206/lerobot/stack/glass_beaker_250ml_stack__fr3/20260727_081401"
         },
-        "native_diagnostic_successes": 8,
         "topup50_target": 50,
-        "topup50_saved": 50
+        "topup50_saved": 50,
+        "candidate_episodes": 100,
+        "qualified_topup": 50,
+        "review_sha256": "1c1de95477397dfe1c872148e39e2b58ad2c7a0fcbdd4d22f2d89d90c2d6e455"
       },
       {
         "robot": "ur5e",
@@ -424,14 +438,14 @@
         "target": 100,
         "formal_accepted": 50,
         "formal_remaining": 50,
-        "state": "fixedreference_native1of1_confirmation3_armed",
+        "state": "fixedconfirmation0of3_pose_badseed_diagnostic_running_goodseed_queued",
         "review": {
           "decision_path": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/pipeline/canonical_datasets/t035_candidate_audit/new_ur5e_2f85_grasp_glass_beaker_250ml_v355_pool50_three_anchor/decision.json",
           "decision_sha256": "1e6bd337146f14bf991911f8e5b2bbf88dcd236d5a2994c9ad4e8b94b9dee026",
           "recipe_file": null,
           "recipe_sha256": null,
-          "largest_blocker": "Randomtrial0/1 vsfixedreference1/1; continuousrandomqualification notestablished; inheritedsemiopaqueappearancecheckFAIL",
-          "next_action": "fixedanchor seed82342 confirmation3 armed, originalgates",
+          "largest_blocker": "Fixedreference1/1 but confirmation0/3; continuous random qualification absent; appearance FAIL retained",
+          "next_action": "Fixed confirmation3 ended0/3; compare read-only pose traces for seeds82342 and82341",
           "source_dataset": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/data/bjxy_5090_t035_grasp_beaker250_ur5e_2f85_v355_pool50_20260803_014826/lerobot/grasp/glass_beaker_250ml__ur5e_2f85/pool50"
         }
       },
@@ -544,9 +558,9 @@
         }
       }
     ],
-    "policy": "All16 robot tasks continue. Seven independently reviewed100-episode candidate pools, nine remaining. Original stack taskID mapping resolved by four-way evidence; canonical promotion pending. Preserve original gates, historical data and nonpreemptive resource admission.",
-    "complete_candidate_pools": 7,
-    "remaining_candidate_pools": 9
+    "policy": "All16 robot tasks continue. Eight independently reviewed100-episode candidate pools, eight remaining. Original stack taskID mapping resolved by four-way evidence; canonical promotion pending. Preserve original gates, historical data and nonpreemptive resource admission.",
+    "complete_candidate_pools": 8,
+    "remaining_candidate_pools": 8
   },
   "fr3_beaker100_filterfix": {
     "state": "candidate100_independently_reviewed_pass",
@@ -599,7 +613,7 @@
     }
   },
   "ur5e_cylinder_exactviews": {
-    "state": "remote5090_waiting_local4090_ended0of1_reference_queued",
+    "state": "remote_and_local_diagnostics_completed0of1",
     "seed": 260911803,
     "formal_credit": 0,
     "diagnostic": "independent exact path net contact views for target+8 hand bodies; original task aggregation stays8",
@@ -620,7 +634,10 @@
     "padpose_unit": "chembench-t290-ur5e-padpose-local4090.service",
     "local_reference_sampled_max_coordinate_difference_m": 0.003661513328552246,
     "local_reference_matched_tcp_samples": 184,
-    "remote_queue": "original2h admission expired without any attempt; retry0320 queued for6h with same UUID/locks/free-memory guards, no preemption"
+    "remote_queue": "Completed native0/1; previouswaitingstatewasstale; no activecollector inthisqueue",
+    "remote_native_success": 0,
+    "remote_attempts": 1,
+    "remote_log": "/data/safelab_collection_t290_20260910/ur5e_cylinder_pp_exactviews/exactviews_seed260911803/collection.log"
   },
   "ur5e_grasp100_pool_candidate": {
     "state": "independently_reviewed_repaired_candidate100_ready",
@@ -683,9 +700,9 @@
     }
   },
   "robot_candidate_progress": {
-    "complete_reviewed_candidate_pools": 7,
+    "complete_reviewed_candidate_pools": 8,
     "target_robot_datasets": 16,
-    "remaining_without_complete_candidate_pool": 9,
+    "remaining_without_complete_candidate_pool": 8,
     "canonical_promoted_in_this_phase": 0,
     "pool_keys": [
       "fr3_grasp100",
@@ -694,7 +711,8 @@
       "fr3_pickplace_cylinder100",
       "fr3_iron_stand100",
       "ur5e_grasp100",
-      "ur5e_iron_stand100"
+      "ur5e_iron_stand100",
+      "fr3_nesting250"
     ]
   },
   "fr3_beaker100_pool100": {
@@ -739,9 +757,9 @@
     "formal_credit": 0
   },
   "fr3_nesting250_continuation": {
-    "state": "topup50_completed_automatic_audit_PASS_independent_review_pending",
+    "state": "complete_candidate100_independent_review_PASS_not_canonical",
     "seed": 260912501,
-    "missing_topup": 50,
+    "missing_topup": 0,
     "attempt_limit": 75,
     "target": 50,
     "source_and_receiver_randomization_m": [
@@ -755,9 +773,6 @@
     "cpu_review_sha256": "f135c2518fde0cd65db546f56b841c59854fffa12ee7a51b6c30f732d42dc74e",
     "asset_crosshost_pins": 14,
     "formal_credit": 0,
-    "native_diagnostic_successes": 8,
-    "confirmation3_frames": 1749,
-    "confirmation3_videos": 9,
     "third_camera": "independent reconstructed camera passed3random confirmation; differs historicalv108; topup50admitted with explicitcamera/engine provenance",
     "camera_review_sha256": "c45e6ac1f446ddddce14779221211ff526cd6def5315c0758457bca89e442611",
     "new_camera_confirmation": {
@@ -779,20 +794,26 @@
       "target": 50,
       "attempt_limit": 75,
       "saved": 50,
-      "state": "completed_full_automatic_audit_PASS",
+      "state": "complete_independent_random_visual_review_PASS",
       "unit": "chembench-t290-fr3-nesting250-legacycam-topup50.service",
       "review_sha256": "ca6d11c257b4ecbf90d24c246a49f0c76ce013ca1f080bb69da18a1cd0fbe72d",
       "formal_credit": 0,
       "saved_frames": 29150,
       "progress_as_of": "2026-09-12T07:41:52.506201+08:00",
-      "qualification": "Full automatic audit passed; randomization/action-dedup CPU review passed bycurrentpanel snapshot. Independent sampledvisual and merged100 finalreview pending asof14:34snapshot.",
+      "qualification": "New50 independently reviewed; merged100 independently PASS; no canonical promotion",
       "seed": 260912501,
       "full_videos": 150,
-      "L3_flagged_episodes": 0
+      "L3_flagged_episodes": 0,
+      "independent_review_sha256": "3110b7c6193904f86a1ef3c6514b3e23aa3772ab97715c7cc01ce00688426e23"
     },
     "previous_confirmation_unit": "chembench-t290-fr3-nesting250-legacycam-confirmation3.service",
-    "current_unit": "chembench-t290-fr3-nesting250-legacycam-topup50.service",
-    "next": "Complete independentvisual and mergedold50candidate integrityreview; noformalpromotion"
+    "next": "Preserve reviewed candidate100 pending canonical registration; continue other incomplete tasks",
+    "completed_collection_unit": "chembench-t290-fr3-nesting250-legacycam-topup50.service",
+    "inherited_diagnostics": {
+      "native_diagnostic_successes": 8,
+      "confirmation3_frames": 1749,
+      "confirmation3_videos": 9
+    }
   },
   "ur5e_cylinder_xycal1": {
     "state": "failed_hold_no_saved_episode",
@@ -917,13 +938,88 @@
     "physical_lift_m": 0.080644,
     "actual_visual_frames": 9,
     "scene_appearance_check": "FAIL brightunsaturatedhead; inheritedsemiopaqueboundaryretained",
-    "next": "fixedanchor seed82342 confirmation3 armed, originalgates"
+    "next": "Fixed confirmation3 ended0/3; compare read-only pose traces for seeds82342 and82341",
+    "confirmation3": {
+      "state": "complete_native0of3",
+      "seed": 82342,
+      "saved": 0,
+      "target": 3,
+      "attempts": 3,
+      "formal_credit": 0,
+      "evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_fixed_reference_local4090_confirmation3/grasp250_fixed_confirm_seed82342/collection.log"
+    }
   },
   "supervision_gap": {
     "last_local_job_ended": "2026-09-12T07:53:33+08:00",
     "checked_idle": "2026-09-12T14:29:44+08:00",
     "reason": "Finitequeue exhausted; no followup launched until thissession resumed",
     "new_confirmation_unit": "chembench-t290-ur5e-grasp250-fixed-confirmation3-local4090.service",
-    "continuous_agent_supervision": false
+    "continuous_agent_supervision": false,
+    "classification": "historical_gap_preserved_not_current_idle",
+    "resumed_activity_as_of": "2026-09-12T14:58:58.758932+08:00"
+  },
+  "fr3_nesting250_pool100": {
+    "status": "PASS_INDEPENDENT_CANDIDATE100_NOT_CANONICAL",
+    "reviewer": "root",
+    "episodes": 100,
+    "frames": 58300,
+    "videos": 300,
+    "formal_credit": 0,
+    "source_columns": "Allsourcecolumns exact except explicit episode/taskindex mappings",
+    "episode_metadata": "Alloriginalepisodefields retained with mappedIDs; bothoriginaltaskstringspreserved",
+    "stats": "All12numericfeatures independentlyrecomputed",
+    "actions_unique": 100,
+    "video_integrity": "All300sourceSHAequal andindependentinodes; old150newlyfullffprobe+ffmpegdecode, new150priorfullaudit inherited afterSHAequality",
+    "L3_flags": 0,
+    "data_sha256": "99a46f3978a6eb97d4ed2dce9545aaff001c67211cae34e7b641fc9142e2a4b6",
+    "info_sha256": "6c9203d62fc5ca54eb113fce919458eeefad3add8e22123227671f501dc20629",
+    "lineage_sha256": "fb2b39f6733ad464b60500ec40c563bfdd6f8cdd0ec65507620715a8c56ab4c0",
+    "builder_verification_sha256": "4d51cce8bdd6159addf259d5dc37c98dd6b432c77eec46e3ecb2e72cbdbbc614",
+    "visual": "New50independentrevieweractual11episodes99frames withrangeextremes; rootactualEP00additional9views. Old50acceptedv108visualprovenance retained.",
+    "limitations": [
+      "Old50Isaac5.1/v108camera; new50Isaac4.5/reconstructedthirdcamera; noequivalenceclaim",
+      "Historicaldistanthead/partialocclusionretained",
+      "Independentcandidate only, no canonicalpromotion"
+    ],
+    "review_path": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_nesting250_pool100/REVIEW.json",
+    "review_sha256": "1c1de95477397dfe1c872148e39e2b58ad2c7a0fcbdd4d22f2d89d90c2d6e455",
+    "canonical_promoted": false
+  },
+  "ur5e_grasp250_pose_comparison": {
+    "as_of": "2026-09-12T14:58:58.758932+08:00",
+    "badseed": 82342,
+    "badseed_state": "diagnostic_running",
+    "badseed_unit": "chembench-t290-ur5e-grasp250-posetrace-badseed.service",
+    "goodseed": 82341,
+    "goodseed_state": "queued_after_badseed",
+    "goodseed_unit": "chembench-t290-ur5e-grasp250-posetrace-goodseed.service",
+    "target_each": 1,
+    "attempt_limit_each": 1,
+    "observer_sha256": "0909b2b8d7598706c01320aa156e85c39833cbc91643172d9d4fed788e4b85d8",
+    "review_sha256": "6eae230d5c429bbf464ae8125ef523e784cad85c636f15c01728655fde312ea6",
+    "original_physics_and_gates_retained": true,
+    "formal_credit": 0
+  },
+  "ur5e_cylinder_allreport0": {
+    "state": "complete_native0of1_original_uncontacted_lift_guard",
+    "target_and_eight_hand_thresholds_N": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "thresholds_runtime_verified": true,
+    "lift_at_failure_m": 0.02068936824798584,
+    "original_uncontacted_lift_guard_m": 0.02,
+    "native_successes": 0,
+    "attempts": 1,
+    "formal_credit": 0,
+    "evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_allreport0_local4090/allreport0_seed260911803/collection.log",
+    "qualification": "Report-threshold observation only; original success gate still failed"
   }
 }
