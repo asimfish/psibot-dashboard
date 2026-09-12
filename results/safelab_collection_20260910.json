@@ -1,12 +1,12 @@
 {
-  "as_of": "2026-09-12T20:27:19.901894+08:00",
+  "as_of": "2026-09-12T20:51:55.877059+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
-    "as_of": "2026-09-12T20:27:19.901894+08:00",
-    "state": "UR5 bulk active; FR3 V10 guarded diagnostic queue; cylinder diagnostic terminal under review",
+    "as_of": "2026-09-12T20:51:55.877059+08:00",
+    "state": "UR5 bulk continues around guarded diagnostics; cylinder V2 running; FR3 V11 waits V2 terminal and original resource guard",
     "snapshot_only": true,
-    "gpu": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 59 %, 13629 MiB"
+    "gpu": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 3 %, 18671 MiB"
   },
   "panel_scope": {
     "fr3": {
@@ -252,7 +252,7 @@
     "cause": "configured Bottle/Beaker003 mismatched USD defaultprim remap; actual rigid body Bottle/base"
   },
   "robot_worklist": {
-    "as_of": "2026-09-12T20:27:19.901894+08:00",
+    "as_of": "2026-09-12T20:51:55.877059+08:00",
     "target_datasets": 16,
     "rows": [
       {
@@ -321,7 +321,7 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "V9_native0of1_dynamic_support_unresolved_V10_observer_queued",
+        "state": "V10_original_spill_and_asymmetric_finger_interference_V11_x0_queued",
         "review": {
           "decision_path": null,
           "decision_sha256": null,
@@ -339,7 +339,7 @@
           "native_Pour_force25N_not_effective"
         ],
         "latest_evidence": "astra_candidates/fr3_pour100_plain_frame_v8_local4090_smoke1/INDEPENDENT_REVIEW.json",
-        "next_action": "Resolve runtime/table support and pregrasp contact geometry before further physical correction; native thresholds retained.",
+        "next_action": "Review V11 Xoffset0 singleparameter diagnostic after V2 predecessor; no initial height or native threshold changes.",
         "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v9_failure_review/REVIEW.json"
       },
       {
@@ -422,17 +422,17 @@
         "target": 100,
         "formal_accepted": 50,
         "formal_remaining": 50,
-        "state": "23_independently_qualified_unique_topup_bulk_continues",
-        "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST17.json",
-        "qualified_topup": 23,
+        "state": "26_independently_qualified_unique_topup_bulk_continues",
+        "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST20.json",
+        "qualified_topup": 26,
         "candidate_topup_remaining": 39,
         "latest_evidence": "astra_candidates/ur5e_grasp250_reuse_triangle_review/FINAL_REVIEW.json",
         "historical_dedup_boundary": "Original accepted50 contain only3 unique action arrays; retained historical counts do not imply100 globally unique trajectories.",
         "new_collection_needed": 29,
         "unique_topup_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST13.json",
         "next_action": "Continue bounded bulk with independent per-episode reviews; no formal promotion.",
-        "remaining_topup": 27,
-        "review_sha256": "59396f249c5bc33839476f513bfef3557d1d2efd91d3d55e8af55f731b96874b"
+        "remaining_topup": 24,
+        "review_sha256": "b004e5ecbb6f441f30309746bb610680a4180fa96b7c04c72bcf6aa23e0f964b"
       },
       {
         "robot": "ur5e",
@@ -463,9 +463,10 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "manifold_diagnostic_original20mm_guard_failed_reset_IK_exception_review_pending",
+        "state": "V1_native_guard_failure_reviewed_V2_extended_observer_running",
         "candidate_episodes": 0,
-        "next_action": "Review terminal evidence and prepare read-only observations of unobserved palm/wrist/table interactions; retain original20mm guard and controller."
+        "next_action": "Observe admitted V2 palm/wrist/contact and runtime table/target poses; retain original20mm guard and controller.",
+        "terminal_review_sha256": "49e6c9e207a9e0aa2d0bd8bdcc87dce218bcd40e444595b5712f8fc997598c34"
       },
       {
         "robot": "ur5e",
@@ -1262,19 +1263,19 @@
   },
   "ur5e_grasp250_topup_unique": {
     "target": 50,
-    "qualified_unique_candidates": 23,
-    "remaining": 27,
+    "qualified_unique_candidates": 26,
+    "remaining": 24,
     "components": {
       "reused": 4,
       "cold_batch6_new": 4,
       "triangle_D_E_F": 3,
-      "bulk_first17_new": 12
+      "bulk_first20_new": 15
     },
-    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST17.json",
+    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_grasp250_bulk_independent_review/REVIEW_FIRST20.json",
     "formal_credit": 0,
-    "frames": 11911,
-    "videos": 69,
-    "review_sha256": "59396f249c5bc33839476f513bfef3557d1d2efd91d3d55e8af55f731b96874b"
+    "frames": 13465,
+    "videos": 78,
+    "review_sha256": "b004e5ecbb6f441f30309746bb610680a4180fa96b7c04c72bcf6aa23e0f964b"
   },
   "fr3_pour100_plain_frame_v8": {
     "status": "NATIVE_FAILED_AFTER_SUCCESSFUL_INITIALIZATION",
@@ -1306,17 +1307,17 @@
     "state": "ACTIVE_BATCH_SNAPSHOT",
     "required_new_unique": 39,
     "max_attempts": 75,
-    "completed_qualified_in_bulk": 12,
+    "completed_qualified_in_bulk": 15,
     "unit": "chembench-t290-ur5-grasp250-triangle-bulk.service",
     "admission_sha256": "091d91c0006d42b643980dc23c4269a5a10d2b454eb0ccc6d04ec93b4ae5dee2",
     "independent_review_sha256": "3a48fd1293af4c7f2085391e6636f815383e9eaefff6a19e3089603568bac8c6",
     "formal_credit": 0,
-    "audited_attempts": 18,
-    "unique_automatic_candidates": 13,
+    "audited_attempts": 21,
+    "unique_automatic_candidates": 16,
     "native_failures": 5,
     "later_automatic_pending_independent": 1,
-    "reviewed_scope": "positions000-016",
-    "batch_state_evidence_sha256": "cc741d4a7d9dbc3774900db3f70f7ff3fe74085b36c59f144f89911e50db17ab"
+    "reviewed_scope": "positions000-019",
+    "batch_state_evidence_sha256": "ead7389a6f798f87767653fc4abc6a66a0b2947d8d1e8666c8efe6d415a000f8"
   },
   "fr3_pour100_cavity_v9": {
     "state": "TERMINAL_NATIVE0OF1_ORIGINAL_SPILL",
@@ -1376,24 +1377,27 @@
     },
     "log_sha256": "d0254cbee1d281bb0afdb86df42641470030bb4972f28fdbc9e7bad53ffdaf4a",
     "uncontacted_lift_m": 0.02068042755126953,
-    "independent_terminal_review_pending": true,
+    "independent_terminal_review_pending": false,
     "root_trace_summary_sha256": "7e254d0e650b861ef5816d71c3012710afe6191e31e2b495a3782706b7fc7a42",
     "sample_count": 24,
     "sampled_hand_pairs": 192,
     "sampled_stored_contact_count": 0,
-    "boundary": "8 hand bodies sampled every10 steps; not all robot body or all physics step contact coverage. Subsequent reset approach IK_FAIL is separate from original20mm failure."
+    "boundary": "8 hand bodies sampled every10 steps; not all robot body or all physics step contact coverage. Subsequent reset approach IK_FAIL is separate from original20mm failure.",
+    "terminal_review_sha256": "49e6c9e207a9e0aa2d0bd8bdcc87dce218bcd40e444595b5712f8fc997598c34",
+    "diagnostic_media": {
+      "unusable_mp4": 3,
+      "decoded_raw_jpg_per_camera": 233,
+      "cameras": 3,
+      "actual_viewed_frames": 15
+    }
   },
   "fr3_pour100_support_v10": {
-    "state": "waiting_admission",
+    "state": "TERMINAL_NATIVE0OF1_ORIGINAL_SPILL_REVIEWED",
     "admission_snapshot": {
-      "state": "waiting_admission",
-      "time": 1789216038.9586003,
+      "state": "diagnostic_ended_review_required",
+      "time": 1789216411.2158816,
       "formal_credit": 0,
-      "gpu": [
-        "GPU-7e048773-6e99-b431-101d-8b45724cce9f",
-        " 13663"
-      ],
-      "compute": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 733859"
+      "returncode": 0
     },
     "manifest_sha256": "bd51177447bc831d88d7716af55a5ff0da7ef69934a47899e1d123cf609df38d",
     "review_sha256": "1db60d3ef786317ab113ab8b33a4676c2fbe2d688736f6d1820a058405140da4",
@@ -1402,11 +1406,66 @@
     "physics_override_unchanged_from_v9": true,
     "new_readonly_observation": "Dynamic table actor pose/mass and transformed authored mesh rays at sourceXY; source and FR3 hand/body poses",
     "formal_credit": 0,
-    "runtime_result": null,
+    "runtime_result": {
+      "native_success": 0,
+      "attempts": 1,
+      "formal_credit": 0,
+      "independent_terminal_review_sha256": "f50dedc9c405d1d4e84942ce7191d1cbd720e9c1c1ab64911ef1e8fc14736f9c",
+      "initial_authored_cupbottom_clearance_m": 0.0006135859941850397,
+      "table_top_sampled_range_m": 4.364406848145208e-06,
+      "left_finger_cube_source_visual_overlap_from_step": 50,
+      "right_finger_sampled_source_visual_vertex_overlap": false,
+      "diagnostic_videos": 3,
+      "frames_per_video": 72,
+      "actual_viewed_frames": 18,
+      "boundary": "Authored geometry transformed by runtime pose and independent inverse cube tests; not cooked contact manifold causal proof."
+    },
     "limits": [
       "Current resolved 5-root asset pins captured; stock MDL/legacy sky unresolved, not full renderer closure",
       "No support, force or native success claim before runtime review",
       "Read-only observation overhead is not trajectory equivalence"
     ]
+  },
+  "ur5e_cylinder_extended_v2": {
+    "state": "diagnostic_running",
+    "admission_snapshot": {
+      "state": "diagnostic_running",
+      "time": 1789217245.005123,
+      "formal_credit": 0,
+      "pid": 797383,
+      "supervisor_sha256": "3777d5a174bc9c166b9b39d8a8ce5989951f397f3d243ff33d3b71a12bc594b9",
+      "gpu": [
+        "GPU-7e048773-6e99-b431-101d-8b45724cce9f",
+        " 23534"
+      ],
+      "compute": ""
+    },
+    "unit": "chembench-t290-ur5-cylinder-extended-v2.service",
+    "manifest_sha256": "a6335b4328db3f32fcabb3cd0cd50511b8db0bc7c5d195d9468ad055c8301341",
+    "review_sha256": "6d3fe7f51f61d7f06bd34e203d121573223e352f7be5db3e3ba76328ca8dee70",
+    "admission_sha256": "60249c61865270790947e98a2b458a2a4dfaf15f3ea3a6abeb4ab7b0d244bdd9",
+    "formal_credit": 0,
+    "native_result_reviewed": false,
+    "change": "Add four read-only existing-report contact pairs for palm and wrists; target/table/all16robot runtime pose and masses. Original8/override/controller/20mmguard unchanged.",
+    "limits": "Missingreporter/backend explicitUNAVAILABLE; dense115-234controlsteps not allphysicsstep force coverage; no newreport schema."
+  },
+  "fr3_pour100_x0_v11": {
+    "state": "waiting_predecessor",
+    "admission_snapshot": {
+      "state": "waiting_predecessor"
+    },
+    "unit": "chembench-t290-fr3-pour100-x0-v11.service",
+    "manifest_sha256": "5fbf6e42081a298b805e838ead5186f4e4bb94175ae5f875524b4dd222f9d8b6",
+    "review_sha256": "3e1f6aac7ab9ecb6211b8e273a5030bb2c5f1ce9222250ac1c7dc483e3c3e7c1",
+    "admission_sha256": "da5ef162c8f2b4b7864763fb0f1ffc25ae679e38655c6327a52945b1d04b9d04",
+    "formal_credit": 0,
+    "native_result_reviewed": false,
+    "change": {
+      "parameter": "grasp_offset[0]",
+      "old": 0.04305,
+      "new": 0.0
+    },
+    "counterfactual_review_sha256": "6d361424da0a3585b97cc0a02cd5428f39e1f7240911d64fb50d624cfd21e72a",
+    "limits": "Only one control parameter changed; all remaining override, initialpose,630fill,physics,nativegates and V10 observers unchanged. Replanning may alter entire trajectory; geometric translation is not runtime proof. Force/receiver acceptance remain unqualified."
   }
 }
