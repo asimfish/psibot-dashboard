@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-13T17:23:27.010232+08:00",
+  "as_of": "2026-09-13T17:51:58.613634+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
@@ -284,7 +284,7 @@
     "cause": "configured Bottle/Beaker003 mismatched USD defaultprim remap; actual rigid body Bottle/base"
   },
   "robot_worklist": {
-    "as_of": "2026-09-13T17:23:27.010232+08:00",
+    "as_of": "2026-09-13T17:51:58.613634+08:00",
     "target_datasets": 16,
     "rows": [
       {
@@ -489,20 +489,26 @@
         "target": 100,
         "formal_accepted": 50,
         "formal_remaining": 50,
-        "state": "all52_unused_inventory_rejected_original_L3_need50",
+        "state": "GPU1_ADMITTED_SCHEDULER_STARTED",
         "review": {
           "decision_path": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/pipeline/canonical_datasets/t035_candidate_audit/new_ur5e_2f85_pick_place_glass_beaker_100ml_v413_pool50/decision.json",
           "decision_sha256": "49369102388712eea4c845f3a1590a594246753a3f89c047102f836d7ce7f8e1",
           "recipe_file": null,
           "recipe_sha256": null,
-          "largest_blocker": "Full audit complete: all46 sink flags; ep20/36 downward jumps; not accepted.",
-          "next_action": "Diagnose physical flags and repair collection recipe; new collection requirement stays50 until individual qualification.",
+          "largest_blocker": "52 HOLD (old46+new6); initial-root-height flags lack historical table pose; oldep20/36 additional drops remainexcluded",
+          "next_action": "GPU1 isolated tabletrace diagnostic queued; original50remaining unchanged.",
           "source_dataset": "/mnt/nas/data/safelab/retreat/lyf-back/chembench/data/bjxy_5090_t035_pickplace_beaker100_ur5e_2f85_v413_pool50_20260805_162121/lerobot/pick_place/glass_beaker_100ml__ur5e_2f85/pool50"
         },
         "accepted_extra": 0,
         "new_collection_needed": 50,
-        "held_extra": 46,
-        "eligible_unused": 0
+        "held_extra": 52,
+        "eligible_unused": 0,
+        "next_action": "One-episode actualtablepose/nearview diagnostic;52inventory remainHOLD",
+        "formal_credit": 0,
+        "held_breakdown": {
+          "old": 46,
+          "new": 6
+        }
       },
       {
         "robot": "ur5e",
@@ -541,7 +547,7 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "WAITING_ADMISSION",
+        "state": "REVIEWED_NATIVE0_OF3_EMPTY_LIFT",
         "review": {
           "decision_path": null,
           "decision_sha256": null,
@@ -552,23 +558,11 @@
           "source_dataset": null
         },
         "recovery_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/pour_recipe_recovery/RECOVERY_STATUS.json",
-        "latest_remote_run": {
-          "bundle": "/data/safelab_collection_t290_20260910/ur5e_pour_beaker_v418b_logpath_gpu1_20260913",
-          "run": "v418b_seed83607",
-          "admission": {
-            "state": "waiting_admission",
-            "time": 1789291381.715865,
-            "formal_credit": 0,
-            "gpu": [
-              "GPU-828bb172-121c-cc55-7f4f-ef09a2bd7599",
-              " 32100"
-            ],
-            "compute": ""
-          }
-        },
         "candidate_episodes": 0,
         "formal_credit": 0,
-        "next_action": "Review original liquid/force/receiver and three-camera evidence before any batch."
+        "next_action": "Need full critical phase debug and close view; prior320substep cap misses grasp",
+        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_pour_beaker_v418b_terminal_review/REVIEW.json",
+        "terminal_review_sha256": "53d0afa9831d9a16906c7baa1e489bbcbc507d106a248c160d5e050453e50769"
       },
       {
         "robot": "ur5e",
@@ -14886,5 +14880,38 @@
     "explicit_replaces_old_150GiB_for_these_two_diagnostics": true,
     "historical_locks": "GPU0 four;GPU1 six; all preserved; disjoint",
     "warning": "5 second samples and termination delay are not hard filesystem quotas."
+  },
+  "latest_dispatch": {
+    "as_of": "2026-09-13T17:51:58.613634+08:00",
+    "ur5e_pour_beaker_v418b": {
+      "state": "REVIEWED_NATIVE0_OF3_EMPTY_LIFT",
+      "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_pour_beaker_v418b_terminal_review/REVIEW.json",
+      "review_sha256": "53d0afa9831d9a16906c7baa1e489bbcbc507d106a248c160d5e050453e50769",
+      "formal_credit": 0,
+      "debug_coverage_controls": [
+        0,
+        79
+      ],
+      "missed_contact_stop_control": 133
+    },
+    "ur5e_pickplace_beaker_tabletrace": {
+      "state": "GPU1_ADMITTED_SCHEDULER_STARTED",
+      "start_receipt": {
+        "as_of": "2026-09-13T17:51:31.104003+08:00",
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "Running as unit: chembench-t290-ur5e-pickplace-beaker-tabletrace-gpu1.service\n",
+        "review_sha256": "9931afb8fbb94e359e87a801c96a72e729852f4f05497d84756228b1f8a46fd4"
+      },
+      "approval_sha256": "9931afb8fbb94e359e87a801c96a72e729852f4f05497d84756228b1f8a46fd4",
+      "target1_max1": true,
+      "formal_credit": 0,
+      "previous_gpu0_queue": "stopped before collector; no run directory"
+    },
+    "fr3_gpu1": {
+      "state": "PORT_PREPARATION_NOT_RUNNING",
+      "runtime": "IsaacSim4.5/Python3.10 installed; isolatedcurobo ABI/compile verification pending",
+      "formal_credit": 0
+    }
   }
 }
