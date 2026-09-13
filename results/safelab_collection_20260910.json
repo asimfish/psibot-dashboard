@@ -1,13 +1,13 @@
 {
-  "as_of": "2026-09-13T08:10:59.585939+08:00",
+  "as_of": "2026-09-13T08:44:07.670317+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
-    "as_of": "2026-09-13T08:10:59.585939+08:00",
-    "gpu_observed_at": "2026-09-13T08:10:59.585939+08:00",
-    "gpu": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 89 %, 10322 MiB, 13747 MiB",
+    "as_of": "2026-09-13T08:43:31.400951+08:00",
+    "gpu_observed_at": "2026-09-13T08:43:31.400951+08:00",
+    "gpu": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 1 %, 9164 MiB, 14905 MiB",
     "snapshot_only": true,
-    "state": "FR3V29 diagnostic_running; UR5V11 reviewed terminal degraded motion; V12 prepared admissionpending."
+    "state": "FR3V30 running; UR5V14 independently admitted and queued after V30."
   },
   "panel_scope": {
     "fr3": {
@@ -253,7 +253,7 @@
     "cause": "configured Bottle/Beaker003 mismatched USD defaultprim remap; actual rigid body Bottle/base"
   },
   "robot_worklist": {
-    "as_of": "2026-09-13T08:10:59.585939+08:00",
+    "as_of": "2026-09-13T08:43:31.400951+08:00",
     "target_datasets": 16,
     "rows": [
       {
@@ -322,31 +322,30 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "V28_REVIEWED_DESCEND_SLIP_V29_DIAGNOSTIC_RUNNING",
+        "state": "fr3_pour100_transport_height_v29_REVIEWED_NATIVE_FAILURE",
         "review": {
           "decision_path": null,
           "decision_sha256": null,
           "recipe_file": null,
           "recipe_sha256": null,
-          "largest_blocker": "V28 source-hand relationship shifts55mm during descend; native receiver0. Existing target implies held source90mm belowinitial; height-only correction under test.",
-          "next_action": "Measure height-only V29 transport grip retention and native gates; then evaluate opening alignment under actual active orientation.",
+          "largest_blocker": "Descent drift<=0.108mm; tilt loses cup; final630source/receiver0/unaccounted0;3x540fullvideos/24actualimages.",
+          "next_action": "Review fr3_pour100_grip_force_v30 under unchanged originalgates.",
           "source_dataset": null,
           "cpu_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_actual_joint_limits_prepare/PARSER_CPU.json",
-          "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v28_independent_review/REVIEW.json",
-          "latest_terminal_review_sha256": "8682e71f610d13711a5b59588dc360663004993d4b381db4f6c7eef12ec9ddd4",
+          "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v29_independent_review/REVIEW.json",
+          "latest_terminal_review_sha256": "f5fe298ef0e506a32e1cca8bf56ac3723ec125040d44330114fc19048ced64e8",
           "historical_interpretation_superseded_by_V20": "V19 native/cavity counters classified630outside moving source; V20 exact constant particle readback means physical particle motion/spill is not established."
         },
         "recovery_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/pour_recipe_recovery/RECOVERY_STATUS.json",
         "candidate_episodes": 0,
         "quality_blockers": [
-          "tilt_hold_return_particle_transfer_failed_receiver_count_zero",
-          "force_receiver_physical_acceptance_unqualified",
-          "support_USD_shear_geometry_unsupported"
+          "Descent drift<=0.108mm; tilt loses cup; final630source/receiver0/unaccounted0;3x540fullvideos/24actualimages.",
+          "Fullforce/receiverqualificationincomplete"
         ],
-        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v28_independent_review/REVIEW.json",
-        "next_action": "Measure height-only V29 transport grip retention and native gates; then evaluate opening alignment under actual active orientation.",
-        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v28_independent_review/REVIEW.json",
-        "terminal_review_sha256": "8682e71f610d13711a5b59588dc360663004993d4b381db4f6c7eef12ec9ddd4",
+        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v29_independent_review/REVIEW.json",
+        "next_action": "Review fr3_pour100_grip_force_v30 under unchanged originalgates.",
+        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v29_independent_review/REVIEW.json",
+        "terminal_review_sha256": "f5fe298ef0e506a32e1cca8bf56ac3723ec125040d44330114fc19048ced64e8",
         "historical_quality_blockers": [
           "empty_CuRobo_YAML_skipped_planner_despite_required_flags",
           "interpolation_branch_ignored_finger_close_fraction",
@@ -354,10 +353,10 @@
           "force_receiver_physical_acceptance_unqualified",
           "V18_actual_held_lift_failed; superseded by V19 observed held lift"
         ],
-        "next_candidate": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour100_transport_height_v29_local4090_smoke1",
-        "next_manifest_sha256": "3458213dafe87363d2293ba7bcea1eb3f3e5a3ce526794bf40f46eee035e2966",
-        "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v28_independent_review/REVIEW.json",
-        "latest_terminal_review_sha256": "8682e71f610d13711a5b59588dc360663004993d4b381db4f6c7eef12ec9ddd4",
+        "next_candidate": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour100_grip_force_v30_local4090_smoke1",
+        "next_manifest_sha256": "351be21ebdc3a5376da7aa8ced90c31d146434f3368ebe4e79879137ab6111ab",
+        "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v29_independent_review/REVIEW.json",
+        "latest_terminal_review_sha256": "f5fe298ef0e506a32e1cca8bf56ac3723ec125040d44330114fc19048ced64e8",
         "formal_credit": 0,
         "next_candidate_state": "diagnostic_running"
       },
@@ -485,27 +484,32 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "V11_REVIEWED_MOTION_DEGRADED_V12_PREPARED",
+        "state": "ur5e_cylinder_upright_place_v13_REVIEWED_NATIVE_FAILURE",
         "candidate_episodes": 0,
-        "next_action": "Review V12 consistent CPU physics single diagnostic, compare actual initialstates against V11; no mixed-mode batch collection.",
-        "terminal_review_sha256": "8a29fef4127d3778f1b35cfa0f652c1e1444a2049356fdec3ddeea31d44778e7",
+        "next_action": "Review ur5e_cylinder_transport_trace_v14 under unchanged originalgates.",
+        "terminal_review_sha256": "8b0885a5954af7044a851755e109e523dfe638b7138f6bc83bbcb8f3104a64d6",
         "review": {
-          "largest_blocker": "V11 unstable motion/carry failure with different randomized initialpose; V10 original uncontactedlift rootcause unresolved.",
-          "next_action": "Review V12 consistent CPU physics single diagnostic, compare actual initialstates against V11; no mixed-mode batch collection.",
-          "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_cpu_tensor_v11_terminal_review/REVIEW.json",
-          "latest_terminal_review_sha256": "8a29fef4127d3778f1b35cfa0f652c1e1444a2049356fdec3ddeea31d44778e7"
+          "largest_blocker": "Stableuprightheldthrough330; abruptloss339; original60mmcarrygate47mm;3x340fullvideos/24actualimages. Forcewindowends235; lossmechanismunknown.",
+          "next_action": "Review ur5e_cylinder_transport_trace_v14 under unchanged originalgates.",
+          "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_upright_place_v13_terminal_review/REVIEW.json",
+          "latest_terminal_review_sha256": "8b0885a5954af7044a851755e109e523dfe638b7138f6bc83bbcb8f3104a64d6"
         },
-        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_cpu_tensor_v11_terminal_review/REVIEW.json",
-        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_cpu_tensor_v11_terminal_review/REVIEW.json",
-        "next_candidate": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_cpu_physics_v12_local4090",
-        "next_manifest_sha256": "850676e6767ff3e8af021860185a884868d59d30a9f56e1f93c2e3cca5a2bd93",
-        "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_cpu_tensor_v11_terminal_review/REVIEW.json",
-        "latest_terminal_review_sha256": "8a29fef4127d3778f1b35cfa0f652c1e1444a2049356fdec3ddeea31d44778e7",
+        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_upright_place_v13_terminal_review/REVIEW.json",
+        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_upright_place_v13_terminal_review/REVIEW.json",
+        "next_candidate": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_transport_trace_v14_local4090",
+        "next_manifest_sha256": "c2c95ce8c468ca9906b36c8e18a63372a4322f4776551704d1e1ac9f7b949ec2",
+        "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_upright_place_v13_terminal_review/REVIEW.json",
+        "latest_terminal_review_sha256": "8b0885a5954af7044a851755e109e523dfe638b7138f6bc83bbcb8f3104a64d6",
         "historical_terminal_reviews": [
           "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_handstatic_v7_terminal_review/REVIEW.json",
           "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_armstatic_v8_terminal_review/REVIEW.json"
         ],
-        "next_candidate_state": "PREPARED_INDEPENDENT_ADMISSION_PENDING"
+        "next_candidate_state": "ADMITTED_QUEUED_AFTER_V30",
+        "formal_credit": 0,
+        "quality_blockers": [
+          "Stableuprightheldthrough330; abruptloss339; original60mmcarrygate47mm;3x340fullvideos/24actualimages. Forcewindowends235; lossmechanismunknown.",
+          "Fullforce/receiverqualificationincomplete"
+        ]
       },
       {
         "robot": "ur5e",
@@ -14525,25 +14529,16 @@
     "limits": "Support geometry still rejects shear; near-table images cannot prove cooked contact; cavity-top audit point is not true mouth."
   },
   "fr3_pour100_transport_height_v29": {
-    "as_of": "2026-09-13T08:10:59.585939+08:00",
-    "state": "diagnostic_running",
-    "admission_snapshot": {
-      "state": "diagnostic_running",
-      "time": 1789257989.2027476,
-      "formal_credit": 0,
-      "pid": 2517622,
-      "supervisor_sha256": "744f7309ad9f9a1b13b01ca6e97a35835c991408aaf9367247a60613120a5dce",
-      "gpu": [
-        "GPU-7e048773-6e99-b431-101d-8b45724cce9f",
-        " 23534"
-      ],
-      "compute": ""
-    },
+    "as_of": "2026-09-13T08:43:31.400951+08:00",
+    "state": "TERMINAL_NATIVE_0_OF_1_INDEPENDENTLY_REVIEWED",
     "bundle": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour100_transport_height_v29_local4090_smoke1",
     "manifest_sha256": "3458213dafe87363d2293ba7bcea1eb3f3e5a3ce526794bf40f46eee035e2966",
     "independent_admission_sha256": "2c2568585b0eaabaa0ea3b3c59f8d59f608f5f7f5b0ad8df31b2c2f66b3ea4ec",
     "change": "Only pour_offsetZ .04->.17; original active orientation [90,-45,90], XY, physics and gates remain unchanged. Configured minus95 offset is overridden by nonnull pour_euler_deg.",
-    "formal_credit": 0
+    "formal_credit": 0,
+    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v29_independent_review/REVIEW.json",
+    "review_sha256": "f5fe298ef0e506a32e1cca8bf56ac3723ec125040d44330114fc19048ced64e8",
+    "result": "Descent drift<=0.108mm; tilt loses cup; final630source/receiver0/unaccounted0;3x540fullvideos/24actualimages."
   },
   "ur5e_cylinder_cpu_tensor_v11": {
     "as_of": "2026-09-13T08:10:59.585939+08:00",
@@ -14570,11 +14565,49 @@
     "initial_state_boundary": "CPU/CUDA torch.rand device paths differ; same seed does not ensure same pose. Same offset arrays but dynamics/initial state/motion differ, so not an isolated readback fix."
   },
   "ur5e_cylinder_cpu_physics_v12": {
-    "as_of": "2026-09-13T08:10:59.585939+08:00",
-    "state": "PREPARED_INDEPENDENT_ADMISSION_PENDING",
+    "as_of": "2026-09-13T08:43:31.400951+08:00",
+    "state": "TERMINAL_NATIVE_0_OF_1_INDEPENDENTLY_REVIEWED",
     "bundle": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_cpu_physics_v12_local4090",
     "manifest_sha256": "850676e6767ff3e8af021860185a884868d59d30a9f56e1f93c2e3cca5a2bd93",
     "formal_credit": 0,
-    "change": "V11 onlynativeoverride1->0, keepCPUtensor/RNGdevice/originalcontrols/offsets/solver/gates; compare actual initialposes/velocities, not GPUengine equivalence."
+    "change": "V11 onlynativeoverride1->0, keepCPUtensor/RNGdevice/originalcontrols/offsets/solver/gates; compare actual initialposes/velocities, not GPUengine equivalence.",
+    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_cpu_physics_v12_terminal_review/REVIEW.json",
+    "review_sha256": "aa26af4c53139a9a208af005c304afb7211ea42b60c8b6e94539c0813612dec5",
+    "result": "CPUphysics+CPUtensor realheld119mmlift; originalplace90degrotationtip;3x660fullvideos/24actualimages; noengineequivalence."
+  },
+  "ur5e_cylinder_upright_place_v13": {
+    "as_of": "2026-09-13T08:43:31.400951+08:00",
+    "state": "TERMINAL_NATIVE_0_OF_1_INDEPENDENTLY_REVIEWED",
+    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_upright_place_v13_terminal_review/REVIEW.json",
+    "review_sha256": "8b0885a5954af7044a851755e109e523dfe638b7138f6bc83bbcb8f3104a64d6",
+    "formal_credit": 0,
+    "result": "Stableuprightheldthrough330; abruptloss339; original60mmcarrygate47mm;3x340fullvideos/24actualimages. Forcewindowends235; lossmechanismunknown."
+  },
+  "fr3_pour100_grip_force_v30": {
+    "as_of": "2026-09-13T08:43:31.400951+08:00",
+    "state": "diagnostic_running",
+    "bundle": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour100_grip_force_v30_local4090_smoke1",
+    "manifest_sha256": "351be21ebdc3a5376da7aa8ced90c31d146434f3368ebe4e79879137ab6111ab",
+    "formal_credit": 0,
+    "admission_snapshot": {
+      "state": "diagnostic_running",
+      "time": 1789259935.0674455,
+      "formal_credit": 0,
+      "pid": 2598779,
+      "supervisor_sha256": "c0dd2d06b59342d0b5ec13c258c4dbe57ae21c73195a0d4ec2198d6a689dbb3f",
+      "gpu": [
+        "GPU-7e048773-6e99-b431-101d-8b45724cce9f",
+        " 23534"
+      ],
+      "compute": ""
+    }
+  },
+  "ur5e_cylinder_transport_trace_v14": {
+    "as_of": "2026-09-13T08:44:07.670317+08:00",
+    "state": "ADMITTED_QUEUED_AFTER_V30",
+    "bundle": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_transport_trace_v14_local4090",
+    "manifest_sha256": "c2c95ce8c468ca9906b36c8e18a63372a4322f4776551704d1e1ac9f7b949ec2",
+    "formal_credit": 0,
+    "admission_sha256": "4d929ea718dd3cdfdc365c1ca8b37188689c4c4682f0a83d5ced82dd1a4d43b3"
   }
 }
