@@ -18376,13 +18376,1265 @@
   ],
   "alignment": {
     "task": "T-309",
-    "updated": "2026-09-10T15:57:36.089323+00:00",
-    "status": "two corrected-budget 50k training controls launched; three-episode spatial probe; physical improvement not established",
+    "updated": "2026-09-13T09:44:09.454883+00:00",
+    "status": "both corrected-budget controls verified at 50000 updates; alcohol p9901 failed 0/3; matched brown-large h8 and h1 both failed; physical improvement not established",
+    "bounded_physical_receipts": {
+      "trace_status.json": {
+        "status": "probe_complete",
+        "gpu": "GPU-fd7b49d0-672c-e7a8-ad06-c66ba554be18, 3",
+        "checkpoint_sha256": "b0a24445e2a2733a3d4c2225d767ee52edd8a0a52016dbb55e1ff64bcb31a4e6",
+        "command": [
+          "bash",
+          "/home/dataset-local/yf_recovery/grasp_alignment_20260910/eval_trace.sh",
+          "7",
+          "dp",
+          "trace-brown-large-p9901-1ep",
+          "/home/dataset-local/yf_recovery/t282_a100_20260910/models/dp-rep12-v2ao-rgb-brown_reagent_bottle_large-p9901/checkpoints/checkpoints/latest.ckpt",
+          "42",
+          "brown_reagent_bottle_large",
+          "1"
+        ],
+        "goal_contract": "object_initial_plus_configured_vertical_lift",
+        "paper_ssr": null,
+        "formal_credit": 0,
+        "source_sha256": {
+          "eval_trace.sh": "2cea8cb81ddb11a52cac89d8566715c89b6bea12762cc7136978fa46e81d16bb",
+          "psilab_tasks/psilab_tasks/imitation_learning/grasp/grasp_task.py": "810abec31b83bdf372f77ab6c035eae72e1d105e88d4f7a610c1dd59c22f22d8"
+        },
+        "identity": {
+          "pid": 503765,
+          "state": "R",
+          "ppid": 503311,
+          "pgid": 503765,
+          "sid": 503765,
+          "start_ticks": 12080380,
+          "uid": 1000,
+          "cmd": "bash /home/dataset-local/yf_recovery/grasp_alignment_20260910/eval_trace.sh 7 dp trace-brown-large-p9901-1ep /home/dataset-local/yf_recovery/t282_a100_20260910/models/dp-rep12-v2ao-rgb-brown_reagent_bottle_large-p9901/checkpoints/checkpoints/latest.ckpt 42 brown_reagent_bottle_large 1",
+          "cwd": "/home/dataset-local/yf_recovery/grasp_alignment_20260910",
+          "exiting": false
+        },
+        "success_count_from_episodes": 0,
+        "trace_sha256": "a628aa0d554954bf29e63f05fe531baaece41e1fbbfd5147ab117e973f0a93f3",
+        "exit_code": 0,
+        "progress": {
+          "episode_num": 1,
+          "episode_success_num": 0,
+          "success_rate": 0.0,
+          "final": true,
+          "ssr": {
+            "n_trials": 1.0,
+            "success_rate": 0.0,
+            "safe_success_rate": 0.0,
+            "violation_rate": 1.0,
+            "theta_dev_mean": 1.0212808847427368,
+            "f_peak_mean": 438.9814453125,
+            "delta_p_mean": 364.0700378417969,
+            "theta_dev_valid_count": 1.0,
+            "f_peak_valid_count": 1.0,
+            "delta_p_valid_count": 1.0,
+            "theta_dev_coverage": 1.0,
+            "f_peak_coverage": 1.0,
+            "delta_p_coverage": 1.0
+          }
+        },
+        "episodes": [
+          {
+            "env_id": 0,
+            "success": false,
+            "theta_dev_peak": 1.0212808847427368,
+            "f_peak_observed": 438.9814453125,
+            "force_valid": true,
+            "delta_p_final": 364.0700378417969,
+            "delta_p_valid": true,
+            "episode_sequence": 1,
+            "alignment_schema": "grasp-spatial-screen-v1",
+            "goal_contract": "object_initial_world_xyz_plus_configured_vertical_lift",
+            "goal_w": [
+              -1.1320304870605469,
+              -5.1152143478393555,
+              1.3093640804290771
+            ],
+            "initial_object_w": [
+              -1.1320304870605469,
+              -5.1152143478393555,
+              1.0093640089035034
+            ],
+            "final_object_w": [
+              -1.092241644859314,
+              -5.292039394378662,
+              0.9936161637306213
+            ],
+            "desired_lift_m": 0.3,
+            "coarse_lift_ratio": 0.7,
+            "coarse_xy_drift_m": 0.12,
+            "terminal_step": 34,
+            "legacy_region_residual_mm": 233.90853881835938,
+            "paper_ssr": null,
+            "paper_calibration_verified": false
+          }
+        ]
+      },
+      "replay_original_status.json": {
+        "status": "failed",
+        "gpu": "GPU-fd7b49d0-672c-e7a8-ad06-c66ba554be18, 3",
+        "checkpoint_sha256": "b0a24445e2a2733a3d4c2225d767ee52edd8a0a52016dbb55e1ff64bcb31a4e6",
+        "command": [
+          "bash",
+          "/home/dataset-local/yf_recovery/grasp_alignment_20260910/eval_replay_original.sh",
+          "7",
+          "dp",
+          "replay-original-brown-large-1ep",
+          "/home/dataset-local/yf_recovery/t282_a100_20260910/models/dp-rep12-v2ao-rgb-brown_reagent_bottle_large-p9901/checkpoints/checkpoints/latest.ckpt",
+          "42",
+          "brown_reagent_bottle_large",
+          "1"
+        ],
+        "goal_contract": "object_initial_plus_configured_vertical_lift",
+        "paper_ssr": null,
+        "formal_credit": 0,
+        "source_sha256": {
+          "eval_replay_original.sh": "0567ada435f086bc39d6c8bebd56ff2088952b278aaa0eea3cb88d9af2b8af9b",
+          "psilab_tasks/psilab_tasks/imitation_learning/grasp/grasp_task.py": "810abec31b83bdf372f77ab6c035eae72e1d105e88d4f7a610c1dd59c22f22d8"
+        },
+        "diagnostic_action_source": "original",
+        "policy_score": false,
+        "replay_manifest_sha256": "18da32d8d6c50ccd9b8979dd19ff9dbecf878e31033d10fff3b5935be3f3295e",
+        "identity": {
+          "pid": 525827,
+          "state": "R",
+          "ppid": 525790,
+          "pgid": 525827,
+          "sid": 525827,
+          "start_ticks": 12134091,
+          "uid": 1000,
+          "cmd": "bash /home/dataset-local/yf_recovery/grasp_alignment_20260910/eval_replay_original.sh 7 dp replay-original-brown-large-1ep /home/dataset-local/yf_recovery/t282_a100_20260910/models/dp-rep12-v2ao-rgb-brown_reagent_bottle_large-p9901/checkpoints/checkpoints/latest.ckpt 42 brown_reagent_bottle_large 1",
+          "cwd": "/home/dataset-local/yf_recovery/grasp_alignment_20260910",
+          "exiting": false
+        },
+        "success_count_from_episodes": 1,
+        "trace_sha256": "1b8032ed996c773cf4364e1269cccb34b364180f8df2dbc344e175ba14a39c17",
+        "error": "ModuleNotFoundError: No module named 'numpy'"
+      },
+      "replay_original_postcheck.json": {
+        "status": "postcheck_passed",
+        "original_controller_status_preserved": true,
+        "input_contract": {
+          "verified": true,
+          "rows": 180,
+          "action_channels": 13,
+          "source_frames": 57,
+          "replay_state_apply": false,
+          "initial_positions_match": true,
+          "full_initial_physics_state_reproduced": false,
+          "boundary": "Velocities initialized to zero; after57source frames hold final action. Not policy evaluation."
+        },
+        "progress": {
+          "episode_num": 1,
+          "episode_success_num": 1,
+          "success_rate": 1.0,
+          "final": true,
+          "ssr": {
+            "n_trials": 1.0,
+            "success_rate": 1.0,
+            "safe_success_rate": 0.0,
+            "violation_rate": 1.0,
+            "theta_dev_mean": 0.0221538245677948,
+            "f_peak_mean": 78.08985900878906,
+            "delta_p_mean": 29.849063873291016,
+            "theta_dev_valid_count": 1.0,
+            "f_peak_valid_count": 1.0,
+            "delta_p_valid_count": 1.0,
+            "theta_dev_coverage": 1.0,
+            "f_peak_coverage": 1.0,
+            "delta_p_coverage": 1.0
+          }
+        },
+        "episodes": [
+          {
+            "env_id": 0,
+            "success": true,
+            "theta_dev_peak": 0.0221538245677948,
+            "f_peak_observed": 78.08985900878906,
+            "force_valid": true,
+            "delta_p_final": 29.849063873291016,
+            "delta_p_valid": true,
+            "episode_sequence": 1,
+            "alignment_schema": "grasp-spatial-screen-v1",
+            "goal_contract": "object_initial_world_xyz_plus_configured_vertical_lift",
+            "goal_w": [
+              -1.1343556642532349,
+              -5.108212947845459,
+              1.309358835220337
+            ],
+            "initial_object_w": [
+              -1.1343556642532349,
+              -5.108212947845459,
+              1.0093588829040527
+            ],
+            "final_object_w": [
+              -1.1371939182281494,
+              -5.083425045013428,
+              1.2929737567901611
+            ],
+            "desired_lift_m": 0.3,
+            "coarse_lift_ratio": 0.7,
+            "coarse_xy_drift_m": 0.12,
+            "terminal_step": 179,
+            "legacy_region_residual_mm": 0.0,
+            "paper_ssr": null,
+            "paper_calibration_verified": false
+          }
+        ],
+        "formal_credit": 0,
+        "paper_ssr": null
+      },
+      "replay_relabeled_status.json": {
+        "status": "probe_complete",
+        "gpu": "GPU-fd7b49d0-672c-e7a8-ad06-c66ba554be18, 3",
+        "checkpoint_sha256": "b0a24445e2a2733a3d4c2225d767ee52edd8a0a52016dbb55e1ff64bcb31a4e6",
+        "command": [
+          "bash",
+          "/home/dataset-local/yf_recovery/grasp_alignment_20260910/eval_replay_relabeled.sh",
+          "7",
+          "dp",
+          "replay-relabeled-brown-large-1ep",
+          "/home/dataset-local/yf_recovery/t282_a100_20260910/models/dp-rep12-v2ao-rgb-brown_reagent_bottle_large-p9901/checkpoints/checkpoints/latest.ckpt",
+          "42",
+          "brown_reagent_bottle_large",
+          "1"
+        ],
+        "goal_contract": "object_initial_plus_configured_vertical_lift",
+        "paper_ssr": null,
+        "formal_credit": 0,
+        "source_sha256": {
+          "eval_replay_relabeled.sh": "4c1e929629199e8e554d026c2805a1d16c4f7110a14ece2f4f2a94e77349ef47",
+          "psilab_tasks/psilab_tasks/imitation_learning/grasp/grasp_task.py": "810abec31b83bdf372f77ab6c035eae72e1d105e88d4f7a610c1dd59c22f22d8"
+        },
+        "diagnostic_action_source": "relabeled",
+        "policy_score": false,
+        "replay_manifest_sha256": "18da32d8d6c50ccd9b8979dd19ff9dbecf878e31033d10fff3b5935be3f3295e",
+        "identity": {
+          "pid": 569509,
+          "state": "R",
+          "ppid": 569246,
+          "pgid": 569509,
+          "sid": 569509,
+          "start_ticks": 12211438,
+          "uid": 1000,
+          "cmd": "bash /home/dataset-local/yf_recovery/grasp_alignment_20260910/eval_replay_relabeled.sh 7 dp replay-relabeled-brown-large-1ep /home/dataset-local/yf_recovery/t282_a100_20260910/models/dp-rep12-v2ao-rgb-brown_reagent_bottle_large-p9901/checkpoints/checkpoints/latest.ckpt 42 brown_reagent_bottle_large 1",
+          "cwd": "/home/dataset-local/yf_recovery/grasp_alignment_20260910",
+          "exiting": false
+        },
+        "success_count_from_episodes": 1,
+        "trace_sha256": "4224c84f795cd57e365acab1098e100d1283a16be1479fa6128f77aeb3b0ff85",
+        "input_contract": {
+          "verified": true,
+          "rows": 180,
+          "action_channels": 13,
+          "source_frames": 57,
+          "replay_state_apply": false,
+          "initial_positions_match": true,
+          "full_initial_physics_state_reproduced": false,
+          "boundary": "Velocities initialized to zero; after57source frames hold final action. Not policy evaluation."
+        },
+        "exit_code": 0,
+        "progress": {
+          "episode_num": 1,
+          "episode_success_num": 1,
+          "success_rate": 1.0,
+          "final": true,
+          "ssr": {
+            "n_trials": 1.0,
+            "success_rate": 1.0,
+            "safe_success_rate": 0.0,
+            "violation_rate": 1.0,
+            "theta_dev_mean": 0.14159025251865387,
+            "f_peak_mean": 775.3695678710938,
+            "delta_p_mean": 31.75490379333496,
+            "theta_dev_valid_count": 1.0,
+            "f_peak_valid_count": 1.0,
+            "delta_p_valid_count": 1.0,
+            "theta_dev_coverage": 1.0,
+            "f_peak_coverage": 1.0,
+            "delta_p_coverage": 1.0
+          }
+        },
+        "episodes": [
+          {
+            "env_id": 0,
+            "success": true,
+            "theta_dev_peak": 0.14159025251865387,
+            "f_peak_observed": 775.3695678710938,
+            "force_valid": true,
+            "delta_p_final": 31.75490379333496,
+            "delta_p_valid": true,
+            "episode_sequence": 1,
+            "alignment_schema": "grasp-spatial-screen-v1",
+            "goal_contract": "object_initial_world_xyz_plus_configured_vertical_lift",
+            "goal_w": [
+              -1.1343556642532349,
+              -5.108212947845459,
+              1.309358835220337
+            ],
+            "initial_object_w": [
+              -1.1343556642532349,
+              -5.108212947845459,
+              1.0093588829040527
+            ],
+            "final_object_w": [
+              -1.1378791332244873,
+              -5.07923698425293,
+              1.2968547344207764
+            ],
+            "desired_lift_m": 0.3,
+            "coarse_lift_ratio": 0.7,
+            "coarse_xy_drift_m": 0.12,
+            "terminal_step": 179,
+            "legacy_region_residual_mm": 0.0,
+            "paper_ssr": null,
+            "paper_calibration_verified": false
+          }
+        ]
+      },
+      "alcohol_p9901_pilot_status.json": {
+        "status": "probe_complete",
+        "gpu": "GPU-fd7b49d0-672c-e7a8-ad06-c66ba554be18, 3",
+        "checkpoint_sha256": "ba9e3bb21da8bf4a77783a4c111b07ca0d51615d5604871c9a691cfdf55fe5be",
+        "command": [
+          "bash",
+          "/home/dataset-local/yf_recovery/grasp_alignment_20260910/eval_screen.sh",
+          "7",
+          "dp",
+          "budgetfix-alcohol-p9901-3ep",
+          "/home/dataset-local/yf_recovery/grasp_alignment_20260910/models/alcohol-p9901.ckpt",
+          "42",
+          "alcohol_lamp",
+          "1"
+        ],
+        "goal_contract": "object_initial_plus_configured_vertical_lift",
+        "paper_ssr": null,
+        "formal_credit": 0,
+        "source_sha256": {
+          "eval_screen.sh": "776fcc7e234ee7970aaf07274c436747e22ef8c23f52249f0684a058189592d2",
+          "psilab_tasks/psilab_tasks/imitation_learning/grasp/grasp_task.py": "810abec31b83bdf372f77ab6c035eae72e1d105e88d4f7a610c1dd59c22f22d8"
+        },
+        "identity": {
+          "pid": 2086011,
+          "state": "R",
+          "ppid": 2064452,
+          "pgid": 2086011,
+          "sid": 2086011,
+          "start_ticks": 14328180,
+          "uid": 1000,
+          "cmd": "bash /home/dataset-local/yf_recovery/grasp_alignment_20260910/eval_screen.sh 7 dp budgetfix-alcohol-p9901-3ep /home/dataset-local/yf_recovery/grasp_alignment_20260910/models/alcohol-p9901.ckpt 42 alcohol_lamp 1",
+          "cwd": "/home/dataset-local/yf_recovery/grasp_alignment_20260910",
+          "exiting": false
+        },
+        "success_count_from_episodes": 0,
+        "exit_code": 0,
+        "progress": {
+          "episode_num": 3,
+          "episode_success_num": 0,
+          "success_rate": 0.0,
+          "final": true,
+          "ssr": {
+            "n_trials": 3.0,
+            "success_rate": 0.0,
+            "safe_success_rate": 0.0,
+            "violation_rate": 1.0,
+            "theta_dev_mean": 0.7932254076004028,
+            "f_peak_mean": 1081.6057942708333,
+            "delta_p_mean": 255.8578847249349,
+            "theta_dev_valid_count": 3.0,
+            "f_peak_valid_count": 3.0,
+            "delta_p_valid_count": 3.0,
+            "theta_dev_coverage": 1.0,
+            "f_peak_coverage": 1.0,
+            "delta_p_coverage": 1.0
+          }
+        },
+        "episodes": [
+          {
+            "env_id": 0,
+            "success": false,
+            "theta_dev_peak": 1.0765175819396973,
+            "f_peak_observed": 863.1934814453125,
+            "force_valid": true,
+            "delta_p_final": 278.7971496582031,
+            "delta_p_valid": true,
+            "episode_sequence": 1,
+            "alignment_schema": "grasp-spatial-screen-v1",
+            "goal_contract": "object_initial_world_xyz_plus_configured_vertical_lift",
+            "goal_w": [
+              -1.1312955617904663,
+              -5.115031719207764,
+              1.199981689453125
+            ],
+            "initial_object_w": [
+              -1.1312955617904663,
+              -5.115031719207764,
+              0.9999816417694092
+            ],
+            "final_object_w": [
+              -1.124800205230713,
+              -4.953391075134277,
+              0.972917914390564
+            ],
+            "desired_lift_m": 0.2,
+            "coarse_lift_ratio": 0.7,
+            "coarse_xy_drift_m": 0.12,
+            "terminal_step": 179,
+            "legacy_region_residual_mm": 172.2065887451172,
+            "paper_ssr": null,
+            "paper_calibration_verified": false
+          },
+          {
+            "env_id": 0,
+            "success": false,
+            "theta_dev_peak": 1.078453779220581,
+            "f_peak_observed": 1282.4454345703125,
+            "force_valid": true,
+            "delta_p_final": 235.1169891357422,
+            "delta_p_valid": true,
+            "episode_sequence": 2,
+            "alignment_schema": "grasp-spatial-screen-v1",
+            "goal_contract": "object_initial_world_xyz_plus_configured_vertical_lift",
+            "goal_w": [
+              -1.1405863761901855,
+              -5.114001274108887,
+              1.1999760866165161
+            ],
+            "initial_object_w": [
+              -1.1405863761901855,
+              -5.114001274108887,
+              0.9999760389328003
+            ],
+            "final_object_w": [
+              -1.1403474807739258,
+              -5.052882194519043,
+              0.9729421734809875
+            ],
+            "desired_lift_m": 0.2,
+            "coarse_lift_ratio": 0.7,
+            "coarse_xy_drift_m": 0.12,
+            "terminal_step": 179,
+            "legacy_region_residual_mm": 167.0338592529297,
+            "paper_ssr": null,
+            "paper_calibration_verified": false
+          },
+          {
+            "env_id": 0,
+            "success": false,
+            "theta_dev_peak": 0.22470486164093018,
+            "f_peak_observed": 1099.178466796875,
+            "force_valid": true,
+            "delta_p_final": 253.65951538085938,
+            "delta_p_valid": true,
+            "episode_sequence": 3,
+            "alignment_schema": "grasp-spatial-screen-v1",
+            "goal_contract": "object_initial_world_xyz_plus_configured_vertical_lift",
+            "goal_w": [
+              -1.1471482515335083,
+              -5.11695671081543,
+              1.1999709606170654
+            ],
+            "initial_object_w": [
+              -1.1471482515335083,
+              -5.11695671081543,
+              0.9999709129333496
+            ],
+            "final_object_w": [
+              -1.2451119422912598,
+              -4.9569315910339355,
+              1.0292717218399048
+            ],
+            "desired_lift_m": 0.2,
+            "coarse_lift_ratio": 0.7,
+            "coarse_xy_drift_m": 0.12,
+            "terminal_step": 29,
+            "legacy_region_residual_mm": 129.72314453125,
+            "paper_ssr": null,
+            "paper_calibration_verified": false
+          }
+        ]
+      },
+      "matched_policy_status.json": {
+        "status": "probe_complete",
+        "gpu": "GPU-fd7b49d0-672c-e7a8-ad06-c66ba554be18, 3",
+        "checkpoint_sha256": "b0a24445e2a2733a3d4c2225d767ee52edd8a0a52016dbb55e1ff64bcb31a4e6",
+        "command": [
+          "bash",
+          "/home/dataset-local/yf_recovery/grasp_alignment_20260910/eval_matched_policy.sh",
+          "7",
+          "dp",
+          "matched-policy-brown-large-p9901-1ep",
+          "/home/dataset-local/yf_recovery/t282_a100_20260910/models/dp-rep12-v2ao-rgb-brown_reagent_bottle_large-p9901/checkpoints/checkpoints/latest.ckpt",
+          "42",
+          "brown_reagent_bottle_large",
+          "1"
+        ],
+        "goal_contract": "object_initial_plus_configured_vertical_lift",
+        "paper_ssr": null,
+        "formal_credit": 0,
+        "source_sha256": {
+          "eval_matched_policy.sh": "24495895155c4b6e394a1384e4be2f97092d8d99d19a5a0cad36c2b379f30939",
+          "psilab_tasks/psilab_tasks/imitation_learning/grasp/grasp_task.py": "810abec31b83bdf372f77ab6c035eae72e1d105e88d4f7a610c1dd59c22f22d8"
+        },
+        "identity": {
+          "pid": 3820096,
+          "state": "R",
+          "ppid": 3819774,
+          "pgid": 3820096,
+          "sid": 3820096,
+          "start_ticks": 16705399,
+          "uid": 1000,
+          "cmd": "bash /home/dataset-local/yf_recovery/grasp_alignment_20260910/eval_matched_policy.sh 7 dp matched-policy-brown-large-p9901-1ep /home/dataset-local/yf_recovery/t282_a100_20260910/models/dp-rep12-v2ao-rgb-brown_reagent_bottle_large-p9901/checkpoints/checkpoints/latest.ckpt 42 brown_reagent_bottle_large 1",
+          "cwd": "/home/dataset-local/yf_recovery/grasp_alignment_20260910",
+          "exiting": false
+        },
+        "success_count_from_episodes": 0,
+        "trace_sha256": "1dd21be68cb8d2179d8ae6e5497a60d008f11ed500cbc0a8b4c729f478e240d9",
+        "matched_initial_positions_verified": true,
+        "reference_trace_sha256": "4224c84f795cd57e365acab1098e100d1283a16be1479fa6128f77aeb3b0ff85",
+        "exit_code": 0,
+        "progress": {
+          "episode_num": 1,
+          "episode_success_num": 0,
+          "success_rate": 0.0,
+          "final": true,
+          "ssr": {
+            "n_trials": 1.0,
+            "success_rate": 0.0,
+            "safe_success_rate": 0.0,
+            "violation_rate": 1.0,
+            "theta_dev_mean": 0.9607948660850525,
+            "f_peak_mean": 1910.144775390625,
+            "delta_p_mean": 385.82843017578125,
+            "theta_dev_valid_count": 1.0,
+            "f_peak_valid_count": 1.0,
+            "delta_p_valid_count": 1.0,
+            "theta_dev_coverage": 1.0,
+            "f_peak_coverage": 1.0,
+            "delta_p_coverage": 1.0
+          }
+        },
+        "episodes": [
+          {
+            "env_id": 0,
+            "success": false,
+            "theta_dev_peak": 0.9607948660850525,
+            "f_peak_observed": 1910.144775390625,
+            "force_valid": true,
+            "delta_p_final": 385.82843017578125,
+            "delta_p_valid": true,
+            "episode_sequence": 1,
+            "alignment_schema": "grasp-spatial-screen-v1",
+            "goal_contract": "object_initial_world_xyz_plus_configured_vertical_lift",
+            "goal_w": [
+              -1.1343556642532349,
+              -5.108212947845459,
+              1.309358835220337
+            ],
+            "initial_object_w": [
+              -1.1343556642532349,
+              -5.108212947845459,
+              1.0093588829040527
+            ],
+            "final_object_w": [
+              -1.120947241783142,
+              -5.300467014312744,
+              0.9751101732254028
+            ],
+            "desired_lift_m": 0.3,
+            "coarse_lift_ratio": 0.7,
+            "coarse_xy_drift_m": 0.12,
+            "terminal_step": 43,
+            "legacy_region_residual_mm": 254.8446044921875,
+            "paper_ssr": null,
+            "paper_calibration_verified": false
+          }
+        ]
+      },
+      "matched_h1_status.json": {
+        "status": "probe_complete",
+        "gpu": "GPU-fd7b49d0-672c-e7a8-ad06-c66ba554be18, 3",
+        "checkpoint_sha256": "b0a24445e2a2733a3d4c2225d767ee52edd8a0a52016dbb55e1ff64bcb31a4e6",
+        "command": [
+          "bash",
+          "/home/dataset-local/yf_recovery/grasp_alignment_20260910/eval_matched_h1.sh",
+          "7",
+          "dp",
+          "matched-h1-brown-large-p9901-1ep",
+          "/home/dataset-local/yf_recovery/t282_a100_20260910/models/dp-rep12-v2ao-rgb-brown_reagent_bottle_large-p9901/checkpoints/checkpoints/latest.ckpt",
+          "42",
+          "brown_reagent_bottle_large",
+          "1"
+        ],
+        "goal_contract": "object_initial_plus_configured_vertical_lift",
+        "paper_ssr": null,
+        "formal_credit": 0,
+        "source_sha256": {
+          "eval_matched_h1.sh": "cf2778c1e25e4d9d4105451734bb44e432ae150957e88a3d6cc7c00d9913dba0",
+          "psilab_tasks/psilab_tasks/imitation_learning/grasp/grasp_task.py": "810abec31b83bdf372f77ab6c035eae72e1d105e88d4f7a610c1dd59c22f22d8"
+        },
+        "identity": {
+          "pid": 3840819,
+          "state": "R",
+          "ppid": 3840671,
+          "pgid": 3840819,
+          "sid": 3840819,
+          "start_ticks": 16730219,
+          "uid": 1000,
+          "cmd": "bash /home/dataset-local/yf_recovery/grasp_alignment_20260910/eval_matched_h1.sh 7 dp matched-h1-brown-large-p9901-1ep /home/dataset-local/yf_recovery/t282_a100_20260910/models/dp-rep12-v2ao-rgb-brown_reagent_bottle_large-p9901/checkpoints/checkpoints/latest.ckpt 42 brown_reagent_bottle_large 1",
+          "cwd": "/home/dataset-local/yf_recovery/grasp_alignment_20260910",
+          "exiting": false
+        },
+        "success_count_from_episodes": 0,
+        "trace_sha256": "a0cc668008511ba78160a0cef68224f13fbf0fcd9d8ad9d8e05d4090645defe1",
+        "matched_initial_positions_verified": true,
+        "reference_trace_sha256": "4224c84f795cd57e365acab1098e100d1283a16be1479fa6128f77aeb3b0ff85",
+        "baseline_pair_identity_verified": true,
+        "exit_code": 0,
+        "progress": {
+          "episode_num": 1,
+          "episode_success_num": 0,
+          "success_rate": 0.0,
+          "final": true,
+          "ssr": {
+            "n_trials": 1.0,
+            "success_rate": 0.0,
+            "safe_success_rate": 0.0,
+            "violation_rate": 1.0,
+            "theta_dev_mean": 0.9420315027236938,
+            "f_peak_mean": 583.44189453125,
+            "delta_p_mean": 349.92236328125,
+            "theta_dev_valid_count": 1.0,
+            "f_peak_valid_count": 1.0,
+            "delta_p_valid_count": 1.0,
+            "theta_dev_coverage": 1.0,
+            "f_peak_coverage": 1.0,
+            "delta_p_coverage": 1.0
+          }
+        },
+        "episodes": [
+          {
+            "env_id": 0,
+            "success": false,
+            "theta_dev_peak": 0.9420315027236938,
+            "f_peak_observed": 583.44189453125,
+            "force_valid": true,
+            "delta_p_final": 349.92236328125,
+            "delta_p_valid": true,
+            "episode_sequence": 1,
+            "alignment_schema": "grasp-spatial-screen-v1",
+            "goal_contract": "object_initial_world_xyz_plus_configured_vertical_lift",
+            "goal_w": [
+              -1.1343556642532349,
+              -5.108212947845459,
+              1.309358835220337
+            ],
+            "initial_object_w": [
+              -1.1343556642532349,
+              -5.108212947845459,
+              1.0093588829040527
+            ],
+            "final_object_w": [
+              -1.0977652072906494,
+              -5.203485012054443,
+              0.974649965763092
+            ],
+            "desired_lift_m": 0.3,
+            "coarse_lift_ratio": 0.7,
+            "coarse_xy_drift_m": 0.12,
+            "terminal_step": 179,
+            "legacy_region_residual_mm": 244.7089080810547,
+            "paper_ssr": null,
+            "paper_calibration_verified": false
+          }
+        ]
+      },
+      "raw_one_status.json": {
+        "status": "failed",
+        "formal_credit": 0,
+        "training_admitted": false,
+        "max_attempts": 1,
+        "success_target": 0,
+        "save_failed": true,
+        "temporal_contract": "raw post-physics observations and currently applied targets; future-action alignment not certified",
+        "source_sha256": {
+          "/home/dataset-local/yf_recovery/grasp_alignment_20260910/collect_raw_one.sh": "d20bd1d17d650d00c99b191ee7109155baf9abbb532efc39eb5e5c6e55f86cb0",
+          "/home/dataset-local/liyufeng/evalnode/chembench/psilab/scripts_psi/workflows/motion_planning/play.py": "d0c973a93eddbd57cc8b721aa4f2030d8375295a3badc7a210a54a09ff4533cd",
+          "/home/dataset-local/yf_recovery/grasp_alignment_20260910/psilab_tasks/psilab_tasks/imitation_learning/base/base_mp_task.py": "c41d48fe6c085e46b258b3d9e294ec3ff48bbe5d3b965af1c575dca30f9d2a3c",
+          "/home/dataset-local/yf_recovery/grasp_alignment_20260910/psilab_tasks/psilab_tasks/imitation_learning/base/lerobot_mp_helpers.py": "825f3a1a0dd20fcd73b274b9d951257307ffbb269ca48b632a46daf8bb612e43",
+          "/home/dataset-local/yf_recovery/grasp_alignment_20260910/collect_raw_entry.py": "586e4ce4259e54d7638354364a5d1967a3f70c0991198adddb957b8af57cf018"
+        },
+        "identity": {
+          "pid": 4170468,
+          "state": "R",
+          "ppid": 4170101,
+          "pgid": 4170468,
+          "sid": 4170468,
+          "start_ticks": 17137027,
+          "uid": 1000,
+          "cmd": "bash /home/dataset-local/yf_recovery/grasp_alignment_20260910/collect_raw_one.sh",
+          "cwd": "/home/dataset-local/yf_recovery/grasp_alignment_20260910",
+          "exiting": false
+        },
+        "error": "FileNotFoundError: [Errno 2] No such file or directory: '/home/dataset-local/yf_recovery/grasp_alignment_20260910/raw_brown_large_seed260911901/import_origins.json'"
+      },
+      "raw_confirmation_status.json": {
+        "status": "raw_collected_pending_audit",
+        "formal_credit": 0,
+        "training_admitted": false,
+        "max_attempts": 3,
+        "success_target": 0,
+        "save_failed": true,
+        "temporal_contract": "raw post-physics observations and currently applied targets; future-action alignment not certified",
+        "source_sha256": {
+          "/home/dataset-local/yf_recovery/grasp_alignment_20260910/collect_raw_confirmation.sh": "f2ff1d947b0d6dd7084127b85348ee2b0a42a2bba3f5df72fe43cb696060b011",
+          "/home/dataset-local/liyufeng/evalnode/chembench/psilab/scripts_psi/workflows/motion_planning/play.py": "d0c973a93eddbd57cc8b721aa4f2030d8375295a3badc7a210a54a09ff4533cd",
+          "/home/dataset-local/yf_recovery/grasp_alignment_20260910/psilab_tasks/psilab_tasks/imitation_learning/base/base_mp_task.py": "c41d48fe6c085e46b258b3d9e294ec3ff48bbe5d3b965af1c575dca30f9d2a3c",
+          "/home/dataset-local/yf_recovery/grasp_alignment_20260910/psilab_tasks/psilab_tasks/imitation_learning/base/lerobot_mp_helpers.py": "825f3a1a0dd20fcd73b274b9d951257307ffbb269ca48b632a46daf8bb612e43",
+          "/home/dataset-local/yf_recovery/grasp_alignment_20260910/collect_raw_entry_v2.py": "3b4961d0c5525a215e7bc5c13fec954ea97ef07d4544a1c44ad9343dfccf9268"
+        },
+        "identity": {
+          "pid": 92877,
+          "state": "R",
+          "ppid": 91934,
+          "pgid": 92877,
+          "sid": 92877,
+          "start_ticks": 17277651,
+          "uid": 1000,
+          "cmd": "bash /home/dataset-local/yf_recovery/grasp_alignment_20260910/collect_raw_confirmation.sh",
+          "cwd": "/home/dataset-local/yf_recovery/grasp_alignment_20260910",
+          "exiting": false
+        },
+        "import_origins": {
+          "base_mp_task": {
+            "path": "/home/dataset-local/yf_recovery/grasp_alignment_20260910/psilab_tasks/psilab_tasks/imitation_learning/base/base_mp_task.py",
+            "sha256": "c41d48fe6c085e46b258b3d9e294ec3ff48bbe5d3b965af1c575dca30f9d2a3c"
+          },
+          "lerobot_mp_helpers": {
+            "path": "/home/dataset-local/yf_recovery/grasp_alignment_20260910/psilab_tasks/psilab_tasks/imitation_learning/base/lerobot_mp_helpers.py",
+            "sha256": "825f3a1a0dd20fcd73b274b9d951257307ffbb269ca48b632a46daf8bb612e43"
+          }
+        },
+        "exit_code": 0,
+        "success_count": 3,
+        "attempts": 3
+      },
+      "raw_hold_status.json": {
+        "status": "raw_collected_pending_audit",
+        "formal_credit": 0,
+        "training_admitted": false,
+        "max_attempts": 1,
+        "success_target": 0,
+        "save_failed": true,
+        "temporal_contract": "raw post-physics observations and currently applied targets; future-action alignment not certified",
+        "source_sha256": {
+          "/home/dataset-local/yf_recovery/grasp_alignment_20260910/collect_raw_hold.sh": "c2425e8e14297e57a0f34abc1e70b8909f62df16eb49e8590c118549be50e887",
+          "/home/dataset-local/liyufeng/evalnode/chembench/psilab/scripts_psi/workflows/motion_planning/play.py": "d0c973a93eddbd57cc8b721aa4f2030d8375295a3badc7a210a54a09ff4533cd",
+          "/home/dataset-local/yf_recovery/grasp_alignment_20260910/psilab_tasks/psilab_tasks/imitation_learning/base/base_mp_task.py": "c41d48fe6c085e46b258b3d9e294ec3ff48bbe5d3b965af1c575dca30f9d2a3c",
+          "/home/dataset-local/yf_recovery/grasp_alignment_20260910/psilab_tasks/psilab_tasks/imitation_learning/base/lerobot_mp_helpers.py": "825f3a1a0dd20fcd73b274b9d951257307ffbb269ca48b632a46daf8bb612e43",
+          "/home/dataset-local/yf_recovery/grasp_alignment_20260910/collect_raw_hold_entry.py": "91053d5cd1e7dd6f12d82bf5b24a711ca45e585e2831ed83c8627896563f66a3"
+        },
+        "identity": {
+          "pid": 726382,
+          "state": "R",
+          "ppid": 726343,
+          "pgid": 726382,
+          "sid": 726382,
+          "start_ticks": 17853592,
+          "uid": 1000,
+          "cmd": "bash /home/dataset-local/yf_recovery/grasp_alignment_20260910/collect_raw_hold.sh",
+          "cwd": "/home/dataset-local/yf_recovery/grasp_alignment_20260910",
+          "exiting": false
+        },
+        "import_origins": {
+          "base_mp_task": {
+            "path": "/home/dataset-local/yf_recovery/grasp_alignment_20260910/psilab_tasks/psilab_tasks/imitation_learning/base/base_mp_task.py",
+            "sha256": "c41d48fe6c085e46b258b3d9e294ec3ff48bbe5d3b965af1c575dca30f9d2a3c"
+          },
+          "lerobot_mp_helpers": {
+            "path": "/home/dataset-local/yf_recovery/grasp_alignment_20260910/psilab_tasks/psilab_tasks/imitation_learning/base/lerobot_mp_helpers.py",
+            "sha256": "825f3a1a0dd20fcd73b274b9d951257307ffbb269ca48b632a46daf8bb612e43"
+          }
+        },
+        "exit_code": 0,
+        "success_count": 0,
+        "attempts": 1
+      },
+      "eval_3s_status.json": {
+        "status": "failed",
+        "gpu": "GPU-fd7b49d0-672c-e7a8-ad06-c66ba554be18, 2",
+        "checkpoint_sha256": "b0a24445e2a2733a3d4c2225d767ee52edd8a0a52016dbb55e1ff64bcb31a4e6",
+        "command": [
+          "bash",
+          "/home/dataset-local/yf_recovery/grasp_alignment_20260910/eval_screen_3s.sh",
+          "7",
+          "dp",
+          "screen-brown-large-p9901-3s-3ep",
+          "/home/dataset-local/yf_recovery/t282_a100_20260910/models/dp-rep12-v2ao-rgb-brown_reagent_bottle_large-p9901/checkpoints/checkpoints/latest.ckpt",
+          "42",
+          "brown_reagent_bottle_large",
+          "1"
+        ],
+        "goal_contract": "object_initial_plus_configured_vertical_lift",
+        "paper_ssr": null,
+        "formal_credit": 0,
+        "source_sha256": {
+          "eval_screen_3s.sh": "5a128f08c85ff27be8ecfec7927c38b8892cc36b6206fc682faa49514d3066c2",
+          "eval_3s_entry.py": "a55acd9e8e6afba078a92e4646fc59e576782c35fc1404d6e00d68c41c13753e",
+          "psilab_tasks/psilab_tasks/imitation_learning/grasp/grasp_task.py": "810abec31b83bdf372f77ab6c035eae72e1d105e88d4f7a610c1dd59c22f22d8"
+        },
+        "identity": {
+          "pid": 3550959,
+          "state": "R",
+          "ppid": 3550125,
+          "pgid": 3550959,
+          "sid": 3550959,
+          "start_ticks": 24907652,
+          "uid": 1000,
+          "cmd": "bash /home/dataset-local/yf_recovery/grasp_alignment_20260910/eval_screen_3s.sh 7 dp screen-brown-large-p9901-3s-3ep /home/dataset-local/yf_recovery/t282_a100_20260910/models/dp-rep12-v2ao-rgb-brown_reagent_bottle_large-p9901/checkpoints/checkpoints/latest.ckpt 42 brown_reagent_bottle_large 1",
+          "cwd": "/home/dataset-local/yf_recovery/grasp_alignment_20260910",
+          "exiting": false
+        },
+        "error": "RuntimeError: Fatal runtime signature; see raw log"
+      }
+    },
+    "h1_comparison": {
+      "scope": "Same-checkpoint and initial positions;one trial each,not a formal success estimate",
+      "thresholds_changed": false,
+      "runs": {
+        "execution_horizon_8": {
+          "success": false,
+          "lift_m": -0.0342487096786499,
+          "xy_drift_m": 0.1927210727096126,
+          "residual_mm": 385.82843017578125,
+          "terminal_step": 43
+        },
+        "execution_horizon_1": {
+          "success": false,
+          "lift_m": -0.03470891714096069,
+          "xy_drift_m": 0.1020569829035312,
+          "residual_mm": 349.92236328125,
+          "terminal_step": 179
+        }
+      },
+      "candidate_helped_this_pair": false,
+      "next": "Do not promote h1;inspect action/state training mismatch and physical collection"
+    },
+    "raw_confirmation_audit": {
+      "native_expert_success_count": 3,
+      "attempts": 3,
+      "training_admitted": false,
+      "paper_ssr": null,
+      "runtime_contract": {
+        "target_success_count": 0,
+        "max_episode": 3,
+        "sample_step": 4,
+        "lock_hand_state_to_target_each_step": false,
+        "random_position_offset_range": [
+          0.02,
+          0.02,
+          0.0
+        ],
+        "sim_dt": 0.008333333333333333
+      },
+      "import_origin_verified": true,
+      "episodes": [
+        {
+          "episode": 0,
+          "frames": 57,
+          "videos": [
+            {
+              "camera": "chest",
+              "frames": 57,
+              "unique_decoded_frames": 57,
+              "sha256": "63d2e2cf76d1c6a61448e553cf35c9aeb7016ec82d620c586d6e3a20be44e842"
+            },
+            {
+              "camera": "head",
+              "frames": 57,
+              "unique_decoded_frames": 57,
+              "sha256": "8cef6e6d3e0ca868204556f168b38f50b3bfa61e2791731e6282312d62c83a17"
+            },
+            {
+              "camera": "third",
+              "frames": 57,
+              "unique_decoded_frames": 57,
+              "sha256": "46ada90b788ca1646d426cf9b2193fae62816527e6dcc31de55e57d5fe1bc451"
+            }
+          ],
+          "action_ik_max_abs": 0.0,
+          "initial_xyz": [
+            -1.1439870595932007,
+            -5.113177299499512,
+            1.0093547105789185
+          ],
+          "lift_m": 0.24560856819152832,
+          "xy_drift_m": 0.021490314736715425,
+          "action_sha256": "959009ec1d7bea1987a0233bffe4a47138192aa273a95b193b5254c7d1fc635a"
+        },
+        {
+          "episode": 1,
+          "frames": 58,
+          "videos": [
+            {
+              "camera": "chest",
+              "frames": 58,
+              "unique_decoded_frames": 58,
+              "sha256": "45c33ba893b89aa6f1d48e43ab3c6faee2120cdbc0ed6fcfac1c6c02ce586253"
+            },
+            {
+              "camera": "head",
+              "frames": 58,
+              "unique_decoded_frames": 58,
+              "sha256": "9c9012aa0fe52e3a1f5bf8d8c5419c2da20a46175f253ceff2f107633989f342"
+            },
+            {
+              "camera": "third",
+              "frames": 58,
+              "unique_decoded_frames": 58,
+              "sha256": "475bec177484826927d474518f537355fe11b3d8602d042552719699a335b021"
+            }
+          ],
+          "action_ik_max_abs": 0.0,
+          "initial_xyz": [
+            -1.1371119022369385,
+            -5.116610527038574,
+            1.00935959815979
+          ],
+          "lift_m": 0.24773621559143066,
+          "xy_drift_m": 0.02311775289904472,
+          "action_sha256": "148aa296e2ae9c041045ff5996af55f26c8571f23d6ee6cef57d86a654d4f4b5"
+        },
+        {
+          "episode": 2,
+          "frames": 58,
+          "videos": [
+            {
+              "camera": "chest",
+              "frames": 58,
+              "unique_decoded_frames": 58,
+              "sha256": "de60b2ee26f992781610991c87e3bbb7cf9bd02d196a995f2e5dd21a01861c21"
+            },
+            {
+              "camera": "head",
+              "frames": 58,
+              "unique_decoded_frames": 58,
+              "sha256": "bbcc870c613252a8c12c55b2750883f5ca11aa4d5725e9037c86f46cdb6a083b"
+            },
+            {
+              "camera": "third",
+              "frames": 58,
+              "unique_decoded_frames": 58,
+              "sha256": "97f391e30460f5b71b51692900381f0c2f2f75adddef341d2d893c1d329fe545"
+            }
+          ],
+          "action_ik_max_abs": 0.0,
+          "initial_xyz": [
+            -1.1513773202896118,
+            -5.09433650970459,
+            1.009340524673462
+          ],
+          "lift_m": 0.24943459033966064,
+          "xy_drift_m": 0.023140116008592514,
+          "action_sha256": "65384aa2c862eeb18b7f06c17754ed6793b7bd7c350764ae5dab49e30e3dfb7b"
+        }
+      ],
+      "errors": [],
+      "total_frames": 173,
+      "initial_xyz_span_m": [
+        0.01426541805267334,
+        0.022274017333984375,
+        1.9073486328125e-05
+      ],
+      "distinct_action_sequences": 3,
+      "files": {
+        "data/chunk-000/file-000.parquet": "e2e40b8e98e51e052abc7df1aaeb4075696892cb348ac21d2667e5e35fbfca23",
+        "meta/info.json": "e320a14b95897c90ef017946a856582cef0773be9143f5a1bdc06151637dbee3",
+        "meta/stats.json": "30d4d57d6ad462aaa3b77a388edebb37eeed4648d4ca037a0edae05e23eee423",
+        "meta/tasks.parquet": "4302f4d3f507a709be7aa13136fae075f205766607578a5200ae0d21acb50b22",
+        "meta/episodes/chunk-000/file-000.parquet": "e2770e7d5a17ec6e27834d953efdc659b1b2947fa244ef22e3d7c454a58b7025",
+        "videos/observation.images.chest_rgb/chunk-000/file-000.mp4": "63d2e2cf76d1c6a61448e553cf35c9aeb7016ec82d620c586d6e3a20be44e842",
+        "videos/observation.images.chest_rgb/chunk-000/file-001.mp4": "45c33ba893b89aa6f1d48e43ab3c6faee2120cdbc0ed6fcfac1c6c02ce586253",
+        "videos/observation.images.chest_rgb/chunk-000/file-002.mp4": "de60b2ee26f992781610991c87e3bbb7cf9bd02d196a995f2e5dd21a01861c21",
+        "videos/observation.images.head_rgb/chunk-000/file-000.mp4": "8cef6e6d3e0ca868204556f168b38f50b3bfa61e2791731e6282312d62c83a17",
+        "videos/observation.images.head_rgb/chunk-000/file-001.mp4": "9c9012aa0fe52e3a1f5bf8d8c5419c2da20a46175f253ceff2f107633989f342",
+        "videos/observation.images.head_rgb/chunk-000/file-002.mp4": "bbcc870c613252a8c12c55b2750883f5ca11aa4d5725e9037c86f46cdb6a083b",
+        "videos/observation.images.third_rgb/chunk-000/file-000.mp4": "46ada90b788ca1646d426cf9b2193fae62816527e6dcc31de55e57d5fe1bc451",
+        "videos/observation.images.third_rgb/chunk-000/file-001.mp4": "475bec177484826927d474518f537355fe11b3d8602d042552719699a335b021",
+        "videos/observation.images.third_rgb/chunk-000/file-002.mp4": "97f391e30460f5b71b51692900381f0c2f2f75adddef341d2d893c1d329fe545"
+      },
+      "artifact_integrity_pass": true,
+      "claim": "Three native expert attempts; not learned-policy success, paper SSR, full distribution coverage, or training admission."
+    },
+    "all_task_acceptance": {
+      "updated_utc": "2026-09-11T11:47:14.164889+00:00",
+      "scope": "当前面板13个grasp物体；不是论文21任务的完整复现",
+      "accepted_count": 0,
+      "total": 13,
+      "below90_count": 8,
+      "acceptance": "数据真实一致且时序清楚；训练预算/checkpoint/配方可追溯；预声明测试分布和目标；SR及论文SSR可解释；完整逐集结果和案例；独立复核。90%是排查线，不冒充论文每任务基线。",
+      "scale_training_admitted": false,
+      "objects": [
+        {
+          "id": "glass_beaker_100ml",
+          "name": "100ml 玻璃烧杯",
+          "reference": "nosdf50r2-dp-relabelv2-rgb-400d-s8107",
+          "historical_sr": 1.0,
+          "reference_demo_count": 400,
+          "updates_from_zero_index_log": 50000,
+          "checkpoint_update_verified": false,
+          "paper_ssr": null,
+          "accepted": false,
+          "state": "in_progress",
+          "open_issues": [
+            "论文 SSR 与目标/有效约束未完成对齐",
+            "新统一协议下的模型复验未完成",
+            "参考训练为400条，不能当作100条对照"
+          ],
+          "next": "本次测试没有失败案例；50/50只描述这次测试，不外推为任意分布均成功。"
+        },
+        {
+          "id": "glass_beaker_250ml",
+          "name": "250ml 玻璃烧杯",
+          "reference": "nosdf50r2-dp-rep12-origext-rgb-glass_beaker_250ml-s9742",
+          "historical_sr": 0.96,
+          "reference_demo_count": 100,
+          "updates_from_zero_index_log": 50000,
+          "checkpoint_update_verified": false,
+          "paper_ssr": null,
+          "accepted": false,
+          "state": "in_progress",
+          "open_issues": [
+            "论文 SSR 与目标/有效约束未完成对齐",
+            "新统一协议下的模型复验未完成",
+            "参考数据抽检有33对冻结图像伴随动作变化，需物理一致数据替换"
+          ],
+          "next": "比较原标签和外推版本的动作末段及失败2集；单次改善还不等于多种子稳定提升。"
+        },
+        {
+          "id": "clear_reagent_bottle_large",
+          "name": "大透明试剂瓶",
+          "reference": "nosdf50r2-dp-rep12-orig-rgb-clear_reagent_bottle_large-s9104",
+          "historical_sr": 0.82,
+          "reference_demo_count": 100,
+          "updates_from_zero_index_log": 50000,
+          "checkpoint_update_verified": false,
+          "paper_ssr": null,
+          "accepted": false,
+          "state": "in_progress",
+          "open_issues": [
+            "论文 SSR 与目标/有效约束未完成对齐",
+            "新统一协议下的模型复验未完成",
+            "历史参考 SR 低于90%，原因尚未闭环"
+          ],
+          "next": "检查成功与失败片段中的接近、抓握、抬升及漂移。目前没有逐集根因标注，不把聚合分数当作原因。"
+        },
+        {
+          "id": "clear_reagent_bottle_small",
+          "name": "小透明试剂瓶",
+          "reference": "nosdf50r2-dp-rep12-orig-rgb-clear_reagent_bottle_small-s9106",
+          "historical_sr": 0.9,
+          "reference_demo_count": 100,
+          "updates_from_zero_index_log": 50000,
+          "checkpoint_update_verified": false,
+          "paper_ssr": null,
+          "accepted": false,
+          "state": "in_progress",
+          "open_issues": [
+            "论文 SSR 与目标/有效约束未完成对齐",
+            "新统一协议下的模型复验未完成"
+          ],
+          "next": "对比原标签与重标注手部通道；确认外推末段是否与图像/观测对应。"
+        },
+        {
+          "id": "brown_reagent_bottle_large",
+          "name": "大棕色试剂瓶",
+          "reference": "nosdf50r2-dp-rep12-v2-rgb-brown_reagent_bottle_large-s9202",
+          "historical_sr": 0.84,
+          "reference_demo_count": 100,
+          "updates_from_zero_index_log": 50000,
+          "checkpoint_update_verified": false,
+          "paper_ssr": null,
+          "accepted": false,
+          "state": "in_progress",
+          "open_issues": [
+            "论文 SSR 与目标/有效约束未完成对齐",
+            "新统一协议下的模型复验未完成",
+            "历史参考 SR 低于90%，原因尚未闭环"
+          ],
+          "next": "真实重采3/3、173帧9视频完整性通过；继续时序/终止目标审计，模型闭环仍未修好"
+        },
+        {
+          "id": "brown_reagent_bottle_small",
+          "name": "小棕色试剂瓶",
+          "reference": "nosdf50r2-dp-rep12-rc-rgb-brown_reagent_bottle_small-s9513",
+          "historical_sr": 0.94,
+          "reference_demo_count": 100,
+          "updates_from_zero_index_log": 50000,
+          "checkpoint_update_verified": false,
+          "paper_ssr": null,
+          "accepted": false,
+          "state": "in_progress",
+          "open_issues": [
+            "论文 SSR 与目标/有效约束未完成对齐",
+            "新统一协议下的模型复验未完成"
+          ],
+          "next": "94%属于单次候选成绩；检查三个失败集，并保留跨种子验证需求。"
+        },
+        {
+          "id": "brown_volumetric_flask_250ml",
+          "name": "棕色容量瓶",
+          "reference": "nosdf50r2-dp-rep12-v2-rgb-brown_volumetric_flask_250ml-s9204",
+          "historical_sr": 0.82,
+          "reference_demo_count": 100,
+          "updates_from_zero_index_log": 50000,
+          "checkpoint_update_verified": false,
+          "paper_ssr": null,
+          "accepted": false,
+          "state": "in_progress",
+          "open_issues": [
+            "论文 SSR 与目标/有效约束未完成对齐",
+            "新统一协议下的模型复验未完成",
+            "历史参考 SR 低于90%，原因尚未闭环"
+          ],
+          "next": "检查成功与失败片段中的接近、抓握、抬升及漂移。目前没有逐集根因标注，不把聚合分数当作原因。"
+        },
+        {
+          "id": "clear_volumetric_flask_250ml",
+          "name": "透明容量瓶",
+          "reference": "nosdf50r2-dp-rep12-v2-rgb-clear_volumetric_flask_250ml-s9207",
+          "historical_sr": 0.86,
+          "reference_demo_count": 100,
+          "updates_from_zero_index_log": 50000,
+          "checkpoint_update_verified": false,
+          "paper_ssr": null,
+          "accepted": false,
+          "state": "in_progress",
+          "open_issues": [
+            "论文 SSR 与目标/有效约束未完成对齐",
+            "新统一协议下的模型复验未完成",
+            "历史参考 SR 低于90%，原因尚未闭环"
+          ],
+          "next": "逐段看接近、闭手、抬升、漂移；当前仅能确认版本差异，尚无逐集根因结论。"
+        },
+        {
+          "id": "glass_cylinder_100ml",
+          "name": "玻璃量筒",
+          "reference": "nosdf50r2-dp-rep12-v2-rgb-glass_cylinder_100ml-s9301",
+          "historical_sr": 0.86,
+          "reference_demo_count": 100,
+          "updates_from_zero_index_log": 50000,
+          "checkpoint_update_verified": false,
+          "paper_ssr": null,
+          "accepted": false,
+          "state": "in_progress",
+          "open_issues": [
+            "论文 SSR 与目标/有效约束未完成对齐",
+            "新统一协议下的模型复验未完成",
+            "历史参考 SR 低于90%，原因尚未闭环"
+          ],
+          "next": "先对比示教末段与测试中的抓握、抬升和滑移，再检查动作/观测重标注的一致性。低余量不能单独解释外推退化。"
+        },
+        {
+          "id": "plastic_cylinder_100ml",
+          "name": "塑料量筒",
+          "reference": "nosdf50r2-dp-rep12-orig-rgb-plastic_cylinder_100ml-s9103",
+          "historical_sr": 0.82,
+          "reference_demo_count": 100,
+          "updates_from_zero_index_log": 50000,
+          "checkpoint_update_verified": false,
+          "paper_ssr": null,
+          "accepted": false,
+          "state": "in_progress",
+          "open_issues": [
+            "论文 SSR 与目标/有效约束未完成对齐",
+            "新统一协议下的模型复验未完成",
+            "历史参考 SR 低于90%，原因尚未闭环"
+          ],
+          "next": "检查接近与闭手时机、抓取后滑移；外推并未稳定增加成功率。"
+        },
+        {
+          "id": "alcohol_lamp",
+          "name": "酒精灯",
+          "reference": "nosdf50r2-dp-rep12-v2-rgb-alcohol_lamp-s9205",
+          "historical_sr": 0.82,
+          "reference_demo_count": 100,
+          "updates_from_zero_index_log": 50000,
+          "checkpoint_update_verified": false,
+          "paper_ssr": null,
+          "accepted": false,
+          "state": "in_progress",
+          "open_issues": [
+            "论文 SSR 与目标/有效约束未完成对齐",
+            "新统一协议下的模型复验未完成",
+            "历史参考 SR 低于90%，原因尚未闭环"
+          ],
+          "next": "两预算修正模型均checkpoint核实5万步；p9901新协议0/3，p9902未测，数据闭环待修"
+        },
+        {
+          "id": "mortar",
+          "name": "研钵",
+          "reference": "nosdf50r2-dp-rep12-v2ext-rgb-mortar-s9542",
+          "historical_sr": 1.0,
+          "reference_demo_count": 100,
+          "updates_from_zero_index_log": 50000,
+          "checkpoint_update_verified": false,
+          "paper_ssr": null,
+          "accepted": false,
+          "state": "in_progress",
+          "open_issues": [
+            "论文 SSR 与目标/有效约束未完成对齐",
+            "新统一协议下的模型复验未完成",
+            "参考数据抽检有30对冻结图像伴随动作变化，需物理一致数据替换"
+          ],
+          "next": "训练视频是数据数组可视化；数值外推未必有对应的新物理图像，不视为重新采集验收。"
+        },
+        {
+          "id": "erlenmeyer_flask",
+          "name": "锥形瓶",
+          "reference": "nosdf50r2-dp-rep12-ro60mix-rgb-erlenmeyer_flask-s9753",
+          "historical_sr": 0.68,
+          "reference_demo_count": 132,
+          "updates_from_zero_index_log": 50000,
+          "checkpoint_update_verified": false,
+          "paper_ssr": null,
+          "accepted": false,
+          "state": "in_progress",
+          "open_issues": [
+            "论文 SSR 与目标/有效约束未完成对齐",
+            "新统一协议下的模型复验未完成",
+            "历史参考 SR 低于90%，原因尚未闭环",
+            "参考训练为132条，不能当作100条对照"
+          ],
+          "next": "检查新旧rollout的起始位置、接触前动作与筛选偏差；同时对齐数据量、训练步数和随机种子。现有结果不能分离这些因素。"
+        }
+      ]
+    },
+    "failure_visual_observations": {
+      "scope": "One retained failure per below90 reference model, three saved frames each; not a complete video or population root-cause analysis",
+      "index": "failure_view_index.json",
+      "first_frame_boundary_warning": "Several non-first-episode videos begin with an already raised object. Reset/render/record boundary must be checked before interpreting this as same-episode grasp success.",
+      "observations": {
+        "clear_reagent_bottle_large": "Middle/final saved frames show bottle sideways on table and hand empty; first saved frame already holding bottle.",
+        "brown_reagent_bottle_large": "Middle/final saved frames show bottle sideways on table and hand empty; first saved frame already holding bottle.",
+        "brown_volumetric_flask_250ml": "Middle/final saved frames show flask lying on table and raised hand empty; first saved frame already holding flask.",
+        "clear_volumetric_flask_250ml": "Middle saved frame shows flask base near table; final frame shows inclined flask without visible hand support. First saved frame already holding flask.",
+        "glass_cylinder_100ml": "Middle/final saved frames show upright cylinder apparently raised and held, although episode label is failure. Need measured height/XY/hold and scoring trace; do not relabel as success from video.",
+        "plastic_cylinder_100ml": "Middle/final saved frames show cylinder lying along table, without visible hand support.",
+        "alcohol_lamp": "Middle/final saved frames show lamp on table and hand beside it; first saved frame already holding lamp.",
+        "erlenmeyer_flask": "Middle/final saved frames show hand near flask neck but base apparently remains on table; no clear lift in these sampled frames."
+      },
+      "causal_status": "Observed visual states only; grasp timing, slip cause, geometry and metric failure remain unproven."
+    },
     "repair_progress": {
-      "snapshot_utc": "2026-09-10T15:56:55.108299+00:00",
+      "snapshot_utc": "2026-09-11T08:55:27.883861+00:00",
       "training": [
         {
-          "status": "running",
+          "status": "checkpoint_verified",
           "started": "2026-09-10T15:38:30.952834+00:00",
           "candidate": "budgetfix-v2ao-alcohol_lamp-p9901",
           "object": "alcohol_lamp",
@@ -18441,21 +19693,54 @@
           "dataset_physical_requalification": false,
           "physical_evaluation_complete": false,
           "formal_budget": 50000,
-          "updated": "2026-09-10T15:56:33.287124+00:00",
+          "updated": "2026-09-10T23:31:00.076437+00:00",
           "pid": 3241127,
           "pgid": 3241127,
           "boot_id": "54a58827-1b48-4905-baf0-97e7987ee6fc",
           "start_tick": "183439990",
           "gpu_now": "GPU-01dec218-0142-0810-0000-000060d6763b, 37765, 100",
           "last": {
-            "train_loss": 0.05061017721891403,
-            "global_step": 1870,
-            "epoch": 40,
-            "lr": 9.355000000000001e-05
-          }
+            "train_loss": 0.0031468786764889956,
+            "global_step": 49960,
+            "epoch": 1086,
+            "lr": 1.6288693732158244e-10
+          },
+          "exit_code": 0,
+          "ended": "2026-09-10T23:31:00.076406+00:00",
+          "controller_status": "trained_pending_checkpoint_verification",
+          "verification": {
+            "status": "checkpoint_verified",
+            "verified_utc": "2026-09-10T23:31:17.106825+00:00",
+            "candidate": "budgetfix-v2ao-alcohol_lamp-p9901",
+            "saved_state": {
+              "global_step": 50000,
+              "epoch": 1087
+            },
+            "checkpoint_sha256": "ba9e3bb21da8bf4a77783a4c111b07ca0d51615d5604871c9a691cfdf55fe5be",
+            "checkpoint_bytes": 1403895070,
+            "checkpoint_path": "/root/safelab/grasp_alignment_20260910/runs/budgetfix-v2ao-alcohol_lamp-p9901/checkpoints/checkpoints/latest.ckpt",
+            "unique_logged_updates": 50000,
+            "log_rows": 50001,
+            "first_logged_step": 0,
+            "last_logged_step": 49999,
+            "last_lr": 0.0,
+            "physical_evaluation_complete": false,
+            "source_sha256": {
+              "budget_contract.py": "6967f99a9c2f1c9ca8517804d1fded51269b92a76978e75c33f56efcc58ca489",
+              "train_diffusion_transformer_timm_workspace.py": "bccc3d81059302bb78dda852f06d77d2eefb9e29e626543fcaf51e3cc113d5ce"
+            },
+            "dataset_array_sha256": {
+              "action": "9de710fa8bbe5aab3ad46ca9f481e08070397f067d243eb262e85802e5fbf895",
+              "target_pose": "2f441947ed175a4af6ecfdc008311dabcf0e5d1f533ec4c9fb1a10e5f2831677",
+              "hand2_pos": "9fa505489fa8b0b76b4345f99c1c3e4fc9ff2b47d6d320a131cb5e0636756ffb",
+              "hand2_vel": "91af69d85afe14f6ea9c669b06ff00227a47c4740b37f51f4ed53f7b0d656281"
+            },
+            "claim": "Exact training budget/checkpoint only; no performance improvement claim"
+          },
+          "completed_optimizer_updates": 50000
         },
         {
-          "status": "running",
+          "status": "checkpoint_verified",
           "started": "2026-09-10T15:38:30.951091+00:00",
           "candidate": "budgetfix-v2ao-alcohol_lamp-p9902",
           "object": "alcohol_lamp",
@@ -18514,22 +19799,55 @@
           "dataset_physical_requalification": false,
           "physical_evaluation_complete": false,
           "formal_budget": 50000,
-          "updated": "2026-09-10T15:56:33.285826+00:00",
+          "updated": "2026-09-10T23:31:31.521544+00:00",
           "pid": 3241126,
           "pgid": 3241126,
           "boot_id": "54a58827-1b48-4905-baf0-97e7987ee6fc",
           "start_tick": "183439989",
           "gpu_now": "GPU-019e2226-0590-0614-0000-000080f61b35, 37845, 100",
           "last": {
-            "train_loss": 0.04694661870598793,
-            "global_step": 1862,
-            "epoch": 40,
-            "lr": 9.315e-05
-          }
+            "train_loss": 0.0033886900637298822,
+            "global_step": 49996,
+            "epoch": 1086,
+            "lr": 9.63828550304413e-13
+          },
+          "exit_code": 0,
+          "ended": "2026-09-10T23:31:31.521505+00:00",
+          "controller_status": "trained_pending_checkpoint_verification",
+          "verification": {
+            "status": "checkpoint_verified",
+            "verified_utc": "2026-09-10T23:31:55.338186+00:00",
+            "candidate": "budgetfix-v2ao-alcohol_lamp-p9902",
+            "saved_state": {
+              "global_step": 50000,
+              "epoch": 1087
+            },
+            "checkpoint_sha256": "e2575bdd2e40281950a13011670a8205be7f4fc08df348cd751cf7206d7c8f44",
+            "checkpoint_bytes": 1403895070,
+            "checkpoint_path": "/root/safelab/grasp_alignment_20260910/runs/budgetfix-v2ao-alcohol_lamp-p9902/checkpoints/checkpoints/latest.ckpt",
+            "unique_logged_updates": 50000,
+            "log_rows": 50001,
+            "first_logged_step": 0,
+            "last_logged_step": 49999,
+            "last_lr": 0.0,
+            "physical_evaluation_complete": false,
+            "source_sha256": {
+              "budget_contract.py": "6967f99a9c2f1c9ca8517804d1fded51269b92a76978e75c33f56efcc58ca489",
+              "train_diffusion_transformer_timm_workspace.py": "bccc3d81059302bb78dda852f06d77d2eefb9e29e626543fcaf51e3cc113d5ce"
+            },
+            "dataset_array_sha256": {
+              "action": "9de710fa8bbe5aab3ad46ca9f481e08070397f067d243eb262e85802e5fbf895",
+              "target_pose": "2f441947ed175a4af6ecfdc008311dabcf0e5d1f533ec4c9fb1a10e5f2831677",
+              "hand2_pos": "9fa505489fa8b0b76b4345f99c1c3e4fc9ff2b47d6d320a131cb5e0636756ffb",
+              "hand2_vel": "91af69d85afe14f6ea9c669b06ff00227a47c4740b37f51f4ed53f7b0d656281"
+            },
+            "claim": "Exact training budget/checkpoint only; no performance improvement claim"
+          },
+          "completed_optimizer_updates": 50000
         }
       ],
       "probe": {
-        "status": "running",
+        "status": "probe_complete",
         "gpu": "GPU-fd7b49d0-672c-e7a8-ad06-c66ba554be18, 3",
         "checkpoint_sha256": "b0a24445e2a2733a3d4c2225d767ee52edd8a0a52016dbb55e1ff64bcb31a4e6",
         "command": [
@@ -18561,12 +19879,726 @@
           "cmd": "bash /home/dataset-local/yf_recovery/grasp_alignment_20260910/eval_screen.sh 7 dp screen-brown-large-p9901-3ep /home/dataset-local/yf_recovery/t282_a100_20260910/models/dp-rep12-v2ao-rgb-brown_reagent_bottle_large-p9901/checkpoints/checkpoints/latest.ckpt 42 brown_reagent_bottle_large 1",
           "cwd": "/home/dataset-local/yf_recovery/grasp_alignment_20260910",
           "exiting": false
-        }
+        },
+        "success_count_from_episodes": 0,
+        "exit_code": 0,
+        "progress": {
+          "episode_num": 3,
+          "episode_success_num": 0,
+          "success_rate": 0.0,
+          "final": true,
+          "ssr": {
+            "n_trials": 3.0,
+            "success_rate": 0.0,
+            "safe_success_rate": 0.0,
+            "violation_rate": 1.0,
+            "theta_dev_mean": 0.4412554254134496,
+            "f_peak_mean": 498.1726481119792,
+            "delta_p_mean": 362.53635660807294,
+            "theta_dev_valid_count": 3.0,
+            "f_peak_valid_count": 3.0,
+            "delta_p_valid_count": 3.0,
+            "theta_dev_coverage": 1.0,
+            "f_peak_coverage": 1.0,
+            "delta_p_coverage": 1.0
+          }
+        },
+        "episodes": [
+          {
+            "env_id": 0,
+            "success": false,
+            "theta_dev_peak": 0.6605061292648315,
+            "f_peak_observed": 473.8830871582031,
+            "force_valid": true,
+            "delta_p_final": 368.1916198730469,
+            "delta_p_valid": true,
+            "episode_sequence": 1,
+            "alignment_schema": "grasp-spatial-screen-v1",
+            "goal_contract": "object_initial_world_xyz_plus_configured_vertical_lift",
+            "goal_w": [
+              -1.1320304870605469,
+              -5.1152143478393555,
+              1.3093640804290771
+            ],
+            "initial_object_w": [
+              -1.1320304870605469,
+              -5.1152143478393555,
+              1.0093640089035034
+            ],
+            "final_object_w": [
+              -1.1404268741607666,
+              -5.297487735748291,
+              0.9895657300949097
+            ],
+            "desired_lift_m": 0.3,
+            "coarse_lift_ratio": 0.7,
+            "coarse_xy_drift_m": 0.12,
+            "terminal_step": 34,
+            "legacy_region_residual_mm": 238.13722229003906,
+            "paper_ssr": null,
+            "paper_calibration_verified": false
+          },
+          {
+            "env_id": 0,
+            "success": false,
+            "theta_dev_peak": 0.20743320882320404,
+            "f_peak_observed": 501.5567321777344,
+            "force_valid": true,
+            "delta_p_final": 350.0201416015625,
+            "delta_p_valid": true,
+            "episode_sequence": 2,
+            "alignment_schema": "grasp-spatial-screen-v1",
+            "goal_contract": "object_initial_world_xyz_plus_configured_vertical_lift",
+            "goal_w": [
+              -1.1557250022888184,
+              -5.108022689819336,
+              1.3093421459197998
+            ],
+            "initial_object_w": [
+              -1.1557250022888184,
+              -5.108022689819336,
+              1.009342074394226
+            ],
+            "final_object_w": [
+              -1.1467362642288208,
+              -5.299031734466553,
+              1.0161718130111694
+            ],
+            "desired_lift_m": 0.3,
+            "coarse_lift_ratio": 0.7,
+            "coarse_xy_drift_m": 0.12,
+            "terminal_step": 27,
+            "legacy_region_residual_mm": 215.2916717529297,
+            "paper_ssr": null,
+            "paper_calibration_verified": false
+          },
+          {
+            "env_id": 0,
+            "success": false,
+            "theta_dev_peak": 0.45582693815231323,
+            "f_peak_observed": 519.078125,
+            "force_valid": true,
+            "delta_p_final": 369.3973083496094,
+            "delta_p_valid": true,
+            "episode_sequence": 3,
+            "alignment_schema": "grasp-spatial-screen-v1",
+            "goal_contract": "object_initial_world_xyz_plus_configured_vertical_lift",
+            "goal_w": [
+              -1.1548283100128174,
+              -5.088489532470703,
+              1.3093366622924805
+            ],
+            "initial_object_w": [
+              -1.1548283100128174,
+              -5.088489532470703,
+              1.0093367099761963
+            ],
+            "final_object_w": [
+              -1.1127674579620361,
+              -5.3014326095581055,
+              1.0104378461837769
+            ],
+            "desired_lift_m": 0.3,
+            "coarse_lift_ratio": 0.7,
+            "coarse_xy_drift_m": 0.12,
+            "terminal_step": 29,
+            "legacy_region_residual_mm": 230.34506225585938,
+            "paper_ssr": null,
+            "paper_calibration_verified": false
+          }
+        ]
+      },
+      "terminal_verification": {
+        "started": "2026-09-10T20:01:01.100884+00:00",
+        "status": "complete",
+        "runs": {
+          "budgetfix-v2ao-alcohol_lamp-p9901": {
+            "status": "checkpoint_verified",
+            "verified_utc": "2026-09-10T23:31:17.106825+00:00",
+            "candidate": "budgetfix-v2ao-alcohol_lamp-p9901",
+            "saved_state": {
+              "global_step": 50000,
+              "epoch": 1087
+            },
+            "checkpoint_sha256": "ba9e3bb21da8bf4a77783a4c111b07ca0d51615d5604871c9a691cfdf55fe5be",
+            "checkpoint_bytes": 1403895070,
+            "checkpoint_path": "/root/safelab/grasp_alignment_20260910/runs/budgetfix-v2ao-alcohol_lamp-p9901/checkpoints/checkpoints/latest.ckpt",
+            "unique_logged_updates": 50000,
+            "log_rows": 50001,
+            "first_logged_step": 0,
+            "last_logged_step": 49999,
+            "last_lr": 0.0,
+            "physical_evaluation_complete": false,
+            "source_sha256": {
+              "budget_contract.py": "6967f99a9c2f1c9ca8517804d1fded51269b92a76978e75c33f56efcc58ca489",
+              "train_diffusion_transformer_timm_workspace.py": "bccc3d81059302bb78dda852f06d77d2eefb9e29e626543fcaf51e3cc113d5ce"
+            },
+            "dataset_array_sha256": {
+              "action": "9de710fa8bbe5aab3ad46ca9f481e08070397f067d243eb262e85802e5fbf895",
+              "target_pose": "2f441947ed175a4af6ecfdc008311dabcf0e5d1f533ec4c9fb1a10e5f2831677",
+              "hand2_pos": "9fa505489fa8b0b76b4345f99c1c3e4fc9ff2b47d6d320a131cb5e0636756ffb",
+              "hand2_vel": "91af69d85afe14f6ea9c669b06ff00227a47c4740b37f51f4ed53f7b0d656281"
+            },
+            "claim": "Exact training budget/checkpoint only; no performance improvement claim"
+          },
+          "budgetfix-v2ao-alcohol_lamp-p9902": {
+            "status": "checkpoint_verified",
+            "verified_utc": "2026-09-10T23:31:55.338186+00:00",
+            "candidate": "budgetfix-v2ao-alcohol_lamp-p9902",
+            "saved_state": {
+              "global_step": 50000,
+              "epoch": 1087
+            },
+            "checkpoint_sha256": "e2575bdd2e40281950a13011670a8205be7f4fc08df348cd751cf7206d7c8f44",
+            "checkpoint_bytes": 1403895070,
+            "checkpoint_path": "/root/safelab/grasp_alignment_20260910/runs/budgetfix-v2ao-alcohol_lamp-p9902/checkpoints/checkpoints/latest.ckpt",
+            "unique_logged_updates": 50000,
+            "log_rows": 50001,
+            "first_logged_step": 0,
+            "last_logged_step": 49999,
+            "last_lr": 0.0,
+            "physical_evaluation_complete": false,
+            "source_sha256": {
+              "budget_contract.py": "6967f99a9c2f1c9ca8517804d1fded51269b92a76978e75c33f56efcc58ca489",
+              "train_diffusion_transformer_timm_workspace.py": "bccc3d81059302bb78dda852f06d77d2eefb9e29e626543fcaf51e3cc113d5ce"
+            },
+            "dataset_array_sha256": {
+              "action": "9de710fa8bbe5aab3ad46ca9f481e08070397f067d243eb262e85802e5fbf895",
+              "target_pose": "2f441947ed175a4af6ecfdc008311dabcf0e5d1f533ec4c9fb1a10e5f2831677",
+              "hand2_pos": "9fa505489fa8b0b76b4345f99c1c3e4fc9ff2b47d6d320a131cb5e0636756ffb",
+              "hand2_vel": "91af69d85afe14f6ea9c669b06ff00227a47c4740b37f51f4ed53f7b0d656281"
+            },
+            "claim": "Exact training budget/checkpoint only; no performance improvement claim"
+          }
+        },
+        "updated": "2026-09-10T23:31:57.821711+00:00"
       }
     },
     "paper_url": "https://openreview.net/pdf?id=ojwpa0wXo9",
-    "paper_version_verified": false,
-    "paper_source_note": "Online PDF access blocked by browser verification. Values below are LOCAL manuscript only, pending online version equality.",
+    "paper_version_verified": true,
+    "paper_source_note": "Verified against user-supplied PDF SHA0fbe7e861843402f601ff1643cc00ce82f2be5c22ba39c8bda5f886eb66113d0; no online byte-equality claim.",
+    "attached_paper_contract": {
+      "source": "user_supplied_pdf",
+      "path": "/home/liyufeng/lyf-back/chembench/.whalent_tmp/2026-09-11/o31oare17cchj493rv3641fs1-26780_SafeLab_An_Interactive_H.pdf",
+      "sha256": "0fbe7e861843402f601ff1643cc00ce82f2be5c22ba39c8bda5f886eb66113d0",
+      "online_byte_equality_claimed": false,
+      "references": {
+        "main_table": 7,
+        "grasp_table19": 22,
+        "reward_and_constraints": 16,
+        "thresholds_table11": 17,
+        "native_input": 19,
+        "training_and_data": 20,
+        "evaluation_protocol": 21
+      },
+      "main_grasp_dp": {
+        "sr_percent": 78.2,
+        "ssr_percent": 40.5,
+        "diagnostic_delta_p_mm": 680
+      },
+      "table19": [
+        {
+          "task": "100 mL Glass Beaker",
+          "dp_sr": 78,
+          "dp_ssr": 40,
+          "all_method_sr_ssr": [
+            78,
+            40,
+            86,
+            48,
+            66,
+            26,
+            64,
+            23,
+            95,
+            54
+          ]
+        },
+        {
+          "task": "250 mL Brown Volumetric Flask",
+          "dp_sr": 77,
+          "dp_ssr": 39,
+          "all_method_sr_ssr": [
+            77,
+            39,
+            85,
+            47,
+            65,
+            25,
+            63,
+            22,
+            94,
+            53
+          ]
+        },
+        {
+          "task": "250 mL Glass Beaker",
+          "dp_sr": 80,
+          "dp_ssr": 42,
+          "all_method_sr_ssr": [
+            80,
+            42,
+            88,
+            51,
+            68,
+            28,
+            66,
+            25,
+            97,
+            57
+          ]
+        },
+        {
+          "task": "500 mL Glass Beaker",
+          "dp_sr": 82,
+          "dp_ssr": 45,
+          "all_method_sr_ssr": [
+            82,
+            45,
+            90,
+            54,
+            70,
+            30,
+            68,
+            27,
+            98,
+            59
+          ]
+        },
+        {
+          "task": "50 mL Glass Beaker",
+          "dp_sr": 75,
+          "dp_ssr": 37,
+          "all_method_sr_ssr": [
+            75,
+            37,
+            83,
+            45,
+            63,
+            23,
+            61,
+            20,
+            92,
+            51
+          ]
+        },
+        {
+          "task": "Crucible",
+          "dp_sr": 72,
+          "dp_ssr": 34,
+          "all_method_sr_ssr": [
+            72,
+            34,
+            80,
+            42,
+            60,
+            20,
+            58,
+            17,
+            89,
+            48
+          ]
+        },
+        {
+          "task": "Large Brown Reagent Bottle",
+          "dp_sr": 85,
+          "dp_ssr": 48,
+          "all_method_sr_ssr": [
+            85,
+            48,
+            93,
+            57,
+            73,
+            33,
+            71,
+            30,
+            99,
+            61
+          ]
+        },
+        {
+          "task": "Small Brown Reagent Bottle",
+          "dp_sr": 80,
+          "dp_ssr": 42,
+          "all_method_sr_ssr": [
+            80,
+            42,
+            88,
+            51,
+            68,
+            28,
+            66,
+            25,
+            97,
+            57
+          ]
+        },
+        {
+          "task": "Large Clear Reagent Bottle",
+          "dp_sr": 84,
+          "dp_ssr": 47,
+          "all_method_sr_ssr": [
+            84,
+            47,
+            92,
+            56,
+            72,
+            32,
+            70,
+            29,
+            99,
+            60
+          ]
+        },
+        {
+          "task": "Small Clear Reagent Bottle",
+          "dp_sr": 79,
+          "dp_ssr": 41,
+          "all_method_sr_ssr": [
+            79,
+            41,
+            87,
+            50,
+            67,
+            27,
+            65,
+            24,
+            96,
+            56
+          ]
+        },
+        {
+          "task": "100 mL Plastic Cylinder",
+          "dp_sr": 78,
+          "dp_ssr": 40,
+          "all_method_sr_ssr": [
+            78,
+            40,
+            86,
+            48,
+            66,
+            26,
+            64,
+            23,
+            95,
+            54
+          ]
+        },
+        {
+          "task": "100 mL Glass Cylinder",
+          "dp_sr": 76,
+          "dp_ssr": 38,
+          "all_method_sr_ssr": [
+            76,
+            38,
+            84,
+            46,
+            64,
+            24,
+            62,
+            21,
+            93,
+            52
+          ]
+        },
+        {
+          "task": "500 mL Plastic Cylinder",
+          "dp_sr": 80,
+          "dp_ssr": 42,
+          "all_method_sr_ssr": [
+            80,
+            42,
+            88,
+            51,
+            68,
+            28,
+            66,
+            25,
+            97,
+            57
+          ]
+        },
+        {
+          "task": "500 mL Glass Cylinder",
+          "dp_sr": 78,
+          "dp_ssr": 40,
+          "all_method_sr_ssr": [
+            78,
+            40,
+            86,
+            48,
+            66,
+            26,
+            64,
+            23,
+            95,
+            54
+          ]
+        },
+        {
+          "task": "250 mL Clear Volumetric Flask",
+          "dp_sr": 76,
+          "dp_ssr": 38,
+          "all_method_sr_ssr": [
+            76,
+            38,
+            84,
+            46,
+            64,
+            24,
+            62,
+            21,
+            93,
+            52
+          ]
+        },
+        {
+          "task": "500 mL Clear Volumetric Flask",
+          "dp_sr": 78,
+          "dp_ssr": 40,
+          "all_method_sr_ssr": [
+            78,
+            40,
+            86,
+            48,
+            66,
+            26,
+            64,
+            23,
+            95,
+            54
+          ]
+        },
+        {
+          "task": "1000 mL Clear Volumetric Flask",
+          "dp_sr": 80,
+          "dp_ssr": 42,
+          "all_method_sr_ssr": [
+            80,
+            42,
+            88,
+            51,
+            68,
+            28,
+            66,
+            25,
+            97,
+            57
+          ]
+        },
+        {
+          "task": "Erlenmeyer Flask",
+          "dp_sr": 78,
+          "dp_ssr": 40,
+          "all_method_sr_ssr": [
+            78,
+            40,
+            86,
+            48,
+            66,
+            26,
+            64,
+            23,
+            95,
+            54
+          ]
+        },
+        {
+          "task": "Stoppered Erlenmeyer Flask",
+          "dp_sr": 75,
+          "dp_ssr": 37,
+          "all_method_sr_ssr": [
+            75,
+            37,
+            83,
+            45,
+            63,
+            23,
+            61,
+            20,
+            92,
+            51
+          ]
+        },
+        {
+          "task": "Funnel",
+          "dp_sr": 68,
+          "dp_ssr": 30,
+          "all_method_sr_ssr": [
+            68,
+            30,
+            76,
+            38,
+            58,
+            18,
+            56,
+            15,
+            87,
+            46
+          ]
+        },
+        {
+          "task": "Spirit Lamp",
+          "dp_sr": 71,
+          "dp_ssr": 33,
+          "all_method_sr_ssr": [
+            71,
+            33,
+            79,
+            41,
+            61,
+            21,
+            59,
+            18,
+            90,
+            49
+          ]
+        }
+      ],
+      "table19_equal_mean": {
+        "sr": 77.61904761904762,
+        "ssr": 39.76190476190476
+      },
+      "dp_training": {
+        "epochs": 3000,
+        "batch_size": 128,
+        "learning_rate": 0.0003,
+        "observation_horizon": 1,
+        "action_chunk": 8,
+        "ddim_steps": 16,
+        "encoder": "ResNet-hybrid Vision Transformer with ResNet-26 stem",
+        "fixed_50000_steps_specified": false
+      },
+      "dataset": {
+        "accepted_demos_per_task": 100,
+        "recording_hz": 30,
+        "accepted_only_after": [
+          "completion",
+          "safety thresholds",
+          "collision validity",
+          "finite simulator state"
+        ],
+        "raw_failures_not_training_demos": true
+      },
+      "evaluation": {
+        "independent_seeds": 3,
+        "episodes_per_task_per_seed": 50,
+        "episode_total_per_task": 150,
+        "dp_rgb_views": 3,
+        "dp_target_state": true,
+        "control_decimation": 4
+      },
+      "ssr": {
+        "definition": "Fraction of all trials with goal completion and no applicable safety violation throughout the rollout",
+        "spatial_tolerance_mm": 20,
+        "diagnostic_average_is_not_ssr": true,
+        "reward_pose_residual_reference": "C.3 describes end-effector to strict target pose, including translation and rotation",
+        "per_grasp_object_goal_and_active_constraints": "Need released task registry; not specified per object numerically in PDF"
+      },
+      "corrections": [
+        "Current 50000-update,lr1e-4 controls are not the paper DP3000epoch,lr3e-4 recipe",
+        "Current object-initial-plus-lift screen is diagnostic,not established paper end-effector/goal contract",
+        "Table19DP SR68-85%,not90% for every grasp task;90% local target must be separate",
+        "Table19representative mean differs from main; PDF does not establish aggregation weights",
+        "Retain failed diagnostic attempts for audit,exclude them from accepted expert training pool"
+      ]
+    },
+    "raw_hold_audit": {
+      "native_expert_success_count": 0,
+      "attempts": 1,
+      "training_admitted": false,
+      "paper_ssr": null,
+      "runtime_contract": {
+        "target_success_count": 0,
+        "max_episode": 1,
+        "sample_step": 4,
+        "lock_hand_state_to_target_each_step": false,
+        "random_position_offset_range": [
+          0.02,
+          0.02,
+          0.0
+        ],
+        "min_success_time_s": 6.0,
+        "decimation": 4,
+        "sim_dt": 0.008333333333333333
+      },
+      "import_origin_verified": true,
+      "episodes": [
+        {
+          "episode": 0,
+          "frames": 59,
+          "videos": [
+            {
+              "camera": "chest",
+              "frames": 59,
+              "unique_decoded_frames": 59,
+              "sha256": "afb33d6e04833b240f3b587b5a7a061e484f51c3a8277240b05542ae2b2739f4"
+            },
+            {
+              "camera": "head",
+              "frames": 59,
+              "unique_decoded_frames": 59,
+              "sha256": "d772445139fbaf583f12d4a3eee39258aa7caa33e73d53c92de39e7165ea279a"
+            },
+            {
+              "camera": "third",
+              "frames": 59,
+              "unique_decoded_frames": 59,
+              "sha256": "2bca837db4a666050edbb188f2489f0b029517f516d99873f0b845a5039af82f"
+            }
+          ],
+          "action_ik_max_abs": 0.0,
+          "initial_xyz": [
+            -1.1439870595932007,
+            -5.113177299499512,
+            1.0093547105789185
+          ],
+          "lift_m": 0.25858163833618164,
+          "xy_drift_m": 0.02155170854455876,
+          "action_sha256": "24ad282718258f683093b93fcce33c70e069651b3eab3ec062be761053e26d4d"
+        }
+      ],
+      "errors": [],
+      "total_frames": 59,
+      "initial_xyz_span_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "distinct_action_sequences": 1,
+      "files": {
+        "data/chunk-000/file-000.parquet": "9fffe3c670be01fb27ab448bf9591808691fd237d674d2de281bd531f58992d3",
+        "meta/info.json": "9b469d616c83e60b145d10c3b64d83903bc745074ab300222b2cb6a71eb82994",
+        "meta/stats.json": "29593de9782283d25b59bc811344912883c98b88880891fe44b6840822ecf1f8",
+        "meta/tasks.parquet": "4302f4d3f507a709be7aa13136fae075f205766607578a5200ae0d21acb50b22",
+        "meta/episodes/chunk-000/file-000.parquet": "fe8857c19ebcb92d33048b775f5e8753b1ecf7f2fe3531d43ed03fb91aebc73d",
+        "videos/observation.images.chest_rgb/chunk-000/file-000.mp4": "afb33d6e04833b240f3b587b5a7a061e484f51c3a8277240b05542ae2b2739f4",
+        "videos/observation.images.head_rgb/chunk-000/file-000.mp4": "d772445139fbaf583f12d4a3eee39258aa7caa33e73d53c92de39e7165ea279a",
+        "videos/observation.images.third_rgb/chunk-000/file-000.mp4": "2bca837db4a666050edbb188f2489f0b029517f516d99873f0b845a5039af82f"
+      },
+      "artifact_integrity_pass": true,
+      "claim": "One extended-tail native expert attempt; not learned-policy success, paper SSR, full distribution coverage, or training admission."
+    },
+    "coverage_repair": {
+      "as_of": "2026-09-13",
+      "deployment": "isolated remote package verified; no physical run",
+      "source_sha256": "a82a919a368a6e491c804358757ec6a0c704174e24e70fcc9965c5a34f3956d0",
+      "focused_tests": 8,
+      "local_regression_tests": 28,
+      "independent_review": "pass",
+      "paper_ssr": null,
+      "remaining": [
+        "sensor freshness",
+        "task goal and active constraints",
+        "forbidden collision semantics",
+        "physical validation"
+      ]
+    },
+    "user_protocol": {
+      "episode_cap_s": 3,
+      "scope": "Grasp DP first; no scale acceptance before all tracked tasks qualify",
+      "paper_horizon_verified": false
+    },
     "paper_main_grasp_dp_sr_ssr": [
       78.2,
       40.5
@@ -18672,6 +20704,157 @@
     },
     "metric_issue": "Deployed SR checks delta_Pdiag<=20mm; spatial-only SSR repeats that gate. delta_Pdiag measures distance to a relaxed lift/XY region, not Euclidean target residual. Historical aggregate values cannot reconstruct aligned SSR.",
     "training_fix": "Candidate unifies explicit step budget with cosine horizon and epoch capacity, and counts each update once.8 CPU contract/control-flow tests pass; physical SR improvement not established.",
-    "data_evidence_scope": "Initial target_pose arrays for every stored episode; image consistency sample only first3 episodes,last12frames,third_camera. Array lift is not independent physics validation."
+    "data_evidence_scope": "Initial target_pose arrays for every stored episode; image consistency sample only first3 episodes,last12frames,third_camera. Array lift is not independent physics validation.",
+    "recovered_erlenmeyer": {
+      "as_of": "2026-09-13",
+      "provenance": "fleet_training agent inspected remote progress.json, protocol.json, exit_code.txt and training configs/log tails during preceding turn; root repeat SSH verification currently blocked at gateway handshake",
+      "source_root": "bjxy_5090:/data/safelab_fr3_eval_20260819/ppu_wave_sample_eval_20260821/eval/",
+      "candidate_pattern": "nosdf50r2-dp-rep12-{variant}-rgb-erlenmeyer_flask-s{training_seed}",
+      "test_seed": 42,
+      "episode_cap_s": 6,
+      "actual_randomization_verified": false,
+      "paper_ssr": null,
+      "new_t309_repair_result": false,
+      "checkpoint_counter_verified": false,
+      "last_logged_global_step": 49999,
+      "batch_size": 128,
+      "initial_lr": 0.0001,
+      "rows": [
+        {
+          "variant": "roact",
+          "training_seed": 9755,
+          "demos": 194,
+          "last_epoch": 574,
+          "last_lr": 6.05937e-05,
+          "successes": 44,
+          "episodes": 50,
+          "exit_code": 0
+        },
+        {
+          "variant": "roact",
+          "training_seed": 9756,
+          "demos": 194,
+          "last_epoch": 574,
+          "last_lr": 6.05937e-05,
+          "successes": 49,
+          "episodes": 50,
+          "exit_code": 0
+        },
+        {
+          "variant": "roactmix",
+          "training_seed": 9757,
+          "demos": 294,
+          "last_epoch": 396,
+          "last_lr": 7.98118e-05,
+          "successes": 50,
+          "episodes": 50,
+          "exit_code": 0
+        },
+        {
+          "variant": "roactmix",
+          "training_seed": 9758,
+          "demos": 294,
+          "last_epoch": 396,
+          "last_lr": 7.98118e-05,
+          "successes": 43,
+          "episodes": 50,
+          "exit_code": 0
+        },
+        {
+          "variant": "roact2",
+          "training_seed": 9759,
+          "demos": 379,
+          "last_epoch": 294,
+          "last_lr": 8.86078e-05,
+          "successes": 48,
+          "episodes": 50,
+          "exit_code": 0
+        },
+        {
+          "variant": "roact2mix",
+          "training_seed": 9760,
+          "demos": 479,
+          "last_epoch": 239,
+          "last_lr": 9.23859e-05,
+          "successes": 43,
+          "episodes": 50,
+          "exit_code": 0
+        }
+      ]
+    },
+    "acceleration_progress": {
+      "as_of": "2026-09-13",
+      "scope": "timestamped execution snapshot, not a live stream",
+      "cleanup": {
+        "task": "T-402",
+        "deleted_files": 3,
+        "deleted_logical_bytes": 4211683610,
+        "observed_free_space_gain_bytes": 4211605504,
+        "available_bytes_after": 555878973440,
+        "shared_filesystem_concurrency": true,
+        "retained": "datasets, configs, logs, normalizers",
+        "recoverable_copy_verified": false
+      },
+      "evaluation": {
+        "task": "T-408",
+        "host": "mainskill",
+        "gpu": 6,
+        "status": "probe_complete",
+        "controller_pid": 2320368,
+        "child_sid": 2321183,
+        "episodes": 3,
+        "episode_cap_s": 3,
+        "wall_limit_s": 1200,
+        "object": "brown_reagent_bottle_large",
+        "runtime_clock_verified": true,
+        "paper_ssr": null,
+        "new_score": {
+          "successes": 0,
+          "trials": 3
+        },
+        "terminal_steps": [
+          34,
+          89,
+          26
+        ],
+        "delta_p_mm": [
+          349.7295227050781,
+          360.3252258300781,
+          351.4029846191406
+        ],
+        "valid_force_samples": [
+          140,
+          353,
+          105
+        ],
+        "total_force_samples": [
+          140,
+          353,
+          105
+        ],
+        "registered_sensors": 12,
+        "sensor_freshness_independently_verified": false
+      },
+      "training": {
+        "task": "T-403",
+        "status": "source_audit_passed_transfer_preparation",
+        "object": "erlenmeyer_flask",
+        "demos": 194,
+        "frames": 11089,
+        "frame_length_min": 54,
+        "frame_length_max": 60,
+        "full_image_scan": false,
+        "sampled_camera_segments": 30,
+        "sampled_frozen_moving_conflict": false,
+        "physical_requalification": false,
+        "training_started": false
+      },
+      "acceptance": {
+        "accepted": 0,
+        "tracked_objects": 13,
+        "paper_objects": 21,
+        "paper_ssr_verified": false
+      }
+    }
   }
 }
