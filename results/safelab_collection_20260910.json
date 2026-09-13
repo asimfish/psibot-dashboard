@@ -1,13 +1,44 @@
 {
-  "as_of": "2026-09-13T09:09:11.307623+08:00",
+  "as_of": "2026-09-13T17:23:27.010232+08:00",
   "task": "T-290",
   "snapshot_only": true,
   "local4090": {
-    "as_of": "2026-09-13T09:08:13.962903+08:00",
-    "gpu_observed_at": "2026-09-13T09:08:13.962903+08:00",
-    "gpu": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 3 %, 1403 MiB, 22666 MiB",
-    "snapshot_only": true,
-    "state": "FR3V32 admitted/running; UR5V16 admittedqueuedafterV32."
+    "as_of": "2026-09-13T17:23:27.010232+08:00",
+    "state": "GUARDED_NEXT_DIAGNOSTICS",
+    "latest": {
+      "as_of": "2026-09-13T17:23:27.010232+08:00",
+      "state": "REVIEWED_NATIVE_FAILURE_LANDING_ONLY_HELPER_NOT_EXERCISED",
+      "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_incremental_retreat_v17_terminal_review/REVIEW.json",
+      "review_sha256": "21e722ad88191f076c95880af8bb128c75281f31e72db09be34faf1204f01705",
+      "native_success": 0,
+      "attempts": 1,
+      "formal_credit": 0,
+      "retreat_clearance_mm": 98.9900827407837,
+      "final_xy_error_mm": 0.5248930538073182,
+      "final_height_error_mm": 0.03910064697265625,
+      "force_peak_N": 6.459883689880371,
+      "force_valid": true,
+      "landing_guard": false,
+      "new_retreat_helper_runtime_proven": false,
+      "media": "3x660 full decode,24 actual images and602..612/630..640 continuous3view frames; small contact gaps unresolved.",
+      "next": "Read-only dense landing predicate and source-table contact observation; preserve original gate."
+    },
+    "fr3_next": {
+      "state": "waiting_admission",
+      "time": 1789291406.2455423,
+      "formal_credit": 0,
+      "gpu": [
+        "GPU-7e048773-6e99-b431-101d-8b45724cce9f",
+        " 18510"
+      ],
+      "compute": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 3680489"
+    },
+    "ur5_next": {
+      "state": "ADMITTED_WAITING_V34_PREDECESSOR",
+      "approval": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_landing_trace_v18_local4090/CPU_ADMISSION_REVIEW.json",
+      "approval_sha256": "4d9c085aaa28e0b44518905687821493d4b13e8713314491458c56d2aa0afd29",
+      "predecessor": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour100_closeup_camera_v34_local4090_smoke1/pour100_closeup_camera_v34_seed260912601/PROCESS_EXIT.json"
+    }
   },
   "panel_scope": {
     "fr3": {
@@ -253,7 +284,7 @@
     "cause": "configured Bottle/Beaker003 mismatched USD defaultprim remap; actual rigid body Bottle/base"
   },
   "robot_worklist": {
-    "as_of": "2026-09-13T09:09:11.307623+08:00",
+    "as_of": "2026-09-13T17:23:27.010232+08:00",
     "target_datasets": 16,
     "rows": [
       {
@@ -322,29 +353,29 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "fr3_pour100_report_zero_v31_REVIEWED_NATIVE_FAILURE",
+        "state": "REVIEWED_NATIVE_FAILURE_CONTACT_POSITIVE_FORCE_QUALIFICATION_HOLD",
         "review": {
           "decision_path": null,
           "decision_sha256": null,
           "recipe_file": null,
           "recipe_sha256": null,
-          "largest_blocker": "Actualthreehandthreshold0,5148callbackallzero;3x540full/24actual;74freshparticlearrays,630source/receiver0, noStrictspill. Source/tablepositivequalification pending.",
-          "next_action": "Review fr3_pour100_source_contact_v32 under originalgates; noqualifiedcredit.",
+          "largest_blocker": "REVIEWED_NATIVE_FAILURE_CONTACT_POSITIVE_FORCE_QUALIFICATION_HOLD",
+          "next_action": "V34 diagnostic close camera independently admitted and scheduled; wait for resource admission and review actual rendered visibility before grip/tilt adjustment.",
           "source_dataset": null,
           "cpu_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_actual_joint_limits_prepare/PARSER_CPU.json",
-          "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v31_independent_review/REVIEW.json",
-          "latest_terminal_review_sha256": "3cf89f69775d2c7c1be5c6b3dc142a420d9335d5cf73b98534e96504c41253b4",
+          "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v33_independent_review/REVIEW.json",
+          "latest_terminal_review_sha256": "5ec540547b8d2e5a99279e28410087c4d16808564af28d46e61ee1875e776940",
           "historical_interpretation_superseded_by_V20": "V19 native/cavity counters classified630outside moving source; V20 exact constant particle readback means physical particle motion/spill is not established."
         },
         "recovery_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/pour_recipe_recovery/RECOVERY_STATUS.json",
         "candidate_episodes": 0,
         "quality_blockers": [
-          "Actualthreehandthreshold0,5148callbackallzero;3x540full/24actual;74freshparticlearrays,630source/receiver0, noStrictspill. Source/tablepositivequalification pending."
+          "REVIEWED_NATIVE_FAILURE_CONTACT_POSITIVE_FORCE_QUALIFICATION_HOLD"
         ],
-        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v31_independent_review/REVIEW.json",
-        "next_action": "Review fr3_pour100_source_contact_v32 under originalgates; noqualifiedcredit.",
-        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v31_independent_review/REVIEW.json",
-        "terminal_review_sha256": "3cf89f69775d2c7c1be5c6b3dc142a420d9335d5cf73b98534e96504c41253b4",
+        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v33_independent_review/REVIEW.json",
+        "next_action": "V34 diagnostic close camera independently admitted and scheduled; wait for resource admission and review actual rendered visibility before grip/tilt adjustment.",
+        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v33_independent_review/REVIEW.json",
+        "terminal_review_sha256": "5ec540547b8d2e5a99279e28410087c4d16808564af28d46e61ee1875e776940",
         "historical_quality_blockers": [
           "empty_CuRobo_YAML_skipped_planner_despite_required_flags",
           "interpolation_branch_ignored_finger_close_fraction",
@@ -352,12 +383,9 @@
           "force_receiver_physical_acceptance_unqualified",
           "V18_actual_held_lift_failed; superseded by V19 observed held lift"
         ],
-        "next_candidate": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour100_source_contact_v32_local4090_smoke1",
-        "next_manifest_sha256": "fc5bf5c37da211dc3cc45085e5c0b95d4c919f6db0ff610e4f82395388b00bea",
-        "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v31_independent_review/REVIEW.json",
-        "latest_terminal_review_sha256": "3cf89f69775d2c7c1be5c6b3dc142a420d9335d5cf73b98534e96504c41253b4",
-        "formal_credit": 0,
-        "next_candidate_state": "diagnostic_running"
+        "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v33_independent_review/REVIEW.json",
+        "latest_terminal_review_sha256": "5ec540547b8d2e5a99279e28410087c4d16808564af28d46e61ee1875e776940",
+        "formal_credit": 0
       },
       {
         "robot": "fr3",
@@ -483,30 +511,27 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "ur5e_cylinder_place_frame_v15_REVIEWED_NATIVE_FAILURE",
+        "state": "REVIEWED_NATIVE_FAILURE_LANDING_ONLY_HELPER_NOT_EXERCISED",
         "candidate_episodes": 0,
-        "next_action": "Review ur5e_cylinder_retreat_height_v16 under originalgates; noqualifiedcredit.",
-        "terminal_review_sha256": "5a39d80f022b0414ec34c1785408f68cdd03098e14139347f70cdcd19e06590d",
+        "next_action": "Read-only dense landing predicate and source-table contact observation; preserve original gate.",
+        "terminal_review_sha256": "21e722ad88191f076c95880af8bb128c75281f31e72db09be34faf1204f01705",
         "review": {
-          "largest_blocker": "Sameobjectgoal wristframe correction:3x660full/24actual; uprightcupatgoal,XY.312mm/Z37.3um/force7.637Npass;retreat23.994mm<60mm andlandingFalse. Native0/1.",
-          "next_action": "Review ur5e_cylinder_retreat_height_v16 under originalgates; noqualifiedcredit.",
-          "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_place_frame_v15_terminal_review/REVIEW.json",
-          "latest_terminal_review_sha256": "5a39d80f022b0414ec34c1785408f68cdd03098e14139347f70cdcd19e06590d"
+          "largest_blocker": "REVIEWED_NATIVE_FAILURE_LANDING_ONLY_HELPER_NOT_EXERCISED",
+          "next_action": "Read-only dense landing predicate and source-table contact observation; preserve original gate.",
+          "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_incremental_retreat_v17_terminal_review/REVIEW.json",
+          "latest_terminal_review_sha256": "21e722ad88191f076c95880af8bb128c75281f31e72db09be34faf1204f01705"
         },
-        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_place_frame_v15_terminal_review/REVIEW.json",
-        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_place_frame_v15_terminal_review/REVIEW.json",
-        "next_candidate": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_retreat_height_v16_local4090",
-        "next_manifest_sha256": "7b3189807d4b2a4ed00266556dc3fb7a108cac79317f45cf7fc17deb323d04f2",
-        "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_place_frame_v15_terminal_review/REVIEW.json",
-        "latest_terminal_review_sha256": "5a39d80f022b0414ec34c1785408f68cdd03098e14139347f70cdcd19e06590d",
+        "latest_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_incremental_retreat_v17_terminal_review/REVIEW.json",
+        "latest_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_incremental_retreat_v17_terminal_review/REVIEW.json",
+        "latest_terminal_review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_incremental_retreat_v17_terminal_review/REVIEW.json",
+        "latest_terminal_review_sha256": "21e722ad88191f076c95880af8bb128c75281f31e72db09be34faf1204f01705",
         "historical_terminal_reviews": [
           "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_handstatic_v7_terminal_review/REVIEW.json",
           "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_armstatic_v8_terminal_review/REVIEW.json"
         ],
-        "next_candidate_state": "ADMITTED_QUEUED_AFTER_V32",
         "formal_credit": 0,
         "quality_blockers": [
-          "Sameobjectgoal wristframe correction:3x660full/24actual; uprightcupatgoal,XY.312mm/Z37.3um/force7.637Npass;retreat23.994mm<60mm andlandingFalse. Native0/1."
+          "REVIEWED_NATIVE_FAILURE_LANDING_ONLY_HELPER_NOT_EXERCISED"
         ]
       },
       {
@@ -516,7 +541,7 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "versioned_true_liquid_recipe_recovered_CPU_binding_PASS_runtimequalification_pending",
+        "state": "WAITING_ADMISSION",
         "review": {
           "decision_path": null,
           "decision_sha256": null,
@@ -526,7 +551,24 @@
           "next_action": "Validate correct embodiment and actual liquid transfer in isolated smoke; require native physics, liquid evidence, camera/metadata and scene checks before any100 batch.",
           "source_dataset": null
         },
-        "recovery_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/pour_recipe_recovery/RECOVERY_STATUS.json"
+        "recovery_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/pour_recipe_recovery/RECOVERY_STATUS.json",
+        "latest_remote_run": {
+          "bundle": "/data/safelab_collection_t290_20260910/ur5e_pour_beaker_v418b_logpath_gpu1_20260913",
+          "run": "v418b_seed83607",
+          "admission": {
+            "state": "waiting_admission",
+            "time": 1789291381.715865,
+            "formal_credit": 0,
+            "gpu": [
+              "GPU-828bb172-121c-cc55-7f4f-ef09a2bd7599",
+              " 32100"
+            ],
+            "compute": ""
+          }
+        },
+        "candidate_episodes": 0,
+        "formal_credit": 0,
+        "next_action": "Review original liquid/force/receiver and three-camera evidence before any batch."
       },
       {
         "robot": "ur5e",
@@ -535,7 +577,7 @@
         "target": 100,
         "formal_accepted": 0,
         "formal_remaining": 100,
-        "state": "versioned_true_liquid_recipe_recovered_CPU_binding_PASS_runtimequalification_pending",
+        "state": "DIAGNOSTIC_ENDED_REVIEW_REQUIRED",
         "review": {
           "decision_path": null,
           "decision_sha256": null,
@@ -545,7 +587,36 @@
           "next_action": "Validate correct embodiment and actual liquid transfer in isolated smoke; require native physics, liquid evidence, camera/metadata and scene checks before any100 batch.",
           "source_dataset": null
         },
-        "recovery_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/pour_recipe_recovery/RECOVERY_STATUS.json"
+        "recovery_evidence": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/pour_recipe_recovery/RECOVERY_STATUS.json",
+        "latest_remote_run": {
+          "bundle": "/data/safelab_collection_t290_20260910/ur5e_pour_cylinder_v416_parallel_gpu0_20260913",
+          "run": "v416_seed83605",
+          "admission": {
+            "state": "diagnostic_ended_review_required",
+            "time": 1789291025.705146,
+            "formal_credit": 0,
+            "returncode": 0
+          },
+          "terminal": {
+            "returncode": 0,
+            "error": null,
+            "formal_credit": 0,
+            "classification": "diagnostic_only_not_formal",
+            "cleanup_complete": true
+          },
+          "disk": {
+            "own_allocated_bytes": 478687232,
+            "filesystem_free_bytes": 121337176064,
+            "time": 1789291018.9681733,
+            "sampling_seconds": 5,
+            "soft_budget_bytes": 10737418240,
+            "free_floor_bytes": 64424509440,
+            "hard_quota": false
+          }
+        },
+        "candidate_episodes": 0,
+        "formal_credit": 0,
+        "next_action": "Review original liquid/force/receiver and three-camera evidence before any batch."
       },
       {
         "robot": "ur5e",
@@ -14620,7 +14691,7 @@
   },
   "fr3_pour100_source_contact_v32": {
     "as_of": "2026-09-13T09:08:13.962903+08:00",
-    "state": "diagnostic_running",
+    "state": "REVIEWED_NATIVE_FAILURE_ZERO_CONTACT",
     "bundle": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour100_source_contact_v32_local4090_smoke1",
     "manifest_sha256": "fc5bf5c37da211dc3cc45085e5c0b95d4c919f6db0ff610e4f82395388b00bea",
     "formal_credit": 0,
@@ -14635,14 +14706,185 @@
         " 23534"
       ],
       "compute": ""
-    }
+    },
+    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v32_independent_review/REVIEW.json",
+    "review_sha256": "522493894fbed021dfb9f10ea21c5998ad7255468777bce723a4a52a85715b33",
+    "native_success": 0
   },
   "ur5e_cylinder_retreat_height_v16": {
     "as_of": "2026-09-13T09:09:11.307623+08:00",
-    "state": "ADMITTED_QUEUED_AFTER_V32",
+    "state": "REVIEWED_NATIVE_FAILURE_RETREAT_ONLY",
     "bundle": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_retreat_height_v16_local4090",
     "manifest_sha256": "7b3189807d4b2a4ed00266556dc3fb7a108cac79317f45cf7fc17deb323d04f2",
     "formal_credit": 0,
-    "admission_sha256": "d727d67eaea354198bc617232744ac2026f26ad051c00bb2a2d7b1ee8785f83a"
+    "admission_sha256": "d727d67eaea354198bc617232744ac2026f26ad051c00bb2a2d7b1ee8785f83a",
+    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_retreat_height_v16_terminal_review/REVIEW.json",
+    "review_sha256": "97aed7211ba34ab7f20d32f305083cf00a1417ffee5f1f21aa32c583aa479648",
+    "landing_guard": true,
+    "retreat_clearance_mm": 5.444,
+    "native_success": 0
+  },
+  "remote_parallel_collection": {
+    "as_of": "2026-09-13T17:23:05.617055+08:00",
+    "monitor_only": true,
+    "rows": [
+      {
+        "bundle": "/data/safelab_collection_t290_20260910/ur5e_pour_cylinder_v416_parallel_gpu0_20260913",
+        "run": "v416_seed83605",
+        "admission": {
+          "state": "diagnostic_ended_review_required",
+          "time": 1789291025.705146,
+          "formal_credit": 0,
+          "returncode": 0
+        },
+        "terminal": {
+          "returncode": 0,
+          "error": null,
+          "formal_credit": 0,
+          "classification": "diagnostic_only_not_formal",
+          "cleanup_complete": true
+        },
+        "disk": {
+          "own_allocated_bytes": 478687232,
+          "filesystem_free_bytes": 121337176064,
+          "time": 1789291018.9681733,
+          "sampling_seconds": 5,
+          "soft_budget_bytes": 10737418240,
+          "free_floor_bytes": 64424509440,
+          "hard_quota": false
+        }
+      },
+      {
+        "bundle": "/data/safelab_collection_t290_20260910/ur5e_pour_beaker_v418_parallel_gpu1_20260913",
+        "run": "v418_seed83607",
+        "admission": {
+          "state": "diagnosis_required",
+          "time": 1789291023.3962636,
+          "formal_credit": 0,
+          "error": "supervisor signal 15"
+        },
+        "disk": {
+          "own_allocated_bytes": 438927360,
+          "filesystem_free_bytes": 121338847232,
+          "time": 1789291022.7103355,
+          "sampling_seconds": 5,
+          "soft_budget_bytes": 10737418240,
+          "free_floor_bytes": 64424509440,
+          "hard_quota": false
+        }
+      },
+      {
+        "bundle": "/data/safelab_collection_t290_20260910/ur5e_pour_beaker_v418b_logpath_gpu1_20260913",
+        "run": "v418b_seed83607",
+        "admission": {
+          "state": "waiting_admission",
+          "time": 1789291381.715865,
+          "formal_credit": 0,
+          "gpu": [
+            "GPU-828bb172-121c-cc55-7f4f-ef09a2bd7599",
+            " 32100"
+          ],
+          "compute": ""
+        }
+      }
+    ],
+    "gpu": {
+      "returncode": 0,
+      "stdout": "0, GPU-b129224c-c735-a03f-de6c-185d2a2724b1, 0 %, 469 MiB, 31644 MiB\n1, GPU-828bb172-121c-cc55-7f4f-ef09a2bd7599, 0 %, 21 MiB, 32100 MiB\n",
+      "stderr": ""
+    },
+    "compute": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "local_observed_at": "2026-09-13T17:23:05.791672+08:00"
+  },
+  "fr3_pour100_contact_processing_v33": {
+    "as_of": "2026-09-13T17:23:27.010232+08:00",
+    "state": "REVIEWED_NATIVE_FAILURE_CONTACT_POSITIVE_FORCE_QUALIFICATION_HOLD",
+    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour_v33_independent_review/REVIEW.json",
+    "review_sha256": "5ec540547b8d2e5a99279e28410087c4d16808564af28d46e61ee1875e776940",
+    "native_success": 0,
+    "attempts": 1,
+    "formal_credit": 0,
+    "source_particles": 630,
+    "receiver_particles": 0,
+    "contact_pair_peaks_N": {
+      "leftfinger": 2.4663213675947935,
+      "rightfinger": 5.56055327023472,
+      "source_table": 13.056844432163622
+    },
+    "unfiltered_hand_peak_N": 89318.94562424433,
+    "force_boundary": "Unfiltered hand net attribution/semantics unresolved; not qualified and not established as real palm impact.",
+    "media": "3x540 full decode,24 actual images plus399..409 continuous3view frames; contact patches remain obscured.",
+    "next": "V34 diagnostic close camera independently admitted and scheduled; wait for resource admission and review actual rendered visibility before grip/tilt adjustment."
+  },
+  "ur5e_cylinder_incremental_retreat_v17": {
+    "as_of": "2026-09-13T17:23:27.010232+08:00",
+    "state": "REVIEWED_NATIVE_FAILURE_LANDING_ONLY_HELPER_NOT_EXERCISED",
+    "review": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_incremental_retreat_v17_terminal_review/REVIEW.json",
+    "review_sha256": "21e722ad88191f076c95880af8bb128c75281f31e72db09be34faf1204f01705",
+    "native_success": 0,
+    "attempts": 1,
+    "formal_credit": 0,
+    "retreat_clearance_mm": 98.9900827407837,
+    "final_xy_error_mm": 0.5248930538073182,
+    "final_height_error_mm": 0.03910064697265625,
+    "force_peak_N": 6.459883689880371,
+    "force_valid": true,
+    "landing_guard": false,
+    "new_retreat_helper_runtime_proven": false,
+    "media": "3x660 full decode,24 actual images and602..612/630..640 continuous3view frames; small contact gaps unresolved.",
+    "next": "Read-only dense landing predicate and source-table contact observation; preserve original gate."
+  },
+  "fr3_pour100_closeup_camera_v34": {
+    "as_of": "2026-09-13T17:23:27.010232+08:00",
+    "admission": {
+      "state": "waiting_admission",
+      "time": 1789291406.2455423,
+      "formal_credit": 0,
+      "gpu": [
+        "GPU-7e048773-6e99-b431-101d-8b45724cce9f",
+        " 18510"
+      ],
+      "compute": "GPU-7e048773-6e99-b431-101d-8b45724cce9f, 3680489"
+    },
+    "formal_credit": 0,
+    "new_camera_rendering_reviewed": false
+  },
+  "ur5e_cylinder_landing_trace_v18": {
+    "as_of": "2026-09-13T17:23:27.010232+08:00",
+    "admission": {
+      "state": "ADMITTED_WAITING_V34_PREDECESSOR",
+      "approval": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/ur5e_cylinder_landing_trace_v18_local4090/CPU_ADMISSION_REVIEW.json",
+      "approval_sha256": "4d9c085aaa28e0b44518905687821493d4b13e8713314491458c56d2aa0afd29",
+      "predecessor": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/fr3_pour100_closeup_camera_v34_local4090_smoke1/pour100_closeup_camera_v34_seed260912601/PROCESS_EXIT.json"
+    },
+    "formal_credit": 0
+  },
+  "remote_beaker_path_failure": {
+    "original": "v418",
+    "error": "debug_joint_log_path pointed outside isolated run; read-only filesystem rejected write",
+    "own_cleanup_confirmed": true,
+    "repair": "v418b redirects only diagnostic log path to its own run",
+    "formal_credit": 0
+  },
+  "visual_diagnostic_coverage": {
+    "state": "INSUFFICIENT_FOR_FINE_CONTACT_ADJUSTMENT",
+    "audit": "/home/liyufeng/ops/safelab_collection_20260910/astra_candidates/visual_diagnostic_coverage_prepare/VISUAL_COVERAGE_AUDIT.json",
+    "new_camera_implemented_and_rendered": false,
+    "original_dataset_cameras_preserved": true
+  },
+  "remote_resource_policy": {
+    "start_free_GiB": 90,
+    "each_lane_sampled_budget_GiB": 10,
+    "runtime_free_floor_GiB": 60,
+    "max_attempts_per_lane": 3,
+    "target_success_per_lane": 1,
+    "hard_quota": false,
+    "explicit_replaces_old_150GiB_for_these_two_diagnostics": true,
+    "historical_locks": "GPU0 four;GPU1 six; all preserved; disjoint",
+    "warning": "5 second samples and termination delay are not hard filesystem quotas."
   }
 }
