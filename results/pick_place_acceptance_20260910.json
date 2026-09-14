@@ -34,7 +34,7 @@
         "criteria": "all preceding stages accepted; no automatic scale launch from smoke or process exit"
       }
     ],
-    "next": "A100 双卡训练当前 24,900/50,000；旧模型 ±2 cm 已完成50/50、28成功（56%），SSR筛查0/50（论文校准缺失）；±3 cm 已自动启动。训练完成后自动导出并进行4090同机50集；完整SR/SSR验收前继续禁止规模训练。",
+    "next": "A100双卡训练24,900/50,000；既有模型±2cm完成28/50（56%），论文SSR未核定；±3cm已启动。最终模型完成后自动导出并进行4090同机50集，正式验收前不放行规模训练。",
     "reference_target": {
       "source": "https://openreview.net/pdf?id=ojwpa0wXo9",
       "table": 20,
@@ -10932,8 +10932,12 @@
       "successes": 28,
       "target_episodes": 50,
       "success_rate": 0.56,
-      "ssr_screening": 0.0,
-      "status": "complete"
+      "status": "complete",
+      "paper_ssr": null,
+      "raw_reported_ssr": 0.0,
+      "paper_status": "task_calibration_manifest_required",
+      "exit_code": 0,
+      "owned_session_clean": true
     },
     "same4090_eval50": {
       "status": "waiting_for_verified_export",
