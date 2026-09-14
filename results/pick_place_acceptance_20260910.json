@@ -34,7 +34,7 @@
         "criteria": "all preceding stages accepted; no automatic scale launch from smoke or process exit"
       }
     ],
-    "next": "4090新数据在A100双卡训练35,900/50,000；既有模型±2cm完成28/50（56%），±3cm完成14/50、5成功（中间计数）；±4cm排队，最终模型4090评测等待导出，论文SSR未核定。完整单任务验收前不放行规模训练。",
+    "next": "4090新数据在A100双卡训练43,300/50,000；既有模型±2cm完成28/50（56%），±3cm完成27/50、11成功（中间计数）；±4cm排队，最终模型4090评测等待导出，论文SSR未核定。完整单任务验收前不放行规模训练。",
     "reference_target": {
       "source": "https://openreview.net/pdf?id=ojwpa0wXo9",
       "table": 20,
@@ -54,7 +54,7 @@
       "task_success": false,
       "formal_credit": 0
     },
-    "current_frontier": "4090新数据在A100双卡训练35,900/50,000；既有模型±2cm完成28/50（56%），±3cm完成14/50、5成功（中间计数）；±4cm排队，最终模型4090评测等待导出，论文SSR未核定。",
+    "current_frontier": "4090新数据在A100双卡训练43,300/50,000；既有模型±2cm完成28/50（56%），±3cm完成27/50、11成功（中间计数）；±4cm排队，最终模型4090评测等待导出，论文SSR未核定。",
     "expert_dynamic_replay": {
       "native_success": true,
       "delta_p_mm": 15.776063919067383,
@@ -10916,26 +10916,26 @@
     "root_cause_250ml": "not established; failure components are overlapping terminal conditions"
   },
   "live_supervision": {
-    "updated_at": "2026-09-15T03:49:02+08:00",
+    "updated_at": "2026-09-15T04:28:47+08:00",
     "task": "T-323",
     "scale_training_allowed": false,
     "a100_training": {
-      "optimizer_updates": 35900,
+      "optimizer_updates": 43300,
       "rank_updates": [
-        35900,
-        35900
+        43300,
+        43300
       ],
       "target_updates": 50000,
-      "latest_noise_loss": 0.004192790482193232,
+      "latest_noise_loss": 0.0038645179010927677,
       "noise_loss_window": {
         "batches": 1000,
-        "first_log_step": 34977,
-        "last_log_step": 35976,
-        "mean": 0.004399001164723465,
-        "median": 0.004350577015429735,
-        "min": 0.0031708248425275087,
-        "max": 0.007051003165543079,
-        "latest_lr": 1.9621676597279208e-05,
+        "first_log_step": 42377,
+        "last_log_step": 43376,
+        "mean": 0.0037803981016672396,
+        "median": 0.003751224968235623,
+        "min": 0.003016070695593953,
+        "max": 0.0053780218586325645,
+        "latest_lr": 4.624404142797994e-06,
         "action_mse": null
       },
       "metric_is_action_mse": false,
@@ -10948,10 +10948,10 @@
       "data_episodes": 100,
       "data_frames": 12000,
       "observed_rate": {
-        "updates": 300,
-        "interval_seconds": 88.5376091003418,
-        "updates_per_second": 3.3883905726435732,
-        "remaining_training_minutes": 69.35446046193441,
+        "updates": 7400,
+        "interval_seconds": 2379.267323732376,
+        "updates_per_second": 3.110201164109445,
+        "remaining_training_minutes": 35.90335826352909,
         "excludes_export_and_evaluation": true
       }
     },
@@ -10982,8 +10982,8 @@
     ],
     "next_generalization": {
       "range_cm": 3,
-      "episodes_completed": 14,
-      "successes": 5,
+      "episodes_completed": 27,
+      "successes": 11,
       "target_episodes": 50,
       "status": "running",
       "final_success_rate": null
@@ -10996,23 +10996,23 @@
     "source_evidence": {
       "training_controller": {
         "path": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/same4090_a100_train/controller.json",
-        "sha256": "8fab59e25c5b6ceef99456c60d36cad30a91d0b2bdf41235ff0a1394b3b68f0d",
-        "mtime_epoch": 1789415340.1985173
+        "sha256": "5ecd44e3fcdea3dea6302dce18925829adfb4a5c5d5b4e12fe4f2b81f25161d6",
+        "mtime_epoch": 1789417725.5385494
       },
       "rank0": {
         "path": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/same4090_a100_train/runs/candidate50000/checkpoints/optimizer_progress.json",
-        "sha256": "256bff8b2b19f1b9814f790d134278b73d934be9fe00badf479dd15476a68c65",
-        "mtime_epoch": 1789415319.6540606
+        "sha256": "e1f6eadf8ead7978f52d9d28b56cdfa2c8197e3de6a8f9a74872edc65830ea55",
+        "mtime_epoch": 1789417698.9209578
       },
       "rank1": {
         "path": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/same4090_a100_train/runs/candidate50000/checkpoints/optimizer_progress_rank1.json",
-        "sha256": "da4bb0605c4efa75e86ac3aa3f0a5574e865e72ad732bd2f32d3d9ada8a81f98",
-        "mtime_epoch": 1789415319.6530607
+        "sha256": "4782f1d1b1167662742483b8193e99c60387e81d85cf7d84919101f8e6321c84",
+        "mtime_epoch": 1789417698.925958
       },
       "posttrain": {
         "path": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/same4090_a100_train/posttrain_status.json",
-        "sha256": "f5ee3fd4631ef57fb9f1aa2d6a80c6a2f786bea25dc52085b1e596cc43055309",
-        "mtime_epoch": 1789415339.1194935
+        "sha256": "c51806e86516f73aacee8aedae9262f58c2efd2159b7a5e56c838df1a770d3e5",
+        "mtime_epoch": 1789417709.1631856
       },
       "p2": {
         "path": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/generalization_p2cm_20260915/result.json",
@@ -11021,18 +11021,18 @@
       },
       "p3": {
         "path": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/generalization_p3cm_20260915/controller.json",
-        "sha256": "b9335a552afaa5acda4bc816cb3625994c5245663a330b914f519cf62324db29",
-        "mtime_epoch": 1789415334.0403805
+        "sha256": "e32e1fea48914039edf544bec7c4b62f63fbda20e17beb1f821ad04118ac75b6",
+        "mtime_epoch": 1789417724.0475163
       },
       "range_queue": {
         "path": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/range_queue_20260915.json",
-        "sha256": "8978b24d252dceb3068b02e3206283f8286d8547c810b2e175d84ca51dd6a822",
-        "mtime_epoch": 1789415337.4654567
+        "sha256": "4d99831792a743e5fd778e7ec727bd32a2b6b1854aaea44d8a075b6de45aaf50",
+        "mtime_epoch": 1789417709.2121866
       },
       "local4090_pipeline": {
         "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/same4090_eval50_20260915/pipeline_status.json",
-        "sha256": "5dc3baedd0492e190520a0a66df5aefa434168d9790d5885cf8bd107a646a2dd",
-        "mtime_epoch": 1789415300.4879642
+        "sha256": "4f9b1c7577fc156ea823051ba14a12742f92fa7cd5b27cec950d27d30beda310",
+        "mtime_epoch": 1789417683.4901397
       }
     }
   },
