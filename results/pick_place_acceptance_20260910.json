@@ -34,7 +34,7 @@
         "criteria": "all preceding stages accepted; no automatic scale launch from smoke or process exit"
       }
     ],
-    "next": "A100双卡训练24,900/50,000；既有模型±2cm完成28/50（56%），论文SSR未核定；±3cm已启动。最终模型完成后自动导出并进行4090同机50集，正式验收前不放行规模训练。",
+    "next": "4090新数据在A100双卡训练35,900/50,000；既有模型±2cm完成28/50（56%），±3cm完成14/50、5成功（中间计数）；±4cm排队，最终模型4090评测等待导出，论文SSR未核定。完整单任务验收前不放行规模训练。",
     "reference_target": {
       "source": "https://openreview.net/pdf?id=ojwpa0wXo9",
       "table": 20,
@@ -54,7 +54,7 @@
       "task_success": false,
       "formal_credit": 0
     },
-    "current_frontier": "训练与泛化均在进行：A100 24,900/50,000；旧模型±2 cm 50/50、28成功，±3 cm 0/50运行中；新模型尚无50集SR，SSR未完成。",
+    "current_frontier": "4090新数据在A100双卡训练35,900/50,000；既有模型±2cm完成28/50（56%），±3cm完成14/50、5成功（中间计数）；±4cm排队，最终模型4090评测等待导出，论文SSR未核定。",
     "expert_dynamic_replay": {
       "native_success": true,
       "delta_p_mm": 15.776063919067383,
@@ -10916,15 +10916,44 @@
     "root_cause_250ml": "not established; failure components are overlapping terminal conditions"
   },
   "live_supervision": {
-    "updated_at": "2026-09-15",
+    "updated_at": "2026-09-15T03:49:02+08:00",
     "task": "T-323",
     "scale_training_allowed": false,
     "a100_training": {
-      "optimizer_updates": 24900,
+      "optimizer_updates": 35900,
+      "rank_updates": [
+        35900,
+        35900
+      ],
       "target_updates": 50000,
-      "latest_noise_loss": 0.006545067764818668,
+      "latest_noise_loss": 0.004192790482193232,
+      "noise_loss_window": {
+        "batches": 1000,
+        "first_log_step": 34977,
+        "last_log_step": 35976,
+        "mean": 0.004399001164723465,
+        "median": 0.004350577015429735,
+        "min": 0.0031708248425275087,
+        "max": 0.007051003165543079,
+        "latest_lr": 1.9621676597279208e-05,
+        "action_mse": null
+      },
       "metric_is_action_mse": false,
-      "status": "running"
+      "action_mse": null,
+      "status": "running",
+      "gpu_indices": [
+        1,
+        5
+      ],
+      "data_episodes": 100,
+      "data_frames": 12000,
+      "observed_rate": {
+        "updates": 300,
+        "interval_seconds": 88.5376091003418,
+        "updates_per_second": 3.3883905726435732,
+        "remaining_training_minutes": 69.35446046193441,
+        "excludes_export_and_evaluation": true
+      }
     },
     "old_model_generalization": {
       "range_cm": 2,
@@ -10941,7 +10970,9 @@
     },
     "same4090_eval50": {
       "status": "waiting_for_verified_export",
-      "new_model_result_available": false
+      "new_model_result_available": false,
+      "watcher_pid": 3696785,
+      "watcher_identity_verified": true
     },
     "pending": [
       "new 4090-data model 50-episode SR",
@@ -10951,10 +10982,58 @@
     ],
     "next_generalization": {
       "range_cm": 3,
-      "episodes_completed": 0,
-      "successes": 0,
+      "episodes_completed": 14,
+      "successes": 5,
       "target_episodes": 50,
-      "status": "running"
+      "status": "running",
+      "final_success_rate": null
+    },
+    "snapshot_kind": "verified_observation_not_continuous_live_feed",
+    "queued_generalization": {
+      "range_cm": 4,
+      "status": "waiting_for_p3_complete"
+    },
+    "source_evidence": {
+      "training_controller": {
+        "path": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/same4090_a100_train/controller.json",
+        "sha256": "8fab59e25c5b6ceef99456c60d36cad30a91d0b2bdf41235ff0a1394b3b68f0d",
+        "mtime_epoch": 1789415340.1985173
+      },
+      "rank0": {
+        "path": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/same4090_a100_train/runs/candidate50000/checkpoints/optimizer_progress.json",
+        "sha256": "256bff8b2b19f1b9814f790d134278b73d934be9fe00badf479dd15476a68c65",
+        "mtime_epoch": 1789415319.6540606
+      },
+      "rank1": {
+        "path": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/same4090_a100_train/runs/candidate50000/checkpoints/optimizer_progress_rank1.json",
+        "sha256": "da4bb0605c4efa75e86ac3aa3f0a5574e865e72ad732bd2f32d3d9ada8a81f98",
+        "mtime_epoch": 1789415319.6530607
+      },
+      "posttrain": {
+        "path": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/same4090_a100_train/posttrain_status.json",
+        "sha256": "f5ee3fd4631ef57fb9f1aa2d6a80c6a2f786bea25dc52085b1e596cc43055309",
+        "mtime_epoch": 1789415339.1194935
+      },
+      "p2": {
+        "path": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/generalization_p2cm_20260915/result.json",
+        "sha256": "fa87c5c845f1053bd018edd59ac0807e5928eda280946b6e4398b7cb13a40760",
+        "mtime_epoch": 1789412001.2022605
+      },
+      "p3": {
+        "path": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/generalization_p3cm_20260915/controller.json",
+        "sha256": "b9335a552afaa5acda4bc816cb3625994c5245663a330b914f519cf62324db29",
+        "mtime_epoch": 1789415334.0403805
+      },
+      "range_queue": {
+        "path": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/range_queue_20260915.json",
+        "sha256": "8978b24d252dceb3068b02e3206283f8286d8547c810b2e175d84ca51dd6a822",
+        "mtime_epoch": 1789415337.4654567
+      },
+      "local4090_pipeline": {
+        "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/same4090_eval50_20260915/pipeline_status.json",
+        "sha256": "5dc3baedd0492e190520a0a66df5aefa434168d9790d5885cf8bd107a646a2dd",
+        "mtime_epoch": 1789415300.4879642
+      }
     }
   },
   "generalization_ranges_20260915": {
