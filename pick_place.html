@@ -17,11 +17,11 @@ section{margin-top:32px}.section-head{display:flex;justify-content:space-between
 </style><style>#latest-results > .panel{margin-top:18px}#episode-details .split{margin-top:18px}.history{border:1px solid var(--line);border-radius:14px;padding:20px;background:#edf1f5;margin-top:32px}.history > summary{font-size:18px}.history > summary span{display:block;font-size:12px;color:var(--muted);margin-top:5px}.history-video-label{font-weight:700!important;color:#81490a!important;background:#fff0df;padding:8px;border-radius:6px}.history h2{font-size:20px}#episode-details summary{font-size:15px;font-weight:600}#comparison table{white-space:normal;table-layout:fixed}#comparison th,#comparison td{overflow-wrap:anywhere;padding:12px 6px}</style></head><body>
 <header><div class="top"><div class="brand">SafeLab <span style="font-weight:400;color:#627389">/ 任务实验室</span></div><a href="./index.html">← 返回总看板</a></div></header>
 <main><!-- LIVE_SUPERVISION_BEGIN --><section id="live-supervision" class="panel" style="border-left:4px solid #1f7a8c;margin-top:0">
-<div class="eyebrow">进度快照 · T-323 · <time datetime="2026-09-15T03:49:02+08:00">2026-09-15 03:49:02 北京时间</time></div>
+<div class="eyebrow">进度快照 · T-323 · <time datetime="2026-09-15T04:28:47+08:00">2026-09-15 04:28:47 北京时间</time></div>
 <h2>100 mL 烧杯 pick_place 当前进度</h2>
-<p><strong>4090新数据在A100双卡训练：35,900 / 50,000 次更新（71.8%）</strong> · 两个训练进程更新数一致。100条、12,000帧，GPU1/5，目标全局batch 128。</p>
-<p>最近1,000批平均 noise loss <strong>0.004399</strong>（日志step 34,977–35,976）；rank0最近一批为0.004193。这是扩散噪声预测误差，<strong>不是动作MSE</strong>；当前模型动作MSE尚未测得，不能据此判断闭环成功率。</p>
-<p><strong>既有模型 ±2 cm 已完成：28/50成功（56%）</strong>。±3 cm 正在测试，已完成<strong>14/50集、5次成功</strong>，这是中间计数；±4 cm 等待本组完整结束后自动接续。各组使用同一既有模型、seed 42、每集6秒。</p>
+<p><strong>4090新数据在A100双卡训练：43,300 / 50,000 次更新（86.6%）</strong> · 两个训练进程更新数一致。100条、12,000帧，GPU1/5，目标全局batch 128。</p>
+<p>最近1,000批平均 noise loss <strong>0.003780</strong>（日志step 42,377–43,376）；rank0最近一批为0.003865。这是扩散噪声预测误差，<strong>不是动作MSE</strong>；当前模型动作MSE尚未测得，不能据此判断闭环成功率。</p>
+<p><strong>既有模型 ±2 cm 已完成：28/50成功（56%）</strong>。±3 cm 正在测试，已完成<strong>27/50集、11次成功</strong>，这是中间计数；±4 cm 等待本组完整结束后自动接续。各组使用同一既有模型、seed 42、每集6秒。</p>
 <div class="table-wrap"><table><thead><tr><th>既有100 mL DP测试范围</th><th>SR（各50次）</th><th>ΔP ≤ 20 mm</th><th>平均ΔP</th><th>论文SSR</th></tr></thead><tbody><tr><td>±1 cm</td><td>34/50 · 68%</td><td>15/50 · 30%</td><td>23.85 mm</td><td>未核定</td></tr><tr><td>±2 cm</td><td>28/50 · 56%</td><td>18/50 · 36%</td><td>24.32 mm</td><td>未核定</td></tr></tbody></table></div><p>±2 cm 的22次失败均触发位置条件，另有1次同时姿态不合格；释放、退手和时间条件均通过。这些是终态失败条件，根因尚待确认。ΔP通过数与任务SR口径不同，不能替代完整SSR。</p><p>±2 cm 结果已正常退出且自有进程清理通过。论文 SSR 仍未核定：50条逐集paper_ssr均为null；日志打印的SSR 0/50不作为论文SSR结果。</p>
 <p>新模型的4090同机50集测试监督器已核实在运行，等待最终checkpoint导出与校验。新模型尚无闭环SR；本地采集与测试均使用Isaac4.5，既有A100评测使用Isaac5.1。</p>
 <p>新模型SR、完整SSR与5090对照仍待完成，<strong>大规模训练继续禁止</strong>。下方保留2026-09-13两组完整评测及对应视频。</p>
