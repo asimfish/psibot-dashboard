@@ -34,7 +34,7 @@
         "criteria": "all preceding stages accepted; no automatic scale launch from smoke or process exit"
       }
     ],
-    "next": "4090新数据模型已完成50,000步训练/导出/传输校验；本地4090测试27/50成功（54%），已完整完成。既有模型±2cm完成28/50（56%），±3cm最终22/50成功（44%）；±4 cm 已启动，2/50集、0次成功（中间计数），论文SSR未核定。完整单任务验收前不放行规模训练。",
+    "next": "4090新数据模型已完成50,000步训练/导出/传输校验；本地4090测试27/50成功（54%），已完整完成。既有模型±2cm完成28/50（56%），±3cm最终22/50成功（44%）；±4 cm 已启动，22/50集、8次成功（中间计数），论文SSR未核定。完整单任务验收前不放行规模训练。",
     "reference_target": {
       "source": "https://openreview.net/pdf?id=ojwpa0wXo9",
       "table": 20,
@@ -54,7 +54,7 @@
       "task_success": false,
       "formal_credit": 0
     },
-    "current_frontier": "4090新数据模型已完成50,000步训练/导出/传输校验；本地4090测试27/50成功（54%），已完整完成。既有模型±2cm完成28/50（56%），±3cm最终22/50成功（44%）；±4 cm 已启动，2/50集、0次成功（中间计数），论文SSR未核定。",
+    "current_frontier": "4090新数据模型已完成50,000步训练/导出/传输校验；本地4090测试27/50成功（54%），已完整完成。既有模型±2cm完成28/50（56%），±3cm最终22/50成功（44%）；±4 cm 已启动，22/50集、8次成功（中间计数），论文SSR未核定。",
     "expert_dynamic_replay": {
       "native_success": true,
       "delta_p_mm": 15.776063919067383,
@@ -10916,7 +10916,7 @@
     "root_cause_250ml": "not established; failure components are overlapping terminal conditions"
   },
   "live_supervision": {
-    "updated_at": "2026-09-15T06:26:28+08:00",
+    "updated_at": "2026-09-15T07:16:13+08:00",
     "task": "T-323",
     "scale_training_allowed": false,
     "a100_training": {
@@ -11036,7 +11036,7 @@
       "checkpoint_sha256": "17dd752f143c7de68e6c6ff0e98e064116e7614146513cb62d4f05ce4657b93d"
     },
     "pending": [
-      "First-frame timing diagnostic and bounded repair validation",
+      "Boundary repair collection50 quality and sample phase validation",
       "±4cm completed results",
       "Full paper-aligned SSR calibration and acceptance",
       "5090 comparison after new-model result"
@@ -11053,8 +11053,8 @@
     "queued_generalization": {
       "range_cm": 4,
       "status": "running",
-      "episodes_completed": 2,
-      "successes": 0,
+      "episodes_completed": 22,
+      "successes": 8,
       "final_success_rate": null
     },
     "source_evidence": {
@@ -11095,8 +11095,8 @@
       },
       "p4": {
         "path": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/generalization_p4cm_20260915/controller.json",
-        "sha256": "69fa3fb989fd277058dd86a1baff99fcec286aff37f9597f4a778575b5eb3fc6",
-        "mtime_epoch": 1789424778.7468314
+        "sha256": "aa20ce519435218b87f49d7c1153b62e5fd5e1f3e363a6ddd698be64fd58ea9c",
+        "mtime_epoch": 1789427767.8157947
       },
       "action_mse": {
         "path": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/same4090_action_mse_20260915/watcher.json",
@@ -11134,9 +11134,34 @@
         "mtime_epoch": 1789423236.0238168
       },
       "start_phase_probe": {
-        "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_probe_20260915/controller.json",
-        "sha256": "e89dc128202effb3b3c86856bab80f4f9ee820be4b070335af4fe98e7f7aca1b",
-        "mtime_epoch": 1789424770.0832376
+        "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_probe_20260915_r2/controller.json",
+        "sha256": "77b1b87519ab46982d79eca3cea05eb1030ef583d2b0f11c42869eefa8f7e133",
+        "mtime_epoch": 1789426256.4036417
+      },
+      "start_phase_analysis": {
+        "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_probe_20260915_r2/analysis.json",
+        "sha256": "fc178d0edca3dd25a669a5c75db3edac300deb52f88dc5a408ab62a01a2588c3",
+        "mtime_epoch": 1789426311.3737478
+      },
+      "baseline_timing_verified": {
+        "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_probe_20260915_r2/baseline_verified.json",
+        "sha256": "c30a823e064e96cbed0647955391f4f61c2c423c81bd24ec648f544d37c61442",
+        "mtime_epoch": 1789426297.971478
+      },
+      "boundary_candidate": {
+        "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_boundary_candidate_20260915/controller.json",
+        "sha256": "498ecfe69690794f1531be30b501daab3638ad193aaefcdfbc3ca0f7f2d608ce",
+        "mtime_epoch": 1789426818.0799048
+      },
+      "boundary_candidate_behavior": {
+        "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_boundary_candidate_20260915/behavior_verified.json",
+        "sha256": "734b0c1e4764daa65a9e71da728e32d49cc9adaef80250a312150c3ead7b0d02",
+        "mtime_epoch": 1789426899.1930134
+      },
+      "boundary_quality50": {
+        "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/controller.json",
+        "sha256": "69b0061ad6195eeef305c1141782b83d2fc3af798189e0e12507f6520bea36de",
+        "mtime_epoch": 1789427761.2992868
       }
     },
     "action_mse_diagnostic": {
@@ -11388,26 +11413,147 @@
     },
     "start_phase_probe": {
       "task": "T-323",
-      "controller_pid": 276005,
+      "controller_pid": 321635,
       "formal_credit": 0,
       "scale_training_allowed": false,
-      "state": "running",
-      "updated_at": 1789424770.0840342,
+      "state": "baseline_trace_complete",
+      "updated_at": 1789426256.404462,
       "child": {
-        "pid": 276017,
+        "pid": 321649,
         "state": "R",
-        "ppid": 276005,
-        "pgid": 276017,
-        "sid": 276017,
-        "start_ticks": 47046610,
+        "ppid": 321635,
+        "pgid": 321649,
+        "sid": 321649,
+        "start_ticks": 47160119,
         "uid": 1000,
-        "cmd": "bash /home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_probe_20260915/launch_barrier.sh bash /home/liyufeng/lyf-back/chembench/psilab/isaaclab.sh -p /home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_probe_20260915/play_with_goal.py --task Psi-MP-PickPlace-v1 --num_envs 1 --seed 260720 --scene room_cfg:PSI_DC_PickPlace_CFG --object_name glass_beaker_100ml --enable_eval --enable_random --sample_step 4 --max_episode 8 --target_success_count 8 --env_overrides /home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_probe_20260915/overrides.json --enable_lerobot --lerobot_output_dir /home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_probe_20260915/integral/lerobot --lerobot_fps 30 --camera_names chest_camera head_camera third_camera --output_folder /home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_probe_20260915/integral/output --disable_particle_fluids --hide_liquid_proxy --headless --enable_cameras --device cuda:0 --experience /home/liyufeng/lyf-back/chembench/psilab/apps/isaaclab.python.headless.rendering.kit",
-        "cwd": "/home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_probe_20260915",
+        "cmd": "bash /home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_probe_20260915_r2/launch_barrier.sh bash /home/liyufeng/lyf-back/chembench/psilab/isaaclab.sh -p /home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_probe_20260915_r2/play_with_goal.py --task Psi-MP-PickPlace-v1 --num_envs 1 --seed 260720 --scene room_cfg:PSI_DC_PickPlace_CFG --object_name glass_beaker_100ml --enable_eval --enable_random --sample_step 4 --max_episode 8 --target_success_count 8 --env_overrides /home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_probe_20260915_r2/overrides.json --enable_lerobot --lerobot_output_dir /home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_probe_20260915_r2/integral/lerobot --lerobot_fps 30 --camera_names chest_camera head_camera third_camera --output_folder /home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_probe_20260915_r2/integral/output --disable_particle_fluids --hide_liquid_proxy --headless --enable_cameras --device cuda:0 --experience /home/liyufeng/lyf-back/chembench/psilab/apps/isaaclab.python.headless.rendering.kit",
+        "cwd": "/home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_probe_20260915_r2",
+        "exiting": false
+      },
+      "target_attempts": 8,
+      "attempt_name": "start_phase_probe_20260915_r2"
+    },
+    "start_phase_analysis": {
+      "captured_at": 1789426311.3735106,
+      "controller_state": "baseline_trace_complete",
+      "runtime_complete": true,
+      "observed_trace_sha256": "38afe8b7376b34911d19b6c8389db558a7709782aef00c8081510b04d548f38c",
+      "events_read": 2751,
+      "coverage": "both_observed",
+      "zero_before_new_command": 2,
+      "formal_credit": 0,
+      "scale_training_allowed": false,
+      "model_unchanged": true,
+      "data_unchanged": true,
+      "sr_cause_established": false,
+      "improvement_established": false,
+      "first_frame_count": 8
+    },
+    "baseline_timing_verified": {
+      "state": "PASS",
+      "verified_at": 1789426297.9705374,
+      "result_sha256": "38209a3896bd37e4e88cd4f54a5ce389dc61dc0458baffb03a34a68ae2240caf",
+      "trace_sha256": "38afe8b7376b34911d19b6c8389db558a7709782aef00c8081510b04d548f38c",
+      "manifest_sha256": "dcb3439cd10d2e1da3f134ac7a204daee6c0e273be4ca9673e822ddb46c59eb2",
+      "terminal_rows_exact_historical_first8": true,
+      "attempts": 8,
+      "collection_successes": 5,
+      "not_DP_SR": true,
+      "zero_target_before_command_attempts": [
+        4,
+        6
+      ],
+      "observation_error_count": 0,
+      "preclose_flushed": true,
+      "owned_session_clean": true,
+      "formal_credit": 0,
+      "scale_training_allowed": false
+    },
+    "boundary_candidate": {
+      "task": "T-323",
+      "controller_pid": 344649,
+      "formal_credit": 0,
+      "scale_training_allowed": false,
+      "state": "candidate_trace_complete",
+      "updated_at": 1789426818.0803576,
+      "child": {
+        "pid": 344671,
+        "state": "R",
+        "ppid": 344649,
+        "pgid": 344671,
+        "sid": 344671,
+        "start_ticks": 47216521,
+        "uid": 1000,
+        "cmd": "bash /home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_boundary_candidate_20260915/launch_barrier.sh bash /home/liyufeng/lyf-back/chembench/psilab/isaaclab.sh -p /home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_boundary_candidate_20260915/play_with_goal.py --task Psi-MP-PickPlace-v1 --num_envs 1 --seed 260720 --scene room_cfg:PSI_DC_PickPlace_CFG --object_name glass_beaker_100ml --enable_eval --enable_random --sample_step 4 --max_episode 8 --target_success_count 8 --env_overrides /home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_boundary_candidate_20260915/overrides.json --enable_lerobot --lerobot_output_dir /home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_boundary_candidate_20260915/integral/lerobot --lerobot_fps 30 --camera_names chest_camera head_camera third_camera --output_folder /home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_boundary_candidate_20260915/integral/output --disable_particle_fluids --hide_liquid_proxy --headless --enable_cameras --device cuda:0 --experience /home/liyufeng/lyf-back/chembench/psilab/apps/isaaclab.python.headless.rendering.kit",
+        "cwd": "/home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_boundary_candidate_20260915",
         "exiting": false
       },
       "target_attempts": 8
     },
-    "start_phase_analysis": null
+    "boundary_candidate_behavior": {
+      "state": "PASS",
+      "verified_at": 1789426899.1922076,
+      "result_sha256": "acd9fa98e3d043f23ffffd5841aa000281303818a0740a9748a84f273c8b1ee8",
+      "trace_sha256": "fb44b9e2f2ee5159a913572367cd171293c8a098c7fc82889fa988d35af409d9",
+      "manifest_sha256": "56d6720162cd1fae0574ca21cc2b0f51d2e11fd6b597e9068094ca00e7f76a50",
+      "first_frame_count": 8,
+      "first_target_1_52_and_phase0_count": 8,
+      "first_sample_after_new_command_count": 8,
+      "reset_outer_exits_with_both_counters_zero": 8,
+      "residual_new_episode_physics_or_frames_in_old_outer_call": 0,
+      "first_recording_offsets": {
+        "4": 5,
+        "3": 1,
+        "2": 1,
+        "1": 1
+      },
+      "initial_xy_max_difference_vs_baseline_m": 0.0006918907165527344,
+      "candidate_collection_successes": 4,
+      "baseline_collection_successes": 5,
+      "diagnostic_attempts": 8,
+      "not_DP_SR": true,
+      "collection_SR_improvement_established": false,
+      "next": "larger matched collection validation and sample/render phase audit before released training data",
+      "formal_credit": 0,
+      "scale_training_allowed": false
+    },
+    "boundary_quality50": {
+      "controller": {
+        "task": "T-323",
+        "controller_pid": 395118,
+        "formal_credit": 0,
+        "scale_training_allowed": false,
+        "state": "running",
+        "updated_at": 1789427761.3002403,
+        "child": {
+          "pid": 395127,
+          "state": "R",
+          "ppid": 395118,
+          "pgid": 395127,
+          "sid": 395127,
+          "start_ticks": 47345731,
+          "uid": 1000,
+          "cmd": "bash /home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/launch_barrier.sh bash /home/liyufeng/lyf-back/chembench/psilab/isaaclab.sh -p /home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/play_with_goal.py --task Psi-MP-PickPlace-v1 --num_envs 1 --seed 260720 --scene room_cfg:PSI_DC_PickPlace_CFG --object_name glass_beaker_100ml --enable_eval --enable_random --sample_step 4 --max_episode 50 --target_success_count 50 --env_overrides /home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/overrides.json --enable_lerobot --lerobot_output_dir /home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/integral/lerobot --lerobot_fps 30 --camera_names chest_camera head_camera third_camera --output_folder /home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/integral/output --disable_particle_fluids --hide_liquid_proxy --headless --enable_cameras --device cuda:0 --experience /home/liyufeng/lyf-back/chembench/psilab/apps/isaaclab.python.headless.rendering.kit",
+          "cwd": "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915",
+          "exiting": false
+        },
+        "target_attempts": 50
+      },
+      "progress": {
+        "attempts": 0,
+        "successes": 0,
+        "target_attempts": 50,
+        "final": false,
+        "log_mtime_epoch": 1789427772.761542,
+        "not_DP_SR": true
+      },
+      "result": null,
+      "scope": "expert_collection_quality_not_DP_SR",
+      "historical_first50_successes": 37,
+      "historical_reference_is_collection": true,
+      "identical_initial_states": false,
+      "data_release_allowed": false
+    }
   },
   "generalization_ranges_20260915": {
     "same_model": true,
