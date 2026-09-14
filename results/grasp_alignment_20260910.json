@@ -18376,7 +18376,7 @@
   ],
   "alignment": {
     "task": "T-309",
-    "updated": "2026-09-14T17:35:04.452814+00:00",
+    "updated": "2026-09-14T19:55:28.797184+00:00",
     "status": "both corrected-budget controls verified at 50000 updates; alcohol p9901 failed 0/3; matched brown-large h8 and h1 both failed; physical improvement not established",
     "bounded_physical_receipts": {
       "trace_status.json": {
@@ -23025,6 +23025,255 @@
       "gpu_snapshot": "bjxy GPU0 25227MiB/99%, GPU1 17811MiB/97%;30109 all8 have compute. Not a live reservation.",
       "next": "Fresh scheduler-cleared empty bjxy GPU; baseline then continuation under separate admissions, compare initial state/action prefix/terminal and retain raw HDF5",
       "boundary": "No policy fix or physical improvement established; native continue SR deliberately suppressed and must not be reported as performance"
+    },
+    "parallel_budget_20260915": {
+      "snapshot_utc": "2026-09-14T19:54:15.058020+00:00",
+      "runs": [
+        {
+          "status": "running",
+          "started": "2026-09-14T19:53:26.130884+00:00",
+          "candidate": "budgetfix-v2ao-brown_reagent_bottle_large-s9901",
+          "object": "brown_reagent_bottle_large",
+          "seed": 9901,
+          "gpu_index": 11,
+          "gpu_uuid": "GPU-019e2226-4442-0500-0000-00004085676b",
+          "admission": "GPU-019e2226-4442-0500-0000-00004085676b, 1, 0",
+          "command": [
+            "python3",
+            "-B",
+            "diffusion_policy/train_ppu.py",
+            "--config-path",
+            "/root/safelab/grasp_alignment_20260910/parallel_budget_20260915",
+            "--config-name",
+            "baseline_brown_reagent_bottle_large",
+            "_target_=train_diffusion_transformer_timm_workspace.TrainDiffusionTransformerTimmWorkspace",
+            "task.dataset_path=/dev/shm/rep12v2ao/brown_reagent_bottle_large.zarr",
+            "task.dataset.zarr_path=/dev/shm/rep12v2ao/brown_reagent_bottle_large.zarr",
+            "training.num_epochs=2000",
+            "training.max_global_train_steps=50000",
+            "training.lr_warmup_steps=2000",
+            "training.resume=false",
+            "logging.mode=disabled",
+            "logging.name=budgetfix-v2ao-brown_reagent_bottle_large-s9901",
+            "logging.id=budgetfix-v2ao-brown_reagent_bottle_large-s9901",
+            "hydra.run.dir=/root/safelab/grasp_alignment_20260910/parallel_budget_20260915/runs/budgetfix-v2ao-brown_reagent_bottle_large-s9901/checkpoints"
+          ],
+          "dataset": "/dev/shm/rep12v2ao/brown_reagent_bottle_large.zarr",
+          "episodes": 100,
+          "frames": 5609,
+          "array_sha256": {
+            "action": "d5e6933ee0e9ff71f76ecc31274c804eb094a4e623b931db20746e60a9f6cd04",
+            "target_pose": "a0f529c5e201257e0f35af09443cb12cb40c0dd4b5693e10aedd5bdfcc24f7ea",
+            "arm2_pos": "5077592899b9d376d13ff878deea27bad0cc3843da0bf5a13044e6f95629cb99",
+            "hand2_pos": "703f340f59d68b1fbdcc65ca890b35a6db5ee5286802a7b868ecda93b78a4a5c",
+            "hand2_vel": "f3e3eb0003b386cd019fb87623937aa928f74df90c738a602856043b9abcce0a"
+          },
+          "source_sha256": {
+            "budget_contract.py": "2968c01f2b6933b0ca168a5a2772c686f640fc5f7ce26ec29ef36946b558e765",
+            "train_diffusion_transformer_timm_workspace.py": "698765baac9cf4a0b2bcb42c5959e08c9732da8e8ab452add13836ebf122eb9a"
+          },
+          "baseline": "dp-rep12-v2ao-rgb-brown_reagent_bottle_large-p9901",
+          "experiment": "same current 100-demo v2ao dataset, seed9901 and original PPU recipe; fixed 50000-update cosine/counter; physical requalification and historical input immutability not proven",
+          "dataset_physical_requalification": false,
+          "physical_evaluation_complete": false,
+          "formal_budget": 50000,
+          "updated": "2026-09-14T19:53:56.278332+00:00",
+          "pid": 1242892,
+          "pgid": 1242892,
+          "boot_id": "54a58827-1b48-4905-baf0-97e7987ee6fc",
+          "start_tick": "219529512",
+          "gpu_now": "GPU-019e2226-4442-0500-0000-00004085676b, 37793, 100",
+          "last": {
+            "train_loss": 1.1309072971343994,
+            "global_step": 14,
+            "epoch": 0,
+            "lr": 7.5e-07
+          }
+        },
+        {
+          "status": "running",
+          "started": "2026-09-14T19:53:22.171264+00:00",
+          "candidate": "budgetfix-v2ao-clear_reagent_bottle_small-s9901",
+          "object": "clear_reagent_bottle_small",
+          "seed": 9901,
+          "gpu_index": 8,
+          "gpu_uuid": "GPU-019e4221-c011-032c-0000-0000a014ad73",
+          "admission": "GPU-019e4221-c011-032c-0000-0000a014ad73, 1, 0",
+          "command": [
+            "python3",
+            "-B",
+            "diffusion_policy/train_ppu.py",
+            "--config-path",
+            "/root/safelab/grasp_alignment_20260910/parallel_budget_20260915",
+            "--config-name",
+            "baseline_clear_reagent_bottle_small",
+            "_target_=train_diffusion_transformer_timm_workspace.TrainDiffusionTransformerTimmWorkspace",
+            "task.dataset_path=/dev/shm/rep12v2ao/clear_reagent_bottle_small.zarr",
+            "task.dataset.zarr_path=/dev/shm/rep12v2ao/clear_reagent_bottle_small.zarr",
+            "training.num_epochs=2000",
+            "training.max_global_train_steps=50000",
+            "training.lr_warmup_steps=2000",
+            "training.resume=false",
+            "logging.mode=disabled",
+            "logging.name=budgetfix-v2ao-clear_reagent_bottle_small-s9901",
+            "logging.id=budgetfix-v2ao-clear_reagent_bottle_small-s9901",
+            "hydra.run.dir=/root/safelab/grasp_alignment_20260910/parallel_budget_20260915/runs/budgetfix-v2ao-clear_reagent_bottle_small-s9901/checkpoints"
+          ],
+          "dataset": "/dev/shm/rep12v2ao/clear_reagent_bottle_small.zarr",
+          "episodes": 100,
+          "frames": 6000,
+          "array_sha256": {
+            "action": "31fc5437bfaa38948949b7fd716a7f4a6b290f8fb4eae4eed142a95e4ee1b87a",
+            "target_pose": "21999728e7f0ac5247689546199b2308a441a5cbc0dfce3b03f54933c908dfe9",
+            "arm2_pos": "bc29f5b537912efcc09caf3c26435eb03b414b7e1a551489a9ef168b82e1ca36",
+            "hand2_pos": "1530c4f4f0fef99c72639bae63bb9b27bfa389e3a1967ddf42471795860c68e3",
+            "hand2_vel": "1a115b9adac15cf590bdc26998a6a5dc0aed6ea3dc68d3cf0ea990f832b69cba"
+          },
+          "source_sha256": {
+            "budget_contract.py": "2968c01f2b6933b0ca168a5a2772c686f640fc5f7ce26ec29ef36946b558e765",
+            "train_diffusion_transformer_timm_workspace.py": "698765baac9cf4a0b2bcb42c5959e08c9732da8e8ab452add13836ebf122eb9a"
+          },
+          "baseline": "dp-rep12-v2ao-rgb-clear_reagent_bottle_small-p9901",
+          "experiment": "same current 100-demo v2ao dataset, seed9901 and original PPU recipe; fixed 50000-update cosine/counter; physical requalification and historical input immutability not proven",
+          "dataset_physical_requalification": false,
+          "physical_evaluation_complete": false,
+          "formal_budget": 50000,
+          "updated": "2026-09-14T19:53:52.323419+00:00",
+          "pid": 1242696,
+          "pgid": 1242696,
+          "boot_id": "54a58827-1b48-4905-baf0-97e7987ee6fc",
+          "start_tick": "219529116",
+          "gpu_now": "GPU-019e4221-c011-032c-0000-0000a014ad73, 37735, 100",
+          "last": {
+            "train_loss": 1.2138093709945679,
+            "global_step": 10,
+            "epoch": 0,
+            "lr": 5.5e-07
+          }
+        },
+        {
+          "status": "running",
+          "started": "2026-09-14T19:53:23.547396+00:00",
+          "candidate": "budgetfix-v2ao-clear_volumetric_flask_250ml-s9901",
+          "object": "clear_volumetric_flask_250ml",
+          "seed": 9901,
+          "gpu_index": 9,
+          "gpu_uuid": "GPU-019e2226-0510-0628-0000-00002087b149",
+          "admission": "GPU-019e2226-0510-0628-0000-00002087b149, 1, 0",
+          "command": [
+            "python3",
+            "-B",
+            "diffusion_policy/train_ppu.py",
+            "--config-path",
+            "/root/safelab/grasp_alignment_20260910/parallel_budget_20260915",
+            "--config-name",
+            "baseline_clear_volumetric_flask_250ml",
+            "_target_=train_diffusion_transformer_timm_workspace.TrainDiffusionTransformerTimmWorkspace",
+            "task.dataset_path=/dev/shm/rep12v2ao/clear_volumetric_flask_250ml.zarr",
+            "task.dataset.zarr_path=/dev/shm/rep12v2ao/clear_volumetric_flask_250ml.zarr",
+            "training.num_epochs=2000",
+            "training.max_global_train_steps=50000",
+            "training.lr_warmup_steps=2000",
+            "training.resume=false",
+            "logging.mode=disabled",
+            "logging.name=budgetfix-v2ao-clear_volumetric_flask_250ml-s9901",
+            "logging.id=budgetfix-v2ao-clear_volumetric_flask_250ml-s9901",
+            "hydra.run.dir=/root/safelab/grasp_alignment_20260910/parallel_budget_20260915/runs/budgetfix-v2ao-clear_volumetric_flask_250ml-s9901/checkpoints"
+          ],
+          "dataset": "/dev/shm/rep12v2ao/clear_volumetric_flask_250ml.zarr",
+          "episodes": 100,
+          "frames": 6000,
+          "array_sha256": {
+            "action": "34445f837b28c913a187b2b2cca5576148b100f0cfb44593db8f1c6607d7c3dd",
+            "target_pose": "1c958e941a3091f03d5775e8f445741f2e705814884ff4087ca5be5a8e3183b2",
+            "arm2_pos": "d1d3ba1c2ecbd8d90419a520fb18ea6ab396f201625c1cc7807acd45b5addbb2",
+            "hand2_pos": "12431a6d28d1fffe7e2aa4adae24fdf865a6ce28b2222458b05382079a62faef",
+            "hand2_vel": "02341f4940b02114a32d422ff287d22cf717377b96f4ccd96f0f6918a72e5e39"
+          },
+          "source_sha256": {
+            "budget_contract.py": "2968c01f2b6933b0ca168a5a2772c686f640fc5f7ce26ec29ef36946b558e765",
+            "train_diffusion_transformer_timm_workspace.py": "698765baac9cf4a0b2bcb42c5959e08c9732da8e8ab452add13836ebf122eb9a"
+          },
+          "baseline": "dp-rep12-v2ao-rgb-clear_volumetric_flask_250ml-p9901",
+          "experiment": "same current 100-demo v2ao dataset, seed9901 and original PPU recipe; fixed 50000-update cosine/counter; physical requalification and historical input immutability not proven",
+          "dataset_physical_requalification": false,
+          "physical_evaluation_complete": false,
+          "formal_budget": 50000,
+          "updated": "2026-09-14T19:53:53.699281+00:00",
+          "pid": 1242806,
+          "pgid": 1242806,
+          "boot_id": "54a58827-1b48-4905-baf0-97e7987ee6fc",
+          "start_tick": "219529254",
+          "gpu_now": "GPU-019e2226-0510-0628-0000-00002087b149, 37805, 100",
+          "last": {
+            "train_loss": 1.1882356405258179,
+            "global_step": 11,
+            "epoch": 0,
+            "lr": 6.000000000000001e-07
+          }
+        },
+        {
+          "status": "running",
+          "started": "2026-09-14T19:53:25.130839+00:00",
+          "candidate": "budgetfix-v2ao-plastic_cylinder_100ml-s9901",
+          "object": "plastic_cylinder_100ml",
+          "seed": 9901,
+          "gpu_index": 10,
+          "gpu_uuid": "GPU-01de1201-08b2-0430-0000-00004088b74f",
+          "admission": "GPU-01de1201-08b2-0430-0000-00004088b74f, 1, 0",
+          "command": [
+            "python3",
+            "-B",
+            "diffusion_policy/train_ppu.py",
+            "--config-path",
+            "/root/safelab/grasp_alignment_20260910/parallel_budget_20260915",
+            "--config-name",
+            "baseline_plastic_cylinder_100ml",
+            "_target_=train_diffusion_transformer_timm_workspace.TrainDiffusionTransformerTimmWorkspace",
+            "task.dataset_path=/dev/shm/rep12v2ao/plastic_cylinder_100ml.zarr",
+            "task.dataset.zarr_path=/dev/shm/rep12v2ao/plastic_cylinder_100ml.zarr",
+            "training.num_epochs=2000",
+            "training.max_global_train_steps=50000",
+            "training.lr_warmup_steps=2000",
+            "training.resume=false",
+            "logging.mode=disabled",
+            "logging.name=budgetfix-v2ao-plastic_cylinder_100ml-s9901",
+            "logging.id=budgetfix-v2ao-plastic_cylinder_100ml-s9901",
+            "hydra.run.dir=/root/safelab/grasp_alignment_20260910/parallel_budget_20260915/runs/budgetfix-v2ao-plastic_cylinder_100ml-s9901/checkpoints"
+          ],
+          "dataset": "/dev/shm/rep12v2ao/plastic_cylinder_100ml.zarr",
+          "episodes": 100,
+          "frames": 6000,
+          "array_sha256": {
+            "action": "e5263b2a1cd39b1edc9d2ab74635e67be0d370ddfe29d28948bf27a720b921ff",
+            "target_pose": "48993982fb742db6ae7cb208dbdda38812ea56544c605f66bebeb17bcf23e029",
+            "arm2_pos": "37df403220fd7294eb8adb83d5c12e367cd957d9344427639e40bd7714873ffb",
+            "hand2_pos": "a82a050f1a5ae7d039f6bfebbba846c674b78f387965647b53f50029bcaad935",
+            "hand2_vel": "cc7bfa35f1ab1d45fa89f9f99ba14a8c5f26b5c73d4fa012b4f40c348cd39c66"
+          },
+          "source_sha256": {
+            "budget_contract.py": "2968c01f2b6933b0ca168a5a2772c686f640fc5f7ce26ec29ef36946b558e765",
+            "train_diffusion_transformer_timm_workspace.py": "698765baac9cf4a0b2bcb42c5959e08c9732da8e8ab452add13836ebf122eb9a"
+          },
+          "baseline": "dp-rep12-v2ao-rgb-plastic_cylinder_100ml-p9901",
+          "experiment": "same current 100-demo v2ao dataset, seed9901 and original PPU recipe; fixed 50000-update cosine/counter; physical requalification and historical input immutability not proven",
+          "dataset_physical_requalification": false,
+          "physical_evaluation_complete": false,
+          "formal_budget": 50000,
+          "updated": "2026-09-14T19:53:55.286772+00:00",
+          "pid": 1242837,
+          "pgid": 1242837,
+          "boot_id": "54a58827-1b48-4905-baf0-97e7987ee6fc",
+          "start_tick": "219529412",
+          "gpu_now": "GPU-01de1201-08b2-0430-0000-00004088b74f, 37733, 100",
+          "last": {
+            "train_loss": 1.2609843015670776,
+            "global_step": 12,
+            "epoch": 0,
+            "lr": 6.5e-07
+          }
+        }
+      ]
     }
   }
 }
