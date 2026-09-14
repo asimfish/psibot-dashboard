@@ -18376,7 +18376,7 @@
   ],
   "alignment": {
     "task": "T-309",
-    "updated": "2026-09-14T16:44:48.476663+00:00",
+    "updated": "2026-09-14T17:35:04.452814+00:00",
     "status": "both corrected-budget controls verified at 50000 updates; alcohol p9901 failed 0/3; matched brown-large h8 and h1 both failed; physical improvement not established",
     "bounded_physical_receipts": {
       "trace_status.json": {
@@ -22976,6 +22976,55 @@
       },
       "any_sample_20mm_pass_count": 0,
       "claim_boundary": "Stored target_pose array audit only; not independent replay or proof of paper target. No threshold, dataset, or checkpoint changed."
+    },
+    "teacher_stop_probe": {
+      "as_of": "2026-09-15",
+      "task": "T-309",
+      "status": "isolated_deployed_no_gpu_admission",
+      "host": "ubuntu-TRX50-AI-TOP",
+      "remote_root": "/data/grasp_alignment_20260910",
+      "model_role": "ACT teacher ea1; not new Ali DP checkpoint",
+      "checkpoint_sha256": "08c851e6822ae932292840701254b17b0ed6674d7272879526919d1ade9e3aaf",
+      "teacher_historical_attempts": 200,
+      "teacher_historical_saved_successes": 194,
+      "teacher_historical_failed_episodes": [
+        49,
+        61,
+        72,
+        124,
+        136,
+        164
+      ],
+      "source_log_sha256": "a99a02ae9704da7a143e9933a498449c84b57da1c377ee3bcff4166f7eebb788",
+      "branches": [
+        "baseline",
+        "continue_3s"
+      ],
+      "seed": 93,
+      "configured_cap_s": 3,
+      "native_first_episode_timeout_s_from_code": 2.975,
+      "clock_boundary": "Actual physics ticks required; native357tick timeout is retained, not forced to3.000s",
+      "cpu_tests_passed": 19,
+      "comparator_counterexamples_red_before_fix": 3,
+      "independent_integration_review": "pass for isolated deployment only",
+      "source_sha256": {
+        "teacher_stop_probe.py": "663966a1c25eee2c977399a9d16d762d77c10bd914a899f32f33c748a7da3950",
+        "teacher_stop_launch.sh": "3f7846a326dd384699fb2fd53a5848e5ec87aafcab2cd5dc84881ded82e668f5",
+        "compare_teacher_stop.py": "a7b996e82d3b1baf461d6c7553d65444dcbb30d031106643ce68a48833d36da1"
+      },
+      "remote_hashes_match": true,
+      "remote_ast_and_bash_syntax_pass": true,
+      "missing_admission_actual_test": {
+        "exit_code": 1,
+        "run_directory_created": false,
+        "simulator_launched": false
+      },
+      "new_physical_episodes": 0,
+      "paper_ssr": null,
+      "training_admitted": false,
+      "gpu_snapshot": "bjxy GPU0 25227MiB/99%, GPU1 17811MiB/97%;30109 all8 have compute. Not a live reservation.",
+      "next": "Fresh scheduler-cleared empty bjxy GPU; baseline then continuation under separate admissions, compare initial state/action prefix/terminal and retain raw HDF5",
+      "boundary": "No policy fix or physical improvement established; native continue SR deliberately suppressed and must not be reported as performance"
     }
   }
 }

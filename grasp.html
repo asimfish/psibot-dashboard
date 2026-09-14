@@ -15,7 +15,8 @@
 <p>旧 NVIDIA roact s9756：3秒×3集任务完成3/3，20mm点目标空间筛查0/3；论文SSR仍缺测。这里不是新Ali预算修复模型的测试结果，也不是正式150集验收。</p>
 <div class="scroll"><table><tr><th>集</th><th>粗任务完成</th><th>最终点目标残差</th><th>实际抬升</th></tr><tr><td>1</td><td>完成</td><td>73.82 mm（未通过20 mm）</td><td>24.33 cm</td></tr><tr><td>2</td><td>完成</td><td>77.26 mm（未通过20 mm）</td><td>23.94 cm</td></tr><tr><td>3</td><td>完成</td><td>79.55 mm（未通过20 mm）</td><td>23.29 cm</td></tr></table></div>
 <p>新发现：其194条ACT教师rollout训练数据的终点抬升19.61–21.13cm，而当前诊断目标为30cm；终点残差91.05–110.05mm，终点和任一存储采样均0/194通过20mm门。数组哈希与训练输入审计一致。这是数据与当前诊断目标不一致，不单独证明策略失败根因，也不能凭此改低目标。</p>
-<p>两路Ali预算修复checkpoint已独立核实50000更新；预算完成不代表数据目标合格或物理验收。当前禁止据此扩大全量训练。下一步追溯ACT教师提前结束逻辑，做同目标、最多3秒的真实物理续采对照，不外推标签或补冻帧。</p>
+<p>两路Ali预算修复checkpoint已独立核实50000更新；预算完成不代表数据目标合格或物理验收。当前禁止据此扩大全量训练。ACT教师来源已绑定同一seed93的200次运行：194次成功、6次失败，旧97%不是新DP或论文SSR。</p>
+<p>同种子、同3秒配置的“原终止 / 延迟成功终止”对照已实现并隔离部署到bjxy；19项CPU测试、独立部署检查与远端哈希核验通过。失败和超时保持原逻辑，启用失败/超时原始HDF5保留。当前未取得GPU准入，新增物理集数0，不外推标签或补冻帧。代码推导原生首集超时约2.975秒，待按真实物理tick核验，不冒充精确3.000秒；延迟分支的原生SR被设计性抑制，不能用来报告策略退化。</p>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px"><div><p>第1集：任务完成 / 空间筛查失败</p><video data-t309-episode="1" controls preload="none" playsinline style="width:100%;max-width:100%"></video></div><div><p>第2集：任务完成 / 空间筛查失败</p><video data-t309-episode="2" controls preload="none" playsinline style="width:100%;max-width:100%"></video></div><div><p>第3集：任务完成 / 空间筛查失败</p><video data-t309-episode="3" controls preload="none" playsinline style="width:100%;max-width:100%"></video></div></div>
 <p>原视频全量解码90/89/89帧、30fps；保留原片，不补帧。GPU6重置失败与GPU1运行完成仅是运行结果对照，不证明GPU6硬件损坏。</p></section><section class="panel" style="margin:18px 0"><h2>论文口径与配置一致性审计 · T-309</h2>
 <div class="notice"><b>当前论文 SSR：待补测，不可用旧 SSR 代替。</b>旧 Grasp 将 SR 与同一个空间阈值耦合，且 ΔP 是到宽松成功区域的距离，不是到目标位置的欧氏距离。历史 SR/SSR 保留原样，不回填推算分数。</div>
