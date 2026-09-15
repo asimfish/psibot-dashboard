@@ -34,7 +34,7 @@
         "criteria": "all preceding stages accepted; no automatic scale launch from smoke or process exit"
       }
     ],
-    "next": "4090新数据模型已完成50,000步训练/导出/传输校验；本地4090测试27/50成功（54%），已完整完成。既有模型±2cm完成28/50（56%），±3cm最终22/50成功（44%）；±4 cm 已启动，22/50集、8次成功（中间计数），论文SSR未核定。完整单任务验收前不放行规模训练。",
+    "next": "4090新数据模型已完成50,000步训练/导出/传输校验；本地4090测试27/50成功（54%），已完整完成。既有模型±2cm完成28/50（56%），±3cm最终22/50成功（44%）；±4 cm 已启动，38/50集、14次成功（中间计数），论文SSR未核定。完整单任务验收前不放行规模训练。",
     "reference_target": {
       "source": "https://openreview.net/pdf?id=ojwpa0wXo9",
       "table": 20,
@@ -54,7 +54,7 @@
       "task_success": false,
       "formal_credit": 0
     },
-    "current_frontier": "4090新数据模型已完成50,000步训练/导出/传输校验；本地4090测试27/50成功（54%），已完整完成。既有模型±2cm完成28/50（56%），±3cm最终22/50成功（44%）；±4 cm 已启动，22/50集、8次成功（中间计数），论文SSR未核定。",
+    "current_frontier": "4090新数据模型已完成50,000步训练/导出/传输校验；本地4090测试27/50成功（54%），已完整完成。既有模型±2cm完成28/50（56%），±3cm最终22/50成功（44%）；±4 cm 已启动，38/50集、14次成功（中间计数），论文SSR未核定。",
     "expert_dynamic_replay": {
       "native_success": true,
       "delta_p_mm": 15.776063919067383,
@@ -10916,7 +10916,7 @@
     "root_cause_250ml": "not established; failure components are overlapping terminal conditions"
   },
   "live_supervision": {
-    "updated_at": "2026-09-15T07:16:13+08:00",
+    "updated_at": "2026-09-15T07:57:56+08:00",
     "task": "T-323",
     "scale_training_allowed": false,
     "a100_training": {
@@ -11036,7 +11036,7 @@
       "checkpoint_sha256": "17dd752f143c7de68e6c6ff0e98e064116e7614146513cb62d4f05ce4657b93d"
     },
     "pending": [
-      "Boundary repair collection50 quality and sample phase validation",
+      "Physical-time and sampling phase contract; IL boundary repaired50 and qualifying recollection",
       "±4cm completed results",
       "Full paper-aligned SSR calibration and acceptance",
       "5090 comparison after new-model result"
@@ -11053,8 +11053,8 @@
     "queued_generalization": {
       "range_cm": 4,
       "status": "running",
-      "episodes_completed": 22,
-      "successes": 8,
+      "episodes_completed": 38,
+      "successes": 14,
       "final_success_rate": null
     },
     "source_evidence": {
@@ -11095,8 +11095,8 @@
       },
       "p4": {
         "path": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/generalization_p4cm_20260915/controller.json",
-        "sha256": "aa20ce519435218b87f49d7c1153b62e5fd5e1f3e363a6ddd698be64fd58ea9c",
-        "mtime_epoch": 1789427767.8157947
+        "sha256": "f4238e8b1c2071f7948ebf4839ab0ad86e51e3f769764ffdf98bae3a2edd0e76",
+        "mtime_epoch": 1789430271.465146
       },
       "action_mse": {
         "path": "/home/dataset-local/yf_recovery/pickplace_acceptance_20260910/same4090_action_mse_20260915/watcher.json",
@@ -11160,8 +11160,43 @@
       },
       "boundary_quality50": {
         "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/controller.json",
-        "sha256": "69b0061ad6195eeef305c1141782b83d2fc3af798189e0e12507f6520bea36de",
-        "mtime_epoch": 1789427761.2992868
+        "sha256": "d2a4d2a8073e6fddb36cc5269b46fefe3e469b10fc49ff6f0bcf491c7a679877",
+        "mtime_epoch": 1789429877.8185508
+      },
+      "boundary_quality50_behavior": {
+        "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/behavior_quality_verified.json",
+        "sha256": "f905952a598c96291821315f099034cbf837c7e40bf418b839e20a88c23ac422",
+        "mtime_epoch": 1789429893.6558716
+      },
+      "collection_clock_audit": {
+        "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/collection_clock_audit_20260915.json",
+        "sha256": "c720016d3a3db78c7f649feb10ef5691eccc850925ba70936f4710b6e9349e18",
+        "mtime_epoch": 1789428492.7143242
+      },
+      "collection_clock_source_review": {
+        "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/collection_clock_source_review_20260915.json",
+        "sha256": "389e0ddd818658429313cba9fea52dbb006254bc0dc0f26012f50e4326320c4f",
+        "mtime_epoch": 1789429117.086475
+      },
+      "collection_quality50_comparison": {
+        "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/collection_quality50_comparison_20260915.json",
+        "sha256": "27262b4c1c06d9e5624841bc86bee206d972717c5a9a6458353e50ad04e2a600",
+        "mtime_epoch": 1789430232.3027666
+      },
+      "boundary_quality50_runtime_review": {
+        "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/runtime_review.json",
+        "sha256": "ef95547d1128eff87237e08273885091615608ef1bbdbafe30b2968669e3a404",
+        "mtime_epoch": 1789430203.4051764
+      },
+      "il_boundary_evaluation": {
+        "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/il_boundary_eval50_20260915/controller.json",
+        "sha256": "3d4b21b73940af972e9124537c46d2f4bb3d863df768f9fb5cae069ce7e133db",
+        "mtime_epoch": 1789430271.4765673
+      },
+      "boundary_quality50_result": {
+        "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/result.json",
+        "sha256": "6260483f42782b70115664523f25cb82403cf5fe77acdf44e23b3677feaf718a",
+        "mtime_epoch": 1789429877.8175507
       }
     },
     "action_mse_diagnostic": {
@@ -11523,8 +11558,8 @@
         "controller_pid": 395118,
         "formal_credit": 0,
         "scale_training_allowed": false,
-        "state": "running",
-        "updated_at": 1789427761.3002403,
+        "state": "collection50_complete",
+        "updated_at": 1789429877.8182206,
         "child": {
           "pid": 395127,
           "state": "R",
@@ -11540,19 +11575,771 @@
         "target_attempts": 50
       },
       "progress": {
-        "attempts": 0,
-        "successes": 0,
+        "attempts": 50,
+        "successes": 30,
         "target_attempts": 50,
-        "final": false,
-        "log_mtime_epoch": 1789427772.761542,
-        "not_DP_SR": true
+        "final": true,
+        "log_mtime_epoch": 1789429877.086536,
+        "not_DP_SR": true,
+        "final_basis": "verified_result50"
       },
-      "result": null,
+      "result": {
+        "state": "collection50_complete",
+        "bounded_exit_ok": true,
+        "collection_target_reached": false,
+        "bounded_attempt_stop": true,
+        "observation_valid": true,
+        "runtime_task_matches": true,
+        "exit_code": 0,
+        "owned_session_clean": true,
+        "attempts": 50,
+        "successes": 30,
+        "trace_path": "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/integral/start_phase.jsonl",
+        "trace_sha256": "fd6aa350f75f5c260818318e9a393e766ed88b2b60a26840ce3b654c38a54189",
+        "trace_event_rows": 17143,
+        "scope": "expert_collection_quality50_not_DP_evaluation",
+        "data_release_allowed": false,
+        "coverage_analysis_required": true,
+        "causal_proof": false,
+        "repair_applied": true,
+        "paper_ssr": null,
+        "formal_credit": 0,
+        "scale_training_allowed": false,
+        "row_count": 50
+      },
       "scope": "expert_collection_quality_not_DP_SR",
       "historical_first50_successes": 37,
       "historical_reference_is_collection": true,
       "identical_initial_states": false,
-      "data_release_allowed": false
+      "data_release_allowed": false,
+      "collection_target_reached": false,
+      "behavior_verification": {
+        "state": "PASS",
+        "scope": "collection50_boundary_behavior_and_descriptive_quality_not_DP_SR",
+        "verified_at": 1789429893.649809,
+        "result_sha256": "6260483f42782b70115664523f25cb82403cf5fe77acdf44e23b3677feaf718a",
+        "trace_sha256": "fd6aa350f75f5c260818318e9a393e766ed88b2b60a26840ce3b654c38a54189",
+        "manifest_sha256": "71250c1ee57e248231b53cdfa10885f5fd2e6fbaddd712b60974227be494b06b",
+        "historical_reference_sha256": "0285206956e69b8c0e53d0418e5488c8d309d2b98b987cc747ca743ea3a7cb74",
+        "first_frame_count": 50,
+        "first_target_1_52_and_phase0_count": 50,
+        "first_sample_after_new_command_count": 50,
+        "reset_outer_exits_with_both_counters_zero": 50,
+        "residual_new_episode_physics_or_frames_in_old_outer_call": 0,
+        "first_recording_offsets": {
+          "4": 32,
+          "3": 14,
+          "2": 3,
+          "1": 1
+        },
+        "candidate8_prefix_exact": true,
+        "candidate8_result_sha256": "acd9fa98e3d043f23ffffd5841aa000281303818a0740a9748a84f273c8b1ee8",
+        "initial_xy_max_difference_vs_historical_m": 0.0007653236389160156,
+        "initial_xy_differences_m": [
+          0.0,
+          0.0,
+          0.0004944801330566406,
+          0.00015926361083984375,
+          8.678436279296875e-05,
+          9.679794311523438e-05,
+          0.000171661376953125,
+          0.0006918907165527344,
+          0.00039124488830566406,
+          0.00011909008026123047,
+          3.9577484130859375e-05,
+          0.0003952980041503906,
+          0.0003046989440917969,
+          0.0004706382751464844,
+          0.0006070137023925781,
+          0.00014257431030273438,
+          0.0005245208740234375,
+          0.000499725341796875,
+          0.00021266937255859375,
+          2.682209014892578e-05,
+          2.205371856689453e-05,
+          0.00012874603271484375,
+          0.00011682510375976562,
+          0.0005817413330078125,
+          0.0006823539733886719,
+          6.818771362304688e-05,
+          7.700920104980469e-05,
+          0.0005559921264648438,
+          0.00022363662719726562,
+          0.0004000663757324219,
+          5.4001808166503906e-05,
+          9.250640869140625e-05,
+          6.198883056640625e-06,
+          0.00046443939208984375,
+          4.887580871582031e-06,
+          2.0623207092285156e-05,
+          0.0006966590881347656,
+          0.0006480216979980469,
+          8.630752563476562e-05,
+          0.0004086494445800781,
+          0.0002675056457519531,
+          0.0005474090576171875,
+          0.0005002021789550781,
+          3.62396240234375e-05,
+          9.965896606445312e-05,
+          0.0001710653305053711,
+          0.0003743171691894531,
+          0.0007653236389160156,
+          0.00042819976806640625,
+          0.0001888275146484375
+        ],
+        "candidate_collection_successes": 30,
+        "historical_collection_successes": 37,
+        "attempts": 50,
+        "success_rate": 0.6,
+        "historical_success_rate": 0.74,
+        "candidate_terminal_distance_mm": [
+          6.666855411167909,
+          5.109672348865981,
+          9.715771932545046,
+          8.510510182803952,
+          9.882250590296309,
+          9.882176840546459,
+          4.999905999724516,
+          5.900641105251406,
+          6.502549742448888,
+          6.405902315329802,
+          5.600630939840957,
+          5.901483146723249,
+          5.8187150402681285,
+          2.242153557038838,
+          7.099787547799866,
+          7.299908937075378,
+          6.731477332641425,
+          7.162734529219032,
+          8.68943054863659,
+          3.7056844329089222,
+          8.531534899740851,
+          4.653441567671227,
+          8.196782729533933,
+          3.890903118237991,
+          5.911944142929411,
+          5.4045327507937415,
+          9.33915581095876,
+          3.412966748713752,
+          11.75672754763203,
+          1.4258665829551418,
+          14.159630800197627,
+          6.146950497248565,
+          2.314448090303245,
+          8.962355871942439,
+          1.4711847897864176,
+          9.709085175998593,
+          3.612431619306806,
+          9.219848769099903,
+          7.285574102521736,
+          5.535326265774531,
+          9.55298398025392,
+          12.379483335032454,
+          2.84912154258839,
+          8.801807141970711,
+          11.31286312240436,
+          6.652717969957594,
+          2.4031625575481197,
+          9.28240570410897,
+          4.344238047325881,
+          10.297305548518445
+        ],
+        "historical_terminal_distance_mm": [
+          6.666855411167909,
+          7.801635192107284,
+          2.5786924035949768,
+          8.638837136555633,
+          7.927408379714125,
+          9.561782088484717,
+          6.181520230890779,
+          9.56490798628796,
+          8.02552079697514,
+          4.15249902877454,
+          1.5948338339033818,
+          6.354205333962819,
+          9.009585326693685,
+          0.7713910434792384,
+          1.3973030161274287,
+          7.211326496784257,
+          7.484124116527026,
+          3.5396237264746775,
+          10.710777761441168,
+          10.709843286013124,
+          8.516549881373422,
+          3.5926319486781533,
+          2.542509117449147,
+          1.3017792472286354,
+          5.579037385965117,
+          8.345281739907636,
+          6.78965522608365,
+          4.47466677302346,
+          6.740473297873177,
+          6.114015657278075,
+          8.633129026668405,
+          2.674791597516712,
+          2.1704630199531367,
+          7.847625793637276,
+          5.461898093308519,
+          5.620971825148649,
+          9.981123281111676,
+          9.759545265986853,
+          11.336242625432819,
+          1.1372874879172308,
+          2.2266406525688995,
+          4.414381328649693,
+          3.1984084228374874,
+          7.071343552022058,
+          3.8293435813477372,
+          2.4253627657910646,
+          1.4752914873656378,
+          3.705506214085043,
+          1.6960885614246486,
+          5.29183226146495
+        ],
+        "terminal_distance_contract": "L2 logged terminal object XYZ to logged native collector goal XYZ; not paperSSR",
+        "not_DP_SR": true,
+        "identical_initial_states": false,
+        "historical_shared_dependency_provenance_complete": false,
+        "causal_SR_improvement_established": false,
+        "paper_ssr": null,
+        "data_release_allowed": false,
+        "next": "Review sample/render phase and collection quality before any dataset release or retraining",
+        "formal_credit": 0,
+        "scale_training_allowed": false
+      },
+      "runtime_review": {
+        "verdict": "PASS",
+        "scope": "Independent completed50 expert-collection result, boundary behavior and evidence integrity review. Not DP SR, dataset-release admission, training approval, or causal quality benefit.",
+        "reviewer": "review_supervision_panel",
+        "created_at": "2026-09-14T23:56:43.357971+00:00",
+        "manifest_sha256": "71250c1ee57e248231b53cdfa10885f5fd2e6fbaddd712b60974227be494b06b",
+        "result_sha256": "6260483f42782b70115664523f25cb82403cf5fe77acdf44e23b3677feaf718a",
+        "files_sha256": {
+          "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/manifest.json": "71250c1ee57e248231b53cdfa10885f5fd2e6fbaddd712b60974227be494b06b",
+          "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/admission_review.json": "ee77e4ca7d65af936d9ab41ef3fd237f5feac38bf638a5befe052e03d12c8628",
+          "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/result.json": "6260483f42782b70115664523f25cb82403cf5fe77acdf44e23b3677feaf718a",
+          "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/controller.json": "d2a4d2a8073e6fddb36cc5269b46fefe3e469b10fc49ff6f0bcf491c7a679877",
+          "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/behavior_quality_verified.json": "f905952a598c96291821315f099034cbf837c7e40bf418b839e20a88c23ac422",
+          "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/supervision.json": "be30f179111c544cbdd8b8299f42fbe7250d660997cbce4fb4c9ee55ddff43b7",
+          "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/offline_verification.log": "0bab1399103a5025b3417e01c0a65fe5d209e952388642cd39f55c3642b80da0",
+          "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/integral/start_phase.jsonl": "fd6aa350f75f5c260818318e9a393e766ed88b2b60a26840ce3b654c38a54189",
+          "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/integral/trace.jsonl": "33938b45e140f0f676b1b12814fe2a99086817234bf506e7eba8bd9de1121efe",
+          "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/integral/preclose_receipt.json": "0e5fb0bf0f4898d7ccd578b3f6f2a11698afe88749fa547c9662e49b6df4cbcd",
+          "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/integral/run.log": "7253b35322d014c9924f71272b640d11d281e0a156ea9f1f9c4371183aeffd02",
+          "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/integral/command.json": "bafc91efb29957036990a7035ddd9b51211e861f9cfaf3cdf8a1de87f9338f3d",
+          "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/verify_quality.py": "d328d9f846b24e7baa2f38da776c738fce964b6b8aac46ba70b05d6ef4056415",
+          "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/controller.py": "2d7fce7eca2bc889da266ceae3eb68f63329b67f0ba99aecade837ed9e0f4174",
+          "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/trace_hook.py": "fb408d7e461b90a8b6ce0a0855cf3642bb6f40803b427fdb693b9c9e4db0b802",
+          "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/close_hook.py": "120583f9aae8e6e94e4bed3bc1bfe1862dd56785331a09529dbcae2c968f021c",
+          "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/play_with_goal.py": "ae6057c794f457ffd91163a360ca8f5bd31728eef73c2d5dd5d4a71a55ee443f",
+          "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/runtime_config.py": "61f8c0d0b773d71786ea25d9c9b2fdf60e8a9548811cdc6d9efa1b19990bfee6",
+          "/home/liyufeng/ops/pickplace_acceptance_20260910/boundary_quality50_20260915/overlay/psilab_tasks/imitation_learning/pick_place/pick_place_mp.py": "0afabb597f837c42ae8ca0bf8c3085f6964ca26fcd7ef851777f91b025f880a0",
+          "/home/liyufeng/ops/pickplace_acceptance_20260910/historical_collection_first50_20260915.json": "0285206956e69b8c0e53d0418e5488c8d309d2b98b987cc747ca743ea3a7cb74",
+          "/home/liyufeng/ops/pickplace_acceptance_20260910/same4090_formal101_20260914/result.json": "39e6e48288d175dd072e36c6fb543c1ce58a4a132b7d2c7aae4fb07160c1b9d8",
+          "/home/liyufeng/ops/pickplace_acceptance_20260910/same4090_formal101_20260914/safety_measurement_summary.json": "486a9f3cb1634ee37982cecf7373078b3fcea603846fba82db07be64470b7d97",
+          "/home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_boundary_candidate_20260915/result.json": "acd9fa98e3d043f23ffffd5841aa000281303818a0740a9748a84f273c8b1ee8"
+        },
+        "runtime": {
+          "state": "collection50_complete",
+          "attempts": 50,
+          "native_successes": 30,
+          "saved_episodes": 30,
+          "collection_success_rate": 0.6,
+          "exit_code": 0,
+          "owned_session_clean": true,
+          "observation_valid": true,
+          "collection_target_reached": false,
+          "bounded_attempt_stop": true,
+          "target_not_reached_log": "[PLAY_LOOP_EXIT] target not reached at shutdown: saved=30, target=50, episodes=50, max_episode=50",
+          "controller_pid": 395118,
+          "controller_absent_at_review": true,
+          "bound_child_session_id": 395127,
+          "independent_live_session_members": []
+        },
+        "evidence_checks": {
+          "manifest_files_rehashed": 272,
+          "manifest_dependencies_rehashed": 8,
+          "manifest_matches_admission": true,
+          "controller_result_equals_final": true,
+          "raw_native_terminal_rows_equal_result": true,
+          "terminal_episode_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49
+          ],
+          "result_rows_prefix8_exact_candidate8": true,
+          "observer_event_count": 17143,
+          "observer_sequence_continuous": true,
+          "unique_summary_matches_result": true,
+          "observer_error_count": 0,
+          "observer_truncated": false,
+          "preclose_status_closed": true,
+          "preclose_status_consistent_with_summary": true,
+          "preclose_SimulationApp_source_bound_to_manifest": true,
+          "runtime_MRO_file_hashes_rechecked": true,
+          "completed_attempts_and_success_flags_match_native": true,
+          "successful_collector_save_exits": 30,
+          "offline_supervisor_verification_exit_code": 0,
+          "full_safety_trace_samples": 24165,
+          "full_safety_trace_extra_attempts": 0,
+          "per_episode_sample_count_range": [
+            478,
+            489
+          ],
+          "exactly_one_terminal_safety_sample_per_attempt": true,
+          "full_trace_terminal_fields_equal_result": [
+            "episode",
+            "step",
+            "elapsed_steps",
+            "initial",
+            "position",
+            "goal",
+            "success",
+            "failed",
+            "timeout"
+          ]
+        },
+        "boundary_checks": {
+          "first_frame_count": 50,
+          "first_frame_action7_1_52_count": 50,
+          "first_frame_both_counters0_count": 50,
+          "first_frame_after_successful_new_outer_command_count": 50,
+          "first_command_both_counters0_count": 50,
+          "first_append_immediate_exit_success_buffer0_to1_count": 50,
+          "first_append_preceded_by_confirmed_scene_submission_target_count": 50,
+          "actuator_applied_action_observed": false,
+          "reset_and_old_outer_return_both_counters0_count": 50,
+          "old_outer_residual_new_episode_control_or_samples": 0,
+          "reset_exit_to_old_outer_return_global_counter_and_physical_time_unchanged_count": 50,
+          "first_recording_offsets_controlled_calls": {
+            "4": 32,
+            "3": 14,
+            "2": 3,
+            "1": 1
+          },
+          "scope": "Full reset/outer-call event chain plus detailed first16 controlled calls after each reset; global modulo sampling was retained."
+        },
+        "descriptive_historical_comparison": {
+          "new_expert_successes": 30,
+          "historical_expert_successes": 37,
+          "attempts_each": 50,
+          "new_rate": 0.6,
+          "historical_rate": 0.74,
+          "difference_percentage_points": -14.0,
+          "same_DP_metric": false,
+          "identical_initial_states": false,
+          "initial_XY_max_coordinate_difference_m": 0.0007653236389160156,
+          "historical_shared_dependency_provenance_complete": false,
+          "new_terminal_native_goal_delta_mm": {
+            "mean": 6.852900466243763,
+            "max": 14.159630800197627,
+            "count_le20": 50
+          },
+          "historical_terminal_native_goal_delta_mm": {
+            "mean": 5.6767309943011774,
+            "max": 11.336242625432819,
+            "count_le20": 50
+          },
+          "historical_first50_trace_samples_independently_checked": 24072,
+          "historical_first50_full_trace_sha256": "9f0ea81a3cb9e42cf7e32b7ce5ffdfda697bc5136ef22da7c312ac5dc37b970d",
+          "position_contract": "Euclidean terminal logged XYZ to native collector goal XYZ, mm; 20mm count is descriptive and not the native success gate or paper SSR.",
+          "causal_improvement_established": false
+        },
+        "limitations": [
+          "All50 boundaries show the intended control fix, while collection success is30/50 versus historical37/50. This is no improvement claim or proof of a single cause of the lower observed count.",
+          "Initial states differ and historical shared dependency provenance is incomplete.",
+          "Physical callback count, camera refresh rate and continuous safety coverage remain unverified; get_dones samples are not120Hz evidence.",
+          "Only30 successful episodes were saved; target50 saved was not reached despite complete50 attempts and rc0.",
+          "Force/orientation summary comparative statistics will be reviewed separately; this receipt verifies terminal coordinate binding and core count/boundary evidence.",
+          "No simulation/training/runtime start or stop, source change, or dataset release performed by reviewer."
+        ],
+        "findings": [],
+        "paper_ssr": null,
+        "formal_credit": 0,
+        "scale_training_allowed": false,
+        "data_release_allowed": false
+      }
+    },
+    "collection_quality50_comparison": {
+      "state": "descriptive_comparison",
+      "created_at": 1789430232.3025107,
+      "paper_ssr": null,
+      "data_release_allowed": false,
+      "scale_training_allowed": false,
+      "not_DP_SR": true,
+      "identical_initial_states": false,
+      "historical_shared_dependencies_unbound": true,
+      "causal_improvement_established": false,
+      "groups": {
+        "historical": {
+          "summary_sha256": "486a9f3cb1634ee37982cecf7373078b3fcea603846fba82db07be64470b7d97",
+          "result_sha256": "39e6e48288d175dd072e36c6fb543c1ce58a4a132b7d2c7aae4fb07160c1b9d8",
+          "trace_sha256": "9f0ea81a3cb9e42cf7e32b7ce5ffdfda697bc5136ef22da7c312ac5dc37b970d",
+          "attempts": 50,
+          "successes": 37,
+          "delta_to_native_goal_mm_mean": 5.676730994301177,
+          "delta_to_native_goal_mm_max": 11.336242625432819,
+          "delta_le20_count": 50,
+          "failed_checks_overlap": {
+            "position_check": 13,
+            "theta_guard_check": 4
+          },
+          "theta_deviation_peak_deg_mean": 4.498608367458813,
+          "theta_deviation_peak_deg_max": 9.764570772365397,
+          "filtered_normal_contact_norm_sum_peak_N_median": 91.87459439756483,
+          "filtered_normal_contact_norm_sum_peak_N_max": 157.36678501366814
+        },
+        "boundary_repaired": {
+          "summary_sha256": "cbeb19b367ffa885b0fef7e7a08b776f3710eb4593f96bb8380b6ff690692c62",
+          "result_sha256": "6260483f42782b70115664523f25cb82403cf5fe77acdf44e23b3677feaf718a",
+          "trace_sha256": "33938b45e140f0f676b1b12814fe2a99086817234bf506e7eba8bd9de1121efe",
+          "attempts": 50,
+          "successes": 30,
+          "delta_to_native_goal_mm_mean": 6.852900466243764,
+          "delta_to_native_goal_mm_max": 14.159630800197627,
+          "delta_le20_count": 50,
+          "failed_checks_overlap": {
+            "position_check": 19,
+            "theta_guard_check": 8,
+            "eef_height_check": 2,
+            "lin_speed_check": 2,
+            "ang_speed_check": 2,
+            "time_check": 2,
+            "release_alignment_check": 1
+          },
+          "theta_deviation_peak_deg_mean": 5.2342076345588815,
+          "theta_deviation_peak_deg_max": 14.593228501392918,
+          "filtered_normal_contact_norm_sum_peak_N_median": 91.14044107054411,
+          "filtered_normal_contact_norm_sum_peak_N_max": 137.37662030028872
+        }
+      },
+      "measurement_limits": {
+        "position": "native collector goal, not bound paper calibrated goal",
+        "orientation": "Native peak quaternion angular deviation from initial orientation in radians, not separately calibrated tilt",
+        "force": "Sum L2 norms of all logged filtered contact vectors across12 hand2 sensors; maximum over recorded get_dones calls; filtered normal forces, excludes full tangential force; no threshold or calibration bound",
+        "time": "one_per_MP_get_dones_call; no new continuous-time coverage or calibration claim"
+      }
+    },
+    "collection_clock_audit": {
+      "state": "clock_discrepancy_observed",
+      "run": "start_phase_boundary_candidate_20260915",
+      "trace_sha256": "fb44b9e2f2ee5159a913572367cd171293c8a098c7fc82889fa988d35af409d9",
+      "controlled_calls": 128,
+      "controlled_call_current_time_delta_min": 0.03333333507180214,
+      "controlled_call_current_time_delta_max": 0.03333333507180214,
+      "collected_frame_intervals": 24,
+      "collected_frame_current_time_delta_min": 0.13333334028720856,
+      "collected_frame_current_time_delta_max": 0.13333334028720856,
+      "reported_get_physics_dt": 0.008333333333333333,
+      "configured_collector_fps": 30,
+      "configured_timestamp_dt": 0.03333333333333333,
+      "actual_physics_substep_count_verified": false,
+      "camera_refresh_rate_verified": false,
+      "interpretation": "Observed current_time advances1/30 per controlled sim call and2/15 per collected frame in traced prefixes, despite physics_dt1/120 and video metadata30fps. Need actual simulation stepping/render timeline source proof before attributing this to physical-rate mismatch or policy failure.",
+      "formal_credit": 0,
+      "scale_training_allowed": false,
+      "recorded_dataset": {
+        "info_sha256": "909aa161c09376210e3cc6028f8d7f649fe0c60aedea30d016b60b44ada12413",
+        "parquet_sha256": "8fc0a6ca48f114f5fa0c460d1878af98d3e5350f4e60ebd754e36fa858622f1a",
+        "fps": 30,
+        "episodes": 4,
+        "frames": 480,
+        "timestamp_delta_min": 0.033333333333333215,
+        "timestamp_delta_max": 0.03333333333333366,
+        "interval_count": 476
+      }
+    },
+    "collection_clock_source_review": {
+      "verdict": "PASS",
+      "scope": "Read-only source and existing trace clock interpretation. Not native callback-count/camera-rate validation, runtime admission or DP performance assessment.",
+      "reviewer": "review_supervision_panel",
+      "created_at": "2026-09-14T23:38:37.075721+00:00",
+      "files": {
+        "manifest": {
+          "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_boundary_candidate_20260915/manifest.json",
+          "sha256": "56d6720162cd1fae0574ca21cc2b0f51d2e11fd6b597e9068094ca00e7f76a50"
+        },
+        "result": {
+          "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_boundary_candidate_20260915/result.json",
+          "sha256": "acd9fa98e3d043f23ffffd5841aa000281303818a0740a9748a84f273c8b1ee8"
+        },
+        "observer_trace": {
+          "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_boundary_candidate_20260915/integral/start_phase.jsonl",
+          "sha256": "fb44b9e2f2ee5159a913572367cd171293c8a098c7fc82889fa988d35af409d9"
+        },
+        "safety_trace": {
+          "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_boundary_candidate_20260915/integral/trace.jsonl",
+          "sha256": "74c49185b3d3c9f2a75a4696dff1b472d1260c143788e1cbe5d980e31591eef2"
+        },
+        "observer": {
+          "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_boundary_candidate_20260915/trace_hook.py",
+          "sha256": "bcda2e4cad55af7e72a813b21505baabb8f03906c388fef227ce1441ae663499"
+        },
+        "safety_logger": {
+          "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_boundary_candidate_20260915/t323_trace.py",
+          "sha256": "c75b031f11a7332b119d331d81eca94c9beb7ec8e34b7316256b0a896ddd495f"
+        },
+        "parquet": {
+          "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_boundary_candidate_20260915/integral/lerobot/20260915_065440/data/chunk-000/file-000.parquet",
+          "sha256": "8fc0a6ca48f114f5fa0c460d1878af98d3e5350f4e60ebd754e36fa858622f1a"
+        },
+        "metadata": {
+          "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/start_phase_boundary_candidate_20260915/integral/lerobot/20260915_065440/meta/info.json",
+          "sha256": "909aa161c09376210e3cc6028f8d7f649fe0c60aedea30d016b60b44ada12413"
+        },
+        "clock_audit": {
+          "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/collection_clock_audit_20260915.json",
+          "sha256": "c720016d3a3db78c7f649feb10ef5691eccc850925ba70936f4710b6e9349e18"
+        },
+        "lab_sim": {
+          "path": "/home/liyufeng/lyf-back/chembench/psilab/source/isaaclab/isaaclab/sim/simulation_context.py",
+          "sha256": "23b374737d132c2a86d5564d65c94df23fc1f9bdce653b7c575dc6a5d674ec0d"
+        },
+        "core_sim": {
+          "path": "/home/liyufeng/miniforge3/envs/chembench/lib/python3.10/site-packages/isaacsim/exts/isaacsim.core.api/isaacsim/core/api/simulation_context/simulation_context.py",
+          "sha256": "0be3b0eaa44e6110cec520be9ac2c08cea17ba97db14b1b0aa60d87824deceb3"
+        },
+        "physics_context": {
+          "path": "/home/liyufeng/miniforge3/envs/chembench/lib/python3.10/site-packages/isaacsim/exts/isaacsim.core.api/isaacsim/core/api/physics_context/physics_context.py",
+          "sha256": "e88e30c5959964443dfbd9a69a43eaf264c89bcaae8f116c2953dc8bd5516a03"
+        },
+        "mp_env": {
+          "path": "/home/liyufeng/lyf-back/chembench/psilab/source/psilab/psilab/envs/mp_env.py",
+          "sha256": "c6f091299c987dbc0cfb9c69d67621c0dade8ddc08d631a5f5440dd6a2fe54cc"
+        },
+        "il_env": {
+          "path": "/home/liyufeng/lyf-back/chembench/psilab/source/psilab/psilab/envs/il_env.py",
+          "sha256": "3d41716d09718e069b2f7405f667d6dc28551f98f4c95fb82d2832b2cef3d904"
+        },
+        "collector": {
+          "path": "/home/liyufeng/lyf-back/chembench/psilab/source/psilab/psilab/utils/lerobot_collector.py",
+          "sha256": "6e2ff6bb7a3d69364cc942e35821224830a6b2ff2c091a1d9c4a32e50c84c418"
+        },
+        "sealed_dp_base": {
+          "path": "/home/liyufeng/ops/pickplace_acceptance_20260910/same4090_eval50_20260915/runtime/pp_adapter_overlay_r3/psilab_tasks/imitation_learning/base/base_il_task.py",
+          "sha256": "c6410870075de5596fdb616e56cfdc6c4d832333bc48c78085c31d404e4cc77c"
+        }
+      },
+      "observations": {
+        "controlled_calls": 128,
+        "controlled_accumulated_physics_time_delta_s": [
+          0.03333333507180214,
+          0.03333333507180214
+        ],
+        "within_attempt_collector_intervals": 24,
+        "collector_accumulated_physics_time_delta_s": [
+          0.13333334028720856,
+          0.13333334028720856
+        ],
+        "dataset_frames": 480,
+        "dataset_episodes": 4,
+        "timestamp_intervals": 476,
+        "dataset_timestamp_delta_s": [
+          0.033333333333333215,
+          0.03333333333333366
+        ],
+        "metadata_fps": 30,
+        "configured_physics_dt_s": 0.008333333333333333,
+        "configured_rendering_dt_s": 0.03333333333333333,
+        "configured_substeps_per_render": 4,
+        "actual_physics_substep_count_verified": false,
+        "camera_refresh_rate_verified": false
+      },
+      "source_chain": [
+        {
+          "file_key": "safety_logger",
+          "lines": [
+            25,
+            26
+          ],
+          "fact": "sim_time reads env.sim.current_time; physics_dt reads env.sim.get_physics_dt()."
+        },
+        {
+          "file_key": "observer",
+          "lines": [
+            165,
+            180,
+            210,
+            255
+          ],
+          "fact": "context reads the same current_time. Resource wrapper observes Python simulator.step return, not individual native physics callbacks. physics_done denotes call return, not one physical substep. Runtime MRO SHA matches reviewed simulator classes."
+        },
+        {
+          "file_key": "mp_env",
+          "lines": [
+            49,
+            77,
+            84,
+            87,
+            94
+          ],
+          "fact": "Calls simulator.step(render=True), periodically explicit render(), then scene.update(dt=self.physics_dt)."
+        },
+        {
+          "file_key": "lab_sim",
+          "lines": [
+            268,
+            272,
+            453,
+            478,
+            494,
+            519
+          ],
+          "fact": "Constructs core context with physics_dt=cfg.dt and rendering_dt=cfg.dt*render_interval; delegates step(render). Separate explicit render disables /app/player/playSimulations around app.update."
+        },
+        {
+          "file_key": "core_sim",
+          "lines": [
+            237,
+            266,
+            417,
+            424,
+            436,
+            443,
+            649,
+            662,
+            1338,
+            1363
+          ],
+          "fact": "With render=True and both dt nonzero, step calls app.update. set_simulation_dt configures substeps from rendering_dt/physics_dt. current_time is _current_time accumulated by a subscribe_physics_step_events callback step_size; current_time_step_index increments once per that callback. Not a direct timeline UI timestamp."
+        },
+        {
+          "file_key": "physics_context",
+          "lines": [
+            241,
+            273,
+            559,
+            562
+          ],
+          "fact": "Configures physics steps/second and minimum frame rate from substeps. Manual _step simulates one dt, used by render=False; switching render=False is a control-time change."
+        },
+        {
+          "file_key": "collector",
+          "lines": [
+            1174,
+            1180,
+            1490,
+            1620
+          ],
+          "fact": "Parquet timestamp=frame_index/fps; video and metadata use fps. These are constructed timestamps, not copied physical-event time."
+        },
+        {
+          "file_key": "il_env",
+          "lines": [
+            42,
+            68
+          ],
+          "fact": "Default IL sim_step also calls simulator.step(render=True), then scene.update(physics_dt)."
+        },
+        {
+          "file_key": "sealed_dp_base",
+          "lines": [
+            647,
+            669,
+            1594
+          ],
+          "fact": "Original sealed DP step predicts once, holds action_seq[:,0] for decimation calls and delegates to ILEnv; source does not establish a relative collection/evaluation 4x mismatch."
+        }
+      ],
+      "conclusions": [
+        "Confirmed in candidate trace prefixes: each controlled Python sim_step advances accumulated physical-event time by about 1/30 s and successive collector frames by 2/15 s; saved timestamps instead advance 1/30 s.",
+        "Engine configuration explicitly requests four physics substeps per render. Exact four callbacks of 1/120 each are source-supported expectation, not independently counted runtime evidence.",
+        "Both MP and IL use render=True; no evidence here establishes a relative 4x collection-versus-evaluation mismatch.",
+        "For traced frame spacings, metadata 30 fps represents nominal 4x compression of accumulated physical-event time. Preserving source frame count/fps/duration only establishes no additional publication speed change, not original simulated speed.",
+        "Safety/contact rows occur once per MP _get_dones call, not verified 120 Hz coverage; sampled maxima do not certify every native substep maximum or calibrated SSR.",
+        "Previously hash-pinned candidate report offset*physics_dt seconds denote nominal configured arithmetic only. Event-order/counter/boundary results remain valid; frozen reports were not edited."
+      ],
+      "checks": [
+        "Raw trace SHA equals result; sequence continuous; unique summary equals result and errors0/notruncated.",
+        "Runtime env/collector/resource MRO source hashes independently match local inspected files.",
+        "Recomputed all 128 controlled call deltas, 24 collector deltas and actual parquet 476 timestamp deltas."
+      ],
+      "limitations": [
+        "No runtime/source/data modification or simulation/training/GPU action performed.",
+        "Existing observer did not record physical callback stream/current_time_step_index or camera acquisition/update timestamps.",
+        "PhysicsContext is transitively imported source inspected now; it was not separately attested as a runtime class.",
+        "Ongoing quality50 outcome outside scope.",
+        "No SR/MSE cause, performance benefit or label-invalidity conclusion follows."
+      ],
+      "minimal_future_observation": [
+        "Separately reviewed bounded diagnostic: current_time/current_time_step_index before/after Python sim.step plus read-only native callback count and dt; record actual rendering_dt/source provenance.",
+        "Record camera acquisition/update/frame timestamps separately from collector append and metadata before claiming camera refresh or simulated playback speed.",
+        "Keep reset-boundary comparison on the existing clock; render=False would change action hold duration absent separately tested compensation."
+      ],
+      "findings": [],
+      "formal_credit": 0,
+      "paper_ssr": null,
+      "scale_training_allowed": false
+    },
+    "il_boundary_evaluation": {
+      "task": "T-323",
+      "state": "running",
+      "controller_pid": 482231,
+      "scale_training_allowed": false,
+      "child_identity": {
+        "pid": 485963,
+        "state": "R",
+        "ppid": 482231,
+        "pgid": 485963,
+        "sid": 485963,
+        "start_ticks": 47558624,
+        "uid": 1000,
+        "cmd": "bash /home/liyufeng/ops/pickplace_acceptance_20260910/il_boundary_eval50_20260915/eval_one.sh",
+        "cwd": "/home/liyufeng/ops/pickplace_acceptance_20260910/il_boundary_eval50_20260915",
+        "exiting": false
+      },
+      "updated_at": 1789430271.477686,
+      "log_bytes": 518232,
+      "episodes_completed": 7,
+      "successes": 3,
+      "target_episodes": 50
     }
   },
   "generalization_ranges_20260915": {
