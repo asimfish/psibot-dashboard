@@ -34,7 +34,7 @@
         "criteria": "all preceding stages accepted; no automatic scale launch from smoke or process exit"
       }
     ],
-    "next": "已通过100条诊断数据实物独审；接续复制/转换与normalizer验收→单模型训练准入→50k重训→seed42×50、绝对±2cm评测。完整单任务验收前不放行规模训练。",
+    "next": "实际转换/normalizer与单模型入口独审→新鲜双卡资格检查→同配方50k→seed42×50、绝对±2cm评测；完整论文SSR仍需校准。",
     "reference_target": {
       "source": "https://openreview.net/pdf?id=ojwpa0wXo9",
       "table": 20,
@@ -54,7 +54,7 @@
       "task_success": false,
       "formal_credit": 0
     },
-    "current_frontier": "新采集101/147=68.71%完成；去预热后100条12001帧完整保留，尚未重训。旧模型DP36%/54%保留；SSR校准待完成，规模训练禁止。",
+    "current_frontier": "新100条/12001帧已完成训练格式转换和数值核验，训练入口待独审与双卡准入；尚无新训练或新模型SR。旧36%/54%和SSR null保持，规模训练禁止。",
     "expert_dynamic_replay": {
       "native_success": true,
       "delta_p_mm": 15.776063919067383,
@@ -10916,7 +10916,7 @@
     "root_cause_250ml": "not established; failure components are overlapping terminal conditions"
   },
   "live_supervision": {
-    "updated_at": "2026-09-15T20:57:35+08:00",
+    "updated_at": "2026-09-15T22:57:12+08:00",
     "task": "T-323",
     "scale_training_allowed": false,
     "a100_training": {
@@ -11036,9 +11036,10 @@
       "checkpoint_sha256": "17dd752f143c7de68e6c6ff0e98e064116e7614146513cb62d4f05ce4657b93d"
     },
     "pending": [
-      "Copy/conversion and normalizer validation; one same-recipe training admission",
-      "Formal paper registry, goal and force calibration",
-      "New model seed42 x50 absolute +/-2cm evaluation",
+      "Independent actual converted100/normalizer and single-model training entry review",
+      "Fresh two-GPU locks,UUID/compute and NCCL qualification",
+      "Formal paper registry,goal and force calibration",
+      "New-model seed42x50 absolute+/-2cm actual-reset evaluation",
       "5090 comparison after first-task progression"
     ],
     "next_generalization": {
@@ -11049,7 +11050,7 @@
       "status": "complete",
       "final_success_rate": 0.44
     },
-    "snapshot_kind": "completed_collection_evidence_update_prior_DP_results_unchanged",
+    "snapshot_kind": "completed100_conversion_training_review_pending",
     "queued_generalization": {
       "range_cm": 4,
       "status": "comparison50_complete",
@@ -19354,6 +19355,60 @@
       ],
       "review_sha256": "28e4f5ab68229aa8f75a14a5221cc3fd3dd54be28406be0eb7df6bebeffae89f",
       "evidence_sha256": "0d144473ff2f102cf3ed3e3a36e9cce2444998fcefbc8a046f22b02ec4ac7804"
+    },
+    "previous_conversion_publication_snapshot_at": "2026-09-15T20:57:35+08:00",
+    "boundary_conversion100": {
+      "state": "converted_pending_training_admission",
+      "at": "2026-09-15T14:50:56.315472+00:00",
+      "host": "ide-6f1d090d424e43879f1e7c3688500b78-56b55c",
+      "episodes": 100,
+      "frames": 12001,
+      "input_manifest_sha256": "c9cb80283f7b2b66eebc96d9a3317c3eb83c721b5da6ef224443d024f634244b",
+      "reference_manifest_sha256": "afe39996086f1a9c4172764b0224f0aa5936aec44122f227b3fa90e58447c6ed",
+      "dependencies_unchanged": true,
+      "capacity_before": {
+        "allocated_bytes": 1271988224,
+        "f_bavail_bytes": 404031012864,
+        "remaining_growth_reserve_policy": "full_peak_conservative",
+        "remaining_planned_growth_bytes": 68719476736,
+        "available_minus_remaining_growth_bytes": 335311536128
+      },
+      "capacity_after": {
+        "allocated_bytes": 3617898496,
+        "f_bavail_bytes": 400159408128,
+        "remaining_growth_reserve_policy": "full_peak_conservative",
+        "remaining_planned_growth_bytes": 68719476736,
+        "available_minus_remaining_growth_bytes": 331439931392
+      },
+      "gpu_initialized": false,
+      "training_started": false,
+      "scale_training_allowed": false,
+      "paper_ssr": null,
+      "formal_credit": 0,
+      "guard_entry_sha256": "01eb6983be2800d3338a51ba150079cab1e3d4342149dde91282ca00ff3ba7b9",
+      "receipt_sha256": "bda196a7d2cf9c75729abf8180498ac59ca1d4fd8fb4c6d0fd223d9f635620fa",
+      "output_file_count": 3402,
+      "guard_exit_code": 0,
+      "capacity_checks": 506,
+      "elapsed_seconds": 303.856981015997,
+      "observed_owned_commands_absent_at": "2026-09-15T14:51:42.468929+00:00",
+      "independent_actual_output_review_pending": true,
+      "normalizer_independent_review_pending": true,
+      "previous_failed_attempts": 3
+    },
+    "boundary_training_candidate": {
+      "state": "staged_for_independent_review",
+      "source_file_count": 18,
+      "manifest_sha256": "6ef22cba58075ef3c06d5a34e033ab0d0f4db18df1144226a12da4ced5be9488",
+      "stage_receipt_sha256": "d03d4292e1ec7bab530d59b5b0b2b821ccd58f689910810454bda516f5d2fa72",
+      "global_batch": 128,
+      "seed": 9821,
+      "actual_update_target": 50000,
+      "inference_steps": 16,
+      "AMP": false,
+      "GPU_NCCL_admitted": false,
+      "training_started": false,
+      "paper_ssr": null
     }
   },
   "generalization_ranges_20260915": {
