@@ -17,15 +17,16 @@ section{margin-top:32px}.section-head{display:flex;justify-content:space-between
 </style><style>#latest-results > .panel{margin-top:18px}#episode-details .split{margin-top:18px}.history{border:1px solid var(--line);border-radius:14px;padding:20px;background:#edf1f5;margin-top:32px}.history > summary{font-size:18px}.history > summary span{display:block;font-size:12px;color:var(--muted);margin-top:5px}.history-video-label{font-weight:700!important;color:#81490a!important;background:#fff0df;padding:8px;border-radius:6px}.history h2{font-size:20px}#episode-details summary{font-size:15px;font-weight:600}#comparison table{white-space:normal;table-layout:fixed}#comparison th,#comparison td{overflow-wrap:anywhere;padding:12px 6px}</style></head><body>
 <header><div class="top"><div class="brand">SafeLab <span style="font-weight:400;color:#627389">/ 任务实验室</span></div><a href="./index.html">← 返回总看板</a></div></header>
 <main><!-- LIVE_SUPERVISION_BEGIN --><section id="live-supervision" class="panel" style="border-left:4px solid #1f7a8c;margin-top:0">
-<div class="eyebrow">进度快照 · T-323 · <time datetime="2026-09-15T20:57:35+08:00">2026-09-15 20:57:35+08:00 北京时间</time></div>
+<div class="eyebrow">进度快照 · T-323 · <time datetime="2026-09-15T22:57:12+08:00">2026-09-15 22:57:12+08:00 北京时间</time></div>
 <h2>100 mL 烧杯 pick_place 当前进度</h2>
 <div id="boundary101-current">
-<h3>新数据采集完成，重训尚未开始</h3>
+<h3>新100条已完成转换，训练待独审</h3>
 <p><strong>专家采集 101 / 147 成功（68.71%）</strong>，使用本地4090、±3cm、seed260723，评分门槛保持。采集已正常结束，GPU已交接后续任务；这不是DP成功率。</p>
 <p><strong>100条完整轨迹已准备并通过实物独审，共12,001帧。</strong>147次首帧/复位时序检查通过，8类训练数值列有限，303个原始视频全帧解码通过；去除预定的首条预热后，300个视频与对应原始文件哈希一致。旧核验曾假定每条120帧；本次有一条121帧轨迹，已按实际长度核验并完整保留。</p>
 <p>70,932条记录的安全观测已核对。本次100条到原生目标的平均ΔP <strong>4.39mm</strong>、最大7.93mm；相对初始轴的峰值倾角最大6.41°。过滤法向接触力峰值的中位数90.95N、最大164.52N，尚无相应论文阈值/标定，不能据此签发完整SSR。</p>
 <p><strong>SSR证据合同已通过独立来源复核，正式校准仍待完成。</strong><a href="https://github.com/ChangWinde/SafeLab/blob/main/assets/docs/safelab_icml2026.pdf">官方论文</a>的100mL DP参考为SR68%/SSR31%（3×50），共享空间约束为ΔP≤20mm。逐任务活动约束、目标高度、允许接触及力校准尚未绑定，论文SSR仍为null。</p>
-<p><strong>下一步：</strong>完成训练机上的数据转换、归一化验收与单模型训练准入，再按原配方做50,000次更新，再以seed42×50、绝对±2cm记录实际初态测试。当前没有新模型SR，规模训练继续禁止。</p>
+<p><strong>训练格式转换已完成。</strong>100条共12,001帧，数值、回合边界与归一化参数已核验；第四次转换耗时约304秒，前三次失败记录保留。实际转换结果与单模型训练入口已提交独审，尚未启动新训练。</p>
+<p><strong>下一步：</strong>完成转换结果、归一化参数与训练入口独审，并核验双卡资格；通过后按原配方做50,000次更新，再以seed42×50、绝对±2cm记录实际初态测试。当前没有新模型SR，规模训练继续禁止。</p>
 </div>
 <h3>已完成的旧模型评测与训练</h3>
 <p><strong>最新已完成评测（旧数据权重）：边界修复后的DP为18/50（36%）。</strong>原评测为27/50（54%），本轮没有重训。ΔP≤20 mm为14/50，平均ΔP 82.30 mm；完整SSR未核定。50次记录、边界与退出清理已独立复核。</p><p>本轮32次失败均未通过位置检查，其中18次也未通过姿态检查，时间条件失败0次。两轮种子相同，但后续回合初态并不逐条一致，首回合图像也有微小差异，不能把成绩差异全部归因于边界修复。</p>
