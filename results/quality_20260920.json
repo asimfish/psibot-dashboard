@@ -4,8 +4,8 @@
     "fr3": 0,
     "ur5e": 0
   },
-  "ur5e_native_result": "0/1",
-  "ur5e_status": "诊断失败，未计入数据集",
+  "ur5e_native_result": "sample2 0/1; fix1 sample6 1/1 diagnostic only",
+  "ur5e_status": "fix1 sample6视觉行为通过趋势、正式credit=0，碰撞/穿模未证实，未计入数据集",
   "fr3_status": "sample13脱杯失败；sample15未脱杯但在step408撒漏；sample16改用-75°倾角后仍0/1撒漏，均未验收",
   "videos": [
     {
@@ -199,6 +199,48 @@
         "nb_read_frames": "410"
       },
       "accepted": false
+    },
+    {
+      "robot": "ur5e",
+      "view": "正面",
+      "run_id": "ur5e_camera_glass_fix1_remote_sample6",
+      "file": "media/quality-20260920/ur5e_fix1_sample6_head_camera.mp4",
+      "sha256": "0245cd83e1820657b3cf7cbfa269bd9ba04848c8d5bf1173d5974a9514fa8e62",
+      "probe": {
+        "width": 640,
+        "height": 480,
+        "duration": "21.666667",
+        "nb_read_frames": "650"
+      },
+      "accepted": false
+    },
+    {
+      "robot": "ur5e",
+      "view": "侧面",
+      "run_id": "ur5e_camera_glass_fix1_remote_sample6",
+      "file": "media/quality-20260920/ur5e_fix1_sample6_chest_camera.mp4",
+      "sha256": "a0541269c2a13f4493edbeaae5def88b5b674b4b775a4fe7a48ff907f7a4903e",
+      "probe": {
+        "width": 640,
+        "height": 480,
+        "duration": "21.666667",
+        "nb_read_frames": "650"
+      },
+      "accepted": false
+    },
+    {
+      "robot": "ur5e",
+      "view": "俯视",
+      "run_id": "ur5e_camera_glass_fix1_remote_sample6",
+      "file": "media/quality-20260920/ur5e_fix1_sample6_third_camera.mp4",
+      "sha256": "cee1d0f84aeb8e390fa67beb5c8ea1312ca878b6fde883a819dcfa2c67d3d0c6",
+      "probe": {
+        "width": 640,
+        "height": 480,
+        "duration": "21.666667",
+        "nb_read_frames": "650"
+      },
+      "accepted": false
     }
   ],
   "fr3_native_result": "0/1",
@@ -215,7 +257,16 @@
       "table_landing_seconds": 14.1,
       "pour_completed": false
     },
-    "boundary": "sampled visual inspection; video frame index is not control-step index; root cause and instantaneous collision not determined"
+    "boundary": "sampled visual inspection; video frame index is not control-step index; root cause and instantaneous collision not determined",
+    "ur5e_fix1_sample6": {
+      "overall": "FAIL",
+      "visual_behavior": "PASS",
+      "formal_credit": 0,
+      "collision": "UNDETERMINED",
+      "front_view_occlusion": true,
+      "chest_view": "clearer_release",
+      "third_view": "clearer_target_xy"
+    }
   },
   "latest_runs": [
     {
@@ -233,6 +284,14 @@
       "formal_credit": 0,
       "status": "diagnostic_only_not_formal",
       "astra_report": "results/quality_20260920_fr3_sample16_astra.md"
+    },
+    {
+      "run_id": "ur5e_camera_glass_fix1_remote_sample6",
+      "robot": "ur5e",
+      "native_result": "1/1",
+      "formal_credit": 0,
+      "status": "diagnostic_visual_pass_formal_fail",
+      "astra_report": "results/quality_20260920_ur5e_fix1_sample6_astra.md"
     }
   ]
 }
