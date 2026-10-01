@@ -1,0 +1,37 @@
+{
+  "schema_version": "nonpress_nonlong_runtime_refresh.v1",
+  "observed_at_utc": "2026-10-01T12:40:00+00:00",
+  "scope": "Read-only runtime refresh for non-press/non-long scheduling; observed long-task runs are excluded from catalog counts.",
+  "observed_external_chain": [
+    {
+      "run": "collect_71",
+      "terminal_sha256": "d15804eb3ab94162cb82e5d68ff1c3776734c7919ecb46da7a9d47ef13b04364",
+      "status": "candidate_failed_or_incomplete",
+      "success": false,
+      "completed_phases": 0,
+      "decisions": 7,
+      "requests": 7,
+      "task_id": "psibot_5_weigh_sequence_v1"
+    },
+    {
+      "run": "collect_72",
+      "terminal_sha256": "35dbec0719ff1cf83211daa15ce19525d4d30d93d19251dd6625294a16ea1307",
+      "status": "candidate_failed_or_incomplete",
+      "success": false,
+      "completed_phases": 0,
+      "decisions": 34,
+      "requests": 34,
+      "task_id": "psibot_5_weigh_sequence_v1"
+    }
+  ],
+  "resource_snapshot": {
+    "local_gpu_compute_process": false,
+    "owner_handoff": "not_confirmed",
+    "preemption": false,
+    "nonpress_launch_started": false,
+    "formal_credit": 0,
+    "next_gate": "owner/runner/handoff confirmation before any new collection launch"
+  },
+  "verdict": "NO_NEW_NONPRESS_ADMISSION",
+  "reason": "collect_71 and collect_72 both failed before any completed phase; no valid episode or formal credit. GPU is available in this snapshot, but ownership is unconfirmed."
+}
