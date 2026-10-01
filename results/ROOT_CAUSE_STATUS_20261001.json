@@ -1,0 +1,32 @@
+{
+  "schema": "safelab.grasp.root_cause_status.v1",
+  "updated": "2026-10-01",
+  "scope": "13 Grasp objects, current native comparison evidence",
+  "overall": {
+    "formal_acceptance": "BLOCKED",
+    "accepted_objects": 0,
+    "paper_ssr": null,
+    "reason": "Per-object goals, active constraints, phase applicability, sensor/collision events, and exact source bindings remain incomplete."
+  },
+  "objects": [
+    {"id":"glass_beaker_100ml","sr":0.94,"status":"NO_LOW_SCORE_CAUSE_ISOLATED","evidence":"47/50 native comparison; no retained low-score visual diagnosis","next":"formal contract and multi-seed verification"},
+    {"id":"glass_beaker_250ml","sr":0.62,"status":"VARIANT_CONFOUNDED","evidence":"native 31/50; historical variants span 34/50 to 48/50","next":"same dataset/checkpoint/seed end-segment comparison before retrain"},
+    {"id":"clear_reagent_bottle_large","sr":0.76,"status":"PARTIAL_FAILURE_HYPOTHESIS","evidence":"sampled failure shows bottle sideways and hand empty; 100-demo candidate has provenance/alignment gates pending","next":"complete RGB/action provenance and contact/closure timeline, then harness admission"},
+    {"id":"clear_reagent_bottle_small","sr":0.60,"status":"DATA_VARIANT_CONFOUNDED","evidence":"v2ao runs span 27/50 to 38/50; audit records relabel_hand_action and restored hand observations","next":"verify action/observation temporal pairing, split, and normalizer before retrain"},
+    {"id":"brown_reagent_bottle_large","sr":0.24,"status":"PARTIAL_CAUSE_LOCALIZED","evidence":"closed-loop policy first exceeds stored hand support at step23 and XY drift exceeds 2cm at step25; original and relabelled open-loop replay both succeed but fail strict spatial screen","next":"capture real closed-loop arm commands at steps 23-35 and compare against successful replay; no threshold change"},
+    {"id":"brown_reagent_bottle_small","sr":0.74,"status":"CAUSE_UNRESOLVED","evidence":"native comparison below target; no object-specific causal trace bound","next":"collect failure-phase trace with reset, closure, lift, slip and terminal-score fields"},
+    {"id":"brown_volumetric_flask_250ml","sr":0.72,"status":"PARTIAL_FAILURE_HYPOTHESIS","evidence":"sampled failure shows flask on table and raised hand empty; conditionally admitted 100-demo candidate still lacks provenance/alignment gates","next":"finish candidate gate and confirm contact/closure timeline before training"},
+    {"id":"clear_volumetric_flask_250ml","sr":0.74,"status":"DATA_VARIANT_CONFOUNDED","evidence":"v2ao runs span 36/50 to 40/50; audit records relabel_hand_action and restored hand observations","next":"compare original/v2/v2ao hand/action channels and terminal hold metrics"},
+    {"id":"glass_cylinder_100ml","sr":0.38,"status":"SCORING_BOUNDARY_HYPOTHESIS","evidence":"some sampled failure frames look held while episode label is failure; v2ext/v2ao variants regress","next":"reconcile reset boundary, hold window and terminal scoring trace before changing data"},
+    {"id":"plastic_cylinder_100ml","sr":0.74,"status":"PARTIAL_SLIP_HYPOTHESIS","evidence":"sampled failure shows cylinder lying on table without visible support; audit records hand relabel variant","next":"measure closure-to-lift timing and object pose/slip with sensor event"},
+    {"id":"alcohol_lamp","sr":0.84,"status":"APPROACH_CLOSURE_HYPOTHESIS","evidence":"sampled failure shows lamp on table and hand beside it; v2ao runs collapse to 0/50 and 8/50","next":"audit approach path, closure timing, reset boundary and goal contract"},
+    {"id":"mortar","sr":0.94,"status":"NO_LOW_SCORE_CAUSE_ISOLATED","evidence":"47/50 native comparison; formal safety contract still missing","next":"bind object contract and verify multi-seed paper metric"},
+    {"id":"erlenmeyer_flask","sr":0.56,"status":"GOAL_AND_CROP_GEOMETRY_UNRESOLVED","evidence":"historical variants span 0/50 to 34/50; sampled failure shows base apparently on table; action trace absent","next":"run action-trace diagnostic with crop/resize geometry and fresh resource gate"}
+  ],
+  "global_next_frontier": [
+    "Complete brown-large closed-loop trace comparison",
+    "Complete provenance/normalizer gates for two authorized candidates",
+    "Bind per-object SSR contracts and exact source SHAs",
+    "Run formal review and only then schedule physical re-evaluation"
+  ]
+}

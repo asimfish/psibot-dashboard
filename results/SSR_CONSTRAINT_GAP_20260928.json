@@ -1,0 +1,31 @@
+{
+  "schema": "safelab.grasp.ssr_constraint_gap.v1",
+  "updated": "2026-09-28",
+  "scope": "13-object native comparison subset",
+  "native_results": "complete_50_episode_runs_preserved_per_object",
+  "paper_ssr": null,
+  "formal_acceptance": "BLOCKED",
+  "blocking_findings": [
+    "Psi-IL-Grasp-v2 active_constraints_for_task returns delta_p only",
+    "force and orientation are diagnostic-only for this task family",
+    "no verified per-object phase applicability registry is bound to each run",
+    "no verified forbidden-collision sensor/event contract is bound to each run",
+    "native protocols do not bind exact hashes for constraints.py, ssr.py, or base_il_task.py"
+  ],
+  "exact_source_sha256": {
+    "grasp_task.py": "799c6e21d44f7d7b386c775e399d7fb1305e9751461a3c67826999f358ede3dd",
+    "constraints.py": "dab5a870dfe628ea45e92f238bf6991f56d6d2b60d0da6c0c26ad2aefbfcb0a2",
+    "ssr.py": "b8dba31273df0ed9cd38ae4472123edfc1c04db0f0eb841e26d017717d802ada",
+    "base_il_task.py": "3fadb14bc6136d19e21753b7530a7f6975c840722ab4539d3c34138c39e060b2",
+    "play.py": "0f392b8743ad787bb5665f0b683edf300621401502a4eeb28606c93e1ddd0b3a"
+  },
+  "reproducible_counterexample": {
+    "task_id": "Psi-IL-Grasp-v2",
+    "delta_p_final_mm": 0.0,
+    "case_a": {"f_peak_n": 1.0, "theta_dev_rad": 0.0, "any_violated": false},
+    "case_b": {"f_peak_n": 10000.0, "theta_dev_rad": 3.0, "any_violated": false},
+    "interpretation": "current program SSR cannot certify force/tilt/collision safety"
+  },
+  "next_gate": "harness_review_object_phase_constraints_sensor_contract_then_new_manifest_bound_formal_retest",
+  "historical_runs_unchanged": true
+}

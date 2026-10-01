@@ -1,0 +1,23 @@
+{
+  "schema": "safelab.grasp.low_score_failure_matrix.v1",
+  "updated": "2026-10-01",
+  "purpose": "Drive evidence-backed improvement for low-score Grasp objects",
+  "interpretation": "Visual observations are hypotheses only; each requires metric trace confirmation before retraining or relabeling.",
+  "rows": [
+    {"object":"brown_reagent_bottle_large","native_sr":0.24,"observed":"middle/final sampled frames show bottle sideways and hand empty","hypothesis":"failed grasp or early release","required_trace":["gripper closure/contact timing","object height and XY over time","slip/hold termination"],"next_action":"audit trajectory and action-observation alignment; no retrain yet"},
+    {"object":"glass_cylinder_100ml","native_sr":0.38,"observed":"sampled frames show upright cylinder apparently held despite failure label","hypothesis":"metric/hold or reset boundary mismatch","required_trace":["height/XY/hold windows","episode reset and first-frame boundary","terminal scoring inputs"],"next_action":"reconcile scoring trace before changing data"},
+    {"object":"erlenmeyer_flask","native_sr":0.56,"observed":"sampled final frame shows hand near neck while base appears on table","hypothesis":"insufficient lift or contact timing","required_trace":["target frame/crop geometry","policy obs/action trace","lift/contact timeline"],"next_action":"run action-trace-only diagnostic after fresh resource gate"},
+    {"object":"clear_reagent_bottle_small","native_sr":0.60,"observed":"variant runs range 27/50 to 38/50","hypothesis":"dataset/relabel or normalizer variant confounding","required_trace":["dataset identity and split","normalizer code/hash","hand-channel temporal alignment"],"next_action":"compare variants before any new training"},
+    {"object":"glass_beaker_250ml","native_sr":0.62,"observed":"separate variants range 31/50 to 48/50","hypothesis":"variant confounding rather than proven policy improvement","required_trace":["same dataset/checkpoint/seed comparison","end-segment trajectory","failure labels"],"next_action":"preserve runs separately and audit comparability"},
+    {"object":"plastic_cylinder_100ml","native_sr":0.74,"observed":"sampled failure shows cylinder lying on table without visible support","hypothesis":"grasp retention/slip","required_trace":["closure-to-lift timing","object pose and slip","contact sensor event"],"next_action":"add to next offline failure audit"},
+    {"object":"alcohol_lamp","native_sr":0.84,"observed":"sampled failure shows lamp on table and hand beside it","hypothesis":"approach/closure mismatch","required_trace":["approach path and closure timing","reset boundary","goal pose contract"],"next_action":"audit existing run before any retrain"},
+    {"object":"clear_reagent_bottle_large","native_sr":0.76,"observed":"sampled middle/final frames show bottle sideways and hand empty","hypothesis":"failed grasp or release","required_trace":["contact/closure timing","object pose and terminal score","data provenance"],"next_action":"conditionally admitted candidate remains blocked pending audit gates"},
+    {"object":"brown_volumetric_flask_250ml","native_sr":0.72,"observed":"sampled middle/final frames show flask on table and hand empty","hypothesis":"failed grasp or release","required_trace":["contact/closure timing","object pose and terminal score","100-demo provenance"],"next_action":"conditionally admitted candidate remains blocked pending audit gates"}
+  ],
+  "global_gates": [
+    "Bind per-object active constraints, phases, and sensor/collision events",
+    "Keep paper_ssr null until the formal contract is independently reviewed",
+    "Fresh UUID/PID/lock/disk admission before any physical run",
+    "Do not relabel a visual frame as success without the scoring trace"
+  ]
+}
