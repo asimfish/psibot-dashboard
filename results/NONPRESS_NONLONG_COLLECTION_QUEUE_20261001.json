@@ -1,6 +1,6 @@
 {
   "schema_version": "nonpress_nonlong_public_catalog.v1",
-  "generated_at_utc": "2026-10-01T03:05:00+00:00",
+  "generated_at_utc": "2026-10-01T03:25:00+00:00",
   "scope": "All unique identities from v1/v2/v3 excluding task=press and any identity containing long; target 100 episodes per identity",
   "excluded": {
     "press": "all press identities excluded by user request",
@@ -19,9 +19,9 @@
       "target_episodes": 1100,
       "current_manifest_episodes": 550,
       "episode_shortfall": 550,
-      "remote_materialization_pending": 1,
+      "remote_materialization_pending": 2,
       "source_missing": 0,
-      "remote_source_bound_no_local_transfer": 1
+      "remote_source_bound_no_local_transfer": 2
     },
     "psibot": {
       "packages": 31,
@@ -272,7 +272,7 @@
       "canonical_exists": true,
       "source_exists": false,
       "audit_status": "semantic_temporal_pass",
-      "status": "CANONICAL_PRESENT_SOURCE_UNRESOLVED",
+      "status": "REMOTE_SOURCE_BOUND_NO_LOCAL_TRANSFER",
       "all_manifest_versions": [
         "v2",
         "v3"
@@ -281,7 +281,18 @@
         "v2": 50,
         "v3": 50
       },
-      "formal_credit": 0
+      "formal_credit": 0,
+      "source_exists_remote": true,
+      "local_materialized": false,
+      "source_binding": {
+        "receipt_sha256": "3520eb8662a1379507e7a39d8abd1cd0da18f2a815f49591f2b65fa8d65ba460",
+        "tree_sha256": "384a5173dea480e85317cc247ac119585b1d1493611cfa4b71d0e9bf426c5396",
+        "direct_content_sha256": "bab56dba8e3d6f33b9a20c3485554e9d8899be982575306d439fae53ca99fee8",
+        "files": 155,
+        "bytes": 473501008,
+        "episodes": 50,
+        "frames": 29153
+      }
     },
     {
       "embodiment": "fr3",
@@ -1213,5 +1224,5 @@
     "exact runner/adapter/checkpoint",
     "formal SR/SSR"
   ],
-  "privacy_note": "Public catalog omits internal canonical/source filesystem paths. Three identities now have remote source-bound tree/direct hashes (receipt SHA 6559dfbf...), but no local transfer or episode-count increase; retain full receipt locally."
+  "privacy_note": "Public catalog exposes only aggregate source-binding hashes. Four identities have remote source-bound hashes without local materialization; counts remain unchanged and formal credit remains zero."
 }
