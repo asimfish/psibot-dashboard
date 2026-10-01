@@ -1,6 +1,6 @@
 {
   "schema_version": "nonpress_nonlong_public_catalog.v1",
-  "generated_at_utc": "2026-09-30T17:33:31.197192+00:00",
+  "generated_at_utc": "2026-10-01T03:05:00+00:00",
   "scope": "All unique identities from v1/v2/v3 excluding task=press and any identity containing long; target 100 episodes per identity",
   "excluded": {
     "press": "all press identities excluded by user request",
@@ -20,7 +20,8 @@
       "current_manifest_episodes": 550,
       "episode_shortfall": 550,
       "remote_materialization_pending": 1,
-      "source_missing": 0
+      "source_missing": 0,
+      "remote_source_bound_no_local_transfer": 1
     },
     "psibot": {
       "packages": 31,
@@ -28,15 +29,17 @@
       "current_manifest_episodes": 2650,
       "episode_shortfall": 450,
       "remote_materialization_pending": 0,
-      "source_missing": 0
+      "source_missing": 0,
+      "remote_source_bound_no_local_transfer": 0
     },
     "ur5e_2f85": {
       "packages": 9,
       "target_episodes": 900,
       "current_manifest_episodes": 450,
       "episode_shortfall": 450,
-      "remote_materialization_pending": 0,
-      "source_missing": 2
+      "remote_materialization_pending": 2,
+      "source_missing": 0,
+      "remote_source_bound_no_local_transfer": 2
     },
     "ur5e_aoyi": {
       "packages": 3,
@@ -44,7 +47,8 @@
       "current_manifest_episodes": 150,
       "episode_shortfall": 150,
       "remote_materialization_pending": 0,
-      "source_missing": 0
+      "source_missing": 0,
+      "remote_source_bound_no_local_transfer": 0
     }
   },
   "rows": [
@@ -127,14 +131,25 @@
       "canonical_exists": false,
       "source_exists": false,
       "audit_status": "semantic_temporal_pass",
-      "status": "REMOTE_SOURCE_BOUND_MATERIALIZATION_PENDING",
+      "status": "REMOTE_SOURCE_BOUND_NO_LOCAL_TRANSFER",
       "all_manifest_versions": [
         "v3"
       ],
       "all_manifest_episode_counts": {
         "v3": 50
       },
-      "formal_credit": 0
+      "formal_credit": 0,
+      "source_exists_remote": true,
+      "local_materialized": false,
+      "source_binding": {
+        "receipt_sha256": "6559dfbf65533187a341f4eebc31cae11c1f8c2d4bc124e8fb4d85234ed542d8",
+        "tree_sha256": "ba64ce43c0573301d70237e1873235d79eac33a414c5c9f785aeed1be8adae60",
+        "direct_content_sha256": "b6e4ff5394203e54c55f2b11cb36ebff6af318ef98a5e43120c2bd7a6aa2abb0",
+        "files": 156,
+        "bytes": 741585007,
+        "episodes": 50,
+        "frames": 79017
+      }
     },
     {
       "embodiment": "fr3",
@@ -961,14 +976,25 @@
       "canonical_exists": false,
       "source_exists": false,
       "audit_status": "semantic_temporal_pass",
-      "status": "SOURCE_MISSING_RECOVER_OR_RECOLLECT",
+      "status": "REMOTE_SOURCE_BOUND_NO_LOCAL_TRANSFER",
       "all_manifest_versions": [
         "v3"
       ],
       "all_manifest_episode_counts": {
         "v3": 50
       },
-      "formal_credit": 0
+      "formal_credit": 0,
+      "source_exists_remote": true,
+      "local_materialized": false,
+      "source_binding": {
+        "receipt_sha256": "6559dfbf65533187a341f4eebc31cae11c1f8c2d4bc124e8fb4d85234ed542d8",
+        "tree_sha256": "6ce0954f7a1d21cc1d863da00fd8a1edcf873f4945b39e10d537a67501c6bb87",
+        "direct_content_sha256": "d67d614f652932edd0e6fe9073ef2dc3ee5d8a32b8888e3545b9383e6760ca45",
+        "files": 155,
+        "bytes": 307493829,
+        "episodes": 50,
+        "frames": 25900
+      }
     },
     {
       "embodiment": "ur5e_2f85",
@@ -1083,14 +1109,25 @@
       "canonical_exists": false,
       "source_exists": false,
       "audit_status": "semantic_temporal_pass",
-      "status": "SOURCE_MISSING_RECOVER_OR_RECOLLECT",
+      "status": "REMOTE_SOURCE_BOUND_NO_LOCAL_TRANSFER",
       "all_manifest_versions": [
         "v3"
       ],
       "all_manifest_episode_counts": {
         "v3": 50
       },
-      "formal_credit": 0
+      "formal_credit": 0,
+      "source_exists_remote": true,
+      "local_materialized": false,
+      "source_binding": {
+        "receipt_sha256": "6559dfbf65533187a341f4eebc31cae11c1f8c2d4bc124e8fb4d85234ed542d8",
+        "tree_sha256": "8e17de78b2f66745787a256833798a717af414a9dc8bd99e1e432acdb3a2b7e1",
+        "direct_content_sha256": "b88788c156ed8e656da5ddf44c3ce6f20ad5654972af06b7a5933e2d00bb07bb",
+        "files": 155,
+        "bytes": 627986603,
+        "episodes": 50,
+        "frames": 36450
+      }
     },
     {
       "embodiment": "ur5e_aoyi",
@@ -1176,5 +1213,5 @@
     "exact runner/adapter/checkpoint",
     "formal SR/SSR"
   ],
-  "privacy_note": "Public catalog intentionally omits internal canonical/source filesystem paths; retain the signed full receipt locally."
+  "privacy_note": "Public catalog omits internal canonical/source filesystem paths. Three identities now have remote source-bound tree/direct hashes (receipt SHA 6559dfbf...), but no local transfer or episode-count increase; retain full receipt locally."
 }
