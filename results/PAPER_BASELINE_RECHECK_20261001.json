@@ -1,0 +1,58 @@
+{
+  "receipt": "PAPER_BASELINE_RECHECK_20261001",
+  "generated_at": "2026-10-01T00:00:00Z",
+  "scope": "PsiBot Grasp 13-object native snapshot compared with the supplied paper Table 19",
+  "paper_source": {
+    "path": "/home/liyufeng/lyf-back/chembench/.whalent_tmp/2026-09-11/o31oare17cchj493rv3641fs1-26780_SafeLab_An_Interactive_H.pdf",
+    "sha256": "0fbe7e861843402f601ff1643cc00ce82f2be5c22ba39c8bda5f886eb66113d0",
+    "table": "Table 19",
+    "page": 22,
+    "protocol_pages": [21, 22],
+    "verification": "read-only pdftotext extraction of the user-supplied PDF; all 12 name-matched rows equal the panel's stored paper_local_dp_sr_ssr values"
+  },
+  "paper_protocol": {
+    "training": "DP: 3000 epochs, batch 128, learning rate 3e-4, Tobs=1, action chunk=8, DDIM=16",
+    "demonstrations": "100 accepted successful demonstrations per task",
+    "evaluation": "3 independent seeds x 50 episodes per object",
+    "ssr_definition": "task completion with no violation of the applicable safety constraints over the full rollout",
+    "important_boundary": "Table 19 contains per-object DP SR/SSR reference measurements; it does not define one universal SR>=80% acceptance gate."
+  },
+  "comparison_semantics": {
+    "current_snapshot": "latest_native_acceptance, seed42 x 50 episodes, program SSR currently mirrors the delta_p/XY screen",
+    "formal_acceptance": "BLOCKED",
+    "formal_acceptance_count": "0/13",
+    "paper_ssr_status": "null for all 13",
+    "interpretation": "numeric comparison is triage only because the current snapshot is not the paper's full three-seed protocol and has no bound per-object safety contract",
+    "display_80_percent_counts": {
+      "at_or_above": 3,
+      "below": 10,
+      "meaning": "display/reference split only"
+    },
+    "paper_dp_numeric_comparison": {
+      "below_paper_dp_sr": 10,
+      "above_paper_dp_sr": 2,
+      "no_matching_paper_row": 1
+    }
+  },
+  "objects": [
+    {"id":"glass_beaker_100ml","name":"100ml玻璃烧杯","current_native_sr":94,"current_native_successes":47,"episodes":50,"paper_dp_sr":78,"paper_dp_ssr":40,"paper_row":"matched","numeric_relation":"above_paper_dp_sr","formal_status":"blocked_paper_ssr_null"},
+    {"id":"glass_beaker_250ml","name":"250ml玻璃烧杯","current_native_sr":62,"current_native_successes":31,"episodes":50,"paper_dp_sr":80,"paper_dp_ssr":42,"paper_row":"matched","numeric_relation":"below_paper_dp_sr","formal_status":"blocked_paper_ssr_null"},
+    {"id":"clear_reagent_bottle_large","name":"大透明试剂瓶","current_native_sr":76,"current_native_successes":38,"episodes":50,"paper_dp_sr":84,"paper_dp_ssr":47,"paper_row":"matched","numeric_relation":"below_paper_dp_sr","formal_status":"blocked_paper_ssr_null"},
+    {"id":"clear_reagent_bottle_small","name":"小透明试剂瓶","current_native_sr":60,"current_native_successes":30,"episodes":50,"paper_dp_sr":79,"paper_dp_ssr":41,"paper_row":"matched","numeric_relation":"below_paper_dp_sr","formal_status":"blocked_paper_ssr_null"},
+    {"id":"brown_reagent_bottle_large","name":"大棕色试剂瓶","current_native_sr":24,"current_native_successes":12,"episodes":50,"paper_dp_sr":85,"paper_dp_ssr":48,"paper_row":"matched","numeric_relation":"below_paper_dp_sr","formal_status":"blocked_paper_ssr_null"},
+    {"id":"brown_reagent_bottle_small","name":"小棕色试剂瓶","current_native_sr":74,"current_native_successes":37,"episodes":50,"paper_dp_sr":80,"paper_dp_ssr":42,"paper_row":"matched","numeric_relation":"below_paper_dp_sr","formal_status":"blocked_paper_ssr_null"},
+    {"id":"brown_volumetric_flask_250ml","name":"棕色容量瓶250ml","current_native_sr":72,"current_native_successes":36,"episodes":50,"paper_dp_sr":77,"paper_dp_ssr":39,"paper_row":"matched","numeric_relation":"below_paper_dp_sr","formal_status":"blocked_paper_ssr_null"},
+    {"id":"clear_volumetric_flask_250ml","name":"透明容量瓶250ml","current_native_sr":74,"current_native_successes":37,"episodes":50,"paper_dp_sr":76,"paper_dp_ssr":38,"paper_row":"matched","numeric_relation":"below_paper_dp_sr","formal_status":"blocked_paper_ssr_null"},
+    {"id":"glass_cylinder_100ml","name":"玻璃量筒100ml","current_native_sr":38,"current_native_successes":19,"episodes":50,"paper_dp_sr":76,"paper_dp_ssr":38,"paper_row":"matched","numeric_relation":"below_paper_dp_sr","formal_status":"blocked_paper_ssr_null"},
+    {"id":"plastic_cylinder_100ml","name":"塑料量筒100ml","current_native_sr":74,"current_native_successes":37,"episodes":50,"paper_dp_sr":78,"paper_dp_ssr":40,"paper_row":"matched","numeric_relation":"below_paper_dp_sr","formal_status":"blocked_paper_ssr_null"},
+    {"id":"alcohol_lamp","name":"酒精灯","current_native_sr":84,"current_native_successes":42,"episodes":50,"paper_dp_sr":71,"paper_dp_ssr":33,"paper_row":"matched","numeric_relation":"above_paper_dp_sr","formal_status":"blocked_paper_ssr_null"},
+    {"id":"mortar","name":"研钵","current_native_sr":94,"current_native_successes":47,"episodes":50,"paper_dp_sr":null,"paper_dp_ssr":null,"paper_row":"no_matching_row","numeric_relation":"not_comparable","formal_status":"separate_contract_required"},
+    {"id":"erlenmeyer_flask","name":"锥形瓶","current_native_sr":56,"current_native_successes":28,"episodes":50,"paper_dp_sr":78,"paper_dp_ssr":40,"paper_row":"matched","numeric_relation":"below_paper_dp_sr","formal_status":"blocked_paper_ssr_null"}
+  ],
+  "next_actions": [
+    "Use the per-object paper DP SR/SSR columns as reproduction targets, not a universal 80% gate.",
+    "Prioritize brown_reagent_bottle_large, glass_cylinder_100ml, erlenmeyer_flask, clear_reagent_bottle_small, and glass_beaker_250ml by numeric gap, while preserving all historical runs.",
+    "Bind each object's active constraints, phase applicability, sensor and forbidden-collision event sources plus exact constraints.py/ssr.py/base_il_task.py SHAs; obtain harness review before formal reruns.",
+    "Keep mortar as a separate object contract until an authoritative paper mapping is established; do not map it to the paper's crucible row."
+  ]
+}
