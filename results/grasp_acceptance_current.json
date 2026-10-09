@@ -924,10 +924,13 @@
           "position_Linf_m": 0.0,
           "rotation_matrix_Linf": 0.9746000003069639
         }
-      ]
+      ],
+      "observed_body_uniform_scale": 0.02539999969303608,
+      "failed_meshes": 1
     },
     "cpu_postprocessor_error": "'native_exit_code'",
-    "next": "定位同步原生姿态与USD网格差异；通过原容差后核验几何与三相机原始图像。"
+    "next": "定位同步原生姿态与USD网格差异；通过原容差后核验几何与三相机原始图像。",
+    "root_cause_frontier": "机身USD矩阵包含0.0254均匀缩放；现有校准以单位刚体尺度比较。修复坐标换算后仍须按原容差重新验证。"
   },
   "requirements": [
     "各物体DP与ACT的SR不低于各自论文值；高分需核对测试泛化覆盖，禁止人为降低成功率。",
@@ -945,6 +948,11 @@
       "label": "2026-10-09 V17 原生诊断核验",
       "bytes": 209173,
       "sha256": "d1e066a7286089204e43f3bfcfa7ccea7b10492e2676b4c90a3cc93fc2be83cd"
+    },
+    {
+      "label": "机身及关联网格校准失败只读定位",
+      "bytes": 3898,
+      "sha256": "de8da807ff7252633c63b74b9ca8a56217e7ac28e764c9783af2ef343a896151"
     }
   ]
 }
