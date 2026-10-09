@@ -199,6 +199,7 @@ details.fold{margin:8px 0}details.fold>summary{cursor:pointer;color:#334155;font
 <a href="#secsrv">§S 服务器算力</a>
 <a href="#sec0">§0 今日焦点</a>
 <a href="#sec1">§1 数据集</a>
+<a href="#dataset-task-types">　数据集类型与采集进度</a>
 <a href="#sec1-status">　§1.0 当前验收总表</a>
 <a href="#sec1-1">　§1.1 PsiBot</a>
 <a href="#sec1-2">　§1.2 FR3</a>
@@ -218,9 +219,7 @@ details.fold{margin:8px 0}details.fold>summary{cursor:pointer;color:#334155;font
 <h1>PsiBot 开源进度看板</h1>
 <p class="meta">最后更新：2026-10-02 17:26（UTC+8）· v12.34 · <a href="grasp.html" style="background:#0066cc;color:#fff;padding:3px 10px;border-radius:6px;font-weight:600">▶ Grasp 专题面板</a> · 维护契约见 §7 · <a href="https://asimfish.github.io/psibot-dashboard/">GitHub Pages</a>（CDN 约 5 分钟，刚更新请强刷）· <a href="https://gist.github.com/asimfish/2dae7a26b2f1a05f7098b2e9aceef29a">gist 源</a><br/>表内虚线路径点击即复制；「▶」为样例视频；§S 的算力数据自动更新，数据时间见该节状态条。</p>
 <div class="banner">
-<div class="card">数据集采集（当前用户目标：非 press / 非 long）
-    <b class="run">54 个库存身份 · 字节候选 4,250/5,400 集</b>
-<span class="small">候选数量缺口 1,150 集：FR3 250 · PsiBot 450 · UR5e_2f85 300 · UR5e_Aoyi 150；canonical 仍为 3,800 集（缺 1,600）。数量达到 100 集的候选身份 31/54，正式验收 0/54。press 与 long 排除；详见 §1.0。</span></div>
+<div class="card">数据集采集 · 全任务分类汇总<b class="run">64项 · 5,400/6,400条候选轨迹</b><span class="small">44项数量齐备，20项缺1,000条；完整验收待闭环。优先推进烤箱/试剂柜开关门四项；开柜本轮原门已通过30条。<a href="#dataset-task-types">查看9类任务汇总与当前缺口</a>。</span></div>
 <div class="card">训练覆盖（PsiBot）
     <b class="run">grasp 1 物体 ACT+DP 双通关（DP 数据标签修复后 RGB 5 模型 96-100%）+ <b>口径变更（09-08）</b>：正式协议改为与采集同范围的 <b>nosdf50r2 = xy ±2cm · 6s · 50 集</b>（原 ±1cm 表降为历史，固定位 2s 降为参考），<b>13 个现役模型 ±2cm：12/13 ≥82%、均值 87.5%</b>（beaker100 / mortar 100 · <b>beaker250 96</b>（origext s9742，68→96）· brown_reagent_S 94 · clear_reagent_S 90 · brown_reagent_L 90 · glass_cyl 86 · clear_vol 86 · plastic / alcohol / clear_reagent_L / brown_vol 82%；6 物体 ±2cm ≥ ±1cm），仅剩弱项：<b class="bad">erlenmeyer 68%</b>（<b>ro60mix s9753 34/50 升为现役</b>，54→68，二种子 s9754 32/50；纯 ±2cm 自采 ro60r2 s9751/s9752 <b class="bad">6/50 · 0/50</b> 判负——DP 自蒸馏链在 ±2cm 崩塌；<b>评测 reset 缺陷 A/B（09-12 复核）</b>：同一 s9723 加 <code>reset_robot_state_to_default=true</code> 后 <b>35/50 = 70%</b>（未修 27/50 = 54%）；<b>三模型 A/B 09-12 收口</b>：s9753 68→72、s9754 64→66（修复对 ro60mix 仅 +2–4pt），修复口径下 s9723 70% ≈ s9753 72%，而 s9753 owner 2s 仅 <b class="bad">52%</b>（s9723 90%）→ 采纳修复口径则建议现役回退 s9723，待 owner 定夺（§5 ⑤）；根治线已切换：用 ACT 教师 <code>act-c4fix-erlenmeyer_flask8k-s3554</code>（±1cm 100%）在 ±2cm 评测环境 rollout 自采 <b>194/200 成功</b>（全部 ≤60 帧）→ DP <code>roact</code>（194 集）/ <code>roactmix</code>（+v2 100 集）各二种子 s9755–s9758 + 第二批 ea2 <b>196/200</b> → <code>roact2</code>（379 集）/ <code>roact2mix</code>（479 集）s9759/s9760，<b>六路 09-12 06:1x–06:4x 起</b>（首批四路因 30109 共享 NFS 05:08 写满崩溃、从头重跑；预计 17:00 后出分，bjxy r2 队列自动评））；12 物体 DP RGB 收口（<a href="grasp.html"><b>▶ Grasp 专题面板</b></a>）旧口径：<b>12/12 ≥70%</b>（beaker250 92 · clear_reagent_L 90 · brown_vol 88 · glass_cyl 84 · brown_reagent_L 84 · clear_reagent_S 84 · clear_vol 82 · alcohol 80 · plastic 78 · <b>mortar 100</b>（二种子）· <b>erlenmeyer 82</b>（三种子 76/78/82）· <b>brown_reagent_S 94</b>（三种子）%）；<b>12/12 ≥76%</b>；<b>erlenmeyer 破局</b>：只用策略自身 ≤60 帧干净成功 rollout（61 集，评测环境内自采）训练的 ro60 三种子 <b>76% / 78% / 82%</b>（θ≈0.04–0.06 · F≈250–300N），稳定突破 v2 示教 52% 上限；<b>mortar 破局</b>：v2 示教末段外推抬升（v2ext）s9541 76% → 二种子 s9542 <b>50/50 = 100%</b>（θ0.08 · ΔP17mm），方案稳健；重采 rc 系列（rc/rcv2/rcslow）8%/0%/2% 全部判负</b>
 <span class="small">rep11：KL1 33/33 + KL10 11/11 训练收官；<b class="ok">s1028 首种子 11/11 评完</b>：glass_cylinder <s>10/10</s> <b class="bad">已判虚分</b>（评测物体注入失败，实测 beaker）、brown_volumetric 1/10、余 9 物体 0/10；KL10 逐物体 <b>11/11 收官全 0/10</b>；09-01 复核：数据源无 FR3 错配（三线证据），新版 50 集协议重评 alcohol_lamp/mortar 仍 0/50，视频示正常接近抓取但未成——改判<b>配方精度不足 + 种子方差</b>（beaker 六种子 0%-90%），修复路线 chunk4 配方：<b>10 物体 ×2 种子 20/20 完训</b>（mainskill），第三种子 11 run 在训，bjxy 双卡按 q89/q90 队列出分中；cylinder kl10 修复批三种子亦全 0/50，chunk4 两种子已完训待评</span></div>
@@ -272,7 +271,134 @@ details.fold{margin:8px 0}details.fold>summary{cursor:pointer;color:#334155;font
 <tr><td class="gc">g1</td><td class="lv-mem" data-m="bjxy:1">…</td><td class="lv-task" data-t="bjxy:1"><span class="st-idle">…</span></td></tr>
 <tr><td rowspan="1"><b>lyf_4090</b><br/><span class="small">1× RTX4090-24G</span></td><td class="gc">g0</td><td class="lv-mem" data-m="lyf4090:0">…</td><td class="lv-task" data-t="lyf4090:0"><span class="st-idle">…</span></td></tr>
 </table></div>
-<h2 id="sec1-status">§1.0 当前数据集总表（非 press / 非 long）</h2>
+<!-- T496_DATASET_TASK_TYPES_BEGIN -->
+<section id="dataset-task-types" aria-labelledby="dataset-task-types-heading">
+<h2 id="dataset-task-types-heading">数据集总览 · 按任务类型</h2>
+<p class="meta">数据核对时间：2026-10-09 11:21（UTC+8） · <a href="results/all_dataset_task_type_summary_20261009.json">下载完整分类与逐数据集清单</a></p>
+<div class="banner"><div class="card">已识别常规数据集<b class="run">64 项 · 9 类任务</b></div><div class="card">现有候选轨迹<b class="run">5,400 / 6,400 条</b></div><div class="card">数量达到目标<b class="ok">44 项 / 64 项</b></div><div class="card">仍需补量<b class="bad">20 项 · 1,000 条</b></div></div>
+<div class="infobox"><b>口径：</b>每个数据集按“机器人 × 任务 × 物体”区分，常规目标为100条。下表是已选候选池盘点；数量达标不等于通过全部验收。完整RGB媒体检查43项通过、21项未通过，物理、源绑定及最终发布验收仍需逐项闭环。新采集的开柜30条和按压90条单独列出，尚未合并进基础候选池统计。新增烤箱开门、两项关门和长程任务另列。</div>
+<div class="table-wrap"><table><thead><tr><th>任务类型</th><th>数据集数</th><th>候选 / 目标轨迹</th><th>数量齐备</th><th>还缺轨迹</th><th>媒体通过</th><th>机器人</th></tr></thead><tbody>
+<tr><td>抓取 · grasp</td><td>22</td><td>1,950 / 2,200</td><td>17 / 22</td><td>250</td><td>17 / 22</td><td>FR3、PsiBot、UR5e · 2F85、UR5e · Aoyi</td></tr>
+<tr><td>取放 · pick_place</td><td>19</td><td>1,700 / 1,900</td><td>15 / 19</td><td>200</td><td>15 / 19</td><td>FR3、PsiBot、UR5e · 2F85</td></tr>
+<tr><td>倾倒 · pour</td><td>6</td><td>300 / 600</td><td>0 / 6</td><td>300</td><td>0 / 6</td><td>FR3、PsiBot、UR5e · 2F85</td></tr>
+<tr><td>堆叠 · stack</td><td>5</td><td>500 / 500</td><td>5 / 5</td><td>0</td><td>4 / 5</td><td>FR3、PsiBot、UR5e · 2F85</td></tr>
+<tr><td>交接 · handover</td><td>5</td><td>450 / 500</td><td>4 / 5</td><td>50</td><td>3 / 5</td><td>PsiBot</td></tr>
+<tr><td>双手抓取 · bimanul_grasp</td><td>2</td><td>200 / 200</td><td>2 / 2</td><td>0</td><td>2 / 2</td><td>PsiBot</td></tr>
+<tr><td>多工具操作 · multi_tools</td><td>1</td><td>50 / 100</td><td>0 / 1</td><td>50</td><td>0 / 1</td><td>PsiBot</td></tr>
+<tr><td>按压 · press</td><td>3</td><td>200 / 300</td><td>1 / 3</td><td>100</td><td>1 / 3</td><td>FR3、PsiBot、UR5e · 2F85</td></tr>
+<tr><td>开门 · open</td><td>1</td><td>50 / 100</td><td>0 / 1</td><td>50</td><td>1 / 1</td><td>FR3</td></tr>
+</tbody></table></div>
+<h3>每类包含哪些数据集</h3>
+<details><summary>抓取：22项 · 缺250条</summary>
+<p>物体：酒精灯、大棕试剂瓶、小棕试剂瓶、棕色250ml容量瓶、大透明试剂瓶、小透明试剂瓶、透明250ml容量瓶、锥形瓶、100ml烧杯、250ml烧杯、100ml玻璃量筒、研钵、100ml塑料量筒</p><div class="table-wrap"><table><thead><tr><th>机器人</th><th>物体</th><th>候选 / 目标</th><th>还缺</th><th>完整媒体检查</th></tr></thead><tbody>
+<tr><td>FR3</td><td>大透明试剂瓶</td><td>50/100</td><td>50</td><td>未通过</td></tr>
+<tr><td>FR3</td><td>100ml烧杯</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>FR3</td><td>250ml烧杯</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>酒精灯</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>大棕试剂瓶</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>小棕试剂瓶</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>棕色250ml容量瓶</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>大透明试剂瓶</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>小透明试剂瓶</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>透明250ml容量瓶</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>锥形瓶</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>100ml烧杯</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>250ml烧杯</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>100ml玻璃量筒</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>研钵</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>100ml塑料量筒</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>UR5e · 2F85</td><td>大透明试剂瓶</td><td>50/100</td><td>50</td><td>未通过</td></tr>
+<tr><td>UR5e · 2F85</td><td>100ml烧杯</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>UR5e · 2F85</td><td>250ml烧杯</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>UR5e · Aoyi</td><td>大透明试剂瓶</td><td>50/100</td><td>50</td><td>未通过</td></tr>
+<tr><td>UR5e · Aoyi</td><td>100ml烧杯</td><td>50/100</td><td>50</td><td>未通过</td></tr>
+<tr><td>UR5e · Aoyi</td><td>250ml烧杯</td><td>50/100</td><td>50</td><td>未通过</td></tr>
+</tbody></table></div></details>
+<details><summary>取放：19项 · 缺200条</summary>
+<p>物体：酒精灯、大棕试剂瓶、小棕试剂瓶、棕色250ml容量瓶、大透明试剂瓶、小透明试剂瓶、透明250ml容量瓶、锥形瓶、100ml烧杯、250ml烧杯、100ml玻璃量筒、研钵、100ml塑料量筒</p><div class="table-wrap"><table><thead><tr><th>机器人</th><th>物体</th><th>候选 / 目标</th><th>还缺</th><th>完整媒体检查</th></tr></thead><tbody>
+<tr><td>FR3</td><td>100ml烧杯</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>FR3</td><td>250ml烧杯</td><td>50/100</td><td>50</td><td>未通过</td></tr>
+<tr><td>FR3</td><td>100ml玻璃量筒</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>酒精灯</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>大棕试剂瓶</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>小棕试剂瓶</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>棕色250ml容量瓶</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>大透明试剂瓶</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>小透明试剂瓶</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>透明250ml容量瓶</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>锥形瓶</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>100ml烧杯</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>250ml烧杯</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>100ml玻璃量筒</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>研钵</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>100ml塑料量筒</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>UR5e · 2F85</td><td>100ml烧杯</td><td>50/100</td><td>50</td><td>未通过</td></tr>
+<tr><td>UR5e · 2F85</td><td>100ml玻璃量筒</td><td>50/100</td><td>50</td><td>未通过</td></tr>
+<tr><td>UR5e · 2F85</td><td>100ml塑料量筒</td><td>50/100</td><td>50</td><td>未通过</td></tr>
+</tbody></table></div></details>
+<details><summary>倾倒：6项 · 缺300条</summary>
+<p>物体：100ml烧杯、100ml玻璃量筒</p><div class="table-wrap"><table><thead><tr><th>机器人</th><th>物体</th><th>候选 / 目标</th><th>还缺</th><th>完整媒体检查</th></tr></thead><tbody>
+<tr><td>FR3</td><td>100ml烧杯</td><td>50/100</td><td>50</td><td>未通过</td></tr>
+<tr><td>FR3</td><td>100ml玻璃量筒</td><td>50/100</td><td>50</td><td>未通过</td></tr>
+<tr><td>PsiBot</td><td>100ml烧杯</td><td>50/100</td><td>50</td><td>未通过</td></tr>
+<tr><td>PsiBot</td><td>100ml玻璃量筒</td><td>50/100</td><td>50</td><td>未通过</td></tr>
+<tr><td>UR5e · 2F85</td><td>100ml烧杯</td><td>50/100</td><td>50</td><td>未通过</td></tr>
+<tr><td>UR5e · 2F85</td><td>100ml玻璃量筒</td><td>50/100</td><td>50</td><td>未通过</td></tr>
+</tbody></table></div></details>
+<details><summary>堆叠：5项 · 缺0条</summary>
+<p>物体：100ml烧杯、250ml烧杯堆叠</p><div class="table-wrap"><table><thead><tr><th>机器人</th><th>物体</th><th>候选 / 目标</th><th>还缺</th><th>完整媒体检查</th></tr></thead><tbody>
+<tr><td>FR3</td><td>100ml烧杯</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>FR3</td><td>250ml烧杯堆叠</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>100ml烧杯</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>250ml烧杯堆叠</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>UR5e · 2F85</td><td>100ml烧杯</td><td>100/100</td><td>0</td><td>未通过</td></tr>
+</tbody></table></div></details>
+<details><summary>交接：5项 · 缺50条</summary>
+<p>物体：棕色250ml容量瓶、透明250ml容量瓶、100ml玻璃量筒、500ml量筒、100ml塑料量筒</p><div class="table-wrap"><table><thead><tr><th>机器人</th><th>物体</th><th>候选 / 目标</th><th>还缺</th><th>完整媒体检查</th></tr></thead><tbody>
+<tr><td>PsiBot</td><td>棕色250ml容量瓶</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>透明250ml容量瓶</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>100ml玻璃量筒</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>500ml量筒</td><td>50/100</td><td>50</td><td>未通过</td></tr>
+<tr><td>PsiBot</td><td>100ml塑料量筒</td><td>100/100</td><td>0</td><td>未通过</td></tr>
+</tbody></table></div></details>
+<details><summary>双手抓取：2项 · 缺0条</summary>
+<p>物体：1000ml烧杯、100ml玻璃量筒</p><div class="table-wrap"><table><thead><tr><th>机器人</th><th>物体</th><th>候选 / 目标</th><th>还缺</th><th>完整媒体检查</th></tr></thead><tbody>
+<tr><td>PsiBot</td><td>1000ml烧杯</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>PsiBot</td><td>100ml玻璃量筒</td><td>100/100</td><td>0</td><td>通过</td></tr>
+</tbody></table></div></details>
+<details><summary>多工具操作：1项 · 缺50条</summary>
+<p>物体：多工具组合</p><div class="table-wrap"><table><thead><tr><th>机器人</th><th>物体</th><th>候选 / 目标</th><th>还缺</th><th>完整媒体检查</th></tr></thead><tbody>
+<tr><td>PsiBot</td><td>多工具组合</td><td>50/100</td><td>50</td><td>未通过</td></tr>
+</tbody></table></div></details>
+<details><summary>按压：3项 · 缺100条</summary>
+<p>物体：高速离心机</p><div class="table-wrap"><table><thead><tr><th>机器人</th><th>物体</th><th>候选 / 目标</th><th>还缺</th><th>完整媒体检查</th></tr></thead><tbody>
+<tr><td>FR3</td><td>高速离心机</td><td>50/100</td><td>50</td><td>未通过</td></tr>
+<tr><td>PsiBot</td><td>高速离心机</td><td>100/100</td><td>0</td><td>通过</td></tr>
+<tr><td>UR5e · 2F85</td><td>高速离心机</td><td>50/100</td><td>50</td><td>未通过</td></tr>
+</tbody></table></div></details>
+<details><summary>开门：1项 · 缺50条</summary>
+<p>物体：试剂柜开门</p><div class="table-wrap"><table><thead><tr><th>机器人</th><th>物体</th><th>候选 / 目标</th><th>还缺</th><th>完整媒体检查</th></tr></thead><tbody>
+<tr><td>FR3</td><td>试剂柜开门</td><td>50/100</td><td>50</td><td>通过</td></tr>
+</tbody></table></div></details>
+<h3>优先推进的四个开关门数据集 · FR3</h3>
+<p>这张表记录本轮通过原物理、源、时钟及完整视频门的新增整条轨迹。历史候选、资格样本和失败回合不重复计数。</p>
+<div class="table-wrap"><table><thead><tr><th>任务</th><th>本轮原门通过 / 目标</th><th>采集情况与缺口</th></tr></thead><tbody>
+<tr><td>试剂柜开门</td><td>30/100</td><td>原门通过30条，失败批次已封存，已恢复采集；剩70条。</td></tr>
+<tr><td>烤箱开门</td><td>0/100</td><td>接触后门未运动，后续规划超过原关节步长门；尚无合格整条。</td></tr>
+<tr><td>烤箱关门</td><td>0/100</td><td>原关节步长门在执行前拒绝；尚无合格整条。</td></tr>
+<tr><td>试剂柜关门</td><td>0/100</td><td>接近阶段机械臂与已打开的柜门碰撞；尚无合格整条。</td></tr>
+</tbody></table></div>
+<p>FR3按压已通过原门90/100条，最后10条排在当前四项优先工作之后。除press/open/long外，基础清单中还有60项：43项数量齐备、17项合计缺850条，仍有媒体及完整验收缺口。</p>
+<h3>长程任务 · 单独统计完整示教</h3>
+<div class="table-wrap"><table><thead><tr><th>任务</th><th>内容</th><th>已验收整条 / 最低目标</th></tr></thead><tbody>
+<tr><td>T3</td><td>取下、倾斜、放回支架</td><td>1/1</td></tr>
+<tr><td>T5</td><td>顺序称重</td><td>0/1</td></tr>
+<tr><td>T7</td><td>多物体顺序称重并归位</td><td>0/1</td></tr>
+</tbody></table></div>
+<p>T5/T7仍在推进，部分阶段通过不计完整示教。另有历史PsiBot双杯垫往返（T447）及FR3长程（T345）完整轨迹记录，尚未在本次分类盘点重新做逐源复核，不计入上述64项。论文所称64项与这里的64个实施身份尚未建立一一对应，未命名任务保留待核实。</p>
+</section>
+<!-- T496_DATASET_TASK_TYPES_END -->
+<h2 id="sec1-status">§1.0 历史数据集总表（2026-10-02，非 press / 非 long）</h2>
 <div class="banner">
 <div class="card"><span class="small">纳入身份</span><b class="ok">54/54</b><span class="small">FR3 11 · PsiBot 31 · UR5e_2f85 9 · UR5e_Aoyi 3</span></div>
 <div class="card"><span class="small">字节候选 / 目标</span><b class="run">4,250 / 5,400 集</b><span class="small">数量缺口 1,150；canonical 3,800；每身份目标 100 集</span></div>
