@@ -1,6 +1,6 @@
 {
   "schema": "grasp.browser.supplement.v1",
-  "updated_utc": "2026-10-09T13:15:19.552200+00:00",
+  "updated_utc": "2026-10-09T18:27:45.542101+00:00",
   "source_pins": [
     {
       "source": "/home/liyufeng/ops/grasp_acceptance_20260917/NATIVE_EPISODE_LEDGER_20261002.json",
@@ -9038,6 +9038,116 @@
       },
       "cases": [],
       "paper_ssr_percent": null
+    },
+    {
+      "candidate": "t500-native-act-brown-large-s26100961-pilot2",
+      "display_name": "新ACT s26100961 · 两集开发试跑",
+      "object": "brown_reagent_bottle_large",
+      "development": true,
+      "native_development": true,
+      "progress": {
+        "episode_num": 2,
+        "episode_success_num": 2,
+        "success_rate": 1.0,
+        "final": true
+      },
+      "protocol": {
+        "method": "act",
+        "seed": 26101021,
+        "episode_length_s": 2,
+        "checkpoint_sha256": "bbf1c3ba4f8888d8e1fea87ff467cde016a8e195b93d0ba3f5fd779a778e062c",
+        "actual_xy_range_cm": null,
+        "reset_offsets": [
+          {
+            "episode": 1,
+            "offset_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "episode": 2,
+            "offset_m": [
+              0.026,
+              -0.018,
+              0.0
+            ]
+          }
+        ],
+        "note": "冻结验证集最佳模型；两个预先固定位置的开发试跑，不用于论文SR达标或选择测试权重。采集GPU型号谱系未确认，RTX4090原生部署。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": 26100961
+        },
+        "last": {
+          "epoch": 4999,
+          "global_step": 10000
+        }
+      },
+      "paper_ssr_percent": null,
+      "formal_accepted": false,
+      "metric_note": "旧成功标记2/2，当前完整目标终点位置误差114.8、104.0mm，位置分量0/2。首末12张原图已检查；reset图像同步与完整接触几何仍需验证。论文SSR尚未确认。",
+      "cases": [
+        {
+          "episode": 1,
+          "success": true,
+          "url": "media/grasp-t500-native-act/brown-large-s26100961-ep001-chest_camera.mp4",
+          "sha256": "087d4c17eebf3d273f96cb6165932be765cba1d407c51007c56748d815230a3b",
+          "bytes": 181862,
+          "camera": "chest_camera",
+          "caption": "chest_camera · 两集开发试跑，旧成功标记；终点位置误差114.8mm，视觉验收待通过。30Hz原生观察视频。"
+        },
+        {
+          "episode": 1,
+          "success": true,
+          "url": "media/grasp-t500-native-act/brown-large-s26100961-ep001-head_camera.mp4",
+          "sha256": "4f8cbb6b4f7a16a927f8c5a1df8b135cb32cee9c17e71cd9d3969fc31e2218ec",
+          "bytes": 175928,
+          "camera": "head_camera",
+          "caption": "head_camera · 两集开发试跑，旧成功标记；终点位置误差114.8mm，视觉验收待通过。30Hz原生观察视频。"
+        },
+        {
+          "episode": 1,
+          "success": true,
+          "url": "media/grasp-t500-native-act/brown-large-s26100961-ep001-third_camera.mp4",
+          "sha256": "ae15681e1229cd36da4265c8456640105793e1c18d8792c57fcf765c720f23bd",
+          "bytes": 145577,
+          "camera": "third_camera",
+          "caption": "third_camera · 两集开发试跑，旧成功标记；终点位置误差114.8mm，视觉验收待通过。30Hz原生观察视频。"
+        },
+        {
+          "episode": 2,
+          "success": true,
+          "url": "media/grasp-t500-native-act/brown-large-s26100961-ep002-chest_camera.mp4",
+          "sha256": "eb889213334760fbddd28fa85d95cb8eca98152351337df75dcbc0f97e96358b",
+          "bytes": 156847,
+          "camera": "chest_camera",
+          "caption": "chest_camera · 两集开发试跑，旧成功标记；终点位置误差104.0mm，视觉验收待通过。30Hz原生观察视频。"
+        },
+        {
+          "episode": 2,
+          "success": true,
+          "url": "media/grasp-t500-native-act/brown-large-s26100961-ep002-head_camera.mp4",
+          "sha256": "8888a9b440550110bfe75009681a4ba4429202e1b1c99b38a91ee5b4c4b1a3de",
+          "bytes": 146285,
+          "camera": "head_camera",
+          "caption": "head_camera · 两集开发试跑，旧成功标记；终点位置误差104.0mm，视觉验收待通过。30Hz原生观察视频。"
+        },
+        {
+          "episode": 2,
+          "success": true,
+          "url": "media/grasp-t500-native-act/brown-large-s26100961-ep002-third_camera.mp4",
+          "sha256": "6bfc1b26b521dd04216febdddba13ed43e6b852bdee5cc5bb153f5b6475fc54c",
+          "bytes": 114308,
+          "camera": "third_camera",
+          "caption": "third_camera · 两集开发试跑，旧成功标记；终点位置误差104.0mm，视觉验收待通过。30Hz原生观察视频。"
+        }
+      ]
     }
   ],
   "act_complete_records": 66,
@@ -12109,5 +12219,9 @@
     "models_with_video": 66,
     "videos": 87,
     "selection": "first observed success and first observed failure when each exists; protocol/hash pinned; no episode outcome filtering"
+  },
+  "native_pilot_source_pins": {
+    "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/native_act_brown_reagent_bottle_large_s26100961_pilot_v1/protocol.json": "b362a2417e410ef2d8cefc9a830315c596d103cab6ae0f790609c6a877ff7c2a",
+    "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/native_act_brown_reagent_bottle_large_s26100961_pilot_v1/spatial_components.json": "33c4a46d3ee40d274c131ff46029ad0bb543bf962a7fc65e2155601565202703"
   }
 }
