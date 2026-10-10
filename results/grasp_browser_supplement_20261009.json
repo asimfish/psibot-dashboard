@@ -1,6 +1,6 @@
 {
   "schema": "grasp.browser.supplement.v1",
-  "updated_utc": "2026-10-10T00:37:10.493865+00:00",
+  "updated_utc": "2026-10-10T02:01:53.936182+00:00",
   "source_pins": [
     {
       "source": "/home/liyufeng/ops/grasp_acceptance_20260917/NATIVE_EPISODE_LEDGER_20261002.json",
@@ -10358,6 +10358,357 @@
           "caption": "third_camera · 两集开发试跑，旧成功标记；终点位置误差26.0mm，视觉验收待通过。30Hz原生观察视频。"
         }
       ]
+    },
+    {
+      "candidate": "t500-native-act-brown-large-s26100961-continuation6s",
+      "display_name": "ACT s26100961 · 6秒延长执行诊断",
+      "object": "brown_reagent_bottle_large",
+      "development": true,
+      "native_development": true,
+      "progress": {
+        "episode_num": 2,
+        "episode_success_num": 2,
+        "success_rate": 1.0,
+        "final": true
+      },
+      "protocol": {
+        "method": "act",
+        "seed": 26101021,
+        "episode_length_s": 6,
+        "checkpoint_sha256": "bbf1c3ba4f8888d8e1fea87ff467cde016a8e195b93d0ba3f5fd779a778e062c",
+        "actual_xy_range_cm": null,
+        "reset_offsets": [
+          {
+            "episode": 1,
+            "offset_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "episode": 2,
+            "offset_m": [
+              0.026,
+              -0.018,
+              0.0
+            ]
+          }
+        ],
+        "note": "沿用此前已冻结的两个开发位置与验证集最佳权重；延迟旧成功结束至6秒，观察最终抓持。新试次不是正式50集/三个种子评测，不按其结果选模型。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": 26100961
+        },
+        "last": {
+          "epoch": 4999,
+          "global_step": 10000
+        }
+      },
+      "paper_ssr_percent": null,
+      "formal_accepted": false,
+      "metric_note": "延长至6秒，最终物理抬升区域2/2；固定终点误差74.068mm、62.793mm。固定参考未绑定论文SSR；三相机末帧已检查，胸部目标出画或白色区域异常，视觉待通过。",
+      "cases": [
+        {
+          "episode": 1,
+          "success": true,
+          "physical_lift_region_at_terminal": true,
+          "url": "media/grasp-t500-native-act-continuation6s/brown-large-s26100961-ep001-chest_camera.mp4",
+          "sha256": "8137ecbbe7a895b84f60c028feb91e014ac6c65ce3f77dfc1196e66c0e1f2632",
+          "bytes": 270917,
+          "camera": "chest_camera",
+          "caption": "chest_camera · 6秒开发诊断，结束时保持物理抬升区域；固定终点误差74.1mm。论文SSR与视觉尚未通过。30Hz原生观察视频。"
+        },
+        {
+          "episode": 1,
+          "success": true,
+          "physical_lift_region_at_terminal": true,
+          "url": "media/grasp-t500-native-act-continuation6s/brown-large-s26100961-ep001-head_camera.mp4",
+          "sha256": "9b30ce1514bcd89112d8f4be008a2170e8f5da956b983c5a4f8da0aa768f4652",
+          "bytes": 594472,
+          "camera": "head_camera",
+          "caption": "head_camera · 6秒开发诊断，结束时保持物理抬升区域；固定终点误差74.1mm。论文SSR与视觉尚未通过。30Hz原生观察视频。"
+        },
+        {
+          "episode": 1,
+          "success": true,
+          "physical_lift_region_at_terminal": true,
+          "url": "media/grasp-t500-native-act-continuation6s/brown-large-s26100961-ep001-third_camera.mp4",
+          "sha256": "70256b5e944f440defd1c29863db64789bb1ba919cbbb61fb8874bf6563ded3f",
+          "bytes": 482203,
+          "camera": "third_camera",
+          "caption": "third_camera · 6秒开发诊断，结束时保持物理抬升区域；固定终点误差74.1mm。论文SSR与视觉尚未通过。30Hz原生观察视频。"
+        },
+        {
+          "episode": 2,
+          "success": true,
+          "physical_lift_region_at_terminal": true,
+          "url": "media/grasp-t500-native-act-continuation6s/brown-large-s26100961-ep002-chest_camera.mp4",
+          "sha256": "d8feb6ec19a864b770ad15b3166000bd07c059d45cf1f769c4978bf1d5aededc",
+          "bytes": 247402,
+          "camera": "chest_camera",
+          "caption": "chest_camera · 6秒开发诊断，结束时保持物理抬升区域；固定终点误差62.8mm。论文SSR与视觉尚未通过。30Hz原生观察视频。"
+        },
+        {
+          "episode": 2,
+          "success": true,
+          "physical_lift_region_at_terminal": true,
+          "url": "media/grasp-t500-native-act-continuation6s/brown-large-s26100961-ep002-head_camera.mp4",
+          "sha256": "68caef03d97b2b1878d121a7e7eb61ca114cc10c8d8b19130f5d257b53d6b76f",
+          "bytes": 596712,
+          "camera": "head_camera",
+          "caption": "head_camera · 6秒开发诊断，结束时保持物理抬升区域；固定终点误差62.8mm。论文SSR与视觉尚未通过。30Hz原生观察视频。"
+        },
+        {
+          "episode": 2,
+          "success": true,
+          "physical_lift_region_at_terminal": true,
+          "url": "media/grasp-t500-native-act-continuation6s/brown-large-s26100961-ep002-third_camera.mp4",
+          "sha256": "1e4d1044f0cd0c48eca89ff00d81ed690566f7ffdbd6cd33ac9293f0ad03399d",
+          "bytes": 457103,
+          "camera": "third_camera",
+          "caption": "third_camera · 6秒开发诊断，结束时保持物理抬升区域；固定终点误差62.8mm。论文SSR与视觉尚未通过。30Hz原生观察视频。"
+        }
+      ],
+      "continuation_development": true
+    },
+    {
+      "candidate": "t500-native-act-erlenmeyer-s26101091-continuation6s",
+      "display_name": "ACT s26101091 · 6秒延长执行诊断",
+      "object": "erlenmeyer_flask",
+      "development": true,
+      "native_development": true,
+      "progress": {
+        "episode_num": 2,
+        "episode_success_num": 1,
+        "success_rate": 0.5,
+        "final": true
+      },
+      "protocol": {
+        "method": "act",
+        "seed": 26101027,
+        "episode_length_s": 6,
+        "checkpoint_sha256": "403c962a8e4732aaee1b10a0aea05a0f23bba5e2df366a65a5dca1d5111bc941",
+        "actual_xy_range_cm": null,
+        "reset_offsets": [
+          {
+            "episode": 1,
+            "offset_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "episode": 2,
+            "offset_m": [
+              0.026,
+              -0.018,
+              0.0
+            ]
+          }
+        ],
+        "note": "沿用此前已冻结的两个开发位置与验证集最佳权重；延迟旧成功结束至6秒，观察最终抓持。新试次不是正式50集/三个种子评测，不按其结果选模型。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": 26101091
+        },
+        "last": {
+          "epoch": 4999,
+          "global_step": 10000
+        }
+      },
+      "paper_ssr_percent": null,
+      "formal_accepted": false,
+      "metric_note": "延长至6秒，最终物理抬升区域1/2；固定终点误差19.525mm、218.275mm。固定参考未绑定论文SSR；三相机末帧已检查，胸部目标出画或白色区域异常，视觉待通过。",
+      "cases": [
+        {
+          "episode": 1,
+          "success": true,
+          "physical_lift_region_at_terminal": true,
+          "url": "media/grasp-t500-native-act-continuation6s/erlenmeyer-s26101091-ep001-chest_camera.mp4",
+          "sha256": "6728954275b9a96bbc01ea628300edf49fe164650f7c5969e21d385daccb0884",
+          "bytes": 280384,
+          "camera": "chest_camera",
+          "caption": "chest_camera · 6秒开发诊断，结束时保持物理抬升区域；固定终点误差19.5mm。论文SSR与视觉尚未通过。30Hz原生观察视频。"
+        },
+        {
+          "episode": 1,
+          "success": true,
+          "physical_lift_region_at_terminal": true,
+          "url": "media/grasp-t500-native-act-continuation6s/erlenmeyer-s26101091-ep001-head_camera.mp4",
+          "sha256": "4a35c747240289bba0006daf737281b62061a07d6805df404ae7fd4135cfed89",
+          "bytes": 680713,
+          "camera": "head_camera",
+          "caption": "head_camera · 6秒开发诊断，结束时保持物理抬升区域；固定终点误差19.5mm。论文SSR与视觉尚未通过。30Hz原生观察视频。"
+        },
+        {
+          "episode": 1,
+          "success": true,
+          "physical_lift_region_at_terminal": true,
+          "url": "media/grasp-t500-native-act-continuation6s/erlenmeyer-s26101091-ep001-third_camera.mp4",
+          "sha256": "ce6854eefd9b03f859444798963865f5aa97f26d3d93eda77f15743866407c79",
+          "bytes": 487332,
+          "camera": "third_camera",
+          "caption": "third_camera · 6秒开发诊断，结束时保持物理抬升区域；固定终点误差19.5mm。论文SSR与视觉尚未通过。30Hz原生观察视频。"
+        },
+        {
+          "episode": 2,
+          "success": false,
+          "physical_lift_region_at_terminal": false,
+          "url": "media/grasp-t500-native-act-continuation6s/erlenmeyer-s26101091-ep002-chest_camera.mp4",
+          "sha256": "1e8e07d79f2d7a4bc8e349a201264bb13ab236b584f45b9047fb9859b7e2ce05",
+          "bytes": 721224,
+          "camera": "chest_camera",
+          "caption": "chest_camera · 6秒开发诊断，结束时未满足物理抬升区域；固定终点误差218.3mm。论文SSR与视觉尚未通过。30Hz原生观察视频。"
+        },
+        {
+          "episode": 2,
+          "success": false,
+          "physical_lift_region_at_terminal": false,
+          "url": "media/grasp-t500-native-act-continuation6s/erlenmeyer-s26101091-ep002-head_camera.mp4",
+          "sha256": "0fb37a96243dbb6d7104751bc54132faf2ddf1df41ff45444d9768ba271be1ba",
+          "bytes": 522364,
+          "camera": "head_camera",
+          "caption": "head_camera · 6秒开发诊断，结束时未满足物理抬升区域；固定终点误差218.3mm。论文SSR与视觉尚未通过。30Hz原生观察视频。"
+        },
+        {
+          "episode": 2,
+          "success": false,
+          "physical_lift_region_at_terminal": false,
+          "url": "media/grasp-t500-native-act-continuation6s/erlenmeyer-s26101091-ep002-third_camera.mp4",
+          "sha256": "ecc1b25f79db628a5aa9ac4d835c66c700877677a91a3788e2c7e8699e4f8e64",
+          "bytes": 480634,
+          "camera": "third_camera",
+          "caption": "third_camera · 6秒开发诊断，结束时未满足物理抬升区域；固定终点误差218.3mm。论文SSR与视觉尚未通过。30Hz原生观察视频。"
+        }
+      ],
+      "continuation_development": true
+    },
+    {
+      "candidate": "t500-native-act-plastic100-s26101073-continuation6s",
+      "display_name": "ACT s26101073 · 6秒延长执行诊断",
+      "object": "plastic_cylinder_100ml",
+      "development": true,
+      "native_development": true,
+      "progress": {
+        "episode_num": 2,
+        "episode_success_num": 1,
+        "success_rate": 0.5,
+        "final": true
+      },
+      "protocol": {
+        "method": "act",
+        "seed": 26101031,
+        "episode_length_s": 6,
+        "checkpoint_sha256": "2185b49a277be7df3212a1eabff7d35dc07bf80af8ced32dc3a9b71c7886dd20",
+        "actual_xy_range_cm": null,
+        "reset_offsets": [
+          {
+            "episode": 1,
+            "offset_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "episode": 2,
+            "offset_m": [
+              0.026,
+              -0.018,
+              0.0
+            ]
+          }
+        ],
+        "note": "沿用此前已冻结的两个开发位置与验证集最佳权重；延迟旧成功结束至6秒，观察最终抓持。新试次不是正式50集/三个种子评测，不按其结果选模型。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": 26101073
+        },
+        "last": {
+          "epoch": 4999,
+          "global_step": 10000
+        }
+      },
+      "paper_ssr_percent": null,
+      "formal_accepted": false,
+      "metric_note": "延长至6秒，最终物理抬升区域1/2；固定终点误差19.135mm、42.652mm。固定参考未绑定论文SSR；三相机末帧已检查，胸部目标出画或白色区域异常，视觉待通过。",
+      "cases": [
+        {
+          "episode": 1,
+          "success": true,
+          "physical_lift_region_at_terminal": true,
+          "url": "media/grasp-t500-native-act-continuation6s/plastic100-s26101073-ep001-chest_camera.mp4",
+          "sha256": "d658c4f42b70d29e2597dab8a30ce010736d6f23b49aaa0b1f21b80f15c6129a",
+          "bytes": 310480,
+          "camera": "chest_camera",
+          "caption": "chest_camera · 6秒开发诊断，结束时保持物理抬升区域；固定终点误差19.1mm。论文SSR与视觉尚未通过。30Hz原生观察视频。"
+        },
+        {
+          "episode": 1,
+          "success": true,
+          "physical_lift_region_at_terminal": true,
+          "url": "media/grasp-t500-native-act-continuation6s/plastic100-s26101073-ep001-head_camera.mp4",
+          "sha256": "56419dbcb752e3883cab4177a00802b6f7cc4e0d45a58f344b0b774f75bdc3c0",
+          "bytes": 657143,
+          "camera": "head_camera",
+          "caption": "head_camera · 6秒开发诊断，结束时保持物理抬升区域；固定终点误差19.1mm。论文SSR与视觉尚未通过。30Hz原生观察视频。"
+        },
+        {
+          "episode": 1,
+          "success": true,
+          "physical_lift_region_at_terminal": true,
+          "url": "media/grasp-t500-native-act-continuation6s/plastic100-s26101073-ep001-third_camera.mp4",
+          "sha256": "e7c36b06ec6448d7589e1dae436bd2d23852afb5767fa81515ffbcefcaf3eef5",
+          "bytes": 452384,
+          "camera": "third_camera",
+          "caption": "third_camera · 6秒开发诊断，结束时保持物理抬升区域；固定终点误差19.1mm。论文SSR与视觉尚未通过。30Hz原生观察视频。"
+        },
+        {
+          "episode": 2,
+          "success": false,
+          "physical_lift_region_at_terminal": false,
+          "url": "media/grasp-t500-native-act-continuation6s/plastic100-s26101073-ep002-chest_camera.mp4",
+          "sha256": "f5f499fd4260226a8622454e0a1c0ff7329044aece23c3055da42769c9984f6f",
+          "bytes": 304109,
+          "camera": "chest_camera",
+          "caption": "chest_camera · 6秒开发诊断，结束时未满足物理抬升区域；固定终点误差42.7mm。论文SSR与视觉尚未通过。30Hz原生观察视频。"
+        },
+        {
+          "episode": 2,
+          "success": false,
+          "physical_lift_region_at_terminal": false,
+          "url": "media/grasp-t500-native-act-continuation6s/plastic100-s26101073-ep002-head_camera.mp4",
+          "sha256": "67ffcae6a4f4f27e44a97141352726ab7ce59a4b3ebe05a6c057a90278f01ae4",
+          "bytes": 532887,
+          "camera": "head_camera",
+          "caption": "head_camera · 6秒开发诊断，结束时未满足物理抬升区域；固定终点误差42.7mm。论文SSR与视觉尚未通过。30Hz原生观察视频。"
+        },
+        {
+          "episode": 2,
+          "success": false,
+          "physical_lift_region_at_terminal": false,
+          "url": "media/grasp-t500-native-act-continuation6s/plastic100-s26101073-ep002-third_camera.mp4",
+          "sha256": "5c07de188a57f7a89fefdd805ab190a49d3033cab54d3ff43d9a0ebc5004f17b",
+          "bytes": 433630,
+          "camera": "third_camera",
+          "caption": "third_camera · 6秒开发诊断，结束时未满足物理抬升区域；固定终点误差42.7mm。论文SSR与视觉尚未通过。30Hz原生观察视频。"
+        }
+      ],
+      "continuation_development": true
     }
   ],
   "act_complete_records": 66,
