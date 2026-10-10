@@ -1,6 +1,6 @@
 {
   "schema": "grasp.browser.supplement.v1",
-  "updated_utc": "2026-10-10T11:18:16.101903+00:00",
+  "updated_utc": "2026-10-10T12:15:46.747071+00:00",
   "source_pins": [
     {
       "source": "/home/liyufeng/ops/grasp_acceptance_20260917/NATIVE_EPISODE_LEDGER_20261002.json",
@@ -12,6 +12,160 @@
     }
   ],
   "runs": [
+    {
+      "candidate": "t500-beaker100-act-s26101515-fixed100-native2-v18",
+      "display_name": "ACT · 100演示 · seed515 · 原流程2次开发试验",
+      "object": "glass_beaker_100ml",
+      "development": true,
+      "progress": {
+        "episode_num": 2,
+        "episode_success_num": 2,
+        "success_rate": 1.0
+      },
+      "protocol": {
+        "method": "act",
+        "seed": 26101025,
+        "episode_length_s": 6,
+        "actual_xy_range_cm": 2,
+        "checkpoint_sha256": "69ec42ea8309da4affc98cc49f28c654df4e86f7c033f9ddbdb7f66439ac1477",
+        "note": "原训练验证集预选权重；原冻结位置与原实际物理状态，不替换训练观测，不作论文SR/SSR验收。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": 26101515
+        },
+        "last": {
+          "global_step": 10000,
+          "epoch": 4999
+        }
+      },
+      "cases": [
+        {
+          "episode": 1,
+          "camera": "chest_camera",
+          "success": true,
+          "url": "media/grasp-t500-beaker100-act515-v18/episode_001_chest_camera.mp4",
+          "caption": "100演示ACT seed515 原流程第1次6秒开发试验；成功=True，非50次正式成功率，玻璃/接触视觉待验。"
+        },
+        {
+          "episode": 1,
+          "camera": "head_camera",
+          "success": true,
+          "url": "media/grasp-t500-beaker100-act515-v18/episode_001_head_camera.mp4",
+          "caption": "100演示ACT seed515 原流程第1次6秒开发试验；成功=True，非50次正式成功率，玻璃/接触视觉待验。"
+        },
+        {
+          "episode": 1,
+          "camera": "third_camera",
+          "success": true,
+          "url": "media/grasp-t500-beaker100-act515-v18/episode_001_third_camera.mp4",
+          "caption": "100演示ACT seed515 原流程第1次6秒开发试验；成功=True，非50次正式成功率，玻璃/接触视觉待验。"
+        },
+        {
+          "episode": 2,
+          "camera": "chest_camera",
+          "success": true,
+          "url": "media/grasp-t500-beaker100-act515-v18/episode_002_chest_camera.mp4",
+          "caption": "100演示ACT seed515 原流程第2次6秒开发试验；成功=True，非50次正式成功率，玻璃/接触视觉待验。"
+        },
+        {
+          "episode": 2,
+          "camera": "head_camera",
+          "success": true,
+          "url": "media/grasp-t500-beaker100-act515-v18/episode_002_head_camera.mp4",
+          "caption": "100演示ACT seed515 原流程第2次6秒开发试验；成功=True，非50次正式成功率，玻璃/接触视觉待验。"
+        },
+        {
+          "episode": 2,
+          "camera": "third_camera",
+          "success": true,
+          "url": "media/grasp-t500-beaker100-act515-v18/episode_002_third_camera.mp4",
+          "caption": "100演示ACT seed515 原流程第2次6秒开发试验；成功=True，非50次正式成功率，玻璃/接触视觉待验。"
+        }
+      ],
+      "paper_ssr_percent": null,
+      "metric_note": "预选训练验证集模型seed515；原输入、原冻结位置、6秒完整试跑，实际旧成功标记2/2，成功且终点位置≤20mm开发分量1/2。三相机6段视频均完整解码且各16帧实际查看。杯壁在胸前视角抬升后明显变白，玻璃与接触视觉HOLD；论文SSR未判。小样本不作总体成功率判定，不按测试结果选种子或权重。"
+    },
+    {
+      "candidate": "t500-beaker100-act-s26101513-fixed100-native2-v18",
+      "display_name": "ACT · 100演示 · seed513 · 原流程2次开发试验",
+      "object": "glass_beaker_100ml",
+      "development": true,
+      "progress": {
+        "episode_num": 2,
+        "episode_success_num": 1,
+        "success_rate": 0.5
+      },
+      "protocol": {
+        "method": "act",
+        "seed": 26101023,
+        "episode_length_s": 6,
+        "actual_xy_range_cm": 2,
+        "checkpoint_sha256": "c1e6773b20c96959472cb56347617697e2cb28f2928bea59f7c368b1a50aefa1",
+        "note": "原训练验证集预选权重；原冻结位置与原实际物理状态，不替换训练观测，不作论文SR/SSR验收。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": 26101513
+        },
+        "last": {
+          "global_step": 10000,
+          "epoch": 4999
+        }
+      },
+      "cases": [
+        {
+          "episode": 1,
+          "camera": "chest_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act513-v18/episode_001_chest_camera.mp4",
+          "caption": "100演示ACT seed513 原流程第1次6秒开发试验；成功=False，非50次正式成功率，玻璃/接触视觉待验。"
+        },
+        {
+          "episode": 1,
+          "camera": "head_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act513-v18/episode_001_head_camera.mp4",
+          "caption": "100演示ACT seed513 原流程第1次6秒开发试验；成功=False，非50次正式成功率，玻璃/接触视觉待验。"
+        },
+        {
+          "episode": 1,
+          "camera": "third_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act513-v18/episode_001_third_camera.mp4",
+          "caption": "100演示ACT seed513 原流程第1次6秒开发试验；成功=False，非50次正式成功率，玻璃/接触视觉待验。"
+        },
+        {
+          "episode": 2,
+          "camera": "chest_camera",
+          "success": true,
+          "url": "media/grasp-t500-beaker100-act513-v18/episode_002_chest_camera.mp4",
+          "caption": "100演示ACT seed513 原流程第2次6秒开发试验；成功=True，非50次正式成功率，玻璃/接触视觉待验。"
+        },
+        {
+          "episode": 2,
+          "camera": "head_camera",
+          "success": true,
+          "url": "media/grasp-t500-beaker100-act513-v18/episode_002_head_camera.mp4",
+          "caption": "100演示ACT seed513 原流程第2次6秒开发试验；成功=True，非50次正式成功率，玻璃/接触视觉待验。"
+        },
+        {
+          "episode": 2,
+          "camera": "third_camera",
+          "success": true,
+          "url": "media/grasp-t500-beaker100-act513-v18/episode_002_third_camera.mp4",
+          "caption": "100演示ACT seed513 原流程第2次6秒开发试验；成功=True，非50次正式成功率，玻璃/接触视觉待验。"
+        }
+      ],
+      "paper_ssr_percent": null,
+      "metric_note": "预选训练验证集模型seed513；原输入、原冻结位置、6秒完整试跑，实际旧成功标记1/2，成功且终点位置≤20mm开发分量0/2。三相机6段视频均完整解码且各16帧实际查看。杯壁在胸前视角抬升后明显变白，玻璃与接触视觉HOLD；论文SSR未判。小样本不作总体成功率判定，不按测试结果选种子或权重。"
+    },
     {
       "candidate": "t500-beaker100-act-s26101511-fixed100-native3-v17",
       "display_name": "ACT · 100演示 · seed511 · 原流程3次开发试验",
