@@ -1,0 +1,38 @@
+{
+  "schema": "grasp.paper_domain_contract.v1",
+  "domains": [
+    {
+      "domain": "Liquid",
+      "metric": "θdev",
+      "rule": "液体运输≤0.25rad；倒液阶段按容器、装液量和阶段阈值",
+      "tasks": "倒液、液体运输"
+    },
+    {
+      "domain": "Actuation",
+      "metric": "Fpeak",
+      "rule": "按物体和任务注册表的接触力上限；没有统一25N",
+      "tasks": "仪器操作"
+    },
+    {
+      "domain": "Spatial",
+      "metric": "ΔP",
+      "rule": "空间共享容差20mm；逐任务严格目标位姿与阶段激活仍需注册表",
+      "tasks": "Grasp、PickPlace、Handover、Stack"
+    }
+  ],
+  "grasp_domain": "Spatial",
+  "full_episode_success_and_all_active_constraints": true,
+  "failed_inclusive_SM_is_not_SSR": true,
+  "strict_grasp_goal_and_phase_registry_bound": false,
+  "public_release_audit": {
+    "public_repository": "https://github.com/ChangWinde/SafeLab",
+    "tree_sha": "f4d1cd87fd7b8749442b86e637396edbf30bbc1d",
+    "entries": 45,
+    "tree_complete": true,
+    "code_or_registry_files": [],
+    "sampled_utc": "2026-10-10T05:04:37.883155+00:00"
+  },
+  "paper_ssr": null,
+  "formal_accepted": false,
+  "note": "论文三类安全指标按任务域区分。plain Grasp使用Spatial；不从液体运输或仪器操作移植阈值。公开main的完整45节点树仅含网页、PDF及媒体，未找到任务注册表；这不说明私有作者文件是否存在。空间20mm已明确，严格目标、姿态容差和阶段合同仍待绑定，因此SSR保留待确认。"
+}
