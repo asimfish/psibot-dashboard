@@ -1,6 +1,6 @@
 {
   "schema": "grasp.browser.supplement.v1",
-  "updated_utc": "2026-10-10T15:18:21.905871+00:00",
+  "updated_utc": "2026-10-10T16:39:02.568695+00:00",
   "source_pins": [
     {
       "source": "/home/liyufeng/ops/grasp_acceptance_20260917/NATIVE_EPISODE_LEDGER_20261002.json",
@@ -12,6 +12,511 @@
     }
   ],
   "runs": [
+    {
+      "candidate": "t500-brown_large-dp-s26100915-original-native3-v21",
+      "display_name": "DP · 原3000轮EMA · seed26100915 · 原复位3次预检",
+      "object": "brown_reagent_bottle_large",
+      "development": true,
+      "current_native": true,
+      "paper_ssr_percent": null,
+      "progress": {
+        "episode_num": 3,
+        "episode_success_num": 1,
+        "success_rate": 0.3333333333333333
+      },
+      "protocol": {
+        "method": "dp",
+        "seed": 26101023,
+        "episode_length_s": 6,
+        "actual_xy_range_cm": 2,
+        "checkpoint_sha256": "2953282ffa425e8ffd78955d3417b21c95fed59667beb797354605f7b41cc7cf",
+        "collection_gpu_model": null,
+        "test_gpu_model": "RTX4090",
+        "note": "冻结原前3位置，仅为小样本开发预检，未作论文成功率达标判定。返回动作与执行动作逐条一致，终态物理保持均0/3；终点20mm分量0/3，论文SSR未知。该模型三视角9张108帧已查看，抬起后掉落/推倒，完整穿模检查未通过。原始复位和实际复位版本分别保留，不合并成绩。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": 26100915
+        },
+        "last": {
+          "epoch": 3000,
+          "global_step": 126000
+        }
+      },
+      "cases": [
+        {
+          "episode": 1,
+          "camera": "chest_camera",
+          "success": true,
+          "url": "media/grasp-t500-brown_large-dp26100915-original-v21/episode_001_chest_camera.mp4",
+          "caption": "大棕色瓶原DP3000最终EMA，seed26100915第1次原始复位预检；原判据成功，终点误差290.2mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 1,
+          "camera": "head_camera",
+          "success": true,
+          "url": "media/grasp-t500-brown_large-dp26100915-original-v21/episode_001_head_camera.mp4",
+          "caption": "大棕色瓶原DP3000最终EMA，seed26100915第1次原始复位预检；原判据成功，终点误差290.2mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 1,
+          "camera": "third_camera",
+          "success": true,
+          "url": "media/grasp-t500-brown_large-dp26100915-original-v21/episode_001_third_camera.mp4",
+          "caption": "大棕色瓶原DP3000最终EMA，seed26100915第1次原始复位预检；原判据成功，终点误差290.2mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 2,
+          "camera": "chest_camera",
+          "success": false,
+          "url": "media/grasp-t500-brown_large-dp26100915-original-v21/episode_002_chest_camera.mp4",
+          "caption": "大棕色瓶原DP3000最终EMA，seed26100915第2次原始复位预检；原判据失败，终点误差354.2mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 2,
+          "camera": "head_camera",
+          "success": false,
+          "url": "media/grasp-t500-brown_large-dp26100915-original-v21/episode_002_head_camera.mp4",
+          "caption": "大棕色瓶原DP3000最终EMA，seed26100915第2次原始复位预检；原判据失败，终点误差354.2mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 2,
+          "camera": "third_camera",
+          "success": false,
+          "url": "media/grasp-t500-brown_large-dp26100915-original-v21/episode_002_third_camera.mp4",
+          "caption": "大棕色瓶原DP3000最终EMA，seed26100915第2次原始复位预检；原判据失败，终点误差354.2mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 3,
+          "camera": "chest_camera",
+          "success": false,
+          "url": "media/grasp-t500-brown_large-dp26100915-original-v21/episode_003_chest_camera.mp4",
+          "caption": "大棕色瓶原DP3000最终EMA，seed26100915第3次原始复位预检；原判据失败，终点误差169.6mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 3,
+          "camera": "head_camera",
+          "success": false,
+          "url": "media/grasp-t500-brown_large-dp26100915-original-v21/episode_003_head_camera.mp4",
+          "caption": "大棕色瓶原DP3000最终EMA，seed26100915第3次原始复位预检；原判据失败，终点误差169.6mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 3,
+          "camera": "third_camera",
+          "success": false,
+          "url": "media/grasp-t500-brown_large-dp26100915-original-v21/episode_003_third_camera.mp4",
+          "caption": "大棕色瓶原DP3000最终EMA，seed26100915第3次原始复位预检；原判据失败，终点误差169.6mm。SSR与视觉验收待完成。"
+        }
+      ],
+      "metric_note": "冻结原前3位置，仅为小样本开发预检，未作论文成功率达标判定。返回动作与执行动作逐条一致，终态物理保持均0/3；终点20mm分量0/3，论文SSR未知。该模型三视角9张108帧已查看，抬起后掉落/推倒，完整穿模检查未通过。原始复位和实际复位版本分别保留，不合并成绩。"
+    },
+    {
+      "candidate": "t500-clear_small-dp-s26100912-postsettle-native3-v21",
+      "display_name": "DP · 原3000轮EMA · seed26100912 · 复位+43次预检",
+      "object": "clear_reagent_bottle_small",
+      "development": true,
+      "current_native": true,
+      "paper_ssr_percent": null,
+      "progress": {
+        "episode_num": 3,
+        "episode_success_num": 0,
+        "success_rate": 0.0
+      },
+      "protocol": {
+        "method": "dp",
+        "seed": 26101021,
+        "episode_length_s": 6,
+        "actual_xy_range_cm": 2,
+        "checkpoint_sha256": "2cd0de20bc0218d4b2c7ae86c91e035928cef39d0f17606b9685cddadb4c9450",
+        "collection_gpu_model": null,
+        "test_gpu_model": "RTX4090",
+        "note": "冻结原前3位置，仅为小样本开发预检，未作论文成功率达标判定。返回动作与执行动作逐条一致，终态物理保持均0/3；终点20mm分量0/3，论文SSR未知。透明小瓶seed916已实际看6张时间采样图72帧，抓起后掉落、玻璃发白和疑似上一回合残影仍待排查；其余两模型当前全解码通过，人工视觉查看未完成。原始复位和实际复位版本分别保留，不合并成绩。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": 26100912
+        },
+        "last": {
+          "epoch": 3000,
+          "global_step": 135000
+        }
+      },
+      "cases": [
+        {
+          "episode": 1,
+          "camera": "chest_camera",
+          "success": false,
+          "url": "media/grasp-t500-clear_small-dp26100912-postsettle-v21/episode_001_chest_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100912第1次实际默认复位+4物理步预检；原判据失败，终点误差351.5mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 1,
+          "camera": "head_camera",
+          "success": false,
+          "url": "media/grasp-t500-clear_small-dp26100912-postsettle-v21/episode_001_head_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100912第1次实际默认复位+4物理步预检；原判据失败，终点误差351.5mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 1,
+          "camera": "third_camera",
+          "success": false,
+          "url": "media/grasp-t500-clear_small-dp26100912-postsettle-v21/episode_001_third_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100912第1次实际默认复位+4物理步预检；原判据失败，终点误差351.5mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 2,
+          "camera": "chest_camera",
+          "success": false,
+          "url": "media/grasp-t500-clear_small-dp26100912-postsettle-v21/episode_002_chest_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100912第2次实际默认复位+4物理步预检；原判据失败，终点误差325.1mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 2,
+          "camera": "head_camera",
+          "success": false,
+          "url": "media/grasp-t500-clear_small-dp26100912-postsettle-v21/episode_002_head_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100912第2次实际默认复位+4物理步预检；原判据失败，终点误差325.1mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 2,
+          "camera": "third_camera",
+          "success": false,
+          "url": "media/grasp-t500-clear_small-dp26100912-postsettle-v21/episode_002_third_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100912第2次实际默认复位+4物理步预检；原判据失败，终点误差325.1mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 3,
+          "camera": "chest_camera",
+          "success": false,
+          "url": "media/grasp-t500-clear_small-dp26100912-postsettle-v21/episode_003_chest_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100912第3次实际默认复位+4物理步预检；原判据失败，终点误差162.3mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 3,
+          "camera": "head_camera",
+          "success": false,
+          "url": "media/grasp-t500-clear_small-dp26100912-postsettle-v21/episode_003_head_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100912第3次实际默认复位+4物理步预检；原判据失败，终点误差162.3mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 3,
+          "camera": "third_camera",
+          "success": false,
+          "url": "media/grasp-t500-clear_small-dp26100912-postsettle-v21/episode_003_third_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100912第3次实际默认复位+4物理步预检；原判据失败，终点误差162.3mm。SSR与视觉验收待完成。"
+        }
+      ],
+      "metric_note": "冻结原前3位置，仅为小样本开发预检，未作论文成功率达标判定。返回动作与执行动作逐条一致，终态物理保持均0/3；终点20mm分量0/3，论文SSR未知。透明小瓶seed916已实际看6张时间采样图72帧，抓起后掉落、玻璃发白和疑似上一回合残影仍待排查；其余两模型当前全解码通过，人工视觉查看未完成。原始复位和实际复位版本分别保留，不合并成绩。"
+    },
+    {
+      "candidate": "t500-clear_small-dp-s26100914-postsettle-native3-v21",
+      "display_name": "DP · 原3000轮EMA · seed26100914 · 复位+43次预检",
+      "object": "clear_reagent_bottle_small",
+      "development": true,
+      "current_native": true,
+      "paper_ssr_percent": null,
+      "progress": {
+        "episode_num": 3,
+        "episode_success_num": 0,
+        "success_rate": 0.0
+      },
+      "protocol": {
+        "method": "dp",
+        "seed": 26101022,
+        "episode_length_s": 6,
+        "actual_xy_range_cm": 2,
+        "checkpoint_sha256": "10dafccf84f76237a8e0a131de8fa63c0ffc4fe7b15b5ee979471c3d59685b20",
+        "collection_gpu_model": null,
+        "test_gpu_model": "RTX4090",
+        "note": "冻结原前3位置，仅为小样本开发预检，未作论文成功率达标判定。返回动作与执行动作逐条一致，终态物理保持均0/3；终点20mm分量0/3，论文SSR未知。透明小瓶seed916已实际看6张时间采样图72帧，抓起后掉落、玻璃发白和疑似上一回合残影仍待排查；其余两模型当前全解码通过，人工视觉查看未完成。原始复位和实际复位版本分别保留，不合并成绩。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": 26100914
+        },
+        "last": {
+          "epoch": 3000,
+          "global_step": 135000
+        }
+      },
+      "cases": [
+        {
+          "episode": 1,
+          "camera": "chest_camera",
+          "success": false,
+          "url": "media/grasp-t500-clear_small-dp26100914-postsettle-v21/episode_001_chest_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100914第1次实际默认复位+4物理步预检；原判据失败，终点误差233.8mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 1,
+          "camera": "head_camera",
+          "success": false,
+          "url": "media/grasp-t500-clear_small-dp26100914-postsettle-v21/episode_001_head_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100914第1次实际默认复位+4物理步预检；原判据失败，终点误差233.8mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 1,
+          "camera": "third_camera",
+          "success": false,
+          "url": "media/grasp-t500-clear_small-dp26100914-postsettle-v21/episode_001_third_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100914第1次实际默认复位+4物理步预检；原判据失败，终点误差233.8mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 2,
+          "camera": "chest_camera",
+          "success": false,
+          "url": "media/grasp-t500-clear_small-dp26100914-postsettle-v21/episode_002_chest_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100914第2次实际默认复位+4物理步预检；原判据失败，终点误差141.7mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 2,
+          "camera": "head_camera",
+          "success": false,
+          "url": "media/grasp-t500-clear_small-dp26100914-postsettle-v21/episode_002_head_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100914第2次实际默认复位+4物理步预检；原判据失败，终点误差141.7mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 2,
+          "camera": "third_camera",
+          "success": false,
+          "url": "media/grasp-t500-clear_small-dp26100914-postsettle-v21/episode_002_third_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100914第2次实际默认复位+4物理步预检；原判据失败，终点误差141.7mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 3,
+          "camera": "chest_camera",
+          "success": false,
+          "url": "media/grasp-t500-clear_small-dp26100914-postsettle-v21/episode_003_chest_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100914第3次实际默认复位+4物理步预检；原判据失败，终点误差428.7mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 3,
+          "camera": "head_camera",
+          "success": false,
+          "url": "media/grasp-t500-clear_small-dp26100914-postsettle-v21/episode_003_head_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100914第3次实际默认复位+4物理步预检；原判据失败，终点误差428.7mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 3,
+          "camera": "third_camera",
+          "success": false,
+          "url": "media/grasp-t500-clear_small-dp26100914-postsettle-v21/episode_003_third_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100914第3次实际默认复位+4物理步预检；原判据失败，终点误差428.7mm。SSR与视觉验收待完成。"
+        }
+      ],
+      "metric_note": "冻结原前3位置，仅为小样本开发预检，未作论文成功率达标判定。返回动作与执行动作逐条一致，终态物理保持均0/3；终点20mm分量0/3，论文SSR未知。透明小瓶seed916已实际看6张时间采样图72帧，抓起后掉落、玻璃发白和疑似上一回合残影仍待排查；其余两模型当前全解码通过，人工视觉查看未完成。原始复位和实际复位版本分别保留，不合并成绩。"
+    },
+    {
+      "candidate": "t500-clear_small-dp-s26100916-postsettle-native3-v21",
+      "display_name": "DP · 原3000轮EMA · seed26100916 · 复位+43次预检",
+      "object": "clear_reagent_bottle_small",
+      "development": true,
+      "current_native": true,
+      "paper_ssr_percent": null,
+      "progress": {
+        "episode_num": 3,
+        "episode_success_num": 2,
+        "success_rate": 0.6666666666666666
+      },
+      "protocol": {
+        "method": "dp",
+        "seed": 26101023,
+        "episode_length_s": 6,
+        "actual_xy_range_cm": 2,
+        "checkpoint_sha256": "81df2c47f23713359b7f5b1bd0e23d6033d7e5c08ff16557b90c2752b23658c3",
+        "collection_gpu_model": null,
+        "test_gpu_model": "RTX4090",
+        "note": "冻结原前3位置，仅为小样本开发预检，未作论文成功率达标判定。返回动作与执行动作逐条一致，终态物理保持均0/3；终点20mm分量0/3，论文SSR未知。透明小瓶seed916已实际看6张时间采样图72帧，抓起后掉落、玻璃发白和疑似上一回合残影仍待排查；其余两模型当前全解码通过，人工视觉查看未完成。原始复位和实际复位版本分别保留，不合并成绩。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": 26100916
+        },
+        "last": {
+          "epoch": 3000,
+          "global_step": 135000
+        }
+      },
+      "cases": [
+        {
+          "episode": 1,
+          "camera": "chest_camera",
+          "success": false,
+          "url": "media/grasp-t500-clear_small-dp26100916-postsettle-v21/episode_001_chest_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100916第1次实际默认复位+4物理步预检；原判据失败，终点误差206.1mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 1,
+          "camera": "head_camera",
+          "success": false,
+          "url": "media/grasp-t500-clear_small-dp26100916-postsettle-v21/episode_001_head_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100916第1次实际默认复位+4物理步预检；原判据失败，终点误差206.1mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 1,
+          "camera": "third_camera",
+          "success": false,
+          "url": "media/grasp-t500-clear_small-dp26100916-postsettle-v21/episode_001_third_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100916第1次实际默认复位+4物理步预检；原判据失败，终点误差206.1mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 2,
+          "camera": "chest_camera",
+          "success": true,
+          "url": "media/grasp-t500-clear_small-dp26100916-postsettle-v21/episode_002_chest_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100916第2次实际默认复位+4物理步预检；原判据成功，终点误差114.9mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 2,
+          "camera": "head_camera",
+          "success": true,
+          "url": "media/grasp-t500-clear_small-dp26100916-postsettle-v21/episode_002_head_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100916第2次实际默认复位+4物理步预检；原判据成功，终点误差114.9mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 2,
+          "camera": "third_camera",
+          "success": true,
+          "url": "media/grasp-t500-clear_small-dp26100916-postsettle-v21/episode_002_third_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100916第2次实际默认复位+4物理步预检；原判据成功，终点误差114.9mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 3,
+          "camera": "chest_camera",
+          "success": true,
+          "url": "media/grasp-t500-clear_small-dp26100916-postsettle-v21/episode_003_chest_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100916第3次实际默认复位+4物理步预检；原判据成功，终点误差46.9mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 3,
+          "camera": "head_camera",
+          "success": true,
+          "url": "media/grasp-t500-clear_small-dp26100916-postsettle-v21/episode_003_head_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100916第3次实际默认复位+4物理步预检；原判据成功，终点误差46.9mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 3,
+          "camera": "third_camera",
+          "success": true,
+          "url": "media/grasp-t500-clear_small-dp26100916-postsettle-v21/episode_003_third_camera.mp4",
+          "caption": "小透明瓶原DP3000最终EMA，seed26100916第3次实际默认复位+4物理步预检；原判据成功，终点误差46.9mm。SSR与视觉验收待完成。"
+        }
+      ],
+      "metric_note": "冻结原前3位置，仅为小样本开发预检，未作论文成功率达标判定。返回动作与执行动作逐条一致，终态物理保持均0/3；终点20mm分量0/3，论文SSR未知。透明小瓶seed916已实际看6张时间采样图72帧，抓起后掉落、玻璃发白和疑似上一回合残影仍待排查；其余两模型当前全解码通过，人工视觉查看未完成。原始复位和实际复位版本分别保留，不合并成绩。"
+    },
+    {
+      "candidate": "t500-brown_large-dp-s26100911-postsettle-native3-v21",
+      "display_name": "DP · 原3000轮EMA · seed26100911 · 复位+43次预检",
+      "object": "brown_reagent_bottle_large",
+      "development": true,
+      "current_native": true,
+      "paper_ssr_percent": null,
+      "progress": {
+        "episode_num": 3,
+        "episode_success_num": 1,
+        "success_rate": 0.3333333333333333
+      },
+      "protocol": {
+        "method": "dp",
+        "seed": 26101021,
+        "episode_length_s": 6,
+        "actual_xy_range_cm": 2,
+        "checkpoint_sha256": "212fa5602aaa0df88d8301036f16657baf3f0bac726600bfc7af4b5d2ab60f51",
+        "collection_gpu_model": null,
+        "test_gpu_model": "RTX4090",
+        "note": "冻结原前3位置，仅为小样本开发预检，未作论文成功率达标判定。返回动作与执行动作逐条一致，终态物理保持均0/3；终点20mm分量0/3，论文SSR未知。该模型已看3张36帧：第一回合抓起后掉落，其余回合大部分时间留在桌上，末段倾倒；完整穿模检查未通过。原始复位和实际复位版本分别保留，不合并成绩。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": 26100911
+        },
+        "last": {
+          "epoch": 3000,
+          "global_step": 126000
+        }
+      },
+      "cases": [
+        {
+          "episode": 1,
+          "camera": "chest_camera",
+          "success": true,
+          "url": "media/grasp-t500-brown_large-dp26100911-postsettle-v21/episode_001_chest_camera.mp4",
+          "caption": "大棕色瓶原DP3000最终EMA，seed26100911第1次实际默认复位+4物理步预检；原判据成功，终点误差122.0mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 1,
+          "camera": "head_camera",
+          "success": true,
+          "url": "media/grasp-t500-brown_large-dp26100911-postsettle-v21/episode_001_head_camera.mp4",
+          "caption": "大棕色瓶原DP3000最终EMA，seed26100911第1次实际默认复位+4物理步预检；原判据成功，终点误差122.0mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 1,
+          "camera": "third_camera",
+          "success": true,
+          "url": "media/grasp-t500-brown_large-dp26100911-postsettle-v21/episode_001_third_camera.mp4",
+          "caption": "大棕色瓶原DP3000最终EMA，seed26100911第1次实际默认复位+4物理步预检；原判据成功，终点误差122.0mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 2,
+          "camera": "chest_camera",
+          "success": false,
+          "url": "media/grasp-t500-brown_large-dp26100911-postsettle-v21/episode_002_chest_camera.mp4",
+          "caption": "大棕色瓶原DP3000最终EMA，seed26100911第2次实际默认复位+4物理步预检；原判据失败，终点误差179.5mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 2,
+          "camera": "head_camera",
+          "success": false,
+          "url": "media/grasp-t500-brown_large-dp26100911-postsettle-v21/episode_002_head_camera.mp4",
+          "caption": "大棕色瓶原DP3000最终EMA，seed26100911第2次实际默认复位+4物理步预检；原判据失败，终点误差179.5mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 2,
+          "camera": "third_camera",
+          "success": false,
+          "url": "media/grasp-t500-brown_large-dp26100911-postsettle-v21/episode_002_third_camera.mp4",
+          "caption": "大棕色瓶原DP3000最终EMA，seed26100911第2次实际默认复位+4物理步预检；原判据失败，终点误差179.5mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 3,
+          "camera": "chest_camera",
+          "success": false,
+          "url": "media/grasp-t500-brown_large-dp26100911-postsettle-v21/episode_003_chest_camera.mp4",
+          "caption": "大棕色瓶原DP3000最终EMA，seed26100911第3次实际默认复位+4物理步预检；原判据失败，终点误差201.8mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 3,
+          "camera": "head_camera",
+          "success": false,
+          "url": "media/grasp-t500-brown_large-dp26100911-postsettle-v21/episode_003_head_camera.mp4",
+          "caption": "大棕色瓶原DP3000最终EMA，seed26100911第3次实际默认复位+4物理步预检；原判据失败，终点误差201.8mm。SSR与视觉验收待完成。"
+        },
+        {
+          "episode": 3,
+          "camera": "third_camera",
+          "success": false,
+          "url": "media/grasp-t500-brown_large-dp26100911-postsettle-v21/episode_003_third_camera.mp4",
+          "caption": "大棕色瓶原DP3000最终EMA，seed26100911第3次实际默认复位+4物理步预检；原判据失败，终点误差201.8mm。SSR与视觉验收待完成。"
+        }
+      ],
+      "metric_note": "冻结原前3位置，仅为小样本开发预检，未作论文成功率达标判定。返回动作与执行动作逐条一致，终态物理保持均0/3；终点20mm分量0/3，论文SSR未知。该模型已看3张36帧：第一回合抓起后掉落，其余回合大部分时间留在桌上，末段倾倒；完整穿模检查未通过。原始复位和实际复位版本分别保留，不合并成绩。"
+    },
     {
       "candidate": "t500-brown-large-dp-s26100913-original3000-native3-v20",
       "display_name": "DP · 原3000轮EMA · seed26100913 · 原生3次预检",
