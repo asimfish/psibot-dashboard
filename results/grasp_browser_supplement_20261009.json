@@ -1,6 +1,6 @@
 {
   "schema": "grasp.browser.supplement.v1",
-  "updated_utc": "2026-10-10T12:15:46.747071+00:00",
+  "updated_utc": "2026-10-10T13:53:31.843378+00:00",
   "source_pins": [
     {
       "source": "/home/liyufeng/ops/grasp_acceptance_20260917/NATIVE_EPISODE_LEDGER_20261002.json",
@@ -12,6 +12,104 @@
     }
   ],
   "runs": [
+    {
+      "candidate": "t500-beaker100-act-s26101511-postsettle4-fixed50-partial-v19",
+      "display_name": "ACT · 100演示 · seed511 · 物理重置后4步 · 7/50中断",
+      "object": "glass_beaker_100ml",
+      "development": true,
+      "progress": {
+        "episode_num": 7,
+        "episode_success_num": 0,
+        "success_rate": 0
+      },
+      "protocol": {
+        "method": "act",
+        "seed": 26101021,
+        "episode_length_s": 6,
+        "actual_xy_range_cm": 2,
+        "checkpoint_sha256": "ef39b14abf08669ac6d3101bfead9aa0e4a218f6810a4c71bbaa96dae834fd12",
+        "note": "固定50次基准位置与原预选权重；实际物理重置版本单列。已完成7次，剩43次未完成；不是扩大范围测试，也不能认定总体SR。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": 26101511
+        },
+        "last": {
+          "global_step": 10000,
+          "epoch": 4999
+        }
+      },
+      "cases": [
+        {
+          "episode": 1,
+          "camera": "chest_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act511-postsettle4-v19/episode_001_chest_camera.mp4",
+          "caption": "物理重置后4步版本，seed511第1次6秒失败轨迹；前3次三相机归档，7/50中断，论文SR/SSR未验收。"
+        },
+        {
+          "episode": 1,
+          "camera": "head_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act511-postsettle4-v19/episode_001_head_camera.mp4",
+          "caption": "物理重置后4步版本，seed511第1次6秒失败轨迹；前3次三相机归档，7/50中断，论文SR/SSR未验收。"
+        },
+        {
+          "episode": 1,
+          "camera": "third_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act511-postsettle4-v19/episode_001_third_camera.mp4",
+          "caption": "物理重置后4步版本，seed511第1次6秒失败轨迹；前3次三相机归档，7/50中断，论文SR/SSR未验收。"
+        },
+        {
+          "episode": 2,
+          "camera": "chest_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act511-postsettle4-v19/episode_002_chest_camera.mp4",
+          "caption": "物理重置后4步版本，seed511第2次6秒失败轨迹；前3次三相机归档，7/50中断，论文SR/SSR未验收。"
+        },
+        {
+          "episode": 2,
+          "camera": "head_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act511-postsettle4-v19/episode_002_head_camera.mp4",
+          "caption": "物理重置后4步版本，seed511第2次6秒失败轨迹；前3次三相机归档，7/50中断，论文SR/SSR未验收。"
+        },
+        {
+          "episode": 2,
+          "camera": "third_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act511-postsettle4-v19/episode_002_third_camera.mp4",
+          "caption": "物理重置后4步版本，seed511第2次6秒失败轨迹；前3次三相机归档，7/50中断，论文SR/SSR未验收。"
+        },
+        {
+          "episode": 3,
+          "camera": "chest_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act511-postsettle4-v19/episode_003_chest_camera.mp4",
+          "caption": "物理重置后4步版本，seed511第3次6秒失败轨迹；前3次三相机归档，7/50中断，论文SR/SSR未验收。"
+        },
+        {
+          "episode": 3,
+          "camera": "head_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act511-postsettle4-v19/episode_003_head_camera.mp4",
+          "caption": "物理重置后4步版本，seed511第3次6秒失败轨迹；前3次三相机归档，7/50中断，论文SR/SSR未验收。"
+        },
+        {
+          "episode": 3,
+          "camera": "third_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act511-postsettle4-v19/episode_003_third_camera.mp4",
+          "caption": "物理重置后4步版本，seed511第3次6秒失败轨迹；前3次三相机归档，7/50中断，论文SR/SSR未验收。"
+        }
+      ],
+      "paper_ssr_percent": null,
+      "metric_note": "原物体50步稳定后，执行真实机器人默认重置与4个物理步；没有向观测注入训练状态。seed511实际0/7，显存低于4GiB保护中断，未完成50次；前3次9段视频已全解码、144帧实际查看。杯子始终在桌面，最大抬升仅4.98/4.07/2.88mm；杯壁采样透明，抬升时发白问题和接触穿模仍未通过。原流程模型与成绩独立保留。"
+    },
     {
       "candidate": "t500-beaker100-act-s26101515-fixed100-native2-v18",
       "display_name": "ACT · 100演示 · seed515 · 原流程2次开发试验",
