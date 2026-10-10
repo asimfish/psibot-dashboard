@@ -1,0 +1,96 @@
+{
+  "schema": "grasp.fixed_action_hold_camera_diagnostic.v1",
+  "actual_completed_trials": 4,
+  "actual_native_exit_code": 0,
+  "actual_GPU_model": "RTX4090",
+  "actual_GPU_UUID": "GPU-7e048773-6e99-b431-101d-8b45724cce9f",
+  "paired_original_EEF_and_hand_prefix_bit_exact": true,
+  "original_prefix_steps_30Hz": 60,
+  "terminal_fixed_reference_mm": [
+    25.70856101949612,
+    5.876074172646068,
+    25.84325877774323,
+    6.2771013841953085
+  ],
+  "terminal_rotation_radians": [
+    0.014605283736777235,
+    0.015834333641752723,
+    0.015087733400219733,
+    0.016395531216437408
+  ],
+  "conditions": [
+    "2.0s_full_timeout",
+    "2.6s_full_timeout",
+    "2.0s_full_timeout",
+    "2.6s_full_timeout"
+  ],
+  "camera_projection_counts": {
+    "chest_camera": {
+      "samples": 1092,
+      "target_root_center_in_image": 854
+    },
+    "head_camera": {
+      "samples": 1092,
+      "target_root_center_in_image": 1092
+    },
+    "third_camera": {
+      "samples": 1092,
+      "target_root_center_in_image": 1092
+    }
+  },
+  "videos": [
+    {
+      "camera": "chest_camera",
+      "url": "media/grasp-t500-mp-hold-diagnostic/chest_camera.mp4",
+      "sha256": "f6285f30740c5d2acb23ad3dc21ec8972cdec87984161ee9e49db5cd1143d848",
+      "expected_seconds": 9.2
+    },
+    {
+      "camera": "head_camera",
+      "url": "media/grasp-t500-mp-hold-diagnostic/head_camera.mp4",
+      "sha256": "9f7845684ffc997e5f66be0afb04e2fa1f5d47f61f114ef8b332cc36cabb6643",
+      "expected_seconds": 9.2
+    },
+    {
+      "camera": "third_camera",
+      "url": "media/grasp-t500-mp-hold-diagnostic/third_camera.mp4",
+      "sha256": "6b12475ed0b11f828e31eea153c4bb97d8f52b499498243b8d04be58dee2dc6c",
+      "expected_seconds": 9.2
+    }
+  ],
+  "phase_frames": [
+    {
+      "episode": 1,
+      "url": "media/grasp-t500-mp-hold-diagnostic/episode-1-phase-frames.jpg",
+      "sha256": "a53a74c16d85e51a8c97d4d40e9076ff0e28cea257238297fc0afe35bb1987ca"
+    },
+    {
+      "episode": 2,
+      "url": "media/grasp-t500-mp-hold-diagnostic/episode-2-phase-frames.jpg",
+      "sha256": "de2eca20f273f904a0bea21dbab7c2c3546e0481d342dacf9484b33ffa22ca8d"
+    },
+    {
+      "episode": 3,
+      "url": "media/grasp-t500-mp-hold-diagnostic/episode-3-phase-frames.jpg",
+      "sha256": "f6c2074b03419c3a3e382601d97d6dd738e705a3f310ceba2b35dbfb30d87636"
+    },
+    {
+      "episode": 4,
+      "url": "media/grasp-t500-mp-hold-diagnostic/episode-4-phase-frames.jpg",
+      "sha256": "6ec42fb529b77730193799b492917740acb2d1554c7dda8c41ca646a3988416e"
+    }
+  ],
+  "actual_key_frame_review_completed_episodes": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "whole_trajectory_visual_accepted": false,
+  "glass_refraction_verified": false,
+  "paper_ssr": null,
+  "formal_accepted": false,
+  "native_projection_import_failure_preserved": true,
+  "projections_recomputed_on_CPU": true,
+  "note": "同一2秒动作与手指目标前缀逐位一致，仅增加0.6秒保持。终点位置误差从25.7/25.8mm降至5.9/6.3mm；这是开发诊断，目标与全程约束尚未绑定论文SSR。四条轨迹三相机关键帧已查：头部及第三视角持续覆盖目标，胸部抬升后出画本身不判视觉失败。玻璃渲染与全程穿模仍待验收。"
+}
