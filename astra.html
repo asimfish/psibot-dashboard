@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="SafeLab GPT-6 Astra机器人控制能力报告：统一实验设置、逐任务成功率、输入消融、100ml烧杯往返原视频与逐轮动作证据。">
+  <meta name="theme-color" content="#f8fafc">
+  <title>Astra 机器人控制能力评测 · SafeLab</title>
+  <link rel="stylesheet" href="assets/astra/report.css">
+  <script src="assets/astra/report.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#summary">跳到报告正文</a>
+<header class="topbar"><div class="topbar-inner"><a class="brand" href="index.html#sec1"><span class="brand-mark">S</span> SafeLab <span class="crumb">/ Astra Evaluation</span></a><div class="top-actions"><a href="index.html#sec1">返回 Dashboard</a><a href="https://github.com/asimfish/psibot-dashboard" target="_blank" rel="noopener">GitHub ↗</a><button id="menu-toggle" aria-expanded="false" aria-controls="toc">目录</button></div></div></header>
+<div class="page-shell">
+<aside class="toc" id="toc" aria-label="报告目录"><div class="toc-label">ON THIS PAGE</div><nav>
+<a href="#summary"><span>01</span> 摘要与主要发现</a>
+<a href="#methods"><span>02</span> 方法与实验设置</a>
+<a class="sub" href="#contracts">输入 / 动作 / 成功判据</a>
+<a href="#results"><span>03</span> 定量结果</a>
+<a class="sub" href="#results">标准任务 · 推理档位 · 消融</a>
+<a href="#cases"><span>04</span> 视频与行为分析</a>
+<a class="sub" href="#roundtrip">100ml 烧杯往返</a>
+<a class="sub" href="#episode-gallery">成功 / 失败 / 中断案例</a>
+<a class="sub" href="#decision-viewer">逐轮输入与动作</a>
+<a href="#discussion"><span>05</span> 测试边界与下一步</a>
+<a href="#reproduce"><span>06</span> 复现与数据</a>
+<a href="#references"><span>07</span> 参考资料</a>
+</nav><div class="toc-footer">GPT-6 Astra<br>Direct robot control<br><span>数据核对：2026-10-09</span></div></aside>
+<main>
+<div class="report-heading"><div class="eyebrow">SAFELAB · EMBODIED AI EVALUATION</div><h1>Astra 机器人控制能力评测</h1><p class="subtitle">Astra as a Robot Controller</p><p class="dek">从标准机械臂操作到 100ml 烧杯往返：<br class="desktop-only">按输入信息、控制接口与试验分母，报告模型真正完成了什么。</p><div class="byline">SafeLab 实验整理 <span>·</span> 发布 2026-10-10 <span>·</span> 既有实验：2026-09-07—09-27</div><div class="paper-links"><a href="#results">实验结果 ↓</a><a href="#cases">原始视频 ↓</a><a href="#reproduce">数据与复现 ↓</a><a href="results/astra/episodes.csv" download>逐次台账 CSV ↗</a></div></div>
+<section id="summary" class="section"><div class="section-heading"><span>01</span><h2>摘要与主要发现</h2></div>
+<div class="abstract"><span class="abstract-label">SUMMARY</span><p>Astra 能通过通用机器人控制接口完成抓取、搬运、插装和多阶段杯操作。结果同时显示：<strong>输入信息、动作接口与执行反馈，决定了成功能力的边界；单次长程成功还不能证明稳定或实时控制。</strong></p><p>以下结果来自已有的 MuJoCo / Panda 与 SafeLab FR3 / PsiBot 实验。每组单独保留协议、分母和中断，不跨平台合并成功率。</p></div>
+<div class="findings-grid"><article><div class="finding-no">FINDING 01</div><h3>标准任务已有多次成功</h3><p>航点＋本体输入条件下，抓起 <b>20/20</b>、搬运 <b>17/20</b>、插装 <b>18/20</b>。</p><a href="#results">查看全部 15 个条件 →</a></article><article><div class="finding-no">FINDING 02</div><h3>输入依赖需要单独测量</h3><p>插装在低信息航点条件下为 <b>0/20</b>。FR3 消融 pilot 样本小，结论保留为探索性。</p><a href="#results" data-study="ablation">查看输入消融 →</a></article><article><div class="finding-no">FINDING 03</div><h3>长程成功有完整原录像</h3><p>100ml 杯完成 A→B→A 与两次撤手，<b>235 次</b>模型调用、约 <b>4.75 小时</b>墙钟。</p><a href="#roundtrip">查看阶段与三机位视频 →</a></article></div>
+<figure class="summary-figure"><div class="summary-media"><img src="assets/astra/posters/roundtrip.jpg" width="640" height="480" alt="PsiBot在原生仿真中执行100ml烧杯往返，第三相机原录像第269秒画面"><a class="media-link" href="#roundtrip"><span>▶</span> 查看完整往返原视频</a></div><div class="summary-copy"><span class="pill">NATIVE SIMULATION · DEVELOPMENT CASE</span><h3>抓起 → 放下并撤手 → 再抓起 → 返回</h3><p>最终 A 点中心误差 <strong>7.96 mm</strong>。原生阶段检查与既有视觉审查均留存，三路视频为同一条连续录像。</p><p class="caption">本案例带物体位姿、尺寸与速度等特权状态输入；是经过开发取得的成功轨迹，未形成正式成功率。</p></div><figcaption>图 1 · PsiBot 100ml 烧杯往返 collect41。这里的单次案例与下方多次试验矩阵分开统计。</figcaption></figure>
+</section>
+<section id="methods" class="section"><div class="section-heading"><span>02</span><h2>方法与实验设置</h2></div><p>研究对象是 <strong>GPT-6 Astra 在机器人动作路径中的能力</strong>。主要实验由模型直接产生动作或控制程序，通用控制器执行；未把 ACT / DP 训练成绩或 CPU 检查计为 Astra 控制结果。当前没有同场景 Astra＋冻结学习策略的混合对照。</p>
+<figure class="pipeline"><div><span>OBSERVATION</span><b>相机与允许的状态</b><small>按条件屏蔽输入</small></div><i aria-hidden="true">→</i><div><span>PLANNER</span><b>GPT-6 Astra</b><small>medium / xhigh</small></div><i aria-hidden="true">→</i><div><span>ACTION</span><b>动作接口 / 通用控制器</b><small>delta · waypoint · code · EEF</small></div><i aria-hidden="true">→</i><div><span>EVALUATION</span><b>原生物理与终态判据</b><small>独立评分，不以模型声明代替</small></div><figcaption>图 2 · 各平台均保留各自控制合同。图示是共同组织方式，不代表接口和预算完全相同。</figcaption></figure>
+<div class="table-wrap" id="contracts"><table class="protocol-table"><caption>表 1 · 实验范围与协议。每个结果都应在其所在行的设置下解释。</caption><thead><tr><th>试验组</th><th>平台与任务</th><th>模型 / 输入 / 动作</th><th>试验范围与成功定义</th></tr></thead><tbody>
+<tr><td><b>Panda 标准任务</b><span class="tag">MAIN MATRIX</span></td><td>MuJoCo / robosuite<br>Lift · Can · Square</td><td>Astra medium · 服务器 prompt v3<br>delta / waypoint / code<br>低信息 / 本体 / 特权状态</td><td>15 条件 × 20 回合 = 300<br>各任务原生终态成功；早期 70 回合另列</td></tr>
+<tr><td><b>SafeLab E3</b><span class="tag">HISTORICAL</span></td><td>FR3 抓取 / 放置<br>PsiBot 抓起保持</td><td>medium / xhigh<br>按原任务输入与控制协议</td><td>FR3 同 10 个 seed 的推理档位对照<br>各任务独立分母；基础设施中断保留</td></tr>
+<tr><td><b>FR3 输入消融</b><span class="tag">PILOT</span></td><td>原生仿真 · FR3<br>抓取、放置、释放撤手</td><td>Astra xhigh · 7 条件<br>最多 30 请求 / 120 秒动作<br>腕相对 EEF＋夹爪，DLS/IK 120 Hz</td><td>9403 / 9404 两初态，共 14 次尝试<br>放置≤4 cm，直立≤15°，稳定≥1 s，速度≤5 cm/s，松手并撤离</td></tr>
+<tr><td><b>后续 20×7</b><span class="tag">INCOMPLETE</span></td><td>FR3 放置 / PsiBot 抓取</td><td>两平台 × 20 seed × 7 输入条件<br>独立于 pilot 的冻结批次</td><td>计划 280；9月18日公开状态有效 27<br>FR3 21/140，PsiBot 6/140</td></tr>
+<tr><td><b>100ml 往返</b><span class="tag">CASE STUDY</span></td><td>PsiBot · 100ml 烧杯<br>A→B 放下撤手→A 放下撤手</td><td>Astra xhigh · 特权 scene_state<br>235 条实际上游模型回执核收<br>物体、杯垫、手部几何可见</td><td>选取的开发成功案例，非 1/1 成功率<br>4 原生阶段、完整三机位原录像</td></tr>
+</tbody></table></div>
+<details class="method-details"><summary>输入字段与统计口径</summary><div class="details-body"><div class="input-fields"><div><b>S</b><span>末端位姿与夹爪开口</span></div><div><b>J</b><span>关节角度与速度</span></div><div><b>K</b><span>相机标定</span></div><div><b>F</b><span>数值执行误差</span></div><div><b>H</b><span>历史图像与动作</span></div></div><p><code>rgb_only</code> 保留当前 RGB、任务说明、自身文字记忆和分类执行反馈，不能理解为“完全没有任何文字先验”。Panda 的 <code>none</code> 也保留任务说明与部分历史；其 <code>proprio</code> 包含标定、像素辅助或先验。</p><p>成功率 SR = 成功数 / 对应组的分母；中断次数在旁列出。多次试验显示 Wilson 95% 区间。过程阶段与最终成功分开记录；没有统一阶段分的旧试验保留空值，不回填 RoboDojo Score。</p><p>实验预算和控制器跨平台、跨接口存在差异；<code>code</code> 是生成控制程序的能力，不与短动作接口作完全同预算解释。</p></div></details>
+</section>
+<section id="results" class="section"><div class="section-heading"><span>03</span><h2>定量结果</h2></div><p>先选试验组，再查看该组的任务、设置和分母。这里不把不同任务、开发样本与未完成批次合成一个总成功率。</p>
+<div class="study-tabs" role="tablist" aria-label="试验组"><button role="tab" id="tab-robosuite" data-study="robosuite" aria-selected="true" aria-controls="study-panel">Panda 标准任务</button><button role="tab" id="tab-e3" data-study="e3" aria-selected="false" tabindex="-1" aria-controls="study-panel">FR3 / PsiBot E3</button><button role="tab" id="tab-ablation" data-study="ablation" aria-selected="false" tabindex="-1" aria-controls="study-panel">FR3 输入消融</button><button role="tab" id="tab-campaign" data-study="campaign" aria-selected="false" tabindex="-1" aria-controls="study-panel">20×7 后续批次</button></div>
+<div class="study-panel" id="study-panel" role="tabpanel" aria-labelledby="tab-robosuite" tabindex="0"><div id="results-content"><p>正在读取结果表……</p></div></div>
+<noscript><p>请启用 JavaScript 查看交互结果，或<a href="results/astra/episodes.csv">下载逐次台账</a>、<a href="results/astra/experiments.json">查看分组 JSON</a>。</p></noscript>
+<div id="load-error" role="alert" hidden></div>
+</section>
+<section id="cases" class="section"><div class="section-heading"><span>04</span><h2>视频与行为分析</h2></div><p>保留成功、失败和中断三种结果。观看原录像，再对照阶段与真正送入模型的输入，区分动作完成、判据未满足和基础设施失败。</p>
+<article class="roundtrip" id="roundtrip"><div class="case-title"><div><span class="eyebrow">LONG-HORIZON CASE STUDY</span><h3>100ml 烧杯：A → B → A</h3></div><span class="status success">原生阶段通过 · 开发案例</span></div>
+<div class="camera-buttons" role="group" aria-label="原视频机位"><button data-camera="head_camera" aria-pressed="false">头部相机</button><button data-camera="chest_camera" aria-pressed="false">胸部相机</button><button data-camera="third_camera" aria-pressed="true">第三视角</button><span id="camera-label">第三视角 · 完整原录像</span></div>
+<video id="roundtrip-video" controls playsinline preload="none" poster="assets/astra/posters/roundtrip.jpg" src="assets/astra/media/collect41_third_camera.mp4" aria-label="PsiBot 100ml烧杯往返完整原视频"></video>
+<div class="phase-timeline" aria-label="跳到原生阶段"><button data-time="247.758333">01 <b>A 点抓起</b><span>247.76 s</span></button><button data-time="269.025">02 <b>B 点释放撤手</b><span>269.03 s</span></button><button data-time="297.841667">03 <b>B 点再次抓起</b><span>297.84 s</span></button><button data-time="323.733333">04 <b>A 点释放撤手</b><span>323.73 s</span></button></div>
+<div class="case-stats"><div><b>4 / 4</b><span>原生阶段完成</span></div><div><b>7.96 mm</b><span>A 点中心误差</span></div><div><b>235</b><span>模型调用次数</span></div><div><b>4.75 h</b><span>墙钟 · 仿真 330.9 s</span></div></div>
+<p class="caption">三机位同一条连续原录像；这里引用既有原生与视觉验收，没有新增逐帧视觉认证。阶段时刻为仿真时间，播放器时间由原始视频保留。</p>
+<details><summary>本案例的输入、物理判据与效率</summary><div class="details-body"><p><b>输入：</b>物体位姿 / 尺寸 / 速度、杯垫几何、机器人手部标记与部分网格边界、先前状态；评估器阶段及接触计数不反馈给模型。实际模型回执为 gpt-6-astra / xhigh。</p><p><b>判据：</b>抬升≥5 cm；放置中心≤2.5 cm、底部高度≤8 mm、直立≤15°、稳定≥1秒且速度≤5 cm/s；撤手距离≥12 cm。原生最大抬升约5.81 cm。</p><p><b>效率：</b>输入 5,051,123 token，输出 439,318 token，未知用量请求 0。历史标准等价估算 $67.61，非当前价格或实际账单。墙钟约4.75小时意味着本案例不能当作实时能力证明。</p><p><a href="results/astra/provenance.json">原视频 SHA256 与来源 →</a></p></div></details>
+</article>
+<h3 class="subheading" id="episode-gallery">不同结果的代表样本</h3><div class="filter-buttons" role="group" aria-label="案例结果筛选"><button data-case-filter="all" aria-pressed="true">全部</button><button data-case-filter="success" aria-pressed="false">成功</button><button data-case-filter="failure" aria-pressed="false">失败</button><button data-case-filter="interrupted" aria-pressed="false">中断</button></div><div id="case-gallery" class="case-gallery"></div>
+<div class="decision-box" id="decision-viewer"><div class="case-title"><div><span class="eyebrow">OBSERVATION → ACTION → FEEDBACK</span><h3>逐轮决策查看器</h3></div><span class="tag">30 集 · 276 个决策</span></div><p>图片是当时实际送入模型的 RGB，下面是数值动作和执行回读。已有逐决策 JSON 摘要核对；图片链接不代表本轮对全部 1,104 张 PNG 的重新认证。</p><div class="viewer-controls"><label>选择回合<select id="trace-episode"></select></label><label>选择决策<select id="trace-decision"></select></label><button id="decision-prev" aria-label="上一个决策">←</button><button id="decision-next" aria-label="下一个决策">→</button></div><div id="trace-status"></div><div id="trace-images" class="trace-images"></div><div id="trace-fields"></div><div class="trace-code-grid"><div><h4>模型动作 · 数值输出</h4><pre id="trace-actions"></pre></div><div><h4>执行反馈 · 回读</h4><pre id="trace-feedback"></pre></div></div><a id="trace-source" target="_blank" rel="noopener">原决策证据 JSON ↗</a></div>
+</section>
+<section id="discussion" class="section"><div class="section-heading"><span>05</span><h2>测试边界与下一步</h2></div><div class="discussion-grid"><article><h3>这些结果支持什么？</h3><p>Astra 通过明确的控制合同能完成机器人操作；充分的状态和合适的接口能帮助完成精细动作。数值动作与执行反馈可以定位模型行为和控制误差。</p></article><article><h3>哪些能力仍待测？</h3><p>严格隔离输入的跨布局泛化、长程稳定成功率、实时动态环境，以及同场景 Astra＋冻结学习策略的配对对照。现在没有这些维度的统一正式分数。</p></article></div>
+<ol class="next-steps"><li><b>冻结可复现设置。</b>统一任务、相机、控制器、动作空间与预算；开发 seed 和测试 seed 分离。</li><li><b>配对测输入依赖。</b>RGB、RGB＋本体、RGB＋物体真值三轨，建议20个预注册初态；所有尝试、中断与失败保留。</li><li><b>同时报能力与效率。</b>终态成功、原生阶段、token、推理延迟、动作时间、仿真与墙钟分开记录。</li><li><b>另立混合控制试验。</b>Astra＋冻结 ACT / DP / VLA 需单独冻结检查点与接管规则后再测。</li></ol><p class="proposal-note"><span class="tag">PROPOSED · NOT EXECUTED</span> 以上是下一轮协议提案。本次仅整理与发布已有实验，没有新增模型或 GPU 试验。<a href="results/astra/next_protocol.json">查看完整协议 →</a></p>
+</section>
+<section id="reproduce" class="section"><div class="section-heading"><span>06</span><h2>复现与数据</h2></div><div class="download-grid"><a href="results/astra/experiments.json"><b>分组结果</b><span>协议、矩阵、案例与置信区间</span><small>JSON ↗</small></a><a href="results/astra/episodes.csv" download><b>逐次实验台账</b><span>405 条记录，保留原结果与视频</span><small>CSV ↓</small></a><a href="results/astra/decision_traces.json"><b>决策证据</b><span>30 集、276 轮输入与动作</span><small>JSON ↗</small></a><a href="results/astra/provenance.json"><b>来源与原视频摘要</b><span>结果来源及原视频 SHA256</span><small>JSON ↗</small></a></div>
+<details id="ledger-details"><summary>展开完整逐次台账 · 查询与分页</summary><div class="details-body"><p>370 条 robosuite 历史卡＋30 集公开决策记录＋4 份新批次 result＋collect41。聚合表与逐次记录存在重叠，不能相加；未取得逐次 JSON 的23条 campaign 历史结果只在分组表中保留。</p><div class="ledger-controls"><label>协议<select id="ledger-protocol"><option value="">全部协议</option></select></label><label>检索<input id="ledger-search" type="search" placeholder="机器人 / 任务 / 条件 / seed"></label><button id="ledger-reset">重置</button></div><div id="ledger-count" aria-live="polite"></div><div class="table-wrap" id="ledger-table"></div><div class="pagination"><button id="ledger-prev">上一页</button><span id="ledger-page"></span><button id="ledger-next">下一页</button></div></div></details>
+<p class="caption">数据核对 2026-10-09；后续20×7状态取自2026-09-18公开记录。不同批次的日期、分母与模型身份证据均保留，不代表今日运行或资源状态。</p>
+</section>
+<section id="references" class="section"><div class="section-heading"><span>07</span><h2>参考资料</h2></div><p>报告组织借鉴以下资料，采用其方法说明、分组结果、行为案例和证据入口的呈现方式。我们的任务、预算和判据不同，未声称复现外部榜单。</p><ol class="references"><li><a href="https://anonymous-report-421.github.io/public-website/?lang=en&amp;view=" target="_blank" rel="noopener">GPT 6 Astra as an Embodied Policy ↗</a><span>直接与混合动作路径分开；说明实验设置、配对条件、结果和行为差异。</span></li><li><a href="https://robodojo-benchmark.com/report/gpt-6-astra-eval" target="_blank" rel="noopener">RoboDojo · GPT-6 Astra Evaluation ↗</a><span>统一评测范围、成功率与过程分；逐维度结果、案例、失败分析与复现入口。</span></li><li><a href="https://github.com/zjwzcx/Awesome-Astra-Embodied-AI" target="_blank" rel="noopener">Awesome-Astra-Embodied-AI ↗</a><span>区分直接控制、学习策略调用、环境构建与训练支撑。这是资料索引，不是统一评分标准。</span></li></ol><div class="source-links"><span>本地实验公开来源：</span><a href="https://asimfish.github.io/astra-control-dashboard/" target="_blank" rel="noopener">Panda / robosuite 原报告 ↗</a><a href="https://asimfish.github.io/safeot-dashboard/agentic_robotics.html" target="_blank" rel="noopener">FR3 / PsiBot 原记录 ↗</a></div></section>
+<footer>SafeLab · Astra Evaluation <span>Report v1 · 2026-10-10</span><a href="index.html#sec1">返回 PsiBot Dashboard →</a></footer>
+</main></div>
+</body></html>

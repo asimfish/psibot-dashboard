@@ -204,6 +204,7 @@ main.content{min-width:0}.banner>.card{min-width:0;overflow-wrap:anywhere}
 <a href="#sec0">§0 今日焦点</a>
 <a href="#sec1">§1 数据集</a>
 <a href="data_gallery.html" style="color:#2563eb;font-weight:700">　数据检查子面板 · 11类任务</a>
+<a href="astra.html" style="color:#2563eb;font-weight:700">　Astra 能力评测 · 结果与原视频</a>
 <a href="#sec2">§2 训练与测试</a>
 <a href="#grasp-acceptance">　Grasp · DP / ACT 验收</a>
 <a href="#sec2-1">　§2.1 ACT</a>
@@ -305,6 +306,9 @@ main.content{min-width:0}.banner>.card{min-width:0;overflow-wrap:anywhere}
 <h2 id="sec1">§1 数据集</h2>
 <span id="dataset-task-types"></span><span id="sec1-status"></span><span id="sec1-1"></span><span id="sec1-2"></span><span id="sec1-3"></span>
 <div class="card" id="dataset-overview"><h3>统一数据检查入口</h3><p>按任务、机器人与物体查看采集数量、验收门限、轨迹样例和指标。不同数据版本已归并到同一物体条目；长程任务列入目录，本轮暂缓新采集。</p><p><a href="data_gallery.html" style="font-weight:700">打开数据检查子面板：逐任务 · 逐物体 · 成功轨迹样例 · 指标 →</a></p><p class="small">最新核验：2026-10-09 13:08（UTC+8）。基础盘点 64 项，候选 5,400/6,400 条；44 项数量齐备，完整验收仍需闭环。详细数量与来源以子面板为准。</p><p><a href="data_gallery.html#task-grasp">抓取</a> · <a href="data_gallery.html#task-pick_place">抓取放置</a> · <a href="data_gallery.html#task-pour">倾倒</a> · <a href="data_gallery.html#task-press">按压</a> · <a href="data_gallery.html#task-open">打开</a> · <a href="data_gallery.html#task-close">关闭</a> · <a href="data_gallery.html#task-stack">叠放</a> · <a href="data_gallery.html#task-handover">交接</a> · <a href="data_gallery.html#task-bimanual_grasp">双臂抓取</a> · <a href="data_gallery.html#task-multi_tools">多工具</a> · <a href="data_gallery.html#task-long_horizon">长程任务</a></p></div>
+<!-- T-519 Astra capability panel -->
+<div class="card" id="astra-evaluation"><h3>Astra 机器人控制能力评测</h3><p>按统一实验设置查看标准操控任务、输入消融与100ml烧杯往返；每组保留独立分母、失败和中断记录。原视频与逐轮模型输入、动作、反馈可直接查看。</p><p><a href="astra.html" style="font-weight:700">打开 Astra 能力评测：方法 · 结果矩阵 · 原视频 · 决策证据 →</a></p><p class="small">报告发布：2026-10-10。既有实验数据整理；新模型调用与新正式测试未在此报告中发生。</p></div>
+<!-- /T-519 Astra capability panel -->
 <h2 id="sec2">§2 训练与测试</h2>
 <section id="grasp-acceptance" class="card" style="margin:16px 0;padding:20px;border-left:4px solid #176b65;scroll-margin-top:20px" aria-labelledby="grasp-acceptance-heading"><h3 id="grasp-acceptance-heading" style="margin:0 0 8px">Grasp · DP / ACT 正式验收</h3><div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px"><div><b style="font-size:26px;margin:0">0 / 21 物体</b><span class="small">DP 和 ACT 都通过 · 方法 × 物体 0/42</span></div><p style="margin:0;flex:1;min-width:min(240px,100%)">40 个训练种子已有实际更新：18 DP / 22 ACT；22 路训练中，15 个 ACT 已完成5000轮，3 路中断，另11个ACT种子排队。12个ACT开发模型的成功与失败视频均可切换；旧烧杯94%使用400条演示，论文预算复测仍待验收。烧杯扩大范围测试已完成 350/350 集，位置精度与玻璃视觉仍待通过。</p><a href="grasp.html" style="display:inline-block;background:#176b65;color:white;padding:9px 14px;border-radius:6px;font-weight:600;white-space:nowrap">查看成绩和视频 →</a></div><p class="small" style="margin-bottom:0">核验：2026-10-10T02:15:35.008401+00:00 · <a href="grasp.html#progress">训练与逐组泛化结果</a> · <a href="grasp_history_20261009.html">历史面板</a>。旧窄范围高成功率保留供对照，正式验收仍待通过。</p></section>
 <p class="legend">图例：✅️ 通关 · 🔄 进行中 · 📝 排队 · ❌ 未过 · — 未开始。<b>采集泛化</b>：逐任务代码+数据双重核定——grasp ±2cm（实测）、pick_place ±3cm（实测）、pour ±0.3cm、press ±1cm、stack ±1cm（b250s 瓶0.6/台1cm）、open/close 底座 ±2cm、handover/long_horizon 无位置随机、multi_tools ±0.5/1cm、双臂 ±2cm；FR3/UR5E 全任务 ±3cm。<b>评测泛化</b>：nosdf 下基础模型 xy ±1cm（相对标称位姿独立采样，<b>非</b>采集范围叠加；grasp 采集实测 ±2cm，故 ±1cm 属分布内评测）；RL 对照 ±2cm。每任务 × 物体目标 <b>50 集</b>评测；08-30 前部分为旧 10 集已标注。</p>
