@@ -4,7 +4,7 @@
   const legacyHash = () => location.hash && !['#selected','#progress','#servers','#protocol','#pick-place-progress'].includes(location.hash) && /^#[\w-]+$/.test(location.hash);
   if (legacyHash()) {location.replace('pick_place_history_20261010.html' + location.hash); return;}
   window.addEventListener('hashchange', () => {if (legacyHash()) location.replace('pick_place_history_20261010.html' + location.hash);});
-  const LIVE = 'https://raw.githubusercontent.com/asimfish/psibot-dashboard/feature/t-525-pick-place-live/results/pick_place_current.json';
+  const LIVE = 'https://raw.githubusercontent.com/asimfish/psibot-dashboard/refs/heads/feature/t-525-pick-place-live/results/pick_place_current.json';
   const $ = id => document.getElementById(id);
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const pct = v => typeof v === 'number' ? v.toFixed(v % 1 ? 1 : 0) + '%' : '—';
@@ -23,7 +23,7 @@
     if (!data) return;
     const age = Date.now() - Date.parse(data.source_updated_at), pubAge = Date.now() - Date.parse(data.published_at);
     const stale = age > 1200000 || pubAge > 1200000;
-    $('connection').textContent = stale ? '进度来源已过期 · 等待恢复同步' : origin === 'live' ? (lastError ? '更新连接暂时失败 · 保留上次数据' : '持续监管 · 自动更新') : '页面发布时的快照 · 正在连接自动更新';
+    $('connection').textContent = stale ? '进度来源已过期 · 等待恢复同步' : origin === 'live' ? (lastError ? '更新连接暂时失败 · 保留上次数据' : '持续监管 · 自动更新') : (lastError ? '自动更新暂不可用 · 显示页面快照' : '页面发布时的快照 · 正在连接自动更新');
     document.querySelector('.freshness').classList.toggle('stale', stale || lastError || origin !== 'live');
     $('updated').textContent = `来源更新：${date(data.source_updated_at)} · 网页同步：${date(data.published_at)}（北京时间）`;
   }
@@ -78,7 +78,7 @@
   }
   async function get(url) {
     const controller = new AbortController(), timer = setTimeout(()=>controller.abort(), 8000);
-    try {const r = await fetch(url + '?v=' + Math.floor(Date.now()/60000), {cache:'no-store', signal:controller.signal}); if(!r.ok) throw Error('HTTP ' + r.status); return valid(await r.json());} finally {clearTimeout(timer);}
+    try {const r = await fetch(url + '?v=' + Date.now(), {cache:'no-store', signal:controller.signal}); if(!r.ok) throw Error('HTTP ' + r.status); return valid(await r.json());} finally {clearTimeout(timer);}
   }
   async function tick() {
     if(busy) return;

@@ -1,11 +1,11 @@
 (() => {
-  const url='https://raw.githubusercontent.com/asimfish/psibot-dashboard/feature/t-525-pick-place-live/results/pick_place_current.json';
+  const url='https://raw.githubusercontent.com/asimfish/psibot-dashboard/refs/heads/feature/t-525-pick-place-live/results/pick_place_current.json';
   let busy=false, last;
   async function update(){
     if(busy)return;busy=true;
     const controller=new AbortController(), timer=setTimeout(()=>controller.abort(),8000);
     try{
-      const r=await fetch(url+'?v='+Math.floor(Date.now()/60000),{cache:'no-store',signal:controller.signal});
+      const r=await fetch(url+'?v='+Date.now(),{cache:'no-store',signal:controller.signal});
       if(!r.ok)throw Error('unavailable');const d=await r.json(),t=d.totals;
       if(d.schema_version!==1||d.generation!=='paper_v4'||t.required_models!==26||t.required_cells!==104||!Number.isFinite(Date.parse(d.source_updated_at)))throw Error('invalid');
       if(last&&Date.parse(d.published_at)<Date.parse(last.published_at))return;
