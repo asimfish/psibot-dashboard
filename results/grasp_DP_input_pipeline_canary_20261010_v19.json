@@ -1,0 +1,1636 @@
+{
+  "sampled_utc": "2026-10-10T13:58:15.353814+00:00",
+  "training_seed": 26101523,
+  "CPU_loader_equivalence_passed": true,
+  "CPU_full_optimizer_restore_passed": true,
+  "actual_GPU_throughput_qualified": false,
+  "note": "仅原seed523单个试点，100演示与原模型/EMA/861优化器状态不变；RGB只读取实际消费首帧，8步动作完整。CPU输入逐位等价通过，GPU吞吐与训练回归仍待实测。",
+  "evidence_url": "results/grasp_DP_input_pipeline_canary_20261010_v19.json",
+  "actual_workers2_CPU": {
+    "passed": true,
+    "started_utc": "2026-10-10T13:23:57.668386+00:00",
+    "actual_GPU_training_restarts": 0,
+    "actual_Native_trials": 0,
+    "formal_accepted": false,
+    "paper_ssr": null,
+    "source_pins": {
+      "/home/dataset-assist-0/yf/chembench_t053_pick_place_fullflow_v1/runtime/chembench/diffusion_policy/psi_dp/dataset/grasp_rgb_dataset.py": "291b23c856810046b21fd883ab8ec2a40dfcedd4d62f448a99891b1bb55e3b92",
+      "/home/dataset-assist-0/yf/chembench_t053_pick_place_fullflow_v1/runtime/chembench/diffusion_policy/diffusion_policy/common/sampler.py": "eb4af7d8513bf16c46dbb3bbebd51a407434818a92937d288587e78819724f8e"
+    },
+    "source_dataset": {
+      "_target_": "psi_dp.dataset.grasp_rgb_dataset.GraspRGBDataset",
+      "zarr_path": "/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+      "horizon": 8,
+      "pad_before": 0,
+      "pad_after": 7,
+      "seed": 42,
+      "val_ratio": 0.05,
+      "use_velocity": false,
+      "use_third_camera": true
+    },
+    "RGB_shapes": {
+      "chest_camera_rgb": [
+        5105,
+        224,
+        224,
+        3
+      ],
+      "head_camera_rgb": [
+        5105,
+        224,
+        224,
+        3
+      ],
+      "third_camera_rgb": [
+        5105,
+        224,
+        224,
+        3
+      ]
+    },
+    "optimization": "Use existing original SequenceSampler key_first_k for exactly3 RGB keys, k=n_obs_steps=1. Full8 action frames and every consumed state tensor retained. No source file or active process modified.",
+    "actual_ABBA_rows": [
+      {
+        "workers": 0,
+        "prefetch_factor": null,
+        "actual_128_batch_fetch_seconds": [
+          0.9332267278805375,
+          0.8799571767449379,
+          0.7682309905067086,
+          0.830649733543396
+        ],
+        "actual_full_consumed_batch_SHA256": [
+          "e0533bceb4a4fa7d9df5fcbeffd7d153052951952db7046960795c57a3d56100",
+          "31f3cd9fff8db281c47c372806bc474f21c80247898c1e50bd148180f64515d5",
+          "13f986aa1596ec1b96125947946749ea355848a4e768d95265ac88af633cdd82",
+          "8af7252b989b611e6fd6e2840112e6522577d0e2a2120d10348efa33b35d5529"
+        ],
+        "CPU_tensor_verification_seconds": [
+          0.3271245025098324,
+          0.4739182060584426,
+          0.33471013605594635,
+          0.357194185256958
+        ],
+        "total_iteration_and_CPU_verification_seconds": 4.979976752772927,
+        "own_worker_PIDs": [],
+        "own_workers_closed": true
+      },
+      {
+        "workers": 2,
+        "prefetch_factor": 2,
+        "actual_128_batch_fetch_seconds": [
+          1.5081193698570132,
+          0.0031011663377285004,
+          0.4137696139514446,
+          0.0023788604885339737
+        ],
+        "actual_full_consumed_batch_SHA256": [
+          "e0533bceb4a4fa7d9df5fcbeffd7d153052951952db7046960795c57a3d56100",
+          "31f3cd9fff8db281c47c372806bc474f21c80247898c1e50bd148180f64515d5",
+          "13f986aa1596ec1b96125947946749ea355848a4e768d95265ac88af633cdd82",
+          "8af7252b989b611e6fd6e2840112e6522577d0e2a2120d10348efa33b35d5529"
+        ],
+        "CPU_tensor_verification_seconds": [
+          0.39719684794545174,
+          0.3686815779656172,
+          0.3441081354394555,
+          0.3735190285369754
+        ],
+        "total_iteration_and_CPU_verification_seconds": 3.5941846976056695,
+        "own_worker_PIDs": [
+          384596,
+          384600
+        ],
+        "own_workers_closed": true
+      },
+      {
+        "workers": 2,
+        "prefetch_factor": 2,
+        "actual_128_batch_fetch_seconds": [
+          1.5823486223816872,
+          0.00045709218829870224,
+          0.14578205067664385,
+          0.002945556305348873
+        ],
+        "actual_full_consumed_batch_SHA256": [
+          "e0533bceb4a4fa7d9df5fcbeffd7d153052951952db7046960795c57a3d56100",
+          "31f3cd9fff8db281c47c372806bc474f21c80247898c1e50bd148180f64515d5",
+          "13f986aa1596ec1b96125947946749ea355848a4e768d95265ac88af633cdd82",
+          "8af7252b989b611e6fd6e2840112e6522577d0e2a2120d10348efa33b35d5529"
+        ],
+        "CPU_tensor_verification_seconds": [
+          0.49620694015175104,
+          0.5025713369250298,
+          0.5141509007662535,
+          0.5123332068324089
+        ],
+        "total_iteration_and_CPU_verification_seconds": 3.927750830538571,
+        "own_worker_PIDs": [
+          384682,
+          384686
+        ],
+        "own_workers_closed": true
+      },
+      {
+        "workers": 0,
+        "prefetch_factor": null,
+        "actual_128_batch_fetch_seconds": [
+          0.7920559728518128,
+          0.7056817868724465,
+          0.7338947514072061,
+          0.6894680391997099
+        ],
+        "actual_full_consumed_batch_SHA256": [
+          "e0533bceb4a4fa7d9df5fcbeffd7d153052951952db7046960795c57a3d56100",
+          "31f3cd9fff8db281c47c372806bc474f21c80247898c1e50bd148180f64515d5",
+          "13f986aa1596ec1b96125947946749ea355848a4e768d95265ac88af633cdd82",
+          "8af7252b989b611e6fd6e2840112e6522577d0e2a2120d10348efa33b35d5529"
+        ],
+        "CPU_tensor_verification_seconds": [
+          0.5269228043034673,
+          0.44339351262897253,
+          0.5773498453199863,
+          0.6533491834998131
+        ],
+        "total_iteration_and_CPU_verification_seconds": 5.1770771285519,
+        "own_worker_PIDs": [],
+        "own_workers_closed": true
+      }
+    ],
+    "at_utc": "2026-10-10T13:24:20.760373+00:00",
+    "steady_CPU_fetch_speedup_during_verification": 8.106270424647363,
+    "workers0_steady_mean_seconds": 0.7679804130457342,
+    "workers2_steady_mean_seconds": 0.09473905665799975,
+    "actual_full128_consumed_batch_equivalence_cases": 16,
+    "actual_CUDA_initializations": 0,
+    "scope": "CPU-only real original dataset. Workers2 prefetch concurrent with CPU tensor-verification time, explicitly not a GPU-training throughput benchmark. All4 batch contents bit-identical to workers0; first2 also exact original all8frame proof. Source/active processes unchanged."
+  },
+  "actual_private_entry_progress": {
+    "at_utc": "2026-10-10T13:50:16.729795+00:00",
+    "read_only": true,
+    "files": {
+      "status.json": {
+        "object": "glass_beaker_100ml",
+        "seed": 26101523,
+        "host": "ide-650ef93f23324f04881bde87cf05d6c1-0f2fcc",
+        "gpu_uuid": "GPU-ea1b15c6-004f-05e4-5d78-d4927898b2b7",
+        "started_utc": "2026-10-10T13:42:07.449482+00:00",
+        "status": "running",
+        "formal_accepted": false,
+        "paper_SSR": null,
+        "physical_dataset_requalification": false,
+        "dataloader_workers": 2,
+        "prior_attempt": "/tmp/grasp_ssr_ood_multiserver_20261009/dp_storage_recovery_v8/runs/dp-recovery3000-glass_beaker_100ml-s26101523-bounded-tmp-workers0-dp-v8-a4",
+        "logical_seed_count_increase": 0,
+        "purpose": "One owned input pipeline canary. Original frozen model/EMA/fulloptimizer continuation, fixed100 dataset/3000 epochs/LR/action horizon unchanged; worker RNG restart disclosed. Qualify actual throughput before broader deployment.",
+        "updated_utc": "2026-10-10T13:50:08.633955+00:00",
+        "CPU_command": [
+          "/home/dataset-assist-0/yf/envs/dp/bin/python",
+          "-B",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/train_entry_Beaker100_first_obs_workers2_DP_v154.py",
+          "_target_=train_diffusion_transformer_timm_workspace.TrainDiffusionTransformerTimmWorkspace",
+          "task.dataset_path=/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+          "task.dataset.zarr_path=/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+          "task.object_name=glass_beaker_100ml",
+          "task.num_demos=100",
+          "n_obs_steps=1",
+          "n_action_steps=8",
+          "training.seed=26101523",
+          "training.device=cuda:0",
+          "training.num_epochs=3000",
+          "training.max_global_train_steps=null",
+          "training.resume=false",
+          "optimizer.lr=3e-4",
+          "optimizer.obs_encoder_lr=3e-5",
+          "dataloader.batch_size=128",
+          "dataloader.num_workers=2",
+          "dataloader.persistent_workers=true",
+          "+dataloader.prefetch_factor=2",
+          "val_dataloader.num_workers=0",
+          "val_dataloader.persistent_workers=false",
+          "task.dataset.val_ratio=0.05",
+          "training.checkpoint_every=50",
+          "checkpoint.topk.k=0",
+          "checkpoint.save_last_ckpt=true",
+          "logging.mode=disabled",
+          "hydra.run.dir=/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/runs/dp-recovery3000-glass_beaker_100ml-s26101523-original-optimizer-workers2-v154-a1/cpu_intake/checkpoints"
+        ],
+        "CPU_child": {
+          "pid": 418836,
+          "start_ticks": "727290627"
+        },
+        "CPU_actual_exit_code": 0,
+        "CPU_intake_gate": {
+          "passed": true,
+          "recovery": {
+            "mode": "actual_model_EMA_optimizer_input_pipeline_canary",
+            "optimizer_reset": false,
+            "checkpoint_sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca",
+            "saved_epoch": 500,
+            "next_epoch": 501,
+            "saved_global_step": 19038,
+            "original_total_epochs": 3000,
+            "loaded_actual_model_EMA_fingerprints": {
+              "model": {
+                "tensor_count": 918,
+                "ordered_tensor_bytes_SHA256": "6d7ddb9776aabab6d27f66fcaa9a91020524fef3e58fc9f0032e3c9709ac9f90"
+              },
+              "ema_model": {
+                "tensor_count": 918,
+                "ordered_tensor_bytes_SHA256": "5622d6cec1391a93ec0db272c9ba033373bf21afcbdd5e8c0f46078ce120ad2f"
+              }
+            },
+            "loaded_optimizer_parameter_states": 861,
+            "full_CPU_intake": {
+              "actual_CPU_load": true,
+              "model_tensors": 918,
+              "optimizer_states": 861,
+              "saved_epoch": 500,
+              "global_step": 19038,
+              "optimizer_restored": true,
+              "source": {
+                "passed": true,
+                "staged": true,
+                "committed": true,
+                "transaction": "f1d0b310337f4f2c8f96ce37fa3718be",
+                "bytes": 2807312261,
+                "sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca",
+                "path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_input_acceleration_frozen_v153/seed26101523/latest.ckpt",
+                "independently_rehashed_before_commit": true,
+                "source_local_checkpoint_bytes": 0,
+                "optimizer_state_included": true,
+                "original_live_path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_dp_checkpoints_two_phase_v8/dp-recovery3000-glass_beaker_100ml-s26101523-bounded-tmp-workers0-dp-v8-a4-training_state_latest_pt/latest.ckpt",
+                "immutable_frozen_hardlink": true,
+                "source_mtime_ns": 1791637661932723506
+              },
+              "exact_training_RNG_resume": false,
+              "formal_accepted": false,
+              "independently_rehashed_source": {
+                "bytes": 2807312261,
+                "sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca"
+              },
+              "checkpoint_disk_bytes": 0,
+              "method": "DP",
+              "seed": 26101523,
+              "CPU_only": true
+            },
+            "exact_training_resume": false,
+            "training_rng_reset": true,
+            "dataloader_workers_changed_0_to2": true,
+            "old_attempt_and_every_checkpoint_retained": true,
+            "formal_accepted": false
+          },
+          "actual_CUDA_initializations": 0,
+          "actual_GPU_training_restarts": 0,
+          "formal_accepted": false
+        },
+        "old_last_before_stop": {
+          "train_loss": 0.005587535444647074,
+          "global_step": 20601,
+          "epoch": 542,
+          "lr": 0.0002800396389690808
+        },
+        "old_optimizer_frozen_and_CPU_qualified": true,
+        "old_controller_and_training_closed": true,
+        "old_closure_status": "failed",
+        "old_training_actual_exit_code": 1,
+        "own_controller_only_SIGTERM_sent": true,
+        "admission": {
+          "gpu_csv": "GPU-ea1b15c6-004f-05e4-5d78-d4927898b2b7, NVIDIA A100-SXM4-80GB, 80616, 538, 81920, 0",
+          "host_MemAvailable_KiB": 415444856,
+          "ready": true,
+          "allocator_cap_fraction": 0.4875,
+          "dynamic_GPU_reserve_GiB": 3
+        },
+        "stable_capacity_samples": 2,
+        "dataset_snapshot": {
+          "source": "/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+          "snapshot": "/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+          "files": 5862,
+          "bytes": 1324090401,
+          "manifest_sha256": "4cfeabe995904a2bde8250680121bacb8e1a2c7effb4322fb69f2087e03e3a94",
+          "full_actual_manifest_revalidated": true
+        },
+        "AF_UNIX_regression": {
+          "passed": true,
+          "actual_listener_path": "/tmp/t500dp154/pymp-v7kde2de/listener-i_xopkjo",
+          "TMPDIR": "/tmp/t500dp154"
+        },
+        "command": [
+          "/home/dataset-assist-0/yf/envs/dp/bin/python",
+          "-B",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/train_entry_Beaker100_first_obs_workers2_DP_v154.py",
+          "_target_=train_diffusion_transformer_timm_workspace.TrainDiffusionTransformerTimmWorkspace",
+          "task.dataset_path=/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+          "task.dataset.zarr_path=/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+          "task.object_name=glass_beaker_100ml",
+          "task.num_demos=100",
+          "n_obs_steps=1",
+          "n_action_steps=8",
+          "training.seed=26101523",
+          "training.device=cuda:0",
+          "training.num_epochs=3000",
+          "training.max_global_train_steps=null",
+          "training.resume=false",
+          "optimizer.lr=3e-4",
+          "optimizer.obs_encoder_lr=3e-5",
+          "dataloader.batch_size=128",
+          "dataloader.num_workers=2",
+          "dataloader.persistent_workers=true",
+          "+dataloader.prefetch_factor=2",
+          "val_dataloader.num_workers=0",
+          "val_dataloader.persistent_workers=false",
+          "task.dataset.val_ratio=0.05",
+          "training.checkpoint_every=50",
+          "checkpoint.topk.k=0",
+          "checkpoint.save_last_ckpt=true",
+          "logging.mode=disabled",
+          "hydra.run.dir=/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/runs/dp-recovery3000-glass_beaker_100ml-s26101523-original-optimizer-workers2-v154-a1/checkpoints"
+        ],
+        "source_pins": {
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/train_entry_30109_storage_recovery_DP_v8.py": "1a9be2a9d724853b16e27d9c3b833e434bf9f804e8290ce2292b862e71639715",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/train_controller_30109_storage_recovery_DP_v8.py": "68245194e54c56ad0e45cdf1573cd129cff9b870f349ceff22a3340155dc5a8d",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/stream_owned_dp_checkpoint_to_ali_v1.py": "537519252542e221248d6b7db60b4e424be1aadfa144c11564c4753b1d6abf90",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/stream_owned_dp_workspace_async_v3.py": "3e89f447c8b1325f7b9ad2c23d3b328d9c3637ebb1724b5ef93253b962009a53",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/bounded_owned_gpu_telemetry_v1.py": "d36450c6d52a7f459cdda69948ec13abd4629c805f3cac4662de905bdd973316",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/check_two_phase_checkpoint_failure_atomicity_dp_cpu_v3.py": "df7218407c2f7165d200a2ffcd348fa7ee1df99442a0727b6f3e2d88b7acdc03",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/check_async_checkpoint_and_optimizer_resume_dp_cpu_v3.py": "3cc7d3efbcc5b2683b7008adb24a07db3ca40c0afc9f93860e68dbfdc40420f9",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/async_owned_remote_checkpoint_writer_dp_v3.py": "ee744598c1b318b21133139c548deb1868c65b9a6ed62307baf477334011faae",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/stream_owned_checkpoint_to_ali_two_phase_dp_v3.py": "54c0bdec02856e725ad4bbf8bafb1f2b2680b1d92b40540b110c310b1766634a",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/stream_owned_checkpoint_to_ali_two_phase_v2.py": "54c0bdec02856e725ad4bbf8bafb1f2b2680b1d92b40540b110c310b1766634a",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/owned_checkpoint_transport_channel_slots_v8.py": "168fce5172744966b93e14ec2e0db39ab90900d0c7f31fed47ebc38ef6d1faf7",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/check_owned_SSH_channel_slots_CPU_v8.py": "f26e2ac05f3484271fb29a76cafc80dea6caecb30de80a009e08641048308436",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/owned_DP_body_slots_v8.py": "da1b0fc2d36694517a9da988cbb0e95b67fb9b18859b41ee5ec5e49b077054a4",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/check_DP_body_slots_CPU_v8.py": "d096d6125437afe6007ce31921a2aa35a5ee178525237e1523ef02f1d6c406bf",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/owned_full_checkpoint_CPU_stream_v8.py": "b8cb8c949c1ed05d62e440aaeb40807b5ab854e7a8171cea4d2abd40df75dcd0",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/CPU_gate_supervisor_DP_channels_v8.py": "49392b5ea14dbcffe48ed3c95d5d94f8828a319968524aa7ba37e82fc6e0544d",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/train_entry_Beaker100_first_obs_workers2_DP_v154.py": "b5415caa13b5658934d9fecefa991eebde3ad683c53cfce30a3ecfa475f6e465",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/train_controller_Beaker100_first_obs_workers2_DP_v154.py": "685a5f3f4c0ae0465c7c55b7e7c762505a2ef86c9f4294296ef7526af28cd131",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/fixed/budget_contract.py": "6967f99a9c2f1c9ca8517804d1fded51269b92a76978e75c33f56efcc58ca489",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/fixed/train_diffusion_transformer_timm_workspace.py": "e9fa8ee908a8f0fba4c779ed966a923e90d2abaad039564f6abbb5b713155f28",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/ACTUAL_FROZEN_FULL_OPTIMIZER_CHECKPOINT_CPU_V155.json": "bcb9825d617f21e93d8d2ed2a2dae461b07dc8cad969ec490385c4493eef19cf",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/ACTUAL_WORKERS2_CPU_EQUIVALENCE_AND_SPEED_V150.json": "0f11decc826e0e267327b508c5c3b236f805416305ce6121c90e70c40969f23a"
+        },
+        "final_admission": {
+          "gpu_csv": "GPU-ea1b15c6-004f-05e4-5d78-d4927898b2b7, NVIDIA A100-SXM4-80GB, 80616, 538, 81920, 0",
+          "host_MemAvailable_KiB": 415456024,
+          "ready": true,
+          "allocator_cap_fraction": 0.4875,
+          "dynamic_GPU_reserve_GiB": 3
+        },
+        "pid": 426399,
+        "start_ticks": "727318494",
+        "gpu_now": "GPU-ea1b15c6-004f-05e4-5d78-d4927898b2b7, NVIDIA A100-SXM4-80GB, 80616, 538, 81920, 0",
+        "actual_min_free_GPU_MiB": 80616
+      },
+      "cpu_intake/checkpoints/ACTUAL_PRIVATE_TRAIN_ENTRY_CPU_INTAKE_GATE_V154.json": {
+        "passed": true,
+        "recovery": {
+          "mode": "actual_model_EMA_optimizer_input_pipeline_canary",
+          "optimizer_reset": false,
+          "checkpoint_sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca",
+          "saved_epoch": 500,
+          "next_epoch": 501,
+          "saved_global_step": 19038,
+          "original_total_epochs": 3000,
+          "loaded_actual_model_EMA_fingerprints": {
+            "model": {
+              "tensor_count": 918,
+              "ordered_tensor_bytes_SHA256": "6d7ddb9776aabab6d27f66fcaa9a91020524fef3e58fc9f0032e3c9709ac9f90"
+            },
+            "ema_model": {
+              "tensor_count": 918,
+              "ordered_tensor_bytes_SHA256": "5622d6cec1391a93ec0db272c9ba033373bf21afcbdd5e8c0f46078ce120ad2f"
+            }
+          },
+          "loaded_optimizer_parameter_states": 861,
+          "full_CPU_intake": {
+            "actual_CPU_load": true,
+            "model_tensors": 918,
+            "optimizer_states": 861,
+            "saved_epoch": 500,
+            "global_step": 19038,
+            "optimizer_restored": true,
+            "source": {
+              "passed": true,
+              "staged": true,
+              "committed": true,
+              "transaction": "f1d0b310337f4f2c8f96ce37fa3718be",
+              "bytes": 2807312261,
+              "sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca",
+              "path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_input_acceleration_frozen_v153/seed26101523/latest.ckpt",
+              "independently_rehashed_before_commit": true,
+              "source_local_checkpoint_bytes": 0,
+              "optimizer_state_included": true,
+              "original_live_path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_dp_checkpoints_two_phase_v8/dp-recovery3000-glass_beaker_100ml-s26101523-bounded-tmp-workers0-dp-v8-a4-training_state_latest_pt/latest.ckpt",
+              "immutable_frozen_hardlink": true,
+              "source_mtime_ns": 1791637661932723506
+            },
+            "exact_training_RNG_resume": false,
+            "formal_accepted": false,
+            "independently_rehashed_source": {
+              "bytes": 2807312261,
+              "sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca"
+            },
+            "checkpoint_disk_bytes": 0,
+            "method": "DP",
+            "seed": 26101523,
+            "CPU_only": true
+          },
+          "exact_training_resume": false,
+          "training_rng_reset": true,
+          "dataloader_workers_changed_0_to2": true,
+          "old_attempt_and_every_checkpoint_retained": true,
+          "formal_accepted": false
+        },
+        "actual_CUDA_initializations": 0,
+        "actual_GPU_training_restarts": 0,
+        "formal_accepted": false
+      },
+      "cpu_intake/checkpoints/checkpoint_CPU_intake.json": {
+        "status": "streaming_ordinary_CPU_memory",
+        "bytes": 2801795072,
+        "target_bytes": 2807312261,
+        "source": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_input_acceleration_frozen_v153/seed26101523/latest.ckpt",
+        "checkpoint_disk_bytes": 0,
+        "at_utc": "2026-10-10T13:45:06.477714+00:00",
+        "formal_accepted": false
+      },
+      "checkpoints/checkpoint_CPU_intake.json": {
+        "status": "streaming_ordinary_CPU_memory",
+        "bytes": 1610612736,
+        "target_bytes": 2807312261,
+        "source": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_input_acceleration_frozen_v153/seed26101523/latest.ckpt",
+        "checkpoint_disk_bytes": 0,
+        "at_utc": "2026-10-10T13:50:16.585082+00:00",
+        "formal_accepted": false
+      }
+    },
+    "logs": {
+      "CPU_console.log": "[2026-10-10 21:42:20,890][timm.models._builder][INFO] - Loading pretrained weights from Hugging Face hub (timm/vit_small_r26_s32_224.augreg_in21k_ft_in1k)\n[2026-10-10 21:42:20,903][timm.models._hub][INFO] - [timm/vit_small_r26_s32_224.augreg_in21k_ft_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.\n[2026-10-10 21:42:20,980][psi_dp.model.vision.timm_obs_encoder][INFO] - Creating RGB example tensor with shape: torch.Size([1, 3, 224, 224])\n[2026-10-10 21:42:21,124][psi_dp.model.vision.timm_obs_encoder][INFO] - Creating RGB example tensor with shape: torch.Size([1, 3, 224, 224])\n[2026-10-10 21:42:21,249][psi_dp.model.vision.timm_obs_encoder][INFO] - Creating RGB example tensor with shape: torch.Size([1, 3, 224, 224])\n[2026-10-10 21:42:21,334][psi_dp.model.vision.timm_obs_encoder][INFO] - number of parameters: 1.090524e+08\n[2026-10-10 21:42:21,334][psi_dp.model.vision.timm_obs_encoder][INFO] - Image types - RGB: ['chest_camera_rgb', 'head_camera_rgb', 'third_camera_rgb'], RGBM: [], RGB_MASKED: [], RGB_MASKED_RGB: [], ND: [], RGBND: []\n[2026-10-10 21:42:22,011][psi_dp.model.diffusion.transformer_for_action_diffusion][INFO] - number of parameters: 6.631067e+07\n",
+      "console.log": "[2026-10-10 21:46:58,423][timm.models._builder][INFO] - Loading pretrained weights from Hugging Face hub (timm/vit_small_r26_s32_224.augreg_in21k_ft_in1k)\n[2026-10-10 21:46:58,431][timm.models._hub][INFO] - [timm/vit_small_r26_s32_224.augreg_in21k_ft_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.\n[2026-10-10 21:46:58,528][psi_dp.model.vision.timm_obs_encoder][INFO] - Creating RGB example tensor with shape: torch.Size([1, 3, 224, 224])\n[2026-10-10 21:46:58,674][psi_dp.model.vision.timm_obs_encoder][INFO] - Creating RGB example tensor with shape: torch.Size([1, 3, 224, 224])\n[2026-10-10 21:46:58,804][psi_dp.model.vision.timm_obs_encoder][INFO] - Creating RGB example tensor with shape: torch.Size([1, 3, 224, 224])\n[2026-10-10 21:46:58,880][psi_dp.model.vision.timm_obs_encoder][INFO] - number of parameters: 1.090524e+08\n[2026-10-10 21:46:58,880][psi_dp.model.vision.timm_obs_encoder][INFO] - Image types - RGB: ['chest_camera_rgb', 'head_camera_rgb', 'third_camera_rgb'], RGBM: [], RGB_MASKED: [], RGB_MASKED_RGB: [], ND: [], RGBND: []\n[2026-10-10 21:46:59,541][psi_dp.model.diffusion.transformer_for_action_diffusion][INFO] - number of parameters: 6.631067e+07\n",
+      "controller_console.log": ""
+    },
+    "CPU_child_live": false,
+    "pid_live": true
+  },
+  "source_receipt_SHA256": {
+    "n30109-jump_read_three_data_intakes_eight_DP_queue_and_fresh_Ali_progress_v11.json": "d50757e120073ba34298f79782be97d50370639e3e6256190942f96935827483",
+    "n30109-jump_read_actual_all_301_own_DP_four_roots_v12.json": "11f00af8775c741be0caa7af2252fa3e560aa6878f38000e2bf4dde4bfd58306",
+    "mainskill_read_mainskill_clearvol_fresh_DP_progress_v1.json": "b2323304c57b4ecceb75dfaf94470de7467406035aacbfdd835d13a4e842435c",
+    "n30109-jump_read_actual_Beaker100_input_acceleration_private_entry_progress_v156.json": "427b2e526b2d4b99a7fdf6f1322a8859548cfb8265add39440b9a9db553c1b55",
+    "FROZEN_SPATIAL_OOD_RESET_MATRIX_V1.json": "d758b7a57aab1afdda8201306c26a6e586ebf9a269f96d2cb289ea20ad0dc2fa",
+    "native_act_brown_reagent_bottle_large_s26100961_frozen_ood6s_v1/spatial_components.json": "7ff83ce6975a4f5533591f0f36d8fc88844a29de72b746d889a22e91d2360b75",
+    "native_act_brown_reagent_bottle_large_s26100961_frozen_ood6s_v2/spatial_components.json": "3fe46d549d2b259aca94c379a24535783fcaee7324c9279be0316a214dc601e2",
+    "ACTUAL_ACT100_FIRST3_POSTSETTLE4_MEDIA_DECODE_V147.json": "b40555c659e631fb05580ccf8011f1273839d1c6fc786eaa3081307b70ff333f",
+    "ACTUAL_ACT100_FIRST3_POSTSETTLE4_VISUAL_REVIEW_V149.json": "fbc869c136e9b2179e572f08f3e401e426f57be0a7ac794d22864921a522f618",
+    "bjxy_5090_read_actual_ACT100_three_seed_postsettle4_fixed50_progress_v132.json": "ee538883cbbf783ce7aab03f957911c0437b94e10a35545ce082746e8a6291b8",
+    "ACTUAL_BrownLarge_THREE_DP3000_FROZEN_CPU_SOURCE_V103.json": "7b7fb585810ec15a7f2da7d145384ef0facd7dcc0d921026fb84169c8cb04a6b",
+    "ACTUAL_ClearSmall_THREE_DP3000_FROZEN_CPU_SOURCE_V144.json": "51136a06e2a67ce9f1e0680fc54e5fd4fa3a2178e8271076f8a557bbb374e236",
+    "n30109-jump_read_actual_301_DP_workers2_CPU_qualification_v150.json": "113d67e71628ad10f1883a72217c601bd7bdd9bd8551b90f650610653ab57825",
+    "n30109-jump_read_actual_Beaker100_input_acceleration_input_and_GPU_progress_v160.json": "edb3f57757b16f817bb25abf294c07c47cab539b68ed8fe0774d4db323f7f43d"
+  },
+  "actual_GPU_updates_observed": true,
+  "actual_new_global_step": 19273,
+  "actual_new_epoch": 507,
+  "actual_private_entry_GPU_progress": {
+    "at_utc": "2026-10-10T13:58:15.250670+00:00",
+    "read_only": true,
+    "files": {
+      "status.json": {
+        "object": "glass_beaker_100ml",
+        "seed": 26101523,
+        "host": "ide-650ef93f23324f04881bde87cf05d6c1-0f2fcc",
+        "gpu_uuid": "GPU-ea1b15c6-004f-05e4-5d78-d4927898b2b7",
+        "started_utc": "2026-10-10T13:42:07.449482+00:00",
+        "status": "running",
+        "formal_accepted": false,
+        "paper_SSR": null,
+        "physical_dataset_requalification": false,
+        "dataloader_workers": 2,
+        "prior_attempt": "/tmp/grasp_ssr_ood_multiserver_20261009/dp_storage_recovery_v8/runs/dp-recovery3000-glass_beaker_100ml-s26101523-bounded-tmp-workers0-dp-v8-a4",
+        "logical_seed_count_increase": 0,
+        "purpose": "One owned input pipeline canary. Original frozen model/EMA/fulloptimizer continuation, fixed100 dataset/3000 epochs/LR/action horizon unchanged; worker RNG restart disclosed. Qualify actual throughput before broader deployment.",
+        "updated_utc": "2026-10-10T13:58:14.632412+00:00",
+        "CPU_command": [
+          "/home/dataset-assist-0/yf/envs/dp/bin/python",
+          "-B",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/train_entry_Beaker100_first_obs_workers2_DP_v154.py",
+          "_target_=train_diffusion_transformer_timm_workspace.TrainDiffusionTransformerTimmWorkspace",
+          "task.dataset_path=/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+          "task.dataset.zarr_path=/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+          "task.object_name=glass_beaker_100ml",
+          "task.num_demos=100",
+          "n_obs_steps=1",
+          "n_action_steps=8",
+          "training.seed=26101523",
+          "training.device=cuda:0",
+          "training.num_epochs=3000",
+          "training.max_global_train_steps=null",
+          "training.resume=false",
+          "optimizer.lr=3e-4",
+          "optimizer.obs_encoder_lr=3e-5",
+          "dataloader.batch_size=128",
+          "dataloader.num_workers=2",
+          "dataloader.persistent_workers=true",
+          "+dataloader.prefetch_factor=2",
+          "val_dataloader.num_workers=0",
+          "val_dataloader.persistent_workers=false",
+          "task.dataset.val_ratio=0.05",
+          "training.checkpoint_every=50",
+          "checkpoint.topk.k=0",
+          "checkpoint.save_last_ckpt=true",
+          "logging.mode=disabled",
+          "hydra.run.dir=/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/runs/dp-recovery3000-glass_beaker_100ml-s26101523-original-optimizer-workers2-v154-a1/cpu_intake/checkpoints"
+        ],
+        "CPU_child": {
+          "pid": 418836,
+          "start_ticks": "727290627"
+        },
+        "CPU_actual_exit_code": 0,
+        "CPU_intake_gate": {
+          "passed": true,
+          "recovery": {
+            "mode": "actual_model_EMA_optimizer_input_pipeline_canary",
+            "optimizer_reset": false,
+            "checkpoint_sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca",
+            "saved_epoch": 500,
+            "next_epoch": 501,
+            "saved_global_step": 19038,
+            "original_total_epochs": 3000,
+            "loaded_actual_model_EMA_fingerprints": {
+              "model": {
+                "tensor_count": 918,
+                "ordered_tensor_bytes_SHA256": "6d7ddb9776aabab6d27f66fcaa9a91020524fef3e58fc9f0032e3c9709ac9f90"
+              },
+              "ema_model": {
+                "tensor_count": 918,
+                "ordered_tensor_bytes_SHA256": "5622d6cec1391a93ec0db272c9ba033373bf21afcbdd5e8c0f46078ce120ad2f"
+              }
+            },
+            "loaded_optimizer_parameter_states": 861,
+            "full_CPU_intake": {
+              "actual_CPU_load": true,
+              "model_tensors": 918,
+              "optimizer_states": 861,
+              "saved_epoch": 500,
+              "global_step": 19038,
+              "optimizer_restored": true,
+              "source": {
+                "passed": true,
+                "staged": true,
+                "committed": true,
+                "transaction": "f1d0b310337f4f2c8f96ce37fa3718be",
+                "bytes": 2807312261,
+                "sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca",
+                "path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_input_acceleration_frozen_v153/seed26101523/latest.ckpt",
+                "independently_rehashed_before_commit": true,
+                "source_local_checkpoint_bytes": 0,
+                "optimizer_state_included": true,
+                "original_live_path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_dp_checkpoints_two_phase_v8/dp-recovery3000-glass_beaker_100ml-s26101523-bounded-tmp-workers0-dp-v8-a4-training_state_latest_pt/latest.ckpt",
+                "immutable_frozen_hardlink": true,
+                "source_mtime_ns": 1791637661932723506
+              },
+              "exact_training_RNG_resume": false,
+              "formal_accepted": false,
+              "independently_rehashed_source": {
+                "bytes": 2807312261,
+                "sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca"
+              },
+              "checkpoint_disk_bytes": 0,
+              "method": "DP",
+              "seed": 26101523,
+              "CPU_only": true
+            },
+            "exact_training_resume": false,
+            "training_rng_reset": true,
+            "dataloader_workers_changed_0_to2": true,
+            "old_attempt_and_every_checkpoint_retained": true,
+            "formal_accepted": false
+          },
+          "actual_CUDA_initializations": 0,
+          "actual_GPU_training_restarts": 0,
+          "formal_accepted": false
+        },
+        "old_last_before_stop": {
+          "train_loss": 0.005587535444647074,
+          "global_step": 20601,
+          "epoch": 542,
+          "lr": 0.0002800396389690808
+        },
+        "old_optimizer_frozen_and_CPU_qualified": true,
+        "old_controller_and_training_closed": true,
+        "old_closure_status": "failed",
+        "old_training_actual_exit_code": 1,
+        "own_controller_only_SIGTERM_sent": true,
+        "admission": {
+          "gpu_csv": "GPU-ea1b15c6-004f-05e4-5d78-d4927898b2b7, NVIDIA A100-SXM4-80GB, 80616, 538, 81920, 0",
+          "host_MemAvailable_KiB": 415444856,
+          "ready": true,
+          "allocator_cap_fraction": 0.4875,
+          "dynamic_GPU_reserve_GiB": 3
+        },
+        "stable_capacity_samples": 2,
+        "dataset_snapshot": {
+          "source": "/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+          "snapshot": "/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+          "files": 5862,
+          "bytes": 1324090401,
+          "manifest_sha256": "4cfeabe995904a2bde8250680121bacb8e1a2c7effb4322fb69f2087e03e3a94",
+          "full_actual_manifest_revalidated": true
+        },
+        "AF_UNIX_regression": {
+          "passed": true,
+          "actual_listener_path": "/tmp/t500dp154/pymp-v7kde2de/listener-i_xopkjo",
+          "TMPDIR": "/tmp/t500dp154"
+        },
+        "command": [
+          "/home/dataset-assist-0/yf/envs/dp/bin/python",
+          "-B",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/train_entry_Beaker100_first_obs_workers2_DP_v154.py",
+          "_target_=train_diffusion_transformer_timm_workspace.TrainDiffusionTransformerTimmWorkspace",
+          "task.dataset_path=/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+          "task.dataset.zarr_path=/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+          "task.object_name=glass_beaker_100ml",
+          "task.num_demos=100",
+          "n_obs_steps=1",
+          "n_action_steps=8",
+          "training.seed=26101523",
+          "training.device=cuda:0",
+          "training.num_epochs=3000",
+          "training.max_global_train_steps=null",
+          "training.resume=false",
+          "optimizer.lr=3e-4",
+          "optimizer.obs_encoder_lr=3e-5",
+          "dataloader.batch_size=128",
+          "dataloader.num_workers=2",
+          "dataloader.persistent_workers=true",
+          "+dataloader.prefetch_factor=2",
+          "val_dataloader.num_workers=0",
+          "val_dataloader.persistent_workers=false",
+          "task.dataset.val_ratio=0.05",
+          "training.checkpoint_every=50",
+          "checkpoint.topk.k=0",
+          "checkpoint.save_last_ckpt=true",
+          "logging.mode=disabled",
+          "hydra.run.dir=/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/runs/dp-recovery3000-glass_beaker_100ml-s26101523-original-optimizer-workers2-v154-a1/checkpoints"
+        ],
+        "source_pins": {
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/train_entry_30109_storage_recovery_DP_v8.py": "1a9be2a9d724853b16e27d9c3b833e434bf9f804e8290ce2292b862e71639715",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/train_controller_30109_storage_recovery_DP_v8.py": "68245194e54c56ad0e45cdf1573cd129cff9b870f349ceff22a3340155dc5a8d",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/stream_owned_dp_checkpoint_to_ali_v1.py": "537519252542e221248d6b7db60b4e424be1aadfa144c11564c4753b1d6abf90",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/stream_owned_dp_workspace_async_v3.py": "3e89f447c8b1325f7b9ad2c23d3b328d9c3637ebb1724b5ef93253b962009a53",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/bounded_owned_gpu_telemetry_v1.py": "d36450c6d52a7f459cdda69948ec13abd4629c805f3cac4662de905bdd973316",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/check_two_phase_checkpoint_failure_atomicity_dp_cpu_v3.py": "df7218407c2f7165d200a2ffcd348fa7ee1df99442a0727b6f3e2d88b7acdc03",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/check_async_checkpoint_and_optimizer_resume_dp_cpu_v3.py": "3cc7d3efbcc5b2683b7008adb24a07db3ca40c0afc9f93860e68dbfdc40420f9",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/async_owned_remote_checkpoint_writer_dp_v3.py": "ee744598c1b318b21133139c548deb1868c65b9a6ed62307baf477334011faae",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/stream_owned_checkpoint_to_ali_two_phase_dp_v3.py": "54c0bdec02856e725ad4bbf8bafb1f2b2680b1d92b40540b110c310b1766634a",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/stream_owned_checkpoint_to_ali_two_phase_v2.py": "54c0bdec02856e725ad4bbf8bafb1f2b2680b1d92b40540b110c310b1766634a",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/owned_checkpoint_transport_channel_slots_v8.py": "168fce5172744966b93e14ec2e0db39ab90900d0c7f31fed47ebc38ef6d1faf7",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/check_owned_SSH_channel_slots_CPU_v8.py": "f26e2ac05f3484271fb29a76cafc80dea6caecb30de80a009e08641048308436",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/owned_DP_body_slots_v8.py": "da1b0fc2d36694517a9da988cbb0e95b67fb9b18859b41ee5ec5e49b077054a4",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/check_DP_body_slots_CPU_v8.py": "d096d6125437afe6007ce31921a2aa35a5ee178525237e1523ef02f1d6c406bf",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/owned_full_checkpoint_CPU_stream_v8.py": "b8cb8c949c1ed05d62e440aaeb40807b5ab854e7a8171cea4d2abd40df75dcd0",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/CPU_gate_supervisor_DP_channels_v8.py": "49392b5ea14dbcffe48ed3c95d5d94f8828a319968524aa7ba37e82fc6e0544d",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/train_entry_Beaker100_first_obs_workers2_DP_v154.py": "b5415caa13b5658934d9fecefa991eebde3ad683c53cfce30a3ecfa475f6e465",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/train_controller_Beaker100_first_obs_workers2_DP_v154.py": "685a5f3f4c0ae0465c7c55b7e7c762505a2ef86c9f4294296ef7526af28cd131",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/fixed/budget_contract.py": "6967f99a9c2f1c9ca8517804d1fded51269b92a76978e75c33f56efcc58ca489",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/fixed/train_diffusion_transformer_timm_workspace.py": "e9fa8ee908a8f0fba4c779ed966a923e90d2abaad039564f6abbb5b713155f28",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/ACTUAL_FROZEN_FULL_OPTIMIZER_CHECKPOINT_CPU_V155.json": "bcb9825d617f21e93d8d2ed2a2dae461b07dc8cad969ec490385c4493eef19cf",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/ACTUAL_WORKERS2_CPU_EQUIVALENCE_AND_SPEED_V150.json": "0f11decc826e0e267327b508c5c3b236f805416305ce6121c90e70c40969f23a"
+        },
+        "final_admission": {
+          "gpu_csv": "GPU-ea1b15c6-004f-05e4-5d78-d4927898b2b7, NVIDIA A100-SXM4-80GB, 80616, 538, 81920, 0",
+          "host_MemAvailable_KiB": 415456024,
+          "ready": true,
+          "allocator_cap_fraction": 0.4875,
+          "dynamic_GPU_reserve_GiB": 3
+        },
+        "pid": 426399,
+        "start_ticks": "727318494",
+        "gpu_now": "GPU-ea1b15c6-004f-05e4-5d78-d4927898b2b7, NVIDIA A100-SXM4-80GB, 20361, 60793, 81920, 97",
+        "actual_min_free_GPU_MiB": 20361,
+        "last": {
+          "train_loss": 0.005629046820104122,
+          "global_step": 19273,
+          "epoch": 507,
+          "lr": 0.00028273377630868895
+        }
+      },
+      "cpu_intake/checkpoints/ACTUAL_PRIVATE_TRAIN_ENTRY_CPU_INTAKE_GATE_V154.json": {
+        "passed": true,
+        "recovery": {
+          "mode": "actual_model_EMA_optimizer_input_pipeline_canary",
+          "optimizer_reset": false,
+          "checkpoint_sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca",
+          "saved_epoch": 500,
+          "next_epoch": 501,
+          "saved_global_step": 19038,
+          "original_total_epochs": 3000,
+          "loaded_actual_model_EMA_fingerprints": {
+            "model": {
+              "tensor_count": 918,
+              "ordered_tensor_bytes_SHA256": "6d7ddb9776aabab6d27f66fcaa9a91020524fef3e58fc9f0032e3c9709ac9f90"
+            },
+            "ema_model": {
+              "tensor_count": 918,
+              "ordered_tensor_bytes_SHA256": "5622d6cec1391a93ec0db272c9ba033373bf21afcbdd5e8c0f46078ce120ad2f"
+            }
+          },
+          "loaded_optimizer_parameter_states": 861,
+          "full_CPU_intake": {
+            "actual_CPU_load": true,
+            "model_tensors": 918,
+            "optimizer_states": 861,
+            "saved_epoch": 500,
+            "global_step": 19038,
+            "optimizer_restored": true,
+            "source": {
+              "passed": true,
+              "staged": true,
+              "committed": true,
+              "transaction": "f1d0b310337f4f2c8f96ce37fa3718be",
+              "bytes": 2807312261,
+              "sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca",
+              "path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_input_acceleration_frozen_v153/seed26101523/latest.ckpt",
+              "independently_rehashed_before_commit": true,
+              "source_local_checkpoint_bytes": 0,
+              "optimizer_state_included": true,
+              "original_live_path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_dp_checkpoints_two_phase_v8/dp-recovery3000-glass_beaker_100ml-s26101523-bounded-tmp-workers0-dp-v8-a4-training_state_latest_pt/latest.ckpt",
+              "immutable_frozen_hardlink": true,
+              "source_mtime_ns": 1791637661932723506
+            },
+            "exact_training_RNG_resume": false,
+            "formal_accepted": false,
+            "independently_rehashed_source": {
+              "bytes": 2807312261,
+              "sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca"
+            },
+            "checkpoint_disk_bytes": 0,
+            "method": "DP",
+            "seed": 26101523,
+            "CPU_only": true
+          },
+          "exact_training_resume": false,
+          "training_rng_reset": true,
+          "dataloader_workers_changed_0_to2": true,
+          "old_attempt_and_every_checkpoint_retained": true,
+          "formal_accepted": false
+        },
+        "actual_CUDA_initializations": 0,
+        "actual_GPU_training_restarts": 0,
+        "formal_accepted": false
+      },
+      "cpu_intake/checkpoints/checkpoint_CPU_intake.json": {
+        "status": "streaming_ordinary_CPU_memory",
+        "bytes": 2801795072,
+        "target_bytes": 2807312261,
+        "source": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_input_acceleration_frozen_v153/seed26101523/latest.ckpt",
+        "checkpoint_disk_bytes": 0,
+        "at_utc": "2026-10-10T13:45:06.477714+00:00",
+        "formal_accepted": false
+      },
+      "checkpoints/checkpoint_CPU_intake.json": {
+        "status": "streaming_ordinary_CPU_memory",
+        "bytes": 2801795072,
+        "target_bytes": 2807312261,
+        "source": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_input_acceleration_frozen_v153/seed26101523/latest.ckpt",
+        "checkpoint_disk_bytes": 0,
+        "at_utc": "2026-10-10T13:54:49.349184+00:00",
+        "formal_accepted": false
+      },
+      "checkpoints/effective_runtime.json": {
+        "actual_gpu_uuid": "GPU-ea1b15c6-004f-05e4-5d78-d4927898b2b7",
+        "gpu_name": "NVIDIA A100-SXM4-80GB",
+        "epochs": 3000,
+        "global_step_at_start": 19038,
+        "epoch_at_start": 501,
+        "optimizer_groups": [
+          {
+            "lr": 0.0002831933855622073,
+            "initial_lr": 0.0003
+          },
+          {
+            "lr": 0.0002831933855622073,
+            "initial_lr": 0.0003
+          },
+          {
+            "lr": 2.8319338556220738e-05,
+            "initial_lr": 3e-05
+          },
+          {
+            "lr": 2.8319338556220738e-05,
+            "initial_lr": 3e-05
+          }
+        ],
+        "recovery": {
+          "mode": "actual_model_EMA_optimizer_input_pipeline_canary",
+          "optimizer_reset": false,
+          "checkpoint_sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca",
+          "saved_epoch": 500,
+          "next_epoch": 501,
+          "saved_global_step": 19038,
+          "original_total_epochs": 3000,
+          "loaded_actual_model_EMA_fingerprints": {
+            "model": {
+              "tensor_count": 918,
+              "ordered_tensor_bytes_SHA256": "6d7ddb9776aabab6d27f66fcaa9a91020524fef3e58fc9f0032e3c9709ac9f90"
+            },
+            "ema_model": {
+              "tensor_count": 918,
+              "ordered_tensor_bytes_SHA256": "5622d6cec1391a93ec0db272c9ba033373bf21afcbdd5e8c0f46078ce120ad2f"
+            }
+          },
+          "loaded_optimizer_parameter_states": 861,
+          "full_CPU_intake": {
+            "actual_CPU_load": true,
+            "model_tensors": 918,
+            "optimizer_states": 861,
+            "saved_epoch": 500,
+            "global_step": 19038,
+            "optimizer_restored": true,
+            "source": {
+              "passed": true,
+              "staged": true,
+              "committed": true,
+              "transaction": "f1d0b310337f4f2c8f96ce37fa3718be",
+              "bytes": 2807312261,
+              "sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca",
+              "path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_input_acceleration_frozen_v153/seed26101523/latest.ckpt",
+              "independently_rehashed_before_commit": true,
+              "source_local_checkpoint_bytes": 0,
+              "optimizer_state_included": true,
+              "original_live_path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_dp_checkpoints_two_phase_v8/dp-recovery3000-glass_beaker_100ml-s26101523-bounded-tmp-workers0-dp-v8-a4-training_state_latest_pt/latest.ckpt",
+              "immutable_frozen_hardlink": true,
+              "source_mtime_ns": 1791637661932723506
+            },
+            "exact_training_RNG_resume": false,
+            "formal_accepted": false,
+            "independently_rehashed_source": {
+              "bytes": 2807312261,
+              "sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca"
+            },
+            "checkpoint_disk_bytes": 0,
+            "method": "DP",
+            "seed": 26101523,
+            "CPU_only": true
+          },
+          "exact_training_resume": false,
+          "training_rng_reset": true,
+          "dataloader_workers_changed_0_to2": true,
+          "old_attempt_and_every_checkpoint_retained": true,
+          "formal_accepted": false
+        },
+        "checkpoint_backend": "Original async immutable CPU snapshot and two-phase full SHA commit; bounded body, final drain",
+        "checkpoint_interval_epochs": 50,
+        "optimizer_state_saved": true,
+        "checkpoint_bytes_written_to_shm": 0,
+        "config": {
+          "name": "train_diffusion_transformer_timm",
+          "_target_": "train_diffusion_transformer_timm_workspace.TrainDiffusionTransformerTimmWorkspace",
+          "task_name": "grasp_rgb",
+          "shape_meta": {
+            "obs": {
+              "chest_camera_rgb": {
+                "shape": [
+                  3,
+                  224,
+                  224
+                ],
+                "type": "rgb",
+                "horizon": 1
+              },
+              "head_camera_rgb": {
+                "shape": [
+                  3,
+                  224,
+                  224
+                ],
+                "type": "rgb",
+                "horizon": 1
+              },
+              "third_camera_rgb": {
+                "shape": [
+                  3,
+                  224,
+                  224
+                ],
+                "type": "rgb",
+                "horizon": 1
+              },
+              "arm2_pos": {
+                "shape": [
+                  7
+                ],
+                "type": "low_dim",
+                "horizon": 1
+              },
+              "hand2_pos": {
+                "shape": [
+                  6
+                ],
+                "type": "low_dim",
+                "horizon": 1
+              },
+              "arm2_eef_pos": {
+                "shape": [
+                  3
+                ],
+                "type": "low_dim",
+                "horizon": 1
+              },
+              "arm2_eef_quat": {
+                "shape": [
+                  4
+                ],
+                "type": "low_dim",
+                "horizon": 1
+              },
+              "target_pose": {
+                "shape": [
+                  7
+                ],
+                "type": "low_dim",
+                "horizon": 1
+              }
+            },
+            "action": {
+              "shape": [
+                13
+              ],
+              "horizon": 8
+            }
+          },
+          "exp_name": "default",
+          "object_name": "glass_beaker_100ml",
+          "num_demos": 100,
+          "use_velocity": false,
+          "n_action_steps": 8,
+          "n_obs_steps": 1,
+          "n_emb": 768,
+          "n_latency_steps": 0,
+          "dataset_obs_steps": 1,
+          "past_action_visible": false,
+          "keypoint_visible_rate": 1.0,
+          "obs_as_cond": true,
+          "policy": {
+            "_target_": "psi_dp.policy.diffusion_transformer_timm_policy.DiffusionTransformerTimmPolicy",
+            "shape_meta": {
+              "obs": {
+                "chest_camera_rgb": {
+                  "shape": [
+                    3,
+                    224,
+                    224
+                  ],
+                  "type": "rgb",
+                  "horizon": 1
+                },
+                "head_camera_rgb": {
+                  "shape": [
+                    3,
+                    224,
+                    224
+                  ],
+                  "type": "rgb",
+                  "horizon": 1
+                },
+                "third_camera_rgb": {
+                  "shape": [
+                    3,
+                    224,
+                    224
+                  ],
+                  "type": "rgb",
+                  "horizon": 1
+                },
+                "arm2_pos": {
+                  "shape": [
+                    7
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                },
+                "hand2_pos": {
+                  "shape": [
+                    6
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                },
+                "arm2_eef_pos": {
+                  "shape": [
+                    3
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                },
+                "arm2_eef_quat": {
+                  "shape": [
+                    4
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                },
+                "target_pose": {
+                  "shape": [
+                    7
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                }
+              },
+              "action": {
+                "shape": [
+                  13
+                ],
+                "horizon": 8
+              }
+            },
+            "noise_scheduler": {
+              "_target_": "diffusers.DDIMScheduler",
+              "num_train_timesteps": 50,
+              "beta_start": 0.0001,
+              "beta_end": 0.02,
+              "beta_schedule": "squaredcos_cap_v2",
+              "clip_sample": true,
+              "set_alpha_to_one": true,
+              "steps_offset": 0,
+              "prediction_type": "epsilon"
+            },
+            "obs_encoder": {
+              "_target_": "psi_dp.model.vision.timm_obs_encoder.TimmObsEncoder",
+              "shape_meta": {
+                "obs": {
+                  "chest_camera_rgb": {
+                    "shape": [
+                      3,
+                      224,
+                      224
+                    ],
+                    "type": "rgb",
+                    "horizon": 1
+                  },
+                  "head_camera_rgb": {
+                    "shape": [
+                      3,
+                      224,
+                      224
+                    ],
+                    "type": "rgb",
+                    "horizon": 1
+                  },
+                  "third_camera_rgb": {
+                    "shape": [
+                      3,
+                      224,
+                      224
+                    ],
+                    "type": "rgb",
+                    "horizon": 1
+                  },
+                  "arm2_pos": {
+                    "shape": [
+                      7
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  },
+                  "hand2_pos": {
+                    "shape": [
+                      6
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  },
+                  "arm2_eef_pos": {
+                    "shape": [
+                      3
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  },
+                  "arm2_eef_quat": {
+                    "shape": [
+                      4
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  },
+                  "target_pose": {
+                    "shape": [
+                      7
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  }
+                },
+                "action": {
+                  "shape": [
+                    13
+                  ],
+                  "horizon": 8
+                }
+              },
+              "global_pool": "",
+              "n_emb": 768,
+              "model_name": "vit_small_r26_s32_224",
+              "pretrained": true,
+              "frozen": false,
+              "feature_aggregation": null,
+              "use_mask_input": false,
+              "downsample_ratio": 32,
+              "transforms": [
+                {
+                  "type": "RandomCrop",
+                  "ratio": 0.9
+                }
+              ],
+              "use_group_norm": true,
+              "share_rgb_model": false
+            },
+            "num_inference_steps": 16,
+            "input_pertub": 0.1,
+            "n_layer": 7,
+            "n_head": 8,
+            "n_emb": 768,
+            "p_drop_attn": 0.1
+          },
+          "ema": {
+            "_target_": "diffusion_policy.model.diffusion.ema_model.EMAModel",
+            "update_after_step": 0,
+            "inv_gamma": 1.0,
+            "power": 0.75,
+            "min_value": 0.0,
+            "max_value": 0.9999
+          },
+          "dataloader": {
+            "batch_size": 128,
+            "num_workers": 2,
+            "shuffle": true,
+            "pin_memory": true,
+            "persistent_workers": true,
+            "prefetch_factor": 2
+          },
+          "val_dataloader": {
+            "batch_size": 128,
+            "num_workers": 0,
+            "shuffle": false,
+            "pin_memory": true,
+            "persistent_workers": false
+          },
+          "optimizer": {
+            "lr": 0.0003,
+            "weight_decay": 1e-06,
+            "obs_encoder_lr": 3e-05,
+            "obs_encoder_weight_decay": 1e-06,
+            "betas": [
+              0.95,
+              0.999
+            ]
+          },
+          "training": {
+            "device": "cuda:0",
+            "seed": 26101523,
+            "debug": false,
+            "resume": false,
+            "lastest_ckpt_path": null,
+            "lr_scheduler": "cosine",
+            "lr_warmup_steps": 2000,
+            "num_epochs": 3000,
+            "gradient_accumulate_every": 1,
+            "use_ema": true,
+            "freeze_encoder": false,
+            "rollout_every": 10,
+            "checkpoint_every": 50,
+            "val_every": 1,
+            "sample_every": 5,
+            "max_train_steps": null,
+            "max_global_train_steps": null,
+            "max_val_steps": null,
+            "tqdm_interval_sec": 1.0
+          },
+          "logging": {
+            "project": "DP_并行实验1222_rbg_grasp_rgb",
+            "resume": false,
+            "mode": "disabled",
+            "name": "glass_beaker_100ml_n100_velFalse_20261010_214649",
+            "tags": [
+              "grasp_rgb",
+              "glass_beaker_100ml",
+              "n100",
+              "obs:rgb",
+              "action_dim:13",
+              "img:224",
+              "velocity:False",
+              "pos_rand:True",
+              "rot_rand:False",
+              "encoder:vit_small_r26_s32_224",
+              "pretrained:True",
+              "bs:128",
+              "lr:0.0003",
+              "n_layer:7",
+              "n_emb:768",
+              "act_steps:8",
+              "obs_steps:1"
+            ],
+            "id": null,
+            "group": "glass_beaker_100ml",
+            "notes": "物体:glass_beaker_100ml | 数据:100条 | 观测:rgb | 图像:224 | 速度:False | 位置随机:True | 旋转随机:False | 编码器:vit_small_r26_s32_224"
+          },
+          "checkpoint": {
+            "topk": {
+              "monitor_key": "train_loss",
+              "mode": "min",
+              "k": 0,
+              "format_str": "epoch={epoch:04d}-train_loss={train_loss:.3f}.ckpt"
+            },
+            "save_last_ckpt": true,
+            "save_last_snapshot": false
+          },
+          "multi_run": {
+            "run_dir": "data/outputs/grasp_rgb/glass_beaker_100ml/20261010_214649_n100_velFalse",
+            "wandb_name_base": "glass_beaker_100ml_n100_velFalse_20261010_214649"
+          },
+          "task": {
+            "name": "grasp_rgb",
+            "object_name": "glass_beaker_100ml",
+            "num_demos": 100,
+            "data_root": "/home/psibot/chembench/data/zarr_rgb/motion_plan/grasp",
+            "dataset_path": "/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+            "randomization": {
+              "position": {
+                "enabled": true,
+                "x_range": [
+                  -0.02,
+                  0.02
+                ],
+                "y_range": [
+                  -0.02,
+                  0.02
+                ],
+                "z_range": [
+                  0.0,
+                  0.0
+                ]
+              },
+              "rotation": {
+                "enabled": false,
+                "yaw_range": [
+                  -26,
+                  26
+                ]
+              },
+              "lighting": false,
+              "texture": false
+            },
+            "obs_config": {
+              "use_velocity": false,
+              "use_third_camera": true
+            },
+            "data_info": {
+              "obs_type": "rgb",
+              "action_dim": 13,
+              "image_size": 224
+            },
+            "image_shape": [
+              3,
+              224,
+              224
+            ],
+            "shape_meta": {
+              "obs": {
+                "chest_camera_rgb": {
+                  "shape": [
+                    3,
+                    224,
+                    224
+                  ],
+                  "type": "rgb",
+                  "horizon": 1
+                },
+                "head_camera_rgb": {
+                  "shape": [
+                    3,
+                    224,
+                    224
+                  ],
+                  "type": "rgb",
+                  "horizon": 1
+                },
+                "third_camera_rgb": {
+                  "shape": [
+                    3,
+                    224,
+                    224
+                  ],
+                  "type": "rgb",
+                  "horizon": 1
+                },
+                "arm2_pos": {
+                  "shape": [
+                    7
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                },
+                "hand2_pos": {
+                  "shape": [
+                    6
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                },
+                "arm2_eef_pos": {
+                  "shape": [
+                    3
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                },
+                "arm2_eef_quat": {
+                  "shape": [
+                    4
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                },
+                "target_pose": {
+                  "shape": [
+                    7
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                }
+              },
+              "action": {
+                "shape": [
+                  13
+                ],
+                "horizon": 8
+              }
+            },
+            "env_runner": {
+              "_target_": "diffusion_policy.env_runner.real_pusht_image_runner.RealPushTImageRunner"
+            },
+            "dataset": {
+              "_target_": "psi_dp.dataset.grasp_rgb_dataset.GraspRGBDataset",
+              "zarr_path": "/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+              "horizon": 8,
+              "pad_before": 0,
+              "pad_after": 7,
+              "seed": 42,
+              "val_ratio": 0.05,
+              "use_velocity": false,
+              "use_third_camera": true
+            }
+          }
+        },
+        "input_optimization": "Existing sampler key_first_k only for consumed1 RGB; workers2/prefetch2/persistent; original full8 actions and every consumed tensor unchanged",
+        "formal_accepted": false
+      },
+      "checkpoints/ACTUAL_FIRST_OBSERVATION_INPUT_RUNTIME_V154.json": {
+        "at_utc": "2026-10-10T13:55:02.708330+00:00",
+        "actual_original_dataset_source_SHA256": "291b23c856810046b21fd883ab8ec2a40dfcedd4d62f448a99891b1bb55e3b92",
+        "actual_dataset_num_episodes": 100,
+        "actual_dataset_length": 4850,
+        "actual_RGB_key_first_k": {
+          "chest_camera_rgb": 1,
+          "head_camera_rgb": 1,
+          "third_camera_rgb": 1
+        },
+        "actual_action_horizon": 8,
+        "state_and_action_values_changed": false,
+        "training_workers": 2,
+        "prefetch_factor": 2,
+        "persistent_workers": true,
+        "CPU_actual_equivalence_gate": {
+          "passed": true,
+          "started_utc": "2026-10-10T13:23:57.668386+00:00",
+          "actual_GPU_training_restarts": 0,
+          "actual_Native_trials": 0,
+          "formal_accepted": false,
+          "paper_ssr": null,
+          "source_pins": {
+            "/home/dataset-assist-0/yf/chembench_t053_pick_place_fullflow_v1/runtime/chembench/diffusion_policy/psi_dp/dataset/grasp_rgb_dataset.py": "291b23c856810046b21fd883ab8ec2a40dfcedd4d62f448a99891b1bb55e3b92",
+            "/home/dataset-assist-0/yf/chembench_t053_pick_place_fullflow_v1/runtime/chembench/diffusion_policy/diffusion_policy/common/sampler.py": "eb4af7d8513bf16c46dbb3bbebd51a407434818a92937d288587e78819724f8e"
+          },
+          "source_dataset": {
+            "_target_": "psi_dp.dataset.grasp_rgb_dataset.GraspRGBDataset",
+            "zarr_path": "/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+            "horizon": 8,
+            "pad_before": 0,
+            "pad_after": 7,
+            "seed": 42,
+            "val_ratio": 0.05,
+            "use_velocity": false,
+            "use_third_camera": true
+          },
+          "RGB_shapes": {
+            "chest_camera_rgb": [
+              5105,
+              224,
+              224,
+              3
+            ],
+            "head_camera_rgb": [
+              5105,
+              224,
+              224,
+              3
+            ],
+            "third_camera_rgb": [
+              5105,
+              224,
+              224,
+              3
+            ]
+          },
+          "optimization": "Use existing original SequenceSampler key_first_k for exactly3 RGB keys, k=n_obs_steps=1. Full8 action frames and every consumed state tensor retained. No source file or active process modified.",
+          "actual_ABBA_rows": [
+            {
+              "workers": 0,
+              "prefetch_factor": null,
+              "actual_128_batch_fetch_seconds": [
+                0.9332267278805375,
+                0.8799571767449379,
+                0.7682309905067086,
+                0.830649733543396
+              ],
+              "actual_full_consumed_batch_SHA256": [
+                "e0533bceb4a4fa7d9df5fcbeffd7d153052951952db7046960795c57a3d56100",
+                "31f3cd9fff8db281c47c372806bc474f21c80247898c1e50bd148180f64515d5",
+                "13f986aa1596ec1b96125947946749ea355848a4e768d95265ac88af633cdd82",
+                "8af7252b989b611e6fd6e2840112e6522577d0e2a2120d10348efa33b35d5529"
+              ],
+              "CPU_tensor_verification_seconds": [
+                0.3271245025098324,
+                0.4739182060584426,
+                0.33471013605594635,
+                0.357194185256958
+              ],
+              "total_iteration_and_CPU_verification_seconds": 4.979976752772927,
+              "own_worker_PIDs": [],
+              "own_workers_closed": true
+            },
+            {
+              "workers": 2,
+              "prefetch_factor": 2,
+              "actual_128_batch_fetch_seconds": [
+                1.5081193698570132,
+                0.0031011663377285004,
+                0.4137696139514446,
+                0.0023788604885339737
+              ],
+              "actual_full_consumed_batch_SHA256": [
+                "e0533bceb4a4fa7d9df5fcbeffd7d153052951952db7046960795c57a3d56100",
+                "31f3cd9fff8db281c47c372806bc474f21c80247898c1e50bd148180f64515d5",
+                "13f986aa1596ec1b96125947946749ea355848a4e768d95265ac88af633cdd82",
+                "8af7252b989b611e6fd6e2840112e6522577d0e2a2120d10348efa33b35d5529"
+              ],
+              "CPU_tensor_verification_seconds": [
+                0.39719684794545174,
+                0.3686815779656172,
+                0.3441081354394555,
+                0.3735190285369754
+              ],
+              "total_iteration_and_CPU_verification_seconds": 3.5941846976056695,
+              "own_worker_PIDs": [
+                384596,
+                384600
+              ],
+              "own_workers_closed": true
+            },
+            {
+              "workers": 2,
+              "prefetch_factor": 2,
+              "actual_128_batch_fetch_seconds": [
+                1.5823486223816872,
+                0.00045709218829870224,
+                0.14578205067664385,
+                0.002945556305348873
+              ],
+              "actual_full_consumed_batch_SHA256": [
+                "e0533bceb4a4fa7d9df5fcbeffd7d153052951952db7046960795c57a3d56100",
+                "31f3cd9fff8db281c47c372806bc474f21c80247898c1e50bd148180f64515d5",
+                "13f986aa1596ec1b96125947946749ea355848a4e768d95265ac88af633cdd82",
+                "8af7252b989b611e6fd6e2840112e6522577d0e2a2120d10348efa33b35d5529"
+              ],
+              "CPU_tensor_verification_seconds": [
+                0.49620694015175104,
+                0.5025713369250298,
+                0.5141509007662535,
+                0.5123332068324089
+              ],
+              "total_iteration_and_CPU_verification_seconds": 3.927750830538571,
+              "own_worker_PIDs": [
+                384682,
+                384686
+              ],
+              "own_workers_closed": true
+            },
+            {
+              "workers": 0,
+              "prefetch_factor": null,
+              "actual_128_batch_fetch_seconds": [
+                0.7920559728518128,
+                0.7056817868724465,
+                0.7338947514072061,
+                0.6894680391997099
+              ],
+              "actual_full_consumed_batch_SHA256": [
+                "e0533bceb4a4fa7d9df5fcbeffd7d153052951952db7046960795c57a3d56100",
+                "31f3cd9fff8db281c47c372806bc474f21c80247898c1e50bd148180f64515d5",
+                "13f986aa1596ec1b96125947946749ea355848a4e768d95265ac88af633cdd82",
+                "8af7252b989b611e6fd6e2840112e6522577d0e2a2120d10348efa33b35d5529"
+              ],
+              "CPU_tensor_verification_seconds": [
+                0.5269228043034673,
+                0.44339351262897253,
+                0.5773498453199863,
+                0.6533491834998131
+              ],
+              "total_iteration_and_CPU_verification_seconds": 5.1770771285519,
+              "own_worker_PIDs": [],
+              "own_workers_closed": true
+            }
+          ],
+          "at_utc": "2026-10-10T13:24:20.760373+00:00",
+          "steady_CPU_fetch_speedup_during_verification": 8.106270424647363,
+          "workers0_steady_mean_seconds": 0.7679804130457342,
+          "workers2_steady_mean_seconds": 0.09473905665799975,
+          "actual_full128_consumed_batch_equivalence_cases": 16,
+          "actual_CUDA_initializations": 0,
+          "scope": "CPU-only real original dataset. Workers2 prefetch concurrent with CPU tensor-verification time, explicitly not a GPU-training throughput benchmark. All4 batch contents bit-identical to workers0; first2 also exact original all8frame proof. Source/active processes unchanged."
+        },
+        "formal_accepted": false,
+        "paper_ssr": null
+      },
+      "checkpoints/ACTUAL_FROZEN_CPU_CHECKPOINT_RESTORED_V154.json": {
+        "mode": "actual_model_EMA_optimizer_input_pipeline_canary",
+        "optimizer_reset": false,
+        "checkpoint_sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca",
+        "saved_epoch": 500,
+        "next_epoch": 501,
+        "saved_global_step": 19038,
+        "original_total_epochs": 3000,
+        "loaded_actual_model_EMA_fingerprints": {
+          "model": {
+            "tensor_count": 918,
+            "ordered_tensor_bytes_SHA256": "6d7ddb9776aabab6d27f66fcaa9a91020524fef3e58fc9f0032e3c9709ac9f90"
+          },
+          "ema_model": {
+            "tensor_count": 918,
+            "ordered_tensor_bytes_SHA256": "5622d6cec1391a93ec0db272c9ba033373bf21afcbdd5e8c0f46078ce120ad2f"
+          }
+        },
+        "loaded_optimizer_parameter_states": 861,
+        "full_CPU_intake": {
+          "actual_CPU_load": true,
+          "model_tensors": 918,
+          "optimizer_states": 861,
+          "saved_epoch": 500,
+          "global_step": 19038,
+          "optimizer_restored": true,
+          "source": {
+            "passed": true,
+            "staged": true,
+            "committed": true,
+            "transaction": "f1d0b310337f4f2c8f96ce37fa3718be",
+            "bytes": 2807312261,
+            "sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca",
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_input_acceleration_frozen_v153/seed26101523/latest.ckpt",
+            "independently_rehashed_before_commit": true,
+            "source_local_checkpoint_bytes": 0,
+            "optimizer_state_included": true,
+            "original_live_path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_dp_checkpoints_two_phase_v8/dp-recovery3000-glass_beaker_100ml-s26101523-bounded-tmp-workers0-dp-v8-a4-training_state_latest_pt/latest.ckpt",
+            "immutable_frozen_hardlink": true,
+            "source_mtime_ns": 1791637661932723506
+          },
+          "exact_training_RNG_resume": false,
+          "formal_accepted": false,
+          "independently_rehashed_source": {
+            "bytes": 2807312261,
+            "sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca"
+          },
+          "checkpoint_disk_bytes": 0,
+          "method": "DP",
+          "seed": 26101523,
+          "CPU_only": true
+        },
+        "exact_training_resume": false,
+        "training_rng_reset": true,
+        "dataloader_workers_changed_0_to2": true,
+        "old_attempt_and_every_checkpoint_retained": true,
+        "formal_accepted": false
+      }
+    },
+    "logs": {
+      "CPU_console.log": "[2026-10-10 21:42:20,890][timm.models._builder][INFO] - Loading pretrained weights from Hugging Face hub (timm/vit_small_r26_s32_224.augreg_in21k_ft_in1k)\n[2026-10-10 21:42:20,903][timm.models._hub][INFO] - [timm/vit_small_r26_s32_224.augreg_in21k_ft_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.\n[2026-10-10 21:42:20,980][psi_dp.model.vision.timm_obs_encoder][INFO] - Creating RGB example tensor with shape: torch.Size([1, 3, 224, 224])\n[2026-10-10 21:42:21,124][psi_dp.model.vision.timm_obs_encoder][INFO] - Creating RGB example tensor with shape: torch.Size([1, 3, 224, 224])\n[2026-10-10 21:42:21,249][psi_dp.model.vision.timm_obs_encoder][INFO] - Creating RGB example tensor with shape: torch.Size([1, 3, 224, 224])\n[2026-10-10 21:42:21,334][psi_dp.model.vision.timm_obs_encoder][INFO] - number of parameters: 1.090524e+08\n[2026-10-10 21:42:21,334][psi_dp.model.vision.timm_obs_encoder][INFO] - Image types - RGB: ['chest_camera_rgb', 'head_camera_rgb', 'third_camera_rgb'], RGBM: [], RGB_MASKED: [], RGB_MASKED_RGB: [], ND: [], RGBND: []\n[2026-10-10 21:42:22,011][psi_dp.model.diffusion.transformer_for_action_diffusion][INFO] - number of parameters: 6.631067e+07\n",
+      "console.log": "02:  32%|███▏      | 12/38 [00:12<00:23,  1.12it/s, loss=0.00678]\rTraining epoch 502:  37%|███▋      | 14/38 [00:13<00:18,  1.30it/s, loss=0.00617]\rTraining epoch 502:  42%|████▏     | 16/38 [00:15<00:16,  1.33it/s, loss=0.00634]\rTraining epoch 502:  47%|████▋     | 18/38 [00:16<00:14,  1.38it/s, loss=0.00748]\rTraining epoch 502:  53%|█████▎    | 20/38 [00:17<00:12,  1.43it/s, loss=0.00693]\rTraining epoch 502:  58%|█████▊    | 22/38 [00:19<00:11,  1.44it/s, loss=0.00677]\rTraining epoch 502:  63%|██████▎   | 24/38 [00:21<00:10,  1.33it/s, loss=0.00723]\rTraining epoch 502:  71%|███████   | 27/38 [00:22<00:07,  1.53it/s, loss=0.00649]\rTraining epoch 502:  76%|███████▋  | 29/38 [00:23<00:05,  1.52it/s, loss=0.00803]\rTraining epoch 502:  82%|████████▏ | 31/38 [00:25<00:04,  1.42it/s, loss=0.00671]\rTraining epoch 502:  89%|████████▉ | 34/38 [00:27<00:02,  1.48it/s, loss=0.00626]\rTraining epoch 502:  97%|█████████▋| 37/38 [00:29<00:00,  1.53it/s, loss=0.00585]\r                                                                                 \r\rTraining epoch 503:   0%|          | 0/38 [00:00<?, ?it/s]\rTraining epoch 503:   3%|▎         | 1/38 [00:02<01:20,  2.19s/it, loss=0.00651]\rTraining epoch 503:   5%|▌         | 2/38 [00:03<01:06,  1.83s/it, loss=0.00729]\rTraining epoch 503:  11%|█         | 4/38 [00:05<00:40,  1.19s/it, loss=0.00853]\rTraining epoch 503:  16%|█▌        | 6/38 [00:06<00:31,  1.00it/s, loss=0.00751]\rTraining epoch 503:  21%|██        | 8/38 [00:08<00:29,  1.01it/s, loss=0.0069] \rTraining epoch 503:  26%|██▋       | 10/38 [00:10<00:24,  1.14it/s, loss=0.00691]\rTraining epoch 503:  32%|███▏      | 12/38 [00:12<00:23,  1.13it/s, loss=0.00673]\rTraining epoch 503:  37%|███▋      | 14/38 [00:13<00:21,  1.14it/s, loss=0.00563]\rTraining epoch 503:  42%|████▏     | 16/38 [00:15<00:19,  1.14it/s, loss=0.00549]\rTraining epoch 503:  47%|████▋     | 18/38 [00:16<00:15,  1.28it/s, loss=0.0062] \rTraining epoch 503:  53%|█████▎    | 20/38 [00:17<00:13,  1.36it/s, loss=0.00629]\rTraining epoch 503:  58%|█████▊    | 22/38 [00:19<00:11,  1.36it/s, loss=0.00693]\rTraining epoch 503:  63%|██████▎   | 24/38 [00:20<00:09,  1.51it/s, loss=0.00721]\rTraining epoch 503:  68%|██████▊   | 26/38 [00:22<00:08,  1.41it/s, loss=0.00594]\rTraining epoch 503:  74%|███████▎  | 28/38 [00:23<00:06,  1.54it/s, loss=0.00714]\rTraining epoch 503:  79%|███████▉  | 30/38 [00:24<00:05,  1.51it/s, loss=0.00737]\rTraining epoch 503:  84%|████████▍ | 32/38 [00:26<00:04,  1.41it/s, loss=0.00629]\rTraining epoch 503:  92%|█████████▏| 35/38 [00:28<00:02,  1.46it/s, loss=0.00835]\rTraining epoch 503:  97%|█████████▋| 37/38 [00:29<00:00,  1.57it/s, loss=0.00558]\r                                                                                 \r\rTraining epoch 504:   0%|          | 0/38 [00:00<?, ?it/s]\rTraining epoch 504:   3%|▎         | 1/38 [00:02<01:22,  2.24s/it, loss=0.00679]\rTraining epoch 504:   8%|▊         | 3/38 [00:03<00:39,  1.12s/it, loss=0.00541]\rTraining epoch 504:  13%|█▎        | 5/38 [00:05<00:30,  1.09it/s, loss=0.00854]\rTraining epoch 504:  18%|█▊        | 7/38 [00:06<00:26,  1.17it/s, loss=0.00702]\rTraining epoch 504:  26%|██▋       | 10/38 [00:08<00:20,  1.38it/s, loss=0.00602]\rTraining epoch 504:  32%|███▏      | 12/38 [00:09<00:17,  1.49it/s, loss=0.00879]\rTraining epoch 504:  37%|███▋      | 14/38 [00:10<00:16,  1.45it/s, loss=0.00643]\rTraining epoch 504:  42%|████▏     | 16/38 [00:12<00:14,  1.56it/s, loss=0.00621]\rTraining epoch 504:  47%|████▋     | 18/38 [00:13<00:13,  1.50it/s, loss=0.00642]\rTraining epoch 504:  53%|█████▎    | 20/38 [00:15<00:12,  1.41it/s, loss=0.00669]\rTraining epoch 504:  61%|██████    | 23/38 [00:16<00:09,  1.55it/s, loss=0.00665]\rTraining epoch 504:  66%|██████▌   | 25/38 [00:18<00:08,  1.57it/s, loss=0.00647]\rTraining epoch 504:  71%|███████   | 27/38 [00:19<00:07,  1.50it/s, loss=0.00628]\rTraining epoch 504:  79%|███████▉  | 30/38 [00:21<00:05,  1.55it/s, loss=0.00605]\rTraining epoch 504:  84%|████████▍ | 32/38 [00:22<00:03,  1.58it/s, loss=0.00668]\rTraining epoch 504:  89%|████████▉ | 34/38 [00:23<00:02,  1.52it/s, loss=0.00532]\rTraining epoch 504:  95%|█████████▍| 36/38 [00:25<00:01,  1.61it/s, loss=0.00579]\rTraining epoch 504: 100%|██████████| 38/38 [00:26<00:00,  1.52it/s, loss=0.00574]\r                                                                                 \r\rTraining epoch 505:   0%|          | 0/38 [00:00<?, ?it/s]\rTraining epoch 505:   3%|▎         | 1/38 [00:02<01:30,  2.45s/it, loss=0.00557]\rTraining epoch 505:   5%|▌         | 2/38 [00:04<01:14,  2.07s/it, loss=0.00639]\rTraining epoch 505:  11%|█         | 4/38 [00:05<00:41,  1.22s/it, loss=0.00562]\rTraining epoch 505:  16%|█▌        | 6/38 [00:07<00:34,  1.08s/it, loss=0.00618]\rTraining epoch 505:  21%|██        | 8/38 [00:08<00:25,  1.15it/s, loss=0.00748]\rTraining epoch 505:  26%|██▋       | 10/38 [00:10<00:23,  1.20it/s, loss=0.00556]\rTraining epoch 505:  32%|███▏      | 12/38 [00:11<00:21,  1.19it/s, loss=0.0055] \rTraining epoch 505:  39%|███▉      | 15/38 [00:13<00:16,  1.41it/s, loss=0.00536]\rTraining epoch 505:  45%|████▍     | 17/38 [00:14<00:14,  1.45it/s, loss=0.00614]\rTraining epoch 505:  50%|█████     | 19/38 [00:16<00:13,  1.39it/s, loss=0.006]  \rTraining epoch 505:  55%|█████▌    | 21/38 [00:17<00:12,  1.37it/s, loss=0.00676]\rTraining epoch 505:  63%|██████▎   | 24/38 [00:19<00:09,  1.41it/s, loss=0.00697]\rTraining epoch 505:  68%|██████▊   | 26/38 [00:21<00:08,  1.36it/s, loss=0.00613]\rTraining epoch 505:  74%|███████▎  | 28/38 [00:22<00:06,  1.45it/s, loss=0.00617]\rTraining epoch 505:  79%|███████▉  | 30/38 [00:24<00:05,  1.43it/s, loss=0.00592]\rTraining epoch 505:  84%|████████▍ | 32/38 [00:25<00:04,  1.49it/s, loss=0.00628]\rTraining epoch 505:  89%|████████▉ | 34/38 [00:26<00:02,  1.46it/s, loss=0.00581]\rTraining epoch 505:  95%|█████████▍| 36/38 [00:28<00:01,  1.42it/s, loss=0.00661]\r                                                                                 \r\rTraining epoch 506:   0%|          | 0/38 [00:00<?, ?it/s]\rTraining epoch 506:   3%|▎         | 1/38 [00:02<01:37,  2.63s/it, loss=0.00614]\rTraining epoch 506:   8%|▊         | 3/38 [00:03<00:38,  1.11s/it, loss=0.00683]\rTraining epoch 506:  13%|█▎        | 5/38 [00:05<00:32,  1.01it/s, loss=0.00552]\rTraining epoch 506:  18%|█▊        | 7/38 [00:06<00:24,  1.27it/s, loss=0.00615]\rTraining epoch 506:  24%|██▎       | 9/38 [00:07<00:21,  1.35it/s, loss=0.00604]\rTraining epoch 506:  29%|██▉       | 11/38 [00:09<00:21,  1.26it/s, loss=0.00757]\rTraining epoch 506:  37%|███▋      | 14/38 [00:11<00:17,  1.37it/s, loss=0.00592]\rTraining epoch 506:  45%|████▍     | 17/38 [00:13<00:15,  1.38it/s, loss=0.00515]\rTraining epoch 506:  50%|█████     | 19/38 [00:15<00:14,  1.31it/s, loss=0.00539]\rTraining epoch 506:  55%|█████▌    | 21/38 [00:16<00:12,  1.32it/s, loss=0.00599]\rTraining epoch 506:  61%|██████    | 23/38 [00:18<00:10,  1.43it/s, loss=0.0059] \rTraining epoch 506:  66%|██████▌   | 25/38 [00:19<00:09,  1.43it/s, loss=0.00664]\rTraining epoch 506:  71%|███████   | 27/38 [00:21<00:08,  1.32it/s, loss=0.0072] \rTraining epoch 506:  76%|███████▋  | 29/38 [00:22<00:06,  1.36it/s, loss=0.00721]\rTraining epoch 506:  82%|████████▏ | 31/38 [00:23<00:04,  1.45it/s, loss=0.00741]\rTraining epoch 506:  87%|████████▋ | 33/38 [00:25<00:03,  1.33it/s, loss=0.00817]\rTraining epoch 506:  92%|█████████▏| 35/38 [00:26<00:02,  1.45it/s, loss=0.00586]\rTraining epoch 506:  97%|█████████▋| 37/38 [00:28<00:00,  1.42it/s, loss=0.00668]\r                                                                                 \r\rTraining epoch 507:   0%|          | 0/38 [00:00<?, ?it/s]\rTraining epoch 507:   3%|▎         | 1/38 [00:02<01:22,  2.24s/it, loss=0.0063]\rTraining epoch 507:   5%|▌         | 2/38 [00:03<01:03,  1.77s/it, loss=0.00751]\rTraining epoch 507:  11%|█         | 4/38 [00:05<00:38,  1.13s/it, loss=0.00595]\rTraining epoch 507:  16%|█▌        | 6/38 [00:06<00:32,  1.00s/it, loss=0.00598]\rTraining epoch 507:  24%|██▎       | 9/38 [00:08<00:22,  1.27it/s, loss=0.00683]",
+      "controller_console.log": ""
+    },
+    "CPU_child_live": false,
+    "pid_live": true
+  }
+}
