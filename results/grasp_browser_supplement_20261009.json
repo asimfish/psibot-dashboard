@@ -1,6 +1,6 @@
 {
   "schema": "grasp.browser.supplement.v1",
-  "updated_utc": "2026-10-10T10:29:07.701762+00:00",
+  "updated_utc": "2026-10-10T11:18:16.101903+00:00",
   "source_pins": [
     {
       "source": "/home/liyufeng/ops/grasp_acceptance_20260917/NATIVE_EPISODE_LEDGER_20261002.json",
@@ -12,6 +12,104 @@
     }
   ],
   "runs": [
+    {
+      "candidate": "t500-beaker100-act-s26101511-fixed100-native3-v17",
+      "display_name": "ACT · 100演示 · seed511 · 原流程3次开发试验",
+      "object": "glass_beaker_100ml",
+      "development": true,
+      "progress": {
+        "episode_num": 3,
+        "episode_success_num": 0,
+        "success_rate": 0
+      },
+      "protocol": {
+        "method": "act",
+        "seed": 26101021,
+        "episode_length_s": 6,
+        "actual_xy_range_cm": 2,
+        "checkpoint_sha256": "ef39b14abf08669ac6d3101bfead9aa0e4a218f6810a4c71bbaa96dae834fd12",
+        "note": "原训练验证集选择模型；第1/2/3个原冻结位置，实际状态输入与原始动作完整保留；无论文SR/SSR验收。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": 26101511
+        },
+        "last": {
+          "global_step": 10000,
+          "epoch": 4999
+        }
+      },
+      "cases": [
+        {
+          "episode": 1,
+          "camera": "chest_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act511-v16/episode_001_chest_camera.mp4",
+          "caption": "100条演示ACT固定seed26101511，实际6秒失败试次；三相机原始视频，非50次正式成功率。"
+        },
+        {
+          "episode": 1,
+          "camera": "head_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act511-v16/episode_001_head_camera.mp4",
+          "caption": "100条演示ACT固定seed26101511，实际6秒失败试次；三相机原始视频，非50次正式成功率。"
+        },
+        {
+          "episode": 1,
+          "camera": "third_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act511-v16/episode_001_third_camera.mp4",
+          "caption": "100条演示ACT固定seed26101511，实际6秒失败试次；三相机原始视频，非50次正式成功率。"
+        },
+        {
+          "episode": 2,
+          "camera": "chest_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act511-v16/episode_002_chest_camera.mp4",
+          "caption": "100条演示ACT固定seed26101511，实际6秒失败试次；三相机原始视频，非50次正式成功率。"
+        },
+        {
+          "episode": 2,
+          "camera": "head_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act511-v16/episode_002_head_camera.mp4",
+          "caption": "100条演示ACT固定seed26101511，实际6秒失败试次；三相机原始视频，非50次正式成功率。"
+        },
+        {
+          "episode": 2,
+          "camera": "third_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act511-v16/episode_002_third_camera.mp4",
+          "caption": "100条演示ACT固定seed26101511，实际6秒失败试次；三相机原始视频，非50次正式成功率。"
+        },
+        {
+          "episode": 3,
+          "camera": "chest_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act511-v17/episode_003_chest_camera.mp4",
+          "caption": "100条演示ACT固定seed26101511，原冻结第3次6秒失败试跑；原始三相机，非50次正式成功率。"
+        },
+        {
+          "episode": 3,
+          "camera": "head_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act511-v17/episode_003_head_camera.mp4",
+          "caption": "100条演示ACT固定seed26101511，原冻结第3次6秒失败试跑；原始三相机，非50次正式成功率。"
+        },
+        {
+          "episode": 3,
+          "camera": "third_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act511-v17/episode_003_third_camera.mp4",
+          "caption": "100条演示ACT固定seed26101511，原冻结第3次6秒失败试跑；原始三相机，非50次正式成功率。"
+        }
+      ],
+      "paper_ssr_percent": null,
+      "metric_note": "seed511原始流程3次开发试跑均失败，三次完整视频保留，0/3不是正式50次成功率。3个ACT已完成5000轮及各50帧GPU验证；seed513/515按原冻结位置排队。首步离线对照显示：原输入误差0.158rad，只换位置仍0.156rad，只换速度降至0.034rad，问题主要关联初始速度差异，尚待真实物理验证。没有向测试观测填入训练状态、改选检查点或放宽成功门；论文SSR仍未判，穿模检查HOLD。"
+    },
     {
       "candidate": "t500-beaker100-act-s26101511-fixed100-native2-v16",
       "display_name": "ACT · 100演示 · seed511 · 2次开发试验",
