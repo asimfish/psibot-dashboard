@@ -7,6 +7,7 @@
   const status=x=>x===true?'success':x===false?'failure':'interrupted';
   const statusLabel=x=>x===true?'成功':x===false?'失败':'中断 / 未有有效终态';
   const badge=x=>`<span class="status ${status(x)}">${statusLabel(x)}</span>`;
+  function interval(k,n){if(!n)return '未有有效分母';const z=1.959963984540054,p=k/n,b=1+z*z/n,c=(p+z*z/(2*n))/b,h=z*Math.sqrt(p*(1-p)/n+z*z/(4*n*n))/b;return `Wilson 95% CI ${((c-h)*100).toFixed(1)}–${((c+h)*100).toFixed(1)}%`;}
   let report,episodes,traces,study='robosuite',page=0,matrixFilter=null;
   const perPage=20;
   function table(headers,rows,caption='',cls=''){return `<div class="table-wrap"><table class="${cls}">${caption?`<caption>${caption}</caption>`:''}<thead><tr>${headers.map(x=>`<th scope="col">${x}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(x=>`<td>${x}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;}
@@ -20,15 +21,15 @@
       html+=`<p class="study-meta">脚本上界：三任务各20/20；随机下界：三任务各0/20。两者不属于 Astra 回合。</p><div class="study-note">低信息不等于严格纯视觉；本体输入也带标定、辅助或先验。code 允许生成控制程序，预算与短动作接口不同。早期 Mac prompt v1/v2 的70回合只保留在台账，未混入这300回合。</div>`;
     }else if(study==='e3'){
       html=`<h3>SafeLab E3：平台与任务分开统计</h3><p class="study-meta">历史聚合结果 · 保留原分母 · 推理档位有同10个seed的子集对照</p>`;
-      html+=table(['平台 / 任务','推理档位','成功 / 分母','基础设施状态','分母口径'],report.historical_e3.map(x=>[`${esc(x.robot)} · ${x.task==='grasp'?'抓取 / 保持':'放置'}`,esc(x.effort),`<b>${x.successes}/${x.denominator}</b> · ${(x.successes/x.denominator*100).toFixed(0)}%`,x.robot==='PsiBot'?'另有4条无效与2条未运行':`${x.infrastructure_interrupted_episodes} 次中断保留在分母`,x.denominator_type==='valid_cohort'?'原有效队列':'原全部计划尝试']),'表 3 · 原 E3 成绩。不同平台任务不合并。');
-      html+=`<div class="paired-chart"><h4>FR3 放置 · 同一10个seed</h4><div class="paired-row"><span>medium</span><div class="bar"><i style="width:30%"></i></div><b>3/10</b></div><div class="paired-row"><span>xhigh</span><div class="bar"><i style="width:90%"></i></div><b>9/10</b></div><p class="caption">图 3 · seed 9301–9310 的历史对照；medium 含1次网络中断。</p></div><div class="study-note">历史结果按既有核验聚合承接，本轮没有重新读取所有原始模型回执。总体 medium 6/20 与 xhigh 9/10 的样本量不同，应优先看同10个seed的子集，并保留网络中断影响。</div>`;
+      html+=table(['平台 / 任务','推理档位','成功 / 分母','基础设施状态','分母口径'],report.historical_e3.map(x=>[`${esc(x.robot)} · ${x.task==='grasp'?'抓取 / 保持':'放置'}`,esc(x.effort),`<b>${x.successes}/${x.denominator}</b> · ${(x.successes/x.denominator*100).toFixed(0)}%<small>${interval(x.successes,x.denominator)}</small>`,x.robot==='PsiBot'?'另有4条无效与2条未运行':`${x.infrastructure_interrupted_episodes} 次中断保留在分母`,x.denominator_type==='valid_cohort'?'原有效队列':'原全部计划尝试']),'表 3 · 原 E3 成绩。不同平台任务不合并。');
+      html+=`<div class="paired-chart"><h4>FR3 放置 · 同一10个seed</h4><div class="paired-row"><span>medium</span><div class="bar"><i style="width:30%"></i></div><b>3/10<small>${interval(3,10)}</small></b></div><div class="paired-row"><span>xhigh</span><div class="bar"><i style="width:90%"></i></div><b>9/10<small>${interval(9,10)}</small></b></div><p class="caption">图 3 · seed 9301–9310 的历史对照；medium 含1次网络中断。</p></div><div class="study-note">历史结果按既有核验聚合承接，本轮没有重新读取所有原始模型回执。总体 medium 6/20 与 xhigh 9/10 的样本量不同，应优先看同10个seed的子集，并保留网络中断影响。</div>`;
     }else if(study==='ablation'){
       html=`<h3>FR3：七种输入条件，两种初态</h3><p class="study-meta">xhigh · seed 9403 / 9404 · 14次尝试 · 13次有效、1次中断 · 探索性 pilot</p>`;
       html+=table(['输入条件','成功 / 有效','全部尝试','中断','Wilson 95% CI'],report.fr3_input_ablation.map(x=>[`${esc(labels[x.condition])}<br><code>${esc(x.condition)}</code>`,`<b>${x.success_n}/${x.valid_n}</b>`,x.attempt_n,x.interrupted_n,`${x.ci95[0].toFixed(1)}–${x.ci95[1].toFixed(1)}%`]),'表 4 · 有效终态作为主分母；全部尝试与中断同时保留。');
       html+=`<div class="study-note">每组只有1或2个有效样本。2/2 的95%区间仍约34–100%，不能据此宣称稳定100%能力。rgb_only 保留共同文字与分类反馈；指标和模型自己声明完成无关。</div>`;
     }else{
       html=`<h3>后续 20×7：计划与已测数量</h3><p class="study-meta">公开状态截至 2026-09-18 01:38 CST · 未完成 · 不用旧 pilot 补满新批次</p><div class="group-total"><div><strong>21 / 140</strong><span>FR3 有效 · 10成功</span></div><div><strong>6 / 140</strong><span>PsiBot 有效 · 4成功</span></div></div>`;
-      const rows=['rich','minus_S','minus_J','minus_K','minus_F','minus_H','rgb_only'].map(c=>[`${esc(labels[c])}<br><code>${c}</code>`,...['FR3','PsiBot'].map(p=>{const x=report.campaign_snapshot.find(x=>x.platform===p&&x.condition===c);return x.n?`<b>${x.successes}/${x.n}</b><br><small>有效 ${x.n}/20</small>`:'<span class="tag">尚无有效终态</span>';})]);
+      const rows=['rich','minus_S','minus_J','minus_K','minus_F','minus_H','rgb_only'].map(c=>[`${esc(labels[c])}<br><code>${c}</code>`,...['FR3','PsiBot'].map(p=>{const x=report.campaign_snapshot.find(x=>x.platform===p&&x.condition===c);return x.n?`<b>${x.successes}/${x.n}</b><br><small>${interval(x.successes,x.n)}<br>有效 ${x.n}/20</small>`:'<span class="tag">尚无有效终态</span>';})]);
       html+=table(['输入条件','FR3 · 放置','PsiBot · 抓取'],rows,'表 5 · 成功 / 有效完成；计划每组20。未运行与中断不填零分。');
       html+=`<div class="study-note">原9月15日条件表23条＋9月17日四份公开 result 构成27条有效记录。两平台任务不同，14/27 不作为合并能力成功率；旧公开“暂停”也不代表今天的运行状态。</div>`;
     }
@@ -38,12 +39,12 @@
   function drawCases(filter='all'){
     $('case-gallery').innerHTML=report.gallery.filter(x=>filter==='all'||status(x.success)===filter).map(x=>`<article class="episode-card" data-id="${esc(x.id)}"><div class="card-media"><img loading="lazy" src="${esc(safeURL(x.poster))}" alt="${esc(x.title)}的实际模型输入"><button class="play-case" data-video="${esc(safeURL(x.video_url))}">▶ 播放原视频</button></div><div class="card-body">${badge(x.success)}<h4>${esc(x.title)}</h4><p>${esc(x.note)}</p><div class="meta">${esc(x.condition)} · ${esc(x.id)}</div><div class="card-links"><a href="#decision-viewer" data-trace="${esc(x.id)}">查看逐轮动作 →</a><a target="_blank" rel="noopener" href="${esc(safeURL(x.video_url))}">原视频 ↗</a></div></div></article>`).join('');
   }
-  function selectEpisode(id){const t=traces.find(x=>x.id===id)||traces[0];$('trace-episode').value=t.id;$('trace-decision').innerHTML=t.decisions.map((d,i)=>`<option value="${i}">#${d.number} · 仿真 ${Number(d.sim_time||0).toFixed(2)}s</option>`).join('');drawDecision();}
+  function selectEpisode(id){const t=traces.find(x=>x.id===id);if(!t){$('trace-status').textContent='此回合没有本站逐轮记录，请使用原来源链接。';return;}$('trace-episode').value=t.id;$('trace-decision').innerHTML=t.decisions.map((d,i)=>`<option value="${i}">#${d.number} · 仿真 ${Number(d.sim_time||0).toFixed(2)}s</option>`).join('');drawDecision();}
   function drawDecision(){
     const t=traces.find(x=>x.id===$('trace-episode').value),i=Number($('trace-decision').value),d=t.decisions[i];
     $('trace-status').innerHTML=`${badge(t.summary.success)} <span>${esc(t.id)} · 决策 ${i+1}/${t.decisions.length} · ${esc(d.status)}${d.wall_wait!=null?' · 本轮等待 '+Number(d.wall_wait).toFixed(1)+' s':''}</span>`;
     $('trace-images').innerHTML=(d.images||[]).map(im=>`<figure>${safeURL(im.url)?`<img loading="lazy" src="${esc(safeURL(im.url))}" alt="决策${d.number}：${esc(im.camera||im.label)}实际模型输入" width="640" height="480">`:'<p>此机位没有留存输入图像</p>'}<figcaption>${esc(im.camera||im.label)} · ${esc(im.temporal_role||'current')} · 实际模型输入</figcaption></figure>`).join('')||'<p>此轮没有留存输入图像。</p>';
-    $('trace-fields').innerHTML='<b>实际字段：</b> '+Object.entries(d.mask||{}).map(([k,v])=>`<span class="tag field-${v.status==='visible'?'visible':v.status==='removed_by_condition'?'removed':'unavailable'}" title="${esc(v.reason_zh)}">${esc(k)} · ${esc(v.reason_zh)}</span>`).join('')+'<p class="caption">共同字段：'+esc((d.visible_input_keys||[]).join(' · '))+'</p>';
+    $('trace-fields').innerHTML='<b>实际字段：</b> '+Object.entries(d.mask||{}).map(([k,v])=>`<span class="tag field-${v.status==='visible'?'visible':v.status==='removed_by_condition'?'removed':'unavailable'}" title="${esc(v.reason_zh)}">${esc(k)} · ${esc(v.reason_zh)}</span>`).join('')+'<p class="caption">留存观测键（可含屏蔽占位字段）：'+esc((d.visible_input_keys||[]).join(' · '))+'</p>';
     $('trace-actions').textContent=JSON.stringify({actions:d.actions??[],done:d.done??null},null,2);
     $('trace-feedback').textContent=JSON.stringify({status:d.status,execution:d.execution??[]},null,2);
     const url=safeURL(t.source_url);$('trace-source').hidden=!url;if(url)$('trace-source').href=url;
