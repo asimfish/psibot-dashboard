@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PickPlace · 训练、泛化测试与验收 | SafeLab</title><link rel="stylesheet" href="pick-place.css?v=20261010-v1"></head>
+<title>PickPlace · 训练、泛化测试与验收 | SafeLab</title><link rel="stylesheet" href="pick-place.css?v=20261010-v2"></head>
 <body><header><nav><a href="index.html#pick-place-progress">← 主面板</a><a href="grasp.html">Grasp</a><a href="#progress">全部任务</a><a href="#servers">服务器与监管</a><a href="#protocol">SSR 与泛化</a></nav>
 <div class="eyebrow">SAFELAB / PSIBOT · 持续监管</div><h1>PickPlace · 训练与泛化测试</h1>
 <p class="muted">13 个物体，DP / ACT 两种方法。查看模型训练、四档位置泛化、完整 50 次测试结果与验收进展。</p>
 <div id="stats" class="stats" aria-live="polite"></div>
 <div class="freshness"><div><strong id="connection">正在读取进度…</strong><p id="updated" class="muted"></p></div><button id="refresh">立即刷新</button></div>
-<p class="small">网页每分钟检查更新，后台每 10 分钟发布。训练完成、测试完成和论文指标验收分别记录。</p></header>
+<p class="small">网页每分钟检查更新，后台每 10 分钟发布；公开缓存可能带来延迟，以数据时间为准。训练完成、测试完成和论文指标验收分别记录。</p></header>
 <main><div id="loadError" class="note" hidden role="alert"></div>
 <div class="layout"><aside class="card sidebar"><h2>选择物体</h2><label for="search">搜索物体</label><input id="search" type="search" placeholder="例如：烧杯、量筒"><div id="objects" class="object-list"></div><p id="emptySearch" class="muted" hidden>未找到物体。</p></aside>
 <div class="workspace"><section id="selected"><h2 id="objectTitle">正在加载…</h2><div class="toolbar"><div role="group" aria-label="选择方法"><button id="dp" class="active" aria-pressed="true">DP</button> <button id="act" aria-pressed="false">ACT</button></div><span id="modelStatus" class="pill"></span></div>
@@ -20,4 +20,4 @@
 <p class="note">最终统一泛化档位在全部 104 组核验后选定：按实际落在采集范围外的覆盖率选择共同档位，保留完整曲线。当前不按逐物体最高分挑选结果。</p>
 <p>论文 Table 20 有 10 个当前物体的对应行；小棕色试剂瓶、小透明试剂瓶、研钵没有精确对应项。论文为 3 seeds × 50 次，本轮按用户要求为 1 seed × 50 次；DP 训练配方亦有差别，论文数值作为参考展示。</p>
 <div class="navlinks"><a href="https://raw.githubusercontent.com/mlresearch/v306/main/assets/bai26e/bai26e.pdf" target="_blank" rel="noopener">论文 · Table 20 / C.3 / A.3</a><a class="history-link" href="pick_place_history_20261010.html">历史成绩、视频与诊断</a><a id="dataLink" href="results/pick_place_current.json">下载当前进度数据</a></div></section></div></div></main>
-<footer>历史记录保留。未完成、待复核和完整验收分别展示，来源停止更新时会标记过期。</footer><noscript>请启用 JavaScript 查看监管面板，也可下载进度 JSON 或查看历史页。</noscript><script src="pick-place.js?v=20261010-v1"></script></body></html>
+<footer>历史记录保留。未完成、待复核和完整验收分别展示，来源停止更新时会标记过期。</footer><noscript>请启用 JavaScript 查看监管面板，也可下载进度 JSON 或查看历史页。</noscript><script src="pick-place.js?v=20261010-v2"></script></body></html>
