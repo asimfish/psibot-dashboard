@@ -1,0 +1,1343 @@
+{
+  "sampled_utc": "2026-10-10T19:53:26.066751+00:00",
+  "note": "5090 GPU1原透明小瓶隔离场景：原设置及增加到16子帧仍有细条纹；正确关闭抗锯齿后，已看三视角无条纹；进一步采用FXAA，九帧已全部查看，背景及瓶身无原细条纹，透明瓶能透出棋盘，轮廓更平滑。原几何、材质和相机矩阵逐项相同，物理事件0、时间0。仅隔离资产对照通过，完整任务的运动、穿模、采集与测试资格仍未验收。",
+  "frames": [
+    {
+      "variant": "render1",
+      "view": "front",
+      "url": "media/grasp-original-clear-asset-render-comparison-v23/render1_front_update080.png",
+      "SHA256": "13efa4ba09eff4393582fbd9ef7506567b559918d97159f78f650d95797308ed"
+    },
+    {
+      "variant": "render1",
+      "view": "front_right",
+      "url": "media/grasp-original-clear-asset-render-comparison-v23/render1_front_right_update080.png",
+      "SHA256": "ce74abfcb5eb1e490833036e3b8b872115e8976915c79772de4db1bcaec91867"
+    },
+    {
+      "variant": "render1",
+      "view": "front_left",
+      "url": "media/grasp-original-clear-asset-render-comparison-v23/render1_front_left_update080.png",
+      "SHA256": "16d82ca63f435a82d36e9e16c4d1906a2a080efd53540289786c3490dbd6a6b2"
+    },
+    {
+      "variant": "render16",
+      "view": "front",
+      "url": "media/grasp-original-clear-asset-render-comparison-v23/render16_front_update080.png",
+      "SHA256": "e9002e00dc7e307175e37a47cf7d1238d5a9d6503c47e9ead263f2ad627c8f60"
+    },
+    {
+      "variant": "render16",
+      "view": "front_right",
+      "url": "media/grasp-original-clear-asset-render-comparison-v23/render16_front_right_update080.png",
+      "SHA256": "5881dc4e8afd63e8052e2950731a12b8589c57db8117ed74054725b5d5d943ae"
+    },
+    {
+      "variant": "render16",
+      "view": "front_left",
+      "url": "media/grasp-original-clear-asset-render-comparison-v23/render16_front_left_update080.png",
+      "SHA256": "a3f178acf7d47b32a245ca62862e8277359e97ecd28db90453f897f02c0c5bee"
+    },
+    {
+      "variant": "AAOff",
+      "view": "front",
+      "url": "media/grasp-original-clear-supported-AA-comparison-v24/AAOff_front_update080.png",
+      "SHA256": "68b26828dba7e08d46e3f68c8c935f739329e6d03371ae9407bdac282fad2708"
+    },
+    {
+      "variant": "AAOff",
+      "view": "front_right",
+      "url": "media/grasp-original-clear-supported-AA-comparison-v24/AAOff_front_right_update080.png",
+      "SHA256": "d79f2ee8ea8e1b5cc13c1493b4ee1eccabef8b403598d48c7e8a9b9fb9cfb705"
+    },
+    {
+      "variant": "AAOff",
+      "view": "front_left",
+      "url": "media/grasp-original-clear-supported-AA-comparison-v24/AAOff_front_left_update080.png",
+      "SHA256": "5cfead34db24e682843a974f8b5d383351f6a7a2d50d787ba7e1d44d84347e38"
+    },
+    {
+      "variant": "FXAA",
+      "view": "front",
+      "url": "media/grasp-original-clear-supported-AA-comparison-v24/FXAA_front_update080.png",
+      "SHA256": "86e8578c26a515f3da48c2c37975fe913a23132177bb15877ef4c2643fd01aa7"
+    },
+    {
+      "variant": "FXAA",
+      "view": "front_right",
+      "url": "media/grasp-original-clear-supported-AA-comparison-v24/FXAA_front_right_update080.png",
+      "SHA256": "d2d31ed64eadba7b5ab06d5e571d36bc4b74bdfa0411b7acfe4e025145867a9e"
+    },
+    {
+      "variant": "FXAA",
+      "view": "front_left",
+      "url": "media/grasp-original-clear-supported-AA-comparison-v24/FXAA_front_left_update080.png",
+      "SHA256": "72f7d7be996eb9ce99a62724635fd1e102ecf5e0a760529f85c0bb527bc2bca9"
+    }
+  ],
+  "visual_accepted": false,
+  "formal_accepted": false,
+  "paper_ssr": null,
+  "evidence_url": "results/grasp_actual_supported_AA_original_glass_comparison_20261011_v24.json",
+  "isolated_FXAA_all9_reviewed": true,
+  "isolated_FXAA_scene_stripes_absent": true,
+  "full_task_qualified": false,
+  "actual_original_asset_receivers": [
+    {
+      "passed": true,
+      "at_utc": "2026-10-10T19:37:56.674305+00:00",
+      "original_Native_proof": {
+        "passed": true,
+        "completed_utc": "2026-10-10T19:36:37.575033+00:00",
+        "scope": "Original ClearSmall isolated asset, explicit diagnostic light/background/camera; not full task or dataset qualification.",
+        "physical_GPU1_UUID": "GPU-828bb172-121c-cc55-7f4f-ef09a2bd7599",
+        "actual_CUDA_PCI": "0000:81:00.0",
+        "active_renderer_gpu": 1,
+        "renderer_settings": {
+          "/rtx/rendermode": "RaytracedLighting",
+          "/rtx/translucency/enabled": true,
+          "/rtx/translucency/worldEps": 1.0,
+          "/rtx/translucency/maxRefractionBounces": 6,
+          "/rtx/reflections/enabled": true,
+          "/rtx/post/aa/op": 0,
+          "/rtx-transient/post/aa/limitedOps": false
+        },
+        "bbox_m": [
+          [
+            -0.02741215005517006,
+            -0.02741215191781521,
+            -0.05234931409358978
+          ],
+          [
+            0.02741215005517006,
+            0.02741214446723461,
+            0.04949683681443939
+          ]
+        ],
+        "source_pins_unchanged": true,
+        "original_composed_geometry_and_material_bindings_unchanged": true,
+        "original_composed_geometry_witness_SHA256": "decf9330af0fa61439d448873000bd68f06bd1ee7f5840044885225c604955f3",
+        "actual_committed_zero_delta_capture_calls": 240,
+        "actual_physics_step_events": 0,
+        "actual_physics_callback_dt": [],
+        "actual_Native_acceptance_trials": 0,
+        "learned_policy_actions": 0,
+        "formal_accepted": false,
+        "paper_ssr": null,
+        "frames": [
+          {
+            "view": "front",
+            "committed_zero_delta_capture_calls": 20,
+            "empty_RGB": false,
+            "shape": [
+              256,
+              320,
+              4
+            ],
+            "raw_RGBA_SHA256": "55029b87668229b474e61cbdc36749ced12b6e42acbaa509e7135ea9c091aca4",
+            "PNG_SHA256": "dc89ff9ba9d38e09119778d1e0c1359bec3eefc5032012f8c6e864afb6ec3062",
+            "PNG_bytes": 22339,
+            "camera_world_matrix": [
+              [
+                -1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                -0.1520571842539411,
+                0.9883716976506173,
+                -0.0
+              ],
+              [
+                0.0,
+                0.9883716976506173,
+                0.1520571842539411,
+                -0.0
+              ],
+              [
+                0.0,
+                0.2599999962747097,
+                0.0385737613604248,
+                1.0
+              ]
+            ],
+            "actual_physics_step_events": 0,
+            "actual_physics_callback_dt": [],
+            "actual_timeline_time": 0.0,
+            "actual_aa_op": 0
+          },
+          {
+            "view": "front",
+            "committed_zero_delta_capture_calls": 40,
+            "empty_RGB": false,
+            "shape": [
+              256,
+              320,
+              4
+            ],
+            "raw_RGBA_SHA256": "bf3c5f2036caf171521b6efaf3418a653fa4dd832a0232e7f6d5bbe21559f85f",
+            "PNG_SHA256": "610cf6e4a276d03f8a8bcc4da16ab125b918fdd28d9680e3ddf0efb0c6c525ab",
+            "PNG_bytes": 22169,
+            "camera_world_matrix": [
+              [
+                -1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                -0.1520571842539411,
+                0.9883716976506173,
+                -0.0
+              ],
+              [
+                0.0,
+                0.9883716976506173,
+                0.1520571842539411,
+                -0.0
+              ],
+              [
+                0.0,
+                0.2599999962747097,
+                0.0385737613604248,
+                1.0
+              ]
+            ],
+            "actual_physics_step_events": 0,
+            "actual_physics_callback_dt": [],
+            "actual_timeline_time": 0.0,
+            "actual_aa_op": 0
+          },
+          {
+            "view": "front",
+            "committed_zero_delta_capture_calls": 80,
+            "empty_RGB": false,
+            "shape": [
+              256,
+              320,
+              4
+            ],
+            "raw_RGBA_SHA256": "85f49ca0ff098a27e3160c5cfd723f0e8ddebca5c40d622c968e11d6632a8eab",
+            "PNG_SHA256": "68b26828dba7e08d46e3f68c8c935f739329e6d03371ae9407bdac282fad2708",
+            "PNG_bytes": 22285,
+            "camera_world_matrix": [
+              [
+                -1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                -0.1520571842539411,
+                0.9883716976506173,
+                -0.0
+              ],
+              [
+                0.0,
+                0.9883716976506173,
+                0.1520571842539411,
+                -0.0
+              ],
+              [
+                0.0,
+                0.2599999962747097,
+                0.0385737613604248,
+                1.0
+              ]
+            ],
+            "actual_physics_step_events": 0,
+            "actual_physics_callback_dt": [],
+            "actual_timeline_time": 0.0,
+            "actual_aa_op": 0
+          },
+          {
+            "view": "front_right",
+            "committed_zero_delta_capture_calls": 20,
+            "empty_RGB": false,
+            "shape": [
+              256,
+              320,
+              4
+            ],
+            "raw_RGBA_SHA256": "72475b25524af6277b104088715ffe73ef9b571c96c335b491b4f66b404494ec",
+            "PNG_SHA256": "a350c5219bb9a2dfe2e3ded56723f64cb47d543bebcb7cfac476f6622141ba3f",
+            "PNG_bytes": 20838,
+            "camera_world_matrix": [
+              [
+                -0.8479983040050879,
+                0.5299989400031799,
+                0.0,
+                0.0
+              ],
+              [
+                -0.11863427559808484,
+                -0.18981484095693574,
+                0.9746262026058046,
+                0.0
+              ],
+              [
+                0.516550854280401,
+                0.8264813668486416,
+                0.22383870352150714,
+                -0.0
+              ],
+              [
+                0.15,
+                0.2399999962747097,
+                0.06357376136042481,
+                1.0
+              ]
+            ],
+            "actual_physics_step_events": 0,
+            "actual_physics_callback_dt": [],
+            "actual_timeline_time": 0.0,
+            "actual_aa_op": 0
+          },
+          {
+            "view": "front_right",
+            "committed_zero_delta_capture_calls": 40,
+            "empty_RGB": false,
+            "shape": [
+              256,
+              320,
+              4
+            ],
+            "raw_RGBA_SHA256": "d977c6bf991928d90bca80ff1a4153cdf6450946fa26a33a4ca02af8b2b6b2c2",
+            "PNG_SHA256": "168b64a62c2b12b87d8e945a551929fe1b6e00f3e4f01e17c409afa165444226",
+            "PNG_bytes": 20984,
+            "camera_world_matrix": [
+              [
+                -0.8479983040050879,
+                0.5299989400031799,
+                0.0,
+                0.0
+              ],
+              [
+                -0.11863427559808484,
+                -0.18981484095693574,
+                0.9746262026058046,
+                0.0
+              ],
+              [
+                0.516550854280401,
+                0.8264813668486416,
+                0.22383870352150714,
+                -0.0
+              ],
+              [
+                0.15,
+                0.2399999962747097,
+                0.06357376136042481,
+                1.0
+              ]
+            ],
+            "actual_physics_step_events": 0,
+            "actual_physics_callback_dt": [],
+            "actual_timeline_time": 0.0,
+            "actual_aa_op": 0
+          },
+          {
+            "view": "front_right",
+            "committed_zero_delta_capture_calls": 80,
+            "empty_RGB": false,
+            "shape": [
+              256,
+              320,
+              4
+            ],
+            "raw_RGBA_SHA256": "c61fb561560f4598be44786b0635ad826242360fb640af18bb38e09d984ed2b4",
+            "PNG_SHA256": "d79f2ee8ea8e1b5cc13c1493b4ee1eccabef8b403598d48c7e8a9b9fb9cfb705",
+            "PNG_bytes": 20908,
+            "camera_world_matrix": [
+              [
+                -0.8479983040050879,
+                0.5299989400031799,
+                0.0,
+                0.0
+              ],
+              [
+                -0.11863427559808484,
+                -0.18981484095693574,
+                0.9746262026058046,
+                0.0
+              ],
+              [
+                0.516550854280401,
+                0.8264813668486416,
+                0.22383870352150714,
+                -0.0
+              ],
+              [
+                0.15,
+                0.2399999962747097,
+                0.06357376136042481,
+                1.0
+              ]
+            ],
+            "actual_physics_step_events": 0,
+            "actual_physics_callback_dt": [],
+            "actual_timeline_time": 0.0,
+            "actual_aa_op": 0
+          },
+          {
+            "view": "front_left",
+            "committed_zero_delta_capture_calls": 20,
+            "empty_RGB": false,
+            "shape": [
+              256,
+              320,
+              4
+            ],
+            "raw_RGBA_SHA256": "2340731d593bb68156c93eb41890367526700d1054045a608407963aa4766d72",
+            "PNG_SHA256": "5a716be347080ca7324d128034d0720ba4e24ec8fd80dd2826f83edeadb6d17d",
+            "PNG_bytes": 21324,
+            "camera_world_matrix": [
+              [
+                -0.8479983040050879,
+                -0.5299989400031799,
+                0.0,
+                0.0
+              ],
+              [
+                0.11863427559808484,
+                -0.18981484095693574,
+                0.9746262026058046,
+                -0.0
+              ],
+              [
+                -0.516550854280401,
+                0.8264813668486416,
+                0.22383870352150714,
+                0.0
+              ],
+              [
+                -0.15,
+                0.2399999962747097,
+                0.06357376136042481,
+                1.0
+              ]
+            ],
+            "actual_physics_step_events": 0,
+            "actual_physics_callback_dt": [],
+            "actual_timeline_time": 0.0,
+            "actual_aa_op": 0
+          },
+          {
+            "view": "front_left",
+            "committed_zero_delta_capture_calls": 40,
+            "empty_RGB": false,
+            "shape": [
+              256,
+              320,
+              4
+            ],
+            "raw_RGBA_SHA256": "5a7ca60ead1ffc27adf9503e2c51ec32fb38fb0753cbfef007af437fa7368a73",
+            "PNG_SHA256": "eb03e522574927fa3abdb7795d1f44362c647ca255696263be579647709f2ee6",
+            "PNG_bytes": 21348,
+            "camera_world_matrix": [
+              [
+                -0.8479983040050879,
+                -0.5299989400031799,
+                0.0,
+                0.0
+              ],
+              [
+                0.11863427559808484,
+                -0.18981484095693574,
+                0.9746262026058046,
+                -0.0
+              ],
+              [
+                -0.516550854280401,
+                0.8264813668486416,
+                0.22383870352150714,
+                0.0
+              ],
+              [
+                -0.15,
+                0.2399999962747097,
+                0.06357376136042481,
+                1.0
+              ]
+            ],
+            "actual_physics_step_events": 0,
+            "actual_physics_callback_dt": [],
+            "actual_timeline_time": 0.0,
+            "actual_aa_op": 0
+          },
+          {
+            "view": "front_left",
+            "committed_zero_delta_capture_calls": 80,
+            "empty_RGB": false,
+            "shape": [
+              256,
+              320,
+              4
+            ],
+            "raw_RGBA_SHA256": "1f1b1818957523528c09d9328df7d0a3f3db69d43f5ca7970bebe1eb3697577d",
+            "PNG_SHA256": "5cfead34db24e682843a974f8b5d383351f6a7a2d50d787ba7e1d44d84347e38",
+            "PNG_bytes": 21225,
+            "camera_world_matrix": [
+              [
+                -0.8479983040050879,
+                -0.5299989400031799,
+                0.0,
+                0.0
+              ],
+              [
+                0.11863427559808484,
+                -0.18981484095693574,
+                0.9746262026058046,
+                -0.0
+              ],
+              [
+                -0.516550854280401,
+                0.8264813668486416,
+                0.22383870352150714,
+                0.0
+              ],
+              [
+                -0.15,
+                0.2399999962747097,
+                0.06357376136042481,
+                1.0
+              ]
+            ],
+            "actual_physics_step_events": 0,
+            "actual_physics_callback_dt": [],
+            "actual_timeline_time": 0.0,
+            "actual_aa_op": 0
+          }
+        ]
+      },
+      "received_fullSHA_files": [
+        {
+          "relative": "protocol.json",
+          "bytes": 5581,
+          "sha256": "483c34aaff97ea019a188c8777b050b2c8cd8429b7b1188287eedc5554e69ae6"
+        },
+        {
+          "relative": "status.json",
+          "bytes": 1100,
+          "sha256": "db54580707aece22a58c61d1aab7cb951a8ae34441f00a7dac043dbacda3987e"
+        },
+        {
+          "relative": "ACTUAL_ORIGINAL_ASSET_ISOLATED_RGB_V320.json",
+          "bytes": 10495,
+          "sha256": "46e108594c1ac9da674cdf4de90b2af29748e83b3a95409e271eb56174680fd1"
+        },
+        {
+          "relative": "ACTUAL_CPU_ORIGINAL_ASSET_AND_SOURCE_GATE_V320.json",
+          "bytes": 3646,
+          "sha256": "9fe91593bed271d7f5334c9936f24c9c89ed65614175b1e2232f34c155e5c06c"
+        },
+        {
+          "relative": "ACTUAL_CONTROLLER_LAUNCH_V321.json",
+          "bytes": 297,
+          "sha256": "feeaceeca7187b3396f988c82b2b4d4f9adde6d72ec05002c838cd89c1af9085"
+        },
+        {
+          "relative": "actual_stage_progress_v320.jsonl",
+          "bytes": 3278,
+          "sha256": "285404fc74f97ec136d460414b1e913841c7c4283a92510210c6d16bb3d68491"
+        },
+        {
+          "relative": "rgb/front_update020.png",
+          "bytes": 22339,
+          "sha256": "dc89ff9ba9d38e09119778d1e0c1359bec3eefc5032012f8c6e864afb6ec3062"
+        },
+        {
+          "relative": "rgb/front_update020.npy",
+          "bytes": 327808,
+          "sha256": "6b45a74e532f758f6aa3d19c6dc3284d69a7613c1f90e76b4a066ad8d57fa62e"
+        },
+        {
+          "relative": "rgb/front_update040.png",
+          "bytes": 22169,
+          "sha256": "610cf6e4a276d03f8a8bcc4da16ab125b918fdd28d9680e3ddf0efb0c6c525ab"
+        },
+        {
+          "relative": "rgb/front_update040.npy",
+          "bytes": 327808,
+          "sha256": "31971ad396218b62427dbcd868654ea9ac2fb293f5146a40998f69136838bac1"
+        },
+        {
+          "relative": "rgb/front_update080.png",
+          "bytes": 22285,
+          "sha256": "68b26828dba7e08d46e3f68c8c935f739329e6d03371ae9407bdac282fad2708"
+        },
+        {
+          "relative": "rgb/front_update080.npy",
+          "bytes": 327808,
+          "sha256": "3a23b9c90a6e04733f49e9af79d5dad8e4b5bb2af806a8ba8cc0732db4fba4f5"
+        },
+        {
+          "relative": "rgb/front_right_update020.png",
+          "bytes": 20838,
+          "sha256": "a350c5219bb9a2dfe2e3ded56723f64cb47d543bebcb7cfac476f6622141ba3f"
+        },
+        {
+          "relative": "rgb/front_right_update020.npy",
+          "bytes": 327808,
+          "sha256": "8307070b0da773503b7e525aa8e291f6b2a5fbe3b083f7810417584fbe2afe31"
+        },
+        {
+          "relative": "rgb/front_right_update040.png",
+          "bytes": 20984,
+          "sha256": "168b64a62c2b12b87d8e945a551929fe1b6e00f3e4f01e17c409afa165444226"
+        },
+        {
+          "relative": "rgb/front_right_update040.npy",
+          "bytes": 327808,
+          "sha256": "be202f17d837877b3e6ca38777b42da6ecbfdad551ef5220ac86cf0551055b05"
+        },
+        {
+          "relative": "rgb/front_right_update080.png",
+          "bytes": 20908,
+          "sha256": "d79f2ee8ea8e1b5cc13c1493b4ee1eccabef8b403598d48c7e8a9b9fb9cfb705"
+        },
+        {
+          "relative": "rgb/front_right_update080.npy",
+          "bytes": 327808,
+          "sha256": "c21c474bf3e34b47553d997f2a701ad6dbab3ede0177475cc77087ab8e756d13"
+        },
+        {
+          "relative": "rgb/front_left_update020.png",
+          "bytes": 21324,
+          "sha256": "5a716be347080ca7324d128034d0720ba4e24ec8fd80dd2826f83edeadb6d17d"
+        },
+        {
+          "relative": "rgb/front_left_update020.npy",
+          "bytes": 327808,
+          "sha256": "b3851287101bc150f75106968a4d94afc49c48487198c177a18d593fc098bba2"
+        },
+        {
+          "relative": "rgb/front_left_update040.png",
+          "bytes": 21348,
+          "sha256": "eb03e522574927fa3abdb7795d1f44362c647ca255696263be579647709f2ee6"
+        },
+        {
+          "relative": "rgb/front_left_update040.npy",
+          "bytes": 327808,
+          "sha256": "6c18008e161513437bee7d970257e05312b4aeb5b5b99abb4fedd5fa1f4908f1"
+        },
+        {
+          "relative": "rgb/front_left_update080.png",
+          "bytes": 21225,
+          "sha256": "5cfead34db24e682843a974f8b5d383351f6a7a2d50d787ba7e1d44d84347e38"
+        },
+        {
+          "relative": "rgb/front_left_update080.npy",
+          "bytes": 327808,
+          "sha256": "91657572bf2efb80664d7360099df0ff84af10b5a99e5120d166680bc20f2bd4"
+        }
+      ],
+      "output": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/actual_5090_original_ClearSmall_supported_AAOff_RGB_fullSHA_v328",
+      "actual_RGB_frames": 9,
+      "visual_review_pending": true,
+      "actual_new_Native_trials": 0,
+      "formal_accepted": false,
+      "paper_ssr": null
+    },
+    {
+      "passed": true,
+      "at_utc": "2026-10-10T19:48:17.760917+00:00",
+      "original_Native_proof": {
+        "passed": true,
+        "completed_utc": "2026-10-10T19:44:58.905836+00:00",
+        "scope": "Original ClearSmall isolated asset, explicit diagnostic light/background/camera; not full task or dataset qualification.",
+        "physical_GPU1_UUID": "GPU-828bb172-121c-cc55-7f4f-ef09a2bd7599",
+        "actual_CUDA_PCI": "0000:81:00.0",
+        "active_renderer_gpu": 1,
+        "renderer_settings": {
+          "/rtx/rendermode": "RaytracedLighting",
+          "/rtx/translucency/enabled": true,
+          "/rtx/translucency/worldEps": 1.0,
+          "/rtx/translucency/maxRefractionBounces": 6,
+          "/rtx/reflections/enabled": true,
+          "/rtx/post/aa/op": 2,
+          "/rtx-transient/post/aa/limitedOps": false
+        },
+        "bbox_m": [
+          [
+            -0.02741215005517006,
+            -0.02741215191781521,
+            -0.05234931409358978
+          ],
+          [
+            0.02741215005517006,
+            0.02741214446723461,
+            0.04949683681443939
+          ]
+        ],
+        "source_pins_unchanged": true,
+        "original_composed_geometry_and_material_bindings_unchanged": true,
+        "original_composed_geometry_witness_SHA256": "decf9330af0fa61439d448873000bd68f06bd1ee7f5840044885225c604955f3",
+        "actual_committed_zero_delta_capture_calls": 240,
+        "actual_physics_step_events": 0,
+        "actual_physics_callback_dt": [],
+        "actual_Native_acceptance_trials": 0,
+        "learned_policy_actions": 0,
+        "formal_accepted": false,
+        "paper_ssr": null,
+        "frames": [
+          {
+            "view": "front",
+            "committed_zero_delta_capture_calls": 20,
+            "empty_RGB": false,
+            "shape": [
+              256,
+              320,
+              4
+            ],
+            "raw_RGBA_SHA256": "68f1cfaa938b1161bdb97cfb0db2476f2af560bff0ea864e74571d1b560f5f6c",
+            "PNG_SHA256": "47ced3c857f2ec0dd3183492b5f324cfc1f3106cc31da3d98e5a03d3f79f1c92",
+            "PNG_bytes": 29353,
+            "camera_world_matrix": [
+              [
+                -1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                -0.1520571842539411,
+                0.9883716976506173,
+                -0.0
+              ],
+              [
+                0.0,
+                0.9883716976506173,
+                0.1520571842539411,
+                -0.0
+              ],
+              [
+                0.0,
+                0.2599999962747097,
+                0.0385737613604248,
+                1.0
+              ]
+            ],
+            "actual_physics_step_events": 0,
+            "actual_physics_callback_dt": [],
+            "actual_timeline_time": 0.0,
+            "actual_aa_op": 2
+          },
+          {
+            "view": "front",
+            "committed_zero_delta_capture_calls": 40,
+            "empty_RGB": false,
+            "shape": [
+              256,
+              320,
+              4
+            ],
+            "raw_RGBA_SHA256": "21546f78ee6dfe7e04eb7fcb90bc0d5e5eaa20282ce64aae64a982eb31970187",
+            "PNG_SHA256": "723a0c065ad00d1902ec11702d716c2e7481611b216bbfe524adddb9a9dcccea",
+            "PNG_bytes": 29387,
+            "camera_world_matrix": [
+              [
+                -1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                -0.1520571842539411,
+                0.9883716976506173,
+                -0.0
+              ],
+              [
+                0.0,
+                0.9883716976506173,
+                0.1520571842539411,
+                -0.0
+              ],
+              [
+                0.0,
+                0.2599999962747097,
+                0.0385737613604248,
+                1.0
+              ]
+            ],
+            "actual_physics_step_events": 0,
+            "actual_physics_callback_dt": [],
+            "actual_timeline_time": 0.0,
+            "actual_aa_op": 2
+          },
+          {
+            "view": "front",
+            "committed_zero_delta_capture_calls": 80,
+            "empty_RGB": false,
+            "shape": [
+              256,
+              320,
+              4
+            ],
+            "raw_RGBA_SHA256": "9e27e83b4cced6307f426d51486be9ae705a465a224ad3785887ac8318d164ed",
+            "PNG_SHA256": "86e8578c26a515f3da48c2c37975fe913a23132177bb15877ef4c2643fd01aa7",
+            "PNG_bytes": 29337,
+            "camera_world_matrix": [
+              [
+                -1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                -0.1520571842539411,
+                0.9883716976506173,
+                -0.0
+              ],
+              [
+                0.0,
+                0.9883716976506173,
+                0.1520571842539411,
+                -0.0
+              ],
+              [
+                0.0,
+                0.2599999962747097,
+                0.0385737613604248,
+                1.0
+              ]
+            ],
+            "actual_physics_step_events": 0,
+            "actual_physics_callback_dt": [],
+            "actual_timeline_time": 0.0,
+            "actual_aa_op": 2
+          },
+          {
+            "view": "front_right",
+            "committed_zero_delta_capture_calls": 20,
+            "empty_RGB": false,
+            "shape": [
+              256,
+              320,
+              4
+            ],
+            "raw_RGBA_SHA256": "619ccea6cf3e1dfe6ae90795e1029a00531a9fe03e286b2f39ede838532e08da",
+            "PNG_SHA256": "9f9b315e108324b5ad99927c072899d01674ee0a0cf3f4524c94cdf410b70d59",
+            "PNG_bytes": 28217,
+            "camera_world_matrix": [
+              [
+                -0.8479983040050879,
+                0.5299989400031799,
+                0.0,
+                0.0
+              ],
+              [
+                -0.11863427559808484,
+                -0.18981484095693574,
+                0.9746262026058046,
+                0.0
+              ],
+              [
+                0.516550854280401,
+                0.8264813668486416,
+                0.22383870352150714,
+                -0.0
+              ],
+              [
+                0.15,
+                0.2399999962747097,
+                0.06357376136042481,
+                1.0
+              ]
+            ],
+            "actual_physics_step_events": 0,
+            "actual_physics_callback_dt": [],
+            "actual_timeline_time": 0.0,
+            "actual_aa_op": 2
+          },
+          {
+            "view": "front_right",
+            "committed_zero_delta_capture_calls": 40,
+            "empty_RGB": false,
+            "shape": [
+              256,
+              320,
+              4
+            ],
+            "raw_RGBA_SHA256": "9f4809939d49e64d0731f9d8137013e78dc12b1c03adbfc787f909fc2bc3b90b",
+            "PNG_SHA256": "c4eb8897f9a9425629e2d80e41382ccf1d8653a1388b1940524ce838b11a1c30",
+            "PNG_bytes": 27984,
+            "camera_world_matrix": [
+              [
+                -0.8479983040050879,
+                0.5299989400031799,
+                0.0,
+                0.0
+              ],
+              [
+                -0.11863427559808484,
+                -0.18981484095693574,
+                0.9746262026058046,
+                0.0
+              ],
+              [
+                0.516550854280401,
+                0.8264813668486416,
+                0.22383870352150714,
+                -0.0
+              ],
+              [
+                0.15,
+                0.2399999962747097,
+                0.06357376136042481,
+                1.0
+              ]
+            ],
+            "actual_physics_step_events": 0,
+            "actual_physics_callback_dt": [],
+            "actual_timeline_time": 0.0,
+            "actual_aa_op": 2
+          },
+          {
+            "view": "front_right",
+            "committed_zero_delta_capture_calls": 80,
+            "empty_RGB": false,
+            "shape": [
+              256,
+              320,
+              4
+            ],
+            "raw_RGBA_SHA256": "dd15e51e7780633700a4b497f929592b6f8bf227ed148c08f4e9030a4d06ec8e",
+            "PNG_SHA256": "d2d31ed64eadba7b5ab06d5e571d36bc4b74bdfa0411b7acfe4e025145867a9e",
+            "PNG_bytes": 27909,
+            "camera_world_matrix": [
+              [
+                -0.8479983040050879,
+                0.5299989400031799,
+                0.0,
+                0.0
+              ],
+              [
+                -0.11863427559808484,
+                -0.18981484095693574,
+                0.9746262026058046,
+                0.0
+              ],
+              [
+                0.516550854280401,
+                0.8264813668486416,
+                0.22383870352150714,
+                -0.0
+              ],
+              [
+                0.15,
+                0.2399999962747097,
+                0.06357376136042481,
+                1.0
+              ]
+            ],
+            "actual_physics_step_events": 0,
+            "actual_physics_callback_dt": [],
+            "actual_timeline_time": 0.0,
+            "actual_aa_op": 2
+          },
+          {
+            "view": "front_left",
+            "committed_zero_delta_capture_calls": 20,
+            "empty_RGB": false,
+            "shape": [
+              256,
+              320,
+              4
+            ],
+            "raw_RGBA_SHA256": "4a5cda2b44609954329b0d142601701a2214d82d23ae1304c292ba83528f51d1",
+            "PNG_SHA256": "a7ef1c6735bf9e1e028cee8dc4d646c0a198050ce3044b6ec4114313d1060909",
+            "PNG_bytes": 28417,
+            "camera_world_matrix": [
+              [
+                -0.8479983040050879,
+                -0.5299989400031799,
+                0.0,
+                0.0
+              ],
+              [
+                0.11863427559808484,
+                -0.18981484095693574,
+                0.9746262026058046,
+                -0.0
+              ],
+              [
+                -0.516550854280401,
+                0.8264813668486416,
+                0.22383870352150714,
+                0.0
+              ],
+              [
+                -0.15,
+                0.2399999962747097,
+                0.06357376136042481,
+                1.0
+              ]
+            ],
+            "actual_physics_step_events": 0,
+            "actual_physics_callback_dt": [],
+            "actual_timeline_time": 0.0,
+            "actual_aa_op": 2
+          },
+          {
+            "view": "front_left",
+            "committed_zero_delta_capture_calls": 40,
+            "empty_RGB": false,
+            "shape": [
+              256,
+              320,
+              4
+            ],
+            "raw_RGBA_SHA256": "6ad37f23a5ad27ae0bc7036092ae20a02a1f3e290ed732c23868d8d5e692835a",
+            "PNG_SHA256": "190eae9941b88c5ac0e5df082b282676b17422530b776bae08bc411c40ed02c2",
+            "PNG_bytes": 28316,
+            "camera_world_matrix": [
+              [
+                -0.8479983040050879,
+                -0.5299989400031799,
+                0.0,
+                0.0
+              ],
+              [
+                0.11863427559808484,
+                -0.18981484095693574,
+                0.9746262026058046,
+                -0.0
+              ],
+              [
+                -0.516550854280401,
+                0.8264813668486416,
+                0.22383870352150714,
+                0.0
+              ],
+              [
+                -0.15,
+                0.2399999962747097,
+                0.06357376136042481,
+                1.0
+              ]
+            ],
+            "actual_physics_step_events": 0,
+            "actual_physics_callback_dt": [],
+            "actual_timeline_time": 0.0,
+            "actual_aa_op": 2
+          },
+          {
+            "view": "front_left",
+            "committed_zero_delta_capture_calls": 80,
+            "empty_RGB": false,
+            "shape": [
+              256,
+              320,
+              4
+            ],
+            "raw_RGBA_SHA256": "43c65222cf4a5dec8f950e4b80bb8c7f4dbad00a66f406390924abb674cca55d",
+            "PNG_SHA256": "72f7d7be996eb9ce99a62724635fd1e102ecf5e0a760529f85c0bb527bc2bca9",
+            "PNG_bytes": 28336,
+            "camera_world_matrix": [
+              [
+                -0.8479983040050879,
+                -0.5299989400031799,
+                0.0,
+                0.0
+              ],
+              [
+                0.11863427559808484,
+                -0.18981484095693574,
+                0.9746262026058046,
+                -0.0
+              ],
+              [
+                -0.516550854280401,
+                0.8264813668486416,
+                0.22383870352150714,
+                0.0
+              ],
+              [
+                -0.15,
+                0.2399999962747097,
+                0.06357376136042481,
+                1.0
+              ]
+            ],
+            "actual_physics_step_events": 0,
+            "actual_physics_callback_dt": [],
+            "actual_timeline_time": 0.0,
+            "actual_aa_op": 2
+          }
+        ]
+      },
+      "received_fullSHA_files": [
+        {
+          "relative": "protocol.json",
+          "bytes": 6008,
+          "sha256": "e208f626275a2cd66f3338a71159d3963174d5bca0472e4469b9974fcc57dfb7"
+        },
+        {
+          "relative": "status.json",
+          "bytes": 1098,
+          "sha256": "737f28e4fa57dc29b69b7af8d12e31169a1213b130f0ab88058f1f3976a9472a"
+        },
+        {
+          "relative": "ACTUAL_ORIGINAL_ASSET_ISOLATED_RGB_V330.json",
+          "bytes": 10495,
+          "sha256": "53601f128444283764e8c49549ff24dd7b1c115a3c4146d7e1aa6dc0c89fd87b"
+        },
+        {
+          "relative": "ACTUAL_CPU_ORIGINAL_ASSET_AND_SOURCE_GATE_V330.json",
+          "bytes": 3961,
+          "sha256": "f728b000a248676a747b34b9904d9f59082aab0e37fa201150250dc3ba3d60ff"
+        },
+        {
+          "relative": "ACTUAL_CONTROLLER_LAUNCH_V331.json",
+          "bytes": 297,
+          "sha256": "6d56be9bad09b220d9f29309556526b54072981344c23603049aceef60e49714"
+        },
+        {
+          "relative": "actual_stage_progress_v330.jsonl",
+          "bytes": 3278,
+          "sha256": "453e6e2edcf4e88895952c8f67cf9199dcfeff169a83d69f95c4a89bd2a85b3f"
+        },
+        {
+          "relative": "rgb/front_update020.png",
+          "bytes": 29353,
+          "sha256": "47ced3c857f2ec0dd3183492b5f324cfc1f3106cc31da3d98e5a03d3f79f1c92"
+        },
+        {
+          "relative": "rgb/front_update020.npy",
+          "bytes": 327808,
+          "sha256": "df60881f9180b45479be580dce7d1747197d489eafad55fd85b5e23f7dbd35af"
+        },
+        {
+          "relative": "rgb/front_update040.png",
+          "bytes": 29387,
+          "sha256": "723a0c065ad00d1902ec11702d716c2e7481611b216bbfe524adddb9a9dcccea"
+        },
+        {
+          "relative": "rgb/front_update040.npy",
+          "bytes": 327808,
+          "sha256": "c6b55efebdb21e63c71da62f17d0d885fc528eb11cf4addaf2c0de9ab27fe42d"
+        },
+        {
+          "relative": "rgb/front_update080.png",
+          "bytes": 29337,
+          "sha256": "86e8578c26a515f3da48c2c37975fe913a23132177bb15877ef4c2643fd01aa7"
+        },
+        {
+          "relative": "rgb/front_update080.npy",
+          "bytes": 327808,
+          "sha256": "1f8c4af16b7c4834b645870447a7a07b71a462737c81630a918cb3ff83fc2871"
+        },
+        {
+          "relative": "rgb/front_right_update020.png",
+          "bytes": 28217,
+          "sha256": "9f9b315e108324b5ad99927c072899d01674ee0a0cf3f4524c94cdf410b70d59"
+        },
+        {
+          "relative": "rgb/front_right_update020.npy",
+          "bytes": 327808,
+          "sha256": "c2d81e684d3e2c344c1f45d035249f2a96c96fb104a1ee7b1a42d0015057392c"
+        },
+        {
+          "relative": "rgb/front_right_update040.png",
+          "bytes": 27984,
+          "sha256": "c4eb8897f9a9425629e2d80e41382ccf1d8653a1388b1940524ce838b11a1c30"
+        },
+        {
+          "relative": "rgb/front_right_update040.npy",
+          "bytes": 327808,
+          "sha256": "4676f2dd6a6a455f87757b796a6fa4278b1a8685624890ac30dab856169b7cdd"
+        },
+        {
+          "relative": "rgb/front_right_update080.png",
+          "bytes": 27909,
+          "sha256": "d2d31ed64eadba7b5ab06d5e571d36bc4b74bdfa0411b7acfe4e025145867a9e"
+        },
+        {
+          "relative": "rgb/front_right_update080.npy",
+          "bytes": 327808,
+          "sha256": "06f1e89564ed0aec6a9e077a0c0364c82b52c112745378491965045ce8a2e125"
+        },
+        {
+          "relative": "rgb/front_left_update020.png",
+          "bytes": 28417,
+          "sha256": "a7ef1c6735bf9e1e028cee8dc4d646c0a198050ce3044b6ec4114313d1060909"
+        },
+        {
+          "relative": "rgb/front_left_update020.npy",
+          "bytes": 327808,
+          "sha256": "737378f662e904573a0acec59d77d41ad59ddc330ea37b5f85524b4eb673aedd"
+        },
+        {
+          "relative": "rgb/front_left_update040.png",
+          "bytes": 28316,
+          "sha256": "190eae9941b88c5ac0e5df082b282676b17422530b776bae08bc411c40ed02c2"
+        },
+        {
+          "relative": "rgb/front_left_update040.npy",
+          "bytes": 327808,
+          "sha256": "3e4d642ccacf2bfc1891b9470cd380b008a3ab308eb16dd76325a7f9e7dcd537"
+        },
+        {
+          "relative": "rgb/front_left_update080.png",
+          "bytes": 28336,
+          "sha256": "72f7d7be996eb9ce99a62724635fd1e102ecf5e0a760529f85c0bb527bc2bca9"
+        },
+        {
+          "relative": "rgb/front_left_update080.npy",
+          "bytes": 327808,
+          "sha256": "93ed8039eb20dd49154372a320a34e327f3d21160fa05744618e56fdf4b3ad07"
+        }
+      ],
+      "output": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/actual_5090_original_ClearSmall_supported_FXAA_RGB_fullSHA_v339",
+      "actual_RGB_frames": 9,
+      "visual_review_pending": true,
+      "actual_new_Native_trials": 0,
+      "formal_accepted": false,
+      "paper_ssr": null
+    }
+  ],
+  "actual_AAOff_selected_review": {
+    "at_utc": "2026-10-10T19:39:01.950876+00:00",
+    "actual_selected_frames_reviewed": 3,
+    "compared_original_render16_default_AA_to_supported_AAOff": true,
+    "scene_wide_striping_visible_default_and_absent_selected_AAOff_frames": true,
+    "scope": "Three selected original asset isolated views only; hard contour aliasing remains with Off. Not full task, dataset, glass physics, penetration or paper SSR qualification.",
+    "visual_accepted": false,
+    "formal_accepted": false,
+    "paper_ssr": null,
+    "source_geometry_material_witness_unchanged": "decf9330af0fa61439d448873000bd68f06bd1ee7f5840044885225c604955f3",
+    "frames": [
+      {
+        "path": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/actual_5090_original_ClearSmall_supported_AAOff_RGB_fullSHA_v328/rgb/front_update080.png",
+        "SHA256": "68b26828dba7e08d46e3f68c8c935f739329e6d03371ae9407bdac282fad2708"
+      },
+      {
+        "path": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/actual_5090_original_ClearSmall_supported_AAOff_RGB_fullSHA_v328/rgb/front_right_update080.png",
+        "SHA256": "d79f2ee8ea8e1b5cc13c1493b4ee1eccabef8b403598d48c7e8a9b9fb9cfb705"
+      },
+      {
+        "path": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/actual_5090_original_ClearSmall_supported_AAOff_RGB_fullSHA_v328/rgb/front_left_update080.png",
+        "SHA256": "5cfead34db24e682843a974f8b5d383351f6a7a2d50d787ba7e1d44d84347e38"
+      }
+    ]
+  },
+  "actual_FXAA_all9_review": {
+    "passed": true,
+    "at_utc": "2026-10-10T19:52:20.588145+00:00",
+    "actual_original_geometry_material_and_camera_matrices_match_baseline": true,
+    "actual_FXAA2_and_limitedOpsFalse_all9": true,
+    "source_frames": [
+      {
+        "path": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/actual_5090_original_ClearSmall_supported_FXAA_RGB_fullSHA_v339/rgb/front_update020.png",
+        "SHA256": "47ced3c857f2ec0dd3183492b5f324cfc1f3106cc31da3d98e5a03d3f79f1c92"
+      },
+      {
+        "path": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/actual_5090_original_ClearSmall_supported_FXAA_RGB_fullSHA_v339/rgb/front_update040.png",
+        "SHA256": "723a0c065ad00d1902ec11702d716c2e7481611b216bbfe524adddb9a9dcccea"
+      },
+      {
+        "path": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/actual_5090_original_ClearSmall_supported_FXAA_RGB_fullSHA_v339/rgb/front_update080.png",
+        "SHA256": "86e8578c26a515f3da48c2c37975fe913a23132177bb15877ef4c2643fd01aa7"
+      },
+      {
+        "path": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/actual_5090_original_ClearSmall_supported_FXAA_RGB_fullSHA_v339/rgb/front_right_update020.png",
+        "SHA256": "9f9b315e108324b5ad99927c072899d01674ee0a0cf3f4524c94cdf410b70d59"
+      },
+      {
+        "path": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/actual_5090_original_ClearSmall_supported_FXAA_RGB_fullSHA_v339/rgb/front_right_update040.png",
+        "SHA256": "c4eb8897f9a9425629e2d80e41382ccf1d8653a1388b1940524ce838b11a1c30"
+      },
+      {
+        "path": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/actual_5090_original_ClearSmall_supported_FXAA_RGB_fullSHA_v339/rgb/front_right_update080.png",
+        "SHA256": "d2d31ed64eadba7b5ab06d5e571d36bc4b74bdfa0411b7acfe4e025145867a9e"
+      },
+      {
+        "path": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/actual_5090_original_ClearSmall_supported_FXAA_RGB_fullSHA_v339/rgb/front_left_update020.png",
+        "SHA256": "a7ef1c6735bf9e1e028cee8dc4d646c0a198050ce3044b6ec4114313d1060909"
+      },
+      {
+        "path": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/actual_5090_original_ClearSmall_supported_FXAA_RGB_fullSHA_v339/rgb/front_left_update040.png",
+        "SHA256": "190eae9941b88c5ac0e5df082b282676b17422530b776bae08bc411c40ed02c2"
+      },
+      {
+        "path": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/actual_5090_original_ClearSmall_supported_FXAA_RGB_fullSHA_v339/rgb/front_left_update080.png",
+        "SHA256": "72f7d7be996eb9ce99a62724635fd1e102ecf5e0a760529f85c0bb527bc2bca9"
+      }
+    ],
+    "contact_sheet": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/original_ClearSmall_supported_FXAA_all9_CPU_v340.png",
+    "selected_visual_review_pending": false,
+    "formal_accepted": false,
+    "paper_ssr": null,
+    "actual_frames_reviewed": 9,
+    "isolated_scene_wide_stripes_absent_in_all9": true,
+    "isolated_original_glass_transparency_visually_normal_in_all9": true,
+    "formal_visual_qualified": false,
+    "scope": "Actual all9 contact-sheet review at front/front_right/front_left capture20/40/80. Background and original bottle lack prior scene-wide stripes; checker remains visible through bottle. Isolated scene only, no learned actions or full-task penetration qualification."
+  },
+  "installed_original_Replicator_source_audit": {
+    "at_utc": "2026-10-10T19:30:18.149406+00:00",
+    "read_only": true,
+    "Native_failure": {
+      "passed": false,
+      "error_type": "AssertionError",
+      "error": "AA0 single-variable diagnostic was overridden",
+      "traceback": "Traceback (most recent call last):\n  File \"/data/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/ClearSmall_original_asset_isolated_RGB_entry_v315.py\", line 120, in <module>\n    assert settings.get('/rtx/post/aa/op')==0,'AA0 single-variable diagnostic was overridden'\nAssertionError: AA0 single-variable diagnostic was overridden\n",
+      "captured_rows": [],
+      "actual_physics_step_events": 0,
+      "actual_physics_callback_dt": [],
+      "actual_Native_acceptance_trials": 0,
+      "formal_accepted": false,
+      "paper_ssr": null
+    },
+    "source_path": "/home/liyufeng/miniforge3/envs/chembench/lib/python3.10/site-packages/isaacsim/extscache/omni.replicator.core-1.11.35+106.5.0.lx64.r.cp310/omni/replicator/core/scripts/orchestrator.py",
+    "source_SHA256": "9cb3b98c0851c64a18f8e0fd2745172dd0bb08e4ae83c111a45b77be8153d599",
+    "capture_and_render_methods": {
+      "_set_capture_settings": "    def _set_capture_settings(self):\n        _settings = carb.settings.get_settings()\n\n        # Cache settings\n        # self._cached_settings = [_settings.create_dictionary_from_settings(sp) for sp in SETTINGS_TO_SAVE]\n        if self._cached_settings is None:\n            self._cached_settings = {sp: _settings.get(sp) for sp in SETTINGS_TO_SAVE}\n\n        # Remove gizmos from RGB\n        _settings.set(\"/app/viewport/grid/enabled\", False)\n        _settings.set(\"/app/viewport/outline/enabled\", False)\n        _settings.set(\"/app/viewport/show/lights\", False)\n        _settings.set(\"/app/viewport/show/camera\", False)\n        _settings.set(\"/persistent/physics/visualizationDisplayColliders\", 0)\n\n        # disable async rendering unless asyncRendering is specified\n        async_rendering = bool(_settings.get(\"/omni/replicator/asyncRendering\"))\n        if _settings.get_as_bool(\"/app/asyncRendering\") != async_rendering:\n            _settings.set_bool(\"/app/asyncRendering\", async_rendering)\n            _settings.set_bool(\"/app/asyncRenderingLowLatency\", async_rendering)\n\n        # Enable syncLoads in materialDB and Hydra. This is needed to make sure texture updates finish before we start the rendering\n        _settings.set(\"/rtx/materialDb/syncLoads\", True)\n        _settings.set(\"/rtx/hydra/materialSyncLoads\", True)\n\n        # Disable eco mode (want to keep accumulating samples)\n        _settings.set(\"/rtx/ecoMode/enabled\", False)\n\n        # Rendering to some image buffers additionally require explicitly setting `set_capture_sync(True)`, on top of\n        # disabling the `/app/asyncRendering` setting. This can otherwise cause images to hold corrupted buffer\n        # information by erroneously assuming a complete image buffer is available when only a first partial subframe\n        # has been renderer (as in the case of EXR):\n        # _renderer.set_capture_sync(True)\n\n        if _settings.get(\"/omni/replicator/captureMotionBlur\"):\n            self._set_motion_blur_settings()\n\n        # This ensures the push graph is executed every frame\n        self._timeline.set_play_every_frame(True)\n\n        # Clear any prim selections\n        _usd_context = omni.usd.get_context()\n        _selection = _usd_context.get_selection()\n        _selection.clear_selected_prim_paths()"
+    },
+    "imports": [
+      "import asyncio",
+      "import builtins",
+      "import math",
+      "import sys",
+      "import time",
+      "from collections import deque",
+      "from enum import Enum",
+      "from typing import Callable, List, Tuple",
+      "import carb",
+      "import carb.events",
+      "import carb.settings",
+      "import omni.graph.core as og",
+      "import omni.kit",
+      "import omni.kit.app",
+      "import omni.timeline",
+      "from omni.syntheticdata import SyntheticData",
+      "from pxr import PhysxSchema, Usd, UsdPhysics",
+      "from ..bindings._omni_replicator_core import Schema_omni_replicator_extinfo_1_0",
+      "from .backends.dispatcher import BackendDispatch",
+      "from .named_nodes import NamedNodes",
+      "from .utils import GRAPH_PATH, get_reduced_ref_time, get_replicator_graph_exists, singleton, utils",
+      "from .writers import WriterRegistry"
+    ],
+    "settings_source": {
+      "path": "/home/liyufeng/miniforge3/envs/chembench/lib/python3.10/site-packages/isaacsim/extscache/omni.replicator.core-1.11.35+106.5.0.lx64.r.cp310/omni/replicator/core/scripts/settings.py",
+      "SHA256": "1c7e8096cfa82c0efb3d998ba39307609a55c1aa4cb01335e3ce8af431f0a5ea",
+      "functions": {
+        "set_render_rtx_realtime": "def set_render_rtx_realtime(antialiasing: Union[str, ReplicatorItem] = \"FXAA\") -> None:\n    \"\"\"Setup RTX Realtime render mode\n\n    Args:\n        antialiasing: Antialiasing algorithm. Select from [Off, FXAA, DLSS, TAA, DLAA]. FXAA is recommended\n            for non-sequential data generation as it does not accumulate samples across frames.\n\n    Example:\n        >>> import omni.replicator.core as rep\n        >>> rep.settings.set_render_rtx_realtime(antialiasing=\"DLSS\")\n    \"\"\"\n    carb_settings(RENDER_MODE, \"RayTracedLighting\")\n\n    # From `omni.rtx.settings.dev/omni/rtx/settings/dev/dev_stack.py`\n    aa_mapping = {\n        \"off\": 0,\n        \"taa\": 1,\n        \"fxaa\": 2,\n        \"dlss\": 3,\n        \"dlaa\": 4,\n    }\n    if antialiasing.lower() not in aa_mapping:\n        raise ValueError(\n            f\"Invalid antialiasing argument `{antialiasing}`. Select from {[aa.upper() for aa in aa_mapping.keys()]}\"\n        )\n    if antialiasing.lower() not in [\"dlss\", \"dlaa\"]:\n        carb.log_info(\"Disabling AA limited ops.\")\n        carb_settings(\"/rtx-transient/post/aa/limitedOps\", False)\n    carb_settings(REALTIME_ANTIALIASING, aa_mapping[antialiasing.lower()])"
+      }
+    },
+    "owned_failed_Native_process": {
+      "pid": 673656,
+      "exists": false
+    },
+    "actual_CPU_cuda_initializations": 0
+  },
+  "supporting_primary_API": "https://docs.omniverse.nvidia.com/kit/docs/omni_replicator/1.11.35/source/extensions/omni.replicator.core/docs/API.html#omni.replicator.core.settings.set_render_rtx_realtime"
+}
