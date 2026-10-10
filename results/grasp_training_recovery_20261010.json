@@ -1,6 +1,6 @@
 {
   "schema": "grasp.training_recovery.v1",
-  "sampled_utc": "2026-10-10T00:37:10.493865+00:00",
+  "sampled_utc": "2026-10-10T02:15:35.008401+00:00",
   "cause": "共享内存盘不足；原守卫文案误标为RAM。新增ACT检查点触发两路自有DP空间保护。",
   "archived_checkpoint_files": 4,
   "archived_bytes": 4152101880,
@@ -36,9 +36,18 @@
     "ACT_exact_training_rng_resume": false,
     "ACT_old_best_validation_epoch": 470,
     "ACT_original_epochs_target": 5000,
-    "ACT_source_data_stats_and_split_bit_exact": true
+    "ACT_source_data_stats_and_split_bit_exact": true,
+    "ACT_actual_completed_epochs": 5000,
+    "ACT_actual_completed_global_step": 10000,
+    "ACT_actual_exit_code": 0,
+    "DP_interrupted": true,
+    "DP_last_log_global_step": 9043,
+    "DP_verified_frozen_recovery_epoch": 150,
+    "DP_verified_frozen_recovery_global_step": 6795,
+    "DP_optimizer_states_verified": 861,
+    "DP_restarted_after_interruption": false
   },
-  "new_DP_checkpoint_backend": "私有Aliyun SHA核对流式原子写入，包含优化器；每50轮及首次更新后保存。",
+  "new_DP_checkpoint_backend": "旧DP单阶段接收端已实际出现截断提交；新版双阶段的9项失败原子性与6项异步/优化器CPU检查通过，DP迁移进行中。",
   "formal_accepted": false,
   "paper_ssr": null,
   "note": "恢复尝试按同一物体/方法/种子合并，不重复计入训练数量；所有中断与回退均保留。",
@@ -48,20 +57,52 @@
   "ACT_new_checkpoint_backend": "异步不可变CPU快照；传输完成且接收端独立完整SHA复核后才提交；结束前必须等检查点完成。",
   "ACT_remote_checkpoint_proofs": [
     {
-      "filename": "policy_best.ckpt.remote.json",
-      "bytes": 336776962,
-      "sha256": "050891b21ee5b5be4be65c0ebde94a5bc55b6d6bbbfb4bcb5c97db7d405cfc5d",
+      "filename": "policy_last.ckpt.remote.json",
+      "passed": true,
+      "staged": true,
       "committed": true,
+      "transaction": "e0beaae3812940fda13a4dd2007d992f",
+      "bytes": 336776962,
+      "sha256": "0bb9607b8731c4c06c352d4ba30c165336e0bd78b1625ae7c5b0c03d01f56d55",
+      "path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_checkpoints_two_phase_v2/act-paper5000-clear_volumetric_flask_250ml-s26101241-bounded24G-n301-remote-v2-a2-policy_last_ckpt/latest.ckpt",
       "independently_rehashed_before_commit": true,
+      "source_local_checkpoint_bytes": 0,
       "optimizer_state_included": false
     },
     {
       "filename": "training_state_latest.pt.remote.json",
-      "bytes": 1008086304,
-      "sha256": "d62eaf47ef479a758dfe13fff92d8aa2b67db076f67f39aac1bdd766b07e3812",
+      "passed": true,
+      "staged": true,
       "committed": true,
+      "transaction": "f30f4e4d63e849938c4cae9c192f8dad",
+      "bytes": 1008086304,
+      "sha256": "eb653637c2f687be06b9cc91b1d4b71701e0ea8bc2bef60194fecfc0ba477ca3",
+      "path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_checkpoints_two_phase_v2/act-paper5000-clear_volumetric_flask_250ml-s26101241-bounded24G-n301-remote-v2-a2-training_state_latest_pt/latest.ckpt",
       "independently_rehashed_before_commit": true,
+      "source_local_checkpoint_bytes": 0,
       "optimizer_state_included": true
+    },
+    {
+      "filename": "policy_best.ckpt.remote.json",
+      "passed": true,
+      "staged": true,
+      "committed": true,
+      "transaction": "2d8a80f124ff4a88968f8de5b3fb70c6",
+      "bytes": 336776962,
+      "sha256": "14fedde2351cf12aa382fd5f9ac0336f792b0ff2606c709ca55b72c58769c5a4",
+      "path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_checkpoints_two_phase_v2/act-paper5000-clear_volumetric_flask_250ml-s26101241-bounded24G-n301-remote-v2-a2-policy_best_ckpt/latest.ckpt",
+      "independently_rehashed_before_commit": true,
+      "source_local_checkpoint_bytes": 0,
+      "optimizer_state_included": false
     }
-  ]
+  ],
+  "DP_latest_checkpoint_corruption": {
+    "actual_bytes": 2089746432,
+    "expected_sender_bytes": 2807272581,
+    "actual_sha256": "f8f9e761dc0a1b927678f3b1877c3d3c64d1b9dcdd554239f7d2b7a63f442692",
+    "expected_sender_sha256": "be1436e3e1cb0f2f9514c13012c10ee335376f7fe800882253fda44db3145f9c",
+    "restore_rejected": true,
+    "failure_preserved": true,
+    "evidence_url": "results/grasp_checkpoint_corruption_diagnostic_20261010.json"
+  }
 }
