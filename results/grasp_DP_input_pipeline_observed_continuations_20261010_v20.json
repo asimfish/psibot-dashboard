@@ -1,0 +1,3213 @@
+{
+  "note": "原seed523试点的匹配36批次耗时：旧/新各8轮，中位数55/30秒，观测比值1.83。训练轮次、权重与主机负载不同，未作随机因果GPU对照。新完整检查点已在原生产环境CPU核对模型/EMA各918张量及861优化器状态。另521/525同一输入改进已在各自原A100恢复并出现真实训练更新；100演示、3000轮、学习率、8步动作不变，独立种子数未增加。",
+  "actual_observed_timing": {
+    "passed_observation": true,
+    "source_receipt_SHA256": "bf4c0b0d6587f5d53238456dea014594a648c18150638b7a6d11798042e527c0",
+    "old_actual_matched36_batch_median_seconds": 55.0,
+    "new_actual_matched36_batch_median_seconds": 30.0,
+    "observed_speed_ratio": 1.8333333333333333,
+    "observation_scope": "Observed original seed523 pre-handoff versus actual continued seed523 workers2 at matched36/38 training-batch progress milestones; different epoch/model state and host load, not a randomized causal GPU benchmark.",
+    "actual_old_rows": [
+      {
+        "epoch": 534,
+        "matched_observed_batches": 36,
+        "observed_tqdm_seconds": 52,
+        "observed_batches_per_second": 0.6923076923076923,
+        "raw_duration": "00:52"
+      },
+      {
+        "epoch": 535,
+        "matched_observed_batches": 36,
+        "observed_tqdm_seconds": 55,
+        "observed_batches_per_second": 0.6545454545454545,
+        "raw_duration": "00:55"
+      },
+      {
+        "epoch": 536,
+        "matched_observed_batches": 36,
+        "observed_tqdm_seconds": 56,
+        "observed_batches_per_second": 0.6428571428571429,
+        "raw_duration": "00:56"
+      },
+      {
+        "epoch": 537,
+        "matched_observed_batches": 36,
+        "observed_tqdm_seconds": 54,
+        "observed_batches_per_second": 0.6666666666666666,
+        "raw_duration": "00:54"
+      },
+      {
+        "epoch": 538,
+        "matched_observed_batches": 36,
+        "observed_tqdm_seconds": 56,
+        "observed_batches_per_second": 0.6428571428571429,
+        "raw_duration": "00:56"
+      },
+      {
+        "epoch": 539,
+        "matched_observed_batches": 36,
+        "observed_tqdm_seconds": 55,
+        "observed_batches_per_second": 0.6545454545454545,
+        "raw_duration": "00:55"
+      },
+      {
+        "epoch": 540,
+        "matched_observed_batches": 36,
+        "observed_tqdm_seconds": 56,
+        "observed_batches_per_second": 0.6428571428571429,
+        "raw_duration": "00:56"
+      },
+      {
+        "epoch": 541,
+        "matched_observed_batches": 36,
+        "observed_tqdm_seconds": 55,
+        "observed_batches_per_second": 0.6545454545454545,
+        "raw_duration": "00:55"
+      }
+    ],
+    "actual_new_rows": [
+      {
+        "epoch": 539,
+        "matched_observed_batches": 36,
+        "observed_tqdm_seconds": 30,
+        "observed_batches_per_second": 1.2,
+        "raw_duration": "00:30"
+      },
+      {
+        "epoch": 541,
+        "matched_observed_batches": 36,
+        "observed_tqdm_seconds": 32,
+        "observed_batches_per_second": 1.125,
+        "raw_duration": "00:32"
+      },
+      {
+        "epoch": 543,
+        "matched_observed_batches": 36,
+        "observed_tqdm_seconds": 30,
+        "observed_batches_per_second": 1.2,
+        "raw_duration": "00:30"
+      },
+      {
+        "epoch": 545,
+        "matched_observed_batches": 36,
+        "observed_tqdm_seconds": 28,
+        "observed_batches_per_second": 1.2857142857142858,
+        "raw_duration": "00:28"
+      },
+      {
+        "epoch": 546,
+        "matched_observed_batches": 36,
+        "observed_tqdm_seconds": 30,
+        "observed_batches_per_second": 1.2,
+        "raw_duration": "00:30"
+      },
+      {
+        "epoch": 547,
+        "matched_observed_batches": 36,
+        "observed_tqdm_seconds": 30,
+        "observed_batches_per_second": 1.2,
+        "raw_duration": "00:30"
+      },
+      {
+        "epoch": 548,
+        "matched_observed_batches": 36,
+        "observed_tqdm_seconds": 30,
+        "observed_batches_per_second": 1.2,
+        "raw_duration": "00:30"
+      },
+      {
+        "epoch": 549,
+        "matched_observed_batches": 36,
+        "observed_tqdm_seconds": 29,
+        "observed_batches_per_second": 1.2413793103448276,
+        "raw_duration": "00:29"
+      }
+    ],
+    "CPU_input_equivalence_prequalified": true,
+    "causal_randomized_ABBA_GPU_benchmark": false,
+    "different_training_epochs_and_host_load": true,
+    "formal_accepted": false,
+    "paper_ssr": null
+  },
+  "actual_first_saved_optimizer_CPU": {
+    "passed": true,
+    "started_utc": "2026-10-10T14:22:02.376067+00:00",
+    "actual_GPU_training_restarts": 0,
+    "actual_Native_trials": 0,
+    "formal_accepted": false,
+    "paper_ssr": null,
+    "checkpoint": {
+      "passed": true,
+      "staged": true,
+      "committed": true,
+      "transaction": "cb87df030b9b448d923333aa70eac5fe",
+      "bytes": 2807320965,
+      "sha256": "79b2261993df3f85f600152ffed5d6a9e242cc1c745b722b0346678f69d6b733",
+      "path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_input_acceleration_first_save_frozen_v178/seed26101523/latest.ckpt",
+      "independently_rehashed_before_commit": true,
+      "source_local_checkpoint_bytes": 0,
+      "optimizer_state_included": true,
+      "original_live_path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_dp_checkpoints_two_phase_v8/dp-recovery3000-glass_beaker_100ml-s26101523-original-optimizer-workers2-v154-a1-training_state_latest_pt/latest.ckpt",
+      "source_mtime_ns": 1791640724170717218,
+      "immutable_frozen_hardlink": true
+    },
+    "saved_counters": {
+      "epoch": 501,
+      "global_step": 19076
+    },
+    "next_epoch": 502,
+    "EMA_optimization_step": 19076,
+    "actual_model_and_EMA_fingerprints": {
+      "model": {
+        "tensor_count": 918,
+        "ordered_tensor_bytes_SHA256": "afbeccdee45cf22905fbddefa122cbc6ad23af5a894b0b222958ea1fc152906a"
+      },
+      "ema_model": {
+        "tensor_count": 918,
+        "ordered_tensor_bytes_SHA256": "3f7ecc610767488a1968cba7d126cadec50647fbdbff16f7f8211b4146fd57ed"
+      }
+    },
+    "actual_optimizer_parameter_states": 861,
+    "actual_original_optimizer_groups": [
+      {
+        "lr": 0.0002831197744015986,
+        "initial_lr": 0.0003
+      },
+      {
+        "lr": 0.0002831197744015986,
+        "initial_lr": 0.0003
+      },
+      {
+        "lr": 2.8311977440159864e-05,
+        "initial_lr": 3e-05
+      },
+      {
+        "lr": 2.8311977440159864e-05,
+        "initial_lr": 3e-05
+      }
+    ],
+    "optimizer_reset": false,
+    "actual_CUDA_initializations": 0,
+    "exact_worker_RNG_continuation_qualified": false,
+    "original_training_total_epochs": 3000,
+    "actual_full_CPU_intake": {
+      "actual_CPU_load": true,
+      "model_tensors": 918,
+      "optimizer_states": 861,
+      "saved_epoch": 501,
+      "global_step": 19076,
+      "optimizer_restored": true,
+      "source": {
+        "passed": true,
+        "staged": true,
+        "committed": true,
+        "transaction": "cb87df030b9b448d923333aa70eac5fe",
+        "bytes": 2807320965,
+        "sha256": "79b2261993df3f85f600152ffed5d6a9e242cc1c745b722b0346678f69d6b733",
+        "path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_input_acceleration_first_save_frozen_v178/seed26101523/latest.ckpt",
+        "independently_rehashed_before_commit": true,
+        "source_local_checkpoint_bytes": 0,
+        "optimizer_state_included": true,
+        "original_live_path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_dp_checkpoints_two_phase_v8/dp-recovery3000-glass_beaker_100ml-s26101523-original-optimizer-workers2-v154-a1-training_state_latest_pt/latest.ckpt",
+        "source_mtime_ns": 1791640724170717218,
+        "immutable_frozen_hardlink": true
+      },
+      "exact_training_RNG_resume": false,
+      "formal_accepted": false,
+      "independently_rehashed_source": {
+        "bytes": 2807320965,
+        "sha256": "79b2261993df3f85f600152ffed5d6a9e242cc1c745b722b0346678f69d6b733"
+      },
+      "checkpoint_disk_bytes": 0,
+      "method": "DP",
+      "seed": 26101523,
+      "CPU_only": true
+    },
+    "actual_torch_version": "2.6.0+cu124",
+    "actual_numpy_version": "2.2.6",
+    "checkpoint_disk_bytes_written": 0,
+    "scope": "Actual first saved workers2 input pipeline DP fullbytes CPU-loaded in producer environment. Original100 dataset/3000 epochs/3e-4 and3e-5 LRs/128 batch/1obs/8action and actual model/EMA/861 optimizer verified; no Native acceptance. No NumPy module alias, checkpoint conversion, GPU startup or active training stop.",
+    "at_utc": "2026-10-10T14:27:07.639572+00:00"
+  },
+  "actual_two_same_GPU_continuations": {
+    "at_utc": "2026-10-10T15:13:56.493696+00:00",
+    "read_only": true,
+    "seeds": {
+      "26101521": {
+        "launch": {
+          "at_utc": "2026-10-10T14:43:35.822225+00:00",
+          "pid": 535851,
+          "start_ticks": "727659464",
+          "CPU_intake_first_old_training_preserved_until_pass": true,
+          "actual_GPU_handoff_pending": true,
+          "package_SHA256": {
+            "train_entry_Beaker100_first_obs_workers2_DP_v184.py": "eb4996db977b980ac31e08677ac8f20555bb1fd92687731cd06063ca450bb066",
+            "train_controller_Beaker100_first_obs_workers2_DP_v184.py": "9a283c8b2f209fddc7cdebaaaced2c700d785db76d451f87a55b806ff9dfbfa0"
+          },
+          "formal_accepted": false
+        },
+        "status": {
+          "object": "glass_beaker_100ml",
+          "seed": 26101521,
+          "host": "ide-650ef93f23324f04881bde87cf05d6c1-0f2fcc",
+          "gpu_uuid": "GPU-10b6c5ef-9954-2453-1791-d6378646bb85",
+          "started_utc": "2026-10-10T14:43:35.869072+00:00",
+          "status": "running",
+          "formal_accepted": false,
+          "paper_SSR": null,
+          "physical_dataset_requalification": false,
+          "dataloader_workers": 2,
+          "prior_attempt": "/tmp/grasp_ssr_ood_multiserver_20261009/dp_storage_recovery_v8/runs/dp-recovery3000-glass_beaker_100ml-s26101521-bounded-tmp-workers0-dp-v8-a4",
+          "logical_seed_count_increase": 0,
+          "purpose": "One owned input pipeline canary. Original frozen model/EMA/fulloptimizer continuation, fixed100 dataset/3000 epochs/LR/action horizon unchanged; worker RNG restart disclosed. Qualify actual throughput before broader deployment.",
+          "updated_utc": "2026-10-10T15:13:43.680440+00:00",
+          "CPU_command": [
+            "/home/dataset-assist-0/yf/envs/dp/bin/python",
+            "-B",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/train_entry_Beaker100_first_obs_workers2_DP_v184.py",
+            "_target_=train_diffusion_transformer_timm_workspace.TrainDiffusionTransformerTimmWorkspace",
+            "task.dataset_path=/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+            "task.dataset.zarr_path=/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+            "task.object_name=glass_beaker_100ml",
+            "task.num_demos=100",
+            "n_obs_steps=1",
+            "n_action_steps=8",
+            "training.seed=26101521",
+            "training.device=cuda:0",
+            "training.num_epochs=3000",
+            "training.max_global_train_steps=null",
+            "training.resume=false",
+            "optimizer.lr=3e-4",
+            "optimizer.obs_encoder_lr=3e-5",
+            "dataloader.batch_size=128",
+            "dataloader.num_workers=2",
+            "dataloader.persistent_workers=true",
+            "+dataloader.prefetch_factor=2",
+            "val_dataloader.num_workers=0",
+            "val_dataloader.persistent_workers=false",
+            "task.dataset.val_ratio=0.05",
+            "training.checkpoint_every=50",
+            "checkpoint.topk.k=0",
+            "checkpoint.save_last_ckpt=true",
+            "logging.mode=disabled",
+            "hydra.run.dir=/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/runs/dp-recovery3000-glass_beaker_100ml-s26101521-original-optimizer-workers2-v184-a1/cpu_intake/checkpoints"
+          ],
+          "CPU_child": {
+            "pid": 535852,
+            "start_ticks": "727659470"
+          },
+          "CPU_actual_exit_code": 0,
+          "CPU_intake_gate": {
+            "passed": true,
+            "recovery": {
+              "mode": "actual_model_EMA_optimizer_input_pipeline_canary",
+              "optimizer_reset": false,
+              "checkpoint_sha256": "c656b732f1b89b3bdb182c602a5cd334c45be09fa930c629bae929e65d6f2cb3",
+              "saved_epoch": 750,
+              "next_epoch": 751,
+              "saved_global_step": 28538,
+              "original_total_epochs": 3000,
+              "loaded_actual_model_EMA_fingerprints": {
+                "model": {
+                  "tensor_count": 918,
+                  "ordered_tensor_bytes_SHA256": "256da4afc7fad10229d2e88a70cf8b446df9373bf7737f44105b06791ba5fceb"
+                },
+                "ema_model": {
+                  "tensor_count": 918,
+                  "ordered_tensor_bytes_SHA256": "dd9f8f30aa4adfffd051846fa3e2e272a9d307b82e330b0b42cff7fd54d70488"
+                }
+              },
+              "loaded_optimizer_parameter_states": 861,
+              "full_CPU_intake": {
+                "actual_CPU_load": true,
+                "model_tensors": 918,
+                "optimizer_states": 861,
+                "saved_epoch": 750,
+                "global_step": 28538,
+                "optimizer_restored": true,
+                "source": {
+                  "passed": true,
+                  "staged": true,
+                  "committed": true,
+                  "transaction": "5cb950a140674baa8b453a052700dfd8",
+                  "bytes": 2807321093,
+                  "sha256": "c656b732f1b89b3bdb182c602a5cd334c45be09fa930c629bae929e65d6f2cb3",
+                  "path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_two_more_input_frozen_v182/seed26101521/5cb950a140674baa8b453a052700dfd8/latest.ckpt",
+                  "independently_rehashed_before_commit": true,
+                  "source_local_checkpoint_bytes": 0,
+                  "optimizer_state_included": true,
+                  "original_live_path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_dp_checkpoints_two_phase_v8/dp-recovery3000-glass_beaker_100ml-s26101521-bounded-tmp-workers0-dp-v8-a4-training_state_latest_pt/latest.ckpt",
+                  "source_mtime_ns": 1791641788621850511,
+                  "immutable_frozen_hardlink": true
+                },
+                "exact_training_RNG_resume": false,
+                "formal_accepted": false,
+                "independently_rehashed_source": {
+                  "bytes": 2807321093,
+                  "sha256": "c656b732f1b89b3bdb182c602a5cd334c45be09fa930c629bae929e65d6f2cb3"
+                },
+                "checkpoint_disk_bytes": 0,
+                "method": "DP",
+                "seed": 26101521,
+                "CPU_only": true
+              },
+              "exact_training_resume": false,
+              "training_rng_reset": true,
+              "dataloader_workers_changed_0_to2": true,
+              "old_attempt_and_every_checkpoint_retained": true,
+              "formal_accepted": false
+            },
+            "actual_CUDA_initializations": 0,
+            "actual_GPU_training_restarts": 0,
+            "formal_accepted": false
+          },
+          "old_last_before_stop": {
+            "train_loss": 0.004675460979342461,
+            "global_step": 29938,
+            "epoch": 787,
+            "lr": 0.0002562473456601756
+          },
+          "old_optimizer_frozen_and_CPU_qualified": true,
+          "old_controller_and_training_closed": true,
+          "old_closure_status": "failed",
+          "old_training_actual_exit_code": 1,
+          "own_controller_only_SIGTERM_sent": true,
+          "admission": {
+            "gpu_csv": "GPU-10b6c5ef-9954-2453-1791-d6378646bb85, NVIDIA A100-SXM4-80GB, 81149, 4, 81920, 0",
+            "host_MemAvailable_KiB": 400628884,
+            "ready": true,
+            "allocator_cap_fraction": 0.4875,
+            "dynamic_GPU_reserve_GiB": 3
+          },
+          "stable_capacity_samples": 2,
+          "dataset_snapshot": {
+            "source": "/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+            "snapshot": "/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+            "files": 5862,
+            "bytes": 1324090401,
+            "manifest_sha256": "4cfeabe995904a2bde8250680121bacb8e1a2c7effb4322fb69f2087e03e3a94",
+            "full_actual_manifest_revalidated": true
+          },
+          "AF_UNIX_regression": {
+            "passed": true,
+            "actual_listener_path": "/tmp/t500d184s26101521/pymp-ve_13rpm/listener-9glv1cy6",
+            "TMPDIR": "/tmp/t500d184s26101521"
+          },
+          "command": [
+            "/home/dataset-assist-0/yf/envs/dp/bin/python",
+            "-B",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/train_entry_Beaker100_first_obs_workers2_DP_v184.py",
+            "_target_=train_diffusion_transformer_timm_workspace.TrainDiffusionTransformerTimmWorkspace",
+            "task.dataset_path=/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+            "task.dataset.zarr_path=/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+            "task.object_name=glass_beaker_100ml",
+            "task.num_demos=100",
+            "n_obs_steps=1",
+            "n_action_steps=8",
+            "training.seed=26101521",
+            "training.device=cuda:0",
+            "training.num_epochs=3000",
+            "training.max_global_train_steps=null",
+            "training.resume=false",
+            "optimizer.lr=3e-4",
+            "optimizer.obs_encoder_lr=3e-5",
+            "dataloader.batch_size=128",
+            "dataloader.num_workers=2",
+            "dataloader.persistent_workers=true",
+            "+dataloader.prefetch_factor=2",
+            "val_dataloader.num_workers=0",
+            "val_dataloader.persistent_workers=false",
+            "task.dataset.val_ratio=0.05",
+            "training.checkpoint_every=50",
+            "checkpoint.topk.k=0",
+            "checkpoint.save_last_ckpt=true",
+            "logging.mode=disabled",
+            "hydra.run.dir=/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/runs/dp-recovery3000-glass_beaker_100ml-s26101521-original-optimizer-workers2-v184-a1/checkpoints"
+          ],
+          "source_pins": {
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/train_entry_30109_storage_recovery_DP_v8.py": "1a9be2a9d724853b16e27d9c3b833e434bf9f804e8290ce2292b862e71639715",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/train_controller_30109_storage_recovery_DP_v8.py": "68245194e54c56ad0e45cdf1573cd129cff9b870f349ceff22a3340155dc5a8d",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/stream_owned_dp_checkpoint_to_ali_v1.py": "537519252542e221248d6b7db60b4e424be1aadfa144c11564c4753b1d6abf90",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/stream_owned_dp_workspace_async_v3.py": "3e89f447c8b1325f7b9ad2c23d3b328d9c3637ebb1724b5ef93253b962009a53",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/bounded_owned_gpu_telemetry_v1.py": "d36450c6d52a7f459cdda69948ec13abd4629c805f3cac4662de905bdd973316",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/check_two_phase_checkpoint_failure_atomicity_dp_cpu_v3.py": "df7218407c2f7165d200a2ffcd348fa7ee1df99442a0727b6f3e2d88b7acdc03",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/check_async_checkpoint_and_optimizer_resume_dp_cpu_v3.py": "3cc7d3efbcc5b2683b7008adb24a07db3ca40c0afc9f93860e68dbfdc40420f9",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/async_owned_remote_checkpoint_writer_dp_v3.py": "ee744598c1b318b21133139c548deb1868c65b9a6ed62307baf477334011faae",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/stream_owned_checkpoint_to_ali_two_phase_dp_v3.py": "54c0bdec02856e725ad4bbf8bafb1f2b2680b1d92b40540b110c310b1766634a",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/stream_owned_checkpoint_to_ali_two_phase_v2.py": "54c0bdec02856e725ad4bbf8bafb1f2b2680b1d92b40540b110c310b1766634a",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/owned_checkpoint_transport_channel_slots_v8.py": "168fce5172744966b93e14ec2e0db39ab90900d0c7f31fed47ebc38ef6d1faf7",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/check_owned_SSH_channel_slots_CPU_v8.py": "f26e2ac05f3484271fb29a76cafc80dea6caecb30de80a009e08641048308436",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/owned_DP_body_slots_v8.py": "da1b0fc2d36694517a9da988cbb0e95b67fb9b18859b41ee5ec5e49b077054a4",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/check_DP_body_slots_CPU_v8.py": "d096d6125437afe6007ce31921a2aa35a5ee178525237e1523ef02f1d6c406bf",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/owned_full_checkpoint_CPU_stream_v8.py": "b8cb8c949c1ed05d62e440aaeb40807b5ab854e7a8171cea4d2abd40df75dcd0",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/CPU_gate_supervisor_DP_channels_v8.py": "49392b5ea14dbcffe48ed3c95d5d94f8828a319968524aa7ba37e82fc6e0544d",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/train_entry_Beaker100_first_obs_workers2_DP_v184.py": "eb4996db977b980ac31e08677ac8f20555bb1fd92687731cd06063ca450bb066",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/train_controller_Beaker100_first_obs_workers2_DP_v184.py": "9a283c8b2f209fddc7cdebaaaced2c700d785db76d451f87a55b806ff9dfbfa0",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/fixed/budget_contract.py": "6967f99a9c2f1c9ca8517804d1fded51269b92a76978e75c33f56efcc58ca489",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/fixed/train_diffusion_transformer_timm_workspace.py": "e9fa8ee908a8f0fba4c779ed966a923e90d2abaad039564f6abbb5b713155f28",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/ACTUAL_FULL_OPTIMIZER_PRE_INPUT_CPU_V183.json": "9b4ff17bde979f1e063ba5ce8d3252aec39106711a466649836212ea4cb17ea9",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101521_input_acceleration_v184/ACTUAL_WORKERS2_CPU_EQUIVALENCE_AND_SPEED_V150.json": "0f11decc826e0e267327b508c5c3b236f805416305ce6121c90e70c40969f23a"
+          },
+          "final_admission": {
+            "gpu_csv": "GPU-10b6c5ef-9954-2453-1791-d6378646bb85, NVIDIA A100-SXM4-80GB, 81149, 4, 81920, 0",
+            "host_MemAvailable_KiB": 400556372,
+            "ready": true,
+            "allocator_cap_fraction": 0.4875,
+            "dynamic_GPU_reserve_GiB": 3
+          },
+          "pid": 553885,
+          "start_ticks": "727720525",
+          "gpu_now": "GPU-10b6c5ef-9954-2453-1791-d6378646bb85, NVIDIA A100-SXM4-80GB, 42100, 39054, 81920, 79",
+          "actual_min_free_GPU_MiB": 42100,
+          "last": {
+            "train_loss": 0.004178570117801428,
+            "global_step": 29090,
+            "epoch": 765,
+            "lr": 0.00025873565501488387
+          }
+        },
+        "CPU_intake": {
+          "status": "streaming_ordinary_CPU_memory",
+          "bytes": 2801795072,
+          "target_bytes": 2807321093,
+          "source": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_two_more_input_frozen_v182/seed26101521/5cb950a140674baa8b453a052700dfd8/latest.ckpt",
+          "checkpoint_disk_bytes": 0,
+          "at_utc": "2026-10-10T14:52:07.880716+00:00",
+          "formal_accepted": false
+        },
+        "CPU_actual_gate": {
+          "passed": true,
+          "recovery": {
+            "mode": "actual_model_EMA_optimizer_input_pipeline_canary",
+            "optimizer_reset": false,
+            "checkpoint_sha256": "c656b732f1b89b3bdb182c602a5cd334c45be09fa930c629bae929e65d6f2cb3",
+            "saved_epoch": 750,
+            "next_epoch": 751,
+            "saved_global_step": 28538,
+            "original_total_epochs": 3000,
+            "loaded_actual_model_EMA_fingerprints": {
+              "model": {
+                "tensor_count": 918,
+                "ordered_tensor_bytes_SHA256": "256da4afc7fad10229d2e88a70cf8b446df9373bf7737f44105b06791ba5fceb"
+              },
+              "ema_model": {
+                "tensor_count": 918,
+                "ordered_tensor_bytes_SHA256": "dd9f8f30aa4adfffd051846fa3e2e272a9d307b82e330b0b42cff7fd54d70488"
+              }
+            },
+            "loaded_optimizer_parameter_states": 861,
+            "full_CPU_intake": {
+              "actual_CPU_load": true,
+              "model_tensors": 918,
+              "optimizer_states": 861,
+              "saved_epoch": 750,
+              "global_step": 28538,
+              "optimizer_restored": true,
+              "source": {
+                "passed": true,
+                "staged": true,
+                "committed": true,
+                "transaction": "5cb950a140674baa8b453a052700dfd8",
+                "bytes": 2807321093,
+                "sha256": "c656b732f1b89b3bdb182c602a5cd334c45be09fa930c629bae929e65d6f2cb3",
+                "path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_two_more_input_frozen_v182/seed26101521/5cb950a140674baa8b453a052700dfd8/latest.ckpt",
+                "independently_rehashed_before_commit": true,
+                "source_local_checkpoint_bytes": 0,
+                "optimizer_state_included": true,
+                "original_live_path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_dp_checkpoints_two_phase_v8/dp-recovery3000-glass_beaker_100ml-s26101521-bounded-tmp-workers0-dp-v8-a4-training_state_latest_pt/latest.ckpt",
+                "source_mtime_ns": 1791641788621850511,
+                "immutable_frozen_hardlink": true
+              },
+              "exact_training_RNG_resume": false,
+              "formal_accepted": false,
+              "independently_rehashed_source": {
+                "bytes": 2807321093,
+                "sha256": "c656b732f1b89b3bdb182c602a5cd334c45be09fa930c629bae929e65d6f2cb3"
+              },
+              "checkpoint_disk_bytes": 0,
+              "method": "DP",
+              "seed": 26101521,
+              "CPU_only": true
+            },
+            "exact_training_resume": false,
+            "training_rng_reset": true,
+            "dataloader_workers_changed_0_to2": true,
+            "old_attempt_and_every_checkpoint_retained": true,
+            "formal_accepted": false
+          },
+          "actual_CUDA_initializations": 0,
+          "actual_GPU_training_restarts": 0,
+          "formal_accepted": false
+        },
+        "runtime": {
+          "actual_gpu_uuid": "GPU-10b6c5ef-9954-2453-1791-d6378646bb85",
+          "gpu_name": "NVIDIA A100-SXM4-80GB",
+          "epochs": 3000,
+          "global_step_at_start": 28538,
+          "epoch_at_start": 751,
+          "optimizer_groups": [
+            {
+              "lr": 0.00026032528469915536,
+              "initial_lr": 0.0003
+            },
+            {
+              "lr": 0.00026032528469915536,
+              "initial_lr": 0.0003
+            },
+            {
+              "lr": 2.603252846991554e-05,
+              "initial_lr": 3e-05
+            },
+            {
+              "lr": 2.603252846991554e-05,
+              "initial_lr": 3e-05
+            }
+          ],
+          "recovery": {
+            "mode": "actual_model_EMA_optimizer_input_pipeline_canary",
+            "optimizer_reset": false,
+            "checkpoint_sha256": "c656b732f1b89b3bdb182c602a5cd334c45be09fa930c629bae929e65d6f2cb3",
+            "saved_epoch": 750,
+            "next_epoch": 751,
+            "saved_global_step": 28538,
+            "original_total_epochs": 3000,
+            "loaded_actual_model_EMA_fingerprints": {
+              "model": {
+                "tensor_count": 918,
+                "ordered_tensor_bytes_SHA256": "256da4afc7fad10229d2e88a70cf8b446df9373bf7737f44105b06791ba5fceb"
+              },
+              "ema_model": {
+                "tensor_count": 918,
+                "ordered_tensor_bytes_SHA256": "dd9f8f30aa4adfffd051846fa3e2e272a9d307b82e330b0b42cff7fd54d70488"
+              }
+            },
+            "loaded_optimizer_parameter_states": 861,
+            "full_CPU_intake": {
+              "actual_CPU_load": true,
+              "model_tensors": 918,
+              "optimizer_states": 861,
+              "saved_epoch": 750,
+              "global_step": 28538,
+              "optimizer_restored": true,
+              "source": {
+                "passed": true,
+                "staged": true,
+                "committed": true,
+                "transaction": "5cb950a140674baa8b453a052700dfd8",
+                "bytes": 2807321093,
+                "sha256": "c656b732f1b89b3bdb182c602a5cd334c45be09fa930c629bae929e65d6f2cb3",
+                "path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_two_more_input_frozen_v182/seed26101521/5cb950a140674baa8b453a052700dfd8/latest.ckpt",
+                "independently_rehashed_before_commit": true,
+                "source_local_checkpoint_bytes": 0,
+                "optimizer_state_included": true,
+                "original_live_path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_dp_checkpoints_two_phase_v8/dp-recovery3000-glass_beaker_100ml-s26101521-bounded-tmp-workers0-dp-v8-a4-training_state_latest_pt/latest.ckpt",
+                "source_mtime_ns": 1791641788621850511,
+                "immutable_frozen_hardlink": true
+              },
+              "exact_training_RNG_resume": false,
+              "formal_accepted": false,
+              "independently_rehashed_source": {
+                "bytes": 2807321093,
+                "sha256": "c656b732f1b89b3bdb182c602a5cd334c45be09fa930c629bae929e65d6f2cb3"
+              },
+              "checkpoint_disk_bytes": 0,
+              "method": "DP",
+              "seed": 26101521,
+              "CPU_only": true
+            },
+            "exact_training_resume": false,
+            "training_rng_reset": true,
+            "dataloader_workers_changed_0_to2": true,
+            "old_attempt_and_every_checkpoint_retained": true,
+            "formal_accepted": false
+          },
+          "checkpoint_backend": "Original async immutable CPU snapshot and two-phase full SHA commit; bounded body, final drain",
+          "checkpoint_interval_epochs": 50,
+          "optimizer_state_saved": true,
+          "checkpoint_bytes_written_to_shm": 0,
+          "config": {
+            "name": "train_diffusion_transformer_timm",
+            "_target_": "train_diffusion_transformer_timm_workspace.TrainDiffusionTransformerTimmWorkspace",
+            "task_name": "grasp_rgb",
+            "shape_meta": {
+              "obs": {
+                "chest_camera_rgb": {
+                  "shape": [
+                    3,
+                    224,
+                    224
+                  ],
+                  "type": "rgb",
+                  "horizon": 1
+                },
+                "head_camera_rgb": {
+                  "shape": [
+                    3,
+                    224,
+                    224
+                  ],
+                  "type": "rgb",
+                  "horizon": 1
+                },
+                "third_camera_rgb": {
+                  "shape": [
+                    3,
+                    224,
+                    224
+                  ],
+                  "type": "rgb",
+                  "horizon": 1
+                },
+                "arm2_pos": {
+                  "shape": [
+                    7
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                },
+                "hand2_pos": {
+                  "shape": [
+                    6
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                },
+                "arm2_eef_pos": {
+                  "shape": [
+                    3
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                },
+                "arm2_eef_quat": {
+                  "shape": [
+                    4
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                },
+                "target_pose": {
+                  "shape": [
+                    7
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                }
+              },
+              "action": {
+                "shape": [
+                  13
+                ],
+                "horizon": 8
+              }
+            },
+            "exp_name": "default",
+            "object_name": "glass_beaker_100ml",
+            "num_demos": 100,
+            "use_velocity": false,
+            "n_action_steps": 8,
+            "n_obs_steps": 1,
+            "n_emb": 768,
+            "n_latency_steps": 0,
+            "dataset_obs_steps": 1,
+            "past_action_visible": false,
+            "keypoint_visible_rate": 1.0,
+            "obs_as_cond": true,
+            "policy": {
+              "_target_": "psi_dp.policy.diffusion_transformer_timm_policy.DiffusionTransformerTimmPolicy",
+              "shape_meta": {
+                "obs": {
+                  "chest_camera_rgb": {
+                    "shape": [
+                      3,
+                      224,
+                      224
+                    ],
+                    "type": "rgb",
+                    "horizon": 1
+                  },
+                  "head_camera_rgb": {
+                    "shape": [
+                      3,
+                      224,
+                      224
+                    ],
+                    "type": "rgb",
+                    "horizon": 1
+                  },
+                  "third_camera_rgb": {
+                    "shape": [
+                      3,
+                      224,
+                      224
+                    ],
+                    "type": "rgb",
+                    "horizon": 1
+                  },
+                  "arm2_pos": {
+                    "shape": [
+                      7
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  },
+                  "hand2_pos": {
+                    "shape": [
+                      6
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  },
+                  "arm2_eef_pos": {
+                    "shape": [
+                      3
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  },
+                  "arm2_eef_quat": {
+                    "shape": [
+                      4
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  },
+                  "target_pose": {
+                    "shape": [
+                      7
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  }
+                },
+                "action": {
+                  "shape": [
+                    13
+                  ],
+                  "horizon": 8
+                }
+              },
+              "noise_scheduler": {
+                "_target_": "diffusers.DDIMScheduler",
+                "num_train_timesteps": 50,
+                "beta_start": 0.0001,
+                "beta_end": 0.02,
+                "beta_schedule": "squaredcos_cap_v2",
+                "clip_sample": true,
+                "set_alpha_to_one": true,
+                "steps_offset": 0,
+                "prediction_type": "epsilon"
+              },
+              "obs_encoder": {
+                "_target_": "psi_dp.model.vision.timm_obs_encoder.TimmObsEncoder",
+                "shape_meta": {
+                  "obs": {
+                    "chest_camera_rgb": {
+                      "shape": [
+                        3,
+                        224,
+                        224
+                      ],
+                      "type": "rgb",
+                      "horizon": 1
+                    },
+                    "head_camera_rgb": {
+                      "shape": [
+                        3,
+                        224,
+                        224
+                      ],
+                      "type": "rgb",
+                      "horizon": 1
+                    },
+                    "third_camera_rgb": {
+                      "shape": [
+                        3,
+                        224,
+                        224
+                      ],
+                      "type": "rgb",
+                      "horizon": 1
+                    },
+                    "arm2_pos": {
+                      "shape": [
+                        7
+                      ],
+                      "type": "low_dim",
+                      "horizon": 1
+                    },
+                    "hand2_pos": {
+                      "shape": [
+                        6
+                      ],
+                      "type": "low_dim",
+                      "horizon": 1
+                    },
+                    "arm2_eef_pos": {
+                      "shape": [
+                        3
+                      ],
+                      "type": "low_dim",
+                      "horizon": 1
+                    },
+                    "arm2_eef_quat": {
+                      "shape": [
+                        4
+                      ],
+                      "type": "low_dim",
+                      "horizon": 1
+                    },
+                    "target_pose": {
+                      "shape": [
+                        7
+                      ],
+                      "type": "low_dim",
+                      "horizon": 1
+                    }
+                  },
+                  "action": {
+                    "shape": [
+                      13
+                    ],
+                    "horizon": 8
+                  }
+                },
+                "global_pool": "",
+                "n_emb": 768,
+                "model_name": "vit_small_r26_s32_224",
+                "pretrained": true,
+                "frozen": false,
+                "feature_aggregation": null,
+                "use_mask_input": false,
+                "downsample_ratio": 32,
+                "transforms": [
+                  {
+                    "type": "RandomCrop",
+                    "ratio": 0.9
+                  }
+                ],
+                "use_group_norm": true,
+                "share_rgb_model": false
+              },
+              "num_inference_steps": 16,
+              "input_pertub": 0.1,
+              "n_layer": 7,
+              "n_head": 8,
+              "n_emb": 768,
+              "p_drop_attn": 0.1
+            },
+            "ema": {
+              "_target_": "diffusion_policy.model.diffusion.ema_model.EMAModel",
+              "update_after_step": 0,
+              "inv_gamma": 1.0,
+              "power": 0.75,
+              "min_value": 0.0,
+              "max_value": 0.9999
+            },
+            "dataloader": {
+              "batch_size": 128,
+              "num_workers": 2,
+              "shuffle": true,
+              "pin_memory": true,
+              "persistent_workers": true,
+              "prefetch_factor": 2
+            },
+            "val_dataloader": {
+              "batch_size": 128,
+              "num_workers": 0,
+              "shuffle": false,
+              "pin_memory": true,
+              "persistent_workers": false
+            },
+            "optimizer": {
+              "lr": 0.0003,
+              "weight_decay": 1e-06,
+              "obs_encoder_lr": 3e-05,
+              "obs_encoder_weight_decay": 1e-06,
+              "betas": [
+                0.95,
+                0.999
+              ]
+            },
+            "training": {
+              "device": "cuda:0",
+              "seed": 26101521,
+              "debug": false,
+              "resume": false,
+              "lastest_ckpt_path": null,
+              "lr_scheduler": "cosine",
+              "lr_warmup_steps": 2000,
+              "num_epochs": 3000,
+              "gradient_accumulate_every": 1,
+              "use_ema": true,
+              "freeze_encoder": false,
+              "rollout_every": 10,
+              "checkpoint_every": 50,
+              "val_every": 1,
+              "sample_every": 5,
+              "max_train_steps": null,
+              "max_global_train_steps": null,
+              "max_val_steps": null,
+              "tqdm_interval_sec": 1.0
+            },
+            "logging": {
+              "project": "DP_并行实验1222_rbg_grasp_rgb",
+              "resume": false,
+              "mode": "disabled",
+              "name": "glass_beaker_100ml_n100_velFalse_20261010_225350",
+              "tags": [
+                "grasp_rgb",
+                "glass_beaker_100ml",
+                "n100",
+                "obs:rgb",
+                "action_dim:13",
+                "img:224",
+                "velocity:False",
+                "pos_rand:True",
+                "rot_rand:False",
+                "encoder:vit_small_r26_s32_224",
+                "pretrained:True",
+                "bs:128",
+                "lr:0.0003",
+                "n_layer:7",
+                "n_emb:768",
+                "act_steps:8",
+                "obs_steps:1"
+              ],
+              "id": null,
+              "group": "glass_beaker_100ml",
+              "notes": "物体:glass_beaker_100ml | 数据:100条 | 观测:rgb | 图像:224 | 速度:False | 位置随机:True | 旋转随机:False | 编码器:vit_small_r26_s32_224"
+            },
+            "checkpoint": {
+              "topk": {
+                "monitor_key": "train_loss",
+                "mode": "min",
+                "k": 0,
+                "format_str": "epoch={epoch:04d}-train_loss={train_loss:.3f}.ckpt"
+              },
+              "save_last_ckpt": true,
+              "save_last_snapshot": false
+            },
+            "multi_run": {
+              "run_dir": "data/outputs/grasp_rgb/glass_beaker_100ml/20261010_225350_n100_velFalse",
+              "wandb_name_base": "glass_beaker_100ml_n100_velFalse_20261010_225350"
+            },
+            "task": {
+              "name": "grasp_rgb",
+              "object_name": "glass_beaker_100ml",
+              "num_demos": 100,
+              "data_root": "/home/psibot/chembench/data/zarr_rgb/motion_plan/grasp",
+              "dataset_path": "/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+              "randomization": {
+                "position": {
+                  "enabled": true,
+                  "x_range": [
+                    -0.02,
+                    0.02
+                  ],
+                  "y_range": [
+                    -0.02,
+                    0.02
+                  ],
+                  "z_range": [
+                    0.0,
+                    0.0
+                  ]
+                },
+                "rotation": {
+                  "enabled": false,
+                  "yaw_range": [
+                    -26,
+                    26
+                  ]
+                },
+                "lighting": false,
+                "texture": false
+              },
+              "obs_config": {
+                "use_velocity": false,
+                "use_third_camera": true
+              },
+              "data_info": {
+                "obs_type": "rgb",
+                "action_dim": 13,
+                "image_size": 224
+              },
+              "image_shape": [
+                3,
+                224,
+                224
+              ],
+              "shape_meta": {
+                "obs": {
+                  "chest_camera_rgb": {
+                    "shape": [
+                      3,
+                      224,
+                      224
+                    ],
+                    "type": "rgb",
+                    "horizon": 1
+                  },
+                  "head_camera_rgb": {
+                    "shape": [
+                      3,
+                      224,
+                      224
+                    ],
+                    "type": "rgb",
+                    "horizon": 1
+                  },
+                  "third_camera_rgb": {
+                    "shape": [
+                      3,
+                      224,
+                      224
+                    ],
+                    "type": "rgb",
+                    "horizon": 1
+                  },
+                  "arm2_pos": {
+                    "shape": [
+                      7
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  },
+                  "hand2_pos": {
+                    "shape": [
+                      6
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  },
+                  "arm2_eef_pos": {
+                    "shape": [
+                      3
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  },
+                  "arm2_eef_quat": {
+                    "shape": [
+                      4
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  },
+                  "target_pose": {
+                    "shape": [
+                      7
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  }
+                },
+                "action": {
+                  "shape": [
+                    13
+                  ],
+                  "horizon": 8
+                }
+              },
+              "env_runner": {
+                "_target_": "diffusion_policy.env_runner.real_pusht_image_runner.RealPushTImageRunner"
+              },
+              "dataset": {
+                "_target_": "psi_dp.dataset.grasp_rgb_dataset.GraspRGBDataset",
+                "zarr_path": "/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+                "horizon": 8,
+                "pad_before": 0,
+                "pad_after": 7,
+                "seed": 42,
+                "val_ratio": 0.05,
+                "use_velocity": false,
+                "use_third_camera": true
+              }
+            }
+          },
+          "input_optimization": "Existing sampler key_first_k only for consumed1 RGB; workers2/prefetch2/persistent; original full8 actions and every consumed tensor unchanged",
+          "formal_accepted": false
+        },
+        "latest_checkpoint": {
+          "passed": true,
+          "staged": true,
+          "committed": true,
+          "transaction": "e4505eb36c9b4ecaa84203dff2bc94ff",
+          "bytes": 2807321221,
+          "sha256": "cab1f1f374a12117b209d290abb0267d0570689cacce6470c838e3a958429819",
+          "path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_dp_checkpoints_two_phase_v8/dp-recovery3000-glass_beaker_100ml-s26101521-original-optimizer-workers2-v184-a1-training_state_latest_pt/latest.ckpt",
+          "independently_rehashed_before_commit": true,
+          "source_local_checkpoint_bytes": 0,
+          "optimizer_state_included": true
+        },
+        "CPU_log": "[2026-10-10 22:43:49,219][timm.models._builder][INFO] - Loading pretrained weights from Hugging Face hub (timm/vit_small_r26_s32_224.augreg_in21k_ft_in1k)\n[2026-10-10 22:43:49,234][timm.models._hub][INFO] - [timm/vit_small_r26_s32_224.augreg_in21k_ft_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.\n[2026-10-10 22:43:49,329][psi_dp.model.vision.timm_obs_encoder][INFO] - Creating RGB example tensor with shape: torch.Size([1, 3, 224, 224])\n[2026-10-10 22:43:49,497][psi_dp.model.vision.timm_obs_encoder][INFO] - Creating RGB example tensor with shape: torch.Size([1, 3, 224, 224])\n[2026-10-10 22:43:49,661][psi_dp.model.vision.timm_obs_encoder][INFO] - Creating RGB example tensor with shape: torch.Size([1, 3, 224, 224])\n[2026-10-10 22:43:49,772][psi_dp.model.vision.timm_obs_encoder][INFO] - number of parameters: 1.090524e+08\n[2026-10-10 22:43:49,772][psi_dp.model.vision.timm_obs_encoder][INFO] - Image types - RGB: ['chest_camera_rgb', 'head_camera_rgb', 'third_camera_rgb'], RGBM: [], RGB_MASKED: [], RGB_MASKED_RGB: [], ND: [], RGBND: []\n[2026-10-10 22:43:50,640][psi_dp.model.diffusion.transformer_for_action_diffusion][INFO] - number of parameters: 6.631067e+07\n",
+        "controller_log": "",
+        "GPU_log": "�████▍ | 32/38 [00:31<00:05,  1.12it/s, loss=0.00473]\rTraining epoch 764:  89%|████████▉ | 34/38 [00:32<00:03,  1.11it/s, loss=0.00471]\rTraining epoch 764:  95%|█████████▍| 36/38 [00:34<00:01,  1.10it/s, loss=0.00458]\rTraining epoch 764: 100%|██████████| 38/38 [00:35<00:00,  1.27it/s, loss=0.00433]\r                                                                                 \r\rTraining epoch 765:   0%|          | 0/38 [00:00<?, ?it/s]\rTraining epoch 765:   3%|▎         | 1/38 [00:02<01:18,  2.12s/it, loss=0.00563]\rTraining epoch 765:   5%|▌         | 2/38 [00:03<00:59,  1.65s/it, loss=0.00457]\rTraining epoch 765:  11%|█         | 4/38 [00:04<00:34,  1.02s/it, loss=0.00532]\rTraining epoch 765:  16%|█▌        | 6/38 [00:06<00:27,  1.16it/s, loss=0.00558]\rTraining epoch 765:  21%|██        | 8/38 [00:07<00:23,  1.27it/s, loss=0.00424]\rTraining epoch 765:  26%|██▋       | 10/38 [00:09<00:22,  1.24it/s, loss=0.00476]\rTraining epoch 765:  32%|███▏      | 12/38 [00:10<00:19,  1.33it/s, loss=0.00491]\rTraining epoch 765:  37%|███▋      | 14/38 [00:11<00:17,  1.35it/s, loss=0.00507]\rTraining epoch 765:  42%|████▏     | 16/38 [00:13<00:15,  1.43it/s, loss=0.00457]\rTraining epoch 765:  47%|████▋     | 18/38 [00:14<00:13,  1.48it/s, loss=0.00574]\rTraining epoch 765:  53%|█████▎    | 20/38 [00:15<00:12,  1.48it/s, loss=0.00469]\rTraining epoch 765:  58%|█████▊    | 22/38 [00:17<00:10,  1.46it/s, loss=0.0053] \rTraining epoch 765:  63%|██████▎   | 24/38 [00:18<00:09,  1.47it/s, loss=0.00485]\rTraining epoch 765:  68%|██████▊   | 26/38 [00:19<00:08,  1.46it/s, loss=0.00454]\rTraining epoch 765:  74%|███████▎  | 28/38 [00:21<00:06,  1.51it/s, loss=0.00461]\rTraining epoch 765:  79%|███████▉  | 30/38 [00:22<00:05,  1.54it/s, loss=0.00606]\rTraining epoch 765:  84%|████████▍ | 32/38 [00:23<00:03,  1.56it/s, loss=0.00658]\rTraining epoch 765:  89%|████████▉ | 34/38 [00:24<00:02,  1.56it/s, loss=0.00452]\rTraining epoch 765:  95%|█████████▍| 36/38 [00:26<00:01,  1.57it/s, loss=0.00495]\r                                                                                 \r\rTraining epoch 766:   0%|          | 0/38 [00:00<?, ?it/s]"
+      },
+      "26101525": {
+        "launch": {
+          "at_utc": "2026-10-10T14:46:05.656710+00:00",
+          "pid": 539523,
+          "start_ticks": "727674447",
+          "CPU_intake_first_old_training_preserved_until_pass": true,
+          "actual_GPU_handoff_pending": true,
+          "package_SHA256": {
+            "train_entry_Beaker100_first_obs_workers2_DP_v184.py": "161e1ba745fe5b79b3f0af3d2af6dc58f77a4095578801a49f276b9335d02e2a",
+            "train_controller_Beaker100_first_obs_workers2_DP_v184.py": "51ff61a29b146579c2d7bd8f82768c17387aa439ba4c00df324a4be0fae1c3f0"
+          },
+          "formal_accepted": false
+        },
+        "status": {
+          "object": "glass_beaker_100ml",
+          "seed": 26101525,
+          "host": "ide-650ef93f23324f04881bde87cf05d6c1-0f2fcc",
+          "gpu_uuid": "GPU-b652d807-91b2-1ccf-f4f9-307c40d9c15d",
+          "started_utc": "2026-10-10T14:46:05.701398+00:00",
+          "status": "running",
+          "formal_accepted": false,
+          "paper_SSR": null,
+          "physical_dataset_requalification": false,
+          "dataloader_workers": 2,
+          "prior_attempt": "/tmp/grasp_ssr_ood_multiserver_20261009/dp_storage_recovery_v8/runs/dp-recovery3000-glass_beaker_100ml-s26101525-bounded-tmp-workers0-dp-v8-a4",
+          "logical_seed_count_increase": 0,
+          "purpose": "One owned input pipeline canary. Original frozen model/EMA/fulloptimizer continuation, fixed100 dataset/3000 epochs/LR/action horizon unchanged; worker RNG restart disclosed. Qualify actual throughput before broader deployment.",
+          "updated_utc": "2026-10-10T15:13:42.845736+00:00",
+          "CPU_command": [
+            "/home/dataset-assist-0/yf/envs/dp/bin/python",
+            "-B",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/train_entry_Beaker100_first_obs_workers2_DP_v184.py",
+            "_target_=train_diffusion_transformer_timm_workspace.TrainDiffusionTransformerTimmWorkspace",
+            "task.dataset_path=/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+            "task.dataset.zarr_path=/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+            "task.object_name=glass_beaker_100ml",
+            "task.num_demos=100",
+            "n_obs_steps=1",
+            "n_action_steps=8",
+            "training.seed=26101525",
+            "training.device=cuda:0",
+            "training.num_epochs=3000",
+            "training.max_global_train_steps=null",
+            "training.resume=false",
+            "optimizer.lr=3e-4",
+            "optimizer.obs_encoder_lr=3e-5",
+            "dataloader.batch_size=128",
+            "dataloader.num_workers=2",
+            "dataloader.persistent_workers=true",
+            "+dataloader.prefetch_factor=2",
+            "val_dataloader.num_workers=0",
+            "val_dataloader.persistent_workers=false",
+            "task.dataset.val_ratio=0.05",
+            "training.checkpoint_every=50",
+            "checkpoint.topk.k=0",
+            "checkpoint.save_last_ckpt=true",
+            "logging.mode=disabled",
+            "hydra.run.dir=/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/runs/dp-recovery3000-glass_beaker_100ml-s26101525-original-optimizer-workers2-v184-a1/cpu_intake/checkpoints"
+          ],
+          "CPU_child": {
+            "pid": 539524,
+            "start_ticks": "727674452"
+          },
+          "CPU_actual_exit_code": 0,
+          "CPU_intake_gate": {
+            "passed": true,
+            "recovery": {
+              "mode": "actual_model_EMA_optimizer_input_pipeline_canary",
+              "optimizer_reset": false,
+              "checkpoint_sha256": "e71b3859d612c9c7a746b894f53504f513d42d973e9dc8031272d96e68c54617",
+              "saved_epoch": 600,
+              "next_epoch": 601,
+              "saved_global_step": 22838,
+              "original_total_epochs": 3000,
+              "loaded_actual_model_EMA_fingerprints": {
+                "model": {
+                  "tensor_count": 918,
+                  "ordered_tensor_bytes_SHA256": "2c5cca8dc718a6388c5d33a7c6062ed8b8409e644396fbbbc9c54afbd696a425"
+                },
+                "ema_model": {
+                  "tensor_count": 918,
+                  "ordered_tensor_bytes_SHA256": "e1c29538c17b94152d6f00ce1abccaea2a736da3345a017d5942eaf9e40bd163"
+                }
+              },
+              "loaded_optimizer_parameter_states": 861,
+              "full_CPU_intake": {
+                "actual_CPU_load": true,
+                "model_tensors": 918,
+                "optimizer_states": 861,
+                "saved_epoch": 600,
+                "global_step": 22838,
+                "optimizer_restored": true,
+                "source": {
+                  "passed": true,
+                  "staged": true,
+                  "committed": true,
+                  "transaction": "925b2da243f54c9b9f0bed513cdfc1ce",
+                  "bytes": 2807312325,
+                  "sha256": "e71b3859d612c9c7a746b894f53504f513d42d973e9dc8031272d96e68c54617",
+                  "path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_two_more_input_frozen_v182/seed26101525/925b2da243f54c9b9f0bed513cdfc1ce/latest.ckpt",
+                  "independently_rehashed_before_commit": true,
+                  "source_local_checkpoint_bytes": 0,
+                  "optimizer_state_included": true,
+                  "original_live_path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_dp_checkpoints_two_phase_v8/dp-recovery3000-glass_beaker_100ml-s26101525-bounded-tmp-workers0-dp-v8-a4-training_state_latest_pt/latest.ckpt",
+                  "source_mtime_ns": 1791642494908928598,
+                  "immutable_frozen_hardlink": true
+                },
+                "exact_training_RNG_resume": false,
+                "formal_accepted": false,
+                "independently_rehashed_source": {
+                  "bytes": 2807312325,
+                  "sha256": "e71b3859d612c9c7a746b894f53504f513d42d973e9dc8031272d96e68c54617"
+                },
+                "checkpoint_disk_bytes": 0,
+                "method": "DP",
+                "seed": 26101525,
+                "CPU_only": true
+              },
+              "exact_training_resume": false,
+              "training_rng_reset": true,
+              "dataloader_workers_changed_0_to2": true,
+              "old_attempt_and_every_checkpoint_retained": true,
+              "formal_accepted": false
+            },
+            "actual_CUDA_initializations": 0,
+            "actual_GPU_training_restarts": 0,
+            "formal_accepted": false
+          },
+          "old_last_before_stop": {
+            "train_loss": 0.006020978093147278,
+            "global_step": 24199,
+            "epoch": 636,
+            "lr": 0.00027184525709912774
+          },
+          "old_optimizer_frozen_and_CPU_qualified": true,
+          "old_controller_and_training_closed": true,
+          "old_closure_status": "failed",
+          "old_training_actual_exit_code": 1,
+          "own_controller_only_SIGTERM_sent": true,
+          "admission": {
+            "gpu_csv": "GPU-b652d807-91b2-1ccf-f4f9-307c40d9c15d, NVIDIA A100-SXM4-80GB, 81149, 4, 81920, 0",
+            "host_MemAvailable_KiB": 405320004,
+            "ready": true,
+            "allocator_cap_fraction": 0.4875,
+            "dynamic_GPU_reserve_GiB": 3
+          },
+          "stable_capacity_samples": 2,
+          "dataset_snapshot": {
+            "source": "/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+            "snapshot": "/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+            "files": 5862,
+            "bytes": 1324090401,
+            "manifest_sha256": "4cfeabe995904a2bde8250680121bacb8e1a2c7effb4322fb69f2087e03e3a94",
+            "full_actual_manifest_revalidated": true
+          },
+          "AF_UNIX_regression": {
+            "passed": true,
+            "actual_listener_path": "/tmp/t500d184s26101525/pymp-bprh2xmx/listener-0lkwllxn",
+            "TMPDIR": "/tmp/t500d184s26101525"
+          },
+          "command": [
+            "/home/dataset-assist-0/yf/envs/dp/bin/python",
+            "-B",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/train_entry_Beaker100_first_obs_workers2_DP_v184.py",
+            "_target_=train_diffusion_transformer_timm_workspace.TrainDiffusionTransformerTimmWorkspace",
+            "task.dataset_path=/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+            "task.dataset.zarr_path=/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+            "task.object_name=glass_beaker_100ml",
+            "task.num_demos=100",
+            "n_obs_steps=1",
+            "n_action_steps=8",
+            "training.seed=26101525",
+            "training.device=cuda:0",
+            "training.num_epochs=3000",
+            "training.max_global_train_steps=null",
+            "training.resume=false",
+            "optimizer.lr=3e-4",
+            "optimizer.obs_encoder_lr=3e-5",
+            "dataloader.batch_size=128",
+            "dataloader.num_workers=2",
+            "dataloader.persistent_workers=true",
+            "+dataloader.prefetch_factor=2",
+            "val_dataloader.num_workers=0",
+            "val_dataloader.persistent_workers=false",
+            "task.dataset.val_ratio=0.05",
+            "training.checkpoint_every=50",
+            "checkpoint.topk.k=0",
+            "checkpoint.save_last_ckpt=true",
+            "logging.mode=disabled",
+            "hydra.run.dir=/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/runs/dp-recovery3000-glass_beaker_100ml-s26101525-original-optimizer-workers2-v184-a1/checkpoints"
+          ],
+          "source_pins": {
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/train_entry_30109_storage_recovery_DP_v8.py": "1a9be2a9d724853b16e27d9c3b833e434bf9f804e8290ce2292b862e71639715",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/train_controller_30109_storage_recovery_DP_v8.py": "68245194e54c56ad0e45cdf1573cd129cff9b870f349ceff22a3340155dc5a8d",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/stream_owned_dp_checkpoint_to_ali_v1.py": "537519252542e221248d6b7db60b4e424be1aadfa144c11564c4753b1d6abf90",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/stream_owned_dp_workspace_async_v3.py": "3e89f447c8b1325f7b9ad2c23d3b328d9c3637ebb1724b5ef93253b962009a53",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/bounded_owned_gpu_telemetry_v1.py": "d36450c6d52a7f459cdda69948ec13abd4629c805f3cac4662de905bdd973316",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/check_two_phase_checkpoint_failure_atomicity_dp_cpu_v3.py": "df7218407c2f7165d200a2ffcd348fa7ee1df99442a0727b6f3e2d88b7acdc03",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/check_async_checkpoint_and_optimizer_resume_dp_cpu_v3.py": "3cc7d3efbcc5b2683b7008adb24a07db3ca40c0afc9f93860e68dbfdc40420f9",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/async_owned_remote_checkpoint_writer_dp_v3.py": "ee744598c1b318b21133139c548deb1868c65b9a6ed62307baf477334011faae",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/stream_owned_checkpoint_to_ali_two_phase_dp_v3.py": "54c0bdec02856e725ad4bbf8bafb1f2b2680b1d92b40540b110c310b1766634a",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/stream_owned_checkpoint_to_ali_two_phase_v2.py": "54c0bdec02856e725ad4bbf8bafb1f2b2680b1d92b40540b110c310b1766634a",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/owned_checkpoint_transport_channel_slots_v8.py": "168fce5172744966b93e14ec2e0db39ab90900d0c7f31fed47ebc38ef6d1faf7",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/check_owned_SSH_channel_slots_CPU_v8.py": "f26e2ac05f3484271fb29a76cafc80dea6caecb30de80a009e08641048308436",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/owned_DP_body_slots_v8.py": "da1b0fc2d36694517a9da988cbb0e95b67fb9b18859b41ee5ec5e49b077054a4",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/check_DP_body_slots_CPU_v8.py": "d096d6125437afe6007ce31921a2aa35a5ee178525237e1523ef02f1d6c406bf",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/owned_full_checkpoint_CPU_stream_v8.py": "b8cb8c949c1ed05d62e440aaeb40807b5ab854e7a8171cea4d2abd40df75dcd0",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/CPU_gate_supervisor_DP_channels_v8.py": "49392b5ea14dbcffe48ed3c95d5d94f8828a319968524aa7ba37e82fc6e0544d",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/train_entry_Beaker100_first_obs_workers2_DP_v184.py": "161e1ba745fe5b79b3f0af3d2af6dc58f77a4095578801a49f276b9335d02e2a",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/train_controller_Beaker100_first_obs_workers2_DP_v184.py": "51ff61a29b146579c2d7bd8f82768c17387aa439ba4c00df324a4be0fae1c3f0",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/fixed/budget_contract.py": "6967f99a9c2f1c9ca8517804d1fded51269b92a76978e75c33f56efcc58ca489",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/fixed/train_diffusion_transformer_timm_workspace.py": "e9fa8ee908a8f0fba4c779ed966a923e90d2abaad039564f6abbb5b713155f28",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/ACTUAL_FULL_OPTIMIZER_PRE_INPUT_CPU_V183.json": "a87fc9184e58dda8636bceccb6c94af7bc56e0f2ba3df13ab16c1eb8230f7587",
+            "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_seed26101525_input_acceleration_v184/ACTUAL_WORKERS2_CPU_EQUIVALENCE_AND_SPEED_V150.json": "0f11decc826e0e267327b508c5c3b236f805416305ce6121c90e70c40969f23a"
+          },
+          "final_admission": {
+            "gpu_csv": "GPU-b652d807-91b2-1ccf-f4f9-307c40d9c15d, NVIDIA A100-SXM4-80GB, 81149, 4, 81920, 0",
+            "host_MemAvailable_KiB": 405427456,
+            "ready": true,
+            "allocator_cap_fraction": 0.4875,
+            "dynamic_GPU_reserve_GiB": 3
+          },
+          "pid": 563981,
+          "start_ticks": "727761164",
+          "gpu_now": "GPU-b652d807-91b2-1ccf-f4f9-307c40d9c15d, NVIDIA A100-SXM4-80GB, 42038, 39116, 81920, 82",
+          "actual_min_free_GPU_MiB": 42038,
+          "last": {
+            "train_loss": 0.006636642850935459,
+            "global_step": 22952,
+            "epoch": 604,
+            "lr": 0.0002748301985746945
+          }
+        },
+        "CPU_intake": {
+          "status": "streaming_ordinary_CPU_memory",
+          "bytes": 2801795072,
+          "target_bytes": 2807312325,
+          "source": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_two_more_input_frozen_v182/seed26101525/925b2da243f54c9b9f0bed513cdfc1ce/latest.ckpt",
+          "checkpoint_disk_bytes": 0,
+          "at_utc": "2026-10-10T14:58:59.599649+00:00",
+          "formal_accepted": false
+        },
+        "CPU_actual_gate": {
+          "passed": true,
+          "recovery": {
+            "mode": "actual_model_EMA_optimizer_input_pipeline_canary",
+            "optimizer_reset": false,
+            "checkpoint_sha256": "e71b3859d612c9c7a746b894f53504f513d42d973e9dc8031272d96e68c54617",
+            "saved_epoch": 600,
+            "next_epoch": 601,
+            "saved_global_step": 22838,
+            "original_total_epochs": 3000,
+            "loaded_actual_model_EMA_fingerprints": {
+              "model": {
+                "tensor_count": 918,
+                "ordered_tensor_bytes_SHA256": "2c5cca8dc718a6388c5d33a7c6062ed8b8409e644396fbbbc9c54afbd696a425"
+              },
+              "ema_model": {
+                "tensor_count": 918,
+                "ordered_tensor_bytes_SHA256": "e1c29538c17b94152d6f00ce1abccaea2a736da3345a017d5942eaf9e40bd163"
+              }
+            },
+            "loaded_optimizer_parameter_states": 861,
+            "full_CPU_intake": {
+              "actual_CPU_load": true,
+              "model_tensors": 918,
+              "optimizer_states": 861,
+              "saved_epoch": 600,
+              "global_step": 22838,
+              "optimizer_restored": true,
+              "source": {
+                "passed": true,
+                "staged": true,
+                "committed": true,
+                "transaction": "925b2da243f54c9b9f0bed513cdfc1ce",
+                "bytes": 2807312325,
+                "sha256": "e71b3859d612c9c7a746b894f53504f513d42d973e9dc8031272d96e68c54617",
+                "path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_two_more_input_frozen_v182/seed26101525/925b2da243f54c9b9f0bed513cdfc1ce/latest.ckpt",
+                "independently_rehashed_before_commit": true,
+                "source_local_checkpoint_bytes": 0,
+                "optimizer_state_included": true,
+                "original_live_path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_dp_checkpoints_two_phase_v8/dp-recovery3000-glass_beaker_100ml-s26101525-bounded-tmp-workers0-dp-v8-a4-training_state_latest_pt/latest.ckpt",
+                "source_mtime_ns": 1791642494908928598,
+                "immutable_frozen_hardlink": true
+              },
+              "exact_training_RNG_resume": false,
+              "formal_accepted": false,
+              "independently_rehashed_source": {
+                "bytes": 2807312325,
+                "sha256": "e71b3859d612c9c7a746b894f53504f513d42d973e9dc8031272d96e68c54617"
+              },
+              "checkpoint_disk_bytes": 0,
+              "method": "DP",
+              "seed": 26101525,
+              "CPU_only": true
+            },
+            "exact_training_resume": false,
+            "training_rng_reset": true,
+            "dataloader_workers_changed_0_to2": true,
+            "old_attempt_and_every_checkpoint_retained": true,
+            "formal_accepted": false
+          },
+          "actual_CUDA_initializations": 0,
+          "actual_GPU_training_restarts": 0,
+          "formal_accepted": false
+        },
+        "runtime": {
+          "actual_gpu_uuid": "GPU-b652d807-91b2-1ccf-f4f9-307c40d9c15d",
+          "gpu_name": "NVIDIA A100-SXM4-80GB",
+          "epochs": 3000,
+          "global_step_at_start": 22838,
+          "epoch_at_start": 601,
+          "optimizer_groups": [
+            {
+              "lr": 0.00027509783700272285,
+              "initial_lr": 0.0003
+            },
+            {
+              "lr": 0.00027509783700272285,
+              "initial_lr": 0.0003
+            },
+            {
+              "lr": 2.7509783700272287e-05,
+              "initial_lr": 3e-05
+            },
+            {
+              "lr": 2.7509783700272287e-05,
+              "initial_lr": 3e-05
+            }
+          ],
+          "recovery": {
+            "mode": "actual_model_EMA_optimizer_input_pipeline_canary",
+            "optimizer_reset": false,
+            "checkpoint_sha256": "e71b3859d612c9c7a746b894f53504f513d42d973e9dc8031272d96e68c54617",
+            "saved_epoch": 600,
+            "next_epoch": 601,
+            "saved_global_step": 22838,
+            "original_total_epochs": 3000,
+            "loaded_actual_model_EMA_fingerprints": {
+              "model": {
+                "tensor_count": 918,
+                "ordered_tensor_bytes_SHA256": "2c5cca8dc718a6388c5d33a7c6062ed8b8409e644396fbbbc9c54afbd696a425"
+              },
+              "ema_model": {
+                "tensor_count": 918,
+                "ordered_tensor_bytes_SHA256": "e1c29538c17b94152d6f00ce1abccaea2a736da3345a017d5942eaf9e40bd163"
+              }
+            },
+            "loaded_optimizer_parameter_states": 861,
+            "full_CPU_intake": {
+              "actual_CPU_load": true,
+              "model_tensors": 918,
+              "optimizer_states": 861,
+              "saved_epoch": 600,
+              "global_step": 22838,
+              "optimizer_restored": true,
+              "source": {
+                "passed": true,
+                "staged": true,
+                "committed": true,
+                "transaction": "925b2da243f54c9b9f0bed513cdfc1ce",
+                "bytes": 2807312325,
+                "sha256": "e71b3859d612c9c7a746b894f53504f513d42d973e9dc8031272d96e68c54617",
+                "path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_two_more_input_frozen_v182/seed26101525/925b2da243f54c9b9f0bed513cdfc1ce/latest.ckpt",
+                "independently_rehashed_before_commit": true,
+                "source_local_checkpoint_bytes": 0,
+                "optimizer_state_included": true,
+                "original_live_path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_dp_checkpoints_two_phase_v8/dp-recovery3000-glass_beaker_100ml-s26101525-bounded-tmp-workers0-dp-v8-a4-training_state_latest_pt/latest.ckpt",
+                "source_mtime_ns": 1791642494908928598,
+                "immutable_frozen_hardlink": true
+              },
+              "exact_training_RNG_resume": false,
+              "formal_accepted": false,
+              "independently_rehashed_source": {
+                "bytes": 2807312325,
+                "sha256": "e71b3859d612c9c7a746b894f53504f513d42d973e9dc8031272d96e68c54617"
+              },
+              "checkpoint_disk_bytes": 0,
+              "method": "DP",
+              "seed": 26101525,
+              "CPU_only": true
+            },
+            "exact_training_resume": false,
+            "training_rng_reset": true,
+            "dataloader_workers_changed_0_to2": true,
+            "old_attempt_and_every_checkpoint_retained": true,
+            "formal_accepted": false
+          },
+          "checkpoint_backend": "Original async immutable CPU snapshot and two-phase full SHA commit; bounded body, final drain",
+          "checkpoint_interval_epochs": 50,
+          "optimizer_state_saved": true,
+          "checkpoint_bytes_written_to_shm": 0,
+          "config": {
+            "name": "train_diffusion_transformer_timm",
+            "_target_": "train_diffusion_transformer_timm_workspace.TrainDiffusionTransformerTimmWorkspace",
+            "task_name": "grasp_rgb",
+            "shape_meta": {
+              "obs": {
+                "chest_camera_rgb": {
+                  "shape": [
+                    3,
+                    224,
+                    224
+                  ],
+                  "type": "rgb",
+                  "horizon": 1
+                },
+                "head_camera_rgb": {
+                  "shape": [
+                    3,
+                    224,
+                    224
+                  ],
+                  "type": "rgb",
+                  "horizon": 1
+                },
+                "third_camera_rgb": {
+                  "shape": [
+                    3,
+                    224,
+                    224
+                  ],
+                  "type": "rgb",
+                  "horizon": 1
+                },
+                "arm2_pos": {
+                  "shape": [
+                    7
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                },
+                "hand2_pos": {
+                  "shape": [
+                    6
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                },
+                "arm2_eef_pos": {
+                  "shape": [
+                    3
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                },
+                "arm2_eef_quat": {
+                  "shape": [
+                    4
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                },
+                "target_pose": {
+                  "shape": [
+                    7
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                }
+              },
+              "action": {
+                "shape": [
+                  13
+                ],
+                "horizon": 8
+              }
+            },
+            "exp_name": "default",
+            "object_name": "glass_beaker_100ml",
+            "num_demos": 100,
+            "use_velocity": false,
+            "n_action_steps": 8,
+            "n_obs_steps": 1,
+            "n_emb": 768,
+            "n_latency_steps": 0,
+            "dataset_obs_steps": 1,
+            "past_action_visible": false,
+            "keypoint_visible_rate": 1.0,
+            "obs_as_cond": true,
+            "policy": {
+              "_target_": "psi_dp.policy.diffusion_transformer_timm_policy.DiffusionTransformerTimmPolicy",
+              "shape_meta": {
+                "obs": {
+                  "chest_camera_rgb": {
+                    "shape": [
+                      3,
+                      224,
+                      224
+                    ],
+                    "type": "rgb",
+                    "horizon": 1
+                  },
+                  "head_camera_rgb": {
+                    "shape": [
+                      3,
+                      224,
+                      224
+                    ],
+                    "type": "rgb",
+                    "horizon": 1
+                  },
+                  "third_camera_rgb": {
+                    "shape": [
+                      3,
+                      224,
+                      224
+                    ],
+                    "type": "rgb",
+                    "horizon": 1
+                  },
+                  "arm2_pos": {
+                    "shape": [
+                      7
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  },
+                  "hand2_pos": {
+                    "shape": [
+                      6
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  },
+                  "arm2_eef_pos": {
+                    "shape": [
+                      3
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  },
+                  "arm2_eef_quat": {
+                    "shape": [
+                      4
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  },
+                  "target_pose": {
+                    "shape": [
+                      7
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  }
+                },
+                "action": {
+                  "shape": [
+                    13
+                  ],
+                  "horizon": 8
+                }
+              },
+              "noise_scheduler": {
+                "_target_": "diffusers.DDIMScheduler",
+                "num_train_timesteps": 50,
+                "beta_start": 0.0001,
+                "beta_end": 0.02,
+                "beta_schedule": "squaredcos_cap_v2",
+                "clip_sample": true,
+                "set_alpha_to_one": true,
+                "steps_offset": 0,
+                "prediction_type": "epsilon"
+              },
+              "obs_encoder": {
+                "_target_": "psi_dp.model.vision.timm_obs_encoder.TimmObsEncoder",
+                "shape_meta": {
+                  "obs": {
+                    "chest_camera_rgb": {
+                      "shape": [
+                        3,
+                        224,
+                        224
+                      ],
+                      "type": "rgb",
+                      "horizon": 1
+                    },
+                    "head_camera_rgb": {
+                      "shape": [
+                        3,
+                        224,
+                        224
+                      ],
+                      "type": "rgb",
+                      "horizon": 1
+                    },
+                    "third_camera_rgb": {
+                      "shape": [
+                        3,
+                        224,
+                        224
+                      ],
+                      "type": "rgb",
+                      "horizon": 1
+                    },
+                    "arm2_pos": {
+                      "shape": [
+                        7
+                      ],
+                      "type": "low_dim",
+                      "horizon": 1
+                    },
+                    "hand2_pos": {
+                      "shape": [
+                        6
+                      ],
+                      "type": "low_dim",
+                      "horizon": 1
+                    },
+                    "arm2_eef_pos": {
+                      "shape": [
+                        3
+                      ],
+                      "type": "low_dim",
+                      "horizon": 1
+                    },
+                    "arm2_eef_quat": {
+                      "shape": [
+                        4
+                      ],
+                      "type": "low_dim",
+                      "horizon": 1
+                    },
+                    "target_pose": {
+                      "shape": [
+                        7
+                      ],
+                      "type": "low_dim",
+                      "horizon": 1
+                    }
+                  },
+                  "action": {
+                    "shape": [
+                      13
+                    ],
+                    "horizon": 8
+                  }
+                },
+                "global_pool": "",
+                "n_emb": 768,
+                "model_name": "vit_small_r26_s32_224",
+                "pretrained": true,
+                "frozen": false,
+                "feature_aggregation": null,
+                "use_mask_input": false,
+                "downsample_ratio": 32,
+                "transforms": [
+                  {
+                    "type": "RandomCrop",
+                    "ratio": 0.9
+                  }
+                ],
+                "use_group_norm": true,
+                "share_rgb_model": false
+              },
+              "num_inference_steps": 16,
+              "input_pertub": 0.1,
+              "n_layer": 7,
+              "n_head": 8,
+              "n_emb": 768,
+              "p_drop_attn": 0.1
+            },
+            "ema": {
+              "_target_": "diffusion_policy.model.diffusion.ema_model.EMAModel",
+              "update_after_step": 0,
+              "inv_gamma": 1.0,
+              "power": 0.75,
+              "min_value": 0.0,
+              "max_value": 0.9999
+            },
+            "dataloader": {
+              "batch_size": 128,
+              "num_workers": 2,
+              "shuffle": true,
+              "pin_memory": true,
+              "persistent_workers": true,
+              "prefetch_factor": 2
+            },
+            "val_dataloader": {
+              "batch_size": 128,
+              "num_workers": 0,
+              "shuffle": false,
+              "pin_memory": true,
+              "persistent_workers": false
+            },
+            "optimizer": {
+              "lr": 0.0003,
+              "weight_decay": 1e-06,
+              "obs_encoder_lr": 3e-05,
+              "obs_encoder_weight_decay": 1e-06,
+              "betas": [
+                0.95,
+                0.999
+              ]
+            },
+            "training": {
+              "device": "cuda:0",
+              "seed": 26101525,
+              "debug": false,
+              "resume": false,
+              "lastest_ckpt_path": null,
+              "lr_scheduler": "cosine",
+              "lr_warmup_steps": 2000,
+              "num_epochs": 3000,
+              "gradient_accumulate_every": 1,
+              "use_ema": true,
+              "freeze_encoder": false,
+              "rollout_every": 10,
+              "checkpoint_every": 50,
+              "val_every": 1,
+              "sample_every": 5,
+              "max_train_steps": null,
+              "max_global_train_steps": null,
+              "max_val_steps": null,
+              "tqdm_interval_sec": 1.0
+            },
+            "logging": {
+              "project": "DP_并行实验1222_rbg_grasp_rgb",
+              "resume": false,
+              "mode": "disabled",
+              "name": "glass_beaker_100ml_n100_velFalse_20261010_230037",
+              "tags": [
+                "grasp_rgb",
+                "glass_beaker_100ml",
+                "n100",
+                "obs:rgb",
+                "action_dim:13",
+                "img:224",
+                "velocity:False",
+                "pos_rand:True",
+                "rot_rand:False",
+                "encoder:vit_small_r26_s32_224",
+                "pretrained:True",
+                "bs:128",
+                "lr:0.0003",
+                "n_layer:7",
+                "n_emb:768",
+                "act_steps:8",
+                "obs_steps:1"
+              ],
+              "id": null,
+              "group": "glass_beaker_100ml",
+              "notes": "物体:glass_beaker_100ml | 数据:100条 | 观测:rgb | 图像:224 | 速度:False | 位置随机:True | 旋转随机:False | 编码器:vit_small_r26_s32_224"
+            },
+            "checkpoint": {
+              "topk": {
+                "monitor_key": "train_loss",
+                "mode": "min",
+                "k": 0,
+                "format_str": "epoch={epoch:04d}-train_loss={train_loss:.3f}.ckpt"
+              },
+              "save_last_ckpt": true,
+              "save_last_snapshot": false
+            },
+            "multi_run": {
+              "run_dir": "data/outputs/grasp_rgb/glass_beaker_100ml/20261010_230037_n100_velFalse",
+              "wandb_name_base": "glass_beaker_100ml_n100_velFalse_20261010_230037"
+            },
+            "task": {
+              "name": "grasp_rgb",
+              "object_name": "glass_beaker_100ml",
+              "num_demos": 100,
+              "data_root": "/home/psibot/chembench/data/zarr_rgb/motion_plan/grasp",
+              "dataset_path": "/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+              "randomization": {
+                "position": {
+                  "enabled": true,
+                  "x_range": [
+                    -0.02,
+                    0.02
+                  ],
+                  "y_range": [
+                    -0.02,
+                    0.02
+                  ],
+                  "z_range": [
+                    0.0,
+                    0.0
+                  ]
+                },
+                "rotation": {
+                  "enabled": false,
+                  "yaw_range": [
+                    -26,
+                    26
+                  ]
+                },
+                "lighting": false,
+                "texture": false
+              },
+              "obs_config": {
+                "use_velocity": false,
+                "use_third_camera": true
+              },
+              "data_info": {
+                "obs_type": "rgb",
+                "action_dim": 13,
+                "image_size": 224
+              },
+              "image_shape": [
+                3,
+                224,
+                224
+              ],
+              "shape_meta": {
+                "obs": {
+                  "chest_camera_rgb": {
+                    "shape": [
+                      3,
+                      224,
+                      224
+                    ],
+                    "type": "rgb",
+                    "horizon": 1
+                  },
+                  "head_camera_rgb": {
+                    "shape": [
+                      3,
+                      224,
+                      224
+                    ],
+                    "type": "rgb",
+                    "horizon": 1
+                  },
+                  "third_camera_rgb": {
+                    "shape": [
+                      3,
+                      224,
+                      224
+                    ],
+                    "type": "rgb",
+                    "horizon": 1
+                  },
+                  "arm2_pos": {
+                    "shape": [
+                      7
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  },
+                  "hand2_pos": {
+                    "shape": [
+                      6
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  },
+                  "arm2_eef_pos": {
+                    "shape": [
+                      3
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  },
+                  "arm2_eef_quat": {
+                    "shape": [
+                      4
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  },
+                  "target_pose": {
+                    "shape": [
+                      7
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  }
+                },
+                "action": {
+                  "shape": [
+                    13
+                  ],
+                  "horizon": 8
+                }
+              },
+              "env_runner": {
+                "_target_": "diffusion_policy.env_runner.real_pusht_image_runner.RealPushTImageRunner"
+              },
+              "dataset": {
+                "_target_": "psi_dp.dataset.grasp_rgb_dataset.GraspRGBDataset",
+                "zarr_path": "/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+                "horizon": 8,
+                "pad_before": 0,
+                "pad_after": 7,
+                "seed": 42,
+                "val_ratio": 0.05,
+                "use_velocity": false,
+                "use_third_camera": true
+              }
+            }
+          },
+          "input_optimization": "Existing sampler key_first_k only for consumed1 RGB; workers2/prefetch2/persistent; original full8 actions and every consumed tensor unchanged",
+          "formal_accepted": false
+        },
+        "CPU_log": "[2026-10-10 22:46:16,828][timm.models._builder][INFO] - Loading pretrained weights from Hugging Face hub (timm/vit_small_r26_s32_224.augreg_in21k_ft_in1k)\n[2026-10-10 22:46:16,834][timm.models._hub][INFO] - [timm/vit_small_r26_s32_224.augreg_in21k_ft_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.\n[2026-10-10 22:46:16,934][psi_dp.model.vision.timm_obs_encoder][INFO] - Creating RGB example tensor with shape: torch.Size([1, 3, 224, 224])\n[2026-10-10 22:46:17,092][psi_dp.model.vision.timm_obs_encoder][INFO] - Creating RGB example tensor with shape: torch.Size([1, 3, 224, 224])\n[2026-10-10 22:46:17,236][psi_dp.model.vision.timm_obs_encoder][INFO] - Creating RGB example tensor with shape: torch.Size([1, 3, 224, 224])\n[2026-10-10 22:46:17,326][psi_dp.model.vision.timm_obs_encoder][INFO] - number of parameters: 1.090524e+08\n[2026-10-10 22:46:17,327][psi_dp.model.vision.timm_obs_encoder][INFO] - Image types - RGB: ['chest_camera_rgb', 'head_camera_rgb', 'third_camera_rgb'], RGBM: [], RGB_MASKED: [], RGB_MASKED_RGB: [], ND: [], RGBND: []\n[2026-10-10 22:46:18,262][psi_dp.model.diffusion.transformer_for_action_diffusion][INFO] - number of parameters: 6.631067e+07\n",
+        "controller_log": "",
+        "GPU_log": "    | 12/38 [00:09<00:18,  1.44it/s, loss=0.00716]\rTraining epoch 603:  37%|███▋      | 14/38 [00:10<00:15,  1.53it/s, loss=0.00641]\rTraining epoch 603:  42%|████▏     | 16/38 [00:12<00:14,  1.51it/s, loss=0.0109] \rTraining epoch 603:  47%|████▋     | 18/38 [00:13<00:13,  1.49it/s, loss=0.00738]\rTraining epoch 603:  53%|█████▎    | 20/38 [00:14<00:11,  1.50it/s, loss=0.0116] \rTraining epoch 603:  58%|█████▊    | 22/38 [00:16<00:10,  1.53it/s, loss=0.0111]\rTraining epoch 603:  63%|██████▎   | 24/38 [00:17<00:09,  1.53it/s, loss=0.00887]\rTraining epoch 603:  68%|██████▊   | 26/38 [00:18<00:07,  1.51it/s, loss=0.00542]\rTraining epoch 603:  74%|███████▎  | 28/38 [00:20<00:06,  1.50it/s, loss=0.00838]\rTraining epoch 603:  79%|███████▉  | 30/38 [00:21<00:05,  1.41it/s, loss=0.00927]\rTraining epoch 603:  84%|████████▍ | 32/38 [00:22<00:03,  1.50it/s, loss=0.00911]\rTraining epoch 603:  89%|████████▉ | 34/38 [00:24<00:02,  1.55it/s, loss=0.00639]\rTraining epoch 603:  95%|█████████▍| 36/38 [00:25<00:01,  1.56it/s, loss=0.007]  \r                                                                               \r\rTraining epoch 604:   0%|          | 0/38 [00:00<?, ?it/s]\rTraining epoch 604:   3%|▎         | 1/38 [00:01<01:09,  1.88s/it, loss=0.00664]\rTraining epoch 604:   5%|▌         | 2/38 [00:03<00:56,  1.56s/it, loss=0.00738]\rTraining epoch 604:  11%|█         | 4/38 [00:04<00:34,  1.01s/it, loss=0.00799]\rTraining epoch 604:  16%|█▌        | 6/38 [00:05<00:25,  1.24it/s, loss=0.00581]\rTraining epoch 604:  21%|██        | 8/38 [00:07<00:22,  1.34it/s, loss=0.00609]\rTraining epoch 604:  26%|██▋       | 10/38 [00:08<00:21,  1.32it/s, loss=0.00769]\rTraining epoch 604:  32%|███▏      | 12/38 [00:09<00:19,  1.36it/s, loss=0.00638]\rTraining epoch 604:  37%|███▋      | 14/38 [00:11<00:16,  1.43it/s, loss=0.00912]\rTraining epoch 604:  42%|████▏     | 16/38 [00:12<00:15,  1.45it/s, loss=0.00873]\rTraining epoch 604:  47%|████▋     | 18/38 [00:13<00:13,  1.47it/s, loss=0.00588]\rTraining epoch 604:  53%|█████▎    | 20/38 [00:15<00:12,  1.48it/s, loss=0.00913]\rTraining epoch 604:  58%|█████▊    | 22/38 [00:16<00:10,  1.51it/s, loss=0.0058] "
+      }
+    }
+  },
+  "actual_first_canary": {
+    "at_utc": "2026-10-10T15:08:10.379067+00:00",
+    "read_only": true,
+    "files": {
+      "status.json": {
+        "object": "glass_beaker_100ml",
+        "seed": 26101523,
+        "host": "ide-650ef93f23324f04881bde87cf05d6c1-0f2fcc",
+        "gpu_uuid": "GPU-ea1b15c6-004f-05e4-5d78-d4927898b2b7",
+        "started_utc": "2026-10-10T13:42:07.449482+00:00",
+        "status": "running",
+        "formal_accepted": false,
+        "paper_SSR": null,
+        "physical_dataset_requalification": false,
+        "dataloader_workers": 2,
+        "prior_attempt": "/tmp/grasp_ssr_ood_multiserver_20261009/dp_storage_recovery_v8/runs/dp-recovery3000-glass_beaker_100ml-s26101523-bounded-tmp-workers0-dp-v8-a4",
+        "logical_seed_count_increase": 0,
+        "purpose": "One owned input pipeline canary. Original frozen model/EMA/fulloptimizer continuation, fixed100 dataset/3000 epochs/LR/action horizon unchanged; worker RNG restart disclosed. Qualify actual throughput before broader deployment.",
+        "updated_utc": "2026-10-10T15:07:51.551715+00:00",
+        "CPU_command": [
+          "/home/dataset-assist-0/yf/envs/dp/bin/python",
+          "-B",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/train_entry_Beaker100_first_obs_workers2_DP_v154.py",
+          "_target_=train_diffusion_transformer_timm_workspace.TrainDiffusionTransformerTimmWorkspace",
+          "task.dataset_path=/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+          "task.dataset.zarr_path=/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+          "task.object_name=glass_beaker_100ml",
+          "task.num_demos=100",
+          "n_obs_steps=1",
+          "n_action_steps=8",
+          "training.seed=26101523",
+          "training.device=cuda:0",
+          "training.num_epochs=3000",
+          "training.max_global_train_steps=null",
+          "training.resume=false",
+          "optimizer.lr=3e-4",
+          "optimizer.obs_encoder_lr=3e-5",
+          "dataloader.batch_size=128",
+          "dataloader.num_workers=2",
+          "dataloader.persistent_workers=true",
+          "+dataloader.prefetch_factor=2",
+          "val_dataloader.num_workers=0",
+          "val_dataloader.persistent_workers=false",
+          "task.dataset.val_ratio=0.05",
+          "training.checkpoint_every=50",
+          "checkpoint.topk.k=0",
+          "checkpoint.save_last_ckpt=true",
+          "logging.mode=disabled",
+          "hydra.run.dir=/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/runs/dp-recovery3000-glass_beaker_100ml-s26101523-original-optimizer-workers2-v154-a1/cpu_intake/checkpoints"
+        ],
+        "CPU_child": {
+          "pid": 418836,
+          "start_ticks": "727290627"
+        },
+        "CPU_actual_exit_code": 0,
+        "CPU_intake_gate": {
+          "passed": true,
+          "recovery": {
+            "mode": "actual_model_EMA_optimizer_input_pipeline_canary",
+            "optimizer_reset": false,
+            "checkpoint_sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca",
+            "saved_epoch": 500,
+            "next_epoch": 501,
+            "saved_global_step": 19038,
+            "original_total_epochs": 3000,
+            "loaded_actual_model_EMA_fingerprints": {
+              "model": {
+                "tensor_count": 918,
+                "ordered_tensor_bytes_SHA256": "6d7ddb9776aabab6d27f66fcaa9a91020524fef3e58fc9f0032e3c9709ac9f90"
+              },
+              "ema_model": {
+                "tensor_count": 918,
+                "ordered_tensor_bytes_SHA256": "5622d6cec1391a93ec0db272c9ba033373bf21afcbdd5e8c0f46078ce120ad2f"
+              }
+            },
+            "loaded_optimizer_parameter_states": 861,
+            "full_CPU_intake": {
+              "actual_CPU_load": true,
+              "model_tensors": 918,
+              "optimizer_states": 861,
+              "saved_epoch": 500,
+              "global_step": 19038,
+              "optimizer_restored": true,
+              "source": {
+                "passed": true,
+                "staged": true,
+                "committed": true,
+                "transaction": "f1d0b310337f4f2c8f96ce37fa3718be",
+                "bytes": 2807312261,
+                "sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca",
+                "path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_input_acceleration_frozen_v153/seed26101523/latest.ckpt",
+                "independently_rehashed_before_commit": true,
+                "source_local_checkpoint_bytes": 0,
+                "optimizer_state_included": true,
+                "original_live_path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_dp_checkpoints_two_phase_v8/dp-recovery3000-glass_beaker_100ml-s26101523-bounded-tmp-workers0-dp-v8-a4-training_state_latest_pt/latest.ckpt",
+                "immutable_frozen_hardlink": true,
+                "source_mtime_ns": 1791637661932723506
+              },
+              "exact_training_RNG_resume": false,
+              "formal_accepted": false,
+              "independently_rehashed_source": {
+                "bytes": 2807312261,
+                "sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca"
+              },
+              "checkpoint_disk_bytes": 0,
+              "method": "DP",
+              "seed": 26101523,
+              "CPU_only": true
+            },
+            "exact_training_resume": false,
+            "training_rng_reset": true,
+            "dataloader_workers_changed_0_to2": true,
+            "old_attempt_and_every_checkpoint_retained": true,
+            "formal_accepted": false
+          },
+          "actual_CUDA_initializations": 0,
+          "actual_GPU_training_restarts": 0,
+          "formal_accepted": false
+        },
+        "old_last_before_stop": {
+          "train_loss": 0.005587535444647074,
+          "global_step": 20601,
+          "epoch": 542,
+          "lr": 0.0002800396389690808
+        },
+        "old_optimizer_frozen_and_CPU_qualified": true,
+        "old_controller_and_training_closed": true,
+        "old_closure_status": "failed",
+        "old_training_actual_exit_code": 1,
+        "own_controller_only_SIGTERM_sent": true,
+        "admission": {
+          "gpu_csv": "GPU-ea1b15c6-004f-05e4-5d78-d4927898b2b7, NVIDIA A100-SXM4-80GB, 80616, 538, 81920, 0",
+          "host_MemAvailable_KiB": 415444856,
+          "ready": true,
+          "allocator_cap_fraction": 0.4875,
+          "dynamic_GPU_reserve_GiB": 3
+        },
+        "stable_capacity_samples": 2,
+        "dataset_snapshot": {
+          "source": "/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+          "snapshot": "/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+          "files": 5862,
+          "bytes": 1324090401,
+          "manifest_sha256": "4cfeabe995904a2bde8250680121bacb8e1a2c7effb4322fb69f2087e03e3a94",
+          "full_actual_manifest_revalidated": true
+        },
+        "AF_UNIX_regression": {
+          "passed": true,
+          "actual_listener_path": "/tmp/t500dp154/pymp-v7kde2de/listener-i_xopkjo",
+          "TMPDIR": "/tmp/t500dp154"
+        },
+        "command": [
+          "/home/dataset-assist-0/yf/envs/dp/bin/python",
+          "-B",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/train_entry_Beaker100_first_obs_workers2_DP_v154.py",
+          "_target_=train_diffusion_transformer_timm_workspace.TrainDiffusionTransformerTimmWorkspace",
+          "task.dataset_path=/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+          "task.dataset.zarr_path=/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+          "task.object_name=glass_beaker_100ml",
+          "task.num_demos=100",
+          "n_obs_steps=1",
+          "n_action_steps=8",
+          "training.seed=26101523",
+          "training.device=cuda:0",
+          "training.num_epochs=3000",
+          "training.max_global_train_steps=null",
+          "training.resume=false",
+          "optimizer.lr=3e-4",
+          "optimizer.obs_encoder_lr=3e-5",
+          "dataloader.batch_size=128",
+          "dataloader.num_workers=2",
+          "dataloader.persistent_workers=true",
+          "+dataloader.prefetch_factor=2",
+          "val_dataloader.num_workers=0",
+          "val_dataloader.persistent_workers=false",
+          "task.dataset.val_ratio=0.05",
+          "training.checkpoint_every=50",
+          "checkpoint.topk.k=0",
+          "checkpoint.save_last_ckpt=true",
+          "logging.mode=disabled",
+          "hydra.run.dir=/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/runs/dp-recovery3000-glass_beaker_100ml-s26101523-original-optimizer-workers2-v154-a1/checkpoints"
+        ],
+        "source_pins": {
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/train_entry_30109_storage_recovery_DP_v8.py": "1a9be2a9d724853b16e27d9c3b833e434bf9f804e8290ce2292b862e71639715",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/train_controller_30109_storage_recovery_DP_v8.py": "68245194e54c56ad0e45cdf1573cd129cff9b870f349ceff22a3340155dc5a8d",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/stream_owned_dp_checkpoint_to_ali_v1.py": "537519252542e221248d6b7db60b4e424be1aadfa144c11564c4753b1d6abf90",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/stream_owned_dp_workspace_async_v3.py": "3e89f447c8b1325f7b9ad2c23d3b328d9c3637ebb1724b5ef93253b962009a53",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/bounded_owned_gpu_telemetry_v1.py": "d36450c6d52a7f459cdda69948ec13abd4629c805f3cac4662de905bdd973316",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/check_two_phase_checkpoint_failure_atomicity_dp_cpu_v3.py": "df7218407c2f7165d200a2ffcd348fa7ee1df99442a0727b6f3e2d88b7acdc03",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/check_async_checkpoint_and_optimizer_resume_dp_cpu_v3.py": "3cc7d3efbcc5b2683b7008adb24a07db3ca40c0afc9f93860e68dbfdc40420f9",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/async_owned_remote_checkpoint_writer_dp_v3.py": "ee744598c1b318b21133139c548deb1868c65b9a6ed62307baf477334011faae",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/stream_owned_checkpoint_to_ali_two_phase_dp_v3.py": "54c0bdec02856e725ad4bbf8bafb1f2b2680b1d92b40540b110c310b1766634a",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/stream_owned_checkpoint_to_ali_two_phase_v2.py": "54c0bdec02856e725ad4bbf8bafb1f2b2680b1d92b40540b110c310b1766634a",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/owned_checkpoint_transport_channel_slots_v8.py": "168fce5172744966b93e14ec2e0db39ab90900d0c7f31fed47ebc38ef6d1faf7",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/check_owned_SSH_channel_slots_CPU_v8.py": "f26e2ac05f3484271fb29a76cafc80dea6caecb30de80a009e08641048308436",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/owned_DP_body_slots_v8.py": "da1b0fc2d36694517a9da988cbb0e95b67fb9b18859b41ee5ec5e49b077054a4",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/check_DP_body_slots_CPU_v8.py": "d096d6125437afe6007ce31921a2aa35a5ee178525237e1523ef02f1d6c406bf",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/owned_full_checkpoint_CPU_stream_v8.py": "b8cb8c949c1ed05d62e440aaeb40807b5ab854e7a8171cea4d2abd40df75dcd0",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/CPU_gate_supervisor_DP_channels_v8.py": "49392b5ea14dbcffe48ed3c95d5d94f8828a319968524aa7ba37e82fc6e0544d",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/train_entry_Beaker100_first_obs_workers2_DP_v154.py": "b5415caa13b5658934d9fecefa991eebde3ad683c53cfce30a3ecfa475f6e465",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/train_controller_Beaker100_first_obs_workers2_DP_v154.py": "685a5f3f4c0ae0465c7c55b7e7c762505a2ef86c9f4294296ef7526af28cd131",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/fixed/budget_contract.py": "6967f99a9c2f1c9ca8517804d1fded51269b92a76978e75c33f56efcc58ca489",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/fixed/train_diffusion_transformer_timm_workspace.py": "e9fa8ee908a8f0fba4c779ed966a923e90d2abaad039564f6abbb5b713155f28",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/ACTUAL_FROZEN_FULL_OPTIMIZER_CHECKPOINT_CPU_V155.json": "bcb9825d617f21e93d8d2ed2a2dae461b07dc8cad969ec490385c4493eef19cf",
+          "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker100_input_acceleration_v154/ACTUAL_WORKERS2_CPU_EQUIVALENCE_AND_SPEED_V150.json": "0f11decc826e0e267327b508c5c3b236f805416305ce6121c90e70c40969f23a"
+        },
+        "final_admission": {
+          "gpu_csv": "GPU-ea1b15c6-004f-05e4-5d78-d4927898b2b7, NVIDIA A100-SXM4-80GB, 80616, 538, 81920, 0",
+          "host_MemAvailable_KiB": 415456024,
+          "ready": true,
+          "allocator_cap_fraction": 0.4875,
+          "dynamic_GPU_reserve_GiB": 3
+        },
+        "pid": 426399,
+        "start_ticks": "727318494",
+        "gpu_now": "GPU-ea1b15c6-004f-05e4-5d78-d4927898b2b7, NVIDIA A100-SXM4-80GB, 20359, 60795, 81920, 92",
+        "actual_min_free_GPU_MiB": 20359,
+        "last": {
+          "train_loss": 0.005826738332153151,
+          "global_step": 24585,
+          "epoch": 646,
+          "lr": 0.0002708909029092238
+        }
+      },
+      "cpu_intake/checkpoints/ACTUAL_PRIVATE_TRAIN_ENTRY_CPU_INTAKE_GATE_V154.json": {
+        "passed": true,
+        "recovery": {
+          "mode": "actual_model_EMA_optimizer_input_pipeline_canary",
+          "optimizer_reset": false,
+          "checkpoint_sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca",
+          "saved_epoch": 500,
+          "next_epoch": 501,
+          "saved_global_step": 19038,
+          "original_total_epochs": 3000,
+          "loaded_actual_model_EMA_fingerprints": {
+            "model": {
+              "tensor_count": 918,
+              "ordered_tensor_bytes_SHA256": "6d7ddb9776aabab6d27f66fcaa9a91020524fef3e58fc9f0032e3c9709ac9f90"
+            },
+            "ema_model": {
+              "tensor_count": 918,
+              "ordered_tensor_bytes_SHA256": "5622d6cec1391a93ec0db272c9ba033373bf21afcbdd5e8c0f46078ce120ad2f"
+            }
+          },
+          "loaded_optimizer_parameter_states": 861,
+          "full_CPU_intake": {
+            "actual_CPU_load": true,
+            "model_tensors": 918,
+            "optimizer_states": 861,
+            "saved_epoch": 500,
+            "global_step": 19038,
+            "optimizer_restored": true,
+            "source": {
+              "passed": true,
+              "staged": true,
+              "committed": true,
+              "transaction": "f1d0b310337f4f2c8f96ce37fa3718be",
+              "bytes": 2807312261,
+              "sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca",
+              "path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_input_acceleration_frozen_v153/seed26101523/latest.ckpt",
+              "independently_rehashed_before_commit": true,
+              "source_local_checkpoint_bytes": 0,
+              "optimizer_state_included": true,
+              "original_live_path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_dp_checkpoints_two_phase_v8/dp-recovery3000-glass_beaker_100ml-s26101523-bounded-tmp-workers0-dp-v8-a4-training_state_latest_pt/latest.ckpt",
+              "immutable_frozen_hardlink": true,
+              "source_mtime_ns": 1791637661932723506
+            },
+            "exact_training_RNG_resume": false,
+            "formal_accepted": false,
+            "independently_rehashed_source": {
+              "bytes": 2807312261,
+              "sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca"
+            },
+            "checkpoint_disk_bytes": 0,
+            "method": "DP",
+            "seed": 26101523,
+            "CPU_only": true
+          },
+          "exact_training_resume": false,
+          "training_rng_reset": true,
+          "dataloader_workers_changed_0_to2": true,
+          "old_attempt_and_every_checkpoint_retained": true,
+          "formal_accepted": false
+        },
+        "actual_CUDA_initializations": 0,
+        "actual_GPU_training_restarts": 0,
+        "formal_accepted": false
+      },
+      "cpu_intake/checkpoints/checkpoint_CPU_intake.json": {
+        "status": "streaming_ordinary_CPU_memory",
+        "bytes": 2801795072,
+        "target_bytes": 2807312261,
+        "source": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_input_acceleration_frozen_v153/seed26101523/latest.ckpt",
+        "checkpoint_disk_bytes": 0,
+        "at_utc": "2026-10-10T13:45:06.477714+00:00",
+        "formal_accepted": false
+      },
+      "checkpoints/checkpoint_CPU_intake.json": {
+        "status": "streaming_ordinary_CPU_memory",
+        "bytes": 2801795072,
+        "target_bytes": 2807312261,
+        "source": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_input_acceleration_frozen_v153/seed26101523/latest.ckpt",
+        "checkpoint_disk_bytes": 0,
+        "at_utc": "2026-10-10T13:54:49.349184+00:00",
+        "formal_accepted": false
+      },
+      "checkpoints/effective_runtime.json": {
+        "actual_gpu_uuid": "GPU-ea1b15c6-004f-05e4-5d78-d4927898b2b7",
+        "gpu_name": "NVIDIA A100-SXM4-80GB",
+        "epochs": 3000,
+        "global_step_at_start": 19038,
+        "epoch_at_start": 501,
+        "optimizer_groups": [
+          {
+            "lr": 0.0002831933855622073,
+            "initial_lr": 0.0003
+          },
+          {
+            "lr": 0.0002831933855622073,
+            "initial_lr": 0.0003
+          },
+          {
+            "lr": 2.8319338556220738e-05,
+            "initial_lr": 3e-05
+          },
+          {
+            "lr": 2.8319338556220738e-05,
+            "initial_lr": 3e-05
+          }
+        ],
+        "recovery": {
+          "mode": "actual_model_EMA_optimizer_input_pipeline_canary",
+          "optimizer_reset": false,
+          "checkpoint_sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca",
+          "saved_epoch": 500,
+          "next_epoch": 501,
+          "saved_global_step": 19038,
+          "original_total_epochs": 3000,
+          "loaded_actual_model_EMA_fingerprints": {
+            "model": {
+              "tensor_count": 918,
+              "ordered_tensor_bytes_SHA256": "6d7ddb9776aabab6d27f66fcaa9a91020524fef3e58fc9f0032e3c9709ac9f90"
+            },
+            "ema_model": {
+              "tensor_count": 918,
+              "ordered_tensor_bytes_SHA256": "5622d6cec1391a93ec0db272c9ba033373bf21afcbdd5e8c0f46078ce120ad2f"
+            }
+          },
+          "loaded_optimizer_parameter_states": 861,
+          "full_CPU_intake": {
+            "actual_CPU_load": true,
+            "model_tensors": 918,
+            "optimizer_states": 861,
+            "saved_epoch": 500,
+            "global_step": 19038,
+            "optimizer_restored": true,
+            "source": {
+              "passed": true,
+              "staged": true,
+              "committed": true,
+              "transaction": "f1d0b310337f4f2c8f96ce37fa3718be",
+              "bytes": 2807312261,
+              "sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca",
+              "path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_input_acceleration_frozen_v153/seed26101523/latest.ckpt",
+              "independently_rehashed_before_commit": true,
+              "source_local_checkpoint_bytes": 0,
+              "optimizer_state_included": true,
+              "original_live_path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_dp_checkpoints_two_phase_v8/dp-recovery3000-glass_beaker_100ml-s26101523-bounded-tmp-workers0-dp-v8-a4-training_state_latest_pt/latest.ckpt",
+              "immutable_frozen_hardlink": true,
+              "source_mtime_ns": 1791637661932723506
+            },
+            "exact_training_RNG_resume": false,
+            "formal_accepted": false,
+            "independently_rehashed_source": {
+              "bytes": 2807312261,
+              "sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca"
+            },
+            "checkpoint_disk_bytes": 0,
+            "method": "DP",
+            "seed": 26101523,
+            "CPU_only": true
+          },
+          "exact_training_resume": false,
+          "training_rng_reset": true,
+          "dataloader_workers_changed_0_to2": true,
+          "old_attempt_and_every_checkpoint_retained": true,
+          "formal_accepted": false
+        },
+        "checkpoint_backend": "Original async immutable CPU snapshot and two-phase full SHA commit; bounded body, final drain",
+        "checkpoint_interval_epochs": 50,
+        "optimizer_state_saved": true,
+        "checkpoint_bytes_written_to_shm": 0,
+        "config": {
+          "name": "train_diffusion_transformer_timm",
+          "_target_": "train_diffusion_transformer_timm_workspace.TrainDiffusionTransformerTimmWorkspace",
+          "task_name": "grasp_rgb",
+          "shape_meta": {
+            "obs": {
+              "chest_camera_rgb": {
+                "shape": [
+                  3,
+                  224,
+                  224
+                ],
+                "type": "rgb",
+                "horizon": 1
+              },
+              "head_camera_rgb": {
+                "shape": [
+                  3,
+                  224,
+                  224
+                ],
+                "type": "rgb",
+                "horizon": 1
+              },
+              "third_camera_rgb": {
+                "shape": [
+                  3,
+                  224,
+                  224
+                ],
+                "type": "rgb",
+                "horizon": 1
+              },
+              "arm2_pos": {
+                "shape": [
+                  7
+                ],
+                "type": "low_dim",
+                "horizon": 1
+              },
+              "hand2_pos": {
+                "shape": [
+                  6
+                ],
+                "type": "low_dim",
+                "horizon": 1
+              },
+              "arm2_eef_pos": {
+                "shape": [
+                  3
+                ],
+                "type": "low_dim",
+                "horizon": 1
+              },
+              "arm2_eef_quat": {
+                "shape": [
+                  4
+                ],
+                "type": "low_dim",
+                "horizon": 1
+              },
+              "target_pose": {
+                "shape": [
+                  7
+                ],
+                "type": "low_dim",
+                "horizon": 1
+              }
+            },
+            "action": {
+              "shape": [
+                13
+              ],
+              "horizon": 8
+            }
+          },
+          "exp_name": "default",
+          "object_name": "glass_beaker_100ml",
+          "num_demos": 100,
+          "use_velocity": false,
+          "n_action_steps": 8,
+          "n_obs_steps": 1,
+          "n_emb": 768,
+          "n_latency_steps": 0,
+          "dataset_obs_steps": 1,
+          "past_action_visible": false,
+          "keypoint_visible_rate": 1.0,
+          "obs_as_cond": true,
+          "policy": {
+            "_target_": "psi_dp.policy.diffusion_transformer_timm_policy.DiffusionTransformerTimmPolicy",
+            "shape_meta": {
+              "obs": {
+                "chest_camera_rgb": {
+                  "shape": [
+                    3,
+                    224,
+                    224
+                  ],
+                  "type": "rgb",
+                  "horizon": 1
+                },
+                "head_camera_rgb": {
+                  "shape": [
+                    3,
+                    224,
+                    224
+                  ],
+                  "type": "rgb",
+                  "horizon": 1
+                },
+                "third_camera_rgb": {
+                  "shape": [
+                    3,
+                    224,
+                    224
+                  ],
+                  "type": "rgb",
+                  "horizon": 1
+                },
+                "arm2_pos": {
+                  "shape": [
+                    7
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                },
+                "hand2_pos": {
+                  "shape": [
+                    6
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                },
+                "arm2_eef_pos": {
+                  "shape": [
+                    3
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                },
+                "arm2_eef_quat": {
+                  "shape": [
+                    4
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                },
+                "target_pose": {
+                  "shape": [
+                    7
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                }
+              },
+              "action": {
+                "shape": [
+                  13
+                ],
+                "horizon": 8
+              }
+            },
+            "noise_scheduler": {
+              "_target_": "diffusers.DDIMScheduler",
+              "num_train_timesteps": 50,
+              "beta_start": 0.0001,
+              "beta_end": 0.02,
+              "beta_schedule": "squaredcos_cap_v2",
+              "clip_sample": true,
+              "set_alpha_to_one": true,
+              "steps_offset": 0,
+              "prediction_type": "epsilon"
+            },
+            "obs_encoder": {
+              "_target_": "psi_dp.model.vision.timm_obs_encoder.TimmObsEncoder",
+              "shape_meta": {
+                "obs": {
+                  "chest_camera_rgb": {
+                    "shape": [
+                      3,
+                      224,
+                      224
+                    ],
+                    "type": "rgb",
+                    "horizon": 1
+                  },
+                  "head_camera_rgb": {
+                    "shape": [
+                      3,
+                      224,
+                      224
+                    ],
+                    "type": "rgb",
+                    "horizon": 1
+                  },
+                  "third_camera_rgb": {
+                    "shape": [
+                      3,
+                      224,
+                      224
+                    ],
+                    "type": "rgb",
+                    "horizon": 1
+                  },
+                  "arm2_pos": {
+                    "shape": [
+                      7
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  },
+                  "hand2_pos": {
+                    "shape": [
+                      6
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  },
+                  "arm2_eef_pos": {
+                    "shape": [
+                      3
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  },
+                  "arm2_eef_quat": {
+                    "shape": [
+                      4
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  },
+                  "target_pose": {
+                    "shape": [
+                      7
+                    ],
+                    "type": "low_dim",
+                    "horizon": 1
+                  }
+                },
+                "action": {
+                  "shape": [
+                    13
+                  ],
+                  "horizon": 8
+                }
+              },
+              "global_pool": "",
+              "n_emb": 768,
+              "model_name": "vit_small_r26_s32_224",
+              "pretrained": true,
+              "frozen": false,
+              "feature_aggregation": null,
+              "use_mask_input": false,
+              "downsample_ratio": 32,
+              "transforms": [
+                {
+                  "type": "RandomCrop",
+                  "ratio": 0.9
+                }
+              ],
+              "use_group_norm": true,
+              "share_rgb_model": false
+            },
+            "num_inference_steps": 16,
+            "input_pertub": 0.1,
+            "n_layer": 7,
+            "n_head": 8,
+            "n_emb": 768,
+            "p_drop_attn": 0.1
+          },
+          "ema": {
+            "_target_": "diffusion_policy.model.diffusion.ema_model.EMAModel",
+            "update_after_step": 0,
+            "inv_gamma": 1.0,
+            "power": 0.75,
+            "min_value": 0.0,
+            "max_value": 0.9999
+          },
+          "dataloader": {
+            "batch_size": 128,
+            "num_workers": 2,
+            "shuffle": true,
+            "pin_memory": true,
+            "persistent_workers": true,
+            "prefetch_factor": 2
+          },
+          "val_dataloader": {
+            "batch_size": 128,
+            "num_workers": 0,
+            "shuffle": false,
+            "pin_memory": true,
+            "persistent_workers": false
+          },
+          "optimizer": {
+            "lr": 0.0003,
+            "weight_decay": 1e-06,
+            "obs_encoder_lr": 3e-05,
+            "obs_encoder_weight_decay": 1e-06,
+            "betas": [
+              0.95,
+              0.999
+            ]
+          },
+          "training": {
+            "device": "cuda:0",
+            "seed": 26101523,
+            "debug": false,
+            "resume": false,
+            "lastest_ckpt_path": null,
+            "lr_scheduler": "cosine",
+            "lr_warmup_steps": 2000,
+            "num_epochs": 3000,
+            "gradient_accumulate_every": 1,
+            "use_ema": true,
+            "freeze_encoder": false,
+            "rollout_every": 10,
+            "checkpoint_every": 50,
+            "val_every": 1,
+            "sample_every": 5,
+            "max_train_steps": null,
+            "max_global_train_steps": null,
+            "max_val_steps": null,
+            "tqdm_interval_sec": 1.0
+          },
+          "logging": {
+            "project": "DP_并行实验1222_rbg_grasp_rgb",
+            "resume": false,
+            "mode": "disabled",
+            "name": "glass_beaker_100ml_n100_velFalse_20261010_214649",
+            "tags": [
+              "grasp_rgb",
+              "glass_beaker_100ml",
+              "n100",
+              "obs:rgb",
+              "action_dim:13",
+              "img:224",
+              "velocity:False",
+              "pos_rand:True",
+              "rot_rand:False",
+              "encoder:vit_small_r26_s32_224",
+              "pretrained:True",
+              "bs:128",
+              "lr:0.0003",
+              "n_layer:7",
+              "n_emb:768",
+              "act_steps:8",
+              "obs_steps:1"
+            ],
+            "id": null,
+            "group": "glass_beaker_100ml",
+            "notes": "物体:glass_beaker_100ml | 数据:100条 | 观测:rgb | 图像:224 | 速度:False | 位置随机:True | 旋转随机:False | 编码器:vit_small_r26_s32_224"
+          },
+          "checkpoint": {
+            "topk": {
+              "monitor_key": "train_loss",
+              "mode": "min",
+              "k": 0,
+              "format_str": "epoch={epoch:04d}-train_loss={train_loss:.3f}.ckpt"
+            },
+            "save_last_ckpt": true,
+            "save_last_snapshot": false
+          },
+          "multi_run": {
+            "run_dir": "data/outputs/grasp_rgb/glass_beaker_100ml/20261010_214649_n100_velFalse",
+            "wandb_name_base": "glass_beaker_100ml_n100_velFalse_20261010_214649"
+          },
+          "task": {
+            "name": "grasp_rgb",
+            "object_name": "glass_beaker_100ml",
+            "num_demos": 100,
+            "data_root": "/home/psibot/chembench/data/zarr_rgb/motion_plan/grasp",
+            "dataset_path": "/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+            "randomization": {
+              "position": {
+                "enabled": true,
+                "x_range": [
+                  -0.02,
+                  0.02
+                ],
+                "y_range": [
+                  -0.02,
+                  0.02
+                ],
+                "z_range": [
+                  0.0,
+                  0.0
+                ]
+              },
+              "rotation": {
+                "enabled": false,
+                "yaw_range": [
+                  -26,
+                  26
+                ]
+              },
+              "lighting": false,
+              "texture": false
+            },
+            "obs_config": {
+              "use_velocity": false,
+              "use_third_camera": true
+            },
+            "data_info": {
+              "obs_type": "rgb",
+              "action_dim": 13,
+              "image_size": 224
+            },
+            "image_shape": [
+              3,
+              224,
+              224
+            ],
+            "shape_meta": {
+              "obs": {
+                "chest_camera_rgb": {
+                  "shape": [
+                    3,
+                    224,
+                    224
+                  ],
+                  "type": "rgb",
+                  "horizon": 1
+                },
+                "head_camera_rgb": {
+                  "shape": [
+                    3,
+                    224,
+                    224
+                  ],
+                  "type": "rgb",
+                  "horizon": 1
+                },
+                "third_camera_rgb": {
+                  "shape": [
+                    3,
+                    224,
+                    224
+                  ],
+                  "type": "rgb",
+                  "horizon": 1
+                },
+                "arm2_pos": {
+                  "shape": [
+                    7
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                },
+                "hand2_pos": {
+                  "shape": [
+                    6
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                },
+                "arm2_eef_pos": {
+                  "shape": [
+                    3
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                },
+                "arm2_eef_quat": {
+                  "shape": [
+                    4
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                },
+                "target_pose": {
+                  "shape": [
+                    7
+                  ],
+                  "type": "low_dim",
+                  "horizon": 1
+                }
+              },
+              "action": {
+                "shape": [
+                  13
+                ],
+                "horizon": 8
+              }
+            },
+            "env_runner": {
+              "_target_": "diffusion_policy.env_runner.real_pusht_image_runner.RealPushTImageRunner"
+            },
+            "dataset": {
+              "_target_": "psi_dp.dataset.grasp_rgb_dataset.GraspRGBDataset",
+              "zarr_path": "/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+              "horizon": 8,
+              "pad_before": 0,
+              "pad_after": 7,
+              "seed": 42,
+              "val_ratio": 0.05,
+              "use_velocity": false,
+              "use_third_camera": true
+            }
+          }
+        },
+        "input_optimization": "Existing sampler key_first_k only for consumed1 RGB; workers2/prefetch2/persistent; original full8 actions and every consumed tensor unchanged",
+        "formal_accepted": false
+      },
+      "checkpoints/ACTUAL_FIRST_OBSERVATION_INPUT_RUNTIME_V154.json": {
+        "at_utc": "2026-10-10T13:55:02.708330+00:00",
+        "actual_original_dataset_source_SHA256": "291b23c856810046b21fd883ab8ec2a40dfcedd4d62f448a99891b1bb55e3b92",
+        "actual_dataset_num_episodes": 100,
+        "actual_dataset_length": 4850,
+        "actual_RGB_key_first_k": {
+          "chest_camera_rgb": 1,
+          "head_camera_rgb": 1,
+          "third_camera_rgb": 1
+        },
+        "actual_action_horizon": 8,
+        "state_and_action_values_changed": false,
+        "training_workers": 2,
+        "prefetch_factor": 2,
+        "persistent_workers": true,
+        "CPU_actual_equivalence_gate": {
+          "passed": true,
+          "started_utc": "2026-10-10T13:23:57.668386+00:00",
+          "actual_GPU_training_restarts": 0,
+          "actual_Native_trials": 0,
+          "formal_accepted": false,
+          "paper_ssr": null,
+          "source_pins": {
+            "/home/dataset-assist-0/yf/chembench_t053_pick_place_fullflow_v1/runtime/chembench/diffusion_policy/psi_dp/dataset/grasp_rgb_dataset.py": "291b23c856810046b21fd883ab8ec2a40dfcedd4d62f448a99891b1bb55e3b92",
+            "/home/dataset-assist-0/yf/chembench_t053_pick_place_fullflow_v1/runtime/chembench/diffusion_policy/diffusion_policy/common/sampler.py": "eb4af7d8513bf16c46dbb3bbebd51a407434818a92937d288587e78819724f8e"
+          },
+          "source_dataset": {
+            "_target_": "psi_dp.dataset.grasp_rgb_dataset.GraspRGBDataset",
+            "zarr_path": "/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+            "horizon": 8,
+            "pad_before": 0,
+            "pad_after": 7,
+            "seed": 42,
+            "val_ratio": 0.05,
+            "use_velocity": false,
+            "use_third_camera": true
+          },
+          "RGB_shapes": {
+            "chest_camera_rgb": [
+              5105,
+              224,
+              224,
+              3
+            ],
+            "head_camera_rgb": [
+              5105,
+              224,
+              224,
+              3
+            ],
+            "third_camera_rgb": [
+              5105,
+              224,
+              224,
+              3
+            ]
+          },
+          "optimization": "Use existing original SequenceSampler key_first_k for exactly3 RGB keys, k=n_obs_steps=1. Full8 action frames and every consumed state tensor retained. No source file or active process modified.",
+          "actual_ABBA_rows": [
+            {
+              "workers": 0,
+              "prefetch_factor": null,
+              "actual_128_batch_fetch_seconds": [
+                0.9332267278805375,
+                0.8799571767449379,
+                0.7682309905067086,
+                0.830649733543396
+              ],
+              "actual_full_consumed_batch_SHA256": [
+                "e0533bceb4a4fa7d9df5fcbeffd7d153052951952db7046960795c57a3d56100",
+                "31f3cd9fff8db281c47c372806bc474f21c80247898c1e50bd148180f64515d5",
+                "13f986aa1596ec1b96125947946749ea355848a4e768d95265ac88af633cdd82",
+                "8af7252b989b611e6fd6e2840112e6522577d0e2a2120d10348efa33b35d5529"
+              ],
+              "CPU_tensor_verification_seconds": [
+                0.3271245025098324,
+                0.4739182060584426,
+                0.33471013605594635,
+                0.357194185256958
+              ],
+              "total_iteration_and_CPU_verification_seconds": 4.979976752772927,
+              "own_worker_PIDs": [],
+              "own_workers_closed": true
+            },
+            {
+              "workers": 2,
+              "prefetch_factor": 2,
+              "actual_128_batch_fetch_seconds": [
+                1.5081193698570132,
+                0.0031011663377285004,
+                0.4137696139514446,
+                0.0023788604885339737
+              ],
+              "actual_full_consumed_batch_SHA256": [
+                "e0533bceb4a4fa7d9df5fcbeffd7d153052951952db7046960795c57a3d56100",
+                "31f3cd9fff8db281c47c372806bc474f21c80247898c1e50bd148180f64515d5",
+                "13f986aa1596ec1b96125947946749ea355848a4e768d95265ac88af633cdd82",
+                "8af7252b989b611e6fd6e2840112e6522577d0e2a2120d10348efa33b35d5529"
+              ],
+              "CPU_tensor_verification_seconds": [
+                0.39719684794545174,
+                0.3686815779656172,
+                0.3441081354394555,
+                0.3735190285369754
+              ],
+              "total_iteration_and_CPU_verification_seconds": 3.5941846976056695,
+              "own_worker_PIDs": [
+                384596,
+                384600
+              ],
+              "own_workers_closed": true
+            },
+            {
+              "workers": 2,
+              "prefetch_factor": 2,
+              "actual_128_batch_fetch_seconds": [
+                1.5823486223816872,
+                0.00045709218829870224,
+                0.14578205067664385,
+                0.002945556305348873
+              ],
+              "actual_full_consumed_batch_SHA256": [
+                "e0533bceb4a4fa7d9df5fcbeffd7d153052951952db7046960795c57a3d56100",
+                "31f3cd9fff8db281c47c372806bc474f21c80247898c1e50bd148180f64515d5",
+                "13f986aa1596ec1b96125947946749ea355848a4e768d95265ac88af633cdd82",
+                "8af7252b989b611e6fd6e2840112e6522577d0e2a2120d10348efa33b35d5529"
+              ],
+              "CPU_tensor_verification_seconds": [
+                0.49620694015175104,
+                0.5025713369250298,
+                0.5141509007662535,
+                0.5123332068324089
+              ],
+              "total_iteration_and_CPU_verification_seconds": 3.927750830538571,
+              "own_worker_PIDs": [
+                384682,
+                384686
+              ],
+              "own_workers_closed": true
+            },
+            {
+              "workers": 0,
+              "prefetch_factor": null,
+              "actual_128_batch_fetch_seconds": [
+                0.7920559728518128,
+                0.7056817868724465,
+                0.7338947514072061,
+                0.6894680391997099
+              ],
+              "actual_full_consumed_batch_SHA256": [
+                "e0533bceb4a4fa7d9df5fcbeffd7d153052951952db7046960795c57a3d56100",
+                "31f3cd9fff8db281c47c372806bc474f21c80247898c1e50bd148180f64515d5",
+                "13f986aa1596ec1b96125947946749ea355848a4e768d95265ac88af633cdd82",
+                "8af7252b989b611e6fd6e2840112e6522577d0e2a2120d10348efa33b35d5529"
+              ],
+              "CPU_tensor_verification_seconds": [
+                0.5269228043034673,
+                0.44339351262897253,
+                0.5773498453199863,
+                0.6533491834998131
+              ],
+              "total_iteration_and_CPU_verification_seconds": 5.1770771285519,
+              "own_worker_PIDs": [],
+              "own_workers_closed": true
+            }
+          ],
+          "at_utc": "2026-10-10T13:24:20.760373+00:00",
+          "steady_CPU_fetch_speedup_during_verification": 8.106270424647363,
+          "workers0_steady_mean_seconds": 0.7679804130457342,
+          "workers2_steady_mean_seconds": 0.09473905665799975,
+          "actual_full128_consumed_batch_equivalence_cases": 16,
+          "actual_CUDA_initializations": 0,
+          "scope": "CPU-only real original dataset. Workers2 prefetch concurrent with CPU tensor-verification time, explicitly not a GPU-training throughput benchmark. All4 batch contents bit-identical to workers0; first2 also exact original all8frame proof. Source/active processes unchanged."
+        },
+        "formal_accepted": false,
+        "paper_ssr": null
+      },
+      "checkpoints/ACTUAL_FROZEN_CPU_CHECKPOINT_RESTORED_V154.json": {
+        "mode": "actual_model_EMA_optimizer_input_pipeline_canary",
+        "optimizer_reset": false,
+        "checkpoint_sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca",
+        "saved_epoch": 500,
+        "next_epoch": 501,
+        "saved_global_step": 19038,
+        "original_total_epochs": 3000,
+        "loaded_actual_model_EMA_fingerprints": {
+          "model": {
+            "tensor_count": 918,
+            "ordered_tensor_bytes_SHA256": "6d7ddb9776aabab6d27f66fcaa9a91020524fef3e58fc9f0032e3c9709ac9f90"
+          },
+          "ema_model": {
+            "tensor_count": 918,
+            "ordered_tensor_bytes_SHA256": "5622d6cec1391a93ec0db272c9ba033373bf21afcbdd5e8c0f46078ce120ad2f"
+          }
+        },
+        "loaded_optimizer_parameter_states": 861,
+        "full_CPU_intake": {
+          "actual_CPU_load": true,
+          "model_tensors": 918,
+          "optimizer_states": 861,
+          "saved_epoch": 500,
+          "global_step": 19038,
+          "optimizer_restored": true,
+          "source": {
+            "passed": true,
+            "staged": true,
+            "committed": true,
+            "transaction": "f1d0b310337f4f2c8f96ce37fa3718be",
+            "bytes": 2807312261,
+            "sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca",
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_Beaker100_input_acceleration_frozen_v153/seed26101523/latest.ckpt",
+            "independently_rehashed_before_commit": true,
+            "source_local_checkpoint_bytes": 0,
+            "optimizer_state_included": true,
+            "original_live_path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_dp_checkpoints_two_phase_v8/dp-recovery3000-glass_beaker_100ml-s26101523-bounded-tmp-workers0-dp-v8-a4-training_state_latest_pt/latest.ckpt",
+            "immutable_frozen_hardlink": true,
+            "source_mtime_ns": 1791637661932723506
+          },
+          "exact_training_RNG_resume": false,
+          "formal_accepted": false,
+          "independently_rehashed_source": {
+            "bytes": 2807312261,
+            "sha256": "9003d6cfca8ce0f68803a99a7cae212c59a89104ccd1db46adfcc35a2e88e7ca"
+          },
+          "checkpoint_disk_bytes": 0,
+          "method": "DP",
+          "seed": 26101523,
+          "CPU_only": true
+        },
+        "exact_training_resume": false,
+        "training_rng_reset": true,
+        "dataloader_workers_changed_0_to2": true,
+        "old_attempt_and_every_checkpoint_retained": true,
+        "formal_accepted": false
+      },
+      "checkpoints/training_state_latest.pt.remote.json": {
+        "passed": true,
+        "staged": true,
+        "committed": true,
+        "transaction": "5d7b3249402749d08aef53b48eb90ffa",
+        "bytes": 2807320965,
+        "sha256": "72946df542ed5edc0be06c194c0dc169f7ea49c1acea18aeb78190a02df90649",
+        "path": "/root/grasp_ssr_ood_multiserver_20261009/streamed_30109_dp_checkpoints_two_phase_v8/dp-recovery3000-glass_beaker_100ml-s26101523-original-optimizer-workers2-v154-a1-training_state_latest_pt/latest.ckpt",
+        "independently_rehashed_before_commit": true,
+        "source_local_checkpoint_bytes": 0,
+        "optimizer_state_included": true
+      }
+    },
+    "logs": {
+      "CPU_console.log": "[2026-10-10 21:42:20,890][timm.models._builder][INFO] - Loading pretrained weights from Hugging Face hub (timm/vit_small_r26_s32_224.augreg_in21k_ft_in1k)\n[2026-10-10 21:42:20,903][timm.models._hub][INFO] - [timm/vit_small_r26_s32_224.augreg_in21k_ft_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.\n[2026-10-10 21:42:20,980][psi_dp.model.vision.timm_obs_encoder][INFO] - Creating RGB example tensor with shape: torch.Size([1, 3, 224, 224])\n[2026-10-10 21:42:21,124][psi_dp.model.vision.timm_obs_encoder][INFO] - Creating RGB example tensor with shape: torch.Size([1, 3, 224, 224])\n[2026-10-10 21:42:21,249][psi_dp.model.vision.timm_obs_encoder][INFO] - Creating RGB example tensor with shape: torch.Size([1, 3, 224, 224])\n[2026-10-10 21:42:21,334][psi_dp.model.vision.timm_obs_encoder][INFO] - number of parameters: 1.090524e+08\n[2026-10-10 21:42:21,334][psi_dp.model.vision.timm_obs_encoder][INFO] - Image types - RGB: ['chest_camera_rgb', 'head_camera_rgb', 'third_camera_rgb'], RGBM: [], RGB_MASKED: [], RGB_MASKED_RGB: [], ND: [], RGBND: []\n[2026-10-10 21:42:22,011][psi_dp.model.diffusion.transformer_for_action_diffusion][INFO] - number of parameters: 6.631067e+07\n",
+      "console.log": "/s, loss=0.00573]\r                                                                                 \r\rTraining epoch 643:   0%|          | 0/38 [00:00<?, ?it/s]\rTraining epoch 643:   3%|▎         | 1/38 [00:02<01:37,  2.64s/it, loss=0.00451]\rTraining epoch 643:   5%|▌         | 2/38 [00:04<01:10,  1.96s/it, loss=0.00624]\rTraining epoch 643:  11%|█         | 4/38 [00:05<00:43,  1.28s/it, loss=0.0056] \rTraining epoch 643:  16%|█▌        | 6/38 [00:07<00:34,  1.08s/it, loss=0.00535]\rTraining epoch 643:  21%|██        | 8/38 [00:09<00:28,  1.07it/s, loss=0.0062] \rTraining epoch 643:  26%|██▋       | 10/38 [00:10<00:22,  1.22it/s, loss=0.00527]\rTraining epoch 643:  32%|███▏      | 12/38 [00:11<00:19,  1.31it/s, loss=0.00636]\rTraining epoch 643:  37%|███▋      | 14/38 [00:13<00:18,  1.31it/s, loss=0.00488]\rTraining epoch 643:  42%|████▏     | 16/38 [00:14<00:16,  1.34it/s, loss=0.00526]\rTraining epoch 643:  47%|████▋     | 18/38 [00:15<00:13,  1.44it/s, loss=0.00485]\rTraining epoch 643:  53%|█████▎    | 20/38 [00:17<00:12,  1.40it/s, loss=0.00525]\rTraining epoch 643:  58%|█████▊    | 22/38 [00:18<00:11,  1.42it/s, loss=0.00466]\rTraining epoch 643:  63%|██████▎   | 24/38 [00:19<00:09,  1.51it/s, loss=0.00705]\rTraining epoch 643:  68%|██████▊   | 26/38 [00:21<00:08,  1.48it/s, loss=0.00591]\rTraining epoch 643:  76%|███████▋  | 29/38 [00:22<00:05,  1.58it/s, loss=0.00469]\rTraining epoch 643:  82%|████████▏ | 31/38 [00:23<00:04,  1.63it/s, loss=0.00498]\rTraining epoch 643:  87%|████████▋ | 33/38 [00:25<00:03,  1.46it/s, loss=0.0056] \rTraining epoch 643:  92%|█████████▏| 35/38 [00:27<00:02,  1.46it/s, loss=0.00454]\rTraining epoch 643:  97%|█████████▋| 37/38 [00:28<00:00,  1.52it/s, loss=0.00623]\r                                                                                 \r\rTraining epoch 644:   0%|          | 0/38 [00:00<?, ?it/s]\rTraining epoch 644:   3%|▎         | 1/38 [00:02<01:27,  2.36s/it, loss=0.00612]\rTraining epoch 644:   8%|▊         | 3/38 [00:03<00:39,  1.13s/it, loss=0.00778]\rTraining epoch 644:  13%|█▎        | 5/38 [00:05<00:31,  1.06it/s, loss=0.00481]\rTraining epoch 644:  18%|█▊        | 7/38 [00:06<00:25,  1.23it/s, loss=0.00518]\rTraining epoch 644:  24%|██▎       | 9/38 [00:07<00:21,  1.36it/s, loss=0.00601]\rTraining epoch 644:  29%|██▉       | 11/38 [00:09<00:21,  1.27it/s, loss=0.00607]\rTraining epoch 644:  37%|███▋      | 14/38 [00:11<00:17,  1.41it/s, loss=0.00588]\rTraining epoch 644:  42%|████▏     | 16/38 [00:12<00:14,  1.49it/s, loss=0.0058] \rTraining epoch 644:  47%|████▋     | 18/38 [00:14<00:14,  1.39it/s, loss=0.00698]\rTraining epoch 644:  53%|█████▎    | 20/38 [00:15<00:13,  1.30it/s, loss=0.00523]\rTraining epoch 644:  58%|█████▊    | 22/38 [00:17<00:12,  1.25it/s, loss=0.00498]\rTraining epoch 644:  63%|██████▎   | 24/38 [00:19<00:11,  1.21it/s, loss=0.00769]\rTraining epoch 644:  68%|██████▊   | 26/38 [00:21<00:10,  1.17it/s, loss=0.00677]\rTraining epoch 644:  74%|███████▎  | 28/38 [00:22<00:08,  1.18it/s, loss=0.0048] \rTraining epoch 644:  79%|███████▉  | 30/38 [00:24<00:06,  1.15it/s, loss=0.00513]\rTraining epoch 644:  84%|████████▍ | 32/38 [00:26<00:04,  1.25it/s, loss=0.00502]\rTraining epoch 644:  89%|████████▉ | 34/38 [00:27<00:03,  1.22it/s, loss=0.00586]\rTraining epoch 644:  95%|█████████▍| 36/38 [00:29<00:01,  1.17it/s, loss=0.00554]\rTraining epoch 644: 100%|██████████| 38/38 [00:31<00:00,  1.24it/s, loss=0.00604]\r                                                                                 \r\rTraining epoch 645:   0%|          | 0/38 [00:00<?, ?it/s]\rTraining epoch 645:   3%|▎         | 1/38 [00:02<01:30,  2.45s/it, loss=0.00594]\rTraining epoch 645:   5%|▌         | 2/38 [00:04<01:15,  2.10s/it, loss=0.00547]\rTraining epoch 645:  11%|█         | 4/38 [00:06<00:44,  1.32s/it, loss=0.00594]\rTraining epoch 645:  16%|█▌        | 6/38 [00:07<00:33,  1.06s/it, loss=0.00516]\rTraining epoch 645:  21%|██        | 8/38 [00:09<00:28,  1.05it/s, loss=0.00702]\rTraining epoch 645:  26%|██▋       | 10/38 [00:10<00:23,  1.18it/s, loss=0.00597]\rTraining epoch 645:  32%|███▏      | 12/38 [00:11<00:20,  1.25it/s, loss=0.00603]\rTraining epoch 645:  37%|███▋      | 14/38 [00:13<00:18,  1.29it/s, loss=0.00471]\rTraining epoch 645:  42%|████▏     | 16/38 [00:14<00:17,  1.26it/s, loss=0.00565]\rTraining epoch 645:  50%|█████     | 19/38 [00:16<00:13,  1.44it/s, loss=0.00526]\rTraining epoch 645:  55%|█████▌    | 21/38 [00:17<00:11,  1.49it/s, loss=0.00543]\rTraining epoch 645:  61%|██████    | 23/38 [00:19<00:10,  1.43it/s, loss=0.00521]\rTraining epoch 645:  66%|██████▌   | 25/38 [00:21<00:09,  1.36it/s, loss=0.00491]\rTraining epoch 645:  71%|███████   | 27/38 [00:22<00:08,  1.28it/s, loss=0.00563]\rTraining epoch 645:  76%|███████▋  | 29/38 [00:24<00:07,  1.22it/s, loss=0.0052] \rTraining epoch 645:  82%|████████▏ | 31/38 [00:25<00:05,  1.36it/s, loss=0.00493]\rTraining epoch 645:  87%|████████▋ | 33/38 [00:27<00:03,  1.35it/s, loss=0.00576]\rTraining epoch 645:  92%|█████████▏| 35/38 [00:28<00:02,  1.31it/s, loss=0.00467]\rTraining epoch 645:  97%|█████████▋| 37/38 [00:30<00:00,  1.30it/s, loss=0.00594]\r                                                                                 \r\rTraining epoch 646:   0%|          | 0/38 [00:00<?, ?it/s]\rTraining epoch 646:   3%|▎         | 1/38 [00:02<01:41,  2.75s/it, loss=0.00602]\rTraining epoch 646:   5%|▌         | 2/38 [00:04<01:17,  2.14s/it, loss=0.00594]\rTraining epoch 646:  11%|█         | 4/38 [00:06<00:45,  1.35s/it, loss=0.00552]\rTraining epoch 646:  16%|█▌        | 6/38 [00:08<00:36,  1.14s/it, loss=0.00547]\rTraining epoch 646:  21%|██        | 8/38 [00:09<00:31,  1.04s/it, loss=0.00657]\rTraining epoch 646:  26%|██▋       | 10/38 [00:11<00:27,  1.01it/s, loss=0.00535]\rTraining epoch 646:  32%|███▏      | 12/38 [00:13<00:24,  1.04it/s, loss=0.0053] \rTraining epoch 646:  37%|███▋      | 14/38 [00:15<00:22,  1.06it/s, loss=0.00609]\rTraining epoch 646:  42%|████▏     | 16/38 [00:17<00:20,  1.08it/s, loss=0.00738]\rTraining epoch 646:  47%|████▋     | 18/38 [00:18<00:18,  1.10it/s, loss=0.0059] \rTraining epoch 646:  53%|█████▎    | 20/38 [00:20<00:16,  1.09it/s, loss=0.00523]\rTraining epoch 646:  58%|█████▊    | 22/38 [00:22<00:13,  1.16it/s, loss=0.00648]\rTraining epoch 646:  63%|██████▎   | 24/38 [00:23<00:12,  1.14it/s, loss=0.00576]\rTraining epoch 646:  68%|██████▊   | 26/38 [00:25<00:09,  1.25it/s, loss=0.0063] \rTraining epoch 646:  74%|███████▎  | 28/38 [00:26<00:08,  1.21it/s, loss=0.00585]\rTraining epoch 646:  79%|███████▉  | 30/38 [00:28<00:06,  1.19it/s, loss=0.00624]\rTraining epoch 646:  84%|████████▍ | 32/38 [00:30<00:05,  1.17it/s, loss=0.00676]\rTraining epoch 646:  89%|████████▉ | 34/38 [00:32<00:03,  1.20it/s, loss=0.00615]\rTraining epoch 646:  95%|█████████▍| 36/38 [00:33<00:01,  1.23it/s, loss=0.00524]\r                                                                                 \r\rTraining epoch 647:   0%|          | 0/38 [00:00<?, ?it/s]\rTraining epoch 647:   3%|▎         | 1/38 [00:02<01:29,  2.41s/it, loss=0.00643]\rTraining epoch 647:   5%|▌         | 2/38 [00:04<01:12,  2.03s/it, loss=0.00527]\rTraining epoch 647:  11%|█         | 4/38 [00:05<00:39,  1.17s/it, loss=0.00512]\rTraining epoch 647:  16%|█▌        | 6/38 [00:06<00:30,  1.04it/s, loss=0.00573]\rTraining epoch 647:  24%|██▎       | 9/38 [00:08<00:22,  1.30it/s, loss=0.006]  \rTraining epoch 647:  29%|██▉       | 11/38 [00:09<00:18,  1.43it/s, loss=0.00611]\rTraining epoch 647:  34%|███▍      | 13/38 [00:11<00:19,  1.30it/s, loss=0.0061] \rTraining epoch 647:  39%|███▉      | 15/38 [00:12<00:16,  1.37it/s, loss=0.00579]\rTraining epoch 647:  45%|████▍     | 17/38 [00:14<00:14,  1.47it/s, loss=0.00537]\rTraining epoch 647:  50%|█████     | 19/38 [00:15<00:13,  1.37it/s, loss=0.00633]\rTraining epoch 647:  55%|█████▌    | 21/38 [00:16<00:11,  1.50it/s, loss=0.00572]\rTraining epoch 647:  61%|██████    | 23/38 [00:18<00:10,  1.47it/s, loss=0.00563]\rTraining epoch 647:  66%|██████▌   | 25/38 [00:19<00:08,  1.49it/s, loss=0.00722]\rTraining epoch 647:  71%|███████   | 27/38 [00:20<00:07,  1.56it/s, loss=0.0074] ",
+      "controller_console.log": ""
+    },
+    "CPU_child_live": false,
+    "pid_live": true
+  },
+  "formal_accepted": false,
+  "paper_ssr": null,
+  "source_receipt_SHA256": {
+    "n30109-jump_read_three_data_intakes_eight_DP_queue_and_fresh_Ali_progress_v11.json": "ec850e465fbd8a820707d7c983e653fa343853161ad9f9d51d8b72070a344717",
+    "n30109-jump_read_actual_all_301_own_DP_four_roots_v12.json": "dd52c067d676e40a3468063134265d9e3812cdfe0d0127aa7ea7d5641cd9ec06",
+    "mainskill_read_mainskill_clearvol_fresh_DP_progress_v1.json": "8d23d2e37460a0e7619e7104b49bf13ef94449ab32d09b57074eae047295cae4",
+    "n30109-jump_read_actual_Beaker100_input_acceleration_first_checkpoint_progress_v176.json": "8dfd7f75541c6f2590e85b327adfea62a95e3d83009a78237ae0a7524c9439f9",
+    "n30109-jump_read_two_Beaker100_input_expansion_private_gate_and_GPU_progress_v187.json": "4934fd3c219eb78f85a0857f5b8e20f337625e5cdfe7c841e2de76270d9437ba",
+    "ACTUAL_SINGLE_DP_INPUT_OBSERVED_TRAINING_THROUGHPUT_V179.json": "b66440670b4d8c524c0bd1bc6e2f84fea8bd57ecb0c542fa76678f9c69d580e9",
+    "ACTUAL_Beaker100_NEW_INPUT_FULL_OPTIMIZER_CPU_V180.json": "d7aa803aa1ec45a728bf6024f654be8ab1e173261348a826e98a59089d5bd0b9"
+  }
+}
