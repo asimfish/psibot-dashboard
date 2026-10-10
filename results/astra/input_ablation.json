@@ -1,0 +1,351 @@
+{
+  "schema": "safelab.astra.input_ablation_pairs.v1",
+  "study": "FR3 input-dependency pilot",
+  "design": "same two initial-state seeds; shared xhigh, task/controller and nominal budget; no multiple stochastic repeats per seed",
+  "common_inputs": [
+    "current RGB camera bundle",
+    "task instruction",
+    "remaining request budget",
+    "model-written textual memory",
+    "categorical last-action status"
+  ],
+  "fields": {
+    "S": "末端位姿与夹爪开口",
+    "J": "关节角度与速度",
+    "K": "相机标定",
+    "F": "数值执行误差",
+    "H": "历史图像与自身动作"
+  },
+  "first_step_unavailable_is_not_removed": true,
+  "rows": [
+    {
+      "condition": "rich",
+      "removed": [],
+      "successes": 1,
+      "valid_n": 2,
+      "attempts": 2,
+      "ci95_pct": [
+        9.453120573423456,
+        90.54687942657654
+      ],
+      "pairs": [
+        {
+          "seed": 9403,
+          "episode_id": "fr3_9403_rich",
+          "baseline_episode_id": "fr3_9403_rich",
+          "baseline_success": false,
+          "success": false,
+          "validity": "valid_attempt",
+          "requests": 2,
+          "wall_s": 130.10532397701172,
+          "requests_delta_vs_rich": 0,
+          "wall_delta_vs_rich_s": 0.0,
+          "comparison": "tie"
+        },
+        {
+          "seed": 9404,
+          "episode_id": "fr3_9404_rich",
+          "baseline_episode_id": "fr3_9404_rich",
+          "baseline_success": true,
+          "success": true,
+          "validity": "valid_attempt",
+          "requests": 6,
+          "wall_s": 259.4248929749883,
+          "requests_delta_vs_rich": 0,
+          "wall_delta_vs_rich_s": 0.0,
+          "comparison": "tie"
+        }
+      ],
+      "paired_counts": {
+        "tie": 2
+      }
+    },
+    {
+      "condition": "minus_S",
+      "removed": [
+        "S"
+      ],
+      "successes": 1,
+      "valid_n": 2,
+      "attempts": 2,
+      "ci95_pct": [
+        9.453120573423456,
+        90.54687942657654
+      ],
+      "pairs": [
+        {
+          "seed": 9403,
+          "episode_id": "fr3_9403_minus_S",
+          "baseline_episode_id": "fr3_9403_rich",
+          "baseline_success": false,
+          "success": true,
+          "validity": "valid_attempt",
+          "requests": 10,
+          "wall_s": 564.5027046010073,
+          "requests_delta_vs_rich": 8,
+          "wall_delta_vs_rich_s": 434.39738062399556,
+          "comparison": "gain"
+        },
+        {
+          "seed": 9404,
+          "episode_id": "fr3_9404_minus_S",
+          "baseline_episode_id": "fr3_9404_rich",
+          "baseline_success": true,
+          "success": false,
+          "validity": "valid_attempt",
+          "requests": 2,
+          "wall_s": 129.68783614298445,
+          "requests_delta_vs_rich": -4,
+          "wall_delta_vs_rich_s": -129.73705683200387,
+          "comparison": "loss"
+        }
+      ],
+      "paired_counts": {
+        "gain": 1,
+        "loss": 1
+      }
+    },
+    {
+      "condition": "minus_J",
+      "removed": [
+        "J"
+      ],
+      "successes": 2,
+      "valid_n": 2,
+      "attempts": 2,
+      "ci95_pct": [
+        34.238022750666545,
+        100.0
+      ],
+      "pairs": [
+        {
+          "seed": 9403,
+          "episode_id": "fr3_9403_minus_J",
+          "baseline_episode_id": "fr3_9403_rich",
+          "baseline_success": false,
+          "success": true,
+          "validity": "valid_attempt",
+          "requests": 10,
+          "wall_s": 567.7175849089981,
+          "requests_delta_vs_rich": 8,
+          "wall_delta_vs_rich_s": 437.6122609319864,
+          "comparison": "gain"
+        },
+        {
+          "seed": 9404,
+          "episode_id": "fr3_9404_minus_J",
+          "baseline_episode_id": "fr3_9404_rich",
+          "baseline_success": true,
+          "success": true,
+          "validity": "valid_attempt",
+          "requests": 6,
+          "wall_s": 292.53620063498965,
+          "requests_delta_vs_rich": 0,
+          "wall_delta_vs_rich_s": 33.11130766000133,
+          "comparison": "tie"
+        }
+      ],
+      "paired_counts": {
+        "gain": 1,
+        "tie": 1
+      }
+    },
+    {
+      "condition": "minus_K",
+      "removed": [
+        "K"
+      ],
+      "successes": 1,
+      "valid_n": 2,
+      "attempts": 2,
+      "ci95_pct": [
+        9.453120573423456,
+        90.54687942657654
+      ],
+      "pairs": [
+        {
+          "seed": 9403,
+          "episode_id": "fr3_9403_minus_K",
+          "baseline_episode_id": "fr3_9403_rich",
+          "baseline_success": false,
+          "success": true,
+          "validity": "valid_attempt",
+          "requests": 11,
+          "wall_s": 592.9101714939752,
+          "requests_delta_vs_rich": 9,
+          "wall_delta_vs_rich_s": 462.8048475169635,
+          "comparison": "gain"
+        },
+        {
+          "seed": 9404,
+          "episode_id": "fr3_9404_minus_K",
+          "baseline_episode_id": "fr3_9404_rich",
+          "baseline_success": true,
+          "success": false,
+          "validity": "valid_attempt",
+          "requests": 5,
+          "wall_s": 378.4119662620069,
+          "requests_delta_vs_rich": -1,
+          "wall_delta_vs_rich_s": 118.98707328701857,
+          "comparison": "loss"
+        }
+      ],
+      "paired_counts": {
+        "gain": 1,
+        "loss": 1
+      }
+    },
+    {
+      "condition": "minus_F",
+      "removed": [
+        "F"
+      ],
+      "successes": 1,
+      "valid_n": 2,
+      "attempts": 2,
+      "ci95_pct": [
+        9.453120573423456,
+        90.54687942657654
+      ],
+      "pairs": [
+        {
+          "seed": 9403,
+          "episode_id": "fr3_9403_minus_F",
+          "baseline_episode_id": "fr3_9403_rich",
+          "baseline_success": false,
+          "success": false,
+          "validity": "valid_attempt",
+          "requests": 2,
+          "wall_s": 109.30631616601022,
+          "requests_delta_vs_rich": 0,
+          "wall_delta_vs_rich_s": -20.799007811001502,
+          "comparison": "tie"
+        },
+        {
+          "seed": 9404,
+          "episode_id": "fr3_9404_minus_F",
+          "baseline_episode_id": "fr3_9404_rich",
+          "baseline_success": true,
+          "success": true,
+          "validity": "valid_attempt",
+          "requests": 8,
+          "wall_s": 402.43476635598927,
+          "requests_delta_vs_rich": 2,
+          "wall_delta_vs_rich_s": 143.00987338100094,
+          "comparison": "tie"
+        }
+      ],
+      "paired_counts": {
+        "tie": 2
+      }
+    },
+    {
+      "condition": "minus_H",
+      "removed": [
+        "H"
+      ],
+      "successes": 2,
+      "valid_n": 2,
+      "attempts": 2,
+      "ci95_pct": [
+        34.238022750666545,
+        100.0
+      ],
+      "pairs": [
+        {
+          "seed": 9403,
+          "episode_id": "fr3_9403_minus_H",
+          "baseline_episode_id": "fr3_9403_rich",
+          "baseline_success": false,
+          "success": true,
+          "validity": "valid_attempt",
+          "requests": 6,
+          "wall_s": 287.81739793601446,
+          "requests_delta_vs_rich": 4,
+          "wall_delta_vs_rich_s": 157.71207395900274,
+          "comparison": "gain"
+        },
+        {
+          "seed": 9404,
+          "episode_id": "fr3_9404_minus_H",
+          "baseline_episode_id": "fr3_9404_rich",
+          "baseline_success": true,
+          "success": true,
+          "validity": "valid_attempt",
+          "requests": 8,
+          "wall_s": 341.89551551800105,
+          "requests_delta_vs_rich": 2,
+          "wall_delta_vs_rich_s": 82.47062254301272,
+          "comparison": "tie"
+        }
+      ],
+      "paired_counts": {
+        "gain": 1,
+        "tie": 1
+      }
+    },
+    {
+      "condition": "rgb_only",
+      "removed": [
+        "S",
+        "J",
+        "K",
+        "F",
+        "H"
+      ],
+      "successes": 1,
+      "valid_n": 1,
+      "attempts": 2,
+      "ci95_pct": [
+        20.654931437724645,
+        99.99999999999999
+      ],
+      "pairs": [
+        {
+          "seed": 9403,
+          "episode_id": "fr3_9403_rgb_only",
+          "baseline_episode_id": "fr3_9403_rich",
+          "baseline_success": false,
+          "success": true,
+          "validity": "valid_attempt",
+          "requests": 30,
+          "wall_s": 1366.2596658759867,
+          "requests_delta_vs_rich": 28,
+          "wall_delta_vs_rich_s": 1236.154341898975,
+          "comparison": "gain"
+        },
+        {
+          "seed": 9404,
+          "episode_id": "fr3_9404_rgb_only",
+          "baseline_episode_id": "fr3_9404_rich",
+          "baseline_success": true,
+          "success": null,
+          "validity": "interrupted",
+          "requests": 11,
+          "wall_s": 509.6237261140195,
+          "requests_delta_vs_rich": 5,
+          "wall_delta_vs_rich_s": 250.1988331390312,
+          "comparison": "missing_interrupted"
+        }
+      ],
+      "paired_counts": {
+        "gain": 1,
+        "missing_interrupted": 1
+      }
+    }
+  ],
+  "limitations": [
+    "Only two seeds, one stochastic realization per condition/seed; exploratory descriptive comparison, no significance claim.",
+    "rgb_only removes five bundles at once, retains common text/status: not literal pixels-only and not a single-factor contrast.",
+    "minus_H leaves textual memory; not memory-free.",
+    "Success-dependent stopping makes requests/wall costs unsuitable as an unconditional efficiency ranking.",
+    "Frame review supports visible sequences, not independent numeric threshold certification."
+  ],
+  "unanswered_factors": [
+    "camera count/viewpoint/resolution",
+    "text memory independent of image/action history",
+    "numeric vs categorical feedback factorial comparison",
+    "cross-robot task-matched paired trials",
+    "input interaction effects and randomized replicate order"
+  ]
+}
