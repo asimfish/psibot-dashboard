@@ -204,7 +204,7 @@
   },
   "formal_accepted": false,
   "paper_ssr": null,
-  "sampled_utc": "2026-10-10T13:53:31.843378+00:00",
+  "sampled_utc": "2026-10-10T13:59:40.600551+00:00",
   "source_receipt_SHA256": {
     "n30109-jump_read_three_data_intakes_eight_DP_queue_and_fresh_Ali_progress_v11.json": "d50757e120073ba34298f79782be97d50370639e3e6256190942f96935827483",
     "n30109-jump_read_actual_all_301_own_DP_four_roots_v12.json": "11f00af8775c741be0caa7af2252fa3e560aa6878f38000e2bf4dde4bfd58306",
@@ -218,7 +218,8 @@
     "bjxy_5090_read_actual_ACT100_three_seed_postsettle4_fixed50_progress_v132.json": "ee538883cbbf783ce7aab03f957911c0437b94e10a35545ce082746e8a6291b8",
     "ACTUAL_BrownLarge_THREE_DP3000_FROZEN_CPU_SOURCE_V103.json": "7b7fb585810ec15a7f2da7d145384ef0facd7dcc0d921026fb84169c8cb04a6b",
     "ACTUAL_ClearSmall_THREE_DP3000_FROZEN_CPU_SOURCE_V144.json": "51136a06e2a67ce9f1e0680fc54e5fd4fa3a2178e8271076f8a557bbb374e236",
-    "n30109-jump_read_actual_301_DP_workers2_CPU_qualification_v150.json": "113d67e71628ad10f1883a72217c601bd7bdd9bd8551b90f650610653ab57825"
+    "n30109-jump_read_actual_301_DP_workers2_CPU_qualification_v150.json": "113d67e71628ad10f1883a72217c601bd7bdd9bd8551b90f650610653ab57825",
+    "n30109-jump_read_actual_Beaker100_input_acceleration_input_and_GPU_progress_v160.json": "edb3f57757b16f817bb25abf294c07c47cab539b68ed8fe0774d4db323f7f43d"
   },
   "totals": {
     "productive_training_runs": 66,
@@ -226,13 +227,13 @@
     "ACT": 33,
     "formal_accepted_objects": 0,
     "paper_objects": 21,
-    "active_training_runs": 24,
+    "active_training_runs": 25,
     "completed_training_runs": 39,
     "queued_training_candidates": 2,
     "interrupted_training_runs": 2,
     "completed_DP_training_runs": 6,
     "completed_ACT_training_runs": 33,
-    "recovering_training_runs": 1
+    "recovering_training_runs": 0
   },
   "actual_Ali_GPU_snapshot": "0, GPU-019e2226-0561-0824-0000-0000607bce45, 37525, 98304, 0\n1, GPU-01deb21c-8881-010c-0000-000040147b34, 37529, 98304, 100\n2, GPU-01dec218-0142-0810-0000-000060d6763b, 37533, 98304, 100\n3, GPU-019e2226-0590-0614-0000-000080f61b35, 37611, 98304, 100\n4, GPU-019e2226-05b0-0618-0000-000040938f2c, 37535, 98304, 100\n5, GPU-01de1201-4872-0224-0000-00000025fc13, 37531, 98304, 100\n6, GPU-01de1201-4862-061c-0000-000060509242, 37537, 98304, 0\n7, GPU-019e2226-0591-040a-0000-0000e0e40c07, 37525, 98304, 100\n8, GPU-019e4221-c011-032c-0000-0000a014ad73, 37615, 98304, 0\n9, GPU-019e2226-0510-0628-0000-00002087b149, 37533, 98304, 100\n10, GPU-01de1201-08b2-0430-0000-00004088b74f, 37533, 98304, 100\n11, GPU-019e2226-4442-0500-0000-00004085676b, 37529, 98304, 100\n12, GPU-019e2226-0592-0128-0000-000020aaa224, 37615, 98304, 100\n13, GPU-019e1215-8221-0610-0000-0000e042ff36, 58609, 98304, 82\n14, GPU-01de6221-45b1-0430-0000-000040155f61, 37607, 98304, 100\n15, GPU-019e2226-0551-040c-0000-000020fdf835, 37523, 98304, 100\n",
   "GPU_snapshot_is_instantaneous": true,
@@ -1245,5 +1246,193 @@
     ],
     "note": "原物体50步稳定后，执行真实机器人默认重置与4个物理步；没有向观测注入训练状态。seed511实际0/7，显存低于4GiB保护中断，未完成50次；前3次9段视频已全解码、144帧实际查看。杯子始终在桌面，最大抬升仅4.98/4.07/2.88mm；杯壁采样透明，抬升时发白问题和接触穿模仍未通过。原流程模型与成绩独立保留。",
     "evidence_url": "results/grasp_beaker100_ACT_postsettle4_partial_20261010_v19.json"
+  },
+  "actual_input_canary_GPU_updates": {
+    "sampled_utc": "2026-10-10T13:58:15.353814+00:00",
+    "last": {
+      "train_loss": 0.005629046820104122,
+      "global_step": 19273,
+      "epoch": 507,
+      "lr": 0.00028273377630868895
+    },
+    "gpu_csv": "GPU-ea1b15c6-004f-05e4-5d78-d4927898b2b7, NVIDIA A100-SXM4-80GB, 20361, 60793, 81920, 97",
+    "actual_first_observation_runtime": {
+      "at_utc": "2026-10-10T13:55:02.708330+00:00",
+      "actual_original_dataset_source_SHA256": "291b23c856810046b21fd883ab8ec2a40dfcedd4d62f448a99891b1bb55e3b92",
+      "actual_dataset_num_episodes": 100,
+      "actual_dataset_length": 4850,
+      "actual_RGB_key_first_k": {
+        "chest_camera_rgb": 1,
+        "head_camera_rgb": 1,
+        "third_camera_rgb": 1
+      },
+      "actual_action_horizon": 8,
+      "state_and_action_values_changed": false,
+      "training_workers": 2,
+      "prefetch_factor": 2,
+      "persistent_workers": true,
+      "CPU_actual_equivalence_gate": {
+        "passed": true,
+        "started_utc": "2026-10-10T13:23:57.668386+00:00",
+        "actual_GPU_training_restarts": 0,
+        "actual_Native_trials": 0,
+        "formal_accepted": false,
+        "paper_ssr": null,
+        "source_pins": {
+          "/home/dataset-assist-0/yf/chembench_t053_pick_place_fullflow_v1/runtime/chembench/diffusion_policy/psi_dp/dataset/grasp_rgb_dataset.py": "291b23c856810046b21fd883ab8ec2a40dfcedd4d62f448a99891b1bb55e3b92",
+          "/home/dataset-assist-0/yf/chembench_t053_pick_place_fullflow_v1/runtime/chembench/diffusion_policy/diffusion_policy/common/sampler.py": "eb4af7d8513bf16c46dbb3bbebd51a407434818a92937d288587e78819724f8e"
+        },
+        "source_dataset": {
+          "_target_": "psi_dp.dataset.grasp_rgb_dataset.GraspRGBDataset",
+          "zarr_path": "/dev/shm/grasp_ssr_ood_multiserver_20261009/frozen_beaker100_original_100demo_subset_v2/glass_beaker_100ml.zarr",
+          "horizon": 8,
+          "pad_before": 0,
+          "pad_after": 7,
+          "seed": 42,
+          "val_ratio": 0.05,
+          "use_velocity": false,
+          "use_third_camera": true
+        },
+        "RGB_shapes": {
+          "chest_camera_rgb": [
+            5105,
+            224,
+            224,
+            3
+          ],
+          "head_camera_rgb": [
+            5105,
+            224,
+            224,
+            3
+          ],
+          "third_camera_rgb": [
+            5105,
+            224,
+            224,
+            3
+          ]
+        },
+        "optimization": "Use existing original SequenceSampler key_first_k for exactly3 RGB keys, k=n_obs_steps=1. Full8 action frames and every consumed state tensor retained. No source file or active process modified.",
+        "actual_ABBA_rows": [
+          {
+            "workers": 0,
+            "prefetch_factor": null,
+            "actual_128_batch_fetch_seconds": [
+              0.9332267278805375,
+              0.8799571767449379,
+              0.7682309905067086,
+              0.830649733543396
+            ],
+            "actual_full_consumed_batch_SHA256": [
+              "e0533bceb4a4fa7d9df5fcbeffd7d153052951952db7046960795c57a3d56100",
+              "31f3cd9fff8db281c47c372806bc474f21c80247898c1e50bd148180f64515d5",
+              "13f986aa1596ec1b96125947946749ea355848a4e768d95265ac88af633cdd82",
+              "8af7252b989b611e6fd6e2840112e6522577d0e2a2120d10348efa33b35d5529"
+            ],
+            "CPU_tensor_verification_seconds": [
+              0.3271245025098324,
+              0.4739182060584426,
+              0.33471013605594635,
+              0.357194185256958
+            ],
+            "total_iteration_and_CPU_verification_seconds": 4.979976752772927,
+            "own_worker_PIDs": [],
+            "own_workers_closed": true
+          },
+          {
+            "workers": 2,
+            "prefetch_factor": 2,
+            "actual_128_batch_fetch_seconds": [
+              1.5081193698570132,
+              0.0031011663377285004,
+              0.4137696139514446,
+              0.0023788604885339737
+            ],
+            "actual_full_consumed_batch_SHA256": [
+              "e0533bceb4a4fa7d9df5fcbeffd7d153052951952db7046960795c57a3d56100",
+              "31f3cd9fff8db281c47c372806bc474f21c80247898c1e50bd148180f64515d5",
+              "13f986aa1596ec1b96125947946749ea355848a4e768d95265ac88af633cdd82",
+              "8af7252b989b611e6fd6e2840112e6522577d0e2a2120d10348efa33b35d5529"
+            ],
+            "CPU_tensor_verification_seconds": [
+              0.39719684794545174,
+              0.3686815779656172,
+              0.3441081354394555,
+              0.3735190285369754
+            ],
+            "total_iteration_and_CPU_verification_seconds": 3.5941846976056695,
+            "own_worker_PIDs": [
+              384596,
+              384600
+            ],
+            "own_workers_closed": true
+          },
+          {
+            "workers": 2,
+            "prefetch_factor": 2,
+            "actual_128_batch_fetch_seconds": [
+              1.5823486223816872,
+              0.00045709218829870224,
+              0.14578205067664385,
+              0.002945556305348873
+            ],
+            "actual_full_consumed_batch_SHA256": [
+              "e0533bceb4a4fa7d9df5fcbeffd7d153052951952db7046960795c57a3d56100",
+              "31f3cd9fff8db281c47c372806bc474f21c80247898c1e50bd148180f64515d5",
+              "13f986aa1596ec1b96125947946749ea355848a4e768d95265ac88af633cdd82",
+              "8af7252b989b611e6fd6e2840112e6522577d0e2a2120d10348efa33b35d5529"
+            ],
+            "CPU_tensor_verification_seconds": [
+              0.49620694015175104,
+              0.5025713369250298,
+              0.5141509007662535,
+              0.5123332068324089
+            ],
+            "total_iteration_and_CPU_verification_seconds": 3.927750830538571,
+            "own_worker_PIDs": [
+              384682,
+              384686
+            ],
+            "own_workers_closed": true
+          },
+          {
+            "workers": 0,
+            "prefetch_factor": null,
+            "actual_128_batch_fetch_seconds": [
+              0.7920559728518128,
+              0.7056817868724465,
+              0.7338947514072061,
+              0.6894680391997099
+            ],
+            "actual_full_consumed_batch_SHA256": [
+              "e0533bceb4a4fa7d9df5fcbeffd7d153052951952db7046960795c57a3d56100",
+              "31f3cd9fff8db281c47c372806bc474f21c80247898c1e50bd148180f64515d5",
+              "13f986aa1596ec1b96125947946749ea355848a4e768d95265ac88af633cdd82",
+              "8af7252b989b611e6fd6e2840112e6522577d0e2a2120d10348efa33b35d5529"
+            ],
+            "CPU_tensor_verification_seconds": [
+              0.5269228043034673,
+              0.44339351262897253,
+              0.5773498453199863,
+              0.6533491834998131
+            ],
+            "total_iteration_and_CPU_verification_seconds": 5.1770771285519,
+            "own_worker_PIDs": [],
+            "own_workers_closed": true
+          }
+        ],
+        "at_utc": "2026-10-10T13:24:20.760373+00:00",
+        "steady_CPU_fetch_speedup_during_verification": 8.106270424647363,
+        "workers0_steady_mean_seconds": 0.7679804130457342,
+        "workers2_steady_mean_seconds": 0.09473905665799975,
+        "actual_full128_consumed_batch_equivalence_cases": 16,
+        "actual_CUDA_initializations": 0,
+        "scope": "CPU-only real original dataset. Workers2 prefetch concurrent with CPU tensor-verification time, explicitly not a GPU-training throughput benchmark. All4 batch contents bit-identical to workers0; first2 also exact original all8frame proof. Source/active processes unchanged."
+      },
+      "formal_accepted": false,
+      "paper_ssr": null
+    },
+    "GPU_throughput_qualified": false
   }
 }

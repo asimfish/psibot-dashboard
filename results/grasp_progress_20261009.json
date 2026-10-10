@@ -1,6 +1,6 @@
 {
   "schema": "grasp.progress_snapshot.v1",
-  "updated_utc": "2026-10-10T13:53:31.843378+00:00",
+  "updated_utc": "2026-10-10T13:59:40.600551+00:00",
   "update_mode": "实测时间分别保留的进度快照；训练完成和严格验收分别统计",
   "totals": {
     "productive_training_runs": 66,
@@ -8,13 +8,13 @@
     "ACT": 33,
     "formal_accepted_objects": 0,
     "paper_objects": 21,
-    "active_training_runs": 24,
+    "active_training_runs": 25,
     "completed_training_runs": 39,
     "queued_training_candidates": 2,
     "interrupted_training_runs": 2,
     "completed_DP_training_runs": 6,
     "completed_ACT_training_runs": 33,
-    "recovering_training_runs": 1
+    "recovering_training_runs": 0
   },
   "training": [
     {
@@ -330,16 +330,16 @@
       "method": "DP",
       "object": "glass_beaker_100ml",
       "seed": 26101523,
-      "state": "恢复加载中，待GPU首个更新",
-      "epoch": 542,
+      "state": "训练中",
+      "epoch": 507,
       "epochs_target": 3000,
-      "global_step": 20601,
-      "train_loss": 0.005587535444647074,
-      "sampled_utc": "2026-10-10T13:50:16.880264+00:00",
+      "global_step": 19273,
+      "train_loss": 0.005629046820104122,
+      "sampled_utc": "2026-10-10T13:58:15.353814+00:00",
       "formal_accepted": false,
-      "status_note": "单个输入流水线试点；原始模型/EMA各918张量、861优化器状态已恢复并核对指纹。固定100条数据与8步动作不变。旧542轮日志保留，从完整500轮优化器检查点接续；工作进程与随机流重启，不宣称精确随机接续。实际GPU提速待测。",
+      "status_note": "单个输入流水线试点；原始模型/EMA各918张量、861优化器状态已恢复并核对指纹。固定100条数据与8步动作不变。旧542轮日志保留，从完整500轮优化器检查点接续；工作进程与随机流重启，不宣称精确随机接续。已产生新的GPU梯度更新，实际GPU提速待测。",
       "raw_status": "running",
-      "active_productive": false,
+      "active_productive": true,
       "actual_exit_code": 1,
       "completed_training": false,
       "input_pipeline_canary": {
@@ -353,7 +353,7 @@
           "lr": 0.0002800396389690808
         },
         "CPU_intake_passed": true,
-        "actual_GPU_updates_observed": false,
+        "actual_GPU_updates_observed": true,
         "dataloader_workers": 2,
         "formal_accepted": false
       }
@@ -1360,10 +1360,10 @@
     },
     {
       "host": "30109",
-      "state": "6路实际DP训练；0个DP / 17个ACT训练完成；1路恢复加载",
+      "state": "7路实际DP训练；17个ACT5000轮完成",
       "role": "训练",
-      "note": "单个输入流水线试点；原始模型/EMA各918张量、861优化器状态已恢复并核对指纹。固定100条数据与8步动作不变。旧542轮日志保留，从完整500轮优化器检查点接续；工作进程与随机流重启，不宣称精确随机接续。实际GPU提速待测。",
-      "sampled_utc": "2026-10-10T13:50:16.880264+00:00"
+      "note": "单个输入流水线试点；原始模型/EMA各918张量、861优化器状态已恢复并核对指纹。固定100条数据与8步动作不变。旧542轮日志保留，从完整500轮优化器检查点接续；工作进程与随机流重启，不宣称精确随机接续。已产生新的GPU梯度更新，实际GPU提速待测。",
+      "sampled_utc": "2026-10-10T13:58:15.353814+00:00"
     },
     {
       "host": "liyufeng_4090",
@@ -1663,7 +1663,7 @@
       23.6
     ],
     "act_cpu_dataset_read_speedup": 4.368692462456152,
-    "note": "24路DP有实际训练更新；另1路正在恢复加载。33个ACT5000轮、6个DP3000轮完成，2个固定种子排队。30109输入试点的CPU加速不能当GPU训练加速；4090、5090和Volc保留实际资源门槛与失败记录。",
+    "note": "25路DP有实际训练更新；30109单个输入试点已产生新的GPU梯度更新。33个ACT5000轮、6个DP3000轮完成，2个固定种子排队。30109输入试点的CPU加速不能当GPU训练加速；4090、5090和Volc保留实际资源门槛与失败记录。",
     "act_total_epoch_throughput_speedup": 1.4458274316296305,
     "benchmark_utc": "2026-10-09T16:33:40.648366+00:00",
     "latest_ali_snapshot_utc": "2026-10-10T08:10:19.876713+00:00",
@@ -4232,12 +4232,15 @@
     "evidence_url": "results/grasp_beaker100_ACT_postsettle4_partial_20261010_v19.json"
   },
   "input_pipeline_canary": {
-    "sampled_utc": "2026-10-10T13:50:16.880264+00:00",
+    "sampled_utc": "2026-10-10T13:58:15.353814+00:00",
     "training_seed": 26101523,
     "CPU_loader_equivalence_passed": true,
     "CPU_full_optimizer_restore_passed": true,
     "actual_GPU_throughput_qualified": false,
     "note": "仅原seed523单个试点，100演示与原模型/EMA/861优化器状态不变；RGB只读取实际消费首帧，8步动作完整。CPU输入逐位等价通过，GPU吞吐与训练回归仍待实测。",
-    "evidence_url": "results/grasp_DP_input_pipeline_canary_20261010_v19.json"
+    "evidence_url": "results/grasp_DP_input_pipeline_canary_20261010_v19.json",
+    "actual_GPU_updates_observed": true,
+    "actual_new_global_step": 19273,
+    "actual_new_epoch": 507
   }
 }
