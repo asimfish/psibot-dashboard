@@ -1,17 +1,17 @@
 {
   "schema": "grasp.progress_snapshot.v1",
-  "updated_utc": "2026-10-10T04:21:21.218965+00:00",
+  "updated_utc": "2026-10-10T05:41:06.613790+00:00",
   "update_mode": "人工核实的带时间快照；不是实时监控接口",
   "totals": {
-    "productive_training_runs": 50,
-    "DP": 21,
-    "ACT": 29,
+    "productive_training_runs": 55,
+    "DP": 22,
+    "ACT": 33,
     "formal_accepted_objects": 0,
     "paper_objects": 21,
-    "active_training_runs": 26,
-    "completed_training_runs": 22,
-    "queued_training_candidates": 6,
-    "interrupted_training_runs": 2
+    "active_training_runs": 23,
+    "completed_training_runs": 28,
+    "queued_training_candidates": 1,
+    "interrupted_training_runs": 4
   },
   "training": [
     {
@@ -28,7 +28,9 @@
       "train_loss": 0.08065121248364449,
       "sampled_utc": "2026-10-10T04:15:31.140515+00:00",
       "formal_accepted": false,
-      "status_note": "145样本逐位一致、七层解码器实际梯度有限非零；训练完成不计验收。"
+      "status_note": "145样本逐位一致、七层解码器实际梯度有限非零；训练完成不计验收。",
+      "actual_exit_code": 0,
+      "completion_source_receipt_SHA256": "5dd4563363c5b2cc0aa3ae6f02cc5567c3d82e60111440cc21b129f96a4d1823"
     },
     {
       "host": "30109",
@@ -37,14 +39,37 @@
       "method": "ACT",
       "object": "alcohol_lamp",
       "seed": 26101433,
-      "state": "训练中：5000轮更新完成，检查点提交中",
+      "state": "5000轮训练完成，待原生测试",
       "epoch": 4999,
       "epochs_target": 5000,
       "global_step": 10000,
       "train_loss": 0.07575304806232452,
-      "sampled_utc": "2026-10-10T04:19:53.569168+00:00",
+      "sampled_utc": "2026-10-10T05:38:02.659300+00:00",
       "formal_accepted": false,
-      "status_note": "145样本逐位一致、七层解码器实际梯度有限非零；训练完成不计验收。 前次共享TMPDIR初始化失败保留，新尝试使用每种子独立目录。"
+      "status_note": "同一预定训练种子；已关闭失败保留，完整验收另行判断。",
+      "raw_status": "trained_pending_native_acceptance",
+      "active_productive": false,
+      "actual_exit_code": 0
+    },
+    {
+      "host": "30109",
+      "gpu_model": "A100-SXM4 80GB",
+      "gpu_uuid": "GPU-b652d807-91b2-1ccf-f4f9-307c40d9c15d",
+      "method": "ACT",
+      "object": "alcohol_lamp",
+      "seed": 26101435,
+      "state": "训练中",
+      "epoch": 4594,
+      "epochs_target": 5000,
+      "global_step": 9190,
+      "train_loss": 0.0889425203204155,
+      "sampled_utc": "2026-10-10T05:38:45.269400+00:00",
+      "formal_accepted": false,
+      "status_note": "同一预定训练种子；已关闭失败保留，完整验收另行判断。 日志迁至/tmp、零数据工作进程；完整模型及优化器校验后恢复，随机流非精确接续。 实际保存2步，恢复不以旧日志终点代替。",
+      "raw_status": "running",
+      "active_productive": true,
+      "actual_exit_code": null,
+      "recovery_saved_global_step": 2
     },
     {
       "host": "30109",
@@ -78,7 +103,9 @@
       "train_loss": 0.07939788699150085,
       "sampled_utc": "2026-10-10T04:15:31.140515+00:00",
       "formal_accepted": false,
-      "status_note": "145样本逐位一致、七层解码器实际梯度有限非零；训练完成不计验收。"
+      "status_note": "145样本逐位一致、七层解码器实际梯度有限非零；训练完成不计验收。",
+      "actual_exit_code": 0,
+      "completion_source_receipt_SHA256": "5dd4563363c5b2cc0aa3ae6f02cc5567c3d82e60111440cc21b129f96a4d1823"
     },
     {
       "host": "30109",
@@ -87,14 +114,36 @@
       "method": "ACT",
       "object": "clear_reagent_bottle_large",
       "seed": 26101423,
-      "state": "训练中：5000轮更新完成，检查点提交中",
+      "state": "5000轮训练完成，待原生测试",
       "epoch": 4999,
       "epochs_target": 5000,
       "global_step": 10000,
       "train_loss": 0.07644800469279289,
-      "sampled_utc": "2026-10-10T04:19:53.569168+00:00",
+      "sampled_utc": "2026-10-10T05:38:02.659300+00:00",
       "formal_accepted": false,
-      "status_note": "145样本逐位一致、七层解码器实际梯度有限非零；训练完成不计验收。 前次共享TMPDIR初始化失败保留，新尝试使用每种子独立目录。"
+      "status_note": "同一预定训练种子；已关闭失败保留，完整验收另行判断。",
+      "raw_status": "trained_pending_native_acceptance",
+      "active_productive": false,
+      "actual_exit_code": 0
+    },
+    {
+      "host": "30109",
+      "gpu_model": "A100-SXM4 80GB",
+      "gpu_uuid": "GPU-1bf8c7d6-f9ce-9577-8113-ed282f31170e",
+      "method": "ACT",
+      "object": "clear_reagent_bottle_large",
+      "seed": 26101425,
+      "state": "训练中",
+      "epoch": 4053,
+      "epochs_target": 5000,
+      "global_step": 8108,
+      "train_loss": 0.10579909756779671,
+      "sampled_utc": "2026-10-10T05:38:45.269400+00:00",
+      "formal_accepted": false,
+      "status_note": "同一预定训练种子；已关闭失败保留，完整验收另行判断。 日志迁至/tmp、零数据工作进程；完整模型及优化器校验后恢复，随机流非精确接续。",
+      "raw_status": "running",
+      "active_productive": true,
+      "actual_exit_code": null
     },
     {
       "host": "30109",
@@ -146,7 +195,9 @@
       "train_loss": 0.06110558845102787,
       "sampled_utc": "2026-10-10T04:15:31.100277+00:00",
       "formal_accepted": false,
-      "status_note": "145样本逐位一致、七层解码器实际梯度有限非零；训练完成不计验收。"
+      "status_note": "145样本逐位一致、七层解码器实际梯度有限非零；训练完成不计验收。",
+      "actual_exit_code": 0,
+      "completion_source_receipt_SHA256": "5d0655737bddf84a23f4ca4efe5bba8b43a077eb9005a74917e7c54ab49b9b62"
     },
     {
       "host": "30109",
@@ -156,13 +207,17 @@
       "object": "clear_volumetric_flask_250ml",
       "seed": 26101245,
       "state": "训练中",
-      "epoch": 2208,
+      "epoch": 3111,
       "epochs_target": 5000,
-      "global_step": 4418,
-      "train_loss": 0.24830853939056396,
-      "sampled_utc": "2026-10-10T04:19:53.531149+00:00",
+      "global_step": 6224,
+      "train_loss": 0.14857377856969833,
+      "sampled_utc": "2026-10-10T05:39:58.755298+00:00",
       "formal_accepted": false,
-      "status_note": "由独立SHA核验的完整模型与优化器恢复；保存4002步，旧失败日志5844步保留，工作线程随机状态非精确恢复。"
+      "status_note": "同一预定训练种子；已关闭失败保留，完整验收另行判断。 日志迁至/tmp、零数据工作进程；完整模型及优化器校验后恢复，随机流非精确接续。 实际保存4202步，恢复不以旧日志终点代替。 独立SSH通道与并发限额恢复；旧候选权重与验证记录的绑定仍待审核。",
+      "raw_status": "running",
+      "active_productive": true,
+      "actual_exit_code": null,
+      "recovery_saved_global_step": 4202
     },
     {
       "host": "30109",
@@ -172,15 +227,18 @@
       "object": "clear_volumetric_flask_250ml",
       "seed": 26101311,
       "state": "训练中",
-      "status_note": "论文3000轮、固定100演示；完整模型/EMA/优化器检查点有独立SHA证据。数据物理质量、SSR及泛化仍待验收。",
-      "epoch": 259,
+      "status_note": "论文3000轮、固定100演示；训练完成后另行测原生SR、SSR、范围外泛化及视觉。",
+      "epoch": 258,
       "epochs_target": 3000,
-      "global_step": 11671,
-      "train_loss": 0.015114233829081059,
-      "sampled_utc": "2026-10-10T04:11:55.763922+00:00",
+      "global_step": 11617,
+      "train_loss": 0.011488795280456543,
+      "sampled_utc": "2026-10-10T05:28:13.224601+00:00",
       "exact_training_resume": false,
       "formal_accepted": false,
-      "actual_exit_code": 1
+      "actual_exit_code": null,
+      "raw_status": "running",
+      "active_productive": true,
+      "recovery_saved_global_step": 11295
     },
     {
       "host": "30109",
@@ -196,7 +254,9 @@
       "train_loss": 0.07346266880631447,
       "sampled_utc": "2026-10-10T04:19:53.773336+00:00",
       "formal_accepted": false,
-      "status_note": "原始400条示范预先冻结100条子集；未重标动作。固定种子首个ACT已完成，仍待原生验收。"
+      "status_note": "原始400条示范预先冻结100条子集；未重标动作。固定种子首个ACT已完成，仍待原生验收。",
+      "actual_exit_code": 0,
+      "completion_source_receipt_SHA256": "f443e715ae2ccb0f48e50ec83a406c676d919f047ba98ba1c0f5c17b67bd583f"
     },
     {
       "host": "30109",
@@ -205,14 +265,18 @@
       "method": "ACT",
       "object": "glass_beaker_100ml",
       "seed": 26101513,
-      "state": "训练中",
-      "epoch": 1828,
+      "state": "5000轮训练完成，待原生测试",
+      "epoch": 4999,
       "epochs_target": 5000,
-      "global_step": 3658,
-      "train_loss": 0.35468821227550507,
-      "sampled_utc": "2026-10-10T04:04:16.553279+00:00",
+      "global_step": 10000,
+      "train_loss": 0.07475615665316582,
+      "sampled_utc": "2026-10-10T05:38:45.269400+00:00",
       "formal_accepted": false,
-      "status_note": "145样本逐位一致、七层解码器实际梯度有限非零；训练完成不计验收。 前次共享TMPDIR初始化失败保留，新尝试使用每种子独立目录。"
+      "status_note": "同一预定训练种子；已关闭失败保留，完整验收另行判断。 日志迁至/tmp、零数据工作进程；完整模型及优化器校验后恢复，随机流非精确接续。 实际保存5202步，恢复不以旧日志终点代替。",
+      "raw_status": "trained_pending_native_acceptance",
+      "active_productive": false,
+      "actual_exit_code": 0,
+      "recovery_saved_global_step": 5202
     },
     {
       "host": "30109",
@@ -221,14 +285,37 @@
       "method": "DP",
       "object": "glass_beaker_100ml",
       "seed": 26101521,
-      "state": "训练中",
-      "epoch": 215,
+      "state": "恢复准备：读取完整模型及优化器",
+      "epoch": 219,
       "epochs_target": 3000,
-      "global_step": 8174,
-      "train_loss": 0.011095257475972176,
-      "sampled_utc": "2026-10-10T04:11:55.707025+00:00",
+      "global_step": 8335,
+      "train_loss": 0.013258309103548527,
+      "sampled_utc": "2026-10-10T05:39:30.144922+00:00",
       "formal_accepted": false,
-      "status_note": "论文3000轮、固定100演示；完整模型/EMA/优化器检查点有独立SHA证据。数据物理质量、SSR及泛化仍待验收。"
+      "status_note": "论文3000轮、固定100演示；训练完成后另行测原生SR、SSR、范围外泛化及视觉。 独立SSH通道；最多两路DP传输、3600秒有界完整保存；前序完成才复用同卡。 旧8335步失败日志保留，完整可恢复点7638步；当前仅CPU读取，不计运行中。",
+      "raw_status": "running",
+      "active_productive": false,
+      "actual_exit_code": 1,
+      "recovery_saved_global_step": 7638
+    },
+    {
+      "host": "30109",
+      "gpu_model": "A100-SXM4 80GB",
+      "gpu_uuid": "GPU-ea1b15c6-004f-05e4-5d78-d4927898b2b7",
+      "method": "DP",
+      "object": "glass_beaker_100ml",
+      "seed": 26101523,
+      "state": "训练中",
+      "epoch": 1,
+      "epochs_target": 3000,
+      "global_step": 72,
+      "train_loss": 0.7800783514976501,
+      "sampled_utc": "2026-10-10T05:39:30.144922+00:00",
+      "formal_accepted": false,
+      "status_note": "论文3000轮、固定100演示；训练完成后另行测原生SR、SSR、范围外泛化及视觉。 独立SSH通道；最多两路DP传输、3600秒有界完整保存；前序完成才复用同卡。",
+      "raw_status": "running",
+      "active_productive": true,
+      "actual_exit_code": null
     },
     {
       "host": "30109",
@@ -244,7 +331,9 @@
       "train_loss": 0.05928931571543217,
       "sampled_utc": "2026-10-10T04:15:31.140515+00:00",
       "formal_accepted": false,
-      "status_note": "145样本逐位一致、七层解码器实际梯度有限非零；训练完成不计验收。"
+      "status_note": "145样本逐位一致、七层解码器实际梯度有限非零；训练完成不计验收。",
+      "actual_exit_code": 0,
+      "completion_source_receipt_SHA256": "5dd4563363c5b2cc0aa3ae6f02cc5567c3d82e60111440cc21b129f96a4d1823"
     },
     {
       "host": "30109",
@@ -253,14 +342,37 @@
       "method": "ACT",
       "object": "glass_beaker_250ml",
       "seed": 26101403,
-      "state": "训练中：5000轮更新完成，检查点提交中",
+      "state": "5000轮训练完成，待原生测试",
       "epoch": 4999,
       "epochs_target": 5000,
       "global_step": 10000,
       "train_loss": 0.061278484761714935,
-      "sampled_utc": "2026-10-10T04:19:53.569168+00:00",
+      "sampled_utc": "2026-10-10T05:38:02.659300+00:00",
       "formal_accepted": false,
-      "status_note": "145样本逐位一致、七层解码器实际梯度有限非零；训练完成不计验收。 前次共享TMPDIR初始化失败保留，新尝试使用每种子独立目录。"
+      "status_note": "同一预定训练种子；已关闭失败保留，完整验收另行判断。",
+      "raw_status": "trained_pending_native_acceptance",
+      "active_productive": false,
+      "actual_exit_code": 0
+    },
+    {
+      "host": "30109",
+      "gpu_model": "A100-SXM4 80GB",
+      "gpu_uuid": "GPU-19cfc8d5-7c01-ff52-9758-7dae661d4ce6",
+      "method": "ACT",
+      "object": "glass_beaker_250ml",
+      "seed": 26101405,
+      "state": "训练中",
+      "epoch": 2793,
+      "epochs_target": 5000,
+      "global_step": 5588,
+      "train_loss": 0.17964552342891693,
+      "sampled_utc": "2026-10-10T05:39:58.755298+00:00",
+      "formal_accepted": false,
+      "status_note": "同一预定训练种子；已关闭失败保留，完整验收另行判断。 日志迁至/tmp、零数据工作进程；完整模型及优化器校验后恢复，随机流非精确接续。 实际保存4002步，恢复不以旧日志终点代替。 独立SSH通道与并发限额恢复；旧候选权重与验证记录的绑定仍待审核。",
+      "raw_status": "running",
+      "active_productive": true,
+      "actual_exit_code": null,
+      "recovery_saved_global_step": 4002
     },
     {
       "host": "30109",
@@ -276,7 +388,9 @@
       "train_loss": 0.07074874639511108,
       "sampled_utc": "2026-10-10T04:15:31.140515+00:00",
       "formal_accepted": false,
-      "status_note": "145样本逐位一致、七层解码器实际梯度有限非零；训练完成不计验收。"
+      "status_note": "145样本逐位一致、七层解码器实际梯度有限非零；训练完成不计验收。",
+      "actual_exit_code": 0,
+      "completion_source_receipt_SHA256": "5dd4563363c5b2cc0aa3ae6f02cc5567c3d82e60111440cc21b129f96a4d1823"
     },
     {
       "host": "30109",
@@ -285,14 +399,37 @@
       "method": "ACT",
       "object": "glass_cylinder_100ml",
       "seed": 26101413,
-      "state": "训练中：5000轮更新完成，检查点提交中",
+      "state": "5000轮训练完成，待原生测试",
       "epoch": 4999,
       "epochs_target": 5000,
       "global_step": 10000,
       "train_loss": 0.06750332191586494,
-      "sampled_utc": "2026-10-10T04:19:53.569168+00:00",
+      "sampled_utc": "2026-10-10T05:38:02.659300+00:00",
       "formal_accepted": false,
-      "status_note": "145样本逐位一致、七层解码器实际梯度有限非零；训练完成不计验收。 前次共享TMPDIR初始化失败保留，新尝试使用每种子独立目录。"
+      "status_note": "同一预定训练种子；已关闭失败保留，完整验收另行判断。",
+      "raw_status": "trained_pending_native_acceptance",
+      "active_productive": false,
+      "actual_exit_code": 0
+    },
+    {
+      "host": "30109",
+      "gpu_model": "A100-SXM4 80GB",
+      "gpu_uuid": "GPU-4094e82f-a6be-affc-14a0-c8272dd297d3",
+      "method": "ACT",
+      "object": "glass_cylinder_100ml",
+      "seed": 26101415,
+      "state": "等待最终检查点提交",
+      "epoch": 4999,
+      "epochs_target": 5000,
+      "global_step": 10000,
+      "train_loss": 0.076300498098135,
+      "sampled_utc": "2026-10-10T05:38:45.269400+00:00",
+      "formal_accepted": false,
+      "status_note": "同一预定训练种子；已关闭失败保留，完整验收另行判断。 日志迁至/tmp、零数据工作进程；完整模型及优化器校验后恢复，随机流非精确接续。 实际保存1802步，恢复不以旧日志终点代替。",
+      "raw_status": "running",
+      "active_productive": false,
+      "actual_exit_code": null,
+      "recovery_saved_global_step": 1802
     },
     {
       "host": "aliyun",
@@ -306,9 +443,12 @@
       "epochs_target": 5000,
       "global_step": 10000,
       "train_loss": 0.07650234177708626,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "trained_pending_native_acceptance",
+      "active_productive": false,
+      "actual_exit_code": 0
     },
     {
       "host": "aliyun",
@@ -322,9 +462,12 @@
       "epochs_target": 5000,
       "global_step": 10000,
       "train_loss": 0.07781389728188515,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "trained_pending_native_acceptance",
+      "active_productive": false,
+      "actual_exit_code": 0
     },
     {
       "host": "aliyun",
@@ -338,9 +481,12 @@
       "epochs_target": 5000,
       "global_step": 10000,
       "train_loss": 0.0836978331208229,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "trained_pending_native_acceptance",
+      "active_productive": false,
+      "actual_exit_code": 0
     },
     {
       "host": "aliyun",
@@ -350,13 +496,16 @@
       "object": "brown_reagent_bottle_large",
       "seed": 26100911,
       "state": "训练中",
-      "epoch": 1975,
+      "epoch": 2158,
       "epochs_target": 3000,
-      "global_step": 82964,
-      "train_loss": 0.002663811668753624,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "global_step": 90645,
+      "train_loss": 0.002303850604221225,
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "running",
+      "active_productive": true,
+      "actual_exit_code": null
     },
     {
       "host": "aliyun",
@@ -366,13 +515,16 @@
       "object": "brown_reagent_bottle_large",
       "seed": 26100913,
       "state": "训练中",
-      "epoch": 1961,
+      "epoch": 2144,
       "epochs_target": 3000,
-      "global_step": 82370,
-      "train_loss": 0.002226590644568205,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "global_step": 90059,
+      "train_loss": 0.0021111522801220417,
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "running",
+      "active_productive": true,
+      "actual_exit_code": null
     },
     {
       "host": "aliyun",
@@ -382,13 +534,16 @@
       "object": "brown_reagent_bottle_large",
       "seed": 26100915,
       "state": "训练中",
-      "epoch": 1955,
+      "epoch": 2137,
       "epochs_target": 3000,
-      "global_step": 82126,
-      "train_loss": 0.002719033509492874,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "global_step": 89787,
+      "train_loss": 0.0018509768415242434,
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "running",
+      "active_productive": true,
+      "actual_exit_code": null
     },
     {
       "host": "aliyun",
@@ -402,9 +557,12 @@
       "epochs_target": 5000,
       "global_step": 10000,
       "train_loss": 0.0763745829463005,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "trained_pending_native_acceptance",
+      "active_productive": false,
+      "actual_exit_code": 0
     },
     {
       "host": "aliyun",
@@ -418,9 +576,12 @@
       "epochs_target": 5000,
       "global_step": 10000,
       "train_loss": 0.06697997078299522,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "trained_pending_native_acceptance",
+      "active_productive": false,
+      "actual_exit_code": 0
     },
     {
       "host": "aliyun",
@@ -434,9 +595,12 @@
       "epochs_target": 5000,
       "global_step": 10000,
       "train_loss": 0.07522591948509216,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "trained_pending_native_acceptance",
+      "active_productive": false,
+      "actual_exit_code": 0
     },
     {
       "host": "aliyun",
@@ -446,13 +610,16 @@
       "object": "brown_volumetric_flask_250ml",
       "seed": 26101211,
       "state": "训练中",
-      "epoch": 776,
+      "epoch": 948,
       "epochs_target": 3000,
-      "global_step": 34931,
-      "train_loss": 0.004145569168031216,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "global_step": 42692,
+      "train_loss": 0.004381663631647825,
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "running",
+      "active_productive": true,
+      "actual_exit_code": null
     },
     {
       "host": "aliyun",
@@ -462,13 +629,16 @@
       "object": "brown_volumetric_flask_250ml",
       "seed": 26101213,
       "state": "训练中",
-      "epoch": 775,
+      "epoch": 948,
       "epochs_target": 3000,
-      "global_step": 34919,
-      "train_loss": 0.007123395479801628,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "global_step": 42683,
+      "train_loss": 0.0044511426240205765,
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "running",
+      "active_productive": true,
+      "actual_exit_code": null
     },
     {
       "host": "aliyun",
@@ -478,13 +648,16 @@
       "object": "brown_volumetric_flask_250ml",
       "seed": 26101215,
       "state": "训练中",
-      "epoch": 781,
+      "epoch": 954,
       "epochs_target": 3000,
-      "global_step": 35176,
-      "train_loss": 0.00562167726457119,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "global_step": 42950,
+      "train_loss": 0.0042945886962115765,
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "running",
+      "active_productive": true,
+      "actual_exit_code": null
     },
     {
       "host": "aliyun",
@@ -498,9 +671,12 @@
       "epochs_target": 5000,
       "global_step": 10000,
       "train_loss": 0.07050782442092896,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "trained_pending_native_acceptance",
+      "active_productive": false,
+      "actual_exit_code": 0
     },
     {
       "host": "aliyun",
@@ -514,9 +690,12 @@
       "epochs_target": 5000,
       "global_step": 10000,
       "train_loss": 0.0812612883746624,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "trained_pending_native_acceptance",
+      "active_productive": false,
+      "actual_exit_code": 0
     },
     {
       "host": "aliyun",
@@ -530,9 +709,12 @@
       "epochs_target": 5000,
       "global_step": 10000,
       "train_loss": 0.08161197230219841,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "trained_pending_native_acceptance",
+      "active_productive": false,
+      "actual_exit_code": 0
     },
     {
       "host": "aliyun",
@@ -542,13 +724,16 @@
       "object": "clear_reagent_bottle_small",
       "seed": 26100912,
       "state": "训练中",
-      "epoch": 1854,
+      "epoch": 2027,
       "epochs_target": 3000,
-      "global_step": 83448,
-      "train_loss": 0.002161053940653801,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "global_step": 91223,
+      "train_loss": 0.0020814782474189997,
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "running",
+      "active_productive": true,
+      "actual_exit_code": null
     },
     {
       "host": "aliyun",
@@ -558,13 +743,16 @@
       "object": "clear_reagent_bottle_small",
       "seed": 26100914,
       "state": "训练中",
-      "epoch": 1851,
+      "epoch": 2024,
       "epochs_target": 3000,
-      "global_step": 83324,
-      "train_loss": 0.002597092418000102,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "global_step": 91097,
+      "train_loss": 0.0020221134182065725,
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "running",
+      "active_productive": true,
+      "actual_exit_code": null
     },
     {
       "host": "aliyun",
@@ -574,13 +762,16 @@
       "object": "clear_reagent_bottle_small",
       "seed": 26100916,
       "state": "训练中",
-      "epoch": 1844,
+      "epoch": 2016,
       "epochs_target": 3000,
-      "global_step": 83012,
-      "train_loss": 0.002225234406068921,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "global_step": 90753,
+      "train_loss": 0.002254848601296544,
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "running",
+      "active_productive": true,
+      "actual_exit_code": null
     },
     {
       "host": "aliyun",
@@ -594,9 +785,12 @@
       "epochs_target": 5000,
       "global_step": 10000,
       "train_loss": 0.08211284503340721,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "trained_pending_native_acceptance",
+      "active_productive": false,
+      "actual_exit_code": 0
     },
     {
       "host": "aliyun",
@@ -610,9 +804,12 @@
       "epochs_target": 5000,
       "global_step": 10000,
       "train_loss": 0.08162422105669975,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "trained_pending_native_acceptance",
+      "active_productive": false,
+      "actual_exit_code": 0
     },
     {
       "host": "aliyun",
@@ -626,9 +823,12 @@
       "epochs_target": 5000,
       "global_step": 10000,
       "train_loss": 0.07929494604468346,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "trained_pending_native_acceptance",
+      "active_productive": false,
+      "actual_exit_code": 0
     },
     {
       "host": "aliyun",
@@ -638,13 +838,16 @@
       "object": "erlenmeyer_flask",
       "seed": 26101101,
       "state": "训练中",
-      "epoch": 1354,
+      "epoch": 1555,
       "epochs_target": 3000,
-      "global_step": 51471,
-      "train_loss": 0.0033680442720651627,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "global_step": 59093,
+      "train_loss": 0.004081830382347107,
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "running",
+      "active_productive": true,
+      "actual_exit_code": null
     },
     {
       "host": "aliyun",
@@ -654,13 +857,16 @@
       "object": "erlenmeyer_flask",
       "seed": 26101103,
       "state": "训练中",
-      "epoch": 1349,
+      "epoch": 1549,
       "epochs_target": 3000,
-      "global_step": 51267,
-      "train_loss": 0.0032852671574801207,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "global_step": 58886,
+      "train_loss": 0.003829750930890441,
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "running",
+      "active_productive": true,
+      "actual_exit_code": null
     },
     {
       "host": "aliyun",
@@ -670,13 +876,16 @@
       "object": "erlenmeyer_flask",
       "seed": 26101105,
       "state": "训练中",
-      "epoch": 1326,
+      "epoch": 1527,
       "epochs_target": 3000,
-      "global_step": 50402,
-      "train_loss": 0.00378641439601779,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "global_step": 58045,
+      "train_loss": 0.003619362600147724,
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "running",
+      "active_productive": true,
+      "actual_exit_code": null
     },
     {
       "host": "aliyun",
@@ -685,14 +894,17 @@
       "method": "ACT",
       "object": "glass_beaker_100ml",
       "seed": 26101515,
-      "state": "训练中",
-      "epoch": 1009,
+      "state": "5000轮训练完成，待原生测试",
+      "epoch": 4999,
       "epochs_target": 5000,
-      "global_step": 2020,
-      "train_loss": 1.0220078825950623,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "global_step": 10000,
+      "train_loss": 0.076112050563097,
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": "原始固定100条演示，种子提前确定；采集硬件及物理质量仍待核验。"
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "trained_pending_native_acceptance",
+      "active_productive": false,
+      "actual_exit_code": 0
     },
     {
       "host": "aliyun",
@@ -706,9 +918,12 @@
       "epochs_target": 5000,
       "global_step": 10000,
       "train_loss": 0.07737346738576889,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "trained_pending_native_acceptance",
+      "active_productive": false,
+      "actual_exit_code": 0
     },
     {
       "host": "aliyun",
@@ -722,9 +937,12 @@
       "epochs_target": 5000,
       "global_step": 10000,
       "train_loss": 0.07606315985321999,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "trained_pending_native_acceptance",
+      "active_productive": false,
+      "actual_exit_code": 0
     },
     {
       "host": "aliyun",
@@ -738,9 +956,12 @@
       "epochs_target": 5000,
       "global_step": 10000,
       "train_loss": 0.07986576482653618,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "trained_pending_native_acceptance",
+      "active_productive": false,
+      "actual_exit_code": 0
     },
     {
       "host": "aliyun",
@@ -750,13 +971,16 @@
       "object": "plastic_cylinder_100ml",
       "seed": 26101081,
       "state": "训练中",
-      "epoch": 1351,
+      "epoch": 1525,
       "epochs_target": 3000,
-      "global_step": 60825,
-      "train_loss": 0.0029938737861812115,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "global_step": 68631,
+      "train_loss": 0.0029274020344018936,
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "running",
+      "active_productive": true,
+      "actual_exit_code": null
     },
     {
       "host": "aliyun",
@@ -766,13 +990,16 @@
       "object": "plastic_cylinder_100ml",
       "seed": 26101083,
       "state": "训练中",
-      "epoch": 1351,
+      "epoch": 1522,
       "epochs_target": 3000,
-      "global_step": 60804,
-      "train_loss": 0.0029787651728838682,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "global_step": 68529,
+      "train_loss": 0.002756400965154171,
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "running",
+      "active_productive": true,
+      "actual_exit_code": null
     },
     {
       "host": "aliyun",
@@ -782,13 +1009,16 @@
       "object": "plastic_cylinder_100ml",
       "seed": 26101085,
       "state": "训练中",
-      "epoch": 1367,
+      "epoch": 1540,
       "epochs_target": 3000,
-      "global_step": 61533,
-      "train_loss": 0.002536321524530649,
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00",
+      "global_step": 69344,
+      "train_loss": 0.0025438307370576592,
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00",
       "formal_accepted": false,
-      "status_note": ""
+      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
+      "raw_status": "running",
+      "active_productive": true,
+      "actual_exit_code": null
     },
     {
       "host": "mainskill",
@@ -798,13 +1028,16 @@
       "object": "clear_volumetric_flask_250ml",
       "seed": 26101313,
       "state": "训练中",
-      "epoch": 88,
+      "epoch": 208,
       "epochs_target": 3000,
-      "global_step": 4004,
-      "train_loss": 0.020973387050131957,
-      "sampled_utc": "2026-10-10T04:04:17.331251+00:00",
+      "global_step": 9391,
+      "train_loss": 0.011846918612718582,
+      "sampled_utc": "2026-10-10T05:33:05.854375+00:00",
       "formal_accepted": false,
-      "status_note": "论文3000轮、固定100演示；完整模型/EMA/优化器检查点有独立SHA证据。数据物理质量、SSR及泛化仍待验收。"
+      "status_note": "论文3000轮、固定100演示；训练完成后另行测原生SR、SSR、范围外泛化及视觉。",
+      "raw_status": "running",
+      "active_productive": true,
+      "actual_exit_code": null
     },
     {
       "host": "mainskill",
@@ -814,29 +1047,32 @@
       "object": "clear_volumetric_flask_250ml",
       "seed": 26101315,
       "state": "训练中",
-      "epoch": 77,
+      "epoch": 201,
       "epochs_target": 3000,
-      "global_step": 3506,
-      "train_loss": 0.027005065232515335,
-      "sampled_utc": "2026-10-10T04:04:17.331251+00:00",
+      "global_step": 9062,
+      "train_loss": 0.011158785782754421,
+      "sampled_utc": "2026-10-10T05:33:05.854375+00:00",
       "formal_accepted": false,
-      "status_note": "论文3000轮、固定100演示；完整模型/EMA/优化器检查点有独立SHA证据。数据物理质量、SSR及泛化仍待验收。"
+      "status_note": "论文3000轮、固定100演示；训练完成后另行测原生SR、SSR、范围外泛化及视觉。",
+      "raw_status": "running",
+      "active_productive": true,
+      "actual_exit_code": null
     }
   ],
   "servers": [
     {
       "host": "aliyun",
-      "state": "16路训练中；15个ACT训练完成",
+      "state": "15路实际训练；16个ACT训练完成",
       "role": "训练",
-      "note": "按不同训练种子计数，恢复尝试不重复计数。训练完成需继续原生SR、论文SSR、范围外泛化与视觉验收。",
-      "sampled_utc": "2026-10-10T04:19:34.168808+00:00"
+      "note": "按不同种子计数，恢复尝试不重复计数；完成训练与完整验收分别展示。",
+      "sampled_utc": "2026-10-10T05:38:06.878444+00:00"
     },
     {
       "host": "30109",
-      "state": "8路训练中；7个ACT训练完成",
+      "state": "6路实际训练；12个ACT训练完成",
       "role": "训练",
-      "note": "按不同训练种子计数，恢复尝试不重复计数。训练完成需继续原生SR、论文SSR、范围外泛化与视觉验收。 透明容量瓶第三ACT传输中断保留，完整4002步模型/优化器已CPU核验，恢复推进中。每种子独立TMPDIR解决前次初始化冲突。",
-      "sampled_utc": "2026-10-10T04:19:53.773336+00:00"
+      "note": "按不同种子计数，恢复尝试不重复计数；完成训练与完整验收分别展示。 共享内存不足的失败保留；新训练使用/tmp日志和零数据工作进程。独立传输通道限流后恢复，同卡前序完成才启动后续DP。",
+      "sampled_utc": "2026-10-10T05:39:58.755298+00:00"
     },
     {
       "host": "liyufeng_4090",
@@ -847,17 +1083,17 @@
     },
     {
       "host": "5090",
-      "state": "修复旧配置接口后，四条原生MP轨迹完成",
+      "state": "50ml原始资产已完整核验；原生预检等待资源",
       "role": "采集 / 测试准备",
-      "note": "实际physics/renderer/Torch均为GPU1；四条诊断Native退出0。源码及实际基座旋转约束验证，未改共享环境。终点误差仍未达20mm；不计安全采集或论文SSR。",
-      "sampled_utc": "2026-10-10T04:17:02.292332+00:00"
+      "note": "同一RTX5090上的采集与测试；最新容量采样未满足已冻结条件，尚无新的50ml原生试次。",
+      "sampled_utc": "2026-10-10T05:37:02.403610+00:00"
     },
     {
       "host": "mainskill",
-      "state": "2路训练中；0个ACT训练完成",
+      "state": "2路实际训练；0个ACT训练完成",
       "role": "训练 / 采集 / 测试准备",
-      "note": "按不同训练种子计数，恢复尝试不重复计数。训练完成需继续原生SR、论文SSR、范围外泛化与视觉验收。 两个DP初始完整检查点均独立SHA核验并持久保存到NVMe；本地再次CPU加载待余量允许。",
-      "sampled_utc": "2026-10-10T04:04:17.331251+00:00"
+      "note": "按不同种子计数，恢复尝试不重复计数；完成训练与完整验收分别展示。 两个初始完整检查点已独立核验并持久归档；新增四张卡的显存查询超时，未据此新增训练或原生测试。",
+      "sampled_utc": "2026-10-10T05:33:05.854375+00:00"
     },
     {
       "host": "volc-pro6000",
@@ -929,7 +1165,7 @@
       "actions_relabelled": false,
       "expert_safety_requalified": false,
       "collection_GPU_lineage_bound": false,
-      "training_dispatch": "ACT首个种子已有38次实际更新，另两个种子同卡排队；专家安全与采集硬件来源仍待复核，不计正式验收",
+      "training_dispatch": "三个预先固定ACT种子均训练完成5000轮/10000步并正常退出；DP同卡接续推进。原始100条演示未重标；采集硬件及安全质量仍待核验。",
       "formal_accepted": false
     }
   },
@@ -1131,7 +1367,7 @@
       23.6
     ],
     "act_cpu_dataset_read_speedup": 4.368692462456152,
-    "note": "Aliyun、30109、MainSkill均有实际训练更新。ACT读取缓存逐位核验、七层梯度核验及每种子独立TMPDIR已落实；恢复采用独立SHA与完整优化器，保留所有失败。GPU余量与采集/测试同型号约束继续执行。",
+    "note": "训练卡按实际更新核实；30109释放完成任务的同卡给固定后续DP，独立传输通道保留控制请求余量。采集和测试按GPU型号分组；容量等待不计实际训练或通过。",
     "act_total_epoch_throughput_speedup": 1.4458274316296305,
     "benchmark_utc": "2026-10-09T16:33:40.648366+00:00"
   },
@@ -1394,57 +1630,13 @@
   "training_queue": [
     {
       "host": "30109",
-      "method": "ACT",
-      "object": "glass_beaker_250ml",
-      "seed": 26101405,
-      "global_step": 0,
-      "state": "排队：同卡前序种子完成后启动",
-      "formal_accepted": false
-    },
-    {
-      "host": "30109",
-      "method": "ACT",
-      "object": "glass_cylinder_100ml",
-      "seed": 26101415,
-      "global_step": 0,
-      "state": "排队：同卡前序种子完成后启动",
-      "formal_accepted": false
-    },
-    {
-      "host": "30109",
-      "method": "ACT",
-      "object": "clear_reagent_bottle_large",
-      "seed": 26101425,
-      "global_step": 0,
-      "state": "排队：同卡前序种子完成后启动",
-      "formal_accepted": false
-    },
-    {
-      "host": "30109",
-      "method": "ACT",
-      "object": "alcohol_lamp",
-      "seed": 26101435,
-      "global_step": 0,
-      "state": "排队：同卡前序种子完成后启动",
-      "formal_accepted": false
-    },
-    {
-      "host": "30109",
-      "method": "DP",
-      "object": "glass_beaker_100ml",
-      "seed": 26101523,
-      "global_step": 0,
-      "state": "排队：同卡前序种子完成后启动",
-      "formal_accepted": false
-    },
-    {
-      "host": "30109",
       "method": "DP",
       "object": "glass_beaker_100ml",
       "seed": 26101525,
       "global_step": 0,
-      "state": "排队：同卡前序种子完成后启动",
-      "formal_accepted": false
+      "state": "等待前序完成",
+      "formal_accepted": false,
+      "sampled_utc": "2026-10-10T05:39:30.144922+00:00"
     }
   ],
   "goal_reference_diagnostics": {
@@ -1477,7 +1669,7 @@
   "training_recovery": {
     "schema": "grasp.training_recovery.v1",
     "sampled_utc": "2026-10-10T02:15:35.008401+00:00",
-    "cause": "共享内存盘不足；原守卫文案误标为RAM。新增ACT检查点触发两路自有DP空间保护。",
+    "cause": "30109共享内存容量不足导致原训练关闭；随后检查点并发传输及SSH会话限制导致部分恢复中断。失败与最后日志均保留。",
     "archived_checkpoint_files": 4,
     "archived_bytes": 4152101880,
     "independent_receiving_sha_reverification": true,
@@ -1523,10 +1715,10 @@
       "DP_optimizer_states_verified": 861,
       "DP_restarted_after_interruption": false
     },
-    "new_DP_checkpoint_backend": "透明容量瓶DP的双阶段900秒有界异步检查点已实际完整提交；保留旧传输失败与截断文件，不把最后日志当作恢复点。",
+    "new_DP_checkpoint_backend": "新代独立SSH通道限流；完整发送与接收端独立SHA一致后才替换检查点，未提交截断文件不能恢复。",
     "formal_accepted": false,
     "paper_ssr": null,
-    "note": "透明容量瓶DP保存150轮/6795步完整模型、EMA和优化器后恢复，旧9043步日志保留；工作线程RNG非精确恢复。第三ACT新恢复保存4002步，旧5844步失败日志保留。MainSkill两个DP初始完整检查点均已持久归档。",
+    "note": "DP521旧日志8335步，恢复读取的是7638步完整检查点；ACT245恢复4202步、ACT405恢复4002步。工作进程改为0，随机状态非精确接续。恢复过程中训练预算与原定种子保持冻结。",
     "evidence_url": "results/grasp_training_recovery_20261010.json",
     "two_phase_checkpoint_failure_atomicity_actual_CPU_checks": 9,
     "async_snapshot_and_optimizer_actual_CPU_checks": 6,
@@ -1853,5 +2045,44 @@
     "note": "同一2秒动作与手指目标前缀逐位一致，仅增加0.6秒保持。终点位置误差从25.7/25.8mm降至5.9/6.3mm；这是开发诊断，目标与全程约束尚未绑定论文SSR。四条轨迹三相机关键帧已查：头部及第三视角持续覆盖目标，胸部抬升后出画本身不判视觉失败。玻璃渲染与全程穿模仍待验收。",
     "evidence_url": "results/grasp_fixed_action_hold_camera_20261010.json"
   },
-  "latest_training_evidence_url": "results/grasp_training_hold_camera_evidence_20261010.json"
+  "latest_training_evidence_url": "results/grasp_training_storage_channel_evidence_20261010.json",
+  "paper_domain_contract": {
+    "schema": "grasp.paper_domain_contract.v1",
+    "domains": [
+      {
+        "domain": "Liquid",
+        "metric": "θdev",
+        "rule": "液体运输≤0.25rad；倒液阶段按容器、装液量和阶段阈值",
+        "tasks": "倒液、液体运输"
+      },
+      {
+        "domain": "Actuation",
+        "metric": "Fpeak",
+        "rule": "按物体和任务注册表的接触力上限；没有统一25N",
+        "tasks": "仪器操作"
+      },
+      {
+        "domain": "Spatial",
+        "metric": "ΔP",
+        "rule": "空间共享容差20mm；逐任务严格目标位姿与阶段激活仍需注册表",
+        "tasks": "Grasp、PickPlace、Handover、Stack"
+      }
+    ],
+    "grasp_domain": "Spatial",
+    "full_episode_success_and_all_active_constraints": true,
+    "failed_inclusive_SM_is_not_SSR": true,
+    "strict_grasp_goal_and_phase_registry_bound": false,
+    "public_release_audit": {
+      "public_repository": "https://github.com/ChangWinde/SafeLab",
+      "tree_sha": "f4d1cd87fd7b8749442b86e637396edbf30bbc1d",
+      "entries": 45,
+      "tree_complete": true,
+      "code_or_registry_files": [],
+      "sampled_utc": "2026-10-10T05:04:37.883155+00:00"
+    },
+    "paper_ssr": null,
+    "formal_accepted": false,
+    "note": "论文三类安全指标按任务域区分。plain Grasp使用Spatial；不从液体运输或仪器操作移植阈值。公开main的完整45节点树仅含网页、PDF及媒体，未找到任务注册表；这不说明私有作者文件是否存在。空间20mm已明确，严格目标、姿态容差和阶段合同仍待绑定，因此SSR保留待确认。",
+    "evidence_url": "results/grasp_paper_domain_contract_20261010.json"
+  }
 }
