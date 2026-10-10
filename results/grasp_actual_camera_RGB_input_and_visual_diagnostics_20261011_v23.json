@@ -1,0 +1,902 @@
+{
+  "sampled_utc": "2026-10-10T19:25:50.960894+00:00",
+  "completed_models": 2,
+  "rows": [
+    {
+      "training_seed": 26100916,
+      "object": "clear_reagent_bottle_small",
+      "candidate": "t500-clear_passive-dp-s26100916-native3-v23",
+      "episodes_completed": 3,
+      "success_count": 2,
+      "success_rate": 0.6666666666666666,
+      "terminal_translation_mean_mm": 140.97895284087429,
+      "success_and_terminal20mm_count": 0,
+      "terminal_physical_retained_count": 0,
+      "actual_Native_exit_code": 0,
+      "actual_GPU_EMA": {
+        "passed": true,
+        "training_seed": 26100916,
+        "actual_GPU_loaded_EMA_fingerprint": {
+          "tensor_count": 918,
+          "ordered_tensor_bytes_SHA256": "1bdb31254b899960703e09ca9f955b7e142ac56a188e8b09754d270781d5393b"
+        },
+        "n_obs_steps": 1,
+        "state_dimensions": 27,
+        "action_dim": 13,
+        "action_horizon": 8,
+        "actual_normalizer_fields": [
+          "action",
+          "arm2_eef_pos",
+          "arm2_eef_quat",
+          "arm2_pos",
+          "chest_camera_rgb",
+          "hand2_pos",
+          "head_camera_rgb",
+          "target_pose",
+          "third_camera_rgb"
+        ],
+        "actual_loaded_encoder_source": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/BrownLarge_DP_exact_training_serving_sources_v124/psi_dp/model/vision/timm_obs_encoder.py",
+        "recorded_training_state_injected": false,
+        "formal_accepted": false,
+        "paper_ssr": null
+      },
+      "actual_same_test_GPU": {
+        "passed": true,
+        "actual_torch_gpu_uuid": "GPU-7e048773-6e99-b431-101d-8b45724cce9f",
+        "torch_gpu_name": "NVIDIA GeForce RTX 4090",
+        "renderer_activeGpu": 0,
+        "physics_cudaDevice": 0,
+        "multiGPU_enabled": false,
+        "formal_accepted": false
+      },
+      "collection_and_test_GPU_model_qualified": false,
+      "paper_ssr": null,
+      "formal_accepted": false,
+      "visual_accepted": false,
+      "note": "固定前3位置、原最终EMA与6秒协议，仅为开发预检。终态保持0/3，20mm终点诊断分量0/3；该分量不是论文SSR。实际画面仍见抬起后的偏白瓶身、条纹和掉落，视觉未通过；增加渲染只为相机对照。原复位、复位+4和相机诊断分别归档，未合并样本或筛选模型。"
+    },
+    {
+      "training_seed": 26100916,
+      "object": "clear_reagent_bottle_small",
+      "candidate": "t500-clear_render16-dp-s26100916-native3-v23",
+      "episodes_completed": 3,
+      "success_count": 2,
+      "success_rate": 0.6666666666666666,
+      "terminal_translation_mean_mm": 125.56284154740786,
+      "success_and_terminal20mm_count": 0,
+      "terminal_physical_retained_count": 0,
+      "actual_Native_exit_code": 0,
+      "actual_GPU_EMA": {
+        "passed": true,
+        "training_seed": 26100916,
+        "actual_GPU_loaded_EMA_fingerprint": {
+          "tensor_count": 918,
+          "ordered_tensor_bytes_SHA256": "1bdb31254b899960703e09ca9f955b7e142ac56a188e8b09754d270781d5393b"
+        },
+        "n_obs_steps": 1,
+        "state_dimensions": 27,
+        "action_dim": 13,
+        "action_horizon": 8,
+        "actual_normalizer_fields": [
+          "action",
+          "arm2_eef_pos",
+          "arm2_eef_quat",
+          "arm2_pos",
+          "chest_camera_rgb",
+          "hand2_pos",
+          "head_camera_rgb",
+          "target_pose",
+          "third_camera_rgb"
+        ],
+        "actual_loaded_encoder_source": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/BrownLarge_DP_exact_training_serving_sources_v124/psi_dp/model/vision/timm_obs_encoder.py",
+        "recorded_training_state_injected": false,
+        "formal_accepted": false,
+        "paper_ssr": null
+      },
+      "actual_same_test_GPU": {
+        "passed": true,
+        "actual_torch_gpu_uuid": "GPU-7e048773-6e99-b431-101d-8b45724cce9f",
+        "torch_gpu_name": "NVIDIA GeForce RTX 4090",
+        "renderer_activeGpu": 0,
+        "physics_cudaDevice": 0,
+        "multiGPU_enabled": false,
+        "formal_accepted": false
+      },
+      "collection_and_test_GPU_model_qualified": false,
+      "paper_ssr": null,
+      "formal_accepted": false,
+      "visual_accepted": false,
+      "note": "固定前3位置、原最终EMA与6秒协议，仅为开发预检。终态保持0/3，20mm终点诊断分量0/3；该分量不是论文SSR。实际画面仍见抬起后的偏白瓶身、条纹和掉落，视觉未通过；增加渲染只为相机对照。原复位、复位+4和相机诊断分别归档，未合并样本或筛选模型。"
+    }
+  ],
+  "note": "原seed916两相机诊断均为2/3；402/403条RGB输入、各52次模型调用链核验。25组相同物理状态渲染对照的位姿、速度、时间和步数不变；全帧缓存等同未见，局部异常仍待排查。快速SDK退出跳过结束标记，不宣称结束回调计数。",
+  "formal_accepted": false,
+  "paper_ssr": null,
+  "evidence_url": "results/grasp_actual_camera_RGB_input_and_visual_diagnostics_20261011_v23.json",
+  "actual_input_audit": {
+    "passed": true,
+    "at_utc": "2026-10-10T18:55:21.072986+00:00",
+    "scope": "Two actual original seed916 known-camera-bug diagnostic processes. Full input lineage and fixed physics assertions only; no population SR, causal success improvement or visual/geometry acceptance.",
+    "rows": [
+      {
+        "mode": "passive",
+        "passed_actual_input_chain_and_controlled_assertions": true,
+        "actual_raw_returns": 402,
+        "actual_runner_inputs": 402,
+        "actual_model_calls": 52,
+        "controlled_same_physics_reset_samples": 0,
+        "reset_boundaries": [
+          {
+            "reset_invocation": 3,
+            "prior_last_raw_call": 180,
+            "current_first_raw_call": 181,
+            "first_equals_prior_last_camera_SHA256": {
+              "chest_camera": false,
+              "head_camera": false,
+              "third_camera": false
+            },
+            "prior_metadata": {
+              "chest_camera": {
+                "frame": [
+                  180
+                ],
+                "timestamp": [
+                  7.374973297119141
+                ],
+                "timestamp_last_update": [
+                  7.374973297119141
+                ],
+                "outdated": [
+                  false
+                ],
+                "update_period": 0.0
+              },
+              "head_camera": {
+                "frame": [
+                  180
+                ],
+                "timestamp": [
+                  7.374973297119141
+                ],
+                "timestamp_last_update": [
+                  7.374973297119141
+                ],
+                "outdated": [
+                  false
+                ],
+                "update_period": 0.0
+              },
+              "third_camera": {
+                "frame": [
+                  180
+                ],
+                "timestamp": [
+                  7.374973297119141
+                ],
+                "timestamp_last_update": [
+                  7.374973297119141
+                ],
+                "outdated": [
+                  false
+                ],
+                "update_period": 0.0
+              }
+            },
+            "first_metadata": {
+              "chest_camera": {
+                "frame": [
+                  181
+                ],
+                "timestamp": [
+                  7.899965286254883
+                ],
+                "timestamp_last_update": [
+                  7.899965286254883
+                ],
+                "outdated": [
+                  false
+                ],
+                "update_period": 0.0
+              },
+              "head_camera": {
+                "frame": [
+                  181
+                ],
+                "timestamp": [
+                  7.899965286254883
+                ],
+                "timestamp_last_update": [
+                  7.899965286254883
+                ],
+                "outdated": [
+                  false
+                ],
+                "update_period": 0.0
+              },
+              "third_camera": {
+                "frame": [
+                  181
+                ],
+                "timestamp": [
+                  7.899965286254883
+                ],
+                "timestamp_last_update": [
+                  7.899965286254883
+                ],
+                "outdated": [
+                  false
+                ],
+                "update_period": 0.0
+              }
+            }
+          },
+          {
+            "reset_invocation": 4,
+            "prior_last_raw_call": 223,
+            "current_first_raw_call": 224,
+            "first_equals_prior_last_camera_SHA256": {
+              "chest_camera": false,
+              "head_camera": false,
+              "third_camera": false
+            },
+            "prior_metadata": {
+              "chest_camera": {
+                "frame": [
+                  223
+                ],
+                "timestamp": [
+                  9.299943923950195
+                ],
+                "timestamp_last_update": [
+                  9.299943923950195
+                ],
+                "outdated": [
+                  false
+                ],
+                "update_period": 0.0
+              },
+              "head_camera": {
+                "frame": [
+                  223
+                ],
+                "timestamp": [
+                  9.299943923950195
+                ],
+                "timestamp_last_update": [
+                  9.299943923950195
+                ],
+                "outdated": [
+                  false
+                ],
+                "update_period": 0.0
+              },
+              "third_camera": {
+                "frame": [
+                  223
+                ],
+                "timestamp": [
+                  9.299943923950195
+                ],
+                "timestamp_last_update": [
+                  9.299943923950195
+                ],
+                "outdated": [
+                  false
+                ],
+                "update_period": 0.0
+              }
+            },
+            "first_metadata": {
+              "chest_camera": {
+                "frame": [
+                  224
+                ],
+                "timestamp": [
+                  9.824935913085938
+                ],
+                "timestamp_last_update": [
+                  9.824935913085938
+                ],
+                "outdated": [
+                  false
+                ],
+                "update_period": 0.0
+              },
+              "head_camera": {
+                "frame": [
+                  224
+                ],
+                "timestamp": [
+                  9.824935913085938
+                ],
+                "timestamp_last_update": [
+                  9.824935913085938
+                ],
+                "outdated": [
+                  false
+                ],
+                "update_period": 0.0
+              },
+              "third_camera": {
+                "frame": [
+                  224
+                ],
+                "timestamp": [
+                  9.824935913085938
+                ],
+                "timestamp_last_update": [
+                  9.824935913085938
+                ],
+                "outdated": [
+                  false
+                ],
+                "update_period": 0.0
+              }
+            }
+          }
+        ],
+        "first_models": [
+          {
+            "reset": 2,
+            "first_model_call": 1,
+            "raw_images": [
+              "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_passive_v214/RGB_diagnostic_v214/reset002_model0001_chest_camera_raw.png",
+              "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_passive_v214/RGB_diagnostic_v214/reset002_model0001_head_camera_raw.png",
+              "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_passive_v214/RGB_diagnostic_v214/reset002_model0001_third_camera_raw.png"
+            ]
+          },
+          {
+            "reset": 3,
+            "first_model_call": 24,
+            "raw_images": [
+              "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_passive_v214/RGB_diagnostic_v214/reset003_model0024_chest_camera_raw.png",
+              "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_passive_v214/RGB_diagnostic_v214/reset003_model0024_head_camera_raw.png",
+              "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_passive_v214/RGB_diagnostic_v214/reset003_model0024_third_camera_raw.png"
+            ]
+          },
+          {
+            "reset": 4,
+            "first_model_call": 30,
+            "raw_images": [
+              "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_passive_v214/RGB_diagnostic_v214/reset004_model0030_chest_camera_raw.png",
+              "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_passive_v214/RGB_diagnostic_v214/reset004_model0030_head_camera_raw.png",
+              "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_passive_v214/RGB_diagnostic_v214/reset004_model0030_third_camera_raw.png"
+            ]
+          }
+        ],
+        "fixed_physics_render_rows": [],
+        "actual_Native_exit_code": 0,
+        "original_GPU_EMA_and_GPU_identity_passed": true,
+        "actual_successes": 2,
+        "actual_trials": 3,
+        "terminal20mm_development_count": 0,
+        "diagnostic_close_marker_present": false,
+        "diagnostic_close_limitation": "The original SDK fast shutdown bypassed the outer cleanup marker; per-observation and per-reset assertions are preserved, but cleanup totals are not claimed.",
+        "physical_stochastic_restart_disclosed": true,
+        "image_view_pending": true,
+        "paper_ssr": null,
+        "formal_accepted": false
+      },
+      {
+        "mode": "fixed_physics_render16",
+        "passed_actual_input_chain_and_controlled_assertions": true,
+        "actual_raw_returns": 403,
+        "actual_runner_inputs": 403,
+        "actual_model_calls": 52,
+        "controlled_same_physics_reset_samples": 25,
+        "reset_boundaries": [
+          {
+            "reset_invocation": 3,
+            "prior_last_raw_call": 45,
+            "current_first_raw_call": 46,
+            "first_equals_prior_last_camera_SHA256": {
+              "chest_camera": false,
+              "head_camera": false,
+              "third_camera": false
+            },
+            "prior_metadata": {
+              "chest_camera": {
+                "frame": [
+                  54
+                ],
+                "timestamp": [
+                  2.8750100135803223
+                ],
+                "timestamp_last_update": [
+                  2.8750100135803223
+                ],
+                "outdated": [
+                  false
+                ],
+                "update_period": 0.0
+              },
+              "head_camera": {
+                "frame": [
+                  54
+                ],
+                "timestamp": [
+                  2.8750100135803223
+                ],
+                "timestamp_last_update": [
+                  2.8750100135803223
+                ],
+                "outdated": [
+                  false
+                ],
+                "update_period": 0.0
+              },
+              "third_camera": {
+                "frame": [
+                  54
+                ],
+                "timestamp": [
+                  2.8750100135803223
+                ],
+                "timestamp_last_update": [
+                  2.8750100135803223
+                ],
+                "outdated": [
+                  false
+                ],
+                "update_period": 0.0
+              }
+            },
+            "first_metadata": {
+              "chest_camera": {
+                "frame": [
+                  59
+                ],
+                "timestamp": [
+                  3.400017023086548
+                ],
+                "timestamp_last_update": [
+                  3.400017023086548
+                ],
+                "outdated": [
+                  false
+                ],
+                "update_period": 0.0
+              },
+              "head_camera": {
+                "frame": [
+                  59
+                ],
+                "timestamp": [
+                  3.400017023086548
+                ],
+                "timestamp_last_update": [
+                  3.400017023086548
+                ],
+                "outdated": [
+                  false
+                ],
+                "update_period": 0.0
+              },
+              "third_camera": {
+                "frame": [
+                  59
+                ],
+                "timestamp": [
+                  3.400017023086548
+                ],
+                "timestamp_last_update": [
+                  3.400017023086548
+                ],
+                "outdated": [
+                  false
+                ],
+                "update_period": 0.0
+              }
+            }
+          },
+          {
+            "reset_invocation": 4,
+            "prior_last_raw_call": 224,
+            "current_first_raw_call": 225,
+            "first_equals_prior_last_camera_SHA256": {
+              "chest_camera": false,
+              "head_camera": false,
+              "third_camera": false
+            },
+            "prior_metadata": {
+              "chest_camera": {
+                "frame": [
+                  237
+                ],
+                "timestamp": [
+                  9.333276748657227
+                ],
+                "timestamp_last_update": [
+                  9.333276748657227
+                ],
+                "outdated": [
+                  false
+                ],
+                "update_period": 0.0
+              },
+              "head_camera": {
+                "frame": [
+                  237
+                ],
+                "timestamp": [
+                  9.333276748657227
+                ],
+                "timestamp_last_update": [
+                  9.333276748657227
+                ],
+                "outdated": [
+                  false
+                ],
+                "update_period": 0.0
+              },
+              "third_camera": {
+                "frame": [
+                  237
+                ],
+                "timestamp": [
+                  9.333276748657227
+                ],
+                "timestamp_last_update": [
+                  9.333276748657227
+                ],
+                "outdated": [
+                  false
+                ],
+                "update_period": 0.0
+              }
+            },
+            "first_metadata": {
+              "chest_camera": {
+                "frame": [
+                  243
+                ],
+                "timestamp": [
+                  9.858268737792969
+                ],
+                "timestamp_last_update": [
+                  9.858268737792969
+                ],
+                "outdated": [
+                  false
+                ],
+                "update_period": 0.0
+              },
+              "head_camera": {
+                "frame": [
+                  243
+                ],
+                "timestamp": [
+                  9.858268737792969
+                ],
+                "timestamp_last_update": [
+                  9.858268737792969
+                ],
+                "outdated": [
+                  false
+                ],
+                "update_period": 0.0
+              },
+              "third_camera": {
+                "frame": [
+                  243
+                ],
+                "timestamp": [
+                  9.858268737792969
+                ],
+                "timestamp_last_update": [
+                  9.858268737792969
+                ],
+                "outdated": [
+                  false
+                ],
+                "update_period": 0.0
+              }
+            }
+          }
+        ],
+        "first_models": [
+          {
+            "reset": 2,
+            "first_model_call": 1,
+            "raw_images": [
+              "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset002_model0001_chest_camera_raw.png",
+              "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset002_model0001_head_camera_raw.png",
+              "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset002_model0001_third_camera_raw.png"
+            ]
+          },
+          {
+            "reset": 3,
+            "first_model_call": 7,
+            "raw_images": [
+              "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset003_model0007_chest_camera_raw.png",
+              "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset003_model0007_head_camera_raw.png",
+              "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset003_model0007_third_camera_raw.png"
+            ]
+          },
+          {
+            "reset": 4,
+            "first_model_call": 30,
+            "raw_images": [
+              "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset004_model0030_chest_camera_raw.png",
+              "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset004_model0030_head_camera_raw.png",
+              "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset004_model0030_third_camera_raw.png"
+            ]
+          }
+        ],
+        "fixed_physics_render_rows": [
+          {
+            "reset_invocation": 1,
+            "all_original_physics_pose_velocity_time_and_counters_unchanged": true,
+            "render0_vs16_camera_SHA_changed": {
+              "chest_camera": true,
+              "head_camera": true,
+              "third_camera": true
+            },
+            "images": {
+              "0": [
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset001_render00_chest_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset001_render00_head_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset001_render00_third_camera.png"
+              ],
+              "1": [
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset001_render01_chest_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset001_render01_head_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset001_render01_third_camera.png"
+              ],
+              "4": [
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset001_render04_chest_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset001_render04_head_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset001_render04_third_camera.png"
+              ],
+              "8": [
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset001_render08_chest_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset001_render08_head_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset001_render08_third_camera.png"
+              ],
+              "16": [
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset001_render16_chest_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset001_render16_head_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset001_render16_third_camera.png"
+              ]
+            }
+          },
+          {
+            "reset_invocation": 2,
+            "all_original_physics_pose_velocity_time_and_counters_unchanged": true,
+            "render0_vs16_camera_SHA_changed": {
+              "chest_camera": true,
+              "head_camera": true,
+              "third_camera": true
+            },
+            "images": {
+              "0": [
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset002_render00_chest_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset002_render00_head_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset002_render00_third_camera.png"
+              ],
+              "1": [
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset002_render01_chest_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset002_render01_head_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset002_render01_third_camera.png"
+              ],
+              "4": [
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset002_render04_chest_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset002_render04_head_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset002_render04_third_camera.png"
+              ],
+              "8": [
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset002_render08_chest_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset002_render08_head_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset002_render08_third_camera.png"
+              ],
+              "16": [
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset002_render16_chest_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset002_render16_head_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset002_render16_third_camera.png"
+              ]
+            }
+          },
+          {
+            "reset_invocation": 3,
+            "all_original_physics_pose_velocity_time_and_counters_unchanged": true,
+            "render0_vs16_camera_SHA_changed": {
+              "chest_camera": true,
+              "head_camera": true,
+              "third_camera": true
+            },
+            "images": {
+              "0": [
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset003_render00_chest_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset003_render00_head_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset003_render00_third_camera.png"
+              ],
+              "1": [
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset003_render01_chest_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset003_render01_head_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset003_render01_third_camera.png"
+              ],
+              "4": [
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset003_render04_chest_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset003_render04_head_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset003_render04_third_camera.png"
+              ],
+              "8": [
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset003_render08_chest_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset003_render08_head_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset003_render08_third_camera.png"
+              ],
+              "16": [
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset003_render16_chest_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset003_render16_head_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset003_render16_third_camera.png"
+              ]
+            }
+          },
+          {
+            "reset_invocation": 4,
+            "all_original_physics_pose_velocity_time_and_counters_unchanged": true,
+            "render0_vs16_camera_SHA_changed": {
+              "chest_camera": true,
+              "head_camera": true,
+              "third_camera": true
+            },
+            "images": {
+              "0": [
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset004_render00_chest_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset004_render00_head_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset004_render00_third_camera.png"
+              ],
+              "1": [
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset004_render01_chest_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset004_render01_head_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset004_render01_third_camera.png"
+              ],
+              "4": [
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset004_render04_chest_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset004_render04_head_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset004_render04_third_camera.png"
+              ],
+              "8": [
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset004_render08_chest_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset004_render08_head_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset004_render08_third_camera.png"
+              ],
+              "16": [
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset004_render16_chest_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset004_render16_head_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset004_render16_third_camera.png"
+              ]
+            }
+          },
+          {
+            "reset_invocation": 5,
+            "all_original_physics_pose_velocity_time_and_counters_unchanged": true,
+            "render0_vs16_camera_SHA_changed": {
+              "chest_camera": true,
+              "head_camera": true,
+              "third_camera": true
+            },
+            "images": {
+              "0": [
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset005_render00_chest_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset005_render00_head_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset005_render00_third_camera.png"
+              ],
+              "1": [
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset005_render01_chest_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset005_render01_head_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset005_render01_third_camera.png"
+              ],
+              "4": [
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset005_render04_chest_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset005_render04_head_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset005_render04_third_camera.png"
+              ],
+              "8": [
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset005_render08_chest_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset005_render08_head_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset005_render08_third_camera.png"
+              ],
+              "16": [
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset005_render16_chest_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset005_render16_head_camera.png",
+                "/mnt/whalent-nvme/tmp/grasp_ssr_ood_multiserver_20261009/native_DP_ClearSmall_RGB_fixed_physics_render16_v214/RGB_diagnostic_v214/reset005_render16_third_camera.png"
+              ]
+            }
+          }
+        ],
+        "actual_Native_exit_code": 0,
+        "original_GPU_EMA_and_GPU_identity_passed": true,
+        "actual_successes": 2,
+        "actual_trials": 3,
+        "terminal20mm_development_count": 0,
+        "diagnostic_close_marker_present": false,
+        "diagnostic_close_limitation": "The original SDK fast shutdown bypassed the outer cleanup marker; per-observation and per-reset assertions are preserved, but cleanup totals are not claimed.",
+        "physical_stochastic_restart_disclosed": true,
+        "image_view_pending": true,
+        "paper_ssr": null,
+        "formal_accepted": false
+      }
+    ],
+    "actual_new_Native_trials": 0,
+    "formal_accepted": false,
+    "paper_ssr": null
+  },
+  "actual_visual_review": {
+    "passed_selected_evidence_review": true,
+    "at_utc": "2026-10-10T19:02:42.559866+00:00",
+    "actually_viewed_sheets": [
+      {
+        "path": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/Brown_remaining_two_and_Clear_RGB_diagnostic_media_audit_v300/brown_post_s915_episode_001_chest_camera_sheet.jpg",
+        "SHA256": "3177f53f3f1ccd7c838da69ee6603b8f42426c4d3281e27ff0af625920cf7c3f",
+        "selected_frames": 12,
+        "actually_viewed": true
+      },
+      {
+        "path": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/Brown_remaining_two_and_Clear_RGB_diagnostic_media_audit_v300/brown_post_s915_episode_001_head_camera_sheet.jpg",
+        "SHA256": "9557cc6f1350b9ac519b739532006c156a1bc0923d4859a7e3134121fc7664f7",
+        "selected_frames": 12,
+        "actually_viewed": true
+      },
+      {
+        "path": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/Brown_remaining_two_and_Clear_RGB_diagnostic_media_audit_v300/brown_post_s915_episode_001_third_camera_sheet.jpg",
+        "SHA256": "fc72dc64a0980510f46b5a5a5e703a15815af980039121011364c88a287ea050",
+        "selected_frames": 12,
+        "actually_viewed": true
+      },
+      {
+        "path": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/Brown_remaining_two_and_Clear_RGB_diagnostic_media_audit_v300/brown_post_s913_episode_001_chest_camera_sheet.jpg",
+        "SHA256": "2a2920385f1499f28e6ac8caf0a65723cca5b0b799975b44f269083a451cc194",
+        "selected_frames": 12,
+        "actually_viewed": true
+      },
+      {
+        "path": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/Brown_remaining_two_and_Clear_RGB_diagnostic_media_audit_v300/brown_post_s913_episode_001_head_camera_sheet.jpg",
+        "SHA256": "36dfa15d756146b4011a7455c80e806f455308dbcea4e8827bb77d0f6abe3b34",
+        "selected_frames": 12,
+        "actually_viewed": true
+      },
+      {
+        "path": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/Brown_remaining_two_and_Clear_RGB_diagnostic_media_audit_v300/brown_post_s913_episode_001_third_camera_sheet.jpg",
+        "SHA256": "fef5d4b73bc1891aa8532263314e41c948c18c92f5c0d0deb925b6483f89a4d6",
+        "selected_frames": 12,
+        "actually_viewed": true
+      },
+      {
+        "path": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/Brown_remaining_two_and_Clear_RGB_diagnostic_media_audit_v300/clear_passive_episode_001_chest_camera_sheet.jpg",
+        "SHA256": "cc2c4b5d00e20155c7b63a67a280c2bd287f6666b11dee406752243204ebf147",
+        "selected_frames": 12,
+        "actually_viewed": true
+      },
+      {
+        "path": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/Brown_remaining_two_and_Clear_RGB_diagnostic_media_audit_v300/clear_passive_episode_001_third_camera_sheet.jpg",
+        "SHA256": "6d76c189eaedc34ca0273665bfea085ba6df783739ad62643411c6daab16e844",
+        "selected_frames": 12,
+        "actually_viewed": true
+      },
+      {
+        "path": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/Brown_remaining_two_and_Clear_RGB_diagnostic_media_audit_v300/clear_render16_episode_002_chest_camera_sheet.jpg",
+        "SHA256": "3d2c78f760c50ee80e35c3a900904192ccb0a8cd2df230cee663a2ff2b9ebe8a",
+        "selected_frames": 12,
+        "actually_viewed": true
+      },
+      {
+        "path": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/Brown_remaining_two_and_Clear_RGB_diagnostic_media_audit_v300/clear_render16_episode_002_third_camera_sheet.jpg",
+        "SHA256": "9d037a1df91bc2877a83b52dd87fdf0043ba9741a855c40f417b063299fc53b2",
+        "selected_frames": 12,
+        "actually_viewed": true
+      }
+    ],
+    "actually_viewed_selected_frames": 120,
+    "findings": {
+      "brown_post_s915": "The viewed first episode is lifted briefly then drops and lies on the table for most remaining frames; reported3/3 is the original predicate, terminal retention0/3. Cannot pass visual or strict terminal acceptance.",
+      "brown_post_s913": "The viewed first episode drops shortly after lift; original0/3 retained.",
+      "clear_passive_and_render16": "Viewed lifted bottle body becomes bright white with horizontal streaks in chest view; later drops in both protocols. Render16 has not resolved this appearance or terminal retention. Further geometry/light/capture diagnosis required.",
+      "penetration": "Selected frames are insufficient to certify no mesh penetration; full geometry gate remains unqualified."
+    },
+    "all_models_and_failures_preserved": true,
+    "formal_accepted": false,
+    "visual_accepted": false,
+    "paper_ssr": null
+  }
+}
