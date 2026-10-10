@@ -1,6 +1,6 @@
 {
   "schema": "grasp.browser.supplement.v1",
-  "updated_utc": "2026-10-10T02:01:53.936182+00:00",
+  "updated_utc": "2026-10-10T10:29:07.701762+00:00",
   "source_pins": [
     {
       "source": "/home/liyufeng/ops/grasp_acceptance_20260917/NATIVE_EPISODE_LEDGER_20261002.json",
@@ -12,6 +12,83 @@
     }
   ],
   "runs": [
+    {
+      "candidate": "t500-beaker100-act-s26101511-fixed100-native2-v16",
+      "display_name": "ACT · 100演示 · seed511 · 2次开发试验",
+      "object": "glass_beaker_100ml",
+      "development": true,
+      "progress": {
+        "episode_num": 2,
+        "episode_success_num": 0,
+        "success_rate": 0
+      },
+      "protocol": {
+        "method": "act",
+        "seed": 26101021,
+        "episode_length_s": 6,
+        "actual_xy_range_cm": 2,
+        "checkpoint_sha256": "ef39b14abf08669ac6d3101bfead9aa0e4a218f6810a4c71bbaa96dae834fd12",
+        "note": "预先选定模型和冻结位置；完整原试次保留，未作论文SR/SSR验收。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": 26101511
+        },
+        "last": {
+          "global_step": 10000,
+          "epoch": 4999
+        }
+      },
+      "cases": [
+        {
+          "episode": 1,
+          "camera": "chest_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act511-v16/episode_001_chest_camera.mp4",
+          "caption": "100条演示ACT固定seed26101511，实际6秒失败试次；三相机原始视频，非50次正式成功率。"
+        },
+        {
+          "episode": 1,
+          "camera": "head_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act511-v16/episode_001_head_camera.mp4",
+          "caption": "100条演示ACT固定seed26101511，实际6秒失败试次；三相机原始视频，非50次正式成功率。"
+        },
+        {
+          "episode": 1,
+          "camera": "third_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act511-v16/episode_001_third_camera.mp4",
+          "caption": "100条演示ACT固定seed26101511，实际6秒失败试次；三相机原始视频，非50次正式成功率。"
+        },
+        {
+          "episode": 2,
+          "camera": "chest_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act511-v16/episode_002_chest_camera.mp4",
+          "caption": "100条演示ACT固定seed26101511，实际6秒失败试次；三相机原始视频，非50次正式成功率。"
+        },
+        {
+          "episode": 2,
+          "camera": "head_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act511-v16/episode_002_head_camera.mp4",
+          "caption": "100条演示ACT固定seed26101511，实际6秒失败试次；三相机原始视频，非50次正式成功率。"
+        },
+        {
+          "episode": 2,
+          "camera": "third_camera",
+          "success": false,
+          "url": "media/grasp-t500-beaker100-act511-v16/episode_002_third_camera.mp4",
+          "caption": "100条演示ACT固定seed26101511，实际6秒失败试次；三相机原始视频，非50次正式成功率。"
+        }
+      ],
+      "paper_ssr_percent": null,
+      "metric_note": "三种子ACT均完成5000轮，接收端权重及固定150验证帧GPU推理已核验；部署零隐变量与训练动作条件验证误差接近。seed511的两个开发试次均将杯子碰倒，尚未稳定抓起；0/2不是正式50次成功率。实际关节状态/控制诊断等待显存，视觉仍HOLD。"
+    },
     {
       "candidate": "native-dp-glass_beaker_100ml-seed42-50ep",
       "display_name": "native DP 复测 · seed42 · 50集",
