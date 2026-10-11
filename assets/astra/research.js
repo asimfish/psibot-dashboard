@@ -10,7 +10,41 @@
  const status=v=>v===true?'成功':v===false?'失败':'中断';
  const badge=v=>`<span class="status ${v===true?'success':v===false?'failure':'interrupted'}">${status(v)}</span>`;
  function ci(k,n){if(!n)return '尚无有效终态';const z=1.959963984540054,p=k/n,d=1+z*z/n,c=(p+z*z/(2*n))/d,h=z*Math.sqrt(p*(1-p)/n+z*z/(4*n*n))/d;return `${((c-h)*100).toFixed(1)}–${((c+h)*100).toFixed(1)}%`;}
- let study,protocol,episodes,audit,traces,report,nativeGallery,development,currentTask='fr3_place',currentRow='',currentEpisode='';
+ let study,protocol,episodes,audit,traces,report,nativeGallery,development,formal,currentFormalTask='fr3_place',currentFormalTrial='',currentTask='fr3_place',currentRow='',currentEpisode='';
+ const formalTaskNames={fr3_place:'FR3 放置',psi_grasp:'PsiBot 抓取',psi_pick_place_100ml:'PsiBot 100ml 放置',psi_roundtrip_100ml:'PsiBot 100ml 往返'};
+ const formalNames={...names,minus_H:'删除图像/动作历史',minus_M:'删除文字记忆',minus_C:'删除分类执行反馈',minus_head:'删除头部 RGB',minus_chest:'删除胸部 RGB',minus_third:'删除第三视角 RGB',minus_wrist:'删除腕部 RGB',rgb_half_resolution:'RGB 降至 320×240'};
+ const formalDifference=c=>({rich:'全部输入',minus_S:'S 末端及基座位姿/开口不提供',minus_J:'J 关节角与速度不提供',minus_K:'K 相机标定不提供',minus_F:'F 数值执行误差不提供',minus_H:'H 最近两轮图像与自身动作不提供',minus_M:'M 自身文字记忆每轮置空',minus_C:'C 分类执行状态不提供',minus_head:'仅移除头部 RGB；K 标定仍保留',minus_chest:'仅移除胸部 RGB；K 标定仍保留',minus_third:'仅移除第三视角 RGB；K 标定仍保留',minus_wrist:'仅移除腕部 RGB；K 标定仍保留',rgb_half_resolution:'全部 RGB 缩为 320×240；像素标定同步缩放'}[c]||c);
+ function drawFormalCase(){
+  document.querySelectorAll('#formal-cameras video').forEach(v=>v.pause());
+  const r=formal.records.find(x=>x.trial_id===$('formal-select').value);if(!r)return;
+  currentFormalTrial=r.trial_id;
+  $('formal-title').textContent=r.title+' · '+formalNames[r.condition];
+  $('formal-status').innerHTML=`${badge(r.success)} <b>${esc(r.result_explanation)}</b><p class="caption">seed ${r.seed} · ${esc(r.trial_id)} · 原物理门槛逐项核验；模型自称完成不作为成功依据。</p>`;
+  const f=r.decisions[0];
+  $('formal-inputs').innerHTML=`<p><b>模型 / 档位：</b>${esc(r.model)} / ${esc(r.effort)}。<b>本回合输入区别：</b>${esc(formalDifference(r.condition))}。</p><p><b>实际当前相机：</b>${r.current_camera_names.length} 路 RGB，640×480：${r.current_camera_names.map(c=>esc(cameras[c])).join('、')}。独立评估保留 4 路原录像；下方每个机位注明是否发送给模型。</p><p><b>固定信息：</b>任务说明、机器人与动作接口、剩余调用预算${r.task==='psi_grasp'?'、冻结手势库（选择已有模式和闭合程度，最多 0.05 rad 等效协同微调）':''}。<b>首轮非空数值：</b>${f.input_fields.map(k=>esc(keys[k])).join('、')}。</p><p class="caption">首轮 F/H/M/C 原本尚无内容；条件删除是所有轮次都不提供该组，逐轮覆盖见下表。控制器与评分器使用的物体真值不向模型提供。<a href="${esc(safe(r.first_input))}">实际首轮完整输入 JSON →</a> · <a href="${esc(safe(r.all_inputs))}">所有轮次的实际数值输入 →</a></p>`;
+  $('formal-timing').innerHTML=`<dl class="design"><div><dt>交互回合墙钟 / 模型等待</dt><dd>${(r.episode_wall_s/60).toFixed(2)} / ${(r.model_wait_s/60).toFixed(2)} 分钟<small>不含进程与场景启动。${r.success?'':'本回合失败早停，短耗时不代表更快。'}</small></dd></div><div><dt>抓取尝试 / 重试</dt><dd>${r.pickup_attempts} / ${r.pickup_retries}<small>仅原生接触后的抓取重试；不推算放置/路径重规划。</small></dd></div><div><dt>模型调用 / 动作拒绝 / 网络重发</dt><dd>${r.requests} / ${r.action_rejections} / ${r.network_retries}<small>调用次数不等于重试；手工 reset ${r.manual_resets}。</small></dd></div></dl><p class="caption">控制与渲染 ${(r.control_render_wall_s).toFixed(1)} 秒；渲染编码 ${(r.render_encode_wall_s).toFixed(1)} 秒与前项重叠，不能直接相加，且包括交互计时前的首帧。视频为 15fps、1×仿真时间，不包含模型等待。</p>`;
+  $('formal-cameras').innerHTML=r.cameras.map(c=>`<article class="native-camera-card ${c.shown_to_model?'':'withheld-camera'}"><h4>${esc(cameras[c.camera])} · ${c.shown_to_model?'模型输入':'未提供给模型'}</h4><div class="native-camera-pair"><figure><a href="${esc(safe(c.image))}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(safe(c.image))}" alt="${esc(r.title+' '+cameras[c.camera])}${c.shown_to_model?'首轮实际模型输入':'独立评估首帧，未发送给模型'}"></a><figcaption>${c.shown_to_model?'首轮实际模型输入 · 原 PNG':'独立评估录像首帧 · 未发送给模型'}</figcaption></figure><figure><video controls playsinline preload="none" src="${esc(safe(c.video))}" poster="${esc(safe(c.image))}" aria-label="${esc(r.trial_id+' '+cameras[c.camera])}同回合原录像"></video><figcaption>同回合原录像 · ${c.decoded_frames} 帧 · 640×480</figcaption></figure></div><p><b>视角 / 画面质量：</b>${esc(c.view_note)}</p><p class="caption">首、中、末样本已实际查看，完整录像已解码；保留原简单材质及遮挡，不声称人工看过每一帧。</p></article>`).join('');
+  $('formal-decisions').innerHTML=`<table><caption>所有模型回执已核为 Astra/xhigh。图片数含当前 RGB 与最近两轮历史帧；下方公开图片为首轮。</caption><thead><tr><th>轮次</th><th>发送图片</th><th>非空数值</th><th>历史项</th><th>文字记忆</th><th>执行状态</th></tr></thead><tbody>${r.decisions.map(d=>`<tr><td>${d.decision}</td><td>${d.images_sent}</td><td>${esc(d.input_fields.join(' / '))}</td><td>${d.history_entries}</td><td>${d.memory_deleted?'本条件删除':d.memory_characters+' 字符'}</td><td>${esc(d.action_status===null?'无内容':typeof d.action_status==='string'?d.action_status:JSON.stringify(d.action_status))}</td></tr>`).join('')}</tbody></table>`;
+  $('formal-checks').innerHTML=`<p class="caption">同任务、同 seed 的初态 SHA 一致；原 120Hz 物理轨迹连续。停止原因：${esc(r.stop_reason)}。<a href="results/astra/formal_accepted_20261011.json">完整指标、门槛与原件 SHA →</a></p><p class="caption">物理门槛：${Object.entries(r.checks).map(([k,v])=>esc(k)+' '+(v?'通过':'失败')).join('；')}</p>`;
+ }
+ function drawFormalTask(){
+  document.querySelectorAll('#formal-cameras video').forEach(v=>v.pause());
+  const rows=formal.records.filter(r=>r.task===currentFormalTask);
+  $('formal-progress').textContent=`正式核收 ${formal.accepted_formal_trials} / ${formal.registered_trials} 条；当前任务 ${rows.length} 条。满 20 条的条件组 ${formal.minimum20_cohorts_complete} 个，暂不报成功率。GPU 并发上限 ${formal.resource_policy.max_concurrent_gpu_jobs}，暂停新增提交。`;
+  $('formal-matrix').innerHTML=`<table><caption>${esc(formalTaskNames[currentFormalTask])}：逐条有效结果，开发试运行另计。每条件至少 20 个有效匹配初态后才作正式统计。</caption><thead><tr><th>条件 / 有效进度</th><th>输入区别 / 当前相机</th><th>物理结果</th><th>抓取重试</th><th>交互墙钟 / 模型等待</th><th>同回合输入与录像</th></tr></thead><tbody>${rows.map(r=>`<tr><th scope="row">${esc(formalNames[r.condition])}<small>${rows.filter(x=>x.condition===r.condition).length} / 20 · seed ${r.seed}</small></th><td>${esc(formalDifference(r.condition))}<small>${r.current_camera_names.length} 路当前 RGB</small></td><td>${badge(r.success)}<small>${esc(r.result_explanation)}</small></td><td>${r.pickup_retries}<small>调用 ${r.requests} 次，另计</small></td><td>${(r.episode_wall_s/60).toFixed(2)} / ${(r.model_wait_s/60).toFixed(2)} 分钟${r.success?'':'<small>失败早停</small>'}</td><td><button data-formal="${esc(r.trial_id)}">图片 + 原录像 ▷</button></td></tr>`).join('')||'<tr><td colspan="6">本任务尚无核收的正式终态；100ml 模型接口仍在开发验证。</td></tr>'}</tbody></table>`;
+  $('formal-detail').hidden=!rows.length;if(!rows.length)return;
+  $('formal-select').innerHTML=rows.map(r=>`<option value="${esc(r.trial_id)}">${esc(formalNames[r.condition])} · seed ${r.seed} · ${status(r.success)}</option>`).join('');
+  if(rows.some(r=>r.trial_id===currentFormalTrial))$('formal-select').value=currentFormalTrial;
+  drawFormalCase();
+ }
+ function initFormal(){
+  $('formal-task-select').innerHTML=Object.entries(formalTaskNames).map(([id,label])=>`<option value="${esc(id)}">${esc(label)}</option>`).join('');
+  $('formal-task-select').addEventListener('change',e=>{currentFormalTask=e.target.value;drawFormalTask();});
+  $('formal-select').addEventListener('change',drawFormalCase);
+  document.addEventListener('click',e=>{const b=e.target.closest('[data-formal]');if(b){$('formal-select').value=b.dataset.formal;drawFormalCase();$('formal-detail').scrollIntoView();}});
+  $('supplementary-progress').textContent=`正式核收 ${formal.accepted_formal_trials} / ${formal.registered_trials} 条；满20条的任务/条件组 ${formal.minimum20_cohorts_complete} 个。FR3 与 PsiBot 正式输入删除回合正在执行；100ml 模型接口仍在验证。开发回合、原生资格检查与基础设施中断不计入正式样本。`;
+  drawFormalTask();
+ }
  const rowById=id=>study.rows.find(r=>r.id===id), episodeById=id=>episodes.find(e=>e.episode_id===id), videoById=id=>audit.find(x=>x.episode_id===id&&x.video_url);
  const poster=x=>safe(x?.contact_sheet)||'';
  const median=(s,scale=1)=>s.median===null?'未记录':`${(s.median/scale).toFixed(1)}<small>IQR ${(s.q1/scale).toFixed(1)}–${(s.q3/scale).toFixed(1)} · ${s.n}条${s.missing?' / 缺'+s.missing+'条':''}</small>`;
@@ -66,7 +100,7 @@
  function drawProtocol(){
   const fields={H:'图像/动作历史',M:'文字记忆',C:'分类执行反馈',resolution_only:'仅RGB分辨率',...cameras,...keys};
   const taskNames={fr3_place:'FR3 放置',psi_grasp:'PsiBot 抓取',psi_pick_place_100ml:'100ml 放置',psi_roundtrip_100ml:'100ml 往返'};
-  $('protocol-conditions').innerHTML=protocol.conditions.map(c=>{const applicable=Object.entries(protocol.task_camera_conditions).filter(([,t])=>t.conditions.includes(c.id)).map(([id])=>taskNames[id]);return `<tr><th scope="row">${esc(c.label)}</th><td>${esc(c.changed.length?c.changed.map(k=>fields[k]||k).join('、'):'无删除')}</td><td>${esc(applicable.join('、'))}</td><td>每个适用任务 0 / 20 · 待执行</td><td>同任务固定接口、初态、预算与其他输入</td></tr>`;}).join('');
+  $('protocol-conditions').innerHTML=protocol.conditions.map(c=>{const applicable=Object.entries(protocol.task_camera_conditions).filter(([,t])=>t.conditions.includes(c.id)).map(([id])=>id);return `<tr><th scope="row">${esc(c.label)}</th><td>${esc(c.changed.length?c.changed.map(k=>fields[k]||k).join('、'):'无删除')}</td><td>${esc(applicable.map(id=>taskNames[id]).join('、'))}</td><td>${applicable.map(id=>esc(taskNames[id])+': '+formal.records.filter(r=>r.task===id&&r.condition===c.id).length+' / 20').join('<br>')}</td><td>同任务固定接口、初态、预算与其他输入</td></tr>`;}).join('');
   $('psi-coverage').innerHTML=study.tasks.filter(t=>t.id.startsWith('psi_')).map(t=>{const rr=study.rows.filter(r=>r.task===t.id),n=rr.reduce((a,r)=>a+r.attempts,0);return `<li><button data-task="${esc(t.id)}">${esc(t.title)}</button><span>${n}条原记录 · ${rr.length}个条件${t.id==='psi_roundtrip'?' · 选例':''}</span></li>`;}).join('');
  }
  function drawNativeQualification(){
@@ -95,7 +129,7 @@
  }
  async function init(){
   const load=async n=>{const res=await fetch('results/astra/'+n);if(!res.ok)throw Error(n+' HTTP '+res.status);return res.json();};
-  [study,protocol,episodes,audit,traces,report,nativeGallery,development]=await Promise.all(['input_study_v5.json','protocol_v6.json','episodes.json','video_audit.json','decision_traces.json','experiments.json','native_qualification_20261011.json','development_pilot_20261011.json'].map(load));audit=audit.records;
+  [study,protocol,episodes,audit,traces,report,nativeGallery,development,formal]=await Promise.all(['input_study_v5.json','protocol_v6.json','episodes.json','video_audit.json','decision_traces.json','experiments.json','native_qualification_20261011.json','development_pilot_20261011.json','formal_accepted_20261011.json'].map(load));audit=audit.records;
   const p=new URLSearchParams(location.search),legacy={inputs:'fr3_place',actions:'panda_square',long:'psi_roundtrip'},target=p.get('task')||legacy[p.get('study')];
   if(study.tasks.some(t=>t.id===target))currentTask=target;
   currentRow=study.rows.find(r=>r.task===currentTask&&r.condition===p.get('condition'))?.id||'';
@@ -110,7 +144,7 @@
   });
   $('native-task-select').innerHTML=nativeGallery.records.map(r=>`<option value="${esc(r.task)}">${esc(r.title)}</option>`).join('');$('native-task-select').value='psi_grasp';
   $('native-task-select').addEventListener('change',drawNativeQualification);
-  drawTask();drawProtocol();drawNativeQualification();initDevelopment();$('loading').hidden=true;$('study-content').hidden=false;
+  drawTask();drawProtocol();drawNativeQualification();initDevelopment();initFormal();$('loading').hidden=true;$('study-content').hidden=false;
   $('historical-reasoning').textContent=`FR3相同10初态：medium ${report.paired_e3.medium_successes}/10（Wilson 95% CI ${ci(report.paired_e3.medium_successes,10)}，含1中断），xhigh ${report.paired_e3.xhigh_successes}/10（${ci(report.paired_e3.xhigh_successes,10)}）。这是推理档位对照；匹配录像缺失，不代替输入删除实验。`;
   window.astraStudyReady=true;
  }

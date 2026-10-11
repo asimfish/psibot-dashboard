@@ -1,0 +1,4610 @@
+{
+  "task_instruction": "Control this simulated robot with exactly one execute_motion call per request. Use the PsiBot right hand to grasp the brown bottle around its body, keep it upright within 15 degrees, lift it >=0.05 m and hold stably for >=1 second at COM finite-difference speed <=0.05 m/s. Use the supplied current images and any supplied observation groups; fields explicitly omitted by an input condition are unavailable. Choose one or two wrist-relative waypoints with translation norm <=0.15 m, rotation norm <=0.6 rad, duration 0.25–2 seconds. The action interface and static robot description below are fixed across conditions. Select your own wrist path; no complete task program is provided. Physics pauses during inference. Invalid chunks execute nothing and consume a request. task_done executes the final action followed by a one-second hold for independent evaluation; a model claim alone never establishes success. Avoid penetration greater than 0.002 m. Do not request code or other tools. Record observable visual facts and your own concise plan in the two text fields.",
+  "decisions": [
+    {
+      "decision": 1,
+      "visible_observation": {
+        "static_robot": {
+          "robot": "PsiBot right arm2",
+          "wrist_link": "arm2_link7",
+          "units": "metres, seconds, radians; world Z up; quaternions WXYZ",
+          "action_frame": "Translation and right-multiplied axis-angle rotation in the starting wrist frame. First action starts at measured wrist, subsequent action starts at previous target wrist.",
+          "generic_controller": "Live Jacobian DLS, correction gain 4, arm target slew 0.72 rad/s; no object-aware planner, grasp point, task trajectory or recovery controller.",
+          "hand": {
+            "type": "SafeLab frozen preset library",
+            "library_id": "fcb0f632d960f5959b452209f7ba87a855662847f6f6bedb37a5d92829fb721e",
+            "gesture_ids": [
+              "full",
+              "thumb_full",
+              "pinch",
+              "no_thumb",
+              "no_grasp"
+            ],
+            "closure_fraction": "0 is preset open, 1 is preset closed; named_synergy_delta.preset_closure in [-0.05,0.05] is a bounded, nonaccumulating radian-equivalent refinement.",
+            "preset_targets": {
+              "full": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.9999995772760406,
+                      -0.9603175280823175,
+                      -0.9682538533762702,
+                      -0.3980952037529617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "full",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "full"
+                }
+              },
+              "thumb_full": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  0.05,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      -1.0,
+                      -0.8571429575454099,
+                      -0.8571425952105451,
+                      -0.823129406203175,
+                      -0.829931971537676,
+                      -0.34122450032945617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "thumb_full",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "thumb_full"
+                }
+              },
+              "pinch": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  2.4529996352097028,
+                  2.485499794546497,
+                  2.4509999208103843,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.44999980977421833,
+                      -0.4321428876370428,
+                      -0.4357142340193216,
+                      -0.3980952037529617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "pinch",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "pinch"
+                }
+              },
+              "no_thumb": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.5915999813902928
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.9999995772760406,
+                      -0.9603175280823175,
+                      -0.9682538533762702,
+                      0.0
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "no_thumb",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "no_thumb"
+                }
+              },
+              "no_grasp": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "no_grasp",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "no_grasp"
+                }
+              }
+            },
+            "joint_names": [
+              "hand2_joint_link_1_1",
+              "hand2_joint_link_2_1",
+              "hand2_joint_link_3_1",
+              "hand2_joint_link_4_1",
+              "hand2_joint_link_5_1",
+              "hand2_joint_link_1_2"
+            ],
+            "note": "Targets define static library semantics; never output hand joint angles. Five USD mimic followers remain native."
+          }
+        },
+        "requests_remaining_including_this": 30,
+        "S": {
+          "position_world_m": [
+            -1.2959834337234497,
+            -5.512760639190674,
+            1.3538978099822998
+          ],
+          "quaternion_world_wxyz": [
+            0.2702353298664093,
+            -0.7881494760513306,
+            0.12675444781780243,
+            -0.5382626056671143
+          ],
+          "robot_base_position_world_m": [
+            -1.649999976158142,
+            -5.0,
+            -0.010519921779632568
+          ],
+          "robot_base_quaternion_world_wxyz": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "J": null,
+        "K": {
+          "head_camera": {
+            "K_pixels": [
+              [
+                615.8730332370546,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                615.8730332370546,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                4.2779022836959266e-08,
+                -0.8684111649121298,
+                0.49584478282619426,
+                -1.4460942411438371
+              ],
+              [
+                -0.9999999999999991,
+                -2.894899213961315e-08,
+                3.5574428341499705e-08,
+                -4.965000000000002
+              ],
+              [
+                -1.653902401725672e-08,
+                -0.49584478282619554,
+                -0.8684111649121304,
+                1.6082024469910106
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "chest_camera": {
+            "K_pixels": [
+              [
+                555.5555650987377,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                555.5555650987376,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                4.384457409078169e-09,
+                -0.23554049200376248,
+                0.9718645361502938,
+                -1.5327025035328656
+              ],
+              [
+                -1.0,
+                -3.3901765802379406e-09,
+                3.6897464027607807e-09,
+                -5.012000004877337
+              ],
+              [
+                2.425707797820558e-09,
+                -0.9718645361502939,
+                -0.23554049200376245,
+                1.1096944144487395
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "third_camera": {
+            "K_pixels": [
+              [
+                555.5555650987377,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                555.5555650987376,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                -2.992927681391134e-08,
+                0.07427169595009141,
+                -0.9972380433881853,
+                -0.17535564225681138
+              ],
+              [
+                0.9999999999999994,
+                2.0634252618692948e-08,
+                -2.847538315656851e-08,
+                -4.988999994448692
+              ],
+              [
+                1.846234660159487e-08,
+                -0.9972380433881854,
+                -0.07427169595009205,
+                1.151976349756701
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.9999999999999998
+              ]
+            ]
+          },
+          "wrist_camera": {
+            "K_pixels": [
+              [
+                480.0,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                480.0,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        },
+        "F": null,
+        "memory_from_previous_decision": "",
+        "last_action_status": null,
+        "previous_observations_own_actions": [],
+        "current_camera_names": [
+          "head_camera",
+          "chest_camera",
+          "third_camera",
+          "wrist_camera"
+        ],
+        "current_rgb_dimensions": [
+          640,
+          480
+        ]
+      }
+    },
+    {
+      "decision": 2,
+      "visible_observation": {
+        "static_robot": {
+          "robot": "PsiBot right arm2",
+          "wrist_link": "arm2_link7",
+          "units": "metres, seconds, radians; world Z up; quaternions WXYZ",
+          "action_frame": "Translation and right-multiplied axis-angle rotation in the starting wrist frame. First action starts at measured wrist, subsequent action starts at previous target wrist.",
+          "generic_controller": "Live Jacobian DLS, correction gain 4, arm target slew 0.72 rad/s; no object-aware planner, grasp point, task trajectory or recovery controller.",
+          "hand": {
+            "type": "SafeLab frozen preset library",
+            "library_id": "fcb0f632d960f5959b452209f7ba87a855662847f6f6bedb37a5d92829fb721e",
+            "gesture_ids": [
+              "full",
+              "thumb_full",
+              "pinch",
+              "no_thumb",
+              "no_grasp"
+            ],
+            "closure_fraction": "0 is preset open, 1 is preset closed; named_synergy_delta.preset_closure in [-0.05,0.05] is a bounded, nonaccumulating radian-equivalent refinement.",
+            "preset_targets": {
+              "full": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.9999995772760406,
+                      -0.9603175280823175,
+                      -0.9682538533762702,
+                      -0.3980952037529617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "full",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "full"
+                }
+              },
+              "thumb_full": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  0.05,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      -1.0,
+                      -0.8571429575454099,
+                      -0.8571425952105451,
+                      -0.823129406203175,
+                      -0.829931971537676,
+                      -0.34122450032945617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "thumb_full",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "thumb_full"
+                }
+              },
+              "pinch": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  2.4529996352097028,
+                  2.485499794546497,
+                  2.4509999208103843,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.44999980977421833,
+                      -0.4321428876370428,
+                      -0.4357142340193216,
+                      -0.3980952037529617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "pinch",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "pinch"
+                }
+              },
+              "no_thumb": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.5915999813902928
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.9999995772760406,
+                      -0.9603175280823175,
+                      -0.9682538533762702,
+                      0.0
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "no_thumb",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "no_thumb"
+                }
+              },
+              "no_grasp": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "no_grasp",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "no_grasp"
+                }
+              }
+            },
+            "joint_names": [
+              "hand2_joint_link_1_1",
+              "hand2_joint_link_2_1",
+              "hand2_joint_link_3_1",
+              "hand2_joint_link_4_1",
+              "hand2_joint_link_5_1",
+              "hand2_joint_link_1_2"
+            ],
+            "note": "Targets define static library semantics; never output hand joint angles. Five USD mimic followers remain native."
+          }
+        },
+        "requests_remaining_including_this": 29,
+        "S": {
+          "position_world_m": [
+            -1.2265156507492065,
+            -5.302943706512451,
+            1.1825474500656128
+          ],
+          "quaternion_world_wxyz": [
+            0.270659476518631,
+            -0.7889168858528137,
+            0.12764643132686615,
+            -0.5367123484611511
+          ],
+          "robot_base_position_world_m": [
+            -1.649999976158142,
+            -5.0,
+            -0.010519921779632568
+          ],
+          "robot_base_quaternion_world_wxyz": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "J": null,
+        "K": {
+          "head_camera": {
+            "K_pixels": [
+              [
+                615.8730332370546,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                615.8730332370546,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                4.2779022836959266e-08,
+                -0.8684111649121298,
+                0.49584478282619426,
+                -1.4460942411438371
+              ],
+              [
+                -0.9999999999999991,
+                -2.894899213961315e-08,
+                3.5574428341499705e-08,
+                -4.965000000000002
+              ],
+              [
+                -1.653902401725672e-08,
+                -0.49584478282619554,
+                -0.8684111649121304,
+                1.6082024469910106
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "chest_camera": {
+            "K_pixels": [
+              [
+                555.5555650987377,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                555.5555650987376,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                4.384457409078169e-09,
+                -0.23554049200376248,
+                0.9718645361502938,
+                -1.5327025035328656
+              ],
+              [
+                -1.0,
+                -3.3901765802379406e-09,
+                3.6897464027607807e-09,
+                -5.012000004877337
+              ],
+              [
+                2.425707797820558e-09,
+                -0.9718645361502939,
+                -0.23554049200376245,
+                1.1096944144487395
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "third_camera": {
+            "K_pixels": [
+              [
+                555.5555650987377,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                555.5555650987376,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                -2.992927681391134e-08,
+                0.07427169595009141,
+                -0.9972380433881853,
+                -0.17535564225681138
+              ],
+              [
+                0.9999999999999994,
+                2.0634252618692948e-08,
+                -2.847538315656851e-08,
+                -4.988999994448692
+              ],
+              [
+                1.846234660159487e-08,
+                -0.9972380433881854,
+                -0.07427169595009205,
+                1.151976349756701
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.9999999999999998
+              ]
+            ]
+          },
+          "wrist_camera": {
+            "K_pixels": [
+              [
+                480.0,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                480.0,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        },
+        "F": [
+          {
+            "position_error_m": 0.0014727358939126134,
+            "orientation_error_rad": 0.00363166187889874,
+            "max_hand_joint_error_rad": 0.08127856254577637
+          },
+          {
+            "position_error_m": 0.0015074361581355333,
+            "orientation_error_rad": 0.003983914852142334,
+            "max_hand_joint_error_rad": 0.007619976997375488
+          }
+        ],
+        "memory_from_previous_decision": "Approach stage only; do not close or declare completion. Move the open right hand diagonally toward the space above the bottle, preserving orientation, then reassess hand/body alignment visually. Initial wrist world (-1.296,-5.513,1.354), quaternion (0.270,-0.788,0.127,-0.538). Each local translation below corresponds approximately to world (+0.035,+0.105,-0.085) m. Bottle body estimated near (-1.14,-5.09,0.98); table near z=0.90. Further alignment and a body grasp are needed before lifting.",
+        "last_action_status": "accepted",
+        "previous_observations_own_actions": [
+          {
+            "observation_index": 0,
+            "own_requested_actions": [
+              {
+                "duration_s": 2,
+                "hand": {
+                  "gesture_id": "no_grasp",
+                  "closure_fraction": 0,
+                  "named_synergy_delta": {
+                    "preset_closure": 0
+                  }
+                },
+                "delta_position_wrist_m": [
+                  -0.1042,
+                  -0.0353,
+                  0.0858
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "duration_s": 2,
+                "hand": {
+                  "gesture_id": "no_grasp",
+                  "closure_fraction": 0,
+                  "named_synergy_delta": {
+                    "preset_closure": 0
+                  }
+                },
+                "delta_position_wrist_m": [
+                  -0.1042,
+                  -0.0353,
+                  0.0858
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "current_camera_names": [
+          "head_camera",
+          "chest_camera",
+          "third_camera",
+          "wrist_camera"
+        ],
+        "current_rgb_dimensions": [
+          640,
+          480
+        ]
+      }
+    },
+    {
+      "decision": 3,
+      "visible_observation": {
+        "static_robot": {
+          "robot": "PsiBot right arm2",
+          "wrist_link": "arm2_link7",
+          "units": "metres, seconds, radians; world Z up; quaternions WXYZ",
+          "action_frame": "Translation and right-multiplied axis-angle rotation in the starting wrist frame. First action starts at measured wrist, subsequent action starts at previous target wrist.",
+          "generic_controller": "Live Jacobian DLS, correction gain 4, arm target slew 0.72 rad/s; no object-aware planner, grasp point, task trajectory or recovery controller.",
+          "hand": {
+            "type": "SafeLab frozen preset library",
+            "library_id": "fcb0f632d960f5959b452209f7ba87a855662847f6f6bedb37a5d92829fb721e",
+            "gesture_ids": [
+              "full",
+              "thumb_full",
+              "pinch",
+              "no_thumb",
+              "no_grasp"
+            ],
+            "closure_fraction": "0 is preset open, 1 is preset closed; named_synergy_delta.preset_closure in [-0.05,0.05] is a bounded, nonaccumulating radian-equivalent refinement.",
+            "preset_targets": {
+              "full": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.9999995772760406,
+                      -0.9603175280823175,
+                      -0.9682538533762702,
+                      -0.3980952037529617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "full",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "full"
+                }
+              },
+              "thumb_full": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  0.05,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      -1.0,
+                      -0.8571429575454099,
+                      -0.8571425952105451,
+                      -0.823129406203175,
+                      -0.829931971537676,
+                      -0.34122450032945617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "thumb_full",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "thumb_full"
+                }
+              },
+              "pinch": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  2.4529996352097028,
+                  2.485499794546497,
+                  2.4509999208103843,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.44999980977421833,
+                      -0.4321428876370428,
+                      -0.4357142340193216,
+                      -0.3980952037529617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "pinch",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "pinch"
+                }
+              },
+              "no_thumb": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.5915999813902928
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.9999995772760406,
+                      -0.9603175280823175,
+                      -0.9682538533762702,
+                      0.0
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "no_thumb",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "no_thumb"
+                }
+              },
+              "no_grasp": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "no_grasp",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "no_grasp"
+                }
+              }
+            },
+            "joint_names": [
+              "hand2_joint_link_1_1",
+              "hand2_joint_link_2_1",
+              "hand2_joint_link_3_1",
+              "hand2_joint_link_4_1",
+              "hand2_joint_link_5_1",
+              "hand2_joint_link_1_2"
+            ],
+            "note": "Targets define static library semantics; never output hand joint angles. Five USD mimic followers remain native."
+          }
+        },
+        "requests_remaining_including_this": 28,
+        "S": {
+          "position_world_m": [
+            -1.201309084892273,
+            -5.2188310623168945,
+            1.1224074363708496
+          ],
+          "quaternion_world_wxyz": [
+            0.26994794607162476,
+            -0.7887900471687317,
+            0.12852413952350616,
+            -0.5370473265647888
+          ],
+          "robot_base_position_world_m": [
+            -1.649999976158142,
+            -5.0,
+            -0.010519921779632568
+          ],
+          "robot_base_quaternion_world_wxyz": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "J": null,
+        "K": {
+          "head_camera": {
+            "K_pixels": [
+              [
+                615.8730332370546,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                615.8730332370546,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                4.2779022836959266e-08,
+                -0.8684111649121298,
+                0.49584478282619426,
+                -1.4460942411438371
+              ],
+              [
+                -0.9999999999999991,
+                -2.894899213961315e-08,
+                3.5574428341499705e-08,
+                -4.965000000000002
+              ],
+              [
+                -1.653902401725672e-08,
+                -0.49584478282619554,
+                -0.8684111649121304,
+                1.6082024469910106
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "chest_camera": {
+            "K_pixels": [
+              [
+                555.5555650987377,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                555.5555650987376,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                4.384457409078169e-09,
+                -0.23554049200376248,
+                0.9718645361502938,
+                -1.5327025035328656
+              ],
+              [
+                -1.0,
+                -3.3901765802379406e-09,
+                3.6897464027607807e-09,
+                -5.012000004877337
+              ],
+              [
+                2.425707797820558e-09,
+                -0.9718645361502939,
+                -0.23554049200376245,
+                1.1096944144487395
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "third_camera": {
+            "K_pixels": [
+              [
+                555.5555650987377,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                555.5555650987376,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                -2.992927681391134e-08,
+                0.07427169595009141,
+                -0.9972380433881853,
+                -0.17535564225681138
+              ],
+              [
+                0.9999999999999994,
+                2.0634252618692948e-08,
+                -2.847538315656851e-08,
+                -4.988999994448692
+              ],
+              [
+                1.846234660159487e-08,
+                -0.9972380433881854,
+                -0.07427169595009205,
+                1.151976349756701
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.9999999999999998
+              ]
+            ]
+          },
+          "wrist_camera": {
+            "K_pixels": [
+              [
+                480.0,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                480.0,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        },
+        "F": [
+          {
+            "position_error_m": 0.0009197964100167155,
+            "orientation_error_rad": 0.002370587084442377,
+            "max_hand_joint_error_rad": 0.019298791885375977
+          }
+        ],
+        "memory_from_previous_decision": "Continue staged open-hand approach; not ready to close or lift. Current wrist is (-1.2265,-5.3029,1.1825), quaternion (0.2707,-0.7889,0.1276,-0.5367). Requested local motion approximates world (+0.025,+0.085,-0.060) m, bringing wrist toward (-1.2015,-5.2179,1.1225) without changing orientation. Reassess thumb/palm clearance and body alignment before further descent. Camera-based bottle estimate: x~-1.14, y~-5.09, body z~0.98-1.02, top~1.08, table~0.935; estimates only.",
+        "last_action_status": "accepted",
+        "previous_observations_own_actions": [
+          {
+            "observation_index": 0,
+            "own_requested_actions": [
+              {
+                "duration_s": 2,
+                "hand": {
+                  "gesture_id": "no_grasp",
+                  "closure_fraction": 0,
+                  "named_synergy_delta": {
+                    "preset_closure": 0
+                  }
+                },
+                "delta_position_wrist_m": [
+                  -0.1042,
+                  -0.0353,
+                  0.0858
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "duration_s": 2,
+                "hand": {
+                  "gesture_id": "no_grasp",
+                  "closure_fraction": 0,
+                  "named_synergy_delta": {
+                    "preset_closure": 0
+                  }
+                },
+                "delta_position_wrist_m": [
+                  -0.1042,
+                  -0.0353,
+                  0.0858
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "observation_index": 1,
+            "own_requested_actions": [
+              {
+                "duration_s": 2,
+                "hand": {
+                  "gesture_id": "no_grasp",
+                  "closure_fraction": 0,
+                  "named_synergy_delta": {
+                    "preset_closure": 0
+                  }
+                },
+                "delta_position_wrist_m": [
+                  -0.0787,
+                  -0.0337,
+                  0.0642
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "current_camera_names": [
+          "head_camera",
+          "chest_camera",
+          "third_camera",
+          "wrist_camera"
+        ],
+        "current_rgb_dimensions": [
+          640,
+          480
+        ]
+      }
+    },
+    {
+      "decision": 4,
+      "visible_observation": {
+        "static_robot": {
+          "robot": "PsiBot right arm2",
+          "wrist_link": "arm2_link7",
+          "units": "metres, seconds, radians; world Z up; quaternions WXYZ",
+          "action_frame": "Translation and right-multiplied axis-angle rotation in the starting wrist frame. First action starts at measured wrist, subsequent action starts at previous target wrist.",
+          "generic_controller": "Live Jacobian DLS, correction gain 4, arm target slew 0.72 rad/s; no object-aware planner, grasp point, task trajectory or recovery controller.",
+          "hand": {
+            "type": "SafeLab frozen preset library",
+            "library_id": "fcb0f632d960f5959b452209f7ba87a855662847f6f6bedb37a5d92829fb721e",
+            "gesture_ids": [
+              "full",
+              "thumb_full",
+              "pinch",
+              "no_thumb",
+              "no_grasp"
+            ],
+            "closure_fraction": "0 is preset open, 1 is preset closed; named_synergy_delta.preset_closure in [-0.05,0.05] is a bounded, nonaccumulating radian-equivalent refinement.",
+            "preset_targets": {
+              "full": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.9999995772760406,
+                      -0.9603175280823175,
+                      -0.9682538533762702,
+                      -0.3980952037529617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "full",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "full"
+                }
+              },
+              "thumb_full": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  0.05,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      -1.0,
+                      -0.8571429575454099,
+                      -0.8571425952105451,
+                      -0.823129406203175,
+                      -0.829931971537676,
+                      -0.34122450032945617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "thumb_full",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "thumb_full"
+                }
+              },
+              "pinch": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  2.4529996352097028,
+                  2.485499794546497,
+                  2.4509999208103843,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.44999980977421833,
+                      -0.4321428876370428,
+                      -0.4357142340193216,
+                      -0.3980952037529617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "pinch",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "pinch"
+                }
+              },
+              "no_thumb": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.5915999813902928
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.9999995772760406,
+                      -0.9603175280823175,
+                      -0.9682538533762702,
+                      0.0
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "no_thumb",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "no_thumb"
+                }
+              },
+              "no_grasp": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "no_grasp",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "no_grasp"
+                }
+              }
+            },
+            "joint_names": [
+              "hand2_joint_link_1_1",
+              "hand2_joint_link_2_1",
+              "hand2_joint_link_3_1",
+              "hand2_joint_link_4_1",
+              "hand2_joint_link_5_1",
+              "hand2_joint_link_1_2"
+            ],
+            "note": "Targets define static library semantics; never output hand joint angles. Five USD mimic followers remain native."
+          }
+        },
+        "requests_remaining_including_this": 27,
+        "S": {
+          "position_world_m": [
+            -1.2019245624542236,
+            -5.226905822753906,
+            1.0809882879257202
+          ],
+          "quaternion_world_wxyz": [
+            0.269836962223053,
+            -0.7897202968597412,
+            0.12917111814022064,
+            -0.5355789065361023
+          ],
+          "robot_base_position_world_m": [
+            -1.649999976158142,
+            -5.0,
+            -0.010519921779632568
+          ],
+          "robot_base_quaternion_world_wxyz": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "J": null,
+        "K": {
+          "head_camera": {
+            "K_pixels": [
+              [
+                615.8730332370546,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                615.8730332370546,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                4.2779022836959266e-08,
+                -0.8684111649121298,
+                0.49584478282619426,
+                -1.4460942411438371
+              ],
+              [
+                -0.9999999999999991,
+                -2.894899213961315e-08,
+                3.5574428341499705e-08,
+                -4.965000000000002
+              ],
+              [
+                -1.653902401725672e-08,
+                -0.49584478282619554,
+                -0.8684111649121304,
+                1.6082024469910106
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "chest_camera": {
+            "K_pixels": [
+              [
+                555.5555650987377,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                555.5555650987376,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                4.384457409078169e-09,
+                -0.23554049200376248,
+                0.9718645361502938,
+                -1.5327025035328656
+              ],
+              [
+                -1.0,
+                -3.3901765802379406e-09,
+                3.6897464027607807e-09,
+                -5.012000004877337
+              ],
+              [
+                2.425707797820558e-09,
+                -0.9718645361502939,
+                -0.23554049200376245,
+                1.1096944144487395
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "third_camera": {
+            "K_pixels": [
+              [
+                555.5555650987377,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                555.5555650987376,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                -2.992927681391134e-08,
+                0.07427169595009141,
+                -0.9972380433881853,
+                -0.17535564225681138
+              ],
+              [
+                0.9999999999999994,
+                2.0634252618692948e-08,
+                -2.847538315656851e-08,
+                -4.988999994448692
+              ],
+              [
+                1.846234660159487e-08,
+                -0.9972380433881854,
+                -0.07427169595009205,
+                1.151976349756701
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.9999999999999998
+              ]
+            ]
+          },
+          "wrist_camera": {
+            "K_pixels": [
+              [
+                480.0,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                480.0,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        },
+        "F": [
+          {
+            "position_error_m": 0.0015532784163951874,
+            "orientation_error_rad": 0.003716050647199154,
+            "max_hand_joint_error_rad": 0.007544517517089844
+          }
+        ],
+        "memory_from_previous_decision": "Make a cautious body-height adjustment, not a grasp or lift. Keep the hand open and orientation fixed. Requested local translation approximates world (0,-0.008,-0.040) m: descend 4 cm while backing away laterally 8 mm to preserve thumb clearance. Expected wrist approximately (-1.2013,-5.2268,1.0824). Reassess the thumb/body gap and whether the bottle can enter the open palm before closing. Bottle appears upright; camera estimate center x~-1.13,y~-5.09, body z~1.00; estimates only.",
+        "last_action_status": "accepted",
+        "previous_observations_own_actions": [
+          {
+            "observation_index": 0,
+            "own_requested_actions": [
+              {
+                "duration_s": 2,
+                "hand": {
+                  "gesture_id": "no_grasp",
+                  "closure_fraction": 0,
+                  "named_synergy_delta": {
+                    "preset_closure": 0
+                  }
+                },
+                "delta_position_wrist_m": [
+                  -0.0787,
+                  -0.0337,
+                  0.0642
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "observation_index": 1,
+            "own_requested_actions": [
+              {
+                "duration_s": 2,
+                "hand": {
+                  "gesture_id": "no_grasp",
+                  "closure_fraction": 0,
+                  "named_synergy_delta": {
+                    "preset_closure": 0
+                  }
+                },
+                "delta_position_wrist_m": [
+                  -0.02717,
+                  0.02912,
+                  0.00879
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "current_camera_names": [
+          "head_camera",
+          "chest_camera",
+          "third_camera",
+          "wrist_camera"
+        ],
+        "current_rgb_dimensions": [
+          640,
+          480
+        ]
+      }
+    },
+    {
+      "decision": 5,
+      "visible_observation": {
+        "static_robot": {
+          "robot": "PsiBot right arm2",
+          "wrist_link": "arm2_link7",
+          "units": "metres, seconds, radians; world Z up; quaternions WXYZ",
+          "action_frame": "Translation and right-multiplied axis-angle rotation in the starting wrist frame. First action starts at measured wrist, subsequent action starts at previous target wrist.",
+          "generic_controller": "Live Jacobian DLS, correction gain 4, arm target slew 0.72 rad/s; no object-aware planner, grasp point, task trajectory or recovery controller.",
+          "hand": {
+            "type": "SafeLab frozen preset library",
+            "library_id": "fcb0f632d960f5959b452209f7ba87a855662847f6f6bedb37a5d92829fb721e",
+            "gesture_ids": [
+              "full",
+              "thumb_full",
+              "pinch",
+              "no_thumb",
+              "no_grasp"
+            ],
+            "closure_fraction": "0 is preset open, 1 is preset closed; named_synergy_delta.preset_closure in [-0.05,0.05] is a bounded, nonaccumulating radian-equivalent refinement.",
+            "preset_targets": {
+              "full": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.9999995772760406,
+                      -0.9603175280823175,
+                      -0.9682538533762702,
+                      -0.3980952037529617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "full",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "full"
+                }
+              },
+              "thumb_full": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  0.05,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      -1.0,
+                      -0.8571429575454099,
+                      -0.8571425952105451,
+                      -0.823129406203175,
+                      -0.829931971537676,
+                      -0.34122450032945617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "thumb_full",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "thumb_full"
+                }
+              },
+              "pinch": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  2.4529996352097028,
+                  2.485499794546497,
+                  2.4509999208103843,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.44999980977421833,
+                      -0.4321428876370428,
+                      -0.4357142340193216,
+                      -0.3980952037529617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "pinch",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "pinch"
+                }
+              },
+              "no_thumb": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.5915999813902928
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.9999995772760406,
+                      -0.9603175280823175,
+                      -0.9682538533762702,
+                      0.0
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "no_thumb",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "no_thumb"
+                }
+              },
+              "no_grasp": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "no_grasp",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "no_grasp"
+                }
+              }
+            },
+            "joint_names": [
+              "hand2_joint_link_1_1",
+              "hand2_joint_link_2_1",
+              "hand2_joint_link_3_1",
+              "hand2_joint_link_4_1",
+              "hand2_joint_link_5_1",
+              "hand2_joint_link_1_2"
+            ],
+            "note": "Targets define static library semantics; never output hand joint angles. Five USD mimic followers remain native."
+          }
+        },
+        "requests_remaining_including_this": 26,
+        "S": {
+          "position_world_m": [
+            -1.2374632358551025,
+            -5.202167987823486,
+            1.07961905002594
+          ],
+          "quaternion_world_wxyz": [
+            0.2694506049156189,
+            -0.7906922698020935,
+            0.12982045114040375,
+            -0.5341803431510925
+          ],
+          "robot_base_position_world_m": [
+            -1.649999976158142,
+            -5.0,
+            -0.010519921779632568
+          ],
+          "robot_base_quaternion_world_wxyz": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "J": null,
+        "K": {
+          "head_camera": {
+            "K_pixels": [
+              [
+                615.8730332370546,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                615.8730332370546,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                4.2779022836959266e-08,
+                -0.8684111649121298,
+                0.49584478282619426,
+                -1.4460942411438371
+              ],
+              [
+                -0.9999999999999991,
+                -2.894899213961315e-08,
+                3.5574428341499705e-08,
+                -4.965000000000002
+              ],
+              [
+                -1.653902401725672e-08,
+                -0.49584478282619554,
+                -0.8684111649121304,
+                1.6082024469910106
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "chest_camera": {
+            "K_pixels": [
+              [
+                555.5555650987377,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                555.5555650987376,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                4.384457409078169e-09,
+                -0.23554049200376248,
+                0.9718645361502938,
+                -1.5327025035328656
+              ],
+              [
+                -1.0,
+                -3.3901765802379406e-09,
+                3.6897464027607807e-09,
+                -5.012000004877337
+              ],
+              [
+                2.425707797820558e-09,
+                -0.9718645361502939,
+                -0.23554049200376245,
+                1.1096944144487395
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "third_camera": {
+            "K_pixels": [
+              [
+                555.5555650987377,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                555.5555650987376,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                -2.992927681391134e-08,
+                0.07427169595009141,
+                -0.9972380433881853,
+                -0.17535564225681138
+              ],
+              [
+                0.9999999999999994,
+                2.0634252618692948e-08,
+                -2.847538315656851e-08,
+                -4.988999994448692
+              ],
+              [
+                1.846234660159487e-08,
+                -0.9972380433881854,
+                -0.07427169595009205,
+                1.151976349756701
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.9999999999999998
+              ]
+            ]
+          },
+          "wrist_camera": {
+            "K_pixels": [
+              [
+                480.0,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                480.0,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        },
+        "F": [
+          {
+            "position_error_m": 0.0014936896041035652,
+            "orientation_error_rad": 0.003726616967469454,
+            "max_hand_joint_error_rad": 0.0086287260055542
+          }
+        ],
+        "memory_from_previous_decision": "Keep the hand open and orientation unchanged. Shift approximately world (-0.035,+0.025,0) m to position the thumb farther behind the bottle in world X while bringing the open hand laterally toward it. This is an alignment step, not closure or lift. Expected wrist approximately (-1.237,-5.202,1.081). Estimated current thumb tip is (-1.148,-5.129,0.990); the requested motion should take it around the outside of the body rather than directly into it. Recheck clearance and body enclosure before approaching further or gradually closing.",
+        "last_action_status": "accepted",
+        "previous_observations_own_actions": [
+          {
+            "observation_index": 0,
+            "own_requested_actions": [
+              {
+                "duration_s": 2,
+                "hand": {
+                  "gesture_id": "no_grasp",
+                  "closure_fraction": 0,
+                  "named_synergy_delta": {
+                    "preset_closure": 0
+                  }
+                },
+                "delta_position_wrist_m": [
+                  -0.02717,
+                  0.02912,
+                  0.00879
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "observation_index": 1,
+            "own_requested_actions": [
+              {
+                "duration_s": 2,
+                "hand": {
+                  "gesture_id": "no_grasp",
+                  "closure_fraction": 0,
+                  "named_synergy_delta": {
+                    "preset_closure": 0
+                  }
+                },
+                "delta_position_wrist_m": [
+                  -0.02608,
+                  -0.0235,
+                  -0.02485
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "current_camera_names": [
+          "head_camera",
+          "chest_camera",
+          "third_camera",
+          "wrist_camera"
+        ],
+        "current_rgb_dimensions": [
+          640,
+          480
+        ]
+      }
+    },
+    {
+      "decision": 6,
+      "visible_observation": {
+        "static_robot": {
+          "robot": "PsiBot right arm2",
+          "wrist_link": "arm2_link7",
+          "units": "metres, seconds, radians; world Z up; quaternions WXYZ",
+          "action_frame": "Translation and right-multiplied axis-angle rotation in the starting wrist frame. First action starts at measured wrist, subsequent action starts at previous target wrist.",
+          "generic_controller": "Live Jacobian DLS, correction gain 4, arm target slew 0.72 rad/s; no object-aware planner, grasp point, task trajectory or recovery controller.",
+          "hand": {
+            "type": "SafeLab frozen preset library",
+            "library_id": "fcb0f632d960f5959b452209f7ba87a855662847f6f6bedb37a5d92829fb721e",
+            "gesture_ids": [
+              "full",
+              "thumb_full",
+              "pinch",
+              "no_thumb",
+              "no_grasp"
+            ],
+            "closure_fraction": "0 is preset open, 1 is preset closed; named_synergy_delta.preset_closure in [-0.05,0.05] is a bounded, nonaccumulating radian-equivalent refinement.",
+            "preset_targets": {
+              "full": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.9999995772760406,
+                      -0.9603175280823175,
+                      -0.9682538533762702,
+                      -0.3980952037529617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "full",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "full"
+                }
+              },
+              "thumb_full": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  0.05,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      -1.0,
+                      -0.8571429575454099,
+                      -0.8571425952105451,
+                      -0.823129406203175,
+                      -0.829931971537676,
+                      -0.34122450032945617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "thumb_full",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "thumb_full"
+                }
+              },
+              "pinch": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  2.4529996352097028,
+                  2.485499794546497,
+                  2.4509999208103843,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.44999980977421833,
+                      -0.4321428876370428,
+                      -0.4357142340193216,
+                      -0.3980952037529617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "pinch",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "pinch"
+                }
+              },
+              "no_thumb": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.5915999813902928
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.9999995772760406,
+                      -0.9603175280823175,
+                      -0.9682538533762702,
+                      0.0
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "no_thumb",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "no_thumb"
+                }
+              },
+              "no_grasp": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "no_grasp",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "no_grasp"
+                }
+              }
+            },
+            "joint_names": [
+              "hand2_joint_link_1_1",
+              "hand2_joint_link_2_1",
+              "hand2_joint_link_3_1",
+              "hand2_joint_link_4_1",
+              "hand2_joint_link_5_1",
+              "hand2_joint_link_1_2"
+            ],
+            "note": "Targets define static library semantics; never output hand joint angles. Five USD mimic followers remain native."
+          }
+        },
+        "requests_remaining_including_this": 25,
+        "S": {
+          "position_world_m": [
+            -1.2449041604995728,
+            -5.178016185760498,
+            1.0649288892745972
+          ],
+          "quaternion_world_wxyz": [
+            0.26869693398475647,
+            -0.7901381850242615,
+            0.13066138327121735,
+            -0.5351739525794983
+          ],
+          "robot_base_position_world_m": [
+            -1.649999976158142,
+            -5.0,
+            -0.010519921779632568
+          ],
+          "robot_base_quaternion_world_wxyz": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "J": null,
+        "K": {
+          "head_camera": {
+            "K_pixels": [
+              [
+                615.8730332370546,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                615.8730332370546,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                4.2779022836959266e-08,
+                -0.8684111649121298,
+                0.49584478282619426,
+                -1.4460942411438371
+              ],
+              [
+                -0.9999999999999991,
+                -2.894899213961315e-08,
+                3.5574428341499705e-08,
+                -4.965000000000002
+              ],
+              [
+                -1.653902401725672e-08,
+                -0.49584478282619554,
+                -0.8684111649121304,
+                1.6082024469910106
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "chest_camera": {
+            "K_pixels": [
+              [
+                555.5555650987377,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                555.5555650987376,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                4.384457409078169e-09,
+                -0.23554049200376248,
+                0.9718645361502938,
+                -1.5327025035328656
+              ],
+              [
+                -1.0,
+                -3.3901765802379406e-09,
+                3.6897464027607807e-09,
+                -5.012000004877337
+              ],
+              [
+                2.425707797820558e-09,
+                -0.9718645361502939,
+                -0.23554049200376245,
+                1.1096944144487395
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "third_camera": {
+            "K_pixels": [
+              [
+                555.5555650987377,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                555.5555650987376,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                -2.992927681391134e-08,
+                0.07427169595009141,
+                -0.9972380433881853,
+                -0.17535564225681138
+              ],
+              [
+                0.9999999999999994,
+                2.0634252618692948e-08,
+                -2.847538315656851e-08,
+                -4.988999994448692
+              ],
+              [
+                1.846234660159487e-08,
+                -0.9972380433881854,
+                -0.07427169595009205,
+                1.151976349756701
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.9999999999999998
+              ]
+            ]
+          },
+          "wrist_camera": {
+            "K_pixels": [
+              [
+                480.0,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                480.0,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        },
+        "F": [
+          {
+            "position_error_m": 0.0010595835046842694,
+            "orientation_error_rad": 0.0032059012446552515,
+            "max_hand_joint_error_rad": 0.03507065773010254
+          }
+        ],
+        "memory_from_previous_decision": "Continue open-hand alignment before closing. This waypoint translates approximately world (-0.008,+0.025,-0.015) m with no rotation, bringing the palm laterally toward the body and slightly down while preserving clearance behind the bottle for the thumb. Expected wrist position (-1.2455,-5.1772,1.0646). Image-based bottle-axis estimate is approximately world (-1.123,-5.083), body middle z about 0.97 m, base about 0.90 m. These are visual estimates, not measured object state. Recheck thumb clearance and whether the body lies between thumb and fingers before applying gradual full-preset closure. Do not lift until enclosure is evident.",
+        "last_action_status": "accepted",
+        "previous_observations_own_actions": [
+          {
+            "observation_index": 0,
+            "own_requested_actions": [
+              {
+                "duration_s": 2,
+                "hand": {
+                  "gesture_id": "no_grasp",
+                  "closure_fraction": 0,
+                  "named_synergy_delta": {
+                    "preset_closure": 0
+                  }
+                },
+                "delta_position_wrist_m": [
+                  -0.02608,
+                  -0.0235,
+                  -0.02485
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "observation_index": 1,
+            "own_requested_actions": [
+              {
+                "duration_s": 2,
+                "hand": {
+                  "gesture_id": "no_grasp",
+                  "closure_fraction": 0,
+                  "named_synergy_delta": {
+                    "preset_closure": 0
+                  }
+                },
+                "delta_position_wrist_m": [
+                  -0.02711,
+                  -0.01272,
+                  0.00413
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "current_camera_names": [
+          "head_camera",
+          "chest_camera",
+          "third_camera",
+          "wrist_camera"
+        ],
+        "current_rgb_dimensions": [
+          640,
+          480
+        ]
+      }
+    },
+    {
+      "decision": 7,
+      "visible_observation": {
+        "static_robot": {
+          "robot": "PsiBot right arm2",
+          "wrist_link": "arm2_link7",
+          "units": "metres, seconds, radians; world Z up; quaternions WXYZ",
+          "action_frame": "Translation and right-multiplied axis-angle rotation in the starting wrist frame. First action starts at measured wrist, subsequent action starts at previous target wrist.",
+          "generic_controller": "Live Jacobian DLS, correction gain 4, arm target slew 0.72 rad/s; no object-aware planner, grasp point, task trajectory or recovery controller.",
+          "hand": {
+            "type": "SafeLab frozen preset library",
+            "library_id": "fcb0f632d960f5959b452209f7ba87a855662847f6f6bedb37a5d92829fb721e",
+            "gesture_ids": [
+              "full",
+              "thumb_full",
+              "pinch",
+              "no_thumb",
+              "no_grasp"
+            ],
+            "closure_fraction": "0 is preset open, 1 is preset closed; named_synergy_delta.preset_closure in [-0.05,0.05] is a bounded, nonaccumulating radian-equivalent refinement.",
+            "preset_targets": {
+              "full": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.9999995772760406,
+                      -0.9603175280823175,
+                      -0.9682538533762702,
+                      -0.3980952037529617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "full",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "full"
+                }
+              },
+              "thumb_full": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  0.05,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      -1.0,
+                      -0.8571429575454099,
+                      -0.8571425952105451,
+                      -0.823129406203175,
+                      -0.829931971537676,
+                      -0.34122450032945617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "thumb_full",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "thumb_full"
+                }
+              },
+              "pinch": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  2.4529996352097028,
+                  2.485499794546497,
+                  2.4509999208103843,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.44999980977421833,
+                      -0.4321428876370428,
+                      -0.4357142340193216,
+                      -0.3980952037529617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "pinch",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "pinch"
+                }
+              },
+              "no_thumb": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.5915999813902928
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.9999995772760406,
+                      -0.9603175280823175,
+                      -0.9682538533762702,
+                      0.0
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "no_thumb",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "no_thumb"
+                }
+              },
+              "no_grasp": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "no_grasp",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "no_grasp"
+                }
+              }
+            },
+            "joint_names": [
+              "hand2_joint_link_1_1",
+              "hand2_joint_link_2_1",
+              "hand2_joint_link_3_1",
+              "hand2_joint_link_4_1",
+              "hand2_joint_link_5_1",
+              "hand2_joint_link_1_2"
+            ],
+            "note": "Targets define static library semantics; never output hand joint angles. Five USD mimic followers remain native."
+          }
+        },
+        "requests_remaining_including_this": 24,
+        "S": {
+          "position_world_m": [
+            -1.244523048400879,
+            -5.178676128387451,
+            1.0650137662887573
+          ],
+          "quaternion_world_wxyz": [
+            0.26804107427597046,
+            -0.7898058891296387,
+            0.13131417334079742,
+            -0.5358332991600037
+          ],
+          "robot_base_position_world_m": [
+            -1.649999976158142,
+            -5.0,
+            -0.010519921779632568
+          ],
+          "robot_base_quaternion_world_wxyz": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "J": null,
+        "K": {
+          "head_camera": {
+            "K_pixels": [
+              [
+                615.8730332370546,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                615.8730332370546,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                4.2779022836959266e-08,
+                -0.8684111649121298,
+                0.49584478282619426,
+                -1.4460942411438371
+              ],
+              [
+                -0.9999999999999991,
+                -2.894899213961315e-08,
+                3.5574428341499705e-08,
+                -4.965000000000002
+              ],
+              [
+                -1.653902401725672e-08,
+                -0.49584478282619554,
+                -0.8684111649121304,
+                1.6082024469910106
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "chest_camera": {
+            "K_pixels": [
+              [
+                555.5555650987377,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                555.5555650987376,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                4.384457409078169e-09,
+                -0.23554049200376248,
+                0.9718645361502938,
+                -1.5327025035328656
+              ],
+              [
+                -1.0,
+                -3.3901765802379406e-09,
+                3.6897464027607807e-09,
+                -5.012000004877337
+              ],
+              [
+                2.425707797820558e-09,
+                -0.9718645361502939,
+                -0.23554049200376245,
+                1.1096944144487395
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "third_camera": {
+            "K_pixels": [
+              [
+                555.5555650987377,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                555.5555650987376,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                -2.992927681391134e-08,
+                0.07427169595009141,
+                -0.9972380433881853,
+                -0.17535564225681138
+              ],
+              [
+                0.9999999999999994,
+                2.0634252618692948e-08,
+                -2.847538315656851e-08,
+                -4.988999994448692
+              ],
+              [
+                1.846234660159487e-08,
+                -0.9972380433881854,
+                -0.07427169595009205,
+                1.151976349756701
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.9999999999999998
+              ]
+            ]
+          },
+          "wrist_camera": {
+            "K_pixels": [
+              [
+                480.0,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                480.0,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        },
+        "F": [
+          {
+            "position_error_m": 0.0007667951285839081,
+            "orientation_error_rad": 0.002367663662880659,
+            "max_hand_joint_error_rad": 0.1848442554473877
+          }
+        ],
+        "memory_from_previous_decision": "Begin a cautious full-preset closure to 0.35 while holding the current wrist position and orientation fixed. Observe whether fingers curl around the bottle body without shifting or tilting it; do not lift yet. Current measured wrist is (-1.24490,-5.17802,1.06493) m. Prior visual bottle-axis estimate was about (-1.123,-5.083), body middle z about 0.97 m and base about 0.90 m, not measured object state. If the bottle stays upright and closure establishes opposing contact, progressively tighten before a world-vertical lift.",
+        "last_action_status": "accepted",
+        "previous_observations_own_actions": [
+          {
+            "observation_index": 0,
+            "own_requested_actions": [
+              {
+                "duration_s": 2,
+                "hand": {
+                  "gesture_id": "no_grasp",
+                  "closure_fraction": 0,
+                  "named_synergy_delta": {
+                    "preset_closure": 0
+                  }
+                },
+                "delta_position_wrist_m": [
+                  -0.02711,
+                  -0.01272,
+                  0.00413
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "observation_index": 1,
+            "own_requested_actions": [
+              {
+                "duration_s": 1.5,
+                "hand": {
+                  "gesture_id": "full",
+                  "closure_fraction": 0.35,
+                  "named_synergy_delta": {
+                    "preset_closure": 0
+                  }
+                },
+                "delta_position_wrist_m": [
+                  0,
+                  0,
+                  0
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "current_camera_names": [
+          "head_camera",
+          "chest_camera",
+          "third_camera",
+          "wrist_camera"
+        ],
+        "current_rgb_dimensions": [
+          640,
+          480
+        ]
+      }
+    },
+    {
+      "decision": 8,
+      "visible_observation": {
+        "static_robot": {
+          "robot": "PsiBot right arm2",
+          "wrist_link": "arm2_link7",
+          "units": "metres, seconds, radians; world Z up; quaternions WXYZ",
+          "action_frame": "Translation and right-multiplied axis-angle rotation in the starting wrist frame. First action starts at measured wrist, subsequent action starts at previous target wrist.",
+          "generic_controller": "Live Jacobian DLS, correction gain 4, arm target slew 0.72 rad/s; no object-aware planner, grasp point, task trajectory or recovery controller.",
+          "hand": {
+            "type": "SafeLab frozen preset library",
+            "library_id": "fcb0f632d960f5959b452209f7ba87a855662847f6f6bedb37a5d92829fb721e",
+            "gesture_ids": [
+              "full",
+              "thumb_full",
+              "pinch",
+              "no_thumb",
+              "no_grasp"
+            ],
+            "closure_fraction": "0 is preset open, 1 is preset closed; named_synergy_delta.preset_closure in [-0.05,0.05] is a bounded, nonaccumulating radian-equivalent refinement.",
+            "preset_targets": {
+              "full": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.9999995772760406,
+                      -0.9603175280823175,
+                      -0.9682538533762702,
+                      -0.3980952037529617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "full",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "full"
+                }
+              },
+              "thumb_full": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  0.05,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      -1.0,
+                      -0.8571429575454099,
+                      -0.8571425952105451,
+                      -0.823129406203175,
+                      -0.829931971537676,
+                      -0.34122450032945617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "thumb_full",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "thumb_full"
+                }
+              },
+              "pinch": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  2.4529996352097028,
+                  2.485499794546497,
+                  2.4509999208103843,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.44999980977421833,
+                      -0.4321428876370428,
+                      -0.4357142340193216,
+                      -0.3980952037529617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "pinch",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "pinch"
+                }
+              },
+              "no_thumb": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.5915999813902928
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.9999995772760406,
+                      -0.9603175280823175,
+                      -0.9682538533762702,
+                      0.0
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "no_thumb",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "no_thumb"
+                }
+              },
+              "no_grasp": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "no_grasp",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "no_grasp"
+                }
+              }
+            },
+            "joint_names": [
+              "hand2_joint_link_1_1",
+              "hand2_joint_link_2_1",
+              "hand2_joint_link_3_1",
+              "hand2_joint_link_4_1",
+              "hand2_joint_link_5_1",
+              "hand2_joint_link_1_2"
+            ],
+            "note": "Targets define static library semantics; never output hand joint angles. Five USD mimic followers remain native."
+          }
+        },
+        "requests_remaining_including_this": 23,
+        "S": {
+          "position_world_m": [
+            -1.2440705299377441,
+            -5.179272174835205,
+            1.0652878284454346
+          ],
+          "quaternion_world_wxyz": [
+            0.26750025153160095,
+            -0.7893321514129639,
+            0.1318885087966919,
+            -0.5366597771644592
+          ],
+          "robot_base_position_world_m": [
+            -1.649999976158142,
+            -5.0,
+            -0.010519921779632568
+          ],
+          "robot_base_quaternion_world_wxyz": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "J": null,
+        "K": {
+          "head_camera": {
+            "K_pixels": [
+              [
+                615.8730332370546,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                615.8730332370546,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                4.2779022836959266e-08,
+                -0.8684111649121298,
+                0.49584478282619426,
+                -1.4460942411438371
+              ],
+              [
+                -0.9999999999999991,
+                -2.894899213961315e-08,
+                3.5574428341499705e-08,
+                -4.965000000000002
+              ],
+              [
+                -1.653902401725672e-08,
+                -0.49584478282619554,
+                -0.8684111649121304,
+                1.6082024469910106
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "chest_camera": {
+            "K_pixels": [
+              [
+                555.5555650987377,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                555.5555650987376,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                4.384457409078169e-09,
+                -0.23554049200376248,
+                0.9718645361502938,
+                -1.5327025035328656
+              ],
+              [
+                -1.0,
+                -3.3901765802379406e-09,
+                3.6897464027607807e-09,
+                -5.012000004877337
+              ],
+              [
+                2.425707797820558e-09,
+                -0.9718645361502939,
+                -0.23554049200376245,
+                1.1096944144487395
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "third_camera": {
+            "K_pixels": [
+              [
+                555.5555650987377,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                555.5555650987376,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                -2.992927681391134e-08,
+                0.07427169595009141,
+                -0.9972380433881853,
+                -0.17535564225681138
+              ],
+              [
+                0.9999999999999994,
+                2.0634252618692948e-08,
+                -2.847538315656851e-08,
+                -4.988999994448692
+              ],
+              [
+                1.846234660159487e-08,
+                -0.9972380433881854,
+                -0.07427169595009205,
+                1.151976349756701
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.9999999999999998
+              ]
+            ]
+          },
+          "wrist_camera": {
+            "K_pixels": [
+              [
+                480.0,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                480.0,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        },
+        "F": [
+          {
+            "position_error_m": 0.0007969657308422029,
+            "orientation_error_rad": 0.0024736893828958273,
+            "max_hand_joint_error_rad": 0.3542346954345703
+          }
+        ],
+        "memory_from_previous_decision": "Increase the full-preset closure from 0.35 to 0.55 while keeping the wrist fixed; allow 1.5 seconds to settle. Check for opposing body contact and any bottle displacement or tilt before tightening further or lifting. Current wrist world position is (-1.244523,-5.178676,1.065014) m, quaternion WXYZ (0.268041,-0.789806,0.131314,-0.535833). No successful lift is established yet. Preserve orientation during a subsequent world-vertical lift once the grasp looks secure.",
+        "last_action_status": "accepted",
+        "previous_observations_own_actions": [
+          {
+            "observation_index": 0,
+            "own_requested_actions": [
+              {
+                "duration_s": 1.5,
+                "hand": {
+                  "gesture_id": "full",
+                  "closure_fraction": 0.35,
+                  "named_synergy_delta": {
+                    "preset_closure": 0
+                  }
+                },
+                "delta_position_wrist_m": [
+                  0,
+                  0,
+                  0
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "observation_index": 1,
+            "own_requested_actions": [
+              {
+                "duration_s": 1.5,
+                "hand": {
+                  "gesture_id": "full",
+                  "closure_fraction": 0.55,
+                  "named_synergy_delta": {
+                    "preset_closure": 0
+                  }
+                },
+                "delta_position_wrist_m": [
+                  0,
+                  0,
+                  0
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "current_camera_names": [
+          "head_camera",
+          "chest_camera",
+          "third_camera",
+          "wrist_camera"
+        ],
+        "current_rgb_dimensions": [
+          640,
+          480
+        ]
+      }
+    },
+    {
+      "decision": 9,
+      "visible_observation": {
+        "static_robot": {
+          "robot": "PsiBot right arm2",
+          "wrist_link": "arm2_link7",
+          "units": "metres, seconds, radians; world Z up; quaternions WXYZ",
+          "action_frame": "Translation and right-multiplied axis-angle rotation in the starting wrist frame. First action starts at measured wrist, subsequent action starts at previous target wrist.",
+          "generic_controller": "Live Jacobian DLS, correction gain 4, arm target slew 0.72 rad/s; no object-aware planner, grasp point, task trajectory or recovery controller.",
+          "hand": {
+            "type": "SafeLab frozen preset library",
+            "library_id": "fcb0f632d960f5959b452209f7ba87a855662847f6f6bedb37a5d92829fb721e",
+            "gesture_ids": [
+              "full",
+              "thumb_full",
+              "pinch",
+              "no_thumb",
+              "no_grasp"
+            ],
+            "closure_fraction": "0 is preset open, 1 is preset closed; named_synergy_delta.preset_closure in [-0.05,0.05] is a bounded, nonaccumulating radian-equivalent refinement.",
+            "preset_targets": {
+              "full": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.9999995772760406,
+                      -0.9603175280823175,
+                      -0.9682538533762702,
+                      -0.3980952037529617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "full",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "full"
+                }
+              },
+              "thumb_full": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  0.05,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      -1.0,
+                      -0.8571429575454099,
+                      -0.8571425952105451,
+                      -0.823129406203175,
+                      -0.829931971537676,
+                      -0.34122450032945617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "thumb_full",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "thumb_full"
+                }
+              },
+              "pinch": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  2.4529996352097028,
+                  2.485499794546497,
+                  2.4509999208103843,
+                  0.08999999713796084
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.44999980977421833,
+                      -0.4321428876370428,
+                      -0.4357142340193216,
+                      -0.3980952037529617
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "pinch",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "pinch"
+                }
+              },
+              "no_thumb": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  1.799999770756056,
+                  1.759999890131393,
+                  1.8199997110683876,
+                  1.779999963601779,
+                  0.5915999813902928
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      -1.0,
+                      -0.9999995772760406,
+                      -0.9603175280823175,
+                      -0.9682538533762702,
+                      0.0
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "no_thumb",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "no_thumb"
+                }
+              },
+              "no_grasp": {
+                "open": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "closed": [
+                  1.5199999084709084,
+                  3.0599998398942923,
+                  3.019999426637411,
+                  3.029999862846768,
+                  2.999999885799243,
+                  0.5915999813902928
+                ],
+                "synergies": {
+                  "preset_closure": {
+                    "basis": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "bound": 0.05
+                  }
+                },
+                "source_mode": "no_grasp",
+                "provider_config": {
+                  "hand_joint_direction": "upper_is_open",
+                  "hand_open_limit_margin": 0.05,
+                  "finger_close_scale": 1.0,
+                  "pinch_secondary_close_scale": 0.45,
+                  "no_thumb_primary_close_scale": 1.0,
+                  "no_thumb_secondary_close_scale": 1.0,
+                  "finger_joint_close_scales": null,
+                  "aoyi_joint_open_targets": null,
+                  "aoyi_joint_close_targets": null,
+                  "aoyi_thumb_spread_close": null,
+                  "finger_grasp_mode": "no_grasp"
+                }
+              }
+            },
+            "joint_names": [
+              "hand2_joint_link_1_1",
+              "hand2_joint_link_2_1",
+              "hand2_joint_link_3_1",
+              "hand2_joint_link_4_1",
+              "hand2_joint_link_5_1",
+              "hand2_joint_link_1_2"
+            ],
+            "note": "Targets define static library semantics; never output hand joint angles. Five USD mimic followers remain native."
+          }
+        },
+        "requests_remaining_including_this": 22,
+        "S": {
+          "position_world_m": [
+            -1.2446389198303223,
+            -5.179597854614258,
+            1.088781476020813
+          ],
+          "quaternion_world_wxyz": [
+            0.2669006288051605,
+            -0.790457010269165,
+            0.13254451751708984,
+            -0.5351389050483704
+          ],
+          "robot_base_position_world_m": [
+            -1.649999976158142,
+            -5.0,
+            -0.010519921779632568
+          ],
+          "robot_base_quaternion_world_wxyz": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "J": null,
+        "K": {
+          "head_camera": {
+            "K_pixels": [
+              [
+                615.8730332370546,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                615.8730332370546,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                4.2779022836959266e-08,
+                -0.8684111649121298,
+                0.49584478282619426,
+                -1.4460942411438371
+              ],
+              [
+                -0.9999999999999991,
+                -2.894899213961315e-08,
+                3.5574428341499705e-08,
+                -4.965000000000002
+              ],
+              [
+                -1.653902401725672e-08,
+                -0.49584478282619554,
+                -0.8684111649121304,
+                1.6082024469910106
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "chest_camera": {
+            "K_pixels": [
+              [
+                555.5555650987377,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                555.5555650987376,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                4.384457409078169e-09,
+                -0.23554049200376248,
+                0.9718645361502938,
+                -1.5327025035328656
+              ],
+              [
+                -1.0,
+                -3.3901765802379406e-09,
+                3.6897464027607807e-09,
+                -5.012000004877337
+              ],
+              [
+                2.425707797820558e-09,
+                -0.9718645361502939,
+                -0.23554049200376245,
+                1.1096944144487395
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "third_camera": {
+            "K_pixels": [
+              [
+                555.5555650987377,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                555.5555650987376,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                -2.992927681391134e-08,
+                0.07427169595009141,
+                -0.9972380433881853,
+                -0.17535564225681138
+              ],
+              [
+                0.9999999999999994,
+                2.0634252618692948e-08,
+                -2.847538315656851e-08,
+                -4.988999994448692
+              ],
+              [
+                1.846234660159487e-08,
+                -0.9972380433881854,
+                -0.07427169595009205,
+                1.151976349756701
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.9999999999999998
+              ]
+            ]
+          },
+          "wrist_camera": {
+            "K_pixels": [
+              [
+                480.0,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                480.0,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        },
+        "F": [
+          {
+            "position_error_m": 0.0016921639908105135,
+            "orientation_error_rad": 0.0040884134359657764,
+            "max_hand_joint_error_rad": 0.3003987967967987
+          },
+          {
+            "position_error_m": 0.0016423891065642238,
+            "orientation_error_rad": 0.004180086310952902,
+            "max_hand_joint_error_rad": 0.3002931773662567
+          }
+        ],
+        "memory_from_previous_decision": "Test the existing 0.55 full-preset grasp without further tightening: raise the wrist 0.025 m along world Z, preserving orientation, then hold its target for 1 second. The starting wrist quaternion maps world-up into local approximately (0.77663,-0.56385,-0.28088). Compare bottle base height and tilt with the current views to determine whether it follows the hand without slipping. If stable, lift another 0.035–0.045 m vertically and perform the final hold; if it does not follow, reassess body contact before lifting farther. This is only an intermediate grasp test, not a success claim.",
+        "last_action_status": "accepted",
+        "previous_observations_own_actions": [
+          {
+            "observation_index": 0,
+            "own_requested_actions": [
+              {
+                "duration_s": 1.5,
+                "hand": {
+                  "gesture_id": "full",
+                  "closure_fraction": 0.55,
+                  "named_synergy_delta": {
+                    "preset_closure": 0
+                  }
+                },
+                "delta_position_wrist_m": [
+                  0,
+                  0,
+                  0
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "observation_index": 1,
+            "own_requested_actions": [
+              {
+                "duration_s": 1.5,
+                "hand": {
+                  "gesture_id": "full",
+                  "closure_fraction": 0.55,
+                  "named_synergy_delta": {
+                    "preset_closure": 0
+                  }
+                },
+                "delta_position_wrist_m": [
+                  0.019416,
+                  -0.014096,
+                  -0.007022
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "duration_s": 1,
+                "hand": {
+                  "gesture_id": "full",
+                  "closure_fraction": 0.55,
+                  "named_synergy_delta": {
+                    "preset_closure": 0
+                  }
+                },
+                "delta_position_wrist_m": [
+                  0,
+                  0,
+                  0
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "current_camera_names": [
+          "head_camera",
+          "chest_camera",
+          "third_camera",
+          "wrist_camera"
+        ],
+        "current_rgb_dimensions": [
+          640,
+          480
+        ]
+      }
+    }
+  ]
+}

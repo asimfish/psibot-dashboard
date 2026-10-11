@@ -1,0 +1,1733 @@
+{
+  "task_instruction": "Control this simulated robot with exactly one execute_motion call per request. Pick up the brown bottle, place it upright at the green target pad center, release and withdraw. Final horizontal center error <=0.04 m, upright within 15 degrees, stable >=1 second at COM finite-difference speed <=0.05 m/s, gripper open and no robot-object contact. Use the supplied current images and any supplied observation groups; fields explicitly omitted by an input condition are unavailable. Choose one or two wrist-relative waypoints with translation norm <=0.15 m, rotation norm <=0.6 rad, duration 0.25–2 seconds. The action interface and static robot description below are fixed across conditions. Select your own wrist path; no complete task program is provided. Physics pauses during inference. Invalid chunks execute nothing and consume a request. task_done executes the final action followed by a one-second hold for independent evaluation; a model claim alone never establishes success. Avoid penetration greater than 0.002 m. Do not request code or other tools. Record observable visual facts and your own concise plan in the two text fields.",
+  "decisions": [
+    {
+      "decision": 1,
+      "visible_observation": {
+        "static_robot": {
+          "robot": "Franka FR3",
+          "wrist_link": "fr3_hand",
+          "units": "metres, seconds, radians; world Z up; quaternions WXYZ",
+          "action_frame": "Translation and right-multiplied axis-angle rotation in the starting wrist frame. First action starts at measured wrist, subsequent action starts at previous target wrist.",
+          "generic_controller": "Live Jacobian DLS, correction gain 4, arm target slew 0.72 rad/s; no object-aware planner, grasp point, task trajectory or recovery controller.",
+          "hand": {
+            "type": "parallel_gripper",
+            "total_separation_m": [
+              0.0,
+              0.07999999821186066
+            ]
+          }
+        },
+        "requests_remaining_including_this": 30,
+        "S": {
+          "position_world_m": [
+            -0.8428294062614441,
+            -4.799976348876953,
+            1.5399258136749268
+          ],
+          "quaternion_world_wxyz": [
+            -2.6995159714715555e-05,
+            0.9999998807907104,
+            0.00021511940576601774,
+            -0.0004724037426058203
+          ],
+          "robot_base_position_world_m": [
+            -1.149999976158142,
+            -4.800000190734863,
+            0.9499998688697815
+          ],
+          "robot_base_quaternion_world_wxyz": [
+            1.000000238418579,
+            -7.084821618263959e-11,
+            9.581160309579673e-10,
+            1.7041876243517606e-10
+          ],
+          "gripper_width_m": 0.07999970018863678
+        },
+        "J": {
+          "arm_joint_position_rad": [
+            9.013628186949063e-06,
+            -0.7843809127807617,
+            3.1539795600110665e-05,
+            -2.356325149536133,
+            7.627892046002671e-05,
+            1.5709999799728394,
+            0.7850000262260437
+          ],
+          "arm_joint_velocity_rad_s": [
+            -9.234264143742621e-05,
+            -0.006212945561856031,
+            -0.0003164770023431629,
+            0.0032783474307507277,
+            -0.0007632398046553135,
+            1.0081083701152238e-06,
+            -5.233590627540252e-08
+          ]
+        },
+        "K": {
+          "head_camera": {
+            "K_pixels": [
+              [
+                554.3306917472469,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                554.3306917472469,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                0.8362443694874696,
+                0.2784660512721505,
+                -0.4723896831953475,
+                -0.4499999880790712
+              ],
+              [
+                0.5483569590152964,
+                -0.42466078280213826,
+                0.7203942427930498,
+                -5.550000190734863
+              ],
+              [
+                -3.250361860602002e-08,
+                -0.8614637994940769,
+                -0.5078189856250234,
+                1.4999999999999996
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "chest_camera": {
+            "K_pixels": [
+              [
+                554.3306917472469,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                554.3306917472469,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                0.7838884144985125,
+                0.38539045682296075,
+                -0.4868194217621127,
+                -0.15000000596046423
+              ],
+              [
+                0.6209017262135835,
+                -0.48655542518842987,
+                0.6146095220582722,
+                -5.949999809265136
+              ],
+              [
+                1.3728328777720356e-08,
+                -0.7840523031083421,
+                -0.6206947607242258,
+                2.299999952316283
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.9999999999999998
+              ]
+            ]
+          },
+          "third_camera": {
+            "K_pixels": [
+              [
+                554.3306917472469,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                554.3306917472469,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                -0.8500000238418579
+              ],
+              [
+                0.0,
+                -1.0,
+                0.0,
+                -4.96999979019165
+              ],
+              [
+                0.0,
+                0.0,
+                -1.0,
+                2.25
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "wrist_camera": {
+            "K_pixels": [
+              [
+                366.4996579879497,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                366.4996579879497,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        },
+        "F": null,
+        "memory_from_previous_decision": "",
+        "last_action_status": null,
+        "previous_observations_own_actions": [],
+        "current_camera_names": [
+          "chest_camera",
+          "third_camera",
+          "wrist_camera"
+        ],
+        "current_rgb_dimensions": [
+          640,
+          480
+        ]
+      }
+    },
+    {
+      "decision": 2,
+      "visible_observation": {
+        "static_robot": {
+          "robot": "Franka FR3",
+          "wrist_link": "fr3_hand",
+          "units": "metres, seconds, radians; world Z up; quaternions WXYZ",
+          "action_frame": "Translation and right-multiplied axis-angle rotation in the starting wrist frame. First action starts at measured wrist, subsequent action starts at previous target wrist.",
+          "generic_controller": "Live Jacobian DLS, correction gain 4, arm target slew 0.72 rad/s; no object-aware planner, grasp point, task trajectory or recovery controller.",
+          "hand": {
+            "type": "parallel_gripper",
+            "total_separation_m": [
+              0.0,
+              0.07999999821186066
+            ]
+          }
+        },
+        "requests_remaining_including_this": 29,
+        "S": {
+          "position_world_m": [
+            -0.8350769877433777,
+            -4.839950084686279,
+            1.2998332977294922
+          ],
+          "quaternion_world_wxyz": [
+            -5.6264063459821045e-05,
+            0.9999997615814209,
+            0.0002023982524406165,
+            -0.0005871158209629357
+          ],
+          "robot_base_position_world_m": [
+            -1.149999976158142,
+            -4.800000190734863,
+            0.9499998688697815
+          ],
+          "robot_base_quaternion_world_wxyz": [
+            1.000000238418579,
+            -7.084821618263959e-11,
+            9.581160309579673e-10,
+            1.7041876243517606e-10
+          ],
+          "gripper_width_m": 0.07999986410140991
+        },
+        "J": {
+          "arm_joint_position_rad": [
+            -0.04254302754998207,
+            -0.6321437358856201,
+            -0.09248699992895126,
+            -2.8880460262298584,
+            -0.07054329663515091,
+            2.2555418014526367,
+            0.7124882340431213
+          ],
+          "arm_joint_velocity_rad_s": [
+            -0.0005829220754094422,
+            -0.004373345989733934,
+            0.0006116681615822017,
+            0.0045337555930018425,
+            -0.0016168062575161457,
+            0.000401411612983793,
+            -0.0003012859378941357
+          ]
+        },
+        "K": {
+          "head_camera": {
+            "K_pixels": [
+              [
+                554.3306917472469,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                554.3306917472469,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                0.8362443694874696,
+                0.2784660512721505,
+                -0.4723896831953475,
+                -0.4499999880790712
+              ],
+              [
+                0.5483569590152964,
+                -0.42466078280213826,
+                0.7203942427930498,
+                -5.550000190734863
+              ],
+              [
+                -3.250361860602002e-08,
+                -0.8614637994940769,
+                -0.5078189856250234,
+                1.4999999999999996
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "chest_camera": {
+            "K_pixels": [
+              [
+                554.3306917472469,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                554.3306917472469,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                0.7838884144985125,
+                0.38539045682296075,
+                -0.4868194217621127,
+                -0.15000000596046423
+              ],
+              [
+                0.6209017262135835,
+                -0.48655542518842987,
+                0.6146095220582722,
+                -5.949999809265136
+              ],
+              [
+                1.3728328777720356e-08,
+                -0.7840523031083421,
+                -0.6206947607242258,
+                2.299999952316283
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.9999999999999998
+              ]
+            ]
+          },
+          "third_camera": {
+            "K_pixels": [
+              [
+                554.3306917472469,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                554.3306917472469,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                -0.8500000238418579
+              ],
+              [
+                0.0,
+                -1.0,
+                0.0,
+                -4.96999979019165
+              ],
+              [
+                0.0,
+                0.0,
+                -1.0,
+                2.25
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "wrist_camera": {
+            "K_pixels": [
+              [
+                366.4996579879497,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                366.4996579879497,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        },
+        "F": [
+          {
+            "position_error_m": 8.91000745468773e-05,
+            "orientation_error_rad": 0.00023977294040378183,
+            "max_finger_joint_error_m": 1.4901161193847656e-07
+          },
+          {
+            "position_error_m": 9.170921839540824e-05,
+            "orientation_error_rad": 0.0002381361846346408,
+            "max_finger_joint_error_m": 1.3783574104309082e-07
+          }
+        ],
+        "memory_from_previous_decision": "Approach upright bottle from above with open fingers. Initial wrist world (-0.843,-4.800,1.540), orientation approximately Rx(pi), so wrist +Z is world down and wrist +Y is world -Y. Estimated bottle XY near (-0.835,-4.84), pad near (-0.817,-5.040), table ~0.94. Lower in two bounded steps to ~1.30 and reassess before grasping.",
+        "last_action_status": "accepted",
+        "previous_observations_own_actions": [
+          {
+            "observation_index": 0,
+            "own_requested_actions": [
+              {
+                "duration_s": 1.5,
+                "delta_position_wrist_m": [
+                  0.008,
+                  0.04,
+                  0.12
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.07999999821186066
+              },
+              {
+                "duration_s": 1.5,
+                "delta_position_wrist_m": [
+                  0,
+                  0,
+                  0.12
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.07999999821186066
+              }
+            ]
+          }
+        ],
+        "current_camera_names": [
+          "chest_camera",
+          "third_camera",
+          "wrist_camera"
+        ],
+        "current_rgb_dimensions": [
+          640,
+          480
+        ]
+      }
+    },
+    {
+      "decision": 3,
+      "visible_observation": {
+        "static_robot": {
+          "robot": "Franka FR3",
+          "wrist_link": "fr3_hand",
+          "units": "metres, seconds, radians; world Z up; quaternions WXYZ",
+          "action_frame": "Translation and right-multiplied axis-angle rotation in the starting wrist frame. First action starts at measured wrist, subsequent action starts at previous target wrist.",
+          "generic_controller": "Live Jacobian DLS, correction gain 4, arm target slew 0.72 rad/s; no object-aware planner, grasp point, task trajectory or recovery controller.",
+          "hand": {
+            "type": "parallel_gripper",
+            "total_separation_m": [
+              0.0,
+              0.07999999821186066
+            ]
+          }
+        },
+        "requests_remaining_including_this": 28,
+        "S": {
+          "position_world_m": [
+            -0.835314154624939,
+            -4.839942932128906,
+            1.1597768068313599
+          ],
+          "quaternion_world_wxyz": [
+            -9.203398803947493e-05,
+            0.9999997019767761,
+            0.00010991853196173906,
+            -0.0006846323958598077
+          ],
+          "robot_base_position_world_m": [
+            -1.149999976158142,
+            -4.800000190734863,
+            0.9499998688697815
+          ],
+          "robot_base_quaternion_world_wxyz": [
+            1.000000238418579,
+            -7.084821618263959e-11,
+            9.581160309579673e-10,
+            1.7041876243517606e-10
+          ],
+          "gripper_width_m": 0.07999983429908752
+        },
+        "J": {
+          "arm_joint_position_rad": [
+            -0.02634984813630581,
+            -0.15099772810935974,
+            -0.11739760637283325,
+            -2.983384132385254,
+            -0.05782147869467735,
+            2.831543207168579,
+            0.6978503465652466
+          ],
+          "arm_joint_velocity_rad_s": [
+            -0.001302161137573421,
+            -0.0029116151854395866,
+            0.0021243258379399776,
+            0.005033581983298063,
+            -0.00526390178129077,
+            0.00015859426639508456,
+            -0.000463728210888803
+          ]
+        },
+        "K": {
+          "head_camera": {
+            "K_pixels": [
+              [
+                554.3306917472469,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                554.3306917472469,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                0.8362443694874696,
+                0.2784660512721505,
+                -0.4723896831953475,
+                -0.4499999880790712
+              ],
+              [
+                0.5483569590152964,
+                -0.42466078280213826,
+                0.7203942427930498,
+                -5.550000190734863
+              ],
+              [
+                -3.250361860602002e-08,
+                -0.8614637994940769,
+                -0.5078189856250234,
+                1.4999999999999996
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "chest_camera": {
+            "K_pixels": [
+              [
+                554.3306917472469,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                554.3306917472469,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                0.7838884144985125,
+                0.38539045682296075,
+                -0.4868194217621127,
+                -0.15000000596046423
+              ],
+              [
+                0.6209017262135835,
+                -0.48655542518842987,
+                0.6146095220582722,
+                -5.949999809265136
+              ],
+              [
+                1.3728328777720356e-08,
+                -0.7840523031083421,
+                -0.6206947607242258,
+                2.299999952316283
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.9999999999999998
+              ]
+            ]
+          },
+          "third_camera": {
+            "K_pixels": [
+              [
+                554.3306917472469,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                554.3306917472469,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                -0.8500000238418579
+              ],
+              [
+                0.0,
+                -1.0,
+                0.0,
+                -4.96999979019165
+              ],
+              [
+                0.0,
+                0.0,
+                -1.0,
+                2.25
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "wrist_camera": {
+            "K_pixels": [
+              [
+                366.4996579879497,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                366.4996579879497,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        },
+        "F": [
+          {
+            "position_error_m": 9.260952356271446e-05,
+            "orientation_error_rad": 0.00027814769418910146,
+            "max_finger_joint_error_m": 1.043081283569336e-07
+          }
+        ],
+        "memory_from_previous_decision": "Wrist orientation is approximately Rx(pi): local +Z points down, +Y toward world -Y. Bottle XY estimated (-0.835,-4.84); pad center about (-0.817,-5.040). Descend open by 0.14 m to wrist z~1.16, then inspect clearance and close around neck/upper body. Keep palm above cap; expected finger contact zone 0.06-0.11 m below wrist.",
+        "last_action_status": "accepted",
+        "previous_observations_own_actions": [
+          {
+            "observation_index": 0,
+            "own_requested_actions": [
+              {
+                "duration_s": 1.5,
+                "delta_position_wrist_m": [
+                  0.008,
+                  0.04,
+                  0.12
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.07999999821186066
+              },
+              {
+                "duration_s": 1.5,
+                "delta_position_wrist_m": [
+                  0,
+                  0,
+                  0.12
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.07999999821186066
+              }
+            ]
+          },
+          {
+            "observation_index": 1,
+            "own_requested_actions": [
+              {
+                "duration_s": 2,
+                "delta_position_wrist_m": [
+                  0,
+                  0,
+                  0.14
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.07999999821186066
+              }
+            ]
+          }
+        ],
+        "current_camera_names": [
+          "chest_camera",
+          "third_camera",
+          "wrist_camera"
+        ],
+        "current_rgb_dimensions": [
+          640,
+          480
+        ]
+      }
+    },
+    {
+      "decision": 4,
+      "visible_observation": {
+        "static_robot": {
+          "robot": "Franka FR3",
+          "wrist_link": "fr3_hand",
+          "units": "metres, seconds, radians; world Z up; quaternions WXYZ",
+          "action_frame": "Translation and right-multiplied axis-angle rotation in the starting wrist frame. First action starts at measured wrist, subsequent action starts at previous target wrist.",
+          "generic_controller": "Live Jacobian DLS, correction gain 4, arm target slew 0.72 rad/s; no object-aware planner, grasp point, task trajectory or recovery controller.",
+          "hand": {
+            "type": "parallel_gripper",
+            "total_separation_m": [
+              0.0,
+              0.07999999821186066
+            ]
+          }
+        },
+        "requests_remaining_including_this": 27,
+        "S": {
+          "position_world_m": [
+            -0.8352516293525696,
+            -4.840106964111328,
+            1.2447131872177124
+          ],
+          "quaternion_world_wxyz": [
+            0.00038332908297888935,
+            0.9999995827674866,
+            2.6368428734713234e-05,
+            -0.0008252060506492853
+          ],
+          "robot_base_position_world_m": [
+            -1.149999976158142,
+            -4.800000190734863,
+            0.9499998688697815
+          ],
+          "robot_base_quaternion_world_wxyz": [
+            1.000000238418579,
+            -7.084821618263959e-11,
+            9.581160309579673e-10,
+            1.7041876243517606e-10
+          ],
+          "gripper_width_m": 0.05334538593888283
+        },
+        "J": {
+          "arm_joint_position_rad": [
+            -0.044854868203401566,
+            -0.4859772026538849,
+            -0.09937465935945511,
+            -2.9536020755767822,
+            -0.07580409944057465,
+            2.466726064682007,
+            0.7118633389472961
+          ],
+          "arm_joint_velocity_rad_s": [
+            0.012713578529655933,
+            -0.004638721700757742,
+            -0.016849001869559288,
+            0.004244621377438307,
+            -0.002024739980697632,
+            0.004563635215163231,
+            -0.009011730551719666
+          ]
+        },
+        "K": {
+          "head_camera": {
+            "K_pixels": [
+              [
+                554.3306917472469,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                554.3306917472469,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                0.8362443694874696,
+                0.2784660512721505,
+                -0.4723896831953475,
+                -0.4499999880790712
+              ],
+              [
+                0.5483569590152964,
+                -0.42466078280213826,
+                0.7203942427930498,
+                -5.550000190734863
+              ],
+              [
+                -3.250361860602002e-08,
+                -0.8614637994940769,
+                -0.5078189856250234,
+                1.4999999999999996
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "chest_camera": {
+            "K_pixels": [
+              [
+                554.3306917472469,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                554.3306917472469,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                0.7838884144985125,
+                0.38539045682296075,
+                -0.4868194217621127,
+                -0.15000000596046423
+              ],
+              [
+                0.6209017262135835,
+                -0.48655542518842987,
+                0.6146095220582722,
+                -5.949999809265136
+              ],
+              [
+                1.3728328777720356e-08,
+                -0.7840523031083421,
+                -0.6206947607242258,
+                2.299999952316283
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.9999999999999998
+              ]
+            ]
+          },
+          "third_camera": {
+            "K_pixels": [
+              [
+                554.3306917472469,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                554.3306917472469,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                -0.8500000238418579
+              ],
+              [
+                0.0,
+                -1.0,
+                0.0,
+                -4.96999979019165
+              ],
+              [
+                0.0,
+                0.0,
+                -1.0,
+                2.25
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "wrist_camera": {
+            "K_pixels": [
+              [
+                366.4996579879497,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                366.4996579879497,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        },
+        "F": [
+          {
+            "position_error_m": 0.00015542465553153306,
+            "orientation_error_rad": 0.00041335527203045785,
+            "max_finger_joint_error_m": 0.00922953151166439
+          },
+          {
+            "position_error_m": 0.00017009495059028268,
+            "orientation_error_rad": 0.0010054046288132668,
+            "max_finger_joint_error_m": 0.009207962080836296
+          }
+        ],
+        "memory_from_previous_decision": "Bottle XY estimated (-0.835,-4.840), target center approximately (-0.817,-5.040). Current downward-facing wrist is aligned over bottle. Close gently around upper bottle, then lift 0.085 m to test capture. Inspect whether bottle follows before transporting. Local +X is world +X, local +Y is world -Y, local +Z is down.",
+        "last_action_status": "accepted",
+        "previous_observations_own_actions": [
+          {
+            "observation_index": 0,
+            "own_requested_actions": [
+              {
+                "duration_s": 2,
+                "delta_position_wrist_m": [
+                  0,
+                  0,
+                  0.14
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.07999999821186066
+              }
+            ]
+          },
+          {
+            "observation_index": 1,
+            "own_requested_actions": [
+              {
+                "duration_s": 1.5,
+                "delta_position_wrist_m": [
+                  0,
+                  0,
+                  0
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.035
+              },
+              {
+                "duration_s": 1.5,
+                "delta_position_wrist_m": [
+                  0,
+                  0,
+                  -0.085
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.035
+              }
+            ]
+          }
+        ],
+        "current_camera_names": [
+          "chest_camera",
+          "third_camera",
+          "wrist_camera"
+        ],
+        "current_rgb_dimensions": [
+          640,
+          480
+        ]
+      }
+    },
+    {
+      "decision": 5,
+      "visible_observation": {
+        "static_robot": {
+          "robot": "Franka FR3",
+          "wrist_link": "fr3_hand",
+          "units": "metres, seconds, radians; world Z up; quaternions WXYZ",
+          "action_frame": "Translation and right-multiplied axis-angle rotation in the starting wrist frame. First action starts at measured wrist, subsequent action starts at previous target wrist.",
+          "generic_controller": "Live Jacobian DLS, correction gain 4, arm target slew 0.72 rad/s; no object-aware planner, grasp point, task trajectory or recovery controller.",
+          "hand": {
+            "type": "parallel_gripper",
+            "total_separation_m": [
+              0.0,
+              0.07999999821186066
+            ]
+          }
+        },
+        "requests_remaining_including_this": 26,
+        "S": {
+          "position_world_m": [
+            -0.8173412084579468,
+            -5.040309429168701,
+            1.2447779178619385
+          ],
+          "quaternion_world_wxyz": [
+            0.0008246676297858357,
+            0.9999992847442627,
+            -0.00018085274496115744,
+            -0.000888908514752984
+          ],
+          "robot_base_position_world_m": [
+            -1.149999976158142,
+            -4.800000190734863,
+            0.9499998688697815
+          ],
+          "robot_base_quaternion_world_wxyz": [
+            1.000000238418579,
+            -7.084821618263959e-11,
+            9.581160309579673e-10,
+            1.7041876243517606e-10
+          ],
+          "gripper_width_m": 0.053347572684288025
+        },
+        "J": {
+          "arm_joint_position_rad": [
+            -0.17755857110023499,
+            -0.19759419560432434,
+            -0.46587833762168884,
+            -2.670973777770996,
+            -0.14951181411743164,
+            2.488115072250366,
+            0.26923954486846924
+          ],
+          "arm_joint_velocity_rad_s": [
+            0.0034259092062711716,
+            -0.006405114196240902,
+            0.002615756820887327,
+            0.0063081043772399426,
+            0.012703357264399529,
+            -0.003930076491087675,
+            -0.022522060200572014
+          ]
+        },
+        "K": {
+          "head_camera": {
+            "K_pixels": [
+              [
+                554.3306917472469,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                554.3306917472469,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                0.8362443694874696,
+                0.2784660512721505,
+                -0.4723896831953475,
+                -0.4499999880790712
+              ],
+              [
+                0.5483569590152964,
+                -0.42466078280213826,
+                0.7203942427930498,
+                -5.550000190734863
+              ],
+              [
+                -3.250361860602002e-08,
+                -0.8614637994940769,
+                -0.5078189856250234,
+                1.4999999999999996
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "chest_camera": {
+            "K_pixels": [
+              [
+                554.3306917472469,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                554.3306917472469,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                0.7838884144985125,
+                0.38539045682296075,
+                -0.4868194217621127,
+                -0.15000000596046423
+              ],
+              [
+                0.6209017262135835,
+                -0.48655542518842987,
+                0.6146095220582722,
+                -5.949999809265136
+              ],
+              [
+                1.3728328777720356e-08,
+                -0.7840523031083421,
+                -0.6206947607242258,
+                2.299999952316283
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.9999999999999998
+              ]
+            ]
+          },
+          "third_camera": {
+            "K_pixels": [
+              [
+                554.3306917472469,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                554.3306917472469,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                -0.8500000238418579
+              ],
+              [
+                0.0,
+                -1.0,
+                0.0,
+                -4.96999979019165
+              ],
+              [
+                0.0,
+                0.0,
+                -1.0,
+                2.25
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "wrist_camera": {
+            "K_pixels": [
+              [
+                366.4996579879497,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                366.4996579879497,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        },
+        "F": [
+          {
+            "position_error_m": 0.00018021173309534788,
+            "orientation_error_rad": 0.0009437362314201891,
+            "max_finger_joint_error_m": 0.009208550676703453
+          },
+          {
+            "position_error_m": 0.0002344692766200751,
+            "orientation_error_rad": 0.0009833091171458364,
+            "max_finger_joint_error_m": 0.009208709001541138
+          }
+        ],
+        "memory_from_previous_decision": "Bottle appears captured after the 0.085 m lift. Transport horizontally toward pad center (-0.817,-5.040), keeping upright and maintaining 0.035 m grip command. Two local translations total (+0.018,+0.200,0), approximately world (+0.018,-0.200,0). Expected wrist after transport near (-0.817,-5.040,1.245). Inspect alignment and bottle retention, then lower approximately 0.083-0.085 m to the surface before opening and withdrawing. Wrist local +Z points down.",
+        "last_action_status": "accepted",
+        "previous_observations_own_actions": [
+          {
+            "observation_index": 0,
+            "own_requested_actions": [
+              {
+                "duration_s": 1.5,
+                "delta_position_wrist_m": [
+                  0,
+                  0,
+                  0
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.035
+              },
+              {
+                "duration_s": 1.5,
+                "delta_position_wrist_m": [
+                  0,
+                  0,
+                  -0.085
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.035
+              }
+            ]
+          },
+          {
+            "observation_index": 1,
+            "own_requested_actions": [
+              {
+                "duration_s": 2,
+                "delta_position_wrist_m": [
+                  0.009,
+                  0.1,
+                  0
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.035
+              },
+              {
+                "duration_s": 2,
+                "delta_position_wrist_m": [
+                  0.009,
+                  0.1,
+                  0
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.035
+              }
+            ]
+          }
+        ],
+        "current_camera_names": [
+          "chest_camera",
+          "third_camera",
+          "wrist_camera"
+        ],
+        "current_rgb_dimensions": [
+          640,
+          480
+        ]
+      }
+    },
+    {
+      "decision": 6,
+      "visible_observation": {
+        "static_robot": {
+          "robot": "Franka FR3",
+          "wrist_link": "fr3_hand",
+          "units": "metres, seconds, radians; world Z up; quaternions WXYZ",
+          "action_frame": "Translation and right-multiplied axis-angle rotation in the starting wrist frame. First action starts at measured wrist, subsequent action starts at previous target wrist.",
+          "generic_controller": "Live Jacobian DLS, correction gain 4, arm target slew 0.72 rad/s; no object-aware planner, grasp point, task trajectory or recovery controller.",
+          "hand": {
+            "type": "parallel_gripper",
+            "total_separation_m": [
+              0.0,
+              0.07999999821186066
+            ]
+          }
+        },
+        "requests_remaining_including_this": 25,
+        "S": {
+          "position_world_m": [
+            -0.8175047039985657,
+            -5.04034948348999,
+            1.1627094745635986
+          ],
+          "quaternion_world_wxyz": [
+            0.0007530657458119094,
+            0.9999992251396179,
+            -0.00016116414917632937,
+            -0.0009620795608498156
+          ],
+          "robot_base_position_world_m": [
+            -1.149999976158142,
+            -4.800000190734863,
+            0.9499998688697815
+          ],
+          "robot_base_quaternion_world_wxyz": [
+            1.000000238418579,
+            -7.084821618263959e-11,
+            9.581160309579673e-10,
+            1.7041876243517606e-10
+          ],
+          "gripper_width_m": 0.07999958842992783
+        },
+        "J": {
+          "arm_joint_position_rad": [
+            -0.15285903215408325,
+            0.06392364203929901,
+            -0.45881006121635437,
+            -2.6951687335968018,
+            0.06821560114622116,
+            2.750964879989624,
+            0.1117534190416336
+          ],
+          "arm_joint_velocity_rad_s": [
+            0.002188769867643714,
+            -0.003151910612359643,
+            -0.0043165613897144794,
+            0.0050414022989571095,
+            -0.006241973023861647,
+            0.0003035823756363243,
+            -0.00011420522787375376
+          ]
+        },
+        "K": {
+          "head_camera": {
+            "K_pixels": [
+              [
+                554.3306917472469,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                554.3306917472469,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                0.8362443694874696,
+                0.2784660512721505,
+                -0.4723896831953475,
+                -0.4499999880790712
+              ],
+              [
+                0.5483569590152964,
+                -0.42466078280213826,
+                0.7203942427930498,
+                -5.550000190734863
+              ],
+              [
+                -3.250361860602002e-08,
+                -0.8614637994940769,
+                -0.5078189856250234,
+                1.4999999999999996
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "chest_camera": {
+            "K_pixels": [
+              [
+                554.3306917472469,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                554.3306917472469,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                0.7838884144985125,
+                0.38539045682296075,
+                -0.4868194217621127,
+                -0.15000000596046423
+              ],
+              [
+                0.6209017262135835,
+                -0.48655542518842987,
+                0.6146095220582722,
+                -5.949999809265136
+              ],
+              [
+                1.3728328777720356e-08,
+                -0.7840523031083421,
+                -0.6206947607242258,
+                2.299999952316283
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                0.9999999999999998
+              ]
+            ]
+          },
+          "third_camera": {
+            "K_pixels": [
+              [
+                554.3306917472469,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                554.3306917472469,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "T_world_from_camera_opencv": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                -0.8500000238418579
+              ],
+              [
+                0.0,
+                -1.0,
+                0.0,
+                -4.96999979019165
+              ],
+              [
+                0.0,
+                0.0,
+                -1.0,
+                2.25
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          },
+          "wrist_camera": {
+            "K_pixels": [
+              [
+                366.4996579879497,
+                0.0,
+                320.0
+              ],
+              [
+                0.0,
+                366.4996579879497,
+                240.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        },
+        "F": [
+          {
+            "position_error_m": 0.0009133847779594362,
+            "orientation_error_rad": 0.0022209519520401955,
+            "max_finger_joint_error_m": 0.009101664647459984
+          },
+          {
+            "position_error_m": 0.00011884085688507184,
+            "orientation_error_rad": 0.00020850749569945037,
+            "max_finger_joint_error_m": 4.0978193283081055e-07
+          }
+        ],
+        "memory_from_previous_decision": "Transport alignment appears correct. Lower 0.082 m while retaining the 0.035 m grip command, reversing almost all of the prior 0.085 m lift. Then open in place and allow the bottle to settle onto the pad. Expected wrist height after lowering is about 1.163 m. Next inspect upright placement, then withdraw upward with the gripper open (approximately wrist-local -Z by 0.10 m) and evaluate stability.",
+        "last_action_status": "accepted",
+        "previous_observations_own_actions": [
+          {
+            "observation_index": 0,
+            "own_requested_actions": [
+              {
+                "duration_s": 2,
+                "delta_position_wrist_m": [
+                  0.009,
+                  0.1,
+                  0
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.035
+              },
+              {
+                "duration_s": 2,
+                "delta_position_wrist_m": [
+                  0.009,
+                  0.1,
+                  0
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.035
+              }
+            ]
+          },
+          {
+            "observation_index": 1,
+            "own_requested_actions": [
+              {
+                "duration_s": 2,
+                "delta_position_wrist_m": [
+                  0,
+                  0,
+                  0.082
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.035
+              },
+              {
+                "duration_s": 1.5,
+                "delta_position_wrist_m": [
+                  0,
+                  0,
+                  0
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.07999999821186066
+              }
+            ]
+          }
+        ],
+        "current_camera_names": [
+          "chest_camera",
+          "third_camera",
+          "wrist_camera"
+        ],
+        "current_rgb_dimensions": [
+          640,
+          480
+        ]
+      }
+    }
+  ]
+}
