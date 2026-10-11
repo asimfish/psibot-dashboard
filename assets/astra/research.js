@@ -10,7 +10,7 @@
  const status=v=>v===true?'成功':v===false?'失败':'中断';
  const badge=v=>`<span class="status ${v===true?'success':v===false?'failure':'interrupted'}">${status(v)}</span>`;
  function ci(k,n){if(!n)return '尚无有效终态';const z=1.959963984540054,p=k/n,d=1+z*z/n,c=(p+z*z/(2*n))/d,h=z*Math.sqrt(p*(1-p)/n+z*z/(4*n*n))/d;return `${((c-h)*100).toFixed(1)}–${((c+h)*100).toFixed(1)}%`;}
- let study,protocol,episodes,audit,traces,report,currentTask='fr3_place',currentRow='',currentEpisode='';
+ let study,protocol,episodes,audit,traces,report,nativeGallery,currentTask='fr3_place',currentRow='',currentEpisode='';
  const rowById=id=>study.rows.find(r=>r.id===id), episodeById=id=>episodes.find(e=>e.episode_id===id), videoById=id=>audit.find(x=>x.episode_id===id&&x.video_url);
  const poster=x=>safe(x?.contact_sheet)||'';
  const median=(s,scale=1)=>s.median===null?'未记录':`${(s.median/scale).toFixed(1)}<small>IQR ${(s.q1/scale).toFixed(1)}–${(s.q3/scale).toFixed(1)} · ${s.n}条${s.missing?' / 缺'+s.missing+'条':''}</small>`;
@@ -69,9 +69,15 @@
   $('protocol-conditions').innerHTML=protocol.conditions.map(c=>{const applicable=Object.entries(protocol.task_camera_conditions).filter(([,t])=>t.conditions.includes(c.id)).map(([id])=>taskNames[id]);return `<tr><th scope="row">${esc(c.label)}</th><td>${esc(c.changed.length?c.changed.map(k=>fields[k]||k).join('、'):'无删除')}</td><td>${esc(applicable.join('、'))}</td><td>每个适用任务 0 / 20 · 待执行</td><td>同任务固定接口、初态、预算与其他输入</td></tr>`;}).join('');
   $('psi-coverage').innerHTML=study.tasks.filter(t=>t.id.startsWith('psi_')).map(t=>{const rr=study.rows.filter(r=>r.task===t.id),n=rr.reduce((a,r)=>a+r.attempts,0);return `<li><button data-task="${esc(t.id)}">${esc(t.title)}</button><span>${n}条原记录 · ${rr.length}个条件${t.id==='psi_roundtrip'?' · 选例':''}</span></li>`;}).join('');
  }
+ function drawNativeQualification(){
+  document.querySelectorAll('#native-camera-evidence video').forEach(v=>v.pause());
+  const r=nativeGallery.records.find(x=>x.task===$('native-task-select').value);
+  $('native-qualification-status').textContent=`${r.title} · ${r.cameras.length} 路相机 · ${r.native_gate_passed?'控制检查通过':'控制检查未通过'}。${r.reason} 模型调用 0，正式试次 0。`;
+  $('native-camera-evidence').innerHTML=r.cameras.map(c=>`<article class="native-camera-card"><h4>${esc(c.label)}</h4><div class="native-camera-pair"><figure><a href="${esc(safe(c.image))}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(safe(c.image))}" alt="${esc(r.title+' '+c.label)}资格检查首帧原图"></a><figcaption>初始原生 RGB · 资格检查，未发送给模型</figcaption></figure><figure><video controls playsinline preload="none" src="${esc(safe(c.video))}" poster="${esc(safe(c.image))}" aria-label="${esc(r.title+' '+c.label)}同回合原生控制检查录像"></video><figcaption>同回合原录像 · ${c.decoded_frames} 帧 · 1×仿真时间</figcaption></figure></div><p><b>视角与渲染：</b>${esc(c.view_note)}</p><p class="caption">实际首帧与编码中间帧已查看；完整录像已解码校验。录像证明有限控制检查，不证明抓取或放置成功。</p></article>`).join('');
+ }
  async function init(){
   const load=async n=>{const res=await fetch('results/astra/'+n);if(!res.ok)throw Error(n+' HTTP '+res.status);return res.json();};
-  [study,protocol,episodes,audit,traces,report]=await Promise.all(['input_study_v5.json','protocol_v6.json','episodes.json','video_audit.json','decision_traces.json','experiments.json'].map(load));audit=audit.records;
+  [study,protocol,episodes,audit,traces,report,nativeGallery]=await Promise.all(['input_study_v5.json','protocol_v6.json','episodes.json','video_audit.json','decision_traces.json','experiments.json','native_qualification_20261011.json'].map(load));audit=audit.records;
   const p=new URLSearchParams(location.search),legacy={inputs:'fr3_place',actions:'panda_square',long:'psi_roundtrip'},target=p.get('task')||legacy[p.get('study')];
   if(study.tasks.some(t=>t.id===target))currentTask=target;
   currentRow=study.rows.find(r=>r.task===currentTask&&r.condition===p.get('condition'))?.id||'';
@@ -84,7 +90,9 @@
    else if(b.dataset.caseCamera){document.querySelectorAll('#case-videos video').forEach(v=>v.pause());$('case-videos').innerHTML=card(currentEpisode,cname(rowById(currentRow).condition),b.dataset.caseCamera);document.querySelectorAll('[data-case-camera]').forEach(c=>c.setAttribute('aria-pressed',String(c===b)));}
    else document.querySelectorAll('#case-videos video').forEach(v=>{if(b.hasAttribute('data-pause-cases'))v.pause();else{v.currentTime=0;v.play().catch(()=>{});}});
   });
-  drawTask();drawProtocol();$('loading').hidden=true;$('study-content').hidden=false;
+  $('native-task-select').innerHTML=nativeGallery.records.map(r=>`<option value="${esc(r.task)}">${esc(r.title)}</option>`).join('');$('native-task-select').value='psi_grasp';
+  $('native-task-select').addEventListener('change',drawNativeQualification);
+  drawTask();drawProtocol();drawNativeQualification();$('loading').hidden=true;$('study-content').hidden=false;
   $('historical-reasoning').textContent=`FR3相同10初态：medium ${report.paired_e3.medium_successes}/10（Wilson 95% CI ${ci(report.paired_e3.medium_successes,10)}，含1中断），xhigh ${report.paired_e3.xhigh_successes}/10（${ci(report.paired_e3.xhigh_successes,10)}）。这是推理档位对照；匹配录像缺失，不代替输入删除实验。`;
   window.astraStudyReady=true;
  }
