@@ -1,6 +1,6 @@
 {
   "schema": "grasp.acceptance.dashboard.v1",
-  "updated_utc": "2026-10-11T21:07:48.020156+00:00",
+  "updated_utc": "2026-10-11T23:07:52.730188+00:00",
   "acceptance_evidence_utc": "2026-10-09T05:57:02.287477+00:00",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "paper_overall": {
@@ -971,7 +971,7 @@
   "browser_supplement": "results/grasp_browser_supplement_20261009.json",
   "active_frontier": {
     "schema": "grasp.t500.actual_frontier.v35",
-    "updated_utc": "2026-10-11T21:07:48.020156+00:00",
+    "updated_utc": "2026-10-11T23:07:52.730188+00:00",
     "formal_accepted_objects": 0,
     "formal_accepted_methods": 0,
     "paper_ssr": null,
@@ -983,8 +983,8 @@
       },
       {
         "title": "原模型实际复测",
-        "status": "烧杯DP终点0/9；原专家保持3/3",
-        "note": "原专家完成约10.16cm抬升，末端4.24–4.62mm；玻璃与接触仍待核验。独立位置的采集小批物理3/3、537帧已写出，收尾记录仍在核验。"
+        "status": "独立训练示范72/100；完整验收仍0",
+        "note": "原专家采集成功68/72，失败全留；原50条已核验，余47补采19/47。共享图像加载器保持DP27维/ACT26维原输入。配置6秒与实测物理23.90秒已分开标注。"
       },
       {
         "title": "250ml透明容量瓶",
@@ -7008,7 +7008,7 @@
       "all3_original_videos_full_decoded": true,
       "unresolved_glass_white_appearance": true
     },
-    "evidence_url": "verification/T-500-grasp-main-fixed6-and-beaker-expert-v41.json",
+    "evidence_url": "verification/T-500-grasp-collection-clock-volc-expert-v42.json",
     "author_confirmed_paper_object_alias": {
       "schema": "grasp.author_confirmed_paper_object_alias.v1",
       "at_utc": "2026-10-11T15:22:00.679921+00:00",
@@ -10320,7 +10320,7 @@
       "paper_ssr": null,
       "formal_accepted": false,
       "full_visual_passed": false,
-      "note": "原专家三次均完成抬升和完整保持，末端误差4.59/4.62/4.24mm，原朝向损失0.00216/0.00217/0.00190低于原0.015门。头及第三视角目标保持，胸前玻璃有明显白亮区域；完整接触/穿模及玻璃材质仍待核验。这是MP开发对照，不计DP/ACT成绩或论文SSR。"
+      "note": "原专家三次均完成抬升和完整保持，末端误差4.59/4.62/4.24mm，原朝向损失0.00216/0.00217/0.00190低于原0.015门。头及第三视角目标保持，胸前玻璃有明显白亮区域；完整接触/穿模及玻璃材质仍待核验。这是MP开发对照，不计DP/ACT成绩或论文SSR。 这里的“6秒”是配置/计数口径；旧三次没有SDK物理时钟。新增实测另列，不能把录像播放时长直接视为物理时长。"
     },
     "Main_ClearVol_startup_compatibility_repair": {
       "original_attempt_zero_valid_trials": true,
@@ -10337,8 +10337,8 @@
       "formal_accepted": false
     },
     "Beaker100_independent_full6s_collection_pilot": {
-      "at_utc": "2026-10-11T21:02:13.657169+00:00",
-      "status": "native_collected3_pending_receipt_reconciliation",
+      "at_utc": "2026-10-11T21:12:30.527120+00:00",
+      "status": "original3_independently_reconciled_trace_incomplete_retained",
       "predeclared_training_positions": 100,
       "independent_of_test_positions": true,
       "development_pilot_episodes": 3,
@@ -10348,11 +10348,967 @@
       "full_visual_passed": false,
       "paper_ssr": null,
       "formal_accepted": false,
-      "note": "独立±2cm训练位置的原采集小批三次物理成功，原采集器已报告写出537帧与九路视频；收尾追踪记录缺失，正在独立核验，完整数据资格仍未通过。不计新训练或DP/ACT验收。",
+      "note": "独立±2cm原训练位置已采72/100条，专家成功68/72；失败全部保留。这是训练示范采集，不是DP/ACT测试成绩。原采集器默认50条停止已核实；前50条保留并独立核验，余47个原位置补采19/47，已显式关闭50条上限。首3条追踪少12帧的旧限制仍保留。完整100条数据闭合后才启动预定3个DP和3个ACT训练。",
       "actual_native_successes": 3,
       "actual_frames_written_reported_by_original_collector": 537,
       "original_controller_status": "failed_missing_final_trace_receipt",
-      "native_exit_code": 0
+      "native_exit_code": 0,
+      "actual_independent_CPU_file_audit_passed": true,
+      "actual_original_parquet_frames": 537,
+      "actual_original_frames_per_episode": [
+        179,
+        179,
+        179
+      ],
+      "actual_original_video_frames_decoded": 1611,
+      "actual_trace_rows": 525,
+      "actual_original_input_trace_complete": false,
+      "all_available_trace_actions_bitwise_equal_original": true,
+      "dataset_formally_qualified": false
+    },
+    "Beaker100_original_new100_collection": {
+      "sampled_utc": "2026-10-11T23:00:08.503915+00:00",
+      "predeclared_positions": 100,
+      "collection_xy_range_cm": 2,
+      "completed_original_episodes": 72,
+      "expert_native_success_count": 68,
+      "failed_episodes_retained": 4,
+      "original_numeric_frames": 12904,
+      "original50_independent_source_actions_videos_closed": true,
+      "original50_video_frames_decoded": 26886,
+      "original50_default_saved_target_limit": 50,
+      "original50_stop_limit_failure_preserved": true,
+      "remaining47_status": "running",
+      "remaining47_complete": 19,
+      "remaining47_expected": 47,
+      "remaining47_target_success_count": 0,
+      "original_positions54_to100_unchanged": true,
+      "first3_missing_input_trace_rows": 12,
+      "training_dispatched": false,
+      "new_ACT_state_dimension": 26,
+      "new_DP_state_dimension": 27,
+      "loader_CPU_parity_passed": true,
+      "all_failed_episodes_kept_for_development_training": true,
+      "full_visual_passed": false,
+      "formal_accepted": false,
+      "paper_ssr": null,
+      "note": "独立±2cm原训练位置已采72/100条，专家成功68/72；失败全部保留。这是训练示范采集，不是DP/ACT测试成绩。原采集器默认50条停止已核实；前50条保留并独立核验，余47个原位置补采19/47，已显式关闭50条上限。首3条追踪少12帧的旧限制仍保留。完整100条数据闭合后才启动预定3个DP和3个ACT训练。"
+    },
+    "original_SDK_PhysX_time_truth": {
+      "sampled_utc": "2026-10-11T23:00:08.503915+00:00",
+      "actual_observed_remaining47_episodes": 19,
+      "configured_episode_length_s": 6.0,
+      "actual_terminal_native_counter_s": 5.975,
+      "actual_PhysX_duration_s": 23.900001246482134,
+      "actual_PhysX_steps_per_native_counter": 4,
+      "actual_pose_delta_count": 14127,
+      "original_step_render_actions_and_video_timestamps_unchanged": true,
+      "old_first53_actual_SDK_clock_not_observed": true,
+      "learner_clock_equivalence_pending": true,
+      "note": "新增SDK时钟实测：原代码计数5.975秒对应实际PhysX约23.90秒，每次渲染步推进4个物理子步。视频播放时长、配置时长与物理时长须分别看待；旧前53条没有SDK时钟，不补写推断值。后续模型测试需核对相同物理步进。"
+    },
+    "Volc_original_expert_and_Beaker_PBR_source_qualification": {
+      "rows": [
+        {
+          "object": "beaker100_PBR_ABBA",
+          "label": "100ml烧杯 · 材质对照前原专家",
+          "episodes": 1,
+          "native_success_count": 1,
+          "terminal20mm_success_count": 1,
+          "videos": [
+            {
+              "camera": "head_camera",
+              "url": "media/grasp-volc-original-expert-and-beaker-pbr-v42/beaker100_PBR_ABBA/head_camera_browser_h264.mp4",
+              "playback_duration_s": 6.0,
+              "actual_decoded_frames": 180,
+              "SHA256": "83a83b6fa728733e3321ae75ba079e57e78f3fff2e0712da262ca4a2b0781127",
+              "original_url": "media/grasp-volc-original-expert-and-beaker-pbr-v42/beaker100_PBR_ABBA/head_camera.mp4",
+              "original_SHA256": "7f6c4a490a1544d0cbbe2265815deac936e49a19639fde049ec31170306739f7",
+              "browser_derivative_only": true,
+              "original_numeric_and_visual_source_unchanged": true
+            },
+            {
+              "camera": "third_camera",
+              "url": "media/grasp-volc-original-expert-and-beaker-pbr-v42/beaker100_PBR_ABBA/third_camera_browser_h264.mp4",
+              "playback_duration_s": 6.0,
+              "actual_decoded_frames": 180,
+              "SHA256": "799651ff357f43655bf992357ca61c70ca713809ea6a8da3bbb4bdb899b3d95b",
+              "original_url": "media/grasp-volc-original-expert-and-beaker-pbr-v42/beaker100_PBR_ABBA/third_camera.mp4",
+              "original_SHA256": "a41e8b4ebea1fc26a652856e1545e2c58dbb58396c9350dc4ceeefd5a879a04e",
+              "browser_derivative_only": true,
+              "original_numeric_and_visual_source_unchanged": true
+            },
+            {
+              "camera": "chest_camera",
+              "url": "media/grasp-volc-original-expert-and-beaker-pbr-v42/beaker100_PBR_ABBA/chest_camera_browser_h264.mp4",
+              "playback_duration_s": 6.0,
+              "actual_decoded_frames": 180,
+              "SHA256": "01e9820765ea4cc1776264e997d41c36be648fa622a46505c9f461c9a726060f",
+              "original_url": "media/grasp-volc-original-expert-and-beaker-pbr-v42/beaker100_PBR_ABBA/chest_camera.mp4",
+              "original_SHA256": "e7ac28765366d041a387484796df938e198e4dba41117a1365a146b0e6d532dc",
+              "browser_derivative_only": true,
+              "original_numeric_and_visual_source_unchanged": true
+            }
+          ],
+          "actual_outcomes": [
+            {
+              "type": "pose",
+              "actual_SDK_PhysX_clock": {
+                "actual_PhysX_events": 2918,
+                "actual_sim_time_s": 24.33333460241556,
+                "actual_SDK_PhysX_step_index": 2920
+              },
+              "episode": 1,
+              "condition": "original_named_Beaker100_MP_expert_full6s",
+              "native_counter_time_s": 5.975,
+              "eef_pose_w": [
+                -1.2621562480926514,
+                -5.1394944190979,
+                1.0905334949493408,
+                0.49604532122612,
+                -0.502775251865387,
+                0.5030271410942078,
+                -0.4981161952018738
+              ],
+              "target_pose_w": [
+                -1.1362961530685425,
+                -5.0925798416137695,
+                1.0816676616668701,
+                -0.039694879204034805,
+                -0.0354568213224411,
+                -0.030019009485840797,
+                0.9981312155723572
+              ],
+              "raw_success_predicate": true,
+              "raw_failure_predicate": false,
+              "native_success": true,
+              "native_failure": false,
+              "timeout": true,
+              "terminal": true,
+              "object_lift_m": 0.10158967971801758,
+              "object_xy_drift_m": 0.0020844046713511455,
+              "eef_translation_error_mm": 4.591500134679762,
+              "eef_rotation_error_rad": 0.012008983275740188,
+              "translation_within_20mm": true,
+              "actual_arm_joint_pos": [
+                0.7668407559394836,
+                -1.855064034461975,
+                0.9776591062545776,
+                -1.8743447065353394,
+                -0.6131231188774109,
+                1.303678035736084,
+                -0.06818423420190811
+              ],
+              "actual_hand_joint_pos": [
+                1.5417977571487427,
+                2.559699296951294,
+                3.0197160243988037,
+                3.0298895835876465,
+                3.000706195831299,
+                0.3946376442909241
+              ],
+              "actual_hand_joint_vel": [
+                -0.002623480511829257,
+                -2.0920924725942314e-06,
+                0.00019147928105667233,
+                0.00018344882118981332,
+                0.00012893558596260846,
+                7.172452023951337e-05
+              ],
+              "actual_hand_joint_pos_target": [
+                1.5199999809265137,
+                2.492999792098999,
+                3.0199995040893555,
+                3.0299999713897705,
+                3.0,
+                0.36587995290756226
+              ],
+              "actual_robot_root_pose_w": [
+                -1.649999976158142,
+                -5.0,
+                -0.010519921779632568,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "first_relaxed_success": {
+                "check": 426,
+                "eef_translation_error_mm": 17.42312417179277,
+                "eef_rotation_error_rad": 0.011198547202120566,
+                "translation_within_20mm": true
+              },
+              "physical_lift_region_at_terminal": true,
+              "paper_ssr": null,
+              "formal_accepted": false
+            }
+          ],
+          "original_named_config": null,
+          "actual_native_exit_code": 0,
+          "owned_process_group_empty": true,
+          "all_original_source_fullSHA_unchanged": true,
+          "full_visual_passed": false,
+          "formal_accepted": false,
+          "paper_ssr": null
+        },
+        {
+          "object": "glass_beaker_50ml",
+          "label": "50ml烧杯 · 原专家",
+          "episodes": 3,
+          "native_success_count": 3,
+          "terminal20mm_success_count": 3,
+          "videos": [
+            {
+              "camera": "head_camera",
+              "url": "media/grasp-volc-original-expert-and-beaker-pbr-v42/glass_beaker_50ml/head_camera_browser_h264.mp4",
+              "playback_duration_s": 18.0,
+              "actual_decoded_frames": 540,
+              "SHA256": "de193978c6031b79eb3ab94d38013908bdeb665f8a11aa175d25b460e7500dd5",
+              "original_url": "media/grasp-volc-original-expert-and-beaker-pbr-v42/glass_beaker_50ml/head_camera.mp4",
+              "original_SHA256": "73c9720a40ed6f65ce3e27ad26dcfa86459e487f972838cc78c557a7b45f212b",
+              "browser_derivative_only": true,
+              "original_numeric_and_visual_source_unchanged": true
+            },
+            {
+              "camera": "third_camera",
+              "url": "media/grasp-volc-original-expert-and-beaker-pbr-v42/glass_beaker_50ml/third_camera_browser_h264.mp4",
+              "playback_duration_s": 18.0,
+              "actual_decoded_frames": 540,
+              "SHA256": "7e2045ee1d8382ee1d6fa8e2ca5849d37d749ffd843e4b95b2931e9a41815b81",
+              "original_url": "media/grasp-volc-original-expert-and-beaker-pbr-v42/glass_beaker_50ml/third_camera.mp4",
+              "original_SHA256": "23bbbcc5f1d856448030d08da6e0e2f5a53d43031f9d7cf8b2438e10d8c35b56",
+              "browser_derivative_only": true,
+              "original_numeric_and_visual_source_unchanged": true
+            },
+            {
+              "camera": "chest_camera",
+              "url": "media/grasp-volc-original-expert-and-beaker-pbr-v42/glass_beaker_50ml/chest_camera_browser_h264.mp4",
+              "playback_duration_s": 18.0,
+              "actual_decoded_frames": 540,
+              "SHA256": "238887ee14e8be902f6ded8868b8c6921137ce580416171c309b5c115a4d1d29",
+              "original_url": "media/grasp-volc-original-expert-and-beaker-pbr-v42/glass_beaker_50ml/chest_camera.mp4",
+              "original_SHA256": "ea50c13ad4b72bc20999a6fd878fdb502f3ccef33f8ec341e8bcd41b14d93d59",
+              "browser_derivative_only": true,
+              "original_numeric_and_visual_source_unchanged": true
+            }
+          ],
+          "actual_outcomes": [
+            {
+              "type": "pose",
+              "actual_SDK_PhysX_clock": {
+                "actual_PhysX_events": 2918,
+                "actual_sim_time_s": 24.33333460241556,
+                "actual_SDK_PhysX_step_index": 2920
+              },
+              "episode": 1,
+              "condition": "independent_original_expert_collection_box_qualification",
+              "native_counter_time_s": 5.975,
+              "eef_pose_w": [
+                -1.2266254425048828,
+                -5.225739479064941,
+                1.3214884996414185,
+                0.42030850052833557,
+                -0.7924895882606506,
+                0.06671924144029617,
+                -0.4368634521961212
+              ],
+              "target_pose_w": [
+                -1.184840202331543,
+                -5.098386287689209,
+                1.2600202560424805,
+                0.16795910894870758,
+                -0.033232394605875015,
+                -0.012179568409919739,
+                0.9851582646369934
+              ],
+              "raw_success_predicate": true,
+              "raw_failure_predicate": false,
+              "native_success": true,
+              "native_failure": false,
+              "timeout": true,
+              "terminal": true,
+              "object_lift_m": 0.29001325368881226,
+              "object_xy_drift_m": 0.02407740001476684,
+              "eef_translation_error_mm": 8.643803188291697,
+              "eef_rotation_error_rad": 0.018453626266487673,
+              "translation_within_20mm": true,
+              "actual_arm_joint_pos": [
+                0.8758980631828308,
+                -0.5995738506317139,
+                1.0245709419250488,
+                -1.478527307510376,
+                -0.22368468344211578,
+                -0.3626413941383362,
+                0.03367791324853897
+              ],
+              "actual_hand_joint_pos": [
+                1.485679268836975,
+                2.422098159790039,
+                2.338351249694824,
+                1.8239742517471313,
+                1.783226490020752,
+                0.6416000127792358
+              ],
+              "actual_hand_joint_vel": [
+                -0.0025549784768372774,
+                8.707333472557366e-05,
+                0.00015386499580927193,
+                -0.0002542342117521912,
+                -0.00020064512500539422,
+                0.000949573761317879
+              ],
+              "actual_hand_joint_pos_target": [
+                1.5199999809265137,
+                1.799999713897705,
+                1.7599998712539673,
+                1.8199996948242188,
+                1.779999852180481,
+                0.08999999612569809
+              ],
+              "actual_robot_root_pose_w": [
+                -1.649999976158142,
+                -5.0,
+                -0.010519921779632568,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "first_relaxed_success": {
+                "check": 625,
+                "eef_translation_error_mm": 52.71302136453512,
+                "eef_rotation_error_rad": 0.0147275236504917,
+                "translation_within_20mm": false
+              },
+              "physical_lift_region_at_terminal": true,
+              "paper_ssr": null,
+              "formal_accepted": false
+            },
+            {
+              "type": "pose",
+              "actual_SDK_PhysX_clock": {
+                "actual_PhysX_events": 5786,
+                "actual_sim_time_s": 48.233335848897696,
+                "actual_SDK_PhysX_step_index": 5788
+              },
+              "episode": 2,
+              "condition": "independent_original_expert_collection_box_qualification",
+              "native_counter_time_s": 5.975,
+              "eef_pose_w": [
+                -1.2223634719848633,
+                -5.247152805328369,
+                1.3214149475097656,
+                0.4204612374305725,
+                -0.7923886775970459,
+                0.06676264107227325,
+                -0.436892569065094
+              ],
+              "target_pose_w": [
+                -1.1792399883270264,
+                -5.122706413269043,
+                1.2587603330612183,
+                0.17367912828922272,
+                -0.013445546850562096,
+                -0.06209135428071022,
+                0.9827509522438049
+              ],
+              "raw_success_predicate": true,
+              "raw_failure_predicate": false,
+              "native_success": true,
+              "native_failure": false,
+              "timeout": true,
+              "terminal": true,
+              "object_lift_m": 0.28875333070755005,
+              "object_xy_drift_m": 0.023374764131238585,
+              "eef_translation_error_mm": 8.697227757000837,
+              "eef_rotation_error_rad": 0.018360886152993777,
+              "translation_within_20mm": true,
+              "actual_arm_joint_pos": [
+                0.8075700402259827,
+                -0.6368703246116638,
+                1.0972803831100464,
+                -1.4099712371826172,
+                -0.25321292877197266,
+                -0.4474268853664398,
+                0.007779323495924473
+              ],
+              "actual_hand_joint_pos": [
+                1.4926310777664185,
+                2.4215786457061768,
+                2.343827724456787,
+                1.823974609375,
+                1.7832306623458862,
+                0.6415999531745911
+              ],
+              "actual_hand_joint_vel": [
+                -0.0023999682161957026,
+                -1.576784416101873e-05,
+                7.238794933073223e-05,
+                -0.0002507094177417457,
+                -0.00021175188885536045,
+                0.00034939643228426576
+              ],
+              "actual_hand_joint_pos_target": [
+                1.5199999809265137,
+                1.799999713897705,
+                1.7599998712539673,
+                1.8199996948242188,
+                1.779999852180481,
+                0.08999999612569809
+              ],
+              "actual_robot_root_pose_w": [
+                -1.649999976158142,
+                -5.0,
+                -0.010519921779632568,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "first_relaxed_success": {
+                "check": 626,
+                "eef_translation_error_mm": 51.78495825545301,
+                "eef_rotation_error_rad": 0.014853459556190152,
+                "translation_within_20mm": false
+              },
+              "physical_lift_region_at_terminal": true,
+              "paper_ssr": null,
+              "formal_accepted": false
+            },
+            {
+              "type": "pose",
+              "actual_SDK_PhysX_clock": {
+                "actual_PhysX_events": 8654,
+                "actual_sim_time_s": 72.13333709537983,
+                "actual_SDK_PhysX_step_index": 8656
+              },
+              "episode": 3,
+              "condition": "independent_original_expert_collection_box_qualification",
+              "native_counter_time_s": 5.975,
+              "eef_pose_w": [
+                -1.201606035232544,
+                -5.241730213165283,
+                1.3208404779434204,
+                0.42020121216773987,
+                -0.7928125262260437,
+                0.06628496199846268,
+                -0.43644633889198303
+              ],
+              "target_pose_w": [
+                -1.1600749492645264,
+                -5.114614009857178,
+                1.2589008808135986,
+                0.16281890869140625,
+                -0.04065658897161484,
+                -0.007667379919439554,
+                0.985788106918335
+              ],
+              "raw_success_predicate": true,
+              "raw_failure_predicate": false,
+              "native_success": true,
+              "native_failure": false,
+              "timeout": true,
+              "terminal": true,
+              "object_lift_m": 0.2888938784599304,
+              "object_xy_drift_m": 0.024116944399127076,
+              "eef_translation_error_mm": 9.217087556452963,
+              "eef_rotation_error_rad": 0.019005182648449432,
+              "translation_within_20mm": true,
+              "actual_arm_joint_pos": [
+                0.9115107655525208,
+                -0.6977494955062866,
+                1.036992073059082,
+                -1.296751618385315,
+                -0.29644837975502014,
+                -0.4797459542751312,
+                0.02584763988852501
+              ],
+              "actual_hand_joint_pos": [
+                1.4864517450332642,
+                2.419504404067993,
+                2.33758544921875,
+                1.8239723443984985,
+                1.7832320928573608,
+                0.6416000127792358
+              ],
+              "actual_hand_joint_vel": [
+                -0.003440896747633815,
+                -0.0005454330239444971,
+                0.00033015775261446834,
+                -0.00022943662770558149,
+                -0.00019626450375653803,
+                0.0005285943625494838
+              ],
+              "actual_hand_joint_pos_target": [
+                1.5199999809265137,
+                1.799999713897705,
+                1.7599998712539673,
+                1.8199996948242188,
+                1.779999852180481,
+                0.08999999612569809
+              ],
+              "actual_robot_root_pose_w": [
+                -1.649999976158142,
+                -5.0,
+                -0.010519921779632568,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "first_relaxed_success": {
+                "check": 626,
+                "eef_translation_error_mm": 52.389231283696745,
+                "eef_rotation_error_rad": 0.015695318590809703,
+                "translation_within_20mm": false
+              },
+              "physical_lift_region_at_terminal": true,
+              "paper_ssr": null,
+              "formal_accepted": false
+            }
+          ],
+          "original_named_config": {
+            "grasp_offset": [
+              -0.0653,
+              -0.13,
+              0.06
+            ],
+            "grasp_euler_deg": [
+              -109.31,
+              -40.39,
+              -38.28
+            ],
+            "lift_height": 0.3,
+            "timing": {
+              "phases": [
+                "approach",
+                "grasp",
+                "lift"
+              ],
+              "approach_ratio": 0.3,
+              "grasp_ratio": 0.2,
+              "lift_ratio": 0.5
+            }
+          },
+          "actual_native_exit_code": 0,
+          "owned_process_group_empty": true,
+          "all_original_source_fullSHA_unchanged": true,
+          "full_visual_passed": false,
+          "formal_accepted": false,
+          "paper_ssr": null
+        },
+        {
+          "object": "glass_beaker_250ml",
+          "label": "250ml烧杯 · 原专家",
+          "episodes": 3,
+          "native_success_count": 0,
+          "terminal20mm_success_count": 0,
+          "videos": [
+            {
+              "camera": "head_camera",
+              "url": "media/grasp-volc-original-expert-and-beaker-pbr-v42/glass_beaker_250ml/head_camera_browser_h264.mp4",
+              "playback_duration_s": 18.0,
+              "actual_decoded_frames": 540,
+              "SHA256": "5b899b45cf5b3b4901f64e47d6e1a8a8020faad776977c82cf01139d7ab3a6e6",
+              "original_url": "media/grasp-volc-original-expert-and-beaker-pbr-v42/glass_beaker_250ml/head_camera.mp4",
+              "original_SHA256": "5a74c9f4289c82cc8e15eb60361e1c47923c888e05dea0f2f55d23236cc92e21",
+              "browser_derivative_only": true,
+              "original_numeric_and_visual_source_unchanged": true
+            },
+            {
+              "camera": "third_camera",
+              "url": "media/grasp-volc-original-expert-and-beaker-pbr-v42/glass_beaker_250ml/third_camera_browser_h264.mp4",
+              "playback_duration_s": 18.0,
+              "actual_decoded_frames": 540,
+              "SHA256": "2c17a4608597d1f60d7d291beda37d3549889577435a79e8e462661b4d19a728",
+              "original_url": "media/grasp-volc-original-expert-and-beaker-pbr-v42/glass_beaker_250ml/third_camera.mp4",
+              "original_SHA256": "2e386c19bdc0784b9fab7cdaa50f31a53ff2ce733907bbf03e569a85771f2d22",
+              "browser_derivative_only": true,
+              "original_numeric_and_visual_source_unchanged": true
+            },
+            {
+              "camera": "chest_camera",
+              "url": "media/grasp-volc-original-expert-and-beaker-pbr-v42/glass_beaker_250ml/chest_camera_browser_h264.mp4",
+              "playback_duration_s": 18.0,
+              "actual_decoded_frames": 540,
+              "SHA256": "0e86827ed83234c9da34773fec77ed0f9e2da4391ce816adddaff9adf1f5acf3",
+              "original_url": "media/grasp-volc-original-expert-and-beaker-pbr-v42/glass_beaker_250ml/chest_camera.mp4",
+              "original_SHA256": "8ecdd9456b64c70473795e53acc95bfeaaea397d1527d79adfeaaab9a3f87d63",
+              "browser_derivative_only": true,
+              "original_numeric_and_visual_source_unchanged": true
+            }
+          ],
+          "actual_outcomes": [
+            {
+              "type": "pose",
+              "actual_SDK_PhysX_clock": {
+                "actual_PhysX_events": 2918,
+                "actual_sim_time_s": 24.33333460241556,
+                "actual_SDK_PhysX_step_index": 2920
+              },
+              "episode": 1,
+              "condition": "independent_original_expert_collection_box_qualification",
+              "native_counter_time_s": 5.975,
+              "eef_pose_w": [
+                -1.3194324970245361,
+                -5.148139476776123,
+                1.088658094406128,
+                0.495815634727478,
+                -0.5028302073478699,
+                0.5022616386413574,
+                -0.49906104803085327
+              ],
+              "target_pose_w": [
+                -1.1679672002792358,
+                -5.089727401733398,
+                1.0835273265838623,
+                0.038211505860090256,
+                -0.06223844736814499,
+                0.08430067449808121,
+                0.9937604069709778
+              ],
+              "raw_success_predicate": false,
+              "raw_failure_predicate": false,
+              "native_success": false,
+              "native_failure": false,
+              "timeout": true,
+              "terminal": true,
+              "object_lift_m": 0.09604334831237793,
+              "object_xy_drift_m": 0.020510600582511935,
+              "eef_translation_error_mm": 3.8382424616172464,
+              "eef_rotation_error_rad": 0.011227770674628365,
+              "translation_within_20mm": true,
+              "actual_arm_joint_pos": [
+                0.6086674332618713,
+                -1.9094963073730469,
+                0.8625986576080322,
+                -2.1143341064453125,
+                -0.7456250786781311,
+                1.425866961479187,
+                -0.16353900730609894
+              ],
+              "actual_hand_joint_pos": [
+                1.5427272319793701,
+                2.769930362701416,
+                3.0199460983276367,
+                3.0298964977264404,
+                3.0009617805480957,
+                0.5017113089561462
+              ],
+              "actual_hand_joint_vel": [
+                -0.0030547247733920813,
+                0.00026593724032863975,
+                3.238859062548727e-05,
+                0.0001479518978158012,
+                -7.568259024992585e-05,
+                0.00023069734743330628
+              ],
+              "actual_hand_joint_pos_target": [
+                1.5199999809265137,
+                2.707199811935425,
+                3.0199995040893555,
+                3.0299999713897705,
+                3.0,
+                0.451151967048645
+              ],
+              "actual_robot_root_pose_w": [
+                -1.649999976158142,
+                -5.0,
+                -0.010519921779632568,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "first_relaxed_success": null,
+              "physical_lift_region_at_terminal": true,
+              "paper_ssr": null,
+              "formal_accepted": false
+            },
+            {
+              "type": "pose",
+              "actual_SDK_PhysX_clock": {
+                "actual_PhysX_events": 5786,
+                "actual_sim_time_s": 48.233335848897696,
+                "actual_SDK_PhysX_step_index": 5788
+              },
+              "episode": 2,
+              "condition": "independent_original_expert_collection_box_qualification",
+              "native_counter_time_s": 5.975,
+              "eef_pose_w": [
+                -1.3060632944107056,
+                -5.123867034912109,
+                1.088639736175537,
+                0.4959755837917328,
+                -0.5027057528495789,
+                0.5023325681686401,
+                -0.49895599484443665
+              ],
+              "target_pose_w": [
+                -1.1548699140548706,
+                -5.0659918785095215,
+                1.0810585021972656,
+                0.03385704755783081,
+                -0.04850325360894203,
+                0.09179359674453735,
+                0.994019627571106
+              ],
+              "raw_success_predicate": false,
+              "raw_failure_predicate": false,
+              "native_success": false,
+              "native_failure": false,
+              "timeout": true,
+              "terminal": true,
+              "object_lift_m": 0.09357452392578125,
+              "object_xy_drift_m": 0.020226585827991115,
+              "eef_translation_error_mm": 3.8733216337535805,
+              "eef_rotation_error_rad": 0.01096319686115342,
+              "translation_within_20mm": true,
+              "actual_arm_joint_pos": [
+                0.7586169838905334,
+                -1.9179737567901611,
+                0.8660850524902344,
+                -2.0191972255706787,
+                -0.6986346244812012,
+                1.4932525157928467,
+                -0.11318696290254593
+              ],
+              "actual_hand_joint_pos": [
+                1.5423760414123535,
+                2.769307851791382,
+                3.019932270050049,
+                3.0298991203308105,
+                3.0009686946868896,
+                0.5004163384437561
+              ],
+              "actual_hand_joint_vel": [
+                -0.0031844081822782755,
+                0.00028044270584359765,
+                -1.1562755389604717e-05,
+                0.00015042352606542408,
+                -8.407574205193669e-05,
+                0.00042857060907408595
+              ],
+              "actual_hand_joint_pos_target": [
+                1.5199999809265137,
+                2.707199811935425,
+                3.0199995040893555,
+                3.0299999713897705,
+                3.0,
+                0.451151967048645
+              ],
+              "actual_robot_root_pose_w": [
+                -1.649999976158142,
+                -5.0,
+                -0.010519921779632568,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "first_relaxed_success": null,
+              "physical_lift_region_at_terminal": true,
+              "paper_ssr": null,
+              "formal_accepted": false
+            },
+            {
+              "type": "pose",
+              "actual_SDK_PhysX_clock": {
+                "actual_PhysX_events": 8654,
+                "actual_sim_time_s": 72.13333709537983,
+                "actual_SDK_PhysX_step_index": 8656
+              },
+              "episode": 3,
+              "condition": "independent_original_expert_collection_box_qualification",
+              "native_counter_time_s": 5.975,
+              "eef_pose_w": [
+                -1.324489712715149,
+                -5.124690532684326,
+                1.088881254196167,
+                0.4959445297718048,
+                -0.502691388130188,
+                0.5020487308502197,
+                -0.49928686022758484
+              ],
+              "target_pose_w": [
+                -1.17317795753479,
+                -5.0662841796875,
+                1.0778707265853882,
+                0.04046216234564781,
+                -0.04646633565425873,
+                0.07324716448783875,
+                0.9954087734222412
+              ],
+              "raw_success_predicate": false,
+              "raw_failure_predicate": false,
+              "native_success": false,
+              "native_failure": false,
+              "timeout": true,
+              "terminal": true,
+              "object_lift_m": 0.09038674831390381,
+              "object_xy_drift_m": 0.02061100790014955,
+              "eef_translation_error_mm": 3.622538078712552,
+              "eef_rotation_error_rad": 0.01065764398159882,
+              "translation_within_20mm": true,
+              "actual_arm_joint_pos": [
+                0.7231462001800537,
+                -1.9433810710906982,
+                0.823535144329071,
+                -2.0884618759155273,
+                -0.7477501630783081,
+                1.5442148447036743,
+                -0.14872123301029205
+              ],
+              "actual_hand_joint_pos": [
+                1.5424174070358276,
+                2.768465280532837,
+                3.0199289321899414,
+                3.0299036502838135,
+                3.000962972640991,
+                0.5003467202186584
+              ],
+              "actual_hand_joint_vel": [
+                -0.00318125169724226,
+                0.00010025701340055093,
+                -2.022117405431345e-05,
+                0.00020725818467326462,
+                -8.535126107744873e-05,
+                0.00016571322339586914
+              ],
+              "actual_hand_joint_pos_target": [
+                1.5199999809265137,
+                2.707199811935425,
+                3.0199995040893555,
+                3.0299999713897705,
+                3.0,
+                0.451151967048645
+              ],
+              "actual_robot_root_pose_w": [
+                -1.649999976158142,
+                -5.0,
+                -0.010519921779632568,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "first_relaxed_success": null,
+              "physical_lift_region_at_terminal": true,
+              "paper_ssr": null,
+              "formal_accepted": false
+            }
+          ],
+          "original_named_config": {
+            "grasp_offset": [
+              -0.16,
+              -0.04,
+              0.01
+            ],
+            "grasp_euler_deg": [
+              -90.0,
+              0.0,
+              -90.0
+            ],
+            "lift_height": 0.095,
+            "min_success_lift_ratio": 0.9,
+            "finger_grasp_mode": "pinch",
+            "finger_close_scale": 0.28,
+            "pinch_secondary_close_scale": 0.0,
+            "smooth_finger_close": true,
+            "orientation_threshold": 0.015,
+            "episode_length_s": 2.0,
+            "min_success_time_s": 1.65,
+            "success_hold_steps": 6,
+            "max_success_linear_speed": 0.1,
+            "max_success_angular_speed": 0.7,
+            "ssr_enable_success_gate": true,
+            "ssr_max_theta_dev_rad": 0.25,
+            "ssr_max_cumulative_deflection_rad": 1.2,
+            "ssr_max_initial_xy_displacement_m": 0.03,
+            "ssr_max_contact_force_n": 25.0,
+            "ssr_require_contact_force": true,
+            "timing": {
+              "approach": 0.14,
+              "dwell": 0.08,
+              "grasp": 0.18,
+              "lift": 0.2,
+              "hold": 0.4
+            },
+            "robot_overrides": {
+              "ur5e_aoyi": {
+                "grasp_offset": [
+                  0.0,
+                  -0.12,
+                  0.001
+                ],
+                "grasp_euler_deg": [
+                  180.0,
+                  0.0,
+                  0.0
+                ],
+                "lift_height": 0.2
+              }
+            }
+          },
+          "actual_native_exit_code": 0,
+          "owned_process_group_empty": true,
+          "all_original_source_fullSHA_unchanged": true,
+          "full_visual_passed": false,
+          "formal_accepted": false,
+          "paper_ssr": null
+        }
+      ],
+      "actual_original_RGB_videos": 9,
+      "actual_original_video_frames_decoded": 3780,
+      "actual_ABBA_original_images_agent_viewed": 24,
+      "ABBA_sheets": [
+        {
+          "camera": "chest_camera",
+          "url": "media/grasp-volc-original-expert-and-beaker-pbr-v42/chest_camera_ABBA_original8.png",
+          "SHA256": "86793d974e7af0825dac86149cf96c2de2434c23d0f97f4bea7b4a489600c698",
+          "actual_original_images_agent_viewed": 8
+        },
+        {
+          "camera": "head_camera",
+          "url": "media/grasp-volc-original-expert-and-beaker-pbr-v42/head_camera_ABBA_original8.png",
+          "SHA256": "800c791bc9792c8dfd3c7d91a90e02fd950c9774030547bcd3dfdd07e5ce3c74",
+          "actual_original_images_agent_viewed": 8
+        },
+        {
+          "camera": "third_camera",
+          "url": "media/grasp-volc-original-expert-and-beaker-pbr-v42/third_camera_ABBA_original8.png",
+          "SHA256": "9a510d11f2cb847ba81ed05ad2d67573678b680f2effaec382744c3da7347113",
+          "actual_original_images_agent_viewed": 8
+        }
+      ],
+      "actual_frozen_physical_time": true,
+      "geometry_source_and_solver_poses_unchanged": true,
+      "original_material_restored": true,
+      "full_visual_passed": false,
+      "formal_accepted": false,
+      "paper_ssr": null,
+      "note": "原专家独立核验：50ml烧杯3/3，250ml烧杯0/3，100ml烧杯材质对照前1/1；均保留原参数和全部失败，不计DP/ACT。250ml末端位置虽在20mm内，仍未满足当前原生成功条件。其配置附加了角度/接触力等安全门，不能作为论文Spatial SSR。烧杯贴图开关对照改变刻度但白亮未消失；原材质与物理状态恢复已核验，完整玻璃/穿模检查未通过。",
+      "browser_media_note": "页面视频为H.264兼容播放版，原始MPEG4录像另有下载；帧数、画面尺寸及播放帧率一致，原文件与原始图像证据保留。"
+    },
+    "Volc_remaining19_original_expert_queue": {
+      "sampled_utc": "2026-10-11T23:00:08.820635+00:00",
+      "current_object": "brown_volumetric_flask_250ml",
+      "completed_object_baselines": 3,
+      "expected_objects": 19,
+      "all21_original_assets_fullSHA_closed": true,
+      "actual_original_dependency_files": 110,
+      "all_failed_attempts_retained": true,
+      "formal_accepted": false,
+      "paper_ssr": null
+    },
+    "unlaunched_new_training_source_correction": {
+      "actual_ACT_state_dim": 26,
+      "incorrect_old_metadata_dim": 41,
+      "old_frozen_metadata_preserved": true,
+      "frozen_training_seeds_and1050_unseen_positions_unchanged": true,
+      "new_training_dispatched": false,
+      "actual_CPU_loader_samples": 51,
+      "two_worker_DP_ACT_input_tensors_bitwise_equal": true
     }
   }
 }
