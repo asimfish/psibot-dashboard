@@ -1,0 +1,109 @@
+{
+  "schema": "grasp.t500.actual_frontier.v32",
+  "updated_utc": "2026-10-11T10:50:27.387806+00:00",
+  "formal_accepted_objects": 0,
+  "formal_accepted_methods": 0,
+  "paper_ssr": null,
+  "cards": [
+    {
+      "title": "原定模型训练",
+      "status": "51份训练完成，15路训练中",
+      "note": "透明大试剂瓶三个原DP种子都已完成3000轮，原模型、EMA及完整优化器逐份核对通过；原生复测继续。"
+    },
+    {
+      "title": "视觉与原生复测",
+      "status": "透明瓶渲染与空间SSR仍待验收",
+      "note": "玻璃原图对照仍有发白。透明大瓶原DP首个种子在同型号RTX5090完成三回合开发复测，成功0/3；完整录像继续核验，未计论文SSR或泛化验收。"
+    },
+    {
+      "title": "训练读取加速",
+      "status": "原始GPU短时试跑约1.87倍",
+      "note": "512个输入、四步损失及更新后的优化器一致。完整训练已接续，新检查点核验通过；稳定完整训练吞吐继续测量。"
+    }
+  ],
+  "strict_spatial_scope": "Table11给出终点空间20mm筛查；C.3的SSR检查整条轨迹中适用阶段的全部活动约束。固定最终目标不能作为移动过程中每一帧的目标。严格目标坐标系、旋转阈值和阶段仍待绑定。",
+  "full_scene_metric_diagnostic": {
+    "source_evidence_SHA256": "7b58b0daca0a13875bb602795f73313149c72fd36278eadc8655e548618a2f14",
+    "same_native_direct_solver_frames": 1487,
+    "actual_visible_meshes": 66,
+    "actual_full_surface_pair_checks": 927888,
+    "full_visual_qualified": false,
+    "formal_accepted": false
+  },
+  "glass_renderer_ABBA": {
+    "original_RGB_images_reviewed": 24,
+    "control": "worldEps1 →0.001 →0.001 →1",
+    "all_original_shader_inputs_and_solver_states_unchanged": true,
+    "white_body_persists": true,
+    "production_fix_selected": false,
+    "producer_SHA256": "f2d7fec46176c96956508cb646cbf480c595dadadf08175d205ffb01fb2c1ef0",
+    "images": [
+      {
+        "camera": "chest",
+        "url": "media/grasp_latest_glass_worldeps_v31/chest.png",
+        "SHA256": "a01c5470cb5d8eb78a1084c5fac8973c6f4f7fb782ee258b905f6df468f094a1"
+      },
+      {
+        "camera": "head",
+        "url": "media/grasp_latest_glass_worldeps_v31/head.png",
+        "SHA256": "3b001dd0f92e8274ac7ce624eefc96f085d6934a224258030ceed2d0ab36633c"
+      },
+      {
+        "camera": "third",
+        "url": "media/grasp_latest_glass_worldeps_v31/third.png",
+        "SHA256": "e314ddf738657bb829bfe73ae679eaa8937807c1e3364eb65759f222291050f0"
+      }
+    ]
+  },
+  "input_cpu_canary": {
+    "original_samples_per_s": 33.18522049803135,
+    "optimized_workers2_samples_per_s": 70.45854566616043,
+    "ratio": 2.1231905230323918,
+    "same_batched_input_samples": 512,
+    "GPU_training_speed_measured": false,
+    "original_optimizer_reset": false
+  },
+  "training_gpu_canary": {
+    "passed": true,
+    "same_batched_input_samples": 512,
+    "same_input_loss_and_post_optimizer": true,
+    "original_samples_per_s": 36.18250120784747,
+    "optimized_samples_per_s": 67.61699424692125,
+    "diagnostic_ratio": 1.8687761207690108,
+    "full_production_throughput_proved": false,
+    "optimizer_reset": false
+  },
+  "original_fullstate_continuation": {
+    "actual_started": true,
+    "original_cpu_restore_passed": true,
+    "first_production_full_optimizer_CPU_passed": true,
+    "saved_checkpoint_epoch": 1200,
+    "resumed_epoch": 1201,
+    "resumed_global_step": 54045,
+    "replayed_updates": 672,
+    "exact_training_trajectory_resume": false,
+    "logical_seed_count_increase": 0,
+    "original_empty_training_validation_preserved": true,
+    "evidence_url": "verification/T-500-grasp-original-continuation-v32.json"
+  },
+  "original_ClearLarge_DP_development_pilot": {
+    "completed": true,
+    "sampled_utc": "2026-10-11T10:48:32.484041+00:00",
+    "episodes": 3,
+    "successes": 0,
+    "success_rate": 0.0,
+    "terminal_translation_errors_mm": [
+      209.92544994856775,
+      167.34035566478104,
+      228.2955033156481
+    ],
+    "physical_terminal_hold_count": 0,
+    "returned_and_executed_action_pairs": 538,
+    "actual_source_pins_preserved": true,
+    "development_horizon_s": 6,
+    "position_box_half_range_cm": 2,
+    "formal_accepted": false,
+    "paper_ssr": null,
+    "full_visual_passed": false
+  }
+}

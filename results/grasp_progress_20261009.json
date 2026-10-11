@@ -1,6 +1,6 @@
 {
   "schema": "grasp.progress_snapshot.v1",
-  "updated_utc": "2026-10-11T08:28:00.542556+00:00",
+  "updated_utc": "2026-10-11T10:40:52.458719+00:00",
   "update_mode": "原拇指网格3次对照、原始RAW/JPEG/视频与已核实训练进度；每条证据按自身时间戳报告。正式验收0/21、0/42。",
   "totals": {
     "productive_training_runs": 68,
@@ -8,11 +8,11 @@
     "ACT": 33,
     "formal_accepted_objects": 0,
     "paper_objects": 21,
-    "active_training_runs": 16,
-    "completed_training_runs": 50,
+    "active_training_runs": 15,
+    "completed_training_runs": 51,
     "queued_training_candidates": 0,
     "interrupted_training_runs": 2,
-    "completed_DP_training_runs": 17,
+    "completed_DP_training_runs": 18,
     "completed_ACT_training_runs": 33,
     "recovering_training_runs": 0,
     "formal_accepted_methods": 0
@@ -258,27 +258,31 @@
       "completed_training": true
     },
     {
-      "host": "30109",
-      "gpu_model": "A100-SXM4 80GB",
-      "gpu_uuid": "GPU-e3c6c5d4-297c-a78b-4a28-b059e4adfbfa",
+      "host": "aliyun",
+      "gpu_model": "PPU-ZW810E 96GB",
+      "gpu_uuid": "GPU-019e2226-0592-0128-0000-000020aaa224",
       "method": "DP",
       "object": "clear_volumetric_flask_250ml",
       "seed": 26101311,
-      "state": "训练中",
-      "status_note": "论文3000轮、固定100演示；训练完成后另行测原生SR、SSR、范围外泛化及视觉。",
-      "epoch": 1144,
+      "state": "完整状态已恢复，训练中",
+      "status_note": "原始完整状态接续到Ali，优化器未重置；从1200轮检查点需重跑672步，随机流恢复不等于精确训练轨迹复现。新完整检查点已核验。",
+      "epoch": 1224,
       "epochs_target": 3000,
-      "global_step": 51507,
-      "train_loss": 0.0051963734440505505,
-      "sampled_utc": "2026-10-11T08:14:21.902650+00:00",
+      "global_step": 55123,
+      "train_loss": 0.004205607809126377,
+      "sampled_utc": "2026-10-11T10:34:28.292034+00:00",
       "exact_training_resume": false,
       "formal_accepted": false,
       "actual_exit_code": null,
-      "raw_status": "running",
+      "raw_status": "running_original_fullstate_Ali_continuation",
       "active_productive": true,
-      "recovery_saved_global_step": 11295,
+      "recovery_saved_global_step": 54045,
       "completed_training": false,
-      "latest_status_source_receipt_SHA256": "79311694b51cb95d50963b889e5ff62659e24c307eeae077867b6e72a9b490fe"
+      "latest_status_source_receipt_SHA256": "f901398a9d7e1e5bdd3923f5b63f2326c4a5df4d836ca98f85dc028802f43db2",
+      "lr": 0.0001966085742277122,
+      "global_training_rng_restored": true,
+      "dataloader_worker_rng_restored": false,
+      "replayed_updates": 672
     },
     {
       "host": "30109",
@@ -924,19 +928,24 @@
       "object": "clear_reagent_bottle_large",
       "seed": 26101601,
       "state": "3000轮训练完成，待原生测试",
-      "epoch": 2999,
+      "epoch": 3000,
       "epochs_target": 3000,
-      "global_step": 113999,
+      "global_step": 114000,
       "train_loss": 0.001901487314362863,
       "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "formal_accepted": false,
-      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
-      "raw_status": "running",
+      "status_note": "完整模型、EMA与优化器已逐份核验；三个预定种子全部保留，SR、SSR、范围外泛化与视觉继续验收。",
+      "raw_status": "trained_pending_native_validation",
       "active_productive": false,
       "actual_exit_code": 0,
       "completed_training": true,
       "lr": 1.7650375056849315e-05,
-      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2",
+      "final_CPU_model_EMA_optimizer_passed": true,
+      "final_saved_epoch": 3000,
+      "final_saved_global_step": 114000,
+      "final_CPU_evidence_url": "verification/T-500-grasp-original-continuation-v32.json",
+      "train_loss_sampled_utc": "2026-10-11T08:09:00.798975+00:00"
     },
     {
       "host": "aliyun",
@@ -946,20 +955,25 @@
       "object": "clear_reagent_bottle_large",
       "seed": 26101603,
       "state": "3000轮训练完成，待原生测试",
-      "epoch": 2999,
+      "epoch": 3000,
       "epochs_target": 3000,
-      "global_step": 113999,
+      "global_step": 114000,
       "train_loss": 0.0019586909911595285,
       "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "formal_accepted": false,
-      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
-      "raw_status": "running",
+      "status_note": "完整模型、EMA与优化器已逐份核验；三个预定种子全部保留，SR、SSR、范围外泛化与视觉继续验收。",
+      "raw_status": "trained_pending_native_validation",
       "active_productive": false,
       "actual_exit_code": 0,
       "completed_training": true,
       "data_full_SHA_verified": true,
       "lr": 0.00011434121286271465,
-      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2",
+      "final_CPU_model_EMA_optimizer_passed": true,
+      "final_saved_epoch": 3000,
+      "final_saved_global_step": 114000,
+      "final_CPU_evidence_url": "verification/T-500-grasp-original-continuation-v32.json",
+      "train_loss_sampled_utc": "2026-10-11T08:09:00.798975+00:00"
     },
     {
       "host": "aliyun",
@@ -968,21 +982,26 @@
       "method": "DP",
       "object": "clear_reagent_bottle_large",
       "seed": 26101605,
-      "state": "训练中",
-      "epoch": 2946,
+      "state": "3000轮训练完成，待原生测试",
+      "epoch": 3000,
       "epochs_target": 3000,
-      "global_step": 111967,
+      "global_step": 114000,
       "train_loss": 0.0017658749129623175,
-      "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
+      "sampled_utc": "2026-10-11T09:02:47.811703+00:00",
       "formal_accepted": false,
-      "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
-      "raw_status": "running",
-      "active_productive": true,
-      "actual_exit_code": null,
-      "completed_training": false,
+      "status_note": "完整模型、EMA与优化器已逐份核验；三个预定种子全部保留，SR、SSR、范围外泛化与视觉继续验收。",
+      "raw_status": "trained_pending_native_validation",
+      "active_productive": false,
+      "actual_exit_code": 0,
+      "completed_training": true,
       "data_full_SHA_verified": true,
       "lr": 0.00012221524101540515,
-      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2",
+      "final_CPU_model_EMA_optimizer_passed": true,
+      "final_saved_epoch": 3000,
+      "final_saved_global_step": 114000,
+      "final_CPU_evidence_url": "verification/T-500-grasp-original-continuation-v32.json",
+      "train_loss_sampled_utc": "2026-10-11T08:09:00.798975+00:00"
     },
     {
       "host": "aliyun",
@@ -1544,17 +1563,17 @@
   "servers": [
     {
       "host": "aliyun",
-      "state": "9路基线DP训练；15个DP / 16个ACT训练完成",
+      "state": "7路基线DP训练；18个DP / 16个ACT训练完成",
       "role": "训练",
-      "note": "六个预定原手动作标签对照模型都已有实际更新。棕色瓶三组原训练继续；透明瓶三组从未启动的任务调度到刚自然释放的同型号Ali9/10/11卡，100条原RGB/状态、训练种子及3000轮预算保留，不重复增加68个基线种子。",
-      "sampled_utc": "2026-10-10T22:55:36.890724+00:00"
+      "note": "透明大试剂瓶三原DP种子完成3000轮并通过完整状态CPU审计。透明容量瓶1311按原种子、原模型、EMA、完整优化器和学习率预算接续，首个新检查点已核验；未增加逻辑训练身份。",
+      "sampled_utc": "2026-10-11T10:34:28.292034+00:00"
     },
     {
       "host": "30109",
-      "state": "7路基线DP训练；0个DP / 17个ACT训练完成",
+      "state": "6路基线DP训练；0个DP / 17个ACT训练完成",
       "role": "训练",
-      "note": "三个100ml原DP种子在原GPU继续训练，521/525新保存的800/650轮完整检查点已在原生产环境CPU回读，模型/EMA各918张量、861优化器状态通过。523此前501轮完整保存也通过。匹配36批次耗时55→30秒是观测结果，非随机因果对照；100演示、3000轮和8步动作不变，工作进程随机流重启已披露。",
-      "sampled_utc": "2026-10-10T22:55:08.244806+00:00"
+      "note": "透明容量瓶1311旧训练进程在Ali完整恢复检查通过后按原PID与启动时间闭合；原尝试与检查点保留。三个100ml原DP及其他原始种子继续按各行实测时间展示。",
+      "sampled_utc": "2026-10-11T10:40:52.458719+00:00"
     },
     {
       "host": "liyufeng_4090",
@@ -1565,10 +1584,10 @@
     },
     {
       "host": "5090",
-      "state": "完整570私有库已恢复Native；透明瓶接触采集9/10，完整验收待定",
+      "state": "透明大试剂瓶原DP复测中；正式验收待定",
       "role": "采集 / 测试准备",
-      "note": "保持原完整场景、透明瓶资产和三相机；实际56×56接触视图已有1348336个接触点。旧动态白斑问题保留，新一轮原RGB与几何仍待验收；当前原候选保存记录为1条，完成试次与已保存候选分别展示。采集和后续测试使用同型号5090。",
-      "sampled_utc": "2026-10-10T23:53:22.904891+00:00"
+      "note": "原始1601 EMA权重和输入已核验。GPU1尝试在首回合前触发显存保护退出，0回合未计入SR；同型号GPU0重新执行原三位置开发试验，保留4GiB运行余量。透明瓶完整视觉仍待验收。",
+      "sampled_utc": "2026-10-11T10:40:52.458719+00:00"
     },
     {
       "host": "mainskill",
@@ -1854,7 +1873,7 @@
       23.6
     ],
     "act_cpu_dataset_read_speedup": 4.368692462456152,
-    "note": "68个基线种子有真实更新：18路DP训练中，33个ACT和15个DP完成训练；另有6个原动作标签对照训练，不重复计入68。ACT63停滞已闭合并保留247次；九原DP与剩余冻结ACT队列准备继续。训练完成、原判据小样本成功和读到接触点都不等于正式验收。",
+    "note": "68个原始逻辑训练身份；51份训练完成=18DP+33ACT，最近已核验15路训练状态。透明容量瓶原始优化器接续已在Ali实际运行，新完整检查点CPU核验通过。训练完成、原判据开发成功和读取接触点分别报告。",
     "act_total_epoch_throughput_speedup": 1.4458274316296305,
     "benchmark_utc": "2026-10-09T16:33:40.648366+00:00",
     "latest_ali_snapshot_utc": "2026-10-10T08:10:19.876713+00:00",
@@ -1880,7 +1899,17 @@
     "actual_Ali_instantaneous_mean_GPU_utilization_percent": 57.875,
     "actual_Ali_GPU_sampled_utc": "2026-10-10T18:28:28.337711+00:00",
     "actual_Ali_twenty_sample_mean_GPU_utilization_percent": 81.325,
-    "actual_Ali_twenty_sample_end_utc": "2026-10-10T18:56:29.181361+00:00"
+    "actual_Ali_twenty_sample_end_utc": "2026-10-10T18:56:29.181361+00:00",
+    "original_fullstate_input_short_GPU_canary": {
+      "passed": true,
+      "same_batched_input_samples": 512,
+      "same_input_loss_and_post_optimizer": true,
+      "original_samples_per_s": 36.18250120784747,
+      "optimized_samples_per_s": 67.61699424692125,
+      "diagnostic_ratio": 1.8687761207690108,
+      "full_production_throughput_proved": false,
+      "optimizer_reset": false
+    }
   },
   "development_pilots": [
     {
@@ -7232,28 +7261,28 @@
       "collision_free_qualified": false
     }
   },
-  "sampled_utc": "2026-10-11T08:28:00.542556+00:00",
+  "sampled_utc": "2026-10-11T10:40:52.458719+00:00",
   "latest_frontier": {
-    "schema": "grasp.t500.actual_frontier.v31",
-    "updated_utc": "2026-10-11T08:28:00.542556+00:00",
+    "schema": "grasp.t500.actual_frontier.v32",
+    "updated_utc": "2026-10-11T10:50:27.387806+00:00",
     "formal_accepted_objects": 0,
     "formal_accepted_methods": 0,
     "paper_ssr": null,
     "cards": [
       {
         "title": "原定模型训练",
-        "status": "50份训练完成，16路训练中",
-        "note": "透明大试剂瓶DP的1601、1603种子均已完成3000轮，原模型、EMA及完整优化器已逐份核对；原生复测继续推进。"
+        "status": "51份训练完成，15路训练中",
+        "note": "透明大试剂瓶三个原DP种子都已完成3000轮，原模型、EMA及完整优化器逐份核对通过；原生复测继续。"
       },
       {
-        "title": "视觉验收",
-        "status": "透明小瓶发白仍待修复",
-        "note": "薄壁和折射精度两组各24张原图对照均未解决发白。新棕色大瓶10条原生开发轨迹的180张接触及末段原图已检查，完整轨迹视觉仍待核验。"
+        "title": "视觉与原生复测",
+        "status": "透明瓶渲染与空间SSR仍待验收",
+        "note": "玻璃原图对照仍有发白。透明大瓶DP在同型号RTX5090上复测；上一显存保护退出的0回合尝试未计入成功率。"
       },
       {
         "title": "训练读取加速",
-        "status": "CPU读取实测2.12倍",
-        "note": "52个单样本及512个批量样本的RGB、状态、八步动作完全一致；GPU训练速度与完整优化器恢复继续验证。"
+        "status": "原始GPU短时试跑约1.87倍",
+        "note": "512个输入、四步损失及更新后的优化器一致。完整训练已接续，新检查点核验通过；稳定完整训练吞吐继续测量。"
       }
     ],
     "strict_spatial_scope": "Table11给出终点空间20mm筛查；C.3的SSR检查整条轨迹中适用阶段的全部活动约束。固定最终目标不能作为移动过程中每一帧的目标。严格目标坐标系、旋转阈值和阶段仍待绑定。",
@@ -7297,6 +7326,49 @@
       "same_batched_input_samples": 512,
       "GPU_training_speed_measured": false,
       "original_optimizer_reset": false
+    },
+    "training_gpu_canary": {
+      "passed": true,
+      "same_batched_input_samples": 512,
+      "same_input_loss_and_post_optimizer": true,
+      "original_samples_per_s": 36.18250120784747,
+      "optimized_samples_per_s": 67.61699424692125,
+      "diagnostic_ratio": 1.8687761207690108,
+      "full_production_throughput_proved": false,
+      "optimizer_reset": false
+    },
+    "original_fullstate_continuation": {
+      "actual_started": true,
+      "original_cpu_restore_passed": true,
+      "first_production_full_optimizer_CPU_passed": true,
+      "saved_checkpoint_epoch": 1200,
+      "resumed_epoch": 1201,
+      "resumed_global_step": 54045,
+      "replayed_updates": 672,
+      "exact_training_trajectory_resume": false,
+      "logical_seed_count_increase": 0,
+      "original_empty_training_validation_preserved": true,
+      "evidence_url": "verification/T-500-grasp-original-continuation-v32.json"
+    },
+    "original_ClearLarge_DP_development_pilot": {
+      "completed": true,
+      "sampled_utc": "2026-10-11T10:48:32.484041+00:00",
+      "episodes": 3,
+      "successes": 0,
+      "success_rate": 0.0,
+      "terminal_translation_errors_mm": [
+        209.92544994856775,
+        167.34035566478104,
+        228.2955033156481
+      ],
+      "physical_terminal_hold_count": 0,
+      "returned_and_executed_action_pairs": 538,
+      "actual_source_pins_preserved": true,
+      "development_horizon_s": 6,
+      "position_box_half_range_cm": 2,
+      "formal_accepted": false,
+      "paper_ssr": null,
+      "full_visual_passed": false
     }
   }
 }
