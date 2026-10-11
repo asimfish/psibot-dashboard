@@ -1,6 +1,6 @@
 {
   "schema": "grasp.acceptance.dashboard.v1",
-  "updated_utc": "2026-10-11T17:21:19.966270+00:00",
+  "updated_utc": "2026-10-11T18:31:34.438267+00:00",
   "acceptance_evidence_utc": "2026-10-09T05:57:02.287477+00:00",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "paper_overall": {
@@ -971,15 +971,15 @@
   "browser_supplement": "results/grasp_browser_supplement_20261009.json",
   "active_frontier": {
     "schema": "grasp.t500.actual_frontier.v35",
-    "updated_utc": "2026-10-11T17:21:19.966270+00:00",
+    "updated_utc": "2026-10-11T18:31:34.438267+00:00",
     "formal_accepted_objects": 0,
     "formal_accepted_methods": 0,
     "paper_ssr": null,
     "cards": [
       {
         "title": "原定模型训练",
-        "status": "已核验完成至少57份：24 DP / 33 ACT",
-        "note": "68个原训练身份不变。Main另两个DP已完成3000轮并通过完整CPU核验，独立NVMe持久化进行中；9条旧记录不代表当前GPU活跃数。"
+        "status": "已核验完成至少61份：28 DP / 33 ACT",
+        "note": "新增100ml烧杯2个及透明容量瓶2个原DP，完整模型、EMA和优化器均已审计并持久化。68个原训练身份不变；5条旧训练记录待更新，2条中断证据保留。"
       },
       {
         "title": "原模型实际复测",
@@ -988,8 +988,8 @@
       },
       {
         "title": "研钵物理诊断",
-        "status": "仅恢复手指角度未修复；两组均0/3",
-        "note": "6次同位置配对已完成。原全闭合侧翻；记录闭合组同样先侧翻、随后脱手。继续核对抓取位姿，尚无合格新示范。"
+        "status": "研钵原命令完整抬升1/3，姿态仍需修复",
+        "note": "三次都持续抬起；两次在初段快速抬升时侧倾。新慢抬升对照只改竖直速度，原目标和物理保持；尚无合格新示范。"
       }
     ],
     "strict_spatial_scope": "Table11给出终点空间20mm筛查；C.3的SSR检查整条轨迹中适用阶段的全部活动约束。固定最终目标不能作为移动过程中每一帧的目标。严格目标坐标系、旋转阈值和阶段仍待绑定。",
@@ -7008,7 +7008,7 @@
       "all3_original_videos_full_decoded": true,
       "unresolved_glass_white_appearance": true
     },
-    "evidence_url": "verification/T-500-grasp-new-dp-and-mortar-v37.json",
+    "evidence_url": "verification/T-500-grasp-durable-and-mortar-v38.json",
     "author_confirmed_paper_object_alias": {
       "schema": "grasp.author_confirmed_paper_object_alias.v1",
       "at_utc": "2026-10-11T15:22:00.679921+00:00",
@@ -8227,9 +8227,294 @@
       "epoch": 3000,
       "global_step": 135000,
       "actual_original_model_EMA_optimizer_CPU_passed": true,
-      "durable_archive_passed": false,
-      "note": "两模型完整CPU核验通过；独立NVMe持久化进行中，完成统计仍保留57下界。",
+      "durable_archive_passed": true,
+      "original_full_files_SHA_fsync_verified": 6,
+      "note": "两原模型/EMA/优化器CPU核验及独立NVMe六文件持久化已完成，新增2个训练完成；Native与SSR未验收。",
       "formal_accepted": false
-    }
+    },
+    "mortar_recorded_prefix_full6s": {
+      "rows": [
+        {
+          "episode": 1,
+          "native_pose_records": 717,
+          "actual_native_phase_boundaries": {
+            "approach": [
+              0,
+              10
+            ],
+            "descend": [
+              10,
+              17
+            ],
+            "dwell": [
+              17,
+              18
+            ],
+            "grasp": [
+              18,
+              30
+            ],
+            "lift": [
+              30,
+              120
+            ],
+            "hold": [
+              120,
+              180
+            ]
+          },
+          "terminal_object_lift_m": 0.2874165177345276,
+          "terminal_EEF_translation_mm": 12.451937402681425,
+          "terminal_original_pitch_roll_loss": 0.08191791019621655,
+          "peak_original_pitch_roll_loss": 0.08302572054808532,
+          "source_default_MP_orientation_threshold": 0.05,
+          "terminal_fails_source_default_native_orientation_gate": true,
+          "initial_target_quaternion_wxyz": [
+            -1.3100818208044984e-09,
+            -1.5400825059685985e-10,
+            -1.3524212305604522e-10,
+            1.0000001192092896
+          ],
+          "terminal_target_quaternion_wxyz": [
+            0.10592567920684814,
+            0.03648770973086357,
+            0.28387773036956787,
+            0.9522929787635803
+          ],
+          "raw_native_ever_success": false,
+          "actual_terminal_native_success": false,
+          "paper_SSR_gate_bound": false,
+          "formal_accepted": false
+        },
+        {
+          "episode": 2,
+          "native_pose_records": 717,
+          "actual_native_phase_boundaries": {
+            "approach": [
+              0,
+              10
+            ],
+            "descend": [
+              10,
+              17
+            ],
+            "dwell": [
+              17,
+              18
+            ],
+            "grasp": [
+              18,
+              30
+            ],
+            "lift": [
+              30,
+              120
+            ],
+            "hold": [
+              120,
+              180
+            ]
+          },
+          "terminal_object_lift_m": 0.2925555109977722,
+          "terminal_EEF_translation_mm": 12.410024138888575,
+          "terminal_original_pitch_roll_loss": 0.028538327179538133,
+          "peak_original_pitch_roll_loss": 0.028736839172642678,
+          "source_default_MP_orientation_threshold": 0.05,
+          "terminal_fails_source_default_native_orientation_gate": false,
+          "initial_target_quaternion_wxyz": [
+            -1.3100818208044984e-09,
+            -1.5400825059685985e-10,
+            -1.3524212305604522e-10,
+            1.0000001192092896
+          ],
+          "terminal_target_quaternion_wxyz": [
+            0.03421584889292717,
+            0.09438075125217438,
+            0.14010925590991974,
+            0.9850335121154785
+          ],
+          "raw_native_ever_success": true,
+          "actual_terminal_native_success": true,
+          "paper_SSR_gate_bound": false,
+          "formal_accepted": false
+        },
+        {
+          "episode": 3,
+          "native_pose_records": 717,
+          "actual_native_phase_boundaries": {
+            "approach": [
+              0,
+              10
+            ],
+            "descend": [
+              10,
+              17
+            ],
+            "dwell": [
+              17,
+              18
+            ],
+            "grasp": [
+              18,
+              30
+            ],
+            "lift": [
+              30,
+              120
+            ],
+            "hold": [
+              120,
+              180
+            ]
+          },
+          "terminal_object_lift_m": 0.2888036370277405,
+          "terminal_EEF_translation_mm": 12.223398270547229,
+          "terminal_original_pitch_roll_loss": 0.07204194419222067,
+          "peak_original_pitch_roll_loss": 0.09559052328113775,
+          "source_default_MP_orientation_threshold": 0.05,
+          "terminal_fails_source_default_native_orientation_gate": true,
+          "initial_target_quaternion_wxyz": [
+            -1.3100818208044984e-09,
+            -1.5400825059685985e-10,
+            -1.3524212305604522e-10,
+            1.0000001192092896
+          ],
+          "terminal_target_quaternion_wxyz": [
+            0.0963568463921547,
+            0.04564041644334793,
+            0.26449745893478394,
+            0.9584745764732361
+          ],
+          "raw_native_ever_success": false,
+          "actual_terminal_native_success": false,
+          "paper_SSR_gate_bound": false,
+          "formal_accepted": false
+        }
+      ],
+      "videos": [
+        {
+          "camera": "chest_camera",
+          "url": "media/grasp-mortar-recorded-prefix-mp-v38/chest_camera.mp4",
+          "SHA256": "679a679eec9a0ea6d7619325fa628794af5ae07abe3bb13cac29eac2ee13c7d4",
+          "duration_s": 18,
+          "scope": "原训练位置MP专家诊断，不计DP/ACT成绩"
+        },
+        {
+          "camera": "head_camera",
+          "url": "media/grasp-mortar-recorded-prefix-mp-v38/head_camera.mp4",
+          "SHA256": "f2463d4701ea98bde4b56f8f73e54030c4427b7aa0488793f6c5b66b21da9569",
+          "duration_s": 18,
+          "scope": "原训练位置MP专家诊断，不计DP/ACT成绩"
+        },
+        {
+          "camera": "third_camera",
+          "url": "media/grasp-mortar-recorded-prefix-mp-v38/third_camera.mp4",
+          "SHA256": "b6eeacf39cb845ceabfbcc9af37829c85a31ed5e1fa78533ee5b8b9dd597d861",
+          "duration_s": 18,
+          "scope": "原训练位置MP专家诊断，不计DP/ACT成绩"
+        }
+      ],
+      "actual_native_trials": 3,
+      "native_successes": 1,
+      "original_video_frames_decoded": 1620,
+      "actual_sampled_original_frames_reviewed": 54,
+      "note": "保留原训练episode0抓取命令，补足原0.3m目标并保持2秒。三次均持续抬起28.7–29.3cm，原成功1/3；两次在初段快速抬升时侧倾，朝向损失超过原0.05门。三路原录像及54选帧已核验；胸前相机后段目标出画，完整视觉仍未通过。新慢抬升同位置对照已提交，尚未读取结果。不计DP/ACT模型、正式SR或论文SSR。",
+      "physical_demonstrations_qualified": false,
+      "full_visual_passed": false,
+      "formal_accepted": false,
+      "paper_ssr": null
+    },
+    "two_301_Beaker100_original_full_CPU": {
+      "seeds": [
+        26101521,
+        26101523
+      ],
+      "epoch": 3000,
+      "global_step": 114000,
+      "CPU_model_EMA_tensor_counts": [
+        918,
+        918
+      ],
+      "optimizer_finite_tensors": 2583,
+      "durable_Ali_frozen": true,
+      "formal_accepted": false
+    },
+    "three_original_input_CPU_qualification": [
+      {
+        "seed": 26101611,
+        "source_run": "/tmp/grasp_ssr_ood_multiserver_20261009/dp_Beaker250_verified_recovery_v10/runs/dp-recovery3000-glass_beaker_250ml-s26101611-bounded-tmp-workers0-dp-v10-a2",
+        "source_dataset": {
+          "_target_": "psi_dp.dataset.grasp_rgb_dataset.GraspRGBDataset",
+          "zarr_path": "/home/dataset-assist-0/yf/rep12_dp/zarr/glass_beaker_250ml.zarr",
+          "horizon": 8,
+          "pad_before": 0,
+          "pad_after": 7,
+          "seed": 42,
+          "val_ratio": 0.05,
+          "use_velocity": false,
+          "use_third_camera": true
+        },
+        "actual_GPU_updates": 0,
+        "passed": true,
+        "full8_RGB_fetch_median_s": 1.0088633969426155,
+        "first1_RGB_fetch_median_s": 0.753383856266737,
+        "same512_input_first_frame_CPU_fetch_ratio": 1.3391093909841167,
+        "workers0_first_frame_median_s": 0.7800835422240198,
+        "workers2_first_frame_median_s": 0.24188905768096447,
+        "same512_input_workers_CPU_fetch_ratio": 3.2249641620949134,
+        "GPU_training_speedup_not_yet_measured": true,
+        "source_or_active_processes_modified": false
+      },
+      {
+        "seed": 26101621,
+        "source_run": "/tmp/grasp_ssr_ood_multiserver_20261009/dp_missing_original_objects_v9/runs/dp-recovery3000-glass_cylinder_100ml-s26101621-bounded-tmp-workers0-dp-v9-a1",
+        "source_dataset": {
+          "_target_": "psi_dp.dataset.grasp_rgb_dataset.GraspRGBDataset",
+          "zarr_path": "/home/dataset-assist-0/yf/rep12_dp/zarr/glass_cylinder_100ml.zarr",
+          "horizon": 8,
+          "pad_before": 0,
+          "pad_after": 7,
+          "seed": 42,
+          "val_ratio": 0.05,
+          "use_velocity": false,
+          "use_third_camera": true
+        },
+        "actual_GPU_updates": 0,
+        "passed": true,
+        "full8_RGB_fetch_median_s": 1.057452724315226,
+        "first1_RGB_fetch_median_s": 0.7768250331282616,
+        "same512_input_first_frame_CPU_fetch_ratio": 1.361249546834094,
+        "workers0_first_frame_median_s": 0.6960650053806603,
+        "workers2_first_frame_median_s": 0.15389774180948734,
+        "same512_input_workers_CPU_fetch_ratio": 4.522905906197968,
+        "GPU_training_speedup_not_yet_measured": true,
+        "source_or_active_processes_modified": false
+      },
+      {
+        "seed": 26101631,
+        "source_run": "/tmp/grasp_ssr_ood_multiserver_20261009/dp_missing_original_objects_v9/runs/dp-recovery3000-alcohol_lamp-s26101631-bounded-tmp-workers0-dp-v9-a1",
+        "source_dataset": {
+          "_target_": "psi_dp.dataset.grasp_rgb_dataset.GraspRGBDataset",
+          "zarr_path": "/home/dataset-assist-0/yf/rep12_dp/zarr/alcohol_lamp.zarr",
+          "horizon": 8,
+          "pad_before": 0,
+          "pad_after": 7,
+          "seed": 42,
+          "val_ratio": 0.05,
+          "use_velocity": false,
+          "use_third_camera": true
+        },
+        "actual_GPU_updates": 0,
+        "passed": true,
+        "full8_RGB_fetch_median_s": 0.8894574646838009,
+        "first1_RGB_fetch_median_s": 0.6873858789913356,
+        "same512_input_first_frame_CPU_fetch_ratio": 1.2939711039583524,
+        "workers0_first_frame_median_s": 0.7624614140950143,
+        "workers2_first_frame_median_s": 0.1492291409522295,
+        "same512_input_workers_CPU_fetch_ratio": 5.109333265806909,
+        "GPU_training_speedup_not_yet_measured": true,
+        "source_or_active_processes_modified": false
+      }
+    ]
   }
 }
