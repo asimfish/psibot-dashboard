@@ -1,7 +1,7 @@
 {
   "schema": "safelab.astra.public_formal_cases.v1",
-  "as_of_utc": "2026-10-11T15:50:47.898332+00:00",
-  "accepted_formal_trials": 7,
+  "as_of_utc": "2026-10-11T16:16:53.707773+00:00",
+  "accepted_formal_trials": 12,
   "registered_trials": 1000,
   "minimum_trials_per_condition": 20,
   "minimum20_cohorts_complete": 0,
@@ -12,6 +12,129 @@
     "new_submissions_paused": true
   },
   "records": [
+    {
+      "trial_id": "v5-fr3_place-11000-rich",
+      "task": "fr3_place",
+      "title": "FR3 放置",
+      "condition": "rich",
+      "seed": 11000,
+      "accepted": true,
+      "success": false,
+      "result_explanation": "触发几何碰撞早停，未完成搬运放置；有效物理失败，保留在本条件的正式样本中。",
+      "stop_reason": "geometric_hard_abort",
+      "checks": {
+        "final_hold_at_least_1s": true,
+        "hold_speed_at_most_5cm_s": false,
+        "hold_tilt_at_most_15deg": true,
+        "no_geometric_hard_abort": false,
+        "no_other_hard_abort": true,
+        "released": false,
+        "horizontal_distance_at_most_4cm": false
+      },
+      "model": "gpt-6-astra",
+      "effort": "xhigh",
+      "current_camera_names": [
+        "head_camera",
+        "chest_camera",
+        "third_camera",
+        "wrist_camera"
+      ],
+      "cameras": [
+        {
+          "camera": "head_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-rich/head_camera.png",
+          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-rich/head_camera.mp4",
+          "decoded_frames": 77,
+          "view_note": "首中末样本中瓶仍在原位，末段夹爪抵近瓶口，未完成搬运放置；几何早停以原物理记录为准。完整输入基线的失败保留。"
+        },
+        {
+          "camera": "chest_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-rich/chest_camera.png",
+          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-rich/chest_camera.mp4",
+          "decoded_frames": 77,
+          "view_note": "全臂与桌面可见，目标较小；末段夹爪下降到瓶旁，绿垫仍为空。"
+        },
+        {
+          "camera": "third_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-rich/third_camera.png",
+          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-rich/third_camera.mp4",
+          "decoded_frames": 77,
+          "view_note": "俯视中任务瓶被机械臂及夹爪遮挡，不能独立判断接触或几何碰撞。"
+        },
+        {
+          "camera": "wrist_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-rich/wrist_camera.png",
+          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-rich/wrist_camera.mp4",
+          "decoded_frames": 77,
+          "view_note": "初始瓶与绿垫可见，末段瓶的近景大幅裁切，未见完整搬运放置。"
+        }
+      ],
+      "first_input": "assets/astra/formal_20261011/v5-fr3_place-11000-rich/first_input.json",
+      "all_inputs": "assets/astra/formal_20261011/v5-fr3_place-11000-rich/visible_inputs.json",
+      "episode_wall_s": 115.19461355009116,
+      "model_wait_s": 97.81595086865127,
+      "control_render_wall_s": 13.58842163393274,
+      "render_encode_wall_s": 8.893210158217698,
+      "requests": 2,
+      "action_rejections": 0,
+      "network_retries": 0,
+      "manual_resets": 0,
+      "pickup_attempts": 1,
+      "pickup_retries": 0,
+      "decisions": [
+        {
+          "decision": 1,
+          "images_sent": 4,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K"
+          ],
+          "history_entries": 0,
+          "memory_characters": 0,
+          "memory_deleted": false,
+          "action_status": null
+        },
+        {
+          "decision": 2,
+          "images_sent": 8,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 1,
+          "memory_characters": 370,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        }
+      ],
+      "paired_initial_sha256": "93939d1c5833713a5f37138d9b16afea716dc373adee01a543501b5d64e105e2",
+      "source_freeze_sha256": "3ba137b6e72fb6d224891967501985a55bfb86acd9d9a2a2822370d62aae4c21",
+      "terminal_sha256": "8cf3d511bc4d5c6f7bee3bf6c215bb5cc98e9f6fc483dc4d949b73c60b0067bc",
+      "artifact_manifest_sha256": "3919efb24960c6b174b6dfccb4df280d51ced509d2d6a31efb049750394edf63",
+      "physical_120Hz_contiguous": true,
+      "actual_samples_viewed": 12,
+      "rate_reported": false,
+      "causal_input_conclusion": null
+    },
     {
       "trial_id": "v5-fr3_place-11000-minus_S",
       "task": "fr3_place",
@@ -248,6 +371,523 @@
       "causal_input_conclusion": null
     },
     {
+      "trial_id": "v5-fr3_place-11000-minus_J",
+      "task": "fr3_place",
+      "title": "FR3 放置",
+      "condition": "minus_J",
+      "seed": 11000,
+      "accepted": true,
+      "success": false,
+      "result_explanation": "触发几何碰撞早停，未完成搬运放置；有效物理失败，保留在本条件的正式样本中。",
+      "stop_reason": "geometric_hard_abort",
+      "checks": {
+        "final_hold_at_least_1s": true,
+        "hold_speed_at_most_5cm_s": true,
+        "hold_tilt_at_most_15deg": true,
+        "no_geometric_hard_abort": false,
+        "no_other_hard_abort": true,
+        "released": false,
+        "horizontal_distance_at_most_4cm": false
+      },
+      "model": "gpt-6-astra",
+      "effort": "xhigh",
+      "current_camera_names": [
+        "head_camera",
+        "chest_camera",
+        "third_camera",
+        "wrist_camera"
+      ],
+      "cameras": [
+        {
+          "camera": "head_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_J/head_camera.png",
+          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_J/head_camera.mp4",
+          "decoded_frames": 76,
+          "view_note": "瓶保持在原位置；末段夹爪抵近瓶口，未到达绿垫。原几何早停与失败保留，不由单次失败推断关节状态的因果作用。"
+        },
+        {
+          "camera": "chest_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_J/chest_camera.png",
+          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_J/chest_camera.mp4",
+          "decoded_frames": 76,
+          "view_note": "全臂及桌面可见，瓶较小；末段仍在原位，绿垫为空。"
+        },
+        {
+          "camera": "third_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_J/third_camera.png",
+          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_J/third_camera.mp4",
+          "decoded_frames": 76,
+          "view_note": "俯视中瓶被机械臂和夹爪遮挡，单独这一视角不足以评估抓取。"
+        },
+        {
+          "camera": "wrist_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_J/wrist_camera.png",
+          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_J/wrist_camera.mp4",
+          "decoded_frames": 76,
+          "view_note": "首帧瓶与目标可见，末段瓶口近景有裁切，未见放置到绿垫。"
+        }
+      ],
+      "first_input": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_J/first_input.json",
+      "all_inputs": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_J/visible_inputs.json",
+      "episode_wall_s": 177.47082511801273,
+      "model_wait_s": 160.3674278280232,
+      "control_render_wall_s": 13.452365149045363,
+      "render_encode_wall_s": 8.655232724035159,
+      "requests": 2,
+      "action_rejections": 0,
+      "network_retries": 0,
+      "manual_resets": 0,
+      "pickup_attempts": 1,
+      "pickup_retries": 0,
+      "decisions": [
+        {
+          "decision": 1,
+          "images_sent": 4,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "K"
+          ],
+          "history_entries": 0,
+          "memory_characters": 0,
+          "memory_deleted": false,
+          "action_status": null
+        },
+        {
+          "decision": 2,
+          "images_sent": 8,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "K",
+            "F"
+          ],
+          "history_entries": 1,
+          "memory_characters": 400,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        }
+      ],
+      "paired_initial_sha256": "93939d1c5833713a5f37138d9b16afea716dc373adee01a543501b5d64e105e2",
+      "source_freeze_sha256": "3ba137b6e72fb6d224891967501985a55bfb86acd9d9a2a2822370d62aae4c21",
+      "terminal_sha256": "44934689dc8e47fe3a14479eebe115be57e213acec49b109d2bbd1c2d08586d1",
+      "artifact_manifest_sha256": "0a67a7490b0de2c15e8dfdba44a49810711bf1c182d64080f7ce75275f8e5f7a",
+      "physical_120Hz_contiguous": true,
+      "actual_samples_viewed": 12,
+      "rate_reported": false,
+      "causal_input_conclusion": null
+    },
+    {
+      "trial_id": "v5-fr3_place-11000-minus_K",
+      "task": "fr3_place",
+      "title": "FR3 放置",
+      "condition": "minus_K",
+      "seed": 11000,
+      "accepted": true,
+      "success": true,
+      "result_explanation": "已松手，最终水平距离 2.55 cm；原全部放置门槛通过。",
+      "stop_reason": "model_declared_done",
+      "checks": {
+        "final_hold_at_least_1s": true,
+        "hold_speed_at_most_5cm_s": true,
+        "hold_tilt_at_most_15deg": true,
+        "no_geometric_hard_abort": true,
+        "no_other_hard_abort": true,
+        "released": true,
+        "horizontal_distance_at_most_4cm": true
+      },
+      "model": "gpt-6-astra",
+      "effort": "xhigh",
+      "current_camera_names": [
+        "head_camera",
+        "chest_camera",
+        "third_camera",
+        "wrist_camera"
+      ],
+      "cameras": [
+        {
+          "camera": "head_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_K/head_camera.png",
+          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_K/head_camera.mp4",
+          "decoded_frames": 401,
+          "view_note": "初始瓶与绿垫清楚；中段夹爪接近瓶口，末段瓶直立在绿垫且夹爪张开上撤。"
+        },
+        {
+          "camera": "chest_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_K/chest_camera.png",
+          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_K/chest_camera.mp4",
+          "decoded_frames": 401,
+          "view_note": "全臂和桌面可见；目标较小，末段可辨认瓶在绿垫上、夹爪已离开。"
+        },
+        {
+          "camera": "third_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_K/third_camera.png",
+          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_K/third_camera.mp4",
+          "decoded_frames": 401,
+          "view_note": "俯视可见桌面和绿垫，瓶主体持续被末端遮挡，不能单独判定松手。"
+        },
+        {
+          "camera": "wrist_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_K/wrist_camera.png",
+          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_K/wrist_camera.mp4",
+          "decoded_frames": 401,
+          "view_note": "首帧瓶与目标可见，中段持物近景裁切，末段瓶在绿垫且夹爪张开。"
+        }
+      ],
+      "first_input": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_K/first_input.json",
+      "all_inputs": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_K/visible_inputs.json",
+      "episode_wall_s": 828.8370691651944,
+      "model_wait_s": 745.4207352090161,
+      "control_render_wall_s": 74.39797912235372,
+      "render_encode_wall_s": 35.7339201902505,
+      "requests": 10,
+      "action_rejections": 0,
+      "network_retries": 0,
+      "manual_resets": 0,
+      "pickup_attempts": 1,
+      "pickup_retries": 0,
+      "decisions": [
+        {
+          "decision": 1,
+          "images_sent": 4,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J"
+          ],
+          "history_entries": 0,
+          "memory_characters": 0,
+          "memory_deleted": false,
+          "action_status": null
+        },
+        {
+          "decision": 2,
+          "images_sent": 8,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "F"
+          ],
+          "history_entries": 1,
+          "memory_characters": 288,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 3,
+          "images_sent": 12,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 348,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 4,
+          "images_sent": 12,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 446,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 5,
+          "images_sent": 12,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 485,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 6,
+          "images_sent": 12,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 504,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 7,
+          "images_sent": 12,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 385,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 8,
+          "images_sent": 12,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 578,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 9,
+          "images_sent": 12,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 599,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 10,
+          "images_sent": 12,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 633,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        }
+      ],
+      "paired_initial_sha256": "93939d1c5833713a5f37138d9b16afea716dc373adee01a543501b5d64e105e2",
+      "source_freeze_sha256": "3ba137b6e72fb6d224891967501985a55bfb86acd9d9a2a2822370d62aae4c21",
+      "terminal_sha256": "d7d66b02001f1219b1cb99f56f631aa969228f8158e9ab30f120b93f7c799ab8",
+      "artifact_manifest_sha256": "4978b6dbbe4050fa9c3755bff262b9eb044d0b4797df24a91f5b23a96a795b9a",
+      "physical_120Hz_contiguous": true,
+      "actual_samples_viewed": 12,
+      "rate_reported": false,
+      "causal_input_conclusion": null
+    },
+    {
+      "trial_id": "v5-fr3_place-11000-minus_M",
+      "task": "fr3_place",
+      "title": "FR3 放置",
+      "condition": "minus_M",
+      "seed": 11000,
+      "accepted": true,
+      "success": false,
+      "result_explanation": "触发几何碰撞早停，未完成搬运放置；有效物理失败，保留在本条件的正式样本中。",
+      "stop_reason": "geometric_hard_abort",
+      "checks": {
+        "final_hold_at_least_1s": true,
+        "hold_speed_at_most_5cm_s": true,
+        "hold_tilt_at_most_15deg": true,
+        "no_geometric_hard_abort": false,
+        "no_other_hard_abort": true,
+        "released": false,
+        "horizontal_distance_at_most_4cm": false
+      },
+      "model": "gpt-6-astra",
+      "effort": "xhigh",
+      "current_camera_names": [
+        "head_camera",
+        "chest_camera",
+        "third_camera",
+        "wrist_camera"
+      ],
+      "cameras": [
+        {
+          "camera": "head_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_M/head_camera.png",
+          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_M/head_camera.mp4",
+          "decoded_frames": 79,
+          "view_note": "首中末样本中瓶仍在原位，末段夹爪抵近瓶口，没有完成搬运或放置。几何早停由物理记录判定。"
+        },
+        {
+          "camera": "chest_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_M/chest_camera.png",
+          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_M/chest_camera.mp4",
+          "decoded_frames": 79,
+          "view_note": "全臂与桌面可见，末段夹爪下降至瓶旁；目标较小，瓶未到达绿垫。"
+        },
+        {
+          "camera": "third_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_M/third_camera.png",
+          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_M/third_camera.mp4",
+          "decoded_frames": 79,
+          "view_note": "俯视中瓶被末端部分遮挡；不能从这一视角测出物理穿透深度。"
+        },
+        {
+          "camera": "wrist_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_M/wrist_camera.png",
+          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_M/wrist_camera.mp4",
+          "decoded_frames": 79,
+          "view_note": "瓶口逐渐靠近，末段瓶的近景有裁切；未见完成放置。"
+        }
+      ],
+      "first_input": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_M/first_input.json",
+      "all_inputs": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_M/visible_inputs.json",
+      "episode_wall_s": 168.18078886996955,
+      "model_wait_s": 150.85764286713675,
+      "control_render_wall_s": 13.762313136830926,
+      "render_encode_wall_s": 8.880333166569471,
+      "requests": 2,
+      "action_rejections": 0,
+      "network_retries": 0,
+      "manual_resets": 0,
+      "pickup_attempts": 1,
+      "pickup_retries": 0,
+      "decisions": [
+        {
+          "decision": 1,
+          "images_sent": 4,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K"
+          ],
+          "history_entries": 0,
+          "memory_characters": 0,
+          "memory_deleted": true,
+          "action_status": null
+        },
+        {
+          "decision": 2,
+          "images_sent": 8,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 1,
+          "memory_characters": 0,
+          "memory_deleted": true,
+          "action_status": "accepted"
+        }
+      ],
+      "paired_initial_sha256": "93939d1c5833713a5f37138d9b16afea716dc373adee01a543501b5d64e105e2",
+      "source_freeze_sha256": "3ba137b6e72fb6d224891967501985a55bfb86acd9d9a2a2822370d62aae4c21",
+      "terminal_sha256": "b5391ed7ce396f17f5cfcc34ba3408a68b3ac2bf5985089ab6544b6bd5a41eb9",
+      "artifact_manifest_sha256": "f505b592f3bf2a5ddc3b9fee7e20c397e8b80cea0b37deac7150ad7b0f18a217",
+      "physical_120Hz_contiguous": true,
+      "actual_samples_viewed": 12,
+      "rate_reported": false,
+      "causal_input_conclusion": null
+    },
+    {
       "trial_id": "v5-fr3_place-11000-minus_head",
       "task": "fr3_place",
       "title": "FR3 放置",
@@ -438,6 +1078,455 @@
       "source_freeze_sha256": "3ba137b6e72fb6d224891967501985a55bfb86acd9d9a2a2822370d62aae4c21",
       "terminal_sha256": "bd7d82db6ab1b97a30e66df0569526a92d28eb40669b4a1f6dddd0746581d557",
       "artifact_manifest_sha256": "8be6ff62eb4b26fd90e914c48aebbde45a9c80e01677d3635583edac14d2a83f",
+      "physical_120Hz_contiguous": true,
+      "actual_samples_viewed": 12,
+      "rate_reported": false,
+      "causal_input_conclusion": null
+    },
+    {
+      "trial_id": "v5-fr3_place-11000-minus_chest",
+      "task": "fr3_place",
+      "title": "FR3 放置",
+      "condition": "minus_chest",
+      "seed": 11000,
+      "accepted": true,
+      "success": true,
+      "result_explanation": "已松手，最终水平距离 1.95 cm；原全部放置门槛通过。",
+      "stop_reason": "model_declared_done",
+      "checks": {
+        "final_hold_at_least_1s": true,
+        "hold_speed_at_most_5cm_s": true,
+        "hold_tilt_at_most_15deg": true,
+        "no_geometric_hard_abort": true,
+        "no_other_hard_abort": true,
+        "released": true,
+        "horizontal_distance_at_most_4cm": true
+      },
+      "model": "gpt-6-astra",
+      "effort": "xhigh",
+      "current_camera_names": [
+        "head_camera",
+        "third_camera",
+        "wrist_camera"
+      ],
+      "cameras": [
+        {
+          "camera": "head_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_chest/head_camera.png",
+          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_chest/head_camera.mp4",
+          "decoded_frames": 376,
+          "view_note": "初始瓶与绿垫清楚；中段夹持瓶，末段瓶直立在绿垫上，夹爪张开上撤。"
+        },
+        {
+          "camera": "chest_camera",
+          "shown_to_model": false,
+          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_chest/chest_camera_evaluator.png",
+          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_chest/chest_camera.mp4",
+          "decoded_frames": 376,
+          "view_note": "独立评估录像显示整个机械臂和桌面；目标较小。本条件未向模型发送这一路 RGB。"
+        },
+        {
+          "camera": "third_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_chest/third_camera.png",
+          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_chest/third_camera.mp4",
+          "decoded_frames": 376,
+          "view_note": "俯视可见桌面与绿垫；抓持和最终位置的瓶主体被夹爪遮挡，不能单独判定松手。"
+        },
+        {
+          "camera": "wrist_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_chest/wrist_camera.png",
+          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_chest/wrist_camera.mp4",
+          "decoded_frames": 376,
+          "view_note": "初始瓶与目标可见；中段持物近景裁切，末段瓶在绿垫上且夹爪张开。"
+        }
+      ],
+      "first_input": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_chest/first_input.json",
+      "all_inputs": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_chest/visible_inputs.json",
+      "episode_wall_s": 429.8685532298405,
+      "model_wait_s": 351.7480948844459,
+      "control_render_wall_s": 70.92209892277606,
+      "render_encode_wall_s": 33.604578505968675,
+      "requests": 7,
+      "action_rejections": 0,
+      "network_retries": 0,
+      "manual_resets": 0,
+      "pickup_attempts": 1,
+      "pickup_retries": 0,
+      "decisions": [
+        {
+          "decision": 1,
+          "images_sent": 3,
+          "current_cameras": [
+            "head_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K"
+          ],
+          "history_entries": 0,
+          "memory_characters": 0,
+          "memory_deleted": false,
+          "action_status": null
+        },
+        {
+          "decision": 2,
+          "images_sent": 6,
+          "current_cameras": [
+            "head_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 1,
+          "memory_characters": 274,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 3,
+          "images_sent": 9,
+          "current_cameras": [
+            "head_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 384,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 4,
+          "images_sent": 9,
+          "current_cameras": [
+            "head_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 370,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 5,
+          "images_sent": 9,
+          "current_cameras": [
+            "head_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 513,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 6,
+          "images_sent": 9,
+          "current_cameras": [
+            "head_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 552,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 7,
+          "images_sent": 9,
+          "current_cameras": [
+            "head_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 458,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        }
+      ],
+      "paired_initial_sha256": "93939d1c5833713a5f37138d9b16afea716dc373adee01a543501b5d64e105e2",
+      "source_freeze_sha256": "3ba137b6e72fb6d224891967501985a55bfb86acd9d9a2a2822370d62aae4c21",
+      "terminal_sha256": "c01255663a0434c771de834357f3a2dbe9e1df7c80e57bf90b3dfb234cd487eb",
+      "artifact_manifest_sha256": "099380dac357f077c267cdea9030eaf424bcd6c4dca78f74c619092ba777dc00",
+      "physical_120Hz_contiguous": true,
+      "actual_samples_viewed": 12,
+      "rate_reported": false,
+      "causal_input_conclusion": null
+    },
+    {
+      "trial_id": "v5-fr3_place-11000-minus_third",
+      "task": "fr3_place",
+      "title": "FR3 放置",
+      "condition": "minus_third",
+      "seed": 11000,
+      "accepted": true,
+      "success": true,
+      "result_explanation": "已松手，最终水平距离 0.55 cm；原全部放置门槛通过。",
+      "stop_reason": "model_declared_done",
+      "checks": {
+        "final_hold_at_least_1s": true,
+        "hold_speed_at_most_5cm_s": true,
+        "hold_tilt_at_most_15deg": true,
+        "no_geometric_hard_abort": true,
+        "no_other_hard_abort": true,
+        "released": true,
+        "horizontal_distance_at_most_4cm": true
+      },
+      "model": "gpt-6-astra",
+      "effort": "xhigh",
+      "current_camera_names": [
+        "head_camera",
+        "chest_camera",
+        "wrist_camera"
+      ],
+      "cameras": [
+        {
+          "camera": "head_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_third/head_camera.png",
+          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_third/head_camera.mp4",
+          "decoded_frames": 308,
+          "view_note": "首帧瓶与绿垫清楚，中段瓶被夹持抬起，末段瓶直立在绿垫且夹爪张开上撤。"
+        },
+        {
+          "camera": "chest_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_third/chest_camera.png",
+          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_third/chest_camera.mp4",
+          "decoded_frames": 308,
+          "view_note": "全臂和桌面可见，目标较小；中段可见持瓶，末段瓶在绿垫且夹爪离开。"
+        },
+        {
+          "camera": "third_camera",
+          "shown_to_model": false,
+          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_third/third_camera_evaluator.png",
+          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_third/third_camera.mp4",
+          "decoded_frames": 308,
+          "view_note": "独立评估俯视中瓶大部分被机械臂和夹爪遮挡；本条件未向模型发送这一路 RGB。"
+        },
+        {
+          "camera": "wrist_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_third/wrist_camera.png",
+          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_third/wrist_camera.mp4",
+          "decoded_frames": 308,
+          "view_note": "首帧瓶与绿垫可见，中段持瓶近景有裁切，末段瓶在目标上且夹爪张开。"
+        }
+      ],
+      "first_input": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_third/first_input.json",
+      "all_inputs": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_third/visible_inputs.json",
+      "episode_wall_s": 420.13207847788,
+      "model_wait_s": 354.4568069637753,
+      "control_render_wall_s": 58.19712317804806,
+      "render_encode_wall_s": 27.83744703605771,
+      "requests": 8,
+      "action_rejections": 0,
+      "network_retries": 0,
+      "manual_resets": 0,
+      "pickup_attempts": 2,
+      "pickup_retries": 1,
+      "decisions": [
+        {
+          "decision": 1,
+          "images_sent": 3,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K"
+          ],
+          "history_entries": 0,
+          "memory_characters": 0,
+          "memory_deleted": false,
+          "action_status": null
+        },
+        {
+          "decision": 2,
+          "images_sent": 6,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 1,
+          "memory_characters": 311,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 3,
+          "images_sent": 9,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 457,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 4,
+          "images_sent": 9,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 339,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 5,
+          "images_sent": 9,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 447,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 6,
+          "images_sent": 9,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 488,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 7,
+          "images_sent": 9,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 545,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 8,
+          "images_sent": 9,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 553,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        }
+      ],
+      "paired_initial_sha256": "93939d1c5833713a5f37138d9b16afea716dc373adee01a543501b5d64e105e2",
+      "source_freeze_sha256": "3ba137b6e72fb6d224891967501985a55bfb86acd9d9a2a2822370d62aae4c21",
+      "terminal_sha256": "6b7b87d0dca7379b8e0e92560cffa7c4c0a2f3bc486b930d84ee060abb2022af",
+      "artifact_manifest_sha256": "26e5f34d55640dc9773c691679fa2d6c2a05457601192a3dd3878c1a0c0e72d2",
       "physical_120Hz_contiguous": true,
       "actual_samples_viewed": 12,
       "rate_reported": false,
@@ -697,6 +1786,308 @@
       "causal_input_conclusion": null
     },
     {
+      "trial_id": "v5-psi_grasp-11000-minus_H",
+      "task": "psi_grasp",
+      "title": "PsiBot 抓取",
+      "condition": "minus_H",
+      "seed": 11000,
+      "accepted": true,
+      "success": true,
+      "result_explanation": "接触保持抬升 6.41 cm，最终倾角 3.70°；原全部抓取门槛通过。",
+      "stop_reason": "model_declared_done",
+      "checks": {
+        "final_hold_at_least_1s": true,
+        "physical_tick_sampling_valid": true,
+        "hold_lift_at_least_5cm": true,
+        "hold_speed_at_most_5cm_s": true,
+        "hold_tilt_at_most_15deg": true,
+        "no_geometric_hard_abort": true
+      },
+      "model": "gpt-6-astra",
+      "effort": "xhigh",
+      "current_camera_names": [
+        "head_camera",
+        "chest_camera",
+        "third_camera",
+        "wrist_camera"
+      ],
+      "cameras": [
+        {
+          "camera": "head_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-psi_grasp-11000-minus_H/head_camera.png",
+          "video": "assets/astra/formal_20261011/v5-psi_grasp-11000-minus_H/head_camera.mp4",
+          "decoded_frames": 357,
+          "view_note": "手从瓶侧接近并环绕瓶；末段仍持瓶，俯视不能单独判定离桌高度。"
+        },
+        {
+          "camera": "chest_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-psi_grasp-11000-minus_H/chest_camera.png",
+          "video": "assets/astra/formal_20261011/v5-psi_grasp-11000-minus_H/chest_camera.mp4",
+          "decoded_frames": 357,
+          "view_note": "末段瓶底与桌面有清楚空隙，可判读抓持抬升。瓶的原简单材质偏暗，手指部分遮挡。"
+        },
+        {
+          "camera": "third_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-psi_grasp-11000-minus_H/third_camera.png",
+          "video": "assets/astra/formal_20261011/v5-psi_grasp-11000-minus_H/third_camera.mp4",
+          "decoded_frames": 357,
+          "view_note": "全身及桌面可见，末段右手持瓶离桌；手指遮挡部分瓶体。"
+        },
+        {
+          "camera": "wrist_camera",
+          "shown_to_model": true,
+          "image": "assets/astra/formal_20261011/v5-psi_grasp-11000-minus_H/wrist_camera.png",
+          "video": "assets/astra/formal_20261011/v5-psi_grasp-11000-minus_H/wrist_camera.mp4",
+          "decoded_frames": 357,
+          "view_note": "首中末样本均没有任务瓶，只见手指、桌面、桌缘和背景；此路仍作为当前 RGB 发送给模型。"
+        }
+      ],
+      "first_input": "assets/astra/formal_20261011/v5-psi_grasp-11000-minus_H/first_input.json",
+      "all_inputs": "assets/astra/formal_20261011/v5-psi_grasp-11000-minus_H/visible_inputs.json",
+      "episode_wall_s": 1207.3193975521717,
+      "model_wait_s": 1075.78062800318,
+      "control_render_wall_s": 118.3945765485987,
+      "render_encode_wall_s": 48.22473222785629,
+      "requests": 11,
+      "action_rejections": 0,
+      "network_retries": 0,
+      "manual_resets": 0,
+      "pickup_attempts": 1,
+      "pickup_retries": 0,
+      "decisions": [
+        {
+          "decision": 1,
+          "images_sent": 4,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K"
+          ],
+          "history_entries": 0,
+          "memory_characters": 0,
+          "memory_deleted": false,
+          "action_status": null
+        },
+        {
+          "decision": 2,
+          "images_sent": 4,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 0,
+          "memory_characters": 387,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 3,
+          "images_sent": 4,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 0,
+          "memory_characters": 420,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 4,
+          "images_sent": 4,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 0,
+          "memory_characters": 348,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 5,
+          "images_sent": 4,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 0,
+          "memory_characters": 500,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 6,
+          "images_sent": 4,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 0,
+          "memory_characters": 386,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 7,
+          "images_sent": 4,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 0,
+          "memory_characters": 444,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 8,
+          "images_sent": 4,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 0,
+          "memory_characters": 427,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 9,
+          "images_sent": 4,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 0,
+          "memory_characters": 394,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 10,
+          "images_sent": 4,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 0,
+          "memory_characters": 390,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        },
+        {
+          "decision": 11,
+          "images_sent": 4,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 0,
+          "memory_characters": 410,
+          "memory_deleted": false,
+          "action_status": "accepted"
+        }
+      ],
+      "paired_initial_sha256": "599eb047acb0ede40f5cec12d2986a11d96e813925d7a7fae08aefc9ffb5f25c",
+      "source_freeze_sha256": "b5a270a53340514065b33be99f5250a086f44bce8c5df1b73fd788fcaa17a4e5",
+      "terminal_sha256": "25d46114fa24034585a01bb46c226c1e63a4f78eff06f51b078dda72f3f66ab3",
+      "artifact_manifest_sha256": "bada944d1bc7e2261bf3fcf6fce16163412917a31819efb8d113ac471e3b416d",
+      "physical_120Hz_contiguous": true,
+      "actual_samples_viewed": 12,
+      "rate_reported": false,
+      "causal_input_conclusion": null
+    },
+    {
       "trial_id": "v5-psi_grasp-11000-minus_head",
       "task": "psi_grasp",
       "title": "PsiBot 抓取",
@@ -905,344 +2296,6 @@
       "source_freeze_sha256": "b5a270a53340514065b33be99f5250a086f44bce8c5df1b73fd788fcaa17a4e5",
       "terminal_sha256": "b7fdaf2d0e49c8db9b0c9fb01b43123ae5effc56bb7f68ff12d8d9ae26917722",
       "artifact_manifest_sha256": "07b9507af4de55e005470eb4755abc79292a1230fcb31d0ba87b4a4fa7d3a19d",
-      "physical_120Hz_contiguous": true,
-      "actual_samples_viewed": 12,
-      "rate_reported": false,
-      "causal_input_conclusion": null
-    },
-    {
-      "trial_id": "v5-fr3_place-11000-minus_chest",
-      "task": "fr3_place",
-      "title": "FR3 放置",
-      "condition": "minus_chest",
-      "seed": 11000,
-      "accepted": true,
-      "success": true,
-      "result_explanation": "已松手，最终水平距离 1.95 cm；原全部放置门槛通过。",
-      "stop_reason": "model_declared_done",
-      "checks": {
-        "final_hold_at_least_1s": true,
-        "hold_speed_at_most_5cm_s": true,
-        "hold_tilt_at_most_15deg": true,
-        "no_geometric_hard_abort": true,
-        "no_other_hard_abort": true,
-        "released": true,
-        "horizontal_distance_at_most_4cm": true
-      },
-      "model": "gpt-6-astra",
-      "effort": "xhigh",
-      "current_camera_names": [
-        "head_camera",
-        "third_camera",
-        "wrist_camera"
-      ],
-      "cameras": [
-        {
-          "camera": "head_camera",
-          "shown_to_model": true,
-          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_chest/head_camera.png",
-          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_chest/head_camera.mp4",
-          "decoded_frames": 376,
-          "view_note": "初始瓶与绿垫清楚；中段夹持瓶，末段瓶直立在绿垫上，夹爪张开上撤。"
-        },
-        {
-          "camera": "chest_camera",
-          "shown_to_model": false,
-          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_chest/chest_camera_evaluator.png",
-          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_chest/chest_camera.mp4",
-          "decoded_frames": 376,
-          "view_note": "独立评估录像显示整个机械臂和桌面；目标较小。本条件未向模型发送这一路 RGB。"
-        },
-        {
-          "camera": "third_camera",
-          "shown_to_model": true,
-          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_chest/third_camera.png",
-          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_chest/third_camera.mp4",
-          "decoded_frames": 376,
-          "view_note": "俯视可见桌面与绿垫；抓持和最终位置的瓶主体被夹爪遮挡，不能单独判定松手。"
-        },
-        {
-          "camera": "wrist_camera",
-          "shown_to_model": true,
-          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_chest/wrist_camera.png",
-          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_chest/wrist_camera.mp4",
-          "decoded_frames": 376,
-          "view_note": "初始瓶与目标可见；中段持物近景裁切，末段瓶在绿垫上且夹爪张开。"
-        }
-      ],
-      "first_input": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_chest/first_input.json",
-      "all_inputs": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_chest/visible_inputs.json",
-      "episode_wall_s": 429.8685532298405,
-      "model_wait_s": 351.7480948844459,
-      "control_render_wall_s": 70.92209892277606,
-      "render_encode_wall_s": 33.604578505968675,
-      "requests": 7,
-      "action_rejections": 0,
-      "network_retries": 0,
-      "manual_resets": 0,
-      "pickup_attempts": 1,
-      "pickup_retries": 0,
-      "decisions": [
-        {
-          "decision": 1,
-          "images_sent": 3,
-          "current_cameras": [
-            "head_camera",
-            "third_camera",
-            "wrist_camera"
-          ],
-          "input_fields": [
-            "S",
-            "J",
-            "K"
-          ],
-          "history_entries": 0,
-          "memory_characters": 0,
-          "memory_deleted": false,
-          "action_status": null
-        },
-        {
-          "decision": 2,
-          "images_sent": 6,
-          "current_cameras": [
-            "head_camera",
-            "third_camera",
-            "wrist_camera"
-          ],
-          "input_fields": [
-            "S",
-            "J",
-            "K",
-            "F"
-          ],
-          "history_entries": 1,
-          "memory_characters": 274,
-          "memory_deleted": false,
-          "action_status": "accepted"
-        },
-        {
-          "decision": 3,
-          "images_sent": 9,
-          "current_cameras": [
-            "head_camera",
-            "third_camera",
-            "wrist_camera"
-          ],
-          "input_fields": [
-            "S",
-            "J",
-            "K",
-            "F"
-          ],
-          "history_entries": 2,
-          "memory_characters": 384,
-          "memory_deleted": false,
-          "action_status": "accepted"
-        },
-        {
-          "decision": 4,
-          "images_sent": 9,
-          "current_cameras": [
-            "head_camera",
-            "third_camera",
-            "wrist_camera"
-          ],
-          "input_fields": [
-            "S",
-            "J",
-            "K",
-            "F"
-          ],
-          "history_entries": 2,
-          "memory_characters": 370,
-          "memory_deleted": false,
-          "action_status": "accepted"
-        },
-        {
-          "decision": 5,
-          "images_sent": 9,
-          "current_cameras": [
-            "head_camera",
-            "third_camera",
-            "wrist_camera"
-          ],
-          "input_fields": [
-            "S",
-            "J",
-            "K",
-            "F"
-          ],
-          "history_entries": 2,
-          "memory_characters": 513,
-          "memory_deleted": false,
-          "action_status": "accepted"
-        },
-        {
-          "decision": 6,
-          "images_sent": 9,
-          "current_cameras": [
-            "head_camera",
-            "third_camera",
-            "wrist_camera"
-          ],
-          "input_fields": [
-            "S",
-            "J",
-            "K",
-            "F"
-          ],
-          "history_entries": 2,
-          "memory_characters": 552,
-          "memory_deleted": false,
-          "action_status": "accepted"
-        },
-        {
-          "decision": 7,
-          "images_sent": 9,
-          "current_cameras": [
-            "head_camera",
-            "third_camera",
-            "wrist_camera"
-          ],
-          "input_fields": [
-            "S",
-            "J",
-            "K",
-            "F"
-          ],
-          "history_entries": 2,
-          "memory_characters": 458,
-          "memory_deleted": false,
-          "action_status": "accepted"
-        }
-      ],
-      "paired_initial_sha256": "93939d1c5833713a5f37138d9b16afea716dc373adee01a543501b5d64e105e2",
-      "source_freeze_sha256": "3ba137b6e72fb6d224891967501985a55bfb86acd9d9a2a2822370d62aae4c21",
-      "terminal_sha256": "c01255663a0434c771de834357f3a2dbe9e1df7c80e57bf90b3dfb234cd487eb",
-      "artifact_manifest_sha256": "099380dac357f077c267cdea9030eaf424bcd6c4dca78f74c619092ba777dc00",
-      "physical_120Hz_contiguous": true,
-      "actual_samples_viewed": 12,
-      "rate_reported": false,
-      "causal_input_conclusion": null
-    },
-    {
-      "trial_id": "v5-fr3_place-11000-minus_M",
-      "task": "fr3_place",
-      "title": "FR3 放置",
-      "condition": "minus_M",
-      "seed": 11000,
-      "accepted": true,
-      "success": false,
-      "result_explanation": "触发几何碰撞早停，未完成搬运放置；有效物理失败，保留在本条件的正式样本中。",
-      "stop_reason": "geometric_hard_abort",
-      "checks": {
-        "final_hold_at_least_1s": true,
-        "hold_speed_at_most_5cm_s": true,
-        "hold_tilt_at_most_15deg": true,
-        "no_geometric_hard_abort": false,
-        "no_other_hard_abort": true,
-        "released": false,
-        "horizontal_distance_at_most_4cm": false
-      },
-      "model": "gpt-6-astra",
-      "effort": "xhigh",
-      "current_camera_names": [
-        "head_camera",
-        "chest_camera",
-        "third_camera",
-        "wrist_camera"
-      ],
-      "cameras": [
-        {
-          "camera": "head_camera",
-          "shown_to_model": true,
-          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_M/head_camera.png",
-          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_M/head_camera.mp4",
-          "decoded_frames": 79,
-          "view_note": "首中末样本中瓶仍在原位，末段夹爪抵近瓶口，没有完成搬运或放置。几何早停由物理记录判定。"
-        },
-        {
-          "camera": "chest_camera",
-          "shown_to_model": true,
-          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_M/chest_camera.png",
-          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_M/chest_camera.mp4",
-          "decoded_frames": 79,
-          "view_note": "全臂与桌面可见，末段夹爪下降至瓶旁；目标较小，瓶未到达绿垫。"
-        },
-        {
-          "camera": "third_camera",
-          "shown_to_model": true,
-          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_M/third_camera.png",
-          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_M/third_camera.mp4",
-          "decoded_frames": 79,
-          "view_note": "俯视中瓶被末端部分遮挡；不能从这一视角测出物理穿透深度。"
-        },
-        {
-          "camera": "wrist_camera",
-          "shown_to_model": true,
-          "image": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_M/wrist_camera.png",
-          "video": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_M/wrist_camera.mp4",
-          "decoded_frames": 79,
-          "view_note": "瓶口逐渐靠近，末段瓶的近景有裁切；未见完成放置。"
-        }
-      ],
-      "first_input": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_M/first_input.json",
-      "all_inputs": "assets/astra/formal_20261011/v5-fr3_place-11000-minus_M/visible_inputs.json",
-      "episode_wall_s": 168.18078886996955,
-      "model_wait_s": 150.85764286713675,
-      "control_render_wall_s": 13.762313136830926,
-      "render_encode_wall_s": 8.880333166569471,
-      "requests": 2,
-      "action_rejections": 0,
-      "network_retries": 0,
-      "manual_resets": 0,
-      "pickup_attempts": 1,
-      "pickup_retries": 0,
-      "decisions": [
-        {
-          "decision": 1,
-          "images_sent": 4,
-          "current_cameras": [
-            "head_camera",
-            "chest_camera",
-            "third_camera",
-            "wrist_camera"
-          ],
-          "input_fields": [
-            "S",
-            "J",
-            "K"
-          ],
-          "history_entries": 0,
-          "memory_characters": 0,
-          "memory_deleted": true,
-          "action_status": null
-        },
-        {
-          "decision": 2,
-          "images_sent": 8,
-          "current_cameras": [
-            "head_camera",
-            "chest_camera",
-            "third_camera",
-            "wrist_camera"
-          ],
-          "input_fields": [
-            "S",
-            "J",
-            "K",
-            "F"
-          ],
-          "history_entries": 1,
-          "memory_characters": 0,
-          "memory_deleted": true,
-          "action_status": "accepted"
-        }
-      ],
-      "paired_initial_sha256": "93939d1c5833713a5f37138d9b16afea716dc373adee01a543501b5d64e105e2",
-      "source_freeze_sha256": "3ba137b6e72fb6d224891967501985a55bfb86acd9d9a2a2822370d62aae4c21",
-      "terminal_sha256": "b5391ed7ce396f17f5cfcc34ba3408a68b3ac2bf5985089ab6544b6bd5a41eb9",
-      "artifact_manifest_sha256": "f505b592f3bf2a5ddc3b9fee7e20c397e8b80cea0b37deac7150ad7b0f18a217",
       "physical_120Hz_contiguous": true,
       "actual_samples_viewed": 12,
       "rate_reported": false,

@@ -128,7 +128,7 @@
   $('long-diagnostic').innerHTML=`100ml 手势跟踪的独立诊断：同一 full 目标保持 1.5 秒时误差 ${p.error_at_1_5s_rad.toFixed(6)} rad，超过原 0.3 rad 门槛；再保持 1.5 秒（总计 3 秒）降至 ${p.error_at_3s_rad.toFixed(6)} rad，五个模式在 3 秒时均通过。原 1.5 秒失败保留，门槛与物理代码未改。这个诊断没有调用模型，也没有尝试完成 100ml 任务。`;
  }
  async function init(){
-  const load=async n=>{const res=await fetch('results/astra/'+n);if(!res.ok)throw Error(n+' HTTP '+res.status);return res.json();};
+  const load=async n=>{const res=await fetch('results/astra/'+n,{cache:'no-cache'});if(!res.ok)throw Error(n+' HTTP '+res.status);return res.json();};
   [study,protocol,episodes,audit,traces,report,nativeGallery,development,formal]=await Promise.all(['input_study_v5.json','protocol_v6.json','episodes.json','video_audit.json','decision_traces.json','experiments.json','native_qualification_20261011.json','development_pilot_20261011.json','formal_accepted_20261011.json'].map(load));audit=audit.records;
   const p=new URLSearchParams(location.search),legacy={inputs:'fr3_place',actions:'panda_square',long:'psi_roundtrip'},target=p.get('task')||legacy[p.get('study')];
   if(study.tasks.some(t=>t.id===target))currentTask=target;

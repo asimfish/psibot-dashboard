@@ -1,0 +1,1309 @@
+{
+  "task_instruction": "Control this simulated robot with exactly one execute_motion call per request. Pick up the brown bottle, place it upright at the green target pad center, release and withdraw. Final horizontal center error <=0.04 m, upright within 15 degrees, stable >=1 second at COM finite-difference speed <=0.05 m/s, gripper open and no robot-object contact. Use the supplied current images and any supplied observation groups; fields explicitly omitted by an input condition are unavailable. Choose one or two wrist-relative waypoints with translation norm <=0.15 m, rotation norm <=0.6 rad, duration 0.25–2 seconds. The action interface and static robot description below are fixed across conditions. Select your own wrist path; no complete task program is provided. Physics pauses during inference. Invalid chunks execute nothing and consume a request. task_done executes the final action followed by a one-second hold for independent evaluation; a model claim alone never establishes success. Avoid penetration greater than 0.002 m. Do not request code or other tools. Record observable visual facts and your own concise plan in the two text fields.",
+  "decisions": [
+    {
+      "decision": 1,
+      "visible_observation": {
+        "static_robot": {
+          "robot": "Franka FR3",
+          "wrist_link": "fr3_hand",
+          "units": "metres, seconds, radians; world Z up; quaternions WXYZ",
+          "action_frame": "Translation and right-multiplied axis-angle rotation in the starting wrist frame. First action starts at measured wrist, subsequent action starts at previous target wrist.",
+          "generic_controller": "Live Jacobian DLS, correction gain 4, arm target slew 0.72 rad/s; no object-aware planner, grasp point, task trajectory or recovery controller.",
+          "hand": {
+            "type": "parallel_gripper",
+            "total_separation_m": [
+              0.0,
+              0.07999999821186066
+            ]
+          }
+        },
+        "requests_remaining_including_this": 30,
+        "S": {
+          "position_world_m": [
+            -0.8428294062614441,
+            -4.799976348876953,
+            1.5399258136749268
+          ],
+          "quaternion_world_wxyz": [
+            -2.6995159714715555e-05,
+            0.9999998807907104,
+            0.00021511940576601774,
+            -0.0004724037426058203
+          ],
+          "robot_base_position_world_m": [
+            -1.149999976158142,
+            -4.800000190734863,
+            0.9499998688697815
+          ],
+          "robot_base_quaternion_world_wxyz": [
+            1.000000238418579,
+            -7.084821618263959e-11,
+            9.581160309579673e-10,
+            1.7041876243517606e-10
+          ],
+          "gripper_width_m": 0.07999970018863678
+        },
+        "J": {
+          "arm_joint_position_rad": [
+            9.013628186949063e-06,
+            -0.7843809127807617,
+            3.1539795600110665e-05,
+            -2.356325149536133,
+            7.627892046002671e-05,
+            1.5709999799728394,
+            0.7850000262260437
+          ],
+          "arm_joint_velocity_rad_s": [
+            -9.234264143742621e-05,
+            -0.006212945561856031,
+            -0.0003164770023431629,
+            0.0032783474307507277,
+            -0.0007632398046553135,
+            1.0081083701152238e-06,
+            -5.233590627540252e-08
+          ]
+        },
+        "K": null,
+        "F": null,
+        "memory_from_previous_decision": "",
+        "last_action_status": null,
+        "previous_observations_own_actions": [],
+        "current_camera_names": [
+          "head_camera",
+          "chest_camera",
+          "third_camera",
+          "wrist_camera"
+        ],
+        "current_rgb_dimensions": [
+          640,
+          480
+        ]
+      }
+    },
+    {
+      "decision": 2,
+      "visible_observation": {
+        "static_robot": {
+          "robot": "Franka FR3",
+          "wrist_link": "fr3_hand",
+          "units": "metres, seconds, radians; world Z up; quaternions WXYZ",
+          "action_frame": "Translation and right-multiplied axis-angle rotation in the starting wrist frame. First action starts at measured wrist, subsequent action starts at previous target wrist.",
+          "generic_controller": "Live Jacobian DLS, correction gain 4, arm target slew 0.72 rad/s; no object-aware planner, grasp point, task trajectory or recovery controller.",
+          "hand": {
+            "type": "parallel_gripper",
+            "total_separation_m": [
+              0.0,
+              0.07999999821186066
+            ]
+          }
+        },
+        "requests_remaining_including_this": 29,
+        "S": {
+          "position_world_m": [
+            -0.7329130172729492,
+            -4.7999162673950195,
+            1.4496999979019165
+          ],
+          "quaternion_world_wxyz": [
+            -4.155208807787858e-05,
+            0.9999997019767761,
+            0.00021442282013595104,
+            -0.0006154623697511852
+          ],
+          "robot_base_position_world_m": [
+            -1.149999976158142,
+            -4.800000190734863,
+            0.9499998688697815
+          ],
+          "robot_base_quaternion_world_wxyz": [
+            1.000000238418579,
+            -7.084821618263959e-11,
+            9.581160309579673e-10,
+            1.7041876243517606e-10
+          ],
+          "gripper_width_m": 0.07999967038631439
+        },
+        "J": {
+          "arm_joint_position_rad": [
+            -0.0005522004212252796,
+            -0.44235357642173767,
+            0.0006395165692083538,
+            -2.344963312149048,
+            0.0003764036810025573,
+            1.9013792276382446,
+            0.7848734259605408
+          ],
+          "arm_joint_velocity_rad_s": [
+            -0.00034222606336697936,
+            -0.006761386524885893,
+            -2.3811364371795207e-05,
+            0.004566799849271774,
+            -0.0012296520872041583,
+            0.0001795644056983292,
+            -6.886616029078141e-05
+          ]
+        },
+        "K": null,
+        "F": [
+          {
+            "position_error_m": 0.00012222930672578514,
+            "orientation_error_rad": 0.00028758362168446183,
+            "max_finger_joint_error_m": 1.6763806343078613e-07
+          }
+        ],
+        "memory_from_previous_decision": "Initial wrist world (-0.8428,-4.8000,1.5399), orientation approximately Rx(pi): local +x is world +x, local +y is world -y, local +z is down. Approach bottle with open fingers, using image changes to refine alignment before descending to grasp. First move +0.11 local x and +0.09 local z.",
+        "last_action_status": "accepted",
+        "previous_observations_own_actions": [
+          {
+            "observation_index": 0,
+            "own_requested_actions": [
+              {
+                "duration_s": 2,
+                "delta_position_wrist_m": [
+                  0.11,
+                  0,
+                  0.09
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.07999999821186066
+              }
+            ]
+          }
+        ],
+        "current_camera_names": [
+          "head_camera",
+          "chest_camera",
+          "third_camera",
+          "wrist_camera"
+        ],
+        "current_rgb_dimensions": [
+          640,
+          480
+        ]
+      }
+    },
+    {
+      "decision": 3,
+      "visible_observation": {
+        "static_robot": {
+          "robot": "Franka FR3",
+          "wrist_link": "fr3_hand",
+          "units": "metres, seconds, radians; world Z up; quaternions WXYZ",
+          "action_frame": "Translation and right-multiplied axis-angle rotation in the starting wrist frame. First action starts at measured wrist, subsequent action starts at previous target wrist.",
+          "generic_controller": "Live Jacobian DLS, correction gain 4, arm target slew 0.72 rad/s; no object-aware planner, grasp point, task trajectory or recovery controller.",
+          "hand": {
+            "type": "parallel_gripper",
+            "total_separation_m": [
+              0.0,
+              0.07999999821186066
+            ]
+          }
+        },
+        "requests_remaining_including_this": 28,
+        "S": {
+          "position_world_m": [
+            -0.6730742454528809,
+            -4.824878215789795,
+            1.3394966125488281
+          ],
+          "quaternion_world_wxyz": [
+            -7.035345333861187e-05,
+            0.9999997615814209,
+            0.000193955929717049,
+            -0.0007575353374704719
+          ],
+          "robot_base_position_world_m": [
+            -1.149999976158142,
+            -4.800000190734863,
+            0.9499998688697815
+          ],
+          "robot_base_quaternion_world_wxyz": [
+            1.000000238418579,
+            -7.084821618263959e-11,
+            9.581160309579673e-10,
+            1.7041876243517606e-10
+          ],
+          "gripper_width_m": 0.07999971508979797
+        },
+        "J": {
+          "arm_joint_position_rad": [
+            -0.02015824057161808,
+            -0.15830077230930328,
+            -0.03133435174822807,
+            -2.364182472229004,
+            -0.006051216274499893,
+            2.2044296264648438,
+            0.7375006079673767
+          ],
+          "arm_joint_velocity_rad_s": [
+            -0.00018882128642871976,
+            -0.005974213592708111,
+            0.00033671484561637044,
+            0.005345756188035011,
+            -0.002281484194099903,
+            0.0002210966486018151,
+            -7.699894194956869e-05
+          ]
+        },
+        "K": null,
+        "F": [
+          {
+            "position_error_m": 0.00013270945055410266,
+            "orientation_error_rad": 0.0002928149187937379,
+            "max_finger_joint_error_m": 1.4528632164001465e-07
+          }
+        ],
+        "memory_from_previous_decision": "Current wrist world (-0.7329,-4.7999,1.4497), approximately Rx(pi), so local +z descends. Continue a cautious open-hand approach: +0.060 local x, +0.025 local y, +0.100 local z. Recheck cap alignment and fingertip height before grasping. Wrist image cap approximately (340,280), finger midpoint approximately (240,240); pad approximately (395,420).",
+        "last_action_status": "accepted",
+        "previous_observations_own_actions": [
+          {
+            "observation_index": 0,
+            "own_requested_actions": [
+              {
+                "duration_s": 2,
+                "delta_position_wrist_m": [
+                  0.11,
+                  0,
+                  0.09
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.07999999821186066
+              }
+            ]
+          },
+          {
+            "observation_index": 1,
+            "own_requested_actions": [
+              {
+                "duration_s": 2,
+                "delta_position_wrist_m": [
+                  0.06,
+                  0.025,
+                  0.11
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.07999999821186066
+              }
+            ]
+          }
+        ],
+        "current_camera_names": [
+          "head_camera",
+          "chest_camera",
+          "third_camera",
+          "wrist_camera"
+        ],
+        "current_rgb_dimensions": [
+          640,
+          480
+        ]
+      }
+    },
+    {
+      "decision": 4,
+      "visible_observation": {
+        "static_robot": {
+          "robot": "Franka FR3",
+          "wrist_link": "fr3_hand",
+          "units": "metres, seconds, radians; world Z up; quaternions WXYZ",
+          "action_frame": "Translation and right-multiplied axis-angle rotation in the starting wrist frame. First action starts at measured wrist, subsequent action starts at previous target wrist.",
+          "generic_controller": "Live Jacobian DLS, correction gain 4, arm target slew 0.72 rad/s; no object-aware planner, grasp point, task trajectory or recovery controller.",
+          "hand": {
+            "type": "parallel_gripper",
+            "total_separation_m": [
+              0.0,
+              0.07999999821186066
+            ]
+          }
+        },
+        "requests_remaining_including_this": 27,
+        "S": {
+          "position_world_m": [
+            -0.7932484745979309,
+            -4.824906349182129,
+            1.2595949172973633
+          ],
+          "quaternion_world_wxyz": [
+            -0.0001042453441186808,
+            0.9999995827674866,
+            0.00016248995962087065,
+            -0.0008713669376447797
+          ],
+          "robot_base_position_world_m": [
+            -1.149999976158142,
+            -4.800000190734863,
+            0.9499998688697815
+          ],
+          "robot_base_quaternion_world_wxyz": [
+            1.000000238418579,
+            -7.084821618263959e-11,
+            9.581160309579673e-10,
+            1.7041876243517606e-10
+          ],
+          "gripper_width_m": 0.07999971508979797
+        },
+        "J": {
+          "arm_joint_position_rad": [
+            -0.03487034887075424,
+            -0.38113144040107727,
+            -0.0383954718708992,
+            -2.821549654006958,
+            -0.021961579099297523,
+            2.4388012886047363,
+            0.7313452959060669
+          ],
+          "arm_joint_velocity_rad_s": [
+            -0.0006907981587573886,
+            -0.003961426205933094,
+            0.0008238292648456991,
+            0.005028840620070696,
+            -0.0029136999510228634,
+            0.00030526143382303417,
+            -0.00030891431379131973
+          ]
+        },
+        "K": null,
+        "F": [
+          {
+            "position_error_m": 9.930333908414468e-05,
+            "orientation_error_rad": 0.0002457780356053263,
+            "max_finger_joint_error_m": 1.4528632164001465e-07
+          }
+        ],
+        "memory_from_previous_decision": "Measured wrist (-0.6731,-4.8249,1.3395), orientation approximately Rx(pi): local x = world +x, local y = world -y, local z = world -z. External overhead view indicates the earlier +x approach overshot horizontally. Command a cautious correction -0.120 local x and +0.080 local z, keeping fingers fully open. Target wrist approximately (-0.7931,-4.8249,1.2595). Recheck overhead XY alignment and cap clearance before descending further or closing.",
+        "last_action_status": "accepted",
+        "previous_observations_own_actions": [
+          {
+            "observation_index": 0,
+            "own_requested_actions": [
+              {
+                "duration_s": 2,
+                "delta_position_wrist_m": [
+                  0.06,
+                  0.025,
+                  0.11
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.07999999821186066
+              }
+            ]
+          },
+          {
+            "observation_index": 1,
+            "own_requested_actions": [
+              {
+                "duration_s": 2,
+                "delta_position_wrist_m": [
+                  -0.12,
+                  0,
+                  0.08
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.07999999821186066
+              }
+            ]
+          }
+        ],
+        "current_camera_names": [
+          "head_camera",
+          "chest_camera",
+          "third_camera",
+          "wrist_camera"
+        ],
+        "current_rgb_dimensions": [
+          640,
+          480
+        ]
+      }
+    },
+    {
+      "decision": 5,
+      "visible_observation": {
+        "static_robot": {
+          "robot": "Franka FR3",
+          "wrist_link": "fr3_hand",
+          "units": "metres, seconds, radians; world Z up; quaternions WXYZ",
+          "action_frame": "Translation and right-multiplied axis-angle rotation in the starting wrist frame. First action starts at measured wrist, subsequent action starts at previous target wrist.",
+          "generic_controller": "Live Jacobian DLS, correction gain 4, arm target slew 0.72 rad/s; no object-aware planner, grasp point, task trajectory or recovery controller.",
+          "hand": {
+            "type": "parallel_gripper",
+            "total_separation_m": [
+              0.0,
+              0.07999999821186066
+            ]
+          }
+        },
+        "requests_remaining_including_this": 26,
+        "S": {
+          "position_world_m": [
+            -0.8333964943885803,
+            -4.804904937744141,
+            1.2145980596542358
+          ],
+          "quaternion_world_wxyz": [
+            -0.00013525439135264605,
+            0.999999463558197,
+            0.00012041724403388798,
+            -0.0009799405233934522
+          ],
+          "robot_base_position_world_m": [
+            -1.149999976158142,
+            -4.800000190734863,
+            0.9499998688697815
+          ],
+          "robot_base_quaternion_world_wxyz": [
+            1.000000238418579,
+            -7.084821618263959e-11,
+            9.581160309579673e-10,
+            1.7041876243517606e-10
+          ],
+          "gripper_width_m": 0.07999970018863678
+        },
+        "J": {
+          "arm_joint_position_rad": [
+            -0.010318874381482601,
+            -0.38179251551628113,
+            -0.00640109833329916,
+            -2.976954460144043,
+            -0.004118760582059622,
+            2.5932021141052246,
+            0.7724177837371826
+          ],
+          "arm_joint_velocity_rad_s": [
+            -0.0013477368047460914,
+            -0.003402666188776493,
+            0.001012075343169272,
+            0.0051468005403876305,
+            -0.003658888628706336,
+            0.0002046362351393327,
+            -0.0006157006719149649
+          ]
+        },
+        "K": null,
+        "F": [
+          {
+            "position_error_m": 9.504442277830094e-05,
+            "orientation_error_rad": 0.00024096349079627544,
+            "max_finger_joint_error_m": 1.4901161193847656e-07
+          }
+        ],
+        "memory_from_previous_decision": "Wrist starts (-0.79325,-4.82491,1.25959), approximately Rx(pi): local x=world +x, local y=world -y, local z=world -z. Overhead displacement from prior motion suggests ~650 px/m, image right=world +x and image down=world -y. Correct bottle alignment by local (-0.040,-0.020) and descend 0.045 with fully open fingers. Expected wrist (-0.8333,-4.8049,1.2146). Inspect cap/finger alignment and clearance before final grasp descent. Bottle appears stationary and upright; do not close yet.",
+        "last_action_status": "accepted",
+        "previous_observations_own_actions": [
+          {
+            "observation_index": 0,
+            "own_requested_actions": [
+              {
+                "duration_s": 2,
+                "delta_position_wrist_m": [
+                  -0.12,
+                  0,
+                  0.08
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.07999999821186066
+              }
+            ]
+          },
+          {
+            "observation_index": 1,
+            "own_requested_actions": [
+              {
+                "duration_s": 2,
+                "delta_position_wrist_m": [
+                  -0.04,
+                  -0.02,
+                  0.045
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.07999999821186066
+              }
+            ]
+          }
+        ],
+        "current_camera_names": [
+          "head_camera",
+          "chest_camera",
+          "third_camera",
+          "wrist_camera"
+        ],
+        "current_rgb_dimensions": [
+          640,
+          480
+        ]
+      }
+    },
+    {
+      "decision": 6,
+      "visible_observation": {
+        "static_robot": {
+          "robot": "Franka FR3",
+          "wrist_link": "fr3_hand",
+          "units": "metres, seconds, radians; world Z up; quaternions WXYZ",
+          "action_frame": "Translation and right-multiplied axis-angle rotation in the starting wrist frame. First action starts at measured wrist, subsequent action starts at previous target wrist.",
+          "generic_controller": "Live Jacobian DLS, correction gain 4, arm target slew 0.72 rad/s; no object-aware planner, grasp point, task trajectory or recovery controller.",
+          "hand": {
+            "type": "parallel_gripper",
+            "total_separation_m": [
+              0.0,
+              0.07999999821186066
+            ]
+          }
+        },
+        "requests_remaining_including_this": 25,
+        "S": {
+          "position_world_m": [
+            -0.8335290551185608,
+            -4.829894065856934,
+            1.1795289516448975
+          ],
+          "quaternion_world_wxyz": [
+            -0.00017283529450651258,
+            0.9999994039535522,
+            5.227226938586682e-05,
+            -0.0010810480453073978
+          ],
+          "robot_base_position_world_m": [
+            -1.149999976158142,
+            -4.800000190734863,
+            0.9499998688697815
+          ],
+          "robot_base_quaternion_world_wxyz": [
+            1.000000238418579,
+            -7.084821618263959e-11,
+            9.581160309579673e-10,
+            1.7041876243517606e-10
+          ],
+          "gripper_width_m": 0.07999977469444275
+        },
+        "J": {
+          "arm_joint_position_rad": [
+            -0.05469910800457001,
+            -0.23603509366512299,
+            -0.04807049036026001,
+            -2.982919454574585,
+            -0.028759310021996498,
+            2.744814157485962,
+            0.7104061245918274
+          ],
+          "arm_joint_velocity_rad_s": [
+            -0.0012445898028090596,
+            -0.0030510046053677797,
+            0.0015892841620370746,
+            0.005180329084396362,
+            -0.004746908787637949,
+            0.00012839052942581475,
+            -0.0005952767096459866
+          ]
+        },
+        "K": null,
+        "F": [
+          {
+            "position_error_m": 9.507030335953459e-05,
+            "orientation_error_rad": 0.0002445486607030034,
+            "max_finger_joint_error_m": 1.341104507446289e-07
+          },
+          {
+            "position_error_m": 9.381165000377223e-05,
+            "orientation_error_rad": 0.00025522179203107953,
+            "max_finger_joint_error_m": 1.2293457984924316e-07
+          }
+        ],
+        "memory_from_previous_decision": "Measured wrist (-0.83340,-4.80490,1.21460), rotation approximately Rx(pi): local x=world+x, y=world-y, z=world-z. Wrist-camera finger opening runs vertically, midpoint near image y240; cap center is near y350. Prior local y=-0.020 shifted the cap downward, so correct with local y=+0.025. Then descend 0.035 with fingers fully open, expecting wrist about (-0.8334,-4.8299,1.1796). Inspect centering and finger height before closing. Green pad lies roughly 0.13 m in world -y from bottle by overhead view.",
+        "last_action_status": "accepted",
+        "previous_observations_own_actions": [
+          {
+            "observation_index": 0,
+            "own_requested_actions": [
+              {
+                "duration_s": 2,
+                "delta_position_wrist_m": [
+                  -0.04,
+                  -0.02,
+                  0.045
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.07999999821186066
+              }
+            ]
+          },
+          {
+            "observation_index": 1,
+            "own_requested_actions": [
+              {
+                "duration_s": 1.5,
+                "delta_position_wrist_m": [
+                  0,
+                  0.025,
+                  0
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.07999999821186066
+              },
+              {
+                "duration_s": 1.5,
+                "delta_position_wrist_m": [
+                  0,
+                  0,
+                  0.035
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.07999999821186066
+              }
+            ]
+          }
+        ],
+        "current_camera_names": [
+          "head_camera",
+          "chest_camera",
+          "third_camera",
+          "wrist_camera"
+        ],
+        "current_rgb_dimensions": [
+          640,
+          480
+        ]
+      }
+    },
+    {
+      "decision": 7,
+      "visible_observation": {
+        "static_robot": {
+          "robot": "Franka FR3",
+          "wrist_link": "fr3_hand",
+          "units": "metres, seconds, radians; world Z up; quaternions WXYZ",
+          "action_frame": "Translation and right-multiplied axis-angle rotation in the starting wrist frame. First action starts at measured wrist, subsequent action starts at previous target wrist.",
+          "generic_controller": "Live Jacobian DLS, correction gain 4, arm target slew 0.72 rad/s; no object-aware planner, grasp point, task trajectory or recovery controller.",
+          "hand": {
+            "type": "parallel_gripper",
+            "total_separation_m": [
+              0.0,
+              0.07999999821186066
+            ]
+          }
+        },
+        "requests_remaining_including_this": 24,
+        "S": {
+          "position_world_m": [
+            -0.8335940837860107,
+            -4.839017868041992,
+            1.1794720888137817
+          ],
+          "quaternion_world_wxyz": [
+            6.19013371760957e-05,
+            0.9999992251396179,
+            -6.51696027489379e-05,
+            -0.001177885220386088
+          ],
+          "robot_base_position_world_m": [
+            -1.149999976158142,
+            -4.800000190734863,
+            0.9499998688697815
+          ],
+          "robot_base_quaternion_world_wxyz": [
+            1.000000238418579,
+            -7.084821618263959e-11,
+            9.581160309579673e-10,
+            1.7041876243517606e-10
+          ],
+          "gripper_width_m": 0.05020209774374962
+        },
+        "J": {
+          "arm_joint_position_rad": [
+            -0.0752105712890625,
+            -0.23313793540000916,
+            -0.057837799191474915,
+            -2.9800119400024414,
+            -0.03567429259419441,
+            2.744704008102417,
+            0.6869769096374512
+          ],
+          "arm_joint_velocity_rad_s": [
+            -0.010108417831361294,
+            -0.003057649591937661,
+            0.007699325680732727,
+            0.0064302110113203526,
+            -0.02915157377719879,
+            -0.004917188547551632,
+            0.010626847855746746
+          ]
+        },
+        "K": null,
+        "F": [
+          {
+            "position_error_m": 9.390908235218376e-05,
+            "orientation_error_rad": 0.00025877091684378684,
+            "max_finger_joint_error_m": 1.1548399925231934e-07
+          },
+          {
+            "position_error_m": 0.0001503816165495664,
+            "orientation_error_rad": 0.0005596737610176206,
+            "max_finger_joint_error_m": 0.01014710497111082
+          }
+        ],
+        "memory_from_previous_decision": "Wrist measured (-0.83353,-4.82989,1.17953), orientation approximately Rx(pi): local x=world+x, y=world-y, z=world-z. Correct remaining wrist-image vertical offset using local y +0.009, retaining height. Then close gently to 0.030 m around cap/neck; inspect actual width and bottle pose before lifting. Green target is roughly 0.13 m in world -y from bottle, with small world +x offset.",
+        "last_action_status": "accepted",
+        "previous_observations_own_actions": [
+          {
+            "observation_index": 0,
+            "own_requested_actions": [
+              {
+                "duration_s": 1.5,
+                "delta_position_wrist_m": [
+                  0,
+                  0.025,
+                  0
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.07999999821186066
+              },
+              {
+                "duration_s": 1.5,
+                "delta_position_wrist_m": [
+                  0,
+                  0,
+                  0.035
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.07999999821186066
+              }
+            ]
+          },
+          {
+            "observation_index": 1,
+            "own_requested_actions": [
+              {
+                "duration_s": 1.2,
+                "delta_position_wrist_m": [
+                  0,
+                  0.009,
+                  0
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.07999999821186066
+              },
+              {
+                "duration_s": 1.5,
+                "delta_position_wrist_m": [
+                  0,
+                  0,
+                  0
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.03
+              }
+            ]
+          }
+        ],
+        "current_camera_names": [
+          "head_camera",
+          "chest_camera",
+          "third_camera",
+          "wrist_camera"
+        ],
+        "current_rgb_dimensions": [
+          640,
+          480
+        ]
+      }
+    },
+    {
+      "decision": 8,
+      "visible_observation": {
+        "static_robot": {
+          "robot": "Franka FR3",
+          "wrist_link": "fr3_hand",
+          "units": "metres, seconds, radians; world Z up; quaternions WXYZ",
+          "action_frame": "Translation and right-multiplied axis-angle rotation in the starting wrist frame. First action starts at measured wrist, subsequent action starts at previous target wrist.",
+          "generic_controller": "Live Jacobian DLS, correction gain 4, arm target slew 0.72 rad/s; no object-aware planner, grasp point, task trajectory or recovery controller.",
+          "hand": {
+            "type": "parallel_gripper",
+            "total_separation_m": [
+              0.0,
+              0.07999999821186066
+            ]
+          }
+        },
+        "requests_remaining_including_this": 23,
+        "S": {
+          "position_world_m": [
+            -0.827506422996521,
+            -4.959163665771484,
+            1.2494162321090698
+          ],
+          "quaternion_world_wxyz": [
+            0.00048650361713953316,
+            0.9999990463256836,
+            -0.00018910536891780794,
+            -0.001268215710297227
+          ],
+          "robot_base_position_world_m": [
+            -1.149999976158142,
+            -4.800000190734863,
+            0.9499998688697815
+          ],
+          "robot_base_quaternion_world_wxyz": [
+            1.000000238418579,
+            -7.084821618263959e-11,
+            9.581160309579673e-10,
+            1.7041876243517606e-10
+          ],
+          "gripper_width_m": 0.05055385082960129
+        },
+        "J": {
+          "arm_joint_position_rad": [
+            -0.1903219223022461,
+            -0.3596113324165344,
+            -0.29673323035240173,
+            -2.8217880725860596,
+            -0.16893270611763,
+            2.46783709526062,
+            0.4494028687477112
+          ],
+          "arm_joint_velocity_rad_s": [
+            0.0031648471485823393,
+            -0.006325075402855873,
+            -0.004236289300024509,
+            0.005429198499768972,
+            -0.03233160451054573,
+            0.002461862051859498,
+            0.014797107316553593
+          ]
+        },
+        "K": null,
+        "F": [
+          {
+            "position_error_m": 0.00016456050798296928,
+            "orientation_error_rad": 0.0009721394744701684,
+            "max_finger_joint_error_m": 0.010280865244567394
+          },
+          {
+            "position_error_m": 0.0001747935893945396,
+            "orientation_error_rad": 0.0009027295745909214,
+            "max_finger_joint_error_m": 0.010280490852892399
+          }
+        ],
+        "memory_from_previous_decision": "Starting wrist (-0.83359,-4.83902,1.17947), orientation approximately Rx(pi): local x=world+x, local y=world-y, local z=world-z. Fingers appear to grasp cap at actual width 0.0502 m. Command lift 0.070 m, then transfer local (+0.006,+0.120,0), retaining 0.030 m grip command and orientation. Expected wrist near (-0.8274,-4.9590,1.2495). Verify bottle followed, stayed upright and clears table; inspect alignment with green pad before lowering. Original tabletop-supported grasp wrist height was 1.1795 m; target pad may be slightly above tabletop. Not yet released or complete.",
+        "last_action_status": "accepted",
+        "previous_observations_own_actions": [
+          {
+            "observation_index": 0,
+            "own_requested_actions": [
+              {
+                "duration_s": 1.2,
+                "delta_position_wrist_m": [
+                  0,
+                  0.009,
+                  0
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.07999999821186066
+              },
+              {
+                "duration_s": 1.5,
+                "delta_position_wrist_m": [
+                  0,
+                  0,
+                  0
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.03
+              }
+            ]
+          },
+          {
+            "observation_index": 1,
+            "own_requested_actions": [
+              {
+                "duration_s": 1.5,
+                "delta_position_wrist_m": [
+                  0,
+                  0,
+                  -0.07
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.03
+              },
+              {
+                "duration_s": 2,
+                "delta_position_wrist_m": [
+                  0.006,
+                  0.12,
+                  0
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.03
+              }
+            ]
+          }
+        ],
+        "current_camera_names": [
+          "head_camera",
+          "chest_camera",
+          "third_camera",
+          "wrist_camera"
+        ],
+        "current_rgb_dimensions": [
+          640,
+          480
+        ]
+      }
+    },
+    {
+      "decision": 9,
+      "visible_observation": {
+        "static_robot": {
+          "robot": "Franka FR3",
+          "wrist_link": "fr3_hand",
+          "units": "metres, seconds, radians; world Z up; quaternions WXYZ",
+          "action_frame": "Translation and right-multiplied axis-angle rotation in the starting wrist frame. First action starts at measured wrist, subsequent action starts at previous target wrist.",
+          "generic_controller": "Live Jacobian DLS, correction gain 4, arm target slew 0.72 rad/s; no object-aware planner, grasp point, task trajectory or recovery controller.",
+          "hand": {
+            "type": "parallel_gripper",
+            "total_separation_m": [
+              0.0,
+              0.07999999821186066
+            ]
+          }
+        },
+        "requests_remaining_including_this": 22,
+        "S": {
+          "position_world_m": [
+            -0.8277367949485779,
+            -4.959378242492676,
+            1.1893702745437622
+          ],
+          "quaternion_world_wxyz": [
+            0.000766012875828892,
+            0.9999987483024597,
+            -0.00037803390296176076,
+            -0.0013005792861804366
+          ],
+          "robot_base_position_world_m": [
+            -1.149999976158142,
+            -4.800000190734863,
+            0.9499998688697815
+          ],
+          "robot_base_quaternion_world_wxyz": [
+            1.000000238418579,
+            -7.084821618263959e-11,
+            9.581160309579673e-10,
+            1.7041876243517606e-10
+          ],
+          "gripper_width_m": 0.050551775842905045
+        },
+        "J": {
+          "arm_joint_position_rad": [
+            -0.15746140480041504,
+            -0.16356509923934937,
+            -0.3314988613128662,
+            -2.85264253616333,
+            -0.12846851348876953,
+            2.693021535873413,
+            0.41727253794670105
+          ],
+          "arm_joint_velocity_rad_s": [
+            -0.01218385249376297,
+            -0.004440446849912405,
+            0.010497696697711945,
+            0.005627324339002371,
+            -0.030401743948459625,
+            0.0027186477091163397,
+            0.012341739609837532
+          ]
+        },
+        "K": null,
+        "F": [
+          {
+            "position_error_m": 0.0001808467786759138,
+            "orientation_error_rad": 0.0006780140683986247,
+            "max_finger_joint_error_m": 0.010279844515025616
+          }
+        ],
+        "memory_from_previous_decision": "Current wrist (-0.82751,-4.95916,1.24942), orientation approximately Rx(pi); local +z is world down. Lower 0.060 m while keeping 0.030 m commanded grip, no rotation. Expected wrist approximately (-0.82766,-4.95922,1.18942). Original table-supported grasp wrist height was about 1.17947, so this leaves about 10 mm above that level before accounting for pad thickness. Inspect bottle base and pad alignment after descent; make any small centering/descent correction before opening, then withdraw upward and request final hold. Bottle visually upright and grasp maintained; completion not established.",
+        "last_action_status": "accepted",
+        "previous_observations_own_actions": [
+          {
+            "observation_index": 0,
+            "own_requested_actions": [
+              {
+                "duration_s": 1.5,
+                "delta_position_wrist_m": [
+                  0,
+                  0,
+                  -0.07
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.03
+              },
+              {
+                "duration_s": 2,
+                "delta_position_wrist_m": [
+                  0.006,
+                  0.12,
+                  0
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.03
+              }
+            ]
+          },
+          {
+            "observation_index": 1,
+            "own_requested_actions": [
+              {
+                "duration_s": 2,
+                "delta_position_wrist_m": [
+                  0,
+                  0,
+                  0.06
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.03
+              }
+            ]
+          }
+        ],
+        "current_camera_names": [
+          "head_camera",
+          "chest_camera",
+          "third_camera",
+          "wrist_camera"
+        ],
+        "current_rgb_dimensions": [
+          640,
+          480
+        ]
+      }
+    },
+    {
+      "decision": 10,
+      "visible_observation": {
+        "static_robot": {
+          "robot": "Franka FR3",
+          "wrist_link": "fr3_hand",
+          "units": "metres, seconds, radians; world Z up; quaternions WXYZ",
+          "action_frame": "Translation and right-multiplied axis-angle rotation in the starting wrist frame. First action starts at measured wrist, subsequent action starts at previous target wrist.",
+          "generic_controller": "Live Jacobian DLS, correction gain 4, arm target slew 0.72 rad/s; no object-aware planner, grasp point, task trajectory or recovery controller.",
+          "hand": {
+            "type": "parallel_gripper",
+            "total_separation_m": [
+              0.0,
+              0.07999999821186066
+            ]
+          }
+        },
+        "requests_remaining_including_this": 21,
+        "S": {
+          "position_world_m": [
+            -0.8301770091056824,
+            -5.020184516906738,
+            1.182544469833374
+          ],
+          "quaternion_world_wxyz": [
+            0.0012295376509428024,
+            0.9999976754188538,
+            -0.001326889032498002,
+            -0.0011708694510161877
+          ],
+          "robot_base_position_world_m": [
+            -1.149999976158142,
+            -4.800000190734863,
+            0.9499998688697815
+          ],
+          "robot_base_quaternion_world_wxyz": [
+            1.000000238418579,
+            -7.084821618263959e-11,
+            9.581160309579673e-10,
+            1.7041876243517606e-10
+          ],
+          "gripper_width_m": 0.05047660320997238
+        },
+        "J": {
+          "arm_joint_position_rad": [
+            -0.227060928940773,
+            -0.06262899190187454,
+            -0.3884221613407135,
+            -2.765289068222046,
+            -0.06418339163064957,
+            2.7060277462005615,
+            0.23147600889205933
+          ],
+          "arm_joint_velocity_rad_s": [
+            -0.03799297660589218,
+            -0.012640679255127907,
+            0.04452560096979141,
+            0.005403764545917511,
+            0.035658229142427444,
+            -0.019146712496876717,
+            -0.04855813831090927
+          ]
+        },
+        "K": null,
+        "F": [
+          {
+            "position_error_m": 0.00018243497470393777,
+            "orientation_error_rad": 0.0007367067155428231,
+            "max_finger_joint_error_m": 0.01027997862547636
+          },
+          {
+            "position_error_m": 0.0008851674501784146,
+            "orientation_error_rad": 0.0021279186476022005,
+            "max_finger_joint_error_m": 0.010241257958114147
+          }
+        ],
+        "memory_from_previous_decision": "Measured wrist starts at (-0.827737,-4.959378,1.189370), approximately Rx(pi). Visual projection suggests the previous 0.120 m transfer stopped about 0.060 m short of pad center along world -y. Correct by local (-0.002,+0.060,0), maintaining the 0.030 m grip, then descend local +z 0.007 m. Expected wrist about (-0.82980,-5.01939,1.18246). Original supported grasp wrist height was approximately 1.17947, so this should retain a few mm clearance rather than press into the surface. Inspect alignment and support height next, then open at rest and withdraw upward with gripper open. Bottle placement and release are not yet verified.",
+        "last_action_status": "accepted",
+        "previous_observations_own_actions": [
+          {
+            "observation_index": 0,
+            "own_requested_actions": [
+              {
+                "duration_s": 2,
+                "delta_position_wrist_m": [
+                  0,
+                  0,
+                  0.06
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.03
+              }
+            ]
+          },
+          {
+            "observation_index": 1,
+            "own_requested_actions": [
+              {
+                "duration_s": 1.8,
+                "delta_position_wrist_m": [
+                  -0.002,
+                  0.06,
+                  0
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.03
+              },
+              {
+                "duration_s": 1.2,
+                "delta_position_wrist_m": [
+                  0,
+                  0,
+                  0.007
+                ],
+                "delta_rotation_wrist_rotvec_rad": [
+                  0,
+                  0,
+                  0
+                ],
+                "gripper_width_m": 0.03
+              }
+            ]
+          }
+        ],
+        "current_camera_names": [
+          "head_camera",
+          "chest_camera",
+          "third_camera",
+          "wrist_camera"
+        ],
+        "current_rgb_dimensions": [
+          640,
+          480
+        ]
+      }
+    }
+  ]
+}
