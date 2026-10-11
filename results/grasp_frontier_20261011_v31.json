@@ -1,0 +1,66 @@
+{
+  "schema": "grasp.t500.actual_frontier.v31",
+  "updated_utc": "2026-10-11T08:28:00.542556+00:00",
+  "formal_accepted_objects": 0,
+  "formal_accepted_methods": 0,
+  "paper_ssr": null,
+  "cards": [
+    {
+      "title": "原定模型训练",
+      "status": "50份训练完成，16路训练中",
+      "note": "透明大试剂瓶DP的1601、1603种子均已完成3000轮，原模型、EMA及完整优化器已逐份核对；原生复测继续推进。"
+    },
+    {
+      "title": "视觉验收",
+      "status": "透明小瓶发白仍待修复",
+      "note": "薄壁和折射精度两组各24张原图对照均未解决发白。新棕色大瓶10条原生开发轨迹的180张接触及末段原图已检查，完整轨迹视觉仍待核验。"
+    },
+    {
+      "title": "训练读取加速",
+      "status": "CPU读取实测2.12倍",
+      "note": "52个单样本及512个批量样本的RGB、状态、八步动作完全一致；GPU训练速度与完整优化器恢复继续验证。"
+    }
+  ],
+  "strict_spatial_scope": "Table11给出终点空间20mm筛查；C.3的SSR检查整条轨迹中适用阶段的全部活动约束。固定最终目标不能作为移动过程中每一帧的目标。严格目标坐标系、旋转阈值和阶段仍待绑定。",
+  "full_scene_metric_diagnostic": {
+    "source_evidence_SHA256": "7b58b0daca0a13875bb602795f73313149c72fd36278eadc8655e548618a2f14",
+    "same_native_direct_solver_frames": 1487,
+    "actual_visible_meshes": 66,
+    "actual_full_surface_pair_checks": 927888,
+    "full_visual_qualified": false,
+    "formal_accepted": false
+  },
+  "glass_renderer_ABBA": {
+    "original_RGB_images_reviewed": 24,
+    "control": "worldEps1 →0.001 →0.001 →1",
+    "all_original_shader_inputs_and_solver_states_unchanged": true,
+    "white_body_persists": true,
+    "production_fix_selected": false,
+    "producer_SHA256": "f2d7fec46176c96956508cb646cbf480c595dadadf08175d205ffb01fb2c1ef0",
+    "images": [
+      {
+        "camera": "chest",
+        "url": "media/grasp_latest_glass_worldeps_v31/chest.png",
+        "SHA256": "a01c5470cb5d8eb78a1084c5fac8973c6f4f7fb782ee258b905f6df468f094a1"
+      },
+      {
+        "camera": "head",
+        "url": "media/grasp_latest_glass_worldeps_v31/head.png",
+        "SHA256": "3b001dd0f92e8274ac7ce624eefc96f085d6934a224258030ceed2d0ab36633c"
+      },
+      {
+        "camera": "third",
+        "url": "media/grasp_latest_glass_worldeps_v31/third.png",
+        "SHA256": "e314ddf738657bb829bfe73ae679eaa8937807c1e3364eb65759f222291050f0"
+      }
+    ]
+  },
+  "input_cpu_canary": {
+    "original_samples_per_s": 33.18522049803135,
+    "optimized_workers2_samples_per_s": 70.45854566616043,
+    "ratio": 2.1231905230323918,
+    "same_batched_input_samples": 512,
+    "GPU_training_speed_measured": false,
+    "original_optimizer_reset": false
+  }
+}
