@@ -1,6 +1,6 @@
 {
   "schema": "grasp.progress_snapshot.v1",
-  "updated_utc": "2026-10-11T01:47:18.705088+00:00",
+  "updated_utc": "2026-10-11T08:28:00.542556+00:00",
   "update_mode": "原拇指网格3次对照、原始RAW/JPEG/视频与已核实训练进度；每条证据按自身时间戳报告。正式验收0/21、0/42。",
   "totals": {
     "productive_training_runs": 68,
@@ -8,11 +8,11 @@
     "ACT": 33,
     "formal_accepted_objects": 0,
     "paper_objects": 21,
-    "active_training_runs": 18,
-    "completed_training_runs": 48,
+    "active_training_runs": 16,
+    "completed_training_runs": 50,
     "queued_training_candidates": 0,
     "interrupted_training_runs": 2,
-    "completed_DP_training_runs": 15,
+    "completed_DP_training_runs": 17,
     "completed_ACT_training_runs": 33,
     "recovering_training_runs": 0,
     "formal_accepted_methods": 0
@@ -87,17 +87,18 @@
       "object": "alcohol_lamp",
       "seed": 26101631,
       "state": "训练中",
-      "epoch": 681,
+      "epoch": 878,
       "epochs_target": 3000,
-      "global_step": 29985,
-      "train_loss": 0.008291478268802166,
-      "sampled_utc": "2026-10-11T01:34:36.635907+00:00",
+      "global_step": 38654,
+      "train_loss": 0.00544677022844553,
+      "sampled_utc": "2026-10-11T08:14:21.902650+00:00",
       "formal_accepted": false,
       "status_note": "原ACT正常结束后同卡接续；预定种子及100演示不变，27D/3相机CPU检查及21项传输恢复检查通过；独立验收待完成。",
       "raw_status": "running",
       "active_productive": true,
       "actual_exit_code": null,
-      "completed_training": false
+      "completed_training": false,
+      "latest_status_source_receipt_SHA256": "79311694b51cb95d50963b889e5ff62659e24c307eeae077867b6e72a9b490fe"
     },
     {
       "host": "30109",
@@ -265,18 +266,19 @@
       "seed": 26101311,
       "state": "训练中",
       "status_note": "论文3000轮、固定100演示；训练完成后另行测原生SR、SSR、范围外泛化及视觉。",
-      "epoch": 964,
+      "epoch": 1144,
       "epochs_target": 3000,
-      "global_step": 43392,
-      "train_loss": 0.0046251011081039906,
-      "sampled_utc": "2026-10-11T01:34:27.038646+00:00",
+      "global_step": 51507,
+      "train_loss": 0.0051963734440505505,
+      "sampled_utc": "2026-10-11T08:14:21.902650+00:00",
       "exact_training_resume": false,
       "formal_accepted": false,
       "actual_exit_code": null,
       "raw_status": "running",
       "active_productive": true,
       "recovery_saved_global_step": 11295,
-      "completed_training": false
+      "completed_training": false,
+      "latest_status_source_receipt_SHA256": "79311694b51cb95d50963b889e5ff62659e24c307eeae077867b6e72a9b490fe"
     },
     {
       "host": "30109",
@@ -327,13 +329,13 @@
       "object": "glass_beaker_100ml",
       "seed": 26101521,
       "state": "训练中",
-      "epoch": 1534,
+      "epoch": 2221,
       "epochs_target": 3000,
       "global_step": 58329,
       "train_loss": 0.003015493146928125,
-      "sampled_utc": "2026-10-11T01:38:04.338444+00:00",
+      "sampled_utc": "2026-10-11T08:14:22.856111+00:00",
       "formal_accepted": false,
-      "status_note": "原模型/EMA与861优化器状态经CPU完整恢复后，在原GPU上接续；旧787轮日志保留，从完整750轮检查点继续。读取输入等价检查通过，8步动作和100演示不变；工作进程随机流重启，未声称精确随机接续或测试达标。",
+      "status_note": "原优化器续训、首帧读取及2个工作线程已部署；轮次来自实际控制台，更新次数保留上次结构化日志。",
       "raw_status": "running",
       "active_productive": true,
       "actual_exit_code": null,
@@ -353,7 +355,8 @@
         "dataloader_workers": 2,
         "logical_seed_count_increase": 0,
         "formal_accepted": false
-      }
+      },
+      "latest_status_source_receipt_SHA256": "700cd358113b203c5a6a93c786d21ca74e896e9109f3b884452b641b84181879"
     },
     {
       "host": "30109",
@@ -363,13 +366,13 @@
       "object": "glass_beaker_100ml",
       "seed": 26101523,
       "state": "训练中",
-      "epoch": 1446,
+      "epoch": 2133,
       "epochs_target": 3000,
       "global_step": 54985,
       "train_loss": 0.0034133905949267117,
-      "sampled_utc": "2026-10-11T01:37:54.488355+00:00",
+      "sampled_utc": "2026-10-11T08:14:21.639236+00:00",
       "formal_accepted": false,
-      "status_note": "原seed523试点的匹配36批次耗时：旧/新各8轮，中位数55/30秒，观测比值1.83。训练轮次、权重与主机负载不同，未作随机因果GPU对照。新完整检查点已在原生产环境CPU核对模型/EMA各918张量及861优化器状态。另521/525同一输入改进已在各自原A100恢复并出现真实训练更新；100演示、3000轮、学习率、8步动作不变，独立种子数未增加。",
+      "status_note": "原优化器续训、首帧读取及2个工作线程已部署；轮次来自实际控制台，更新次数保留上次结构化日志。",
       "raw_status": "running",
       "active_productive": true,
       "actual_exit_code": null,
@@ -388,7 +391,8 @@
         "actual_GPU_updates_observed": true,
         "dataloader_workers": 2,
         "formal_accepted": false
-      }
+      },
+      "latest_status_source_receipt_SHA256": "a7a5079ea961c59fbacf50d545c0b74c92b93be72c50fb1e18393ee5d6460b6b"
     },
     {
       "host": "30109",
@@ -398,13 +402,13 @@
       "object": "glass_beaker_100ml",
       "seed": 26101525,
       "state": "训练中",
-      "epoch": 1364,
+      "epoch": 2040,
       "epochs_target": 3000,
       "global_step": 51840,
       "train_loss": 0.003040515584871173,
-      "sampled_utc": "2026-10-11T01:37:54.494753+00:00",
+      "sampled_utc": "2026-10-11T08:14:22.856111+00:00",
       "formal_accepted": false,
-      "status_note": "原模型/EMA与861优化器状态经CPU完整恢复后，在原GPU上接续；旧636轮日志保留，从完整600轮检查点继续。读取输入等价检查通过，8步动作和100演示不变；工作进程随机流重启，未声称精确随机接续或测试达标。",
+      "status_note": "原优化器续训、首帧读取及2个工作线程已部署；轮次来自实际控制台，更新次数保留上次结构化日志。",
       "raw_status": "running",
       "active_productive": true,
       "actual_exit_code": null,
@@ -423,7 +427,8 @@
         "dataloader_workers": 2,
         "logical_seed_count_increase": 0,
         "formal_accepted": false
-      }
+      },
+      "latest_status_source_receipt_SHA256": "700cd358113b203c5a6a93c786d21ca74e896e9109f3b884452b641b84181879"
     },
     {
       "host": "30109",
@@ -494,17 +499,18 @@
       "object": "glass_beaker_250ml",
       "seed": 26101611,
       "state": "训练中",
-      "epoch": 591,
+      "epoch": 781,
       "epochs_target": 3000,
-      "global_step": 26621,
-      "train_loss": 0.006993938237428665,
-      "sampled_utc": "2026-10-11T01:34:35.404137+00:00",
+      "global_step": 35145,
+      "train_loss": 0.00375014403834939,
+      "sampled_utc": "2026-10-11T08:14:21.902650+00:00",
       "formal_accepted": false,
       "status_note": "完整2.807GB模型、EMA及861项优化器状态通过独立SHA和CPU加载；实际保存45步，旧745步日志保留，从第1轮续接；随机流非精确恢复。",
       "raw_status": "running",
       "active_productive": true,
       "actual_exit_code": null,
-      "completed_training": false
+      "completed_training": false,
+      "latest_status_source_receipt_SHA256": "79311694b51cb95d50963b889e5ff62659e24c307eeae077867b6e72a9b490fe"
     },
     {
       "host": "30109",
@@ -575,61 +581,64 @@
       "object": "glass_cylinder_100ml",
       "seed": 26101621,
       "state": "训练中",
-      "epoch": 623,
+      "epoch": 812,
       "epochs_target": 3000,
-      "global_step": 28079,
-      "train_loss": 0.004966246409134733,
-      "sampled_utc": "2026-10-11T01:34:35.331024+00:00",
+      "global_step": 36569,
+      "train_loss": 0.003996017388999462,
+      "sampled_utc": "2026-10-11T08:14:21.902650+00:00",
       "formal_accepted": false,
       "status_note": "原ACT正常结束后同卡接续；预定种子及100演示不变，27D/3相机CPU检查及21项传输恢复检查通过；独立验收待完成。",
       "raw_status": "running",
       "active_productive": true,
       "actual_exit_code": null,
-      "completed_training": false
+      "completed_training": false,
+      "latest_status_source_receipt_SHA256": "79311694b51cb95d50963b889e5ff62659e24c307eeae077867b6e72a9b490fe"
     },
     {
       "host": "aliyun",
       "method": "DP",
       "object": "alcohol_lamp",
       "seed": 26101633,
-      "global_step": 58661,
-      "epoch": 1333,
+      "global_step": 95567,
+      "epoch": 2171,
       "epochs_target": 3000,
       "state": "训练中",
       "data_full_SHA_verified": true,
       "formal_accepted": false,
-      "sampled_utc": "2026-10-11T01:34:41.148773+00:00",
+      "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "gpu_model": "PPU-ZW810E 96GB",
       "gpu_uuid": "GPU-019e2226-0591-040a-0000-0000e0e40c07",
       "active_productive": true,
       "status_note": "原100演示全文件SHA验证后，自己的已完成GPU队列已实际启动并产生优化器更新；训练完成与物理数据资格分开验收。",
-      "train_loss": 0.004559578839689493,
+      "train_loss": 0.0024882601865101606,
       "raw_status": "running",
       "actual_exit_code": null,
       "completed_training": false,
-      "lr": 0.0002190367617215278
+      "lr": 0.0002190367617215278,
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
     },
     {
       "host": "aliyun",
       "method": "DP",
       "object": "alcohol_lamp",
       "seed": 26101635,
-      "global_step": 58554,
-      "epoch": 1330,
+      "global_step": 95369,
+      "epoch": 2167,
       "epochs_target": 3000,
       "state": "训练中",
       "data_full_SHA_verified": true,
       "formal_accepted": false,
-      "sampled_utc": "2026-10-11T01:34:41.148773+00:00",
+      "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "gpu_model": "PPU-ZW810E 96GB",
       "gpu_uuid": "GPU-01de1201-4862-061c-0000-000060509242",
       "active_productive": true,
       "status_note": "原100演示全文件SHA验证后，自己的已完成GPU队列已实际启动并产生优化器更新；训练完成与物理数据资格分开验收。",
-      "train_loss": 0.0046099466271698475,
+      "train_loss": 0.0022729753982275724,
       "raw_status": "running",
       "actual_exit_code": null,
       "completed_training": false,
-      "lr": 0.00021940979767833379
+      "lr": 0.00021940979767833379,
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
     },
     {
       "host": "aliyun",
@@ -703,7 +712,7 @@
       "epochs_target": 3000,
       "global_step": 125998,
       "train_loss": 0.0017558818217366934,
-      "sampled_utc": "2026-10-10T22:55:36.890724+00:00",
+      "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "formal_accepted": false,
       "status_note": "该物体、该种子的原最终权重整字节冻结并CPU核验；model/EMA各918张量。训练完成，原生成功率、SSR与视觉验收待通过。",
       "raw_status": "trained_pending_checkpoint_and_native_validation",
@@ -712,7 +721,8 @@
       "completed_training": true,
       "actual_saved_epoch": 3000,
       "actual_saved_global_step": 126000,
-      "final_checkpoint_SHA256": "212fa5602aaa0df88d8301036f16657baf3f0bac726600bfc7af4b5d2ab60f51"
+      "final_checkpoint_SHA256": "212fa5602aaa0df88d8301036f16657baf3f0bac726600bfc7af4b5d2ab60f51",
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
     },
     {
       "host": "aliyun",
@@ -726,7 +736,7 @@
       "epochs_target": 3000,
       "global_step": 125999,
       "train_loss": 0.001747533496070121,
-      "sampled_utc": "2026-10-10T22:55:36.890724+00:00",
+      "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "formal_accepted": false,
       "status_note": "该物体、该种子的原最终权重整字节冻结并CPU核验；model/EMA各918张量。训练完成，原生成功率、SSR与视觉验收待通过。",
       "raw_status": "trained_pending_checkpoint_and_native_validation",
@@ -735,7 +745,8 @@
       "completed_training": true,
       "actual_saved_epoch": 3000,
       "actual_saved_global_step": 126000,
-      "final_checkpoint_SHA256": "48c727be05ca187d3b62183e5809cceac7527eda3ee78ca90be2980a1e61d90a"
+      "final_checkpoint_SHA256": "48c727be05ca187d3b62183e5809cceac7527eda3ee78ca90be2980a1e61d90a",
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
     },
     {
       "host": "aliyun",
@@ -749,7 +760,7 @@
       "epochs_target": 3000,
       "global_step": 125984,
       "train_loss": 0.0014688778901472688,
-      "sampled_utc": "2026-10-10T22:55:36.890724+00:00",
+      "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "formal_accepted": false,
       "status_note": "该物体、该种子的原最终权重整字节冻结并CPU核验；model/EMA各918张量。训练完成，原生成功率、SSR与视觉验收待通过。",
       "raw_status": "trained_pending_checkpoint_and_native_validation",
@@ -758,7 +769,8 @@
       "completed_training": true,
       "actual_saved_epoch": 3000,
       "actual_saved_global_step": 126000,
-      "final_checkpoint_SHA256": "2953282ffa425e8ffd78955d3417b21c95fed59667beb797354605f7b41cc7cf"
+      "final_checkpoint_SHA256": "2953282ffa425e8ffd78955d3417b21c95fed59667beb797354605f7b41cc7cf",
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
     },
     {
       "host": "aliyun",
@@ -827,12 +839,12 @@
       "method": "DP",
       "object": "brown_volumetric_flask_250ml",
       "seed": 26101211,
-      "state": "3000轮训练完成；原权重与原输入推理通过，待原生测试",
+      "state": "3000轮训练完成，待原生测试",
       "epoch": 2999,
       "epochs_target": 3000,
       "global_step": 134984,
       "train_loss": 0.0016636562068015337,
-      "sampled_utc": "2026-10-10T22:55:36.890724+00:00",
+      "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "formal_accepted": false,
       "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
       "raw_status": "trained_pending_checkpoint_and_native_validation",
@@ -845,7 +857,8 @@
       "final_checkpoint_original_bytes": 1403895582,
       "actual_CPU_full_checkpoint_qualified": true,
       "actual_local_original_weight_received": true,
-      "actual_CPU_original_serving_qualified": true
+      "actual_CPU_original_serving_qualified": true,
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
     },
     {
       "host": "aliyun",
@@ -854,12 +867,12 @@
       "method": "DP",
       "object": "brown_volumetric_flask_250ml",
       "seed": 26101213,
-      "state": "3000轮训练完成；原权重与原输入推理通过，待原生测试",
+      "state": "3000轮训练完成，待原生测试",
       "epoch": 2999,
       "epochs_target": 3000,
       "global_step": 134999,
       "train_loss": 0.0003780929513999985,
-      "sampled_utc": "2026-10-10T22:55:36.890724+00:00",
+      "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "formal_accepted": false,
       "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
       "raw_status": "trained_pending_checkpoint_and_native_validation",
@@ -872,7 +885,8 @@
       "final_checkpoint_original_bytes": 1403895582,
       "actual_CPU_full_checkpoint_qualified": true,
       "actual_local_original_weight_received": true,
-      "actual_CPU_original_serving_qualified": true
+      "actual_CPU_original_serving_qualified": true,
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
     },
     {
       "host": "aliyun",
@@ -881,12 +895,12 @@
       "method": "DP",
       "object": "brown_volumetric_flask_250ml",
       "seed": 26101215,
-      "state": "3000轮训练完成；原权重与原输入推理通过，待原生测试",
+      "state": "3000轮训练完成，待原生测试",
       "epoch": 2999,
       "epochs_target": 3000,
       "global_step": 134999,
       "train_loss": 0.001536264234325952,
-      "sampled_utc": "2026-10-10T22:55:36.890724+00:00",
+      "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "formal_accepted": false,
       "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
       "raw_status": "trained_pending_checkpoint_and_native_validation",
@@ -899,7 +913,8 @@
       "final_checkpoint_original_bytes": 1403895582,
       "actual_CPU_full_checkpoint_qualified": true,
       "actual_local_original_weight_received": true,
-      "actual_CPU_original_serving_qualified": true
+      "actual_CPU_original_serving_qualified": true,
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
     },
     {
       "host": "aliyun",
@@ -908,19 +923,20 @@
       "method": "DP",
       "object": "clear_reagent_bottle_large",
       "seed": 26101601,
-      "state": "训练中",
-      "epoch": 2836,
+      "state": "3000轮训练完成，待原生测试",
+      "epoch": 2999,
       "epochs_target": 3000,
-      "global_step": 107777,
-      "train_loss": 0.0017222086898982525,
-      "sampled_utc": "2026-10-11T01:34:41.148773+00:00",
+      "global_step": 113999,
+      "train_loss": 0.001901487314362863,
+      "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "formal_accepted": false,
       "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
       "raw_status": "running",
-      "active_productive": true,
-      "actual_exit_code": null,
-      "completed_training": false,
-      "lr": 1.7650375056849315e-05
+      "active_productive": false,
+      "actual_exit_code": 0,
+      "completed_training": true,
+      "lr": 1.7650375056849315e-05,
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
     },
     {
       "host": "aliyun",
@@ -929,20 +945,21 @@
       "method": "DP",
       "object": "clear_reagent_bottle_large",
       "seed": 26101603,
-      "state": "训练中",
-      "epoch": 2047,
+      "state": "3000轮训练完成，待原生测试",
+      "epoch": 2999,
       "epochs_target": 3000,
-      "global_step": 77813,
-      "train_loss": 0.002099231816828251,
-      "sampled_utc": "2026-10-11T01:34:41.148773+00:00",
+      "global_step": 113999,
+      "train_loss": 0.0019586909911595285,
+      "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "formal_accepted": false,
       "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
       "raw_status": "running",
-      "active_productive": true,
-      "actual_exit_code": null,
-      "completed_training": false,
+      "active_productive": false,
+      "actual_exit_code": 0,
+      "completed_training": true,
       "data_full_SHA_verified": true,
-      "lr": 0.00011434121286271465
+      "lr": 0.00011434121286271465,
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
     },
     {
       "host": "aliyun",
@@ -952,11 +969,11 @@
       "object": "clear_reagent_bottle_large",
       "seed": 26101605,
       "state": "训练中",
-      "epoch": 1996,
+      "epoch": 2946,
       "epochs_target": 3000,
-      "global_step": 75870,
-      "train_loss": 0.0027723656967282295,
-      "sampled_utc": "2026-10-11T01:34:41.148773+00:00",
+      "global_step": 111967,
+      "train_loss": 0.0017658749129623175,
+      "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "formal_accepted": false,
       "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
       "raw_status": "running",
@@ -964,7 +981,8 @@
       "actual_exit_code": null,
       "completed_training": false,
       "data_full_SHA_verified": true,
-      "lr": 0.00012221524101540515
+      "lr": 0.00012221524101540515,
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
     },
     {
       "host": "aliyun",
@@ -1038,7 +1056,7 @@
       "epochs_target": 3000,
       "global_step": 134999,
       "train_loss": 0.0015237726219412353,
-      "sampled_utc": "2026-10-10T22:55:36.890724+00:00",
+      "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "formal_accepted": false,
       "status_note": "该物体、该种子的原最终权重整字节冻结并CPU核验；model/EMA各918张量。训练完成，原生成功率、SSR与视觉验收待通过。",
       "raw_status": "trained_pending_checkpoint_and_native_validation",
@@ -1047,7 +1065,8 @@
       "completed_training": true,
       "actual_saved_epoch": 3000,
       "actual_saved_global_step": 135000,
-      "final_checkpoint_SHA256": "2cd0de20bc0218d4b2c7ae86c91e035928cef39d0f17606b9685cddadb4c9450"
+      "final_checkpoint_SHA256": "2cd0de20bc0218d4b2c7ae86c91e035928cef39d0f17606b9685cddadb4c9450",
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
     },
     {
       "host": "aliyun",
@@ -1061,7 +1080,7 @@
       "epochs_target": 3000,
       "global_step": 134999,
       "train_loss": 0.00153372203413811,
-      "sampled_utc": "2026-10-10T22:55:36.890724+00:00",
+      "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "formal_accepted": false,
       "status_note": "该物体、该种子的原最终权重整字节冻结并CPU核验；model/EMA各918张量。训练完成，原生成功率、SSR与视觉验收待通过。",
       "raw_status": "trained_pending_checkpoint_and_native_validation",
@@ -1070,7 +1089,8 @@
       "completed_training": true,
       "actual_saved_epoch": 3000,
       "actual_saved_global_step": 135000,
-      "final_checkpoint_SHA256": "10dafccf84f76237a8e0a131de8fa63c0ffc4fe7b15b5ee979471c3d59685b20"
+      "final_checkpoint_SHA256": "10dafccf84f76237a8e0a131de8fa63c0ffc4fe7b15b5ee979471c3d59685b20",
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
     },
     {
       "host": "aliyun",
@@ -1084,7 +1104,7 @@
       "epochs_target": 3000,
       "global_step": 134999,
       "train_loss": 0.0014432827967943416,
-      "sampled_utc": "2026-10-10T22:55:36.890724+00:00",
+      "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "formal_accepted": false,
       "status_note": "该物体、该种子的原最终权重整字节冻结并CPU核验；model/EMA各918张量。训练完成，原生成功率、SSR与视觉验收待通过。",
       "raw_status": "trained_pending_checkpoint_and_native_validation",
@@ -1093,7 +1113,8 @@
       "completed_training": true,
       "actual_saved_epoch": 3000,
       "actual_saved_global_step": 135000,
-      "final_checkpoint_SHA256": "81df2c47f23713359b7f5b1bd0e23d6033d7e5c08ff16557b90c2752b23658c3"
+      "final_checkpoint_SHA256": "81df2c47f23713359b7f5b1bd0e23d6033d7e5c08ff16557b90c2752b23658c3",
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
     },
     {
       "host": "aliyun",
@@ -1167,7 +1188,7 @@
       "epochs_target": 3000,
       "global_step": 113992,
       "train_loss": 0.0017928093438968062,
-      "sampled_utc": "2026-10-10T22:55:36.890724+00:00",
+      "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "formal_accepted": false,
       "status_note": "该物体、该种子的原最终权重整字节冻结并CPU核验；model/EMA各918张量。训练完成，原生成功率、SSR与视觉验收待通过。",
       "raw_status": "trained_pending_checkpoint_and_native_validation",
@@ -1178,7 +1199,8 @@
       "training_resume_qualified": false,
       "actual_saved_epoch": 3000,
       "actual_saved_global_step": 114000,
-      "final_checkpoint_SHA256": "8e3e4f8883de472ec5aa23ca9907e8ef9e6c243a555034c773d5bf6219a3e5c9"
+      "final_checkpoint_SHA256": "8e3e4f8883de472ec5aa23ca9907e8ef9e6c243a555034c773d5bf6219a3e5c9",
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
     },
     {
       "host": "aliyun",
@@ -1192,7 +1214,7 @@
       "epochs_target": 3000,
       "global_step": 113988,
       "train_loss": 0.0021054078824818134,
-      "sampled_utc": "2026-10-10T22:55:36.890724+00:00",
+      "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "formal_accepted": false,
       "status_note": "该物体、该种子的原最终权重整字节冻结并CPU核验；model/EMA各918张量。训练完成，原生成功率、SSR与视觉验收待通过。",
       "raw_status": "trained_pending_checkpoint_and_native_validation",
@@ -1203,7 +1225,8 @@
       "training_resume_qualified": false,
       "actual_saved_epoch": 3000,
       "actual_saved_global_step": 114000,
-      "final_checkpoint_SHA256": "f3cf2abf952fd54ca2dcc51b64be57ab1a61658708e88e0d6667a455c65689dc"
+      "final_checkpoint_SHA256": "f3cf2abf952fd54ca2dcc51b64be57ab1a61658708e88e0d6667a455c65689dc",
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
     },
     {
       "host": "aliyun",
@@ -1217,7 +1240,7 @@
       "epochs_target": 3000,
       "global_step": 113985,
       "train_loss": 0.0022191626485437155,
-      "sampled_utc": "2026-10-10T22:55:36.890724+00:00",
+      "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "formal_accepted": false,
       "status_note": "该物体、该种子的原最终权重整字节冻结并CPU核验；model/EMA各918张量。训练完成，原生成功率、SSR与视觉验收待通过。",
       "raw_status": "trained_pending_checkpoint_and_native_validation",
@@ -1228,7 +1251,8 @@
       "training_resume_qualified": false,
       "actual_saved_epoch": 3000,
       "actual_saved_global_step": 114000,
-      "final_checkpoint_SHA256": "034716e690f79a21c349d10a55bfbf106504f85bd187b9fde9849450cf13db7e"
+      "final_checkpoint_SHA256": "034716e690f79a21c349d10a55bfbf106504f85bd187b9fde9849450cf13db7e",
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
     },
     {
       "host": "aliyun",
@@ -1258,11 +1282,11 @@
       "object": "glass_beaker_250ml",
       "seed": 26101613,
       "state": "训练中",
-      "epoch": 1719,
+      "epoch": 2536,
       "epochs_target": 3000,
-      "global_step": 77375,
-      "train_loss": 0.0016611608443781734,
-      "sampled_utc": "2026-10-11T01:34:41.148773+00:00",
+      "global_step": 114126,
+      "train_loss": 0.0007467560935765505,
+      "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "formal_accepted": false,
       "status_note": "固定训练种子；数据的采集硬件及安全质量仍待核验。",
       "raw_status": "running",
@@ -1270,7 +1294,8 @@
       "actual_exit_code": null,
       "completed_training": false,
       "data_full_SHA_verified": true,
-      "lr": 0.00015899773847121706
+      "lr": 0.00015899773847121706,
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
     },
     {
       "host": "aliyun",
@@ -1280,11 +1305,11 @@
       "object": "glass_beaker_250ml",
       "seed": 26101615,
       "state": "训练中",
-      "epoch": 1588,
+      "epoch": 2413,
       "epochs_target": 3000,
-      "global_step": 71473,
-      "train_loss": 0.0023587155155837536,
-      "sampled_utc": "2026-10-11T01:34:41.148773+00:00",
+      "global_step": 108606,
+      "train_loss": 0.0011077490635216236,
+      "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "formal_accepted": false,
       "status_note": "原100演示全文件SHA验证后，已在自己的GPU队列产生真实训练更新；最终权重尚未保存和核验。",
       "raw_status": "running",
@@ -1292,7 +1317,8 @@
       "actual_exit_code": null,
       "completed_training": false,
       "data_full_SHA_verified": true,
-      "lr": 0.00018012312289282612
+      "lr": 0.00018012312289282612,
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
     },
     {
       "host": "aliyun",
@@ -1302,11 +1328,11 @@
       "object": "glass_cylinder_100ml",
       "seed": 26101623,
       "state": "训练中",
-      "epoch": 1589,
+      "epoch": 2419,
       "epochs_target": 3000,
-      "global_step": 71540,
-      "train_loss": 0.0027312913443893194,
-      "sampled_utc": "2026-10-11T01:34:41.148773+00:00",
+      "global_step": 108887,
+      "train_loss": 0.00151184038259089,
+      "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "formal_accepted": false,
       "status_note": "原100演示全文件SHA验证后，已在自己的GPU队列产生真实训练更新；最终权重尚未保存和核验。",
       "raw_status": "running",
@@ -1314,7 +1340,8 @@
       "actual_exit_code": null,
       "completed_training": false,
       "data_full_SHA_verified": true,
-      "lr": 0.00018011965191589322
+      "lr": 0.00018011965191589322,
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
     },
     {
       "host": "aliyun",
@@ -1324,11 +1351,11 @@
       "object": "glass_cylinder_100ml",
       "seed": 26101625,
       "state": "训练中",
-      "epoch": 1573,
+      "epoch": 2395,
       "epochs_target": 3000,
-      "global_step": 70796,
-      "train_loss": 0.0022178522776812315,
-      "sampled_utc": "2026-10-11T01:34:41.148773+00:00",
+      "global_step": 107810,
+      "train_loss": 0.0014806146500632167,
+      "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "formal_accepted": false,
       "status_note": "原100演示全文件SHA验证后，已在自己的GPU队列产生真实训练更新；最终权重尚未保存和核验。",
       "raw_status": "running",
@@ -1336,7 +1363,8 @@
       "actual_exit_code": null,
       "completed_training": false,
       "data_full_SHA_verified": true,
-      "lr": 0.0001824413431416895
+      "lr": 0.0001824413431416895,
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
     },
     {
       "host": "aliyun",
@@ -1410,7 +1438,7 @@
       "epochs_target": 3000,
       "global_step": 134999,
       "train_loss": 0.0013651389085377256,
-      "sampled_utc": "2026-10-10T22:55:36.890724+00:00",
+      "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "formal_accepted": false,
       "status_note": "该物体、该种子的原最终权重整字节冻结并CPU核验；model/EMA各918张量。训练完成，原生成功率、SSR与视觉验收待通过。",
       "raw_status": "trained_pending_checkpoint_and_native_validation",
@@ -1419,7 +1447,8 @@
       "completed_training": true,
       "actual_saved_epoch": 3000,
       "actual_saved_global_step": 135000,
-      "final_checkpoint_SHA256": "81589ea332c8785d4016d7e8323fe9fe6fb33058a429842114a0cf3c8a561c21"
+      "final_checkpoint_SHA256": "81589ea332c8785d4016d7e8323fe9fe6fb33058a429842114a0cf3c8a561c21",
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
     },
     {
       "host": "aliyun",
@@ -1433,7 +1462,7 @@
       "epochs_target": 3000,
       "global_step": 134998,
       "train_loss": 0.0015690362779423594,
-      "sampled_utc": "2026-10-10T22:55:36.890724+00:00",
+      "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "formal_accepted": false,
       "status_note": "该物体、该种子的原最终权重整字节冻结并CPU核验；model/EMA各918张量。训练完成，原生成功率、SSR与视觉验收待通过。",
       "raw_status": "trained_pending_checkpoint_and_native_validation",
@@ -1442,7 +1471,8 @@
       "completed_training": true,
       "actual_saved_epoch": 3000,
       "actual_saved_global_step": 135000,
-      "final_checkpoint_SHA256": "a194a0cc4c2840b66b6fada44deda56412e82b2e197914c73bf519128023c8a4"
+      "final_checkpoint_SHA256": "a194a0cc4c2840b66b6fada44deda56412e82b2e197914c73bf519128023c8a4",
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
     },
     {
       "host": "aliyun",
@@ -1456,7 +1486,7 @@
       "epochs_target": 3000,
       "global_step": 134999,
       "train_loss": 0.0014510571775544021,
-      "sampled_utc": "2026-10-10T22:55:36.890724+00:00",
+      "sampled_utc": "2026-10-11T08:09:00.798975+00:00",
       "formal_accepted": false,
       "status_note": "该物体、该种子的原最终权重整字节冻结并CPU核验；model/EMA各918张量。训练完成，原生成功率、SSR与视觉验收待通过。",
       "raw_status": "trained_pending_checkpoint_and_native_validation",
@@ -1465,7 +1495,8 @@
       "completed_training": true,
       "actual_saved_epoch": 3000,
       "actual_saved_global_step": 135000,
-      "final_checkpoint_SHA256": "98ea2326525d85550fd9b792a63ea339bba7fd367d03307a0af5f52d3625e4fb"
+      "final_checkpoint_SHA256": "98ea2326525d85550fd9b792a63ea339bba7fd367d03307a0af5f52d3625e4fb",
+      "latest_status_source_receipt_SHA256": "d3b2e4aa49e718e596c49d21d961109ad868885bb2cccfd1d8836ae107ca12a2"
     },
     {
       "host": "mainskill",
@@ -1475,17 +1506,18 @@
       "object": "clear_volumetric_flask_250ml",
       "seed": 26101313,
       "state": "训练中",
-      "epoch": 1803,
+      "epoch": 2318,
       "epochs_target": 3000,
       "global_step": 81161,
       "train_loss": 0.002882820786908269,
-      "sampled_utc": "2026-10-11T01:34:29.163699+00:00",
+      "sampled_utc": "2026-10-11T08:03:11.165674+00:00",
       "formal_accepted": false,
-      "status_note": "论文3000轮、固定100演示；训练完成后另行测原生SR、SSR、范围外泛化及视觉。",
+      "status_note": "轮次来自实际控制台；更新次数保留上次有结构化日志的记录。",
       "raw_status": "running",
       "active_productive": true,
       "actual_exit_code": null,
-      "completed_training": false
+      "completed_training": false,
+      "latest_status_source_receipt_SHA256": "3da95e35319b14df31162ae0ff8b7331ca355b6e1be953b623b0a35f7b0ae686"
     },
     {
       "host": "mainskill",
@@ -1495,17 +1527,18 @@
       "object": "clear_volumetric_flask_250ml",
       "seed": 26101315,
       "state": "训练中",
-      "epoch": 1812,
+      "epoch": 2334,
       "epochs_target": 3000,
       "global_step": 81547,
       "train_loss": 0.002433975227177143,
-      "sampled_utc": "2026-10-11T01:34:29.403357+00:00",
+      "sampled_utc": "2026-10-11T08:03:11.165674+00:00",
       "formal_accepted": false,
-      "status_note": "论文3000轮、固定100演示；训练完成后另行测原生SR、SSR、范围外泛化及视觉。",
+      "status_note": "轮次来自实际控制台；更新次数保留上次有结构化日志的记录。",
       "raw_status": "running",
       "active_productive": true,
       "actual_exit_code": null,
-      "completed_training": false
+      "completed_training": false,
+      "latest_status_source_receipt_SHA256": "3da95e35319b14df31162ae0ff8b7331ca355b6e1be953b623b0a35f7b0ae686"
     }
   ],
   "servers": [
@@ -2512,7 +2545,7 @@
     "note": "同一2秒动作与手指目标前缀逐位一致，仅增加0.6秒保持。终点位置误差从25.7/25.8mm降至5.9/6.3mm；这是开发诊断，目标与全程约束尚未绑定论文SSR。四条轨迹三相机关键帧已查：头部及第三视角持续覆盖目标，胸部抬升后出画本身不判视觉失败。玻璃渲染与全程穿模仍待验收。",
     "evidence_url": "results/grasp_fixed_action_hold_camera_20261010.json"
   },
-  "latest_training_evidence_url": "results/grasp_actual_training_and_candidate_frontier_20261011_v27.json",
+  "latest_training_evidence_url": "results/grasp_frontier_20261011_v31.json",
   "paper_domain_contract": {
     "schema": "grasp.paper_domain_contract.v1",
     "domains": [
@@ -7199,5 +7232,71 @@
       "collision_free_qualified": false
     }
   },
-  "sampled_utc": "2026-10-11T01:47:18.705088+00:00"
+  "sampled_utc": "2026-10-11T08:28:00.542556+00:00",
+  "latest_frontier": {
+    "schema": "grasp.t500.actual_frontier.v31",
+    "updated_utc": "2026-10-11T08:28:00.542556+00:00",
+    "formal_accepted_objects": 0,
+    "formal_accepted_methods": 0,
+    "paper_ssr": null,
+    "cards": [
+      {
+        "title": "原定模型训练",
+        "status": "50份训练完成，16路训练中",
+        "note": "透明大试剂瓶DP的1601、1603种子均已完成3000轮，原模型、EMA及完整优化器已逐份核对；原生复测继续推进。"
+      },
+      {
+        "title": "视觉验收",
+        "status": "透明小瓶发白仍待修复",
+        "note": "薄壁和折射精度两组各24张原图对照均未解决发白。新棕色大瓶10条原生开发轨迹的180张接触及末段原图已检查，完整轨迹视觉仍待核验。"
+      },
+      {
+        "title": "训练读取加速",
+        "status": "CPU读取实测2.12倍",
+        "note": "52个单样本及512个批量样本的RGB、状态、八步动作完全一致；GPU训练速度与完整优化器恢复继续验证。"
+      }
+    ],
+    "strict_spatial_scope": "Table11给出终点空间20mm筛查；C.3的SSR检查整条轨迹中适用阶段的全部活动约束。固定最终目标不能作为移动过程中每一帧的目标。严格目标坐标系、旋转阈值和阶段仍待绑定。",
+    "full_scene_metric_diagnostic": {
+      "source_evidence_SHA256": "7b58b0daca0a13875bb602795f73313149c72fd36278eadc8655e548618a2f14",
+      "same_native_direct_solver_frames": 1487,
+      "actual_visible_meshes": 66,
+      "actual_full_surface_pair_checks": 927888,
+      "full_visual_qualified": false,
+      "formal_accepted": false
+    },
+    "glass_renderer_ABBA": {
+      "original_RGB_images_reviewed": 24,
+      "control": "worldEps1 →0.001 →0.001 →1",
+      "all_original_shader_inputs_and_solver_states_unchanged": true,
+      "white_body_persists": true,
+      "production_fix_selected": false,
+      "producer_SHA256": "f2d7fec46176c96956508cb646cbf480c595dadadf08175d205ffb01fb2c1ef0",
+      "images": [
+        {
+          "camera": "chest",
+          "url": "media/grasp_latest_glass_worldeps_v31/chest.png",
+          "SHA256": "a01c5470cb5d8eb78a1084c5fac8973c6f4f7fb782ee258b905f6df468f094a1"
+        },
+        {
+          "camera": "head",
+          "url": "media/grasp_latest_glass_worldeps_v31/head.png",
+          "SHA256": "3b001dd0f92e8274ac7ce624eefc96f085d6934a224258030ceed2d0ab36633c"
+        },
+        {
+          "camera": "third",
+          "url": "media/grasp_latest_glass_worldeps_v31/third.png",
+          "SHA256": "e314ddf738657bb829bfe73ae679eaa8937807c1e3364eb65759f222291050f0"
+        }
+      ]
+    },
+    "input_cpu_canary": {
+      "original_samples_per_s": 33.18522049803135,
+      "optimized_workers2_samples_per_s": 70.45854566616043,
+      "ratio": 2.1231905230323918,
+      "same_batched_input_samples": 512,
+      "GPU_training_speed_measured": false,
+      "original_optimizer_reset": false
+    }
+  }
 }
