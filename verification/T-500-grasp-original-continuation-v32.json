@@ -1,0 +1,167 @@
+{
+  "schema": "grasp.t500.original_continuation_evidence.v32",
+  "updated_utc": "2026-10-11T10:40:52.458719+00:00",
+  "training_seed": 26101311,
+  "object": "clear_volumetric_flask_250ml",
+  "method": "DP",
+  "GPU_short_canary": {
+    "passed": true,
+    "at_utc": "2026-10-11T09:57:52.938086+00:00",
+    "original_optimizer_reset": false,
+    "original_source_and_dataset_and_512_input_tensor_bytes_exact": true,
+    "actual_model_loss_gradients_and_optimizer_steps_finite": true,
+    "modes": [
+      {
+        "mode": "original_all8RGB_workers0",
+        "samples": 512,
+        "optimizer_diagnostic_steps": 4,
+        "wall_s": 14.150486641563475,
+        "samples_per_s": 36.18250120784747,
+        "all_input_tensor_SHA256": "7f5741e3e80ec5cb5730bd7e9d14fbefd1a2b9e2a632cce1d80a5e66e6a331b6",
+        "finite_losses": [
+          0.005840563680976629,
+          0.004781040363013744,
+          0.005258945282548666,
+          0.0046687014400959015
+        ],
+        "finite_gradient_tensors_per_step": [
+          861,
+          861,
+          861,
+          861
+        ],
+        "post_diagnostic_optimizer_fingerprint": {
+          "parameter_states": 861,
+          "finite_tensors": 2583,
+          "parameter_group_and_tensor_bytes_SHA256": "a43167bde2df6d95bc7604d57ae7b1cd47465e54f9648178183ff8ad9b0edaaf"
+        }
+      },
+      {
+        "mode": "first_observation_workers2",
+        "samples": 512,
+        "optimizer_diagnostic_steps": 4,
+        "wall_s": 7.572060924954712,
+        "samples_per_s": 67.61699424692125,
+        "all_input_tensor_SHA256": "7f5741e3e80ec5cb5730bd7e9d14fbefd1a2b9e2a632cce1d80a5e66e6a331b6",
+        "finite_losses": [
+          0.005840563680976629,
+          0.004781040363013744,
+          0.005258945282548666,
+          0.0046687014400959015
+        ],
+        "finite_gradient_tensors_per_step": [
+          861,
+          861,
+          861,
+          861
+        ],
+        "post_diagnostic_optimizer_fingerprint": {
+          "parameter_states": 861,
+          "finite_tensors": 2583,
+          "parameter_group_and_tensor_bytes_SHA256": "a43167bde2df6d95bc7604d57ae7b1cd47465e54f9648178183ff8ad9b0edaaf"
+        }
+      }
+    ],
+    "measured_diagnostic_model_optimizer_step_speed_ratio": 1.8687761207690108,
+    "full_production_training_throughput_proved": false,
+    "diagnostic_updates_discarded": true,
+    "actual_original_checkpoint_optimizer_CPU_snapshot_unchanged_after_all_steps": true
+  },
+  "original_CPU_restore": {
+    "passed": true,
+    "at_utc": "2026-10-11T10:14:28.567482+00:00",
+    "original_full_CPU_model_EMA_optimizer_exact": true,
+    "saved_counters": {
+      "epoch": 1200,
+      "global_step": 54045
+    },
+    "next_epoch": 1201,
+    "EMA_optimization_step": 54045,
+    "original_cosine_horizon_steps": 135000,
+    "original_normalizer_recomputation_exact": true,
+    "original_empty_training_validation_retained": true
+  },
+  "handoff": {
+    "old_training_group_closed_before_new_training": true,
+    "replayed_updates_from_checkpoint_boundary": 672,
+    "logical_seed_count_increase": 0,
+    "optimizer_reset": false,
+    "saved_global_RNG_restored": true,
+    "exact_worker_RNG_restored": false,
+    "exact_training_trajectory_resume": false
+  },
+  "first_production_full_checkpoint_CPU_audit": {
+    "passed": true,
+    "at_utc": "2026-10-11T10:22:58.018416+00:00",
+    "actual_original_full_checkpoint_SHA256": "87af3d68188fe23259f69a45d4e8cd5e3920c94224583ed7f3882e395569aaf8",
+    "actual_bytes": 2807321797,
+    "saved_counters": {
+      "epoch": 1201,
+      "global_step": 54090
+    },
+    "next_epoch": 1202,
+    "actual_model_and_EMA_fingerprints": {
+      "model": {
+        "tensor_count": 918,
+        "ordered_tensor_bytes_SHA256": "4512e5086e6d1a21c5329ce034edd09c3b7de2a88bd224dc1a87b0f4398b69e0"
+      },
+      "ema_model": {
+        "tensor_count": 918,
+        "ordered_tensor_bytes_SHA256": "34ce23757df63fbac9498e223ed0dfd74ac7787240cf0462a205a912bdef42e2"
+      }
+    },
+    "optimizer_fingerprint": {
+      "parameter_states": 861,
+      "finite_tensors": 2583,
+      "parameter_group_and_tensor_bytes_SHA256": "83d29bee39736a65809f68b9095cf1993d067fcee9fef808325ab3edc6e8d776"
+    },
+    "actual_optimizer_step_min": 54090.0,
+    "actual_optimizer_step_max": 54090.0,
+    "optimizer_reset": false,
+    "actual_CUDA_initializations": 0
+  },
+  "production_progress": {
+    "sampled_utc": "2026-10-11T10:34:28.292034+00:00",
+    "epoch": 1224,
+    "global_step": 55123,
+    "train_loss": 0.004205607809126377,
+    "gpu_model": "PPU-ZW810E 96GB",
+    "observed_first_train_loop_batches": 45,
+    "observed_first_train_loop_wall_s": 48,
+    "steady_production_speedup_established": false
+  },
+  "ClearLarge_original_final_CPU_audits": [
+    {
+      "training_seed": 26101601,
+      "saved_epoch": 3000,
+      "saved_global_step": 114000,
+      "model_tensors": 918,
+      "EMA_tensors": 918,
+      "finite_optimizer_tensors": 2583,
+      "optimizer_reset": false,
+      "original_full_checkpoint_SHA256": "0d5c62e1a0e1b5f6b055676f6ade49a5d73074a16e778119318fa24ab4632b12"
+    },
+    {
+      "training_seed": 26101603,
+      "saved_epoch": 3000,
+      "saved_global_step": 114000,
+      "model_tensors": 918,
+      "EMA_tensors": 918,
+      "finite_optimizer_tensors": 2583,
+      "optimizer_reset": false,
+      "original_full_checkpoint_SHA256": "2b8f9d50253616338aa4149c8af1bdfffff57c599f1518d847b3d66153301d81"
+    },
+    {
+      "training_seed": 26101605,
+      "saved_epoch": 3000,
+      "saved_global_step": 114000,
+      "model_tensors": 918,
+      "EMA_tensors": 918,
+      "finite_optimizer_tensors": 2583,
+      "optimizer_reset": false,
+      "original_full_checkpoint_SHA256": "82ca29e15a204f1e5a016ffea3647cfd95014c54155549ad7bd6b55dced1b644"
+    }
+  ],
+  "formal_accepted": false,
+  "paper_ssr": null
+}
