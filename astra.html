@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Astra 机器人能力实验 · SafeLab</title><meta name="description" content="按研究问题阅读 Astra 机器人实验：输入对照、动作接口、推理强度和长程案例；每项结果直接关联真实录像与质量审查。">
-<meta name="theme-color" content="#f7f8fa"><link rel="icon" href="assets/astra/reader-icon.svg"><link rel="stylesheet" href="assets/astra/reader.css?v=3"><script defer src="assets/astra/reader.js?v=3"></script></head>
+<meta name="theme-color" content="#f7f8fa"><link rel="icon" href="assets/astra/reader-icon.svg"><link rel="stylesheet" href="assets/astra/reader.css?v=4"><script defer src="assets/astra/reader.js?v=4"></script></head>
 <body data-page="report"><a class="skip-link" href="#main">跳到正文</a>
 <header><div class="header-inner"><a class="brand" href="astra.html"><b>S</b> SafeLab <span>/ Astra</span></a><nav aria-label="网站导航"><a href="astra.html" aria-current="page">实验报告</a><a href="astra-evidence.html" >录像证据库</a><a href="index.html#sec1">Dashboard ↗</a></nav></div></header>
 <main id="main"><div class="hero"><p class="eyebrow">GPT-6 ASTRA · 机器人仿真实验</p><h1>哪些输入会影响 Astra 的机器人操作？</h1>
 <p class="hero-answer">目前还不能确定哪些输入必需。已有对照表明，移除位姿或标定信息后，两个初态的成败变化方向相反。</p>
-<p class="hero-context">先看输入解耦，再分别看动作接口、推理强度和长程案例。每组给出实验设计、结果与证据；缺录像的部分单独说明。</p></div>
+<p class="hero-context">先看输入解耦，再分别看动作接口、推理强度和长程案例。成绩与画面检查紧邻对应录像，选择条件即可直接对照；缺录像的对照会注明。</p></div>
 <section id="input-study" class="experiment-section" aria-label="按研究问题选择实验">
 <div class="study-switch" role="tablist" aria-label="研究问题">
 <button id="tab-inputs" role="tab" aria-selected="true" aria-controls="experiment-panel" data-study="inputs"><span>01 · 核心问题</span><b>输入解耦</b></button>
@@ -15,8 +15,8 @@
 <button id="tab-long" role="tab" aria-selected="false" tabindex="-1" aria-controls="experiment-panel" data-study="long"><span>04 · 开发案例</span><b>长程任务表现</b></button></div>
 <div id="experiment-panel" role="tabpanel" aria-labelledby="tab-inputs" tabindex="0"><p class="loading">正在加载实验……</p></div></section>
 <section class="next-section" id="next"><h2>接下来要补哪些实验？</h2><div class="next-grid"><article><h3>重复输入对照</h3><p>增加配对初态，并在同一初态重复随机轨迹，判断当前差异是否稳定。</p></article><article><h3>拆开视觉与记忆</h3><p>分别改变相机视角、数量、分辨率和文字记忆；这些因素尚无独立对照结果。</p></article><article><h3>检查任务泛化</h3><p>在匹配任务与预算下扩展机器人和布局，而非合并不同任务的成功率。</p></article></div><p class="quiet">以上为待执行实验。当前报告整理既有仿真记录，没有实机器人验收或同任务 Astra＋学习策略的混合对照。</p></section>
-<section class="resources" id="reproduce"><div><h2>需要查原始证据？</h2><p>按机器人、任务、输入条件查录像，也可以展开详细数据。</p></div><a class="primary-link" href="astra-evidence.html" id="video-audit">打开录像证据库 →</a></section>
+<section class="resources" id="reproduce"><div><h2>需要查原始证据？</h2><p>本页已嵌入实验对照录像；完整目录补充逐轮输入、更多机位与历史回合。</p></div><a class="primary-link" href="astra-evidence.html" id="video-audit">完整回合目录 →</a></section>
 <details class="appendix"><summary>完整数据、历史批次与复现说明</summary><div class="details-body"><p>完整台账含 405 个回合；部分历史结果只有聚合统计。后续 20×7 批次的公开快照截至 2026-09-18，有效 FR3 21/140、PsiBot 6/140，尚未完成。它与本页两初态对照为不同批次。</p><div class="resource-links"><a href="results/astra/input_ablation.json">输入条件与配对 JSON</a><a href="results/astra/experiments.json">分组结果 JSON</a><a href="results/astra/episodes.csv">逐回合台账 CSV</a><a href="results/astra/video_audit.csv">录像审查 CSV</a><a href="results/astra/next_protocol.json">下一轮协议</a><a href="astra-archive-v2.html">历史协议与完整旧版报告</a></div><p>使用同一任务的原生判据评分；中断另列。表中区间为二项比例的 Wilson 95% 置信区间。</p></div></details>
 <details class="appendix"><summary>参考报告与实验来源</summary><div class="details-body"><p>按问题组织实验设计、结果和行为证据；不同协议分别统计。</p><div class="resource-links"><a href="https://anonymous-report-421.github.io/public-website/?lang=en&amp;view=" target="_blank" rel="noopener">GPT 6 Astra as an Embodied Policy</a><a href="https://robodojo-benchmark.com/report/gpt-6-astra-eval" target="_blank" rel="noopener">RoboDojo Astra Evaluation</a><a href="https://github.com/zjwzcx/Awesome-Astra-Embodied-AI" target="_blank" rel="noopener">Awesome-Astra-Embodied-AI</a><a href="https://asimfish.github.io/astra-control-dashboard/" target="_blank" rel="noopener">Panda 原实验</a><a href="https://asimfish.github.io/safeot-dashboard/agentic_robotics.html" target="_blank" rel="noopener">FR3 / PsiBot 原实验</a></div></div></details>
-<div id="load-error" class="error" role="alert" hidden></div></main><footer><span>SafeLab · Astra 实验报告 v3</span><span>实验数值核对：2026-10-09 · 视频审查：2026-10-10</span></footer>
+<div id="load-error" class="error" role="alert" hidden></div></main><footer><span>SafeLab · Astra 实验报告 v4</span><span>实验数值核对：2026-10-09 · 视频审查：2026-10-10</span></footer>
 <noscript><p class="noscript">交互结果需要 JavaScript。可<a href="astra-archive-v2.html">阅读完整静态说明</a>或<a href="results/astra/video_audit.csv">下载录像审查台账</a>。</p></noscript></body></html>
