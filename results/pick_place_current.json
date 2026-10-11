@@ -2,17 +2,17 @@
   "schema_version": 1,
   "task": "T-494",
   "generation": "paper_v4",
-  "published_at": "2026-10-11T14:00:41.635743+00:00",
-  "source_updated_at": "2026-10-11T14:00:26.776002+00:00",
+  "published_at": "2026-10-11T14:10:44.765800+00:00",
+  "source_updated_at": "2026-10-11T14:10:40.994162+00:00",
   "refresh_seconds": 60,
   "publish_seconds": 600,
   "totals": {
     "objects": 13,
     "verified_models": 24,
     "required_models": 26,
-    "complete_cells": 74,
+    "complete_cells": 75,
     "required_cells": 104,
-    "complete_trials": 3700,
+    "complete_trials": 3750,
     "required_trials": 5200,
     "same_gpu_cells": 29,
     "formal_accepted_objects": null
@@ -43,7 +43,7 @@
           "status": "REAL_FINITE_OPTIMIZER_PROGRESS",
           "status_label": "训练中",
           "model_sha256": null,
-          "optimizer_updates": 28342,
+          "optimizer_updates": 1621,
           "required_updates": 50000,
           "transfer_bytes": 1894838906,
           "transfer_total_bytes": 1894838906,
@@ -101,13 +101,13 @@
               "same_gpu": null
             }
           ],
-          "train_loss": 0.005236552795395255,
+          "train_loss": 0.06034521758556366,
           "optimizer_finished_pending_capture": false,
           "paper_reference": {
             "sr_percent": 68,
             "ssr_percent": 31
           },
-          "last_progress_at": "2026-10-11T14:00:41.701871+00:00",
+          "last_progress_at": "2026-10-11T14:10:44.824553+00:00",
           "progress_stalled": false
         },
         "act": {
@@ -916,7 +916,7 @@
           "status": "REAL_FINITE_OPTIMIZER_PROGRESS",
           "status_label": "训练中",
           "model_sha256": null,
-          "optimizer_updates": 1111,
+          "optimizer_updates": 1679,
           "required_updates": 50000,
           "transfer_bytes": 1943142975,
           "transfer_total_bytes": 1943142975,
@@ -974,13 +974,13 @@
               "same_gpu": null
             }
           ],
-          "train_loss": 0.06649217754602432,
+          "train_loss": 0.05468573234975338,
           "optimizer_finished_pending_capture": false,
           "paper_reference": {
             "sr_percent": 64,
             "ssr_percent": 27
           },
-          "last_progress_at": "2026-10-11T14:00:41.701871+00:00",
+          "last_progress_at": "2026-10-11T14:10:44.824553+00:00",
           "progress_stalled": false
         },
         "act": {
@@ -1917,15 +1917,22 @@
             {
               "added_cm": 1,
               "xy_half_range_cm": 4,
-              "complete": false,
-              "status": "RUNNING",
-              "status_label": "测试中",
-              "episodes": null,
-              "sr_percent": null,
-              "terminal_spatial_ssr20_percent": null,
+              "complete": true,
+              "status": "COMPLETE50_GEOMETRY_AUDITED",
+              "status_label": "完整50次核验完成",
+              "episodes": 50,
+              "sr_percent": 94,
+              "terminal_spatial_ssr20_percent": 94,
               "paper_ssr_percent": null,
-              "test_gpu": null,
-              "same_gpu": null
+              "test_gpu": "RTX 5090",
+              "same_gpu": false,
+              "successes": 47,
+              "spatial_safe_successes": 47,
+              "settled_outside_count": 13,
+              "outside_sr_percent": 76.92,
+              "outside_spatial_ssr20_percent": 76.92,
+              "raw_sha256": "2acd1c26cb28870bbe198ca4ef7342c54376d115855ec0dff205d4ebc7b7788b",
+              "receipt_sha256": "3bdeda83d5ace56af1ff2aae9d381541ba648e8e8c26a1949e14203cd07dfc5b"
             },
             {
               "added_cm": 2,
@@ -2447,8 +2454,8 @@
     },
     {
       "name": "5090 · GPU0",
-      "status_label": "原生测试中",
-      "activity": "锥形瓶 · DP · +1cm",
+      "status_label": "显卡正在运行其他作业，等待空闲",
+      "activity": "",
       "available_gib": null,
       "required_gib": null
     },
@@ -2462,14 +2469,14 @@
     {
       "name": "volc-pro6000 · GPU0",
       "status_label": "原生测试中",
-      "activity": "100 mL 塑料量筒 · ACT · +0cm · 30/50回合已闭合",
+      "activity": "100 mL 塑料量筒 · ACT · +0cm · 38/50回合已闭合",
       "available_gib": null,
       "required_gib": null
     },
     {
       "name": "volc-pro6000 · GPU1",
       "status_label": "原生测试中",
-      "activity": "100 mL 塑料量筒 · ACT · +1cm · 31/50回合已闭合",
+      "activity": "100 mL 塑料量筒 · ACT · +1cm · 39/50回合已闭合",
       "available_gib": null,
       "required_gib": null
     }
@@ -2477,28 +2484,28 @@
   "training_servers": [
     {
       "name": "30109",
-      "source_updated_at": "2026-10-11T13:59:40.609315+00:00",
-      "status_label": "2 个训练作业正在更新",
-      "optimizer_records": 2,
-      "training_gpu_count": 2
+      "source_updated_at": "2026-10-11T14:09:57.882525+00:00",
+      "status_label": "等待可核验的训练更新",
+      "optimizer_records": 0,
+      "training_gpu_count": 0
     },
     {
       "name": "aliyun",
-      "source_updated_at": "2026-10-11T14:00:29.984424+00:00",
+      "source_updated_at": "2026-10-11T14:09:56.116968+00:00",
       "status_label": "1 个训练作业正在更新",
       "optimizer_records": 1,
       "training_gpu_count": 1
     },
     {
       "name": "mainskill",
-      "source_updated_at": "2026-10-11T14:00:29.984424+00:00",
-      "status_label": "等待可核验的训练更新",
-      "optimizer_records": 0,
-      "training_gpu_count": 0
+      "source_updated_at": "2026-10-11T14:09:56.116968+00:00",
+      "status_label": "1 个训练作业正在更新 · 2 张卡",
+      "optimizer_records": 1,
+      "training_gpu_count": 2
     },
     {
       "name": "volc-pro6000",
-      "source_updated_at": "2026-10-11T13:59:51.804646+00:00",
+      "source_updated_at": "2026-10-11T14:10:07.702944+00:00",
       "status_label": "2 张卡正在运行原生测试",
       "optimizer_records": null
     }
@@ -2543,17 +2550,17 @@
   "sources": [
     {
       "name": "CURRENT_OBJECT_PROGRESS_V4",
-      "updated_at": "2026-10-11T14:00:26.776002+00:00",
+      "updated_at": "2026-10-11T14:10:40.994162+00:00",
       "stale": false
     },
     {
       "name": "DP_BOUNDED_OPTIMIZER_PROGRESS",
-      "updated_at": "2026-10-11T13:59:40.609315+00:00",
+      "updated_at": "2026-10-11T14:09:57.882525+00:00",
       "stale": false
     },
     {
       "name": "SERVER_TRAINING_PROGRESS",
-      "updated_at": "2026-10-11T13:59:10.390331+00:00",
+      "updated_at": "2026-10-11T14:08:18.592175+00:00",
       "stale": false
     },
     {
@@ -2568,17 +2575,17 @@
     },
     {
       "name": "FLEET_DP_TRAINING_PROGRESS",
-      "updated_at": "2026-10-11T14:00:29.984424+00:00",
+      "updated_at": "2026-10-11T14:09:56.116968+00:00",
       "stale": false
     },
     {
       "name": "PRO6000_PICKPLACE_RESOURCE_WATCH",
-      "updated_at": "2026-10-11T13:59:51.804646+00:00",
+      "updated_at": "2026-10-11T14:10:07.702944+00:00",
       "stale": false
     },
     {
       "name": "EFFECTIVENESS_STATUS",
-      "updated_at": "2026-10-11T14:00:01.964190+00:00",
+      "updated_at": "2026-10-11T14:10:06.045352+00:00",
       "stale": false
     }
   ],
@@ -2589,7 +2596,7 @@
     "论文SSR全轨迹约束与目标定义的等价性尚待完成；当前显示终态空间SSR20"
   ],
   "provenance": {
-    "matrix_sha256": "0acab46d4f614438fff82e54e9a6cfde919a7d0cfd0d2e381d78a58e7597f40d",
+    "matrix_sha256": "62af3c10669768011969fdf068fb96e89266be0bf7db5f7f9699553c3ad0d78a",
     "paper_pdf_sha256": "0fbe7e861843402f601ff1643cc00ce82f2be5c22ba39c8bda5f886eb66113d0"
   }
 }
