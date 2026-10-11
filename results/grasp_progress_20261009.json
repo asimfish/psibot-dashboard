@@ -1,6 +1,6 @@
 {
   "schema": "grasp.progress_snapshot.v1",
-  "updated_utc": "2026-10-11T16:40:27.314643+00:00",
+  "updated_utc": "2026-10-11T17:21:19.966270+00:00",
   "update_mode": "Latest asset-binding results updated; original68 training rows retain their own actual snapshot dates.",
   "totals": {
     "productive_training_runs": 68,
@@ -1531,17 +1531,17 @@
       "method": "DP",
       "object": "clear_volumetric_flask_250ml",
       "seed": 26101313,
-      "state": "训练中",
-      "epoch": 2318,
+      "state": "3000轮完成，原模型/EMA/优化器CPU核验通过；持久化进行中",
+      "epoch": 3000,
       "epochs_target": 3000,
-      "global_step": 81161,
+      "global_step": 135000,
       "train_loss": 0.002882820786908269,
-      "sampled_utc": "2026-10-11T08:03:11.165674+00:00",
+      "sampled_utc": "2026-10-11T17:12:43.706378+00:00",
       "formal_accepted": false,
-      "status_note": "轮次来自实际控制台；更新次数保留上次有结构化日志的记录。",
-      "raw_status": "running",
-      "active_productive": true,
-      "actual_exit_code": null,
+      "status_note": "实际保存计数3000/135000，918模型和918EMA、2583优化器张量均有效；RAM冻结原最终检查点与EMA，NVMe独立全SHA归档进行中，未计正式验收。",
+      "raw_status": "trained_CPU_qualified_durable_archive_pending",
+      "active_productive": false,
+      "actual_exit_code": 0,
       "completed_training": false,
       "latest_status_source_receipt_SHA256": "3da95e35319b14df31162ae0ff8b7331ca355b6e1be953b623b0a35f7b0ae686"
     },
@@ -1552,17 +1552,17 @@
       "method": "DP",
       "object": "clear_volumetric_flask_250ml",
       "seed": 26101315,
-      "state": "训练中",
-      "epoch": 2334,
+      "state": "3000轮完成，原模型/EMA/优化器CPU核验通过；持久化进行中",
+      "epoch": 3000,
       "epochs_target": 3000,
-      "global_step": 81547,
+      "global_step": 135000,
       "train_loss": 0.002433975227177143,
-      "sampled_utc": "2026-10-11T08:03:11.165674+00:00",
+      "sampled_utc": "2026-10-11T17:12:43.706378+00:00",
       "formal_accepted": false,
-      "status_note": "轮次来自实际控制台；更新次数保留上次有结构化日志的记录。",
-      "raw_status": "running",
-      "active_productive": true,
-      "actual_exit_code": null,
+      "status_note": "实际保存计数3000/135000，918模型和918EMA、2583优化器张量均有效；RAM冻结原最终检查点与EMA，NVMe独立全SHA归档进行中，未计正式验收。",
+      "raw_status": "trained_CPU_qualified_durable_archive_pending",
+      "active_productive": false,
+      "actual_exit_code": 0,
       "completed_training": false,
       "latest_status_source_receipt_SHA256": "3da95e35319b14df31162ae0ff8b7331ca355b6e1be953b623b0a35f7b0ae686"
     }
@@ -1591,17 +1591,17 @@
     },
     {
       "host": "5090",
-      "state": "透明大瓶六个原模型扩大范围54次已完成；新烧杯/量筒DP队列测试中",
+      "state": "四新原DP基础12次与研钵配对6次均完成；失败诊断继续",
       "role": "采集 / 测试准备",
-      "note": "GPU1真实物理/渲染/torch同卡见证已核验。135段新增区外原视频与8060对动作完全一致；研钵原MP侧翻三次均失败，全部保留。250ml烧杯原两个种子开发试次0/3、1/3；100ml量筒继续。正式验收0/21。",
-      "sampled_utc": "2026-10-11T16:40:27.314643+00:00"
+      "note": "真实GPU1、原资产及原阈值不变。新36段DP和6段MP视频全SHA及逐帧解码通过；严格验收0/21。",
+      "sampled_utc": "2026-10-11T17:21:19.966270+00:00"
     },
     {
       "host": "mainskill",
-      "state": "2路基线DP训练；0个DP / 0个ACT训练完成",
+      "state": "两个原DP完成3000轮，完整CPU核验通过；独立NVMe归档进行中",
       "role": "训练 / 采集 / 测试准备",
-      "note": "按不同种子计数，恢复尝试不重复计数；完成训练与完整验收分别展示。 两个初始完整检查点已独立核验并持久归档；新增四张卡的显存查询超时，未据此新增训练或原生测试。",
-      "sampled_utc": "2026-10-10T22:54:33.642854+00:00"
+      "note": "种子26101313/315实际135000步，原模型/EMA/优化器完整保存。持久化未完，不增加57完成下界。",
+      "sampled_utc": "2026-10-11T17:12:43.706378+00:00"
     },
     {
       "host": "volc-pro6000",
@@ -7271,7 +7271,7 @@
   "sampled_utc": "2026-10-11T10:40:52.458719+00:00",
   "latest_frontier": {
     "schema": "grasp.t500.actual_frontier.v35",
-    "updated_utc": "2026-10-11T16:40:27.314643+00:00",
+    "updated_utc": "2026-10-11T17:21:19.966270+00:00",
     "formal_accepted_objects": 0,
     "formal_accepted_methods": 0,
     "paper_ssr": null,
@@ -7279,17 +7279,17 @@
       {
         "title": "原定模型训练",
         "status": "已核验完成至少57份：24 DP / 33 ACT",
-        "note": "68个原训练身份不变。新增两个酒精灯DP完成3000轮，原模型、EMA、完整优化器与计数均通过CPU校验；其余9条旧记录待更新，不代表当前GPU活跃数。"
+        "note": "68个原训练身份不变。Main另两个DP已完成3000轮并通过完整CPU核验，独立NVMe持久化进行中；9条旧记录不代表当前GPU活跃数。"
       },
       {
-        "title": "原生复测与资产核对",
-        "status": "透明大瓶：六个原模型范围外54次完成",
-        "note": "DP终点保持7/9、3/9、2/9；ACT为4/9、9/9、8/9。新增135段原视频，失败可按模型和集数切换。DP后段落瓶、ACT玻璃发白均未验收通过。"
+        "title": "原模型实际复测",
+        "status": "烧杯/量筒新增12次，终点任务条件均未达标",
+        "note": "曾成功分别0/3、1/3、1/3、3/3；量筒最后种子两次仍抓着但高度不足，另一次落回。36段原录像与2039动作对已核验，所有失败可按模型查看。"
       },
       {
-        "title": "研钵与新模型复测",
-        "status": "研钵原MP侧翻；新烧杯/量筒DP测试继续",
-        "note": "研钵三次原六秒轨迹均因至少朝向门槛失败。250ml烧杯两个原DP初测0/3、1/3；100ml量筒原模型按预定顺序测试，完整SSR仍待核验。"
+        "title": "研钵物理诊断",
+        "status": "仅恢复手指角度未修复；两组均0/3",
+        "note": "6次同位置配对已完成。原全闭合侧翻；记录闭合组同样先侧翻、随后脱手。继续核对抓取位姿，尚无合格新示范。"
       }
     ],
     "strict_spatial_scope": "Table11给出终点空间20mm筛查；C.3的SSR检查整条轨迹中适用阶段的全部活动约束。固定最终目标不能作为移动过程中每一帧的目标。严格目标坐标系、旋转阈值和阶段仍待绑定。",
@@ -13308,7 +13308,7 @@
       "all3_original_videos_full_decoded": true,
       "unresolved_glass_white_appearance": true
     },
-    "evidence_url": "verification/T-500-grasp-outside-and-mortar-v36.json",
+    "evidence_url": "verification/T-500-grasp-new-dp-and-mortar-v37.json",
     "author_confirmed_paper_object_alias": {
       "schema": "grasp.author_confirmed_paper_object_alias.v1",
       "at_utc": "2026-10-11T15:22:00.679921+00:00",
@@ -13669,6 +13669,867 @@
       "note": "原研钵USD、真实物理、原MP六秒轨迹。三次均抬升约29cm，但抓握时把碗翻向侧面；原朝向损失0.449/0.456/0.456超过原MP判据0.05。不是论文Liquid阈值，也未作为DP/ACT或SSR通过。现有短数据终点约17cm，新示范资格仍未通过。",
       "formal_accepted": false,
       "paper_ssr": null
+    },
+    "four_new_original_DP_development": [
+      {
+        "candidate": "t500-native-dp-glass_beaker_250ml-seed26101613-original-fixed3-v37",
+        "object": "glass_beaker_250ml",
+        "method": "DP",
+        "training_seed": 26101613,
+        "episodes": 3,
+        "ever_success_count": 0,
+        "terminal_task_condition_count": 0,
+        "terminal20mm_component_count": 0,
+        "actual_native_early_failures": 0,
+        "actual_outcomes": [
+          {
+            "type": "outcome",
+            "episode": 1,
+            "success": false,
+            "failure": false,
+            "timeout": true,
+            "eef_translation_error_mm": 41.662770337733164,
+            "eef_rotation_error_rad": 0.05979416780175316,
+            "translation_within_20mm": false,
+            "success_and_terminal_translation_20mm": false,
+            "collision_check": null,
+            "orientation_cutoff_rad": null,
+            "paper_ssr": null,
+            "formal_accepted": false,
+            "first_relaxed_success": null,
+            "terminal_object_lift_m": -8.344650268554688e-07,
+            "terminal_object_xy_drift_m": 0.0015769425536280156,
+            "physical_lift_region_at_terminal": false,
+            "cohort": "uniform+0cm",
+            "cohort_episode": 1,
+            "requested_offset_m": [
+              -0.00807119400539499,
+              0.011121327596760953,
+              0.0
+            ],
+            "actual_initial_xy_offset_m": [
+              -0.008134007453918457,
+              0.011144161224365234
+            ],
+            "outside_collection_box_actual": false
+          },
+          {
+            "type": "outcome",
+            "episode": 2,
+            "success": false,
+            "failure": false,
+            "timeout": true,
+            "eef_translation_error_mm": 62.756527943452824,
+            "eef_rotation_error_rad": 0.041512734911723366,
+            "translation_within_20mm": false,
+            "success_and_terminal_translation_20mm": false,
+            "collision_check": null,
+            "orientation_cutoff_rad": null,
+            "paper_ssr": null,
+            "formal_accepted": false,
+            "first_relaxed_success": null,
+            "terminal_object_lift_m": 0.00013887882232666016,
+            "terminal_object_xy_drift_m": 0.006311173439429383,
+            "physical_lift_region_at_terminal": false,
+            "cohort": "uniform+0cm",
+            "cohort_episode": 2,
+            "requested_offset_m": [
+              -0.003363586191940632,
+              -0.013277703148022586,
+              0.0
+            ],
+            "actual_initial_xy_offset_m": [
+              -0.003557920455932617,
+              -0.01240396499633789
+            ],
+            "outside_collection_box_actual": false
+          },
+          {
+            "type": "outcome",
+            "episode": 3,
+            "success": false,
+            "failure": false,
+            "timeout": true,
+            "eef_translation_error_mm": 18.61018541764805,
+            "eef_rotation_error_rad": 0.01334198615978983,
+            "translation_within_20mm": true,
+            "success_and_terminal_translation_20mm": false,
+            "collision_check": null,
+            "orientation_cutoff_rad": null,
+            "paper_ssr": null,
+            "formal_accepted": false,
+            "first_relaxed_success": null,
+            "terminal_object_lift_m": 0.00269925594329834,
+            "terminal_object_xy_drift_m": 0.01578401352260999,
+            "physical_lift_region_at_terminal": false,
+            "cohort": "uniform+0cm",
+            "cohort_episode": 3,
+            "requested_offset_m": [
+              0.01896587772387404,
+              0.00967919325614278,
+              0.0
+            ],
+            "actual_initial_xy_offset_m": [
+              0.018215417861938477,
+              0.009378433227539062
+            ],
+            "outside_collection_box_actual": false
+          }
+        ],
+        "decoded_original_videos": 9,
+        "actual_decoded_frames": 1614,
+        "exact_returned_and_executed_action_pairs": 538,
+        "actual_three_camera_sheets_reviewed": 3,
+        "actual_sampled_original_frames_reviewed": 54,
+        "visual_findings": "三次均未完成抬升，接近或握住杯沿后仍在桌面附近。",
+        "full_visual_passed": false,
+        "formal_accepted": false,
+        "paper_ssr": null
+      },
+      {
+        "candidate": "t500-native-dp-glass_beaker_250ml-seed26101615-original-fixed3-v37",
+        "object": "glass_beaker_250ml",
+        "method": "DP",
+        "training_seed": 26101615,
+        "episodes": 3,
+        "ever_success_count": 1,
+        "terminal_task_condition_count": 0,
+        "terminal20mm_component_count": 0,
+        "actual_native_early_failures": 1,
+        "actual_outcomes": [
+          {
+            "type": "outcome",
+            "episode": 1,
+            "success": false,
+            "failure": false,
+            "timeout": true,
+            "eef_translation_error_mm": 180.88553075417536,
+            "eef_rotation_error_rad": 0.1852694376080841,
+            "translation_within_20mm": false,
+            "success_and_terminal_translation_20mm": false,
+            "collision_check": null,
+            "orientation_cutoff_rad": null,
+            "paper_ssr": null,
+            "formal_accepted": false,
+            "first_relaxed_success": null,
+            "terminal_object_lift_m": -0.010672390460968018,
+            "terminal_object_xy_drift_m": 0.08266739026098714,
+            "physical_lift_region_at_terminal": false,
+            "cohort": "uniform+0cm",
+            "cohort_episode": 1,
+            "requested_offset_m": [
+              0.019625483777732888,
+              -0.007618527995922704,
+              0.0
+            ],
+            "actual_initial_xy_offset_m": [
+              0.019568562507629395,
+              -0.007596492767333984
+            ],
+            "outside_collection_box_actual": false
+          },
+          {
+            "type": "outcome",
+            "episode": 2,
+            "success": true,
+            "failure": false,
+            "timeout": true,
+            "eef_translation_error_mm": 195.80825888498117,
+            "eef_rotation_error_rad": 0.4888344092764397,
+            "translation_within_20mm": false,
+            "success_and_terminal_translation_20mm": false,
+            "collision_check": null,
+            "orientation_cutoff_rad": null,
+            "paper_ssr": null,
+            "formal_accepted": false,
+            "first_relaxed_success": {
+              "done_check_index": 259,
+              "eef_translation_error_mm": 34.47697525082252,
+              "eef_rotation_error_rad": 0.13403914739244352,
+              "translation_within_20mm": false
+            },
+            "terminal_object_lift_m": -0.010375559329986572,
+            "terminal_object_xy_drift_m": 0.16589503702655234,
+            "physical_lift_region_at_terminal": false,
+            "cohort": "uniform+0cm",
+            "cohort_episode": 2,
+            "requested_offset_m": [
+              -0.004440084332281264,
+              -0.0004710410120714742,
+              0.0
+            ],
+            "actual_initial_xy_offset_m": [
+              -0.00448453426361084,
+              -0.00045108795166015625
+            ],
+            "outside_collection_box_actual": false
+          },
+          {
+            "type": "outcome",
+            "episode": 3,
+            "success": false,
+            "failure": true,
+            "timeout": false,
+            "eef_translation_error_mm": 128.1672185161606,
+            "eef_rotation_error_rad": 0.05103310246339614,
+            "translation_within_20mm": false,
+            "success_and_terminal_translation_20mm": false,
+            "collision_check": null,
+            "orientation_cutoff_rad": null,
+            "paper_ssr": null,
+            "formal_accepted": false,
+            "first_relaxed_success": null,
+            "terminal_object_lift_m": 0.08349555730819702,
+            "terminal_object_xy_drift_m": 0.18273274946265078,
+            "physical_lift_region_at_terminal": false,
+            "cohort": "uniform+0cm",
+            "cohort_episode": 3,
+            "requested_offset_m": [
+              0.002973934525124077,
+              0.015594803379155652,
+              0.0
+            ],
+            "actual_initial_xy_offset_m": [
+              0.002936720848083496,
+              0.015612125396728516
+            ],
+            "outside_collection_box_actual": false
+          }
+        ],
+        "decoded_original_videos": 9,
+        "actual_decoded_frames": 1275,
+        "exact_returned_and_executed_action_pairs": 425,
+        "actual_three_camera_sheets_reviewed": 3,
+        "actual_sampled_original_frames_reviewed": 54,
+        "visual_findings": "第一次推倒杯体；第二次短暂抓起后落回；第三次于2.2秒触发原Native失败，原短录像及失败计入分母。",
+        "full_visual_passed": false,
+        "formal_accepted": false,
+        "paper_ssr": null
+      },
+      {
+        "candidate": "t500-native-dp-glass_cylinder_100ml-seed26101623-original-fixed3-v37",
+        "object": "glass_cylinder_100ml",
+        "method": "DP",
+        "training_seed": 26101623,
+        "episodes": 3,
+        "ever_success_count": 1,
+        "terminal_task_condition_count": 0,
+        "terminal20mm_component_count": 0,
+        "actual_native_early_failures": 0,
+        "actual_outcomes": [
+          {
+            "type": "outcome",
+            "episode": 1,
+            "success": true,
+            "failure": false,
+            "timeout": true,
+            "eef_translation_error_mm": 128.43985616604587,
+            "eef_rotation_error_rad": 0.21084707866134117,
+            "translation_within_20mm": false,
+            "success_and_terminal_translation_20mm": false,
+            "collision_check": null,
+            "orientation_cutoff_rad": null,
+            "paper_ssr": null,
+            "formal_accepted": false,
+            "first_relaxed_success": {
+              "done_check_index": 260,
+              "eef_translation_error_mm": 45.261844502359146,
+              "eef_rotation_error_rad": 0.022816521223849782,
+              "translation_within_20mm": false
+            },
+            "terminal_object_lift_m": -0.011356115341186523,
+            "terminal_object_xy_drift_m": 0.09156940118384804,
+            "physical_lift_region_at_terminal": false,
+            "cohort": "uniform+0cm",
+            "cohort_episode": 1,
+            "requested_offset_m": [
+              0.014276839215983998,
+              -0.009909522526991621,
+              0.0
+            ],
+            "actual_initial_xy_offset_m": [
+              0.014063715934753418,
+              -0.009864330291748047
+            ],
+            "outside_collection_box_actual": false
+          },
+          {
+            "type": "outcome",
+            "episode": 2,
+            "success": false,
+            "failure": false,
+            "timeout": true,
+            "eef_translation_error_mm": 291.4598225047729,
+            "eef_rotation_error_rad": 0.6921285712320294,
+            "translation_within_20mm": false,
+            "success_and_terminal_translation_20mm": false,
+            "collision_check": null,
+            "orientation_cutoff_rad": null,
+            "paper_ssr": null,
+            "formal_accepted": false,
+            "first_relaxed_success": null,
+            "terminal_object_lift_m": -0.10704219341278076,
+            "terminal_object_xy_drift_m": 0.16535648919004603,
+            "physical_lift_region_at_terminal": false,
+            "cohort": "uniform+0cm",
+            "cohort_episode": 2,
+            "requested_offset_m": [
+              0.014700956833157145,
+              0.004016897020097519,
+              0.0
+            ],
+            "actual_initial_xy_offset_m": [
+              0.014614105224609375,
+              0.004069328308105469
+            ],
+            "outside_collection_box_actual": false
+          },
+          {
+            "type": "outcome",
+            "episode": 3,
+            "success": false,
+            "failure": false,
+            "timeout": true,
+            "eef_translation_error_mm": 223.03145039644792,
+            "eef_rotation_error_rad": 0.3788489697931816,
+            "translation_within_20mm": false,
+            "success_and_terminal_translation_20mm": false,
+            "collision_check": null,
+            "orientation_cutoff_rad": null,
+            "paper_ssr": null,
+            "formal_accepted": false,
+            "first_relaxed_success": null,
+            "terminal_object_lift_m": -0.10709601640701294,
+            "terminal_object_xy_drift_m": 0.16119558032110246,
+            "physical_lift_region_at_terminal": false,
+            "cohort": "uniform+0cm",
+            "cohort_episode": 3,
+            "requested_offset_m": [
+              0.0042772320166417355,
+              0.015742126208840367,
+              0.0
+            ],
+            "actual_initial_xy_offset_m": [
+              0.00419771671295166,
+              0.015789508819580078
+            ],
+            "outside_collection_box_actual": false
+          }
+        ],
+        "decoded_original_videos": 9,
+        "actual_decoded_frames": 1614,
+        "exact_returned_and_executed_action_pairs": 538,
+        "actual_three_camera_sheets_reviewed": 3,
+        "actual_sampled_original_frames_reviewed": 54,
+        "visual_findings": "第一例曾抬起后落回；其他两例推倒或未完成抬升。",
+        "full_visual_passed": false,
+        "formal_accepted": false,
+        "paper_ssr": null
+      },
+      {
+        "candidate": "t500-native-dp-glass_cylinder_100ml-seed26101625-original-fixed3-v37",
+        "object": "glass_cylinder_100ml",
+        "method": "DP",
+        "training_seed": 26101625,
+        "episodes": 3,
+        "ever_success_count": 3,
+        "terminal_task_condition_count": 0,
+        "terminal20mm_component_count": 0,
+        "actual_native_early_failures": 0,
+        "actual_outcomes": [
+          {
+            "type": "outcome",
+            "episode": 1,
+            "success": true,
+            "failure": false,
+            "timeout": true,
+            "eef_translation_error_mm": 82.43385732563887,
+            "eef_rotation_error_rad": 0.034132820177663524,
+            "translation_within_20mm": false,
+            "success_and_terminal_translation_20mm": false,
+            "collision_check": null,
+            "orientation_cutoff_rad": null,
+            "paper_ssr": null,
+            "formal_accepted": false,
+            "first_relaxed_success": {
+              "done_check_index": 263,
+              "eef_translation_error_mm": 49.040002844001236,
+              "eef_rotation_error_rad": 0.01801077537363312,
+              "translation_within_20mm": false
+            },
+            "terminal_object_lift_m": 0.11219358444213867,
+            "terminal_object_xy_drift_m": 0.06572500830612961,
+            "physical_lift_region_at_terminal": false,
+            "cohort": "uniform+0cm",
+            "cohort_episode": 1,
+            "requested_offset_m": [
+              0.0012757568356791954,
+              -0.0011782976538033361,
+              0.0
+            ],
+            "actual_initial_xy_offset_m": [
+              0.0010802745819091797,
+              -0.0011754035949707031
+            ],
+            "outside_collection_box_actual": false
+          },
+          {
+            "type": "outcome",
+            "episode": 2,
+            "success": true,
+            "failure": false,
+            "timeout": true,
+            "eef_translation_error_mm": 98.90707867629904,
+            "eef_rotation_error_rad": 0.06117892170330357,
+            "translation_within_20mm": false,
+            "success_and_terminal_translation_20mm": false,
+            "collision_check": null,
+            "orientation_cutoff_rad": null,
+            "paper_ssr": null,
+            "formal_accepted": false,
+            "first_relaxed_success": {
+              "done_check_index": 317,
+              "eef_translation_error_mm": 31.165040967949256,
+              "eef_rotation_error_rad": 0.01370288982100815,
+              "translation_within_20mm": false
+            },
+            "terminal_object_lift_m": 0.1246342658996582,
+            "terminal_object_xy_drift_m": 0.08051914837490132,
+            "physical_lift_region_at_terminal": false,
+            "cohort": "uniform+0cm",
+            "cohort_episode": 2,
+            "requested_offset_m": [
+              0.007028690346958855,
+              -0.011899495685502113,
+              0.0
+            ],
+            "actual_initial_xy_offset_m": [
+              0.006960749626159668,
+              -0.011853694915771484
+            ],
+            "outside_collection_box_actual": false
+          },
+          {
+            "type": "outcome",
+            "episode": 3,
+            "success": true,
+            "failure": false,
+            "timeout": true,
+            "eef_translation_error_mm": 124.81837264687715,
+            "eef_rotation_error_rad": 0.07213867755718209,
+            "translation_within_20mm": false,
+            "success_and_terminal_translation_20mm": false,
+            "collision_check": null,
+            "orientation_cutoff_rad": null,
+            "paper_ssr": null,
+            "formal_accepted": false,
+            "first_relaxed_success": {
+              "done_check_index": 314,
+              "eef_translation_error_mm": 29.19711251223205,
+              "eef_rotation_error_rad": 0.015294128030598318,
+              "translation_within_20mm": false
+            },
+            "terminal_object_lift_m": 5.14984130859375e-05,
+            "terminal_object_xy_drift_m": 0.08296640109383115,
+            "physical_lift_region_at_terminal": false,
+            "cohort": "uniform+0cm",
+            "cohort_episode": 3,
+            "requested_offset_m": [
+              -0.00415171004230051,
+              -0.00022322394522814037,
+              0.0
+            ],
+            "actual_initial_xy_offset_m": [
+              -0.004229426383972168,
+              -5.626678466796875e-05
+            ],
+            "outside_collection_box_actual": false
+          }
+        ],
+        "decoded_original_videos": 9,
+        "actual_decoded_frames": 1614,
+        "exact_returned_and_executed_action_pairs": 538,
+        "actual_three_camera_sheets_reviewed": 3,
+        "actual_sampled_original_frames_reviewed": 54,
+        "visual_findings": "前两例终点仍抓着量筒，但只抬升11.2cm和12.5cm，未达当前抬升门；第三例落回桌面。曾成功3/3不等于终点达标。",
+        "full_visual_passed": false,
+        "formal_accepted": false,
+        "paper_ssr": null
+      }
+    ],
+    "mortar_original_recorded_hand_paired": {
+      "rows": [
+        {
+          "condition": "control",
+          "episode": 1,
+          "native_pose_records": 717,
+          "terminal_object_lift_m": 0.28798073530197144,
+          "terminal_EEF_translation_mm": 8.30265169865975,
+          "terminal_original_pitch_roll_loss": 0.46390786893617264,
+          "peak_original_pitch_roll_loss": 0.4656902257381733,
+          "source_default_MP_orientation_threshold": 0.05,
+          "terminal_fails_source_default_native_orientation_gate": true,
+          "raw_native_ever_success": false,
+          "actual_terminal_native_success": false,
+          "actual_initial_target_pose_w": [
+            -1.1332061290740967,
+            -5.108567237854004,
+            0.9643165469169617,
+            -1.3100818208044984e-09,
+            -1.5400825059685985e-10,
+            -1.3524212305604522e-10,
+            1.0000001192092896
+          ],
+          "native_phase_boundaries": {
+            "approach": [
+              0,
+              45
+            ],
+            "descend": [
+              45,
+              49
+            ],
+            "dwell": [
+              49,
+              55
+            ],
+            "grasp": [
+              55,
+              88
+            ],
+            "lift": [
+              88,
+              178
+            ],
+            "hold": [
+              178,
+              180
+            ]
+          },
+          "paper_SSR_gate_bound": false,
+          "formal_accepted": false
+        },
+        {
+          "condition": "control",
+          "episode": 2,
+          "native_pose_records": 717,
+          "terminal_object_lift_m": 0.2890004515647888,
+          "terminal_EEF_translation_mm": 7.9527562487146986,
+          "terminal_original_pitch_roll_loss": 0.45290049534109544,
+          "peak_original_pitch_roll_loss": 0.4532728774610941,
+          "source_default_MP_orientation_threshold": 0.05,
+          "terminal_fails_source_default_native_orientation_gate": true,
+          "raw_native_ever_success": false,
+          "actual_terminal_native_success": false,
+          "actual_initial_target_pose_w": [
+            -1.1331422328948975,
+            -5.080104351043701,
+            0.9643165469169617,
+            -1.3100818208044984e-09,
+            -1.5400825059685985e-10,
+            -1.3524212305604522e-10,
+            1.0000001192092896
+          ],
+          "native_phase_boundaries": {
+            "approach": [
+              0,
+              45
+            ],
+            "descend": [
+              45,
+              49
+            ],
+            "dwell": [
+              49,
+              55
+            ],
+            "grasp": [
+              55,
+              88
+            ],
+            "lift": [
+              88,
+              178
+            ],
+            "hold": [
+              178,
+              180
+            ]
+          },
+          "paper_SSR_gate_bound": false,
+          "formal_accepted": false
+        },
+        {
+          "condition": "control",
+          "episode": 3,
+          "native_pose_records": 717,
+          "terminal_object_lift_m": 0.28949981927871704,
+          "terminal_EEF_translation_mm": 8.126504666299903,
+          "terminal_original_pitch_roll_loss": 0.44192150877597575,
+          "peak_original_pitch_roll_loss": 0.44375130341716407,
+          "source_default_MP_orientation_threshold": 0.05,
+          "terminal_fails_source_default_native_orientation_gate": true,
+          "raw_native_ever_success": false,
+          "actual_terminal_native_success": false,
+          "actual_initial_target_pose_w": [
+            -1.1408703327178955,
+            -5.117850303649902,
+            0.9643165469169617,
+            -1.3100818208044984e-09,
+            -1.5400825059685985e-10,
+            -1.3524212305604522e-10,
+            1.0000001192092896
+          ],
+          "native_phase_boundaries": {
+            "approach": [
+              0,
+              45
+            ],
+            "descend": [
+              45,
+              49
+            ],
+            "dwell": [
+              49,
+              55
+            ],
+            "grasp": [
+              55,
+              88
+            ],
+            "lift": [
+              88,
+              178
+            ],
+            "hold": [
+              178,
+              180
+            ]
+          },
+          "paper_SSR_gate_bound": false,
+          "formal_accepted": false
+        },
+        {
+          "condition": "restored",
+          "episode": 1,
+          "native_pose_records": 717,
+          "terminal_object_lift_m": 2.5033950805664062e-06,
+          "terminal_EEF_translation_mm": 7.414518628329295,
+          "terminal_original_pitch_roll_loss": 2.0067551439129772e-07,
+          "peak_original_pitch_roll_loss": 0.2677904599842505,
+          "source_default_MP_orientation_threshold": 0.05,
+          "terminal_fails_source_default_native_orientation_gate": false,
+          "raw_native_ever_success": false,
+          "actual_terminal_native_success": false,
+          "actual_initial_target_pose_w": [
+            -1.1332061290740967,
+            -5.108567237854004,
+            0.9643165469169617,
+            -1.3100818208044984e-09,
+            -1.5400825059685985e-10,
+            -1.3524212305604522e-10,
+            1.0000001192092896
+          ],
+          "native_phase_boundaries": {
+            "approach": [
+              0,
+              45
+            ],
+            "descend": [
+              45,
+              49
+            ],
+            "dwell": [
+              49,
+              55
+            ],
+            "grasp": [
+              55,
+              88
+            ],
+            "lift": [
+              88,
+              178
+            ],
+            "hold": [
+              178,
+              180
+            ]
+          },
+          "paper_SSR_gate_bound": false,
+          "formal_accepted": false
+        },
+        {
+          "condition": "restored",
+          "episode": 2,
+          "native_pose_records": 717,
+          "terminal_object_lift_m": -1.2576580047607422e-05,
+          "terminal_EEF_translation_mm": 7.098375915982523,
+          "terminal_original_pitch_roll_loss": 2.5661192108752513e-07,
+          "peak_original_pitch_roll_loss": 0.2889209583550716,
+          "source_default_MP_orientation_threshold": 0.05,
+          "terminal_fails_source_default_native_orientation_gate": false,
+          "raw_native_ever_success": false,
+          "actual_terminal_native_success": false,
+          "actual_initial_target_pose_w": [
+            -1.1331422328948975,
+            -5.080104351043701,
+            0.9643165469169617,
+            -1.3100818208044984e-09,
+            -1.5400825059685985e-10,
+            -1.3524212305604522e-10,
+            1.0000001192092896
+          ],
+          "native_phase_boundaries": {
+            "approach": [
+              0,
+              45
+            ],
+            "descend": [
+              45,
+              49
+            ],
+            "dwell": [
+              49,
+              55
+            ],
+            "grasp": [
+              55,
+              88
+            ],
+            "lift": [
+              88,
+              178
+            ],
+            "hold": [
+              178,
+              180
+            ]
+          },
+          "paper_SSR_gate_bound": false,
+          "formal_accepted": false
+        },
+        {
+          "condition": "restored",
+          "episode": 3,
+          "native_pose_records": 717,
+          "terminal_object_lift_m": -6.854534149169922e-06,
+          "terminal_EEF_translation_mm": 7.2635397718020736,
+          "terminal_original_pitch_roll_loss": 1.9069096369459038e-07,
+          "peak_original_pitch_roll_loss": 0.28326716328315227,
+          "source_default_MP_orientation_threshold": 0.05,
+          "terminal_fails_source_default_native_orientation_gate": false,
+          "raw_native_ever_success": false,
+          "actual_terminal_native_success": false,
+          "actual_initial_target_pose_w": [
+            -1.1408703327178955,
+            -5.117850303649902,
+            0.9643165469169617,
+            -1.3100818208044984e-09,
+            -1.5400825059685985e-10,
+            -1.3524212305604522e-10,
+            1.0000001192092896
+          ],
+          "native_phase_boundaries": {
+            "approach": [
+              0,
+              45
+            ],
+            "descend": [
+              45,
+              49
+            ],
+            "dwell": [
+              49,
+              55
+            ],
+            "grasp": [
+              55,
+              88
+            ],
+            "lift": [
+              88,
+              178
+            ],
+            "hold": [
+              178,
+              180
+            ]
+          },
+          "paper_SSR_gate_bound": false,
+          "formal_accepted": false
+        }
+      ],
+      "videos": [
+        {
+          "condition": "control",
+          "camera": "chest_camera",
+          "url": "media/grasp-mortar-paired-mp-v37/control-chest_camera.mp4",
+          "SHA256": "5ceec31649e7b2c3e849479da3a58e329cc2292fc0250c9e61e127dc7d88c729",
+          "duration_s": 18,
+          "scope": "训练位置配对MP诊断，不计DP/ACT成绩"
+        },
+        {
+          "condition": "control",
+          "camera": "head_camera",
+          "url": "media/grasp-mortar-paired-mp-v37/control-head_camera.mp4",
+          "SHA256": "41c8a581e9349ba8e0151ab77522b702148d699bde00c108458b583f937a0972",
+          "duration_s": 18,
+          "scope": "训练位置配对MP诊断，不计DP/ACT成绩"
+        },
+        {
+          "condition": "control",
+          "camera": "third_camera",
+          "url": "media/grasp-mortar-paired-mp-v37/control-third_camera.mp4",
+          "SHA256": "dd7c288d4c7c4ce99f64032962fa096c15c906dfc504c0e82ec66389c9c7b7f0",
+          "duration_s": 18,
+          "scope": "训练位置配对MP诊断，不计DP/ACT成绩"
+        },
+        {
+          "condition": "restored",
+          "camera": "chest_camera",
+          "url": "media/grasp-mortar-paired-mp-v37/restored-chest_camera.mp4",
+          "SHA256": "cd6471fd39e69681430ef9a21d2dcbda9c1292809045f34b5ef54facddc89e80",
+          "duration_s": 18,
+          "scope": "训练位置配对MP诊断，不计DP/ACT成绩"
+        },
+        {
+          "condition": "restored",
+          "camera": "head_camera",
+          "url": "media/grasp-mortar-paired-mp-v37/restored-head_camera.mp4",
+          "SHA256": "b52b3726d2ff1ebbdc5a4de62880a425739ae4da69325afef29f9f6bdcaca66a",
+          "duration_s": 18,
+          "scope": "训练位置配对MP诊断，不计DP/ACT成绩"
+        },
+        {
+          "condition": "restored",
+          "camera": "third_camera",
+          "url": "media/grasp-mortar-paired-mp-v37/restored-third_camera.mp4",
+          "SHA256": "af94edf876f555ed8686b7cab3b7cadcec6e99e166176562e62f832f7f3e60b3",
+          "duration_s": 18,
+          "scope": "训练位置配对MP诊断，不计DP/ACT成绩"
+        }
+      ],
+      "actual_full_videos_decoded": 6,
+      "actual_decoded_frames": 3240,
+      "actual_sampled_original_frames_reviewed": 108,
+      "original_native_successes": 0,
+      "note": "同三组训练位置、同原资产及0.3m目标，仅改变手指闭合。原全闭合三次均把研钵侧翻；恢复原100条记录角度的三次仍在抓取阶段侧翻，并在抬升时脱手落回桌面。两组均0/3，否决“仅恢复闭合角度即可修复”的假设；未作为合格采集数据或论文SSR。",
+      "formal_accepted": false,
+      "paper_ssr": null
+    },
+    "terminal_task_condition_semantics": "physical_lift_region_at_terminal仅检查抬升高度和XY漂移，不测接触或实际握持；低于高度门与掉落分别报告。",
+    "Main_two_original_DP_final_CPU": {
+      "seeds": [
+        26101313,
+        26101315
+      ],
+      "epoch": 3000,
+      "global_step": 135000,
+      "actual_original_model_EMA_optimizer_CPU_passed": true,
+      "durable_archive_passed": false,
+      "note": "两模型完整CPU核验通过；独立NVMe持久化进行中，完成统计仍保留57下界。",
+      "formal_accepted": false
     }
   }
 }
