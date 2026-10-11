@@ -2,8 +2,8 @@
   "schema_version": 1,
   "task": "T-494",
   "generation": "paper_v4",
-  "published_at": "2026-10-11T18:22:23.429799+00:00",
-  "source_updated_at": "2026-10-11T18:22:21.884260+00:00",
+  "published_at": "2026-10-11T18:32:26.567461+00:00",
+  "source_updated_at": "2026-10-11T18:32:25.355352+00:00",
   "refresh_seconds": 60,
   "publish_seconds": 600,
   "totals": {
@@ -43,7 +43,7 @@
           "status": "REAL_FINITE_OPTIMIZER_PROGRESS",
           "status_label": "训练中",
           "model_sha256": null,
-          "optimizer_updates": 40396,
+          "optimizer_updates": 41999,
           "required_updates": 50000,
           "transfer_bytes": 1894838906,
           "transfer_total_bytes": 1894838906,
@@ -101,13 +101,13 @@
               "same_gpu": null
             }
           ],
-          "train_loss": 0.004308359697461128,
+          "train_loss": 0.0033525340259075165,
           "optimizer_finished_pending_capture": false,
           "paper_reference": {
             "sr_percent": 68,
             "ssr_percent": 31
           },
-          "last_progress_at": "2026-10-11T18:22:23.530608+00:00",
+          "last_progress_at": "2026-10-11T18:32:26.634572+00:00",
           "progress_stalled": false
         },
         "act": {
@@ -1014,7 +1014,7 @@
           "status": "REAL_FINITE_OPTIMIZER_PROGRESS",
           "status_label": "训练中",
           "model_sha256": null,
-          "optimizer_updates": 15698,
+          "optimizer_updates": 16275,
           "required_updates": 50000,
           "transfer_bytes": 1943142975,
           "transfer_total_bytes": 1943142975,
@@ -1072,13 +1072,13 @@
               "same_gpu": null
             }
           ],
-          "train_loss": 0.008847706566452451,
+          "train_loss": 0.010212198365479708,
           "optimizer_finished_pending_capture": false,
           "paper_reference": {
             "sr_percent": 64,
             "ssr_percent": 27
           },
-          "last_progress_at": "2026-10-11T18:22:23.530608+00:00",
+          "last_progress_at": "2026-10-11T18:32:26.634572+00:00",
           "progress_stalled": false
         },
         "act": {
@@ -2610,28 +2610,28 @@
   "training_servers": [
     {
       "name": "30109",
-      "source_updated_at": "2026-10-11T18:21:38.761430+00:00",
+      "source_updated_at": "2026-10-11T18:31:51.147475+00:00",
       "status_label": "等待可核验的训练更新",
       "optimizer_records": 0,
       "training_gpu_count": 0
     },
     {
       "name": "aliyun",
-      "source_updated_at": "2026-10-11T18:21:59.703177+00:00",
+      "source_updated_at": "2026-10-11T18:32:20.680788+00:00",
       "status_label": "1 个训练作业正在更新",
       "optimizer_records": 1,
       "training_gpu_count": 1
     },
     {
       "name": "mainskill",
-      "source_updated_at": "2026-10-11T18:21:59.703177+00:00",
+      "source_updated_at": "2026-10-11T18:32:20.680788+00:00",
       "status_label": "1 个训练作业正在更新 · 2 张卡",
       "optimizer_records": 1,
       "training_gpu_count": 2
     },
     {
       "name": "volc-pro6000",
-      "source_updated_at": "2026-10-11T18:22:04.816517+00:00",
+      "source_updated_at": "2026-10-11T18:32:13.882838+00:00",
       "status_label": "原生环境校验通过，待派发正式测试",
       "optimizer_records": null
     }
@@ -2676,17 +2676,17 @@
   "sources": [
     {
       "name": "CURRENT_OBJECT_PROGRESS_V4",
-      "updated_at": "2026-10-11T18:22:21.884260+00:00",
+      "updated_at": "2026-10-11T18:32:25.355352+00:00",
       "stale": false
     },
     {
       "name": "DP_BOUNDED_OPTIMIZER_PROGRESS",
-      "updated_at": "2026-10-11T18:21:38.761430+00:00",
+      "updated_at": "2026-10-11T18:31:51.147475+00:00",
       "stale": false
     },
     {
       "name": "SERVER_TRAINING_PROGRESS",
-      "updated_at": "2026-10-11T18:20:22.435753+00:00",
+      "updated_at": "2026-10-11T18:29:26.794809+00:00",
       "stale": false
     },
     {
@@ -2701,27 +2701,28 @@
     },
     {
       "name": "FLEET_DP_TRAINING_PROGRESS",
-      "updated_at": "2026-10-11T18:21:59.703177+00:00",
+      "updated_at": "2026-10-11T18:32:20.680788+00:00",
       "stale": false
     },
     {
       "name": "PRO6000_PICKPLACE_RESOURCE_WATCH",
-      "updated_at": "2026-10-11T18:22:04.816517+00:00",
+      "updated_at": "2026-10-11T18:32:13.882838+00:00",
       "stale": false
     },
     {
       "name": "EFFECTIVENESS_STATUS",
-      "updated_at": "2026-10-11T18:20:11.981013+00:00",
+      "updated_at": "2026-10-11T18:30:06.411973+00:00",
       "stale": false
     }
   ],
   "alerts": [
     "部分来源超过20分钟未更新；请检查对应监管服务",
     "后台每5分钟核对真实训练更新、测试闭合回合及完整50次效果；最近巡检已完成",
+    "完整50次效果复核：14组零成功，10组SR与终态空间SSR20相差至少20个百分点；待分析原因，未作为论文指标验收",
     "论文SSR全轨迹约束与目标定义的等价性尚待完成；当前显示终态空间SSR20"
   ],
   "provenance": {
-    "matrix_sha256": "62aadbb1c451440106dce5cc996137b069b3f1fdd4bcb1656ea3a5fea4db7518",
+    "matrix_sha256": "161f689f6d6759108e3d3c3e3f536b7d13dc6a92ed402146d67c9e9b2ed027db",
     "paper_pdf_sha256": "0fbe7e861843402f601ff1643cc00ce82f2be5c22ba39c8bda5f886eb66113d0"
   }
 }
