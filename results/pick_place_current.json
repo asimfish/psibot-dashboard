@@ -2,19 +2,19 @@
   "schema_version": 1,
   "task": "T-494",
   "generation": "paper_v4",
-  "published_at": "2026-10-11T21:03:14.707801+00:00",
-  "source_updated_at": "2026-10-11T21:03:02.065010+00:00",
+  "published_at": "2026-10-11T21:13:17.808751+00:00",
+  "source_updated_at": "2026-10-11T21:13:12.325379+00:00",
   "refresh_seconds": 60,
   "publish_seconds": 600,
   "totals": {
     "objects": 13,
     "verified_models": 25,
     "required_models": 26,
-    "complete_cells": 97,
+    "complete_cells": 98,
     "required_cells": 104,
-    "complete_trials": 4850,
+    "complete_trials": 4900,
     "required_trials": 5200,
-    "same_gpu_cells": 36,
+    "same_gpu_cells": 37,
     "formal_accepted_objects": null
   },
   "protocol": {
@@ -84,22 +84,29 @@
             {
               "added_cm": 2,
               "xy_half_range_cm": 5,
-              "complete": false,
-              "status": "RUNNING",
-              "status_label": "测试中",
-              "episodes": null,
-              "sr_percent": null,
-              "terminal_spatial_ssr20_percent": null,
+              "complete": true,
+              "status": "COMPLETE50_GEOMETRY_AUDITED",
+              "status_label": "完整50次核验完成",
+              "episodes": 50,
+              "sr_percent": 60,
+              "terminal_spatial_ssr20_percent": 54,
               "paper_ssr_percent": null,
-              "test_gpu": null,
-              "same_gpu": null
+              "test_gpu": "RTX 4090",
+              "same_gpu": true,
+              "successes": 30,
+              "spatial_safe_successes": 27,
+              "settled_outside_count": 28,
+              "outside_sr_percent": 46.43,
+              "outside_spatial_ssr20_percent": 39.29,
+              "raw_sha256": "9a99407b3b52eb56403c308ca3d603c8876226953eddccdec90c45bb3a44958f",
+              "receipt_sha256": "d8a2f702cbb0648c62b06c905e0c1196982bbe374fb8fea202f1beb676ef29f3"
             },
             {
               "added_cm": 3,
               "xy_half_range_cm": 6,
               "complete": false,
-              "status": "PENDING",
-              "status_label": "待测试",
+              "status": "RUNNING",
+              "status_label": "测试中",
               "episodes": null,
               "sr_percent": null,
               "terminal_spatial_ssr20_percent": null,
@@ -1032,7 +1039,7 @@
           "status": "REAL_FINITE_OPTIMIZER_PROGRESS",
           "status_label": "训练中",
           "model_sha256": null,
-          "optimizer_updates": 24680,
+          "optimizer_updates": 25200,
           "required_updates": 50000,
           "transfer_bytes": 1943142975,
           "transfer_total_bytes": 1943142975,
@@ -1090,13 +1097,13 @@
               "same_gpu": null
             }
           ],
-          "train_loss": 0.006539142690598965,
+          "train_loss": 0.006532956147566438,
           "optimizer_finished_pending_capture": false,
           "paper_reference": {
             "sr_percent": 64,
             "ssr_percent": 27
           },
-          "last_progress_at": "2026-10-11T21:03:14.793083+00:00",
+          "last_progress_at": "2026-10-11T21:13:17.895697+00:00",
           "progress_stalled": false
         },
         "act": {
@@ -2599,7 +2606,7 @@
     {
       "name": "liyufeng_4090",
       "status_label": "原生测试中",
-      "activity": "100 mL 玻璃烧杯 · DP · +2cm",
+      "activity": "100 mL 玻璃烧杯 · DP · +3cm",
       "available_gib": null,
       "required_gib": null
     },
@@ -2628,28 +2635,28 @@
   "training_servers": [
     {
       "name": "30109",
-      "source_updated_at": "2026-10-11T21:02:42.642563+00:00",
+      "source_updated_at": "2026-10-11T21:12:54.345799+00:00",
       "status_label": "等待可核验的训练更新",
       "optimizer_records": 0,
       "training_gpu_count": 0
     },
     {
       "name": "aliyun",
-      "source_updated_at": "2026-10-11T21:03:00.685263+00:00",
+      "source_updated_at": "2026-10-11T21:12:19.250548+00:00",
       "status_label": "1 个训练作业正在更新",
       "optimizer_records": 1,
       "training_gpu_count": 1
     },
     {
       "name": "mainskill",
-      "source_updated_at": "2026-10-11T21:03:00.685263+00:00",
+      "source_updated_at": "2026-10-11T21:12:19.250548+00:00",
       "status_label": "等待可核验的训练更新",
       "optimizer_records": 0,
       "training_gpu_count": 0
     },
     {
       "name": "volc-pro6000",
-      "source_updated_at": "2026-10-11T21:02:42.815177+00:00",
+      "source_updated_at": "2026-10-11T21:12:51.251164+00:00",
       "status_label": "原生环境校验通过，待派发正式测试",
       "optimizer_records": null
     }
@@ -2694,17 +2701,17 @@
   "sources": [
     {
       "name": "CURRENT_OBJECT_PROGRESS_V4",
-      "updated_at": "2026-10-11T21:03:02.065010+00:00",
+      "updated_at": "2026-10-11T21:13:12.325379+00:00",
       "stale": false
     },
     {
       "name": "DP_BOUNDED_OPTIMIZER_PROGRESS",
-      "updated_at": "2026-10-11T21:02:42.642563+00:00",
+      "updated_at": "2026-10-11T21:12:54.345799+00:00",
       "stale": false
     },
     {
       "name": "SERVER_TRAINING_PROGRESS",
-      "updated_at": "2026-10-11T21:00:38.948023+00:00",
+      "updated_at": "2026-10-11T21:12:44.598860+00:00",
       "stale": false
     },
     {
@@ -2719,17 +2726,17 @@
     },
     {
       "name": "FLEET_DP_TRAINING_PROGRESS",
-      "updated_at": "2026-10-11T21:03:00.685263+00:00",
+      "updated_at": "2026-10-11T21:12:19.250548+00:00",
       "stale": false
     },
     {
       "name": "PRO6000_PICKPLACE_RESOURCE_WATCH",
-      "updated_at": "2026-10-11T21:02:42.815177+00:00",
+      "updated_at": "2026-10-11T21:12:51.251164+00:00",
       "stale": false
     },
     {
       "name": "EFFECTIVENESS_STATUS",
-      "updated_at": "2026-10-11T21:00:10.331429+00:00",
+      "updated_at": "2026-10-11T21:10:01.789979+00:00",
       "stale": false
     }
   ],
@@ -2740,7 +2747,7 @@
     "论文SSR全轨迹约束与目标定义的等价性尚待完成；当前显示终态空间SSR20"
   ],
   "provenance": {
-    "matrix_sha256": "65d63a1d89ce6e214f8604339f9a5588c109b4748049733a6fdacd27f3e1fdaf",
+    "matrix_sha256": "26fe475230a0d13b0b78ce65b3e7969b1ae001660fb27d8c12e0876983ca11c6",
     "paper_pdf_sha256": "0fbe7e861843402f601ff1643cc00ce82f2be5c22ba39c8bda5f886eb66113d0"
   }
 }
