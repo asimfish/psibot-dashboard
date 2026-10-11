@@ -10,7 +10,7 @@
  const status=v=>v===true?'成功':v===false?'失败':'中断';
  const badge=v=>`<span class="status ${v===true?'success':v===false?'failure':'interrupted'}">${status(v)}</span>`;
  function ci(k,n){if(!n)return '尚无有效终态';const z=1.959963984540054,p=k/n,d=1+z*z/n,c=(p+z*z/(2*n))/d,h=z*Math.sqrt(p*(1-p)/n+z*z/(4*n*n))/d;return `${((c-h)*100).toFixed(1)}–${((c+h)*100).toFixed(1)}%`;}
- let study,protocol,episodes,audit,traces,report,nativeGallery,currentTask='fr3_place',currentRow='',currentEpisode='';
+ let study,protocol,episodes,audit,traces,report,nativeGallery,development,currentTask='fr3_place',currentRow='',currentEpisode='';
  const rowById=id=>study.rows.find(r=>r.id===id), episodeById=id=>episodes.find(e=>e.episode_id===id), videoById=id=>audit.find(x=>x.episode_id===id&&x.video_url);
  const poster=x=>safe(x?.contact_sheet)||'';
  const median=(s,scale=1)=>s.median===null?'未记录':`${(s.median/scale).toFixed(1)}<small>IQR ${(s.q1/scale).toFixed(1)}–${(s.q3/scale).toFixed(1)} · ${s.n}条${s.missing?' / 缺'+s.missing+'条':''}</small>`;
@@ -75,9 +75,27 @@
   $('native-qualification-status').textContent=`${r.title} · ${r.cameras.length} 路相机 · ${r.native_gate_passed?'控制检查通过':'控制检查未通过'}。${r.reason} 模型调用 0，正式试次 0。`;
   $('native-camera-evidence').innerHTML=r.cameras.map(c=>`<article class="native-camera-card"><h4>${esc(c.label)}</h4><div class="native-camera-pair"><figure><a href="${esc(safe(c.image))}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(safe(c.image))}" alt="${esc(r.title+' '+c.label)}资格检查首帧原图"></a><figcaption>初始原生 RGB · 资格检查，未发送给模型</figcaption></figure><figure><video controls playsinline preload="none" src="${esc(safe(c.video))}" poster="${esc(safe(c.image))}" aria-label="${esc(r.title+' '+c.label)}同回合原生控制检查录像"></video><figcaption>同回合原录像 · ${c.decoded_frames} 帧 · 1×仿真时间</figcaption></figure></div><p><b>视角与渲染：</b>${esc(c.view_note)}</p><p class="caption">实际首帧与编码中间帧已查看；完整录像已解码校验。录像证明有限控制检查，不证明抓取或放置成功。</p></article>`).join('');
  }
+ function drawDevelopment(){
+  document.querySelectorAll('#development-cameras video').forEach(v=>v.pause());
+  const r=development.records.find(x=>x.attempt===$('development-select').value);
+  $('development-status').innerHTML=`${badge(r.success)} <b>${esc(r.title)}</b> · rich 全部输入 · 开发回合 1 条<p>${esc(r.result_explanation)}</p>`;
+  $('development-inputs').innerHTML=`<p><b>实际模型：</b>${esc(r.model)} / ${esc(r.effort)}；<b>相机：</b>${r.cameras.length} 路 RGB，640×480。</p><p><b>实际输入：</b>任务说明、固定机器人/动作说明、S 末端及基座位姿、J 关节角/速度、K 相机标定；PsiBot 另含冻结手势库语义。后续逐轮加入 F 数值执行误差、H 最近图像/动作历史、M 文字记忆、C 分类执行状态。</p><p class="caption">首轮 F/H/M/C 尚无内容，与删除条件分别记录。下图是该回合首轮真正发送给 Astra 的原 PNG；不是回放截图。<a href="${esc(safe(r.first_input))}">首轮完整数值输入 JSON →</a></p>`;
+  $('development-timing').innerHTML=`<dl class="design"><div><dt>交互回合墙钟</dt><dd>${(r.episode_wall_s/60).toFixed(2)} 分钟</dd></div><div><dt>模型等待 / 控制及渲染</dt><dd>${(r.model_wait_s/60).toFixed(2)} / ${(r.control_render_wall_s/60).toFixed(2)} 分钟<small>渲染编码 ${(r.render_encode_wall_s).toFixed(1)} 秒与控制及渲染计时重叠，不能直接相加；首帧渲染在回合计时前。其余为观测、校验等开销。</small></dd></div><div><dt>抓取尝试 / 重试</dt><dd>${r.pickup_attempts} / ${r.pickup_retries}<small>原生接触后未达到接触保持的 5cm 抬升、失去全部接触至少 0.1 秒后重新接触，才记抓取重试。未覆盖放置/路径重规划。</small></dd></div><div><dt>调用 / 拒绝 / 网络重发</dt><dd>${r.requests} / ${r.action_rejections} / ${r.network_retries}<small>每轮真实回执核为 Astra/xhigh；调用次数不等于任务重试。手工 reset ${r.manual_resets}。</small></dd></div></dl>`;
+  $('development-cameras').innerHTML=r.cameras.map(c=>`<article class="native-camera-card"><h4>${esc(cameras[c.camera])}</h4><div class="native-camera-pair"><figure><a href="${esc(safe(c.image))}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(safe(c.image))}" alt="${esc(r.title+' '+cameras[c.camera])}首轮实际模型输入"></a><figcaption>首轮实际模型输入 · 原 PNG</figcaption></figure><figure><video controls playsinline preload="none" src="${esc(safe(c.video))}" poster="${esc(safe(c.image))}" aria-label="${esc(r.title+' '+cameras[c.camera])}同回合原录像"></video><figcaption>同回合原录像 · ${c.decoded_frames} 帧 · 15fps · 1×仿真时间</figcaption></figure></div><p><b>视角 / 画面观察：</b>${esc(c.view_note)}</p><p class="caption">首、中、末 3 帧已实际查看，完整录像已解码。原环境材质简单；遮挡按此机位披露。成败由原物理门槛判定，不凭模型自称完成。</p></article>`).join('');
+  $('development-decisions').innerHTML=`<table><caption>逐轮实际输入覆盖；只有首轮 PNG 在本面板公开，原回合所有轮次均已核回执。历史项是最近两轮观测/自身动作，不是任务真值。</caption><thead><tr><th>轮次</th><th>发送图片</th><th>非空数值组</th><th>历史项</th><th>文字记忆</th><th>执行状态</th></tr></thead><tbody>${r.decisions.map(d=>`<tr><td>${d.decision}</td><td>${d.images_sent}</td><td>${esc(d.input_fields.join(' / '))}</td><td>${d.history_entries}</td><td>${d.memory_characters} 字符</td><td>${esc(d.action_status===null?'首轮为空':typeof d.action_status==='string'?d.action_status:JSON.stringify(d.action_status))}</td></tr>`).join('')}</tbody></table>`;
+ }
+ function initDevelopment(){
+  $('development-summary').innerHTML=development.records.map(r=>`<tr><th scope="row"><button data-development="${esc(r.attempt)}">${esc(r.title)}</button><small>单条开发回合 · 不报成功率</small></th><td>rich 全部输入<small>4 路 RGB + S/J/K；后续 F/H/M/C</small></td><td>${badge(r.success)}<small>${esc(r.result_explanation)}</small></td><td>${r.pickup_retries}<small>仅原生抓取重试</small></td><td>${(r.episode_wall_s/60).toFixed(2)} 分钟<small>模型调用 ${r.requests} 次</small></td><td><button data-development="${esc(r.attempt)}">输入图片 + 原录像 ▷</button></td></tr>`).join('');
+  $('development-select').innerHTML=development.records.map(r=>`<option value="${esc(r.attempt)}">${esc(r.title)}</option>`).join('');
+  $('development-select').addEventListener('change',drawDevelopment);
+  document.addEventListener('click',e=>{const b=e.target.closest('[data-development]');if(b){$('development-select').value=b.dataset.development;drawDevelopment();$('development-detail').scrollIntoView();}});
+  drawDevelopment();
+  const d=development.long_diagnostic,p=d.probes[0];
+  $('long-diagnostic').innerHTML=`100ml 手势跟踪的独立诊断：同一 full 目标保持 1.5 秒时误差 ${p.error_at_1_5s_rad.toFixed(6)} rad，超过原 0.3 rad 门槛；再保持 1.5 秒（总计 3 秒）降至 ${p.error_at_3s_rad.toFixed(6)} rad，五个模式在 3 秒时均通过。原 1.5 秒失败保留，门槛与物理代码未改。这个诊断没有调用模型，也没有尝试完成 100ml 任务。`;
+ }
  async function init(){
   const load=async n=>{const res=await fetch('results/astra/'+n);if(!res.ok)throw Error(n+' HTTP '+res.status);return res.json();};
-  [study,protocol,episodes,audit,traces,report,nativeGallery]=await Promise.all(['input_study_v5.json','protocol_v6.json','episodes.json','video_audit.json','decision_traces.json','experiments.json','native_qualification_20261011.json'].map(load));audit=audit.records;
+  [study,protocol,episodes,audit,traces,report,nativeGallery,development]=await Promise.all(['input_study_v5.json','protocol_v6.json','episodes.json','video_audit.json','decision_traces.json','experiments.json','native_qualification_20261011.json','development_pilot_20261011.json'].map(load));audit=audit.records;
   const p=new URLSearchParams(location.search),legacy={inputs:'fr3_place',actions:'panda_square',long:'psi_roundtrip'},target=p.get('task')||legacy[p.get('study')];
   if(study.tasks.some(t=>t.id===target))currentTask=target;
   currentRow=study.rows.find(r=>r.task===currentTask&&r.condition===p.get('condition'))?.id||'';
@@ -92,7 +110,7 @@
   });
   $('native-task-select').innerHTML=nativeGallery.records.map(r=>`<option value="${esc(r.task)}">${esc(r.title)}</option>`).join('');$('native-task-select').value='psi_grasp';
   $('native-task-select').addEventListener('change',drawNativeQualification);
-  drawTask();drawProtocol();drawNativeQualification();$('loading').hidden=true;$('study-content').hidden=false;
+  drawTask();drawProtocol();drawNativeQualification();initDevelopment();$('loading').hidden=true;$('study-content').hidden=false;
   $('historical-reasoning').textContent=`FR3相同10初态：medium ${report.paired_e3.medium_successes}/10（Wilson 95% CI ${ci(report.paired_e3.medium_successes,10)}，含1中断），xhigh ${report.paired_e3.xhigh_successes}/10（${ci(report.paired_e3.xhigh_successes,10)}）。这是推理档位对照；匹配录像缺失，不代替输入删除实验。`;
   window.astraStudyReady=true;
  }

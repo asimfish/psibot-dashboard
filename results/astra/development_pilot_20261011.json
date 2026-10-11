@@ -1,0 +1,953 @@
+{
+  "schema": "safelab.astra.development_pilot_report.v1",
+  "as_of_utc": "2026-10-11T14:40:00Z",
+  "formal_trials": 0,
+  "registered_formal_trials": 1000,
+  "records": [
+    {
+      "attempt": "fr3p1",
+      "task": "fr3_place",
+      "title": "FR3 · 瓶子放到目标垫",
+      "phase": "development_pilot",
+      "formal_trial": false,
+      "development_n": 1,
+      "success": true,
+      "condition": "rich",
+      "seed": 20000,
+      "model": "gpt-6-astra",
+      "effort": "xhigh",
+      "requests": 6,
+      "checks": {
+        "final_hold_at_least_1s": true,
+        "hold_speed_at_most_5cm_s": true,
+        "hold_tilt_at_most_15deg": true,
+        "no_geometric_hard_abort": true,
+        "no_other_hard_abort": true,
+        "released": true,
+        "horizontal_distance_at_most_4cm": true
+      },
+      "budget": {
+        "max_requests": 30,
+        "max_action_s": 120.0,
+        "max_wall_s": 2400.0,
+        "final_hold_s": 1.0
+      },
+      "episode_wall_s": 554.7836750939023,
+      "model_wait_s": 490.4262329400517,
+      "control_render_wall_s": 58.41074578766711,
+      "render_encode_wall_s": 28.193338424200192,
+      "pickup_attempts": 1,
+      "pickup_retries": 0,
+      "retry_definition": "Contact begins an attempt; loss of all robot-object contacts for >=0.1 s before a contact-held 0.05 m lift is failure; later native contact begins a retry. Normal model calls and continuous contact microadjustments are not retries.",
+      "task_retries": null,
+      "action_rejections": 0,
+      "network_retries": 0,
+      "manual_resets": 0,
+      "paired_initial_sha256": "027a4df1dc95ca15537a11e9d7c4acd0cd10bab0b1b36863ea9904d1c04b4e97",
+      "source_freeze_sha256": "5e8fd4470b2a6ce684aacc7f90a23cd054224bace6aa899c1ef080d10f5a1504",
+      "terminal_sha256": "04db184dbca85836bbf209f152361e28541d245c6667327e0e2825d5dae8723a",
+      "first_input": "assets/astra/development_pilot_20261011/fr3p1/first_visible_input.json",
+      "cameras": [
+        {
+          "camera": "head_camera",
+          "image": "assets/astra/development_pilot_20261011/fr3p1/head_camera.png",
+          "video": "assets/astra/development_pilot_20261011/fr3p1/head_camera.mp4",
+          "image_sha256": "da69da4a1cd256d880ec35b3b8903c3878da680dd1908d5bd0e5783bd9966f4e",
+          "video_sha256": "3e4e3c059efbad3695f3c0b268927aff77f373bbc4cc74f84dbb835b7efcbef0",
+          "decoded_frames": 308,
+          "view_note": "斜上方近景；可看到抬起、转移和松手后瓶子位于绿垫上。"
+        },
+        {
+          "camera": "chest_camera",
+          "image": "assets/astra/development_pilot_20261011/fr3p1/chest_camera.png",
+          "video": "assets/astra/development_pilot_20261011/fr3p1/chest_camera.mp4",
+          "image_sha256": "a78981e53ceaf056bc2d0f2da32d1021ef7419ba7ac33b5d3af8eeaf3cd8e989",
+          "video_sha256": "e93f9fba6ae3827a46a9d81b6a1b5ae95f895192fda0784db1d935eba729dc80",
+          "decoded_frames": 308,
+          "view_note": "较远的斜上方全景；瓶子尺寸较小，但机械臂和目标垫都在画面内。"
+        },
+        {
+          "camera": "third_camera",
+          "image": "assets/astra/development_pilot_20261011/fr3p1/third_camera.png",
+          "video": "assets/astra/development_pilot_20261011/fr3p1/third_camera.mp4",
+          "image_sha256": "11703671ca6061a478ed96aac0750de69163a90e108bb8363248cefcb7353ced",
+          "video_sha256": "2fcf0d629135bf4fa225979aa7f8d35f350c8a68a6d09775aa95544f1c57009a",
+          "decoded_frames": 308,
+          "view_note": "固定俯视；夹爪与腕部遮挡瓶子，末帧目标附近也有遮挡。"
+        },
+        {
+          "camera": "wrist_camera",
+          "image": "assets/astra/development_pilot_20261011/fr3p1/wrist_camera.png",
+          "video": "assets/astra/development_pilot_20261011/fr3p1/wrist_camera.mp4",
+          "image_sha256": "b30685569e805ff3539c7c34f54b10fa70f075eb02b4756ecb804f21fbcd8d15",
+          "video_sha256": "f82ce039fc4d241eff46f0fbf6a50c295b44cdb09ba8d8ab2fc833f1c07cc9cf",
+          "decoded_frames": 308,
+          "view_note": "随腕移动的俯视近景；握持时瓶身很近且部分裁切，松手后瓶子与绿垫可见。"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": 1,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K"
+          ],
+          "history_entries": 0,
+          "memory_characters": 0,
+          "action_status": null,
+          "images_sent": 4
+        },
+        {
+          "decision": 2,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 1,
+          "memory_characters": 324,
+          "action_status": "accepted",
+          "images_sent": 8
+        },
+        {
+          "decision": 3,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 365,
+          "action_status": "accepted",
+          "images_sent": 12
+        },
+        {
+          "decision": 4,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 387,
+          "action_status": "accepted",
+          "images_sent": 12
+        },
+        {
+          "decision": 5,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 456,
+          "action_status": "accepted",
+          "images_sent": 12
+        },
+        {
+          "decision": 6,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 435,
+          "action_status": "accepted",
+          "images_sent": 12
+        }
+      ],
+      "receipts": [
+        {
+          "decision": 1,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "bfa962c8d693abc2cdb007fe10a96f217434d429239662c4b73911ce8d2b425f",
+          "provenance_sha256": "fce6da21c1143213aee4e4731ea6e5b577413a905b3ba7fa43faf5e9e36472e4"
+        },
+        {
+          "decision": 2,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "3a057d6e5249c73f9c1b789655898043bd631d069b0347b58280bd62dd8cec4e",
+          "provenance_sha256": "68ff3ea5a1d2f223d2d07c19528dbde356e35fb5c4d60c928df9d257810c73a9"
+        },
+        {
+          "decision": 3,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "f58cf61c39b6d4029a46319c44642a1c3b26f5ca5387b5105099d32205f3a94a",
+          "provenance_sha256": "0a203217c73daab6473d802c0807faea8cf0028869e3a8ec6360b1dc9d7ea953"
+        },
+        {
+          "decision": 4,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "2592261284f9371c9ccab91c259a98f1dc13ce8bbb6c8a7df7b1f11d561e6b2d",
+          "provenance_sha256": "d99abc04fe99f5ba3cb4dba7228bf9af4d15800171fa6e55354cb42aa0a157aa"
+        },
+        {
+          "decision": 5,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "6f470053b6c7d69be477bc98365f70d21c5ad1e23f2b5fd3866d2ff1a240b1ee",
+          "provenance_sha256": "d2e09c41fc0550f4271fc890cb779ba362a0cfde50001dfb2b87b1e5606eaf01"
+        },
+        {
+          "decision": 6,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "fbf6b2bc8e22cbc2773357322b26839911c0a4b70e6a03f1074c84126a1aae1b",
+          "provenance_sha256": "47d31b8365b625298fd4a42d2e2ce73cf182b4c67b24957f5462466e9d46733e"
+        }
+      ],
+      "visual_review": {
+        "actually_viewed_samples_per_camera": 3,
+        "sample_positions": [
+          "first",
+          "middle",
+          "last"
+        ],
+        "all_videos_decoded": true,
+        "resolution": [
+          640,
+          480
+        ],
+        "fps": 15,
+        "playback_time": "simulation",
+        "render_quality": "原始灰色/黑色环境、简单材质；可辨物体和机器人。遮挡和视野缺失逐机位披露，画面不单独代替物理判定。",
+        "task_success_basis": "original physical evaluator; model declaration does not establish success"
+      },
+      "first_unavailable_fields": [
+        "F",
+        "H",
+        "M",
+        "C"
+      ],
+      "result_explanation": "最终水平误差 6.21 mm；已松手、直立并稳定保持至少 1 秒。",
+      "physical_metrics": {
+        "final_lift_m": 0.0051697492599487305,
+        "final_speed_m_s": 1.9008181952358703e-05,
+        "final_tilt_deg": 0.0005221640812455594,
+        "hold_max_tilt_deg": 0.004250544317802995,
+        "final_window_span_s": 1.0,
+        "hold_window_max_speed_m_s": 0.0002328978560709838,
+        "hold_window_max_native_speed_m_s": 0.0033416575299420044,
+        "final_horizontal_distance_m": 0.006209521285364876,
+        "hold_max_horizontal_distance_m": 0.006214939446843617
+      }
+    },
+    {
+      "attempt": "psip1",
+      "task": "psi_grasp",
+      "title": "PsiBot · 抓取并稳定保持",
+      "phase": "development_pilot",
+      "formal_trial": false,
+      "development_n": 1,
+      "success": false,
+      "condition": "rich",
+      "seed": 20000,
+      "model": "gpt-6-astra",
+      "effort": "xhigh",
+      "requests": 20,
+      "checks": {
+        "final_hold_at_least_1s": true,
+        "physical_tick_sampling_valid": true,
+        "hold_lift_at_least_5cm": true,
+        "hold_speed_at_most_5cm_s": true,
+        "hold_tilt_at_most_15deg": false,
+        "no_geometric_hard_abort": true
+      },
+      "budget": {
+        "max_requests": 30,
+        "max_action_s": 120.0,
+        "max_wall_s": 2400.0,
+        "final_hold_s": 1.0
+      },
+      "episode_wall_s": 2073.0218557650223,
+      "model_wait_s": 1840.0687240448315,
+      "control_render_wall_s": 215.41173738613725,
+      "render_encode_wall_s": 78.59698026743717,
+      "pickup_attempts": 6,
+      "pickup_retries": 5,
+      "retry_definition": "Contact begins an attempt; loss of all robot-object contacts for >=0.1 s before a contact-held 0.05 m lift is failure; later native contact begins a retry. Normal model calls and continuous contact microadjustments are not retries.",
+      "task_retries": null,
+      "action_rejections": 0,
+      "network_retries": 0,
+      "manual_resets": 0,
+      "paired_initial_sha256": "92b5ddfe7ad45c61783b9c9581725e9dccb3aa666901a5f3d8e2259d3a04368f",
+      "source_freeze_sha256": "ba2b7ec9a55865b258355ad983eaa4a2ced9748e0cbdd8c4c36133ae268c054d",
+      "terminal_sha256": "7c537bf3b0199ff2d4428e293d60e5ae8f5634ed72ed3430ea17d07130d4b08f",
+      "first_input": "assets/astra/development_pilot_20261011/psip1/first_visible_input.json",
+      "cameras": [
+        {
+          "camera": "head_camera",
+          "image": "assets/astra/development_pilot_20261011/psip1/head_camera.png",
+          "video": "assets/astra/development_pilot_20261011/psip1/head_camera.mp4",
+          "image_sha256": "ea91fd74d55ba47cb7d0c423d4f4d87e44e1d3ea327d1ef3acd3469d7f53f2bb",
+          "video_sha256": "abdd105e88931876f995357d5579a245f2dd09e2e8bcb8d5c1f46ae1e90f2f16",
+          "decoded_frames": 784,
+          "view_note": "固定上方近景；中段瓶子倒在桌面，末段进入手内，瓶身仍倾斜。"
+        },
+        {
+          "camera": "chest_camera",
+          "image": "assets/astra/development_pilot_20261011/psip1/chest_camera.png",
+          "video": "assets/astra/development_pilot_20261011/psip1/chest_camera.mp4",
+          "image_sha256": "d21f7d721b377943ba5d5ec239ddbac217aa6a089164e0a8826ebf0293e4d362",
+          "video_sha256": "7d07063c503ab2c8aa164f75445164bdf6a84d57b54de9656a18ffcf3390cec5",
+          "decoded_frames": 784,
+          "view_note": "固定侧面低机位；中段可看到瓶子倒下，末段瓶子被机器人身体完全遮挡。"
+        },
+        {
+          "camera": "third_camera",
+          "image": "assets/astra/development_pilot_20261011/psip1/third_camera.png",
+          "video": "assets/astra/development_pilot_20261011/psip1/third_camera.mp4",
+          "image_sha256": "180693ad78831b515735e4d6cb7eb7871883deb2f5a0f9835e726febe569d8ae",
+          "video_sha256": "ad593bb8709415fb1926e680505fa1ae87724917524e88e6a36a51b9866f904d",
+          "decoded_frames": 784,
+          "view_note": "固定正面全景；可见瓶子倒下、随后被抬起，物体细节较小。"
+        },
+        {
+          "camera": "wrist_camera",
+          "image": "assets/astra/development_pilot_20261011/psip1/wrist_camera.png",
+          "video": "assets/astra/development_pilot_20261011/psip1/wrist_camera.mp4",
+          "image_sha256": "2459cac389796e617fbdf5e893fa48da63861ab620a9843a51a9dfb1426c0501",
+          "video_sha256": "c2deb8c39d1f9cee1074bc6a98a5bfb755128513f3747a6477261d77ce71c7d7",
+          "decoded_frames": 784,
+          "view_note": "随腕相机；已查看的首、中、末帧均未看到瓶子，大部分画面为手指、桌边和黑背景。"
+        }
+      ],
+      "decisions": [
+        {
+          "decision": 1,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K"
+          ],
+          "history_entries": 0,
+          "memory_characters": 0,
+          "action_status": null,
+          "images_sent": 4
+        },
+        {
+          "decision": 2,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 1,
+          "memory_characters": 406,
+          "action_status": "accepted",
+          "images_sent": 8
+        },
+        {
+          "decision": 3,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 615,
+          "action_status": "accepted",
+          "images_sent": 12
+        },
+        {
+          "decision": 4,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 619,
+          "action_status": "accepted",
+          "images_sent": 12
+        },
+        {
+          "decision": 5,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 624,
+          "action_status": "accepted",
+          "images_sent": 12
+        },
+        {
+          "decision": 6,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 589,
+          "action_status": "accepted",
+          "images_sent": 12
+        },
+        {
+          "decision": 7,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 594,
+          "action_status": "accepted",
+          "images_sent": 12
+        },
+        {
+          "decision": 8,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 518,
+          "action_status": "accepted",
+          "images_sent": 12
+        },
+        {
+          "decision": 9,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 452,
+          "action_status": "accepted",
+          "images_sent": 12
+        },
+        {
+          "decision": 10,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 377,
+          "action_status": "accepted",
+          "images_sent": 12
+        },
+        {
+          "decision": 11,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 405,
+          "action_status": "accepted",
+          "images_sent": 12
+        },
+        {
+          "decision": 12,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 374,
+          "action_status": "accepted",
+          "images_sent": 12
+        },
+        {
+          "decision": 13,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 530,
+          "action_status": "accepted",
+          "images_sent": 12
+        },
+        {
+          "decision": 14,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 456,
+          "action_status": "accepted",
+          "images_sent": 12
+        },
+        {
+          "decision": 15,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 558,
+          "action_status": "accepted",
+          "images_sent": 12
+        },
+        {
+          "decision": 16,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 586,
+          "action_status": "accepted",
+          "images_sent": 12
+        },
+        {
+          "decision": 17,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 566,
+          "action_status": "accepted",
+          "images_sent": 12
+        },
+        {
+          "decision": 18,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 497,
+          "action_status": "accepted",
+          "images_sent": 12
+        },
+        {
+          "decision": 19,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 588,
+          "action_status": "accepted",
+          "images_sent": 12
+        },
+        {
+          "decision": 20,
+          "current_cameras": [
+            "head_camera",
+            "chest_camera",
+            "third_camera",
+            "wrist_camera"
+          ],
+          "input_fields": [
+            "S",
+            "J",
+            "K",
+            "F"
+          ],
+          "history_entries": 2,
+          "memory_characters": 638,
+          "action_status": "accepted",
+          "images_sent": 12
+        }
+      ],
+      "receipts": [
+        {
+          "decision": 1,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "4c8def072952745150dfe6312a5bf8066d39c743bb6adff60b791a59f58dc005",
+          "provenance_sha256": "6bbb5422d6b46dbd285963e6d839a511b05fe9dc4ece3cca642c8921a603595c"
+        },
+        {
+          "decision": 2,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "11ec08ad93903bb696bb5130ab582bcbe687ab4df93363e63db9c6519f025d05",
+          "provenance_sha256": "740c8faef63c8451bff0e47d09538905e3853627df0cd225c4b941f21d507a16"
+        },
+        {
+          "decision": 3,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "21c1ae2d0d57c5b3e26c682a3e864e4e50d9d7d9a9a81ced8cb101177d6075c7",
+          "provenance_sha256": "3872d46f413b31d54356551148dfe7d3ff9966ff5c7c229429fd6dd6a271d9f4"
+        },
+        {
+          "decision": 4,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "6ec93c31fcfaa2631b90bb7ab0cdb877bec3f5ec63d7dd58c903aa29fa05f07e",
+          "provenance_sha256": "c6df9788edb28285f0b5e37bae5324277c7e7307bdfa26fc4eabdf3508acec29"
+        },
+        {
+          "decision": 5,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "33ffe28916a7115389a963c619daf2945af3a1a39f71e524229e584c34438d03",
+          "provenance_sha256": "6cdb42c7ff8e0de1940da5bf68415358ed90317adf160882fc6ffe7f1dd8bac6"
+        },
+        {
+          "decision": 6,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "d445971e3d35da653dc5c5cadcee265932e8d841d43476eb2b980ba296dc738a",
+          "provenance_sha256": "c19b629f2956fdeb1266e4985438472ea5c87e2ee377c062a9e7b919c2e1df0e"
+        },
+        {
+          "decision": 7,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "7ef9baf69e3773fa878acdf88da6c64b7437ab6617519079d295eb7f14e19bc3",
+          "provenance_sha256": "e081190db86d0746daf009d14cff331b418ee65582fa079b9d7766cbf7268188"
+        },
+        {
+          "decision": 8,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "85f7e6364b3d749f40da5c95e56af7c76dde8d6246cb32c546c85c4c8e6a230a",
+          "provenance_sha256": "1b6d1fdd9808e9f752ee88b7baeeff8ed8d401f182d931cbae42a2cdbea1cddd"
+        },
+        {
+          "decision": 9,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "4ff92bf020934f96a8f92e0cb6fd0eca25d2b944b1b2fe5623b540a9956501b2",
+          "provenance_sha256": "2c99a8b5d15dc3c029c696e986cadf1cb15fbae234a9ee4fb940ae2e75abfe2c"
+        },
+        {
+          "decision": 10,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "e0b9d7892e777502ba753f2c0cf268b19995ceef3d5431419134c447d7db79e3",
+          "provenance_sha256": "b83f971041584070bcbdfdb2b3af6f8b6b62060d448165603881da93fdb6acc2"
+        },
+        {
+          "decision": 11,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "1a154921f831ea1b4a025d8eda139c005e4278bc2bc7df3c5e765f6fad9e3c83",
+          "provenance_sha256": "a77c4547c5c7cfba7711c4446643e283e6459d7d03e00bb6fd4bb4f662b3a418"
+        },
+        {
+          "decision": 12,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "a444e97dcd8394348c72f1a7bac22dadc0c6127ac8f540d5bd589afa180f2cd9",
+          "provenance_sha256": "617871159a7af65d1ac1d28870be60e26e1565d4e6dc93c005d5975e09767dcf"
+        },
+        {
+          "decision": 13,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "665b90c36284069ec4cf480ae036433787c38c7418bc6e909a02f330ab0fb585",
+          "provenance_sha256": "40ad7c149c3e0223cd664cd60ac5cc9e34e2c2f27184c022f69de9331ea81431"
+        },
+        {
+          "decision": 14,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "4813f20dbccda679c014c1c3a90f940aa856ae5d8657d26a53487876c56e3109",
+          "provenance_sha256": "99c6b25491849dfdad942c0ee142715d78c59cfeabd97a96c7715fd65ac3a58e"
+        },
+        {
+          "decision": 15,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "feb4c3a28c689368916802cc80978838ca47f83df9b67f81f679eaff2d07385a",
+          "provenance_sha256": "164a52c6430453101981a6caa1dbcb69bf1431f49c0cd91d43c548e1900ac0d6"
+        },
+        {
+          "decision": 16,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "1b6ebfc4e2afa2f49ecac85b40a11f8e5d0bb5ec1edea62ce4f610fe5da1f7a8",
+          "provenance_sha256": "89bdb7881e2df8d4adfb25115636da73d78d425412d8abb4f1393de0a08e8c48"
+        },
+        {
+          "decision": 17,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "2d2b1617e41736644b23b185d552db8a76360e3e70824f9479cb761bd825254f",
+          "provenance_sha256": "b5ee4d7f6c90dfbe0492477d6243091a1e64f64cb2141aa225329073e640ea5f"
+        },
+        {
+          "decision": 18,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "b52583ae2708553473572af190a5a951ad6b8e20bddc9e11e55f6afdf6cff95d",
+          "provenance_sha256": "1588b3e36276e8cbfbf1c59bb296e199f95c4126b6e3ab96ff764beb90ce2b76"
+        },
+        {
+          "decision": 19,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "3aacd554edd210128dc3c96b412b9591690db007f989c3ed288350c38daf6597",
+          "provenance_sha256": "28853bfbd8a9678a7203cebbe6b069b56b1810b763a874041c851a10b35cb3ae"
+        },
+        {
+          "decision": 20,
+          "response_model": "gpt-6-astra",
+          "effort": "xhigh",
+          "request_manifest_sha256": "75484f40a6dc23a1b9731c09b70dfb13dca181b719f323775aa4b93ebf6fda61",
+          "provenance_sha256": "f38182bfb317b3cdb2bb8e3d9d29e561d9273c21ba7eeb6ad288a1d004726ab6"
+        }
+      ],
+      "visual_review": {
+        "actually_viewed_samples_per_camera": 3,
+        "sample_positions": [
+          "first",
+          "middle",
+          "last"
+        ],
+        "all_videos_decoded": true,
+        "resolution": [
+          640,
+          480
+        ],
+        "fps": 15,
+        "playback_time": "simulation",
+        "render_quality": "原始灰色/黑色环境、简单材质；可辨物体和机器人。遮挡和视野缺失逐机位披露，画面不单独代替物理判定。",
+        "task_success_basis": "original physical evaluator; model declaration does not establish success"
+      },
+      "first_unavailable_fields": [
+        "F",
+        "H",
+        "M",
+        "C"
+      ],
+      "result_explanation": "已抬起约 19.47 cm 并稳定保持，但最终倾角 18.46° 超过原 15° 门槛。",
+      "physical_metrics": {
+        "final_lift_m": 0.1946653127670288,
+        "final_tilt_deg": 18.462026555199177
+      }
+    }
+  ],
+  "long_diagnostic": {
+    "phase": "zero_model_diagnostic",
+    "model_requests": 0,
+    "formal_trials": 0,
+    "task_success": null,
+    "threshold_rad": 0.3,
+    "probes": [
+      {
+        "mode": "full",
+        "error_at_1_5s_rad": 0.3212515115737915,
+        "error_at_3s_rad": 0.004397273063659668
+      },
+      {
+        "mode": "thumb_full",
+        "error_at_1_5s_rad": 0.04637110233306885,
+        "error_at_3s_rad": 0.013389945030212402
+      },
+      {
+        "mode": "pinch",
+        "error_at_1_5s_rad": 0.026345133781433105,
+        "error_at_3s_rad": 0.006744384765625
+      },
+      {
+        "mode": "no_thumb",
+        "error_at_1_5s_rad": 0.008667588233947754,
+        "error_at_3s_rad": 0.008865833282470703
+      },
+      {
+        "mode": "no_grasp",
+        "error_at_1_5s_rad": 0.029169321060180664,
+        "error_at_3s_rad": 0.008912444114685059
+      }
+    ],
+    "all_five_pass_at_3s": true,
+    "original_failure_preserved": true,
+    "source_review_sha256": "9f009828b493990316f402c5b7a02cf16080675fe640056c4a5cc30080c2fe84"
+  }
+}
