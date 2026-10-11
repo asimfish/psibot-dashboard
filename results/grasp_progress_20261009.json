@@ -1,6 +1,6 @@
 {
   "schema": "grasp.progress_snapshot.v1",
-  "updated_utc": "2026-10-11T18:31:34.438267+00:00",
+  "updated_utc": "2026-10-11T19:23:16.423635+00:00",
   "update_mode": "Latest asset-binding results updated; original68 training rows retain their own actual snapshot dates.",
   "totals": {
     "productive_training_runs": 68,
@@ -8,15 +8,15 @@
     "ACT": 33,
     "formal_accepted_objects": 0,
     "paper_objects": 21,
-    "active_training_runs": 5,
-    "completed_training_runs": 61,
+    "active_training_runs": 4,
+    "completed_training_runs": 62,
     "queued_training_candidates": 0,
     "interrupted_training_runs": 2,
-    "completed_DP_training_runs": 28,
+    "completed_DP_training_runs": 29,
     "completed_ACT_training_runs": 33,
     "recovering_training_runs": 0,
     "formal_accepted_methods": 0,
-    "counts_scope": "61为原完整模型/EMA/优化器已核验且持久化的完成下界；5条旧训练记录待更新，2条原中断保留，不表示当前GPU活跃数。原68个逻辑训练身份不变。"
+    "counts_scope": "62为原完整模型/EMA/优化器已核验且持久化的完成下界；4个原训练种子本轮已读取实际有限更新；2条原中断保留。68个原身份保持，不等于验收通过数。"
   },
   "training": [
     {
@@ -87,14 +87,14 @@
       "method": "DP",
       "object": "alcohol_lamp",
       "seed": 26101631,
-      "state": "训练中",
-      "epoch": 878,
+      "state": "原模型与原优化器接续训练中",
+      "epoch": 1217,
       "epochs_target": 3000,
-      "global_step": 38654,
-      "train_loss": 0.00544677022844553,
-      "sampled_utc": "2026-10-11T08:14:21.902650+00:00",
+      "global_step": 53582,
+      "train_loss": 0.004473445471376181,
+      "sampled_utc": "2026-10-11T19:18:47.616099+00:00",
       "formal_accepted": false,
-      "status_note": "原ACT正常结束后同卡接续；预定种子及100演示不变，27D/3相机CPU检查及21项传输恢复检查通过；独立验收待完成。",
+      "status_note": "本轮已核实原PID存活及有限优化器更新；原100示范/首帧RGB/8步动作不变，2个取数线程。短窗GPU利用率已测；RNG重启与重做更新已披露。",
       "raw_status": "running",
       "active_productive": true,
       "actual_exit_code": null,
@@ -265,13 +265,13 @@
       "method": "DP",
       "object": "clear_volumetric_flask_250ml",
       "seed": 26101311,
-      "state": "完整状态已恢复，训练中",
-      "status_note": "原始完整状态接续到Ali，优化器未重置；从1200轮检查点需重跑672步，随机流恢复不等于精确训练轨迹复现。新完整检查点已核验。",
-      "epoch": 1224,
+      "state": "原完整模型与优化器Ali接续训练中",
+      "status_note": "原模型/EMA/优化器与原数据保持；实际有限更新及GPU快照100%已读取，尚未完成3000轮。",
+      "epoch": 2063,
       "epochs_target": 3000,
-      "global_step": 55123,
-      "train_loss": 0.004205607809126377,
-      "sampled_utc": "2026-10-11T10:34:28.292034+00:00",
+      "global_step": 92846,
+      "train_loss": 0.002906875917688012,
+      "sampled_utc": "2026-10-11T19:20:29.953313+00:00",
       "exact_training_resume": false,
       "formal_accepted": false,
       "actual_exit_code": null,
@@ -406,18 +406,18 @@
       "method": "DP",
       "object": "glass_beaker_100ml",
       "seed": 26101525,
-      "state": "训练中",
-      "epoch": 2040,
+      "state": "3000轮完成，原模型/EMA/优化器CPU核验及持久化通过",
+      "epoch": 3000,
       "epochs_target": 3000,
-      "global_step": 51840,
+      "global_step": 114000,
       "train_loss": 0.003040515584871173,
-      "sampled_utc": "2026-10-11T08:14:22.856111+00:00",
+      "sampled_utc": "2026-10-11T19:23:16.423635+00:00",
       "formal_accepted": false,
-      "status_note": "原优化器续训、首帧读取及2个工作线程已部署；轮次来自实际控制台，更新次数保留上次结构化日志。",
-      "raw_status": "running",
-      "active_productive": true,
-      "actual_exit_code": null,
-      "completed_training": false,
+      "status_note": "918模型、918EMA、2583优化器张量完整有效，原完整检查点保留；真实验证输入与5090接收通过，Native队列已启动。正式SSR和扩大范围未验收。",
+      "raw_status": "trained_full_CPU_qualified_and_durable",
+      "active_productive": false,
+      "actual_exit_code": 0,
+      "completed_training": true,
       "input_pipeline_continuation": {
         "saved_epoch": 600,
         "saved_global_step": 22838,
@@ -503,14 +503,14 @@
       "method": "DP",
       "object": "glass_beaker_250ml",
       "seed": 26101611,
-      "state": "训练中",
-      "epoch": 781,
+      "state": "原模型与原优化器接续训练中",
+      "epoch": 1101,
       "epochs_target": 3000,
-      "global_step": 35145,
-      "train_loss": 0.00375014403834939,
-      "sampled_utc": "2026-10-11T08:14:21.902650+00:00",
+      "global_step": 49579,
+      "train_loss": 0.001963061047717929,
+      "sampled_utc": "2026-10-11T19:18:47.616099+00:00",
       "formal_accepted": false,
-      "status_note": "完整2.807GB模型、EMA及861项优化器状态通过独立SHA和CPU加载；实际保存45步，旧745步日志保留，从第1轮续接；随机流非精确恢复。",
+      "status_note": "本轮已核实原PID存活及有限优化器更新；原100示范/首帧RGB/8步动作不变，2个取数线程。短窗GPU利用率已测；RNG重启与重做更新已披露。",
       "raw_status": "running",
       "active_productive": true,
       "actual_exit_code": null,
@@ -585,14 +585,14 @@
       "method": "DP",
       "object": "glass_cylinder_100ml",
       "seed": 26101621,
-      "state": "训练中",
-      "epoch": 812,
+      "state": "原模型与原优化器接续训练中",
+      "epoch": 1178,
       "epochs_target": 3000,
-      "global_step": 36569,
-      "train_loss": 0.003996017388999462,
-      "sampled_utc": "2026-10-11T08:14:21.902650+00:00",
+      "global_step": 53052,
+      "train_loss": 0.003405681811273098,
+      "sampled_utc": "2026-10-11T19:18:47.616099+00:00",
       "formal_accepted": false,
-      "status_note": "原ACT正常结束后同卡接续；预定种子及100演示不变，27D/3相机CPU检查及21项传输恢复检查通过；独立验收待完成。",
+      "status_note": "本轮已核实原PID存活及有限优化器更新；原100示范/首帧RGB/8步动作不变，2个取数线程。短窗GPU利用率已测；RNG重启与重做更新已披露。",
       "raw_status": "running",
       "active_productive": true,
       "actual_exit_code": null,
@@ -1570,17 +1570,17 @@
   "servers": [
     {
       "host": "aliyun",
-      "state": "8个新增原DP完整状态已核验完成；其他训练记录按原时间保留",
+      "state": "透明容量瓶原种子接续训练；烧杯完整模型保留",
       "role": "训练",
-      "note": "透明大瓶、250ml烧杯、100ml量筒和酒精灯新增原模型完成3000轮，完整模型/EMA/优化器与计数均已CPU核验。训练完成不等同正式验收；当前GPU活跃数须看实时快照。",
-      "sampled_utc": "2026-10-11T16:22:44.731657+00:00"
+      "note": "1311实际更新和GPU100%快照已核实；烧杯三份原完整检查点、EMA投影及持久化保留。",
+      "sampled_utc": "2026-10-11T19:20:29.953313+00:00"
     },
     {
       "host": "30109",
-      "state": "100ml烧杯2个原DP完成；其他原种子继续",
+      "state": "100ml烧杯三原DP完成；另三原DP实际训练",
       "role": "训练",
-      "note": "521/523原3000轮/114000步完整CPU及Ali冻结通过。250ml烧杯、100ml量筒、酒精灯原输入CPU逐位一致，workers2取数实测快3.2–5.1倍；已部署原完整优化器准入与接续控制器，实际训练加速尚待测。",
-      "sampled_utc": "2026-10-11T18:31:34.438267+00:00"
+      "note": "521/523/525完成3000轮/114000步，已5090接收并启动冻结复测。另611/621/631原输入/完整优化器保持，原三GPU短窗利用率中位数90%/80%/90%；实际更新持续，非长期吞吐倍数。",
+      "sampled_utc": "2026-10-11T19:18:47.616099+00:00"
     },
     {
       "host": "liyufeng_4090",
@@ -1591,10 +1591,10 @@
     },
     {
       "host": "5090",
-      "state": "研钵完整原命令诊断1/3，慢抬升对照进行中",
+      "state": "100ml烧杯三模型冻结复测运行中；研钵诊断继续",
       "role": "采集 / 测试准备",
-      "note": "原0.3m目标和原物理不变；三次持续抬起，两个原姿态门未过。已核验3路1620帧和54选帧，胸前相机目标出画待修。",
-      "sampled_utc": "2026-10-11T18:31:34.438267+00:00"
+      "note": "三原模型完整SHA接收与真实输入CPU通过，共9次预冻结开发复测已启动。研钵慢抬升0/3、被动观测0/1，目标倾斜和胸相机出画仍未过视觉。",
+      "sampled_utc": "2026-10-11T19:23:00.516063+00:00"
     },
     {
       "host": "mainskill",
@@ -7271,25 +7271,25 @@
   "sampled_utc": "2026-10-11T10:40:52.458719+00:00",
   "latest_frontier": {
     "schema": "grasp.t500.actual_frontier.v35",
-    "updated_utc": "2026-10-11T18:31:34.438267+00:00",
+    "updated_utc": "2026-10-11T19:23:16.423635+00:00",
     "formal_accepted_objects": 0,
     "formal_accepted_methods": 0,
     "paper_ssr": null,
     "cards": [
       {
         "title": "原定模型训练",
-        "status": "已核验完成至少61份：28 DP / 33 ACT",
-        "note": "新增100ml烧杯2个及透明容量瓶2个原DP，完整模型、EMA和优化器均已审计并持久化。68个原训练身份不变；5条旧训练记录待更新，2条中断证据保留。"
+        "status": "已核验完成至少62份：29 DP / 33 ACT",
+        "note": "100ml烧杯三份原DP现已全部完成、核验并持久化；68个原训练身份不变。4个原种子仍有实际有限更新，2条中断保留。三卡短窗利用率中位数90% / 80% / 90%。"
       },
       {
         "title": "原模型实际复测",
-        "status": "烧杯/量筒新增12次，终点任务条件均未达标",
-        "note": "曾成功分别0/3、1/3、1/3、3/3；量筒最后种子两次仍抓着但高度不足，另一次落回。36段原录像与2039动作对已核验，所有失败可按模型查看。"
+        "status": "100ml烧杯三原模型：冻结9次开发复测已启动",
+        "note": "3000轮模型、真实验证RGB输入、三模型完整SHA接收已通过，5090物理队列已实际运行；历史94%与本批100示范分别展示，暂无新正式成绩。"
       },
       {
         "title": "研钵物理诊断",
-        "status": "研钵原命令完整抬升1/3，姿态仍需修复",
-        "note": "三次都持续抬起；两次在初段快速抬升时侧倾。新慢抬升对照只改竖直速度，原目标和物理保持；尚无合格新示范。"
+        "status": "研钵慢抬升0/3，实际手指偏差继续排查",
+        "note": "被动观测与原失败717物理行完全一致；初姿态和60帧六手命令已对齐。倾斜、胸部相机出画尚未通过；六路新增原诊断视频可展开查看。"
       }
     ],
     "strict_spatial_scope": "Table11给出终点空间20mm筛查；C.3的SSR检查整条轨迹中适用阶段的全部活动约束。固定最终目标不能作为移动过程中每一帧的目标。严格目标坐标系、旋转阈值和阶段仍待绑定。",
@@ -13308,7 +13308,7 @@
       "all3_original_videos_full_decoded": true,
       "unresolved_glass_white_appearance": true
     },
-    "evidence_url": "verification/T-500-grasp-durable-and-mortar-v38.json",
+    "evidence_url": "verification/T-500-grasp-live-training-and-beaker-v39.json",
     "author_confirmed_paper_object_alias": {
       "schema": "grasp.author_confirmed_paper_object_alias.v1",
       "at_utc": "2026-10-11T15:22:00.679921+00:00",
@@ -14718,7 +14718,7 @@
       "native_successes": 1,
       "original_video_frames_decoded": 1620,
       "actual_sampled_original_frames_reviewed": 54,
-      "note": "保留原训练episode0抓取命令，补足原0.3m目标并保持2秒。三次均持续抬起28.7–29.3cm，原成功1/3；两次在初段快速抬升时侧倾，朝向损失超过原0.05门。三路原录像及54选帧已核验；胸前相机后段目标出画，完整视觉仍未通过。新慢抬升同位置对照已提交，尚未读取结果。不计DP/ACT模型、正式SR或论文SSR。",
+      "note": "保留原训练episode0抓取命令，补足旧运行环境0.3m目标并保持2秒。三次持续抬起28.7–29.3cm，原成功1/3；两次侧倾超过原0.05门。三路原录像1620帧全解码、54选帧已核验；胸前相机后段目标出画，完整视觉仍未通过。慢抬升结果0/3，见下方最新诊断。原采集抬升约0.2m，该0.3m旧协议结果不计正式SR或论文SSR。",
       "physical_demonstrations_qualified": false,
       "full_visual_passed": false,
       "formal_accepted": false,
@@ -14815,6 +14815,538 @@
         "GPU_training_speedup_not_yet_measured": true,
         "source_or_active_processes_modified": false
       }
-    ]
+    ],
+    "mortar_followup": {
+      "note": "慢抬升单因素对照已结束：0/3，未修好侧倾，保留全部失败。被动观测回放0/1，与原失败轨迹717个物理采样逐值相同；前60帧六手指命令逐帧相同，部分手指实际位置偏离原数据。原100轨迹初姿态与回放一致，排除旋转错配。慢抬升及被动三相机原视频共2160帧全解码、72选帧已实际查看；目标侧倾和胸相机出画仍未通过。0.3m是旧环境诊断目标，原采集约0.2m，尚未绑定论文完整SSR，不计DP/ACT成绩。",
+      "slow": {
+        "rows": [
+          {
+            "episode": 1,
+            "native_pose_records": 717,
+            "actual_native_phase_boundaries": {
+              "approach": [
+                0,
+                10
+              ],
+              "descend": [
+                10,
+                17
+              ],
+              "dwell": [
+                17,
+                18
+              ],
+              "grasp": [
+                18,
+                30
+              ],
+              "lift": [
+                30,
+                120
+              ],
+              "hold": [
+                120,
+                180
+              ]
+            },
+            "terminal_object_lift_m": 0.2889036536216736,
+            "terminal_EEF_translation_mm": 12.442180730740533,
+            "terminal_original_pitch_roll_loss": 0.0725386301278282,
+            "peak_original_pitch_roll_loss": 0.11768598858204626,
+            "source_default_MP_orientation_threshold": 0.05,
+            "terminal_fails_source_default_native_orientation_gate": true,
+            "initial_target_quaternion_wxyz": [
+              -1.3100818208044984e-09,
+              -1.5400825059685985e-10,
+              -1.3524212305604522e-10,
+              1.0000001192092896
+            ],
+            "terminal_target_quaternion_wxyz": [
+              0.10683926194906235,
+              0.0558285191655159,
+              0.26348018646240234,
+              0.9571033120155334
+            ],
+            "raw_native_ever_success": false,
+            "actual_terminal_native_success": false,
+            "paper_SSR_gate_bound": false,
+            "formal_accepted": false
+          },
+          {
+            "episode": 2,
+            "native_pose_records": 717,
+            "actual_native_phase_boundaries": {
+              "approach": [
+                0,
+                10
+              ],
+              "descend": [
+                10,
+                17
+              ],
+              "dwell": [
+                17,
+                18
+              ],
+              "grasp": [
+                18,
+                30
+              ],
+              "lift": [
+                30,
+                120
+              ],
+              "hold": [
+                120,
+                180
+              ]
+            },
+            "terminal_object_lift_m": 0.29109829664230347,
+            "terminal_EEF_translation_mm": 12.400874585812852,
+            "terminal_original_pitch_roll_loss": 0.0931681794484919,
+            "peak_original_pitch_roll_loss": 0.0943582408915485,
+            "source_default_MP_orientation_threshold": 0.05,
+            "terminal_fails_source_default_native_orientation_gate": true,
+            "initial_target_quaternion_wxyz": [
+              -1.3100818208044984e-09,
+              -1.5400825059685985e-10,
+              -1.3524212305604522e-10,
+              1.0000001192092896
+            ],
+            "terminal_target_quaternion_wxyz": [
+              0.10390518605709076,
+              0.0668068379163742,
+              0.2978339195251465,
+              0.9465916156768799
+            ],
+            "raw_native_ever_success": false,
+            "actual_terminal_native_success": false,
+            "paper_SSR_gate_bound": false,
+            "formal_accepted": false
+          },
+          {
+            "episode": 3,
+            "native_pose_records": 717,
+            "actual_native_phase_boundaries": {
+              "approach": [
+                0,
+                10
+              ],
+              "descend": [
+                10,
+                17
+              ],
+              "dwell": [
+                17,
+                18
+              ],
+              "grasp": [
+                18,
+                30
+              ],
+              "lift": [
+                30,
+                120
+              ],
+              "hold": [
+                120,
+                180
+              ]
+            },
+            "terminal_object_lift_m": 0.2900239825248718,
+            "terminal_EEF_translation_mm": 12.222126763512387,
+            "terminal_original_pitch_roll_loss": 0.09256879524418331,
+            "peak_original_pitch_roll_loss": 0.09345873602838964,
+            "source_default_MP_orientation_threshold": 0.05,
+            "terminal_fails_source_default_native_orientation_gate": true,
+            "initial_target_quaternion_wxyz": [
+              -1.3100818208044984e-09,
+              -1.5400825059685985e-10,
+              -1.3524212305604522e-10,
+              1.0000001192092896
+            ],
+            "terminal_target_quaternion_wxyz": [
+              0.11160141974687576,
+              0.05956200137734413,
+              0.29836416244506836,
+              0.946031928062439
+            ],
+            "raw_native_ever_success": false,
+            "actual_terminal_native_success": false,
+            "paper_SSR_gate_bound": false,
+            "formal_accepted": false
+          }
+        ],
+        "native_successes": 0,
+        "actual_native_trials": 3,
+        "videos": [
+          {
+            "camera": "chest_camera",
+            "url": "media/grasp-mortar-slow-mp-v39/chest_camera.mp4",
+            "SHA256": "4ca41aadee291d3e1b22b5d18ef909ab8b897ab441eb22729a3fdd22e6781aa8",
+            "duration_s": 18.0,
+            "scope": "慢抬升原训练位置MP诊断，不计DP/ACT成绩"
+          },
+          {
+            "camera": "head_camera",
+            "url": "media/grasp-mortar-slow-mp-v39/head_camera.mp4",
+            "SHA256": "b696363e32732ebdbf7113d752c820f40cc1c0e0883db22dfed4107ee8166bf5",
+            "duration_s": 18.0,
+            "scope": "慢抬升原训练位置MP诊断，不计DP/ACT成绩"
+          },
+          {
+            "camera": "third_camera",
+            "url": "media/grasp-mortar-slow-mp-v39/third_camera.mp4",
+            "SHA256": "31f4e5eb31f22957759d57867768f250ae09aa0407927fb7f7b164eaf324ba94",
+            "duration_s": 18.0,
+            "scope": "慢抬升原训练位置MP诊断，不计DP/ACT成绩"
+          }
+        ]
+      },
+      "passive": {
+        "rows": [
+          {
+            "episode": 1,
+            "native_pose_records": 717,
+            "actual_native_phase_boundaries": {
+              "approach": [
+                0,
+                10
+              ],
+              "descend": [
+                10,
+                17
+              ],
+              "dwell": [
+                17,
+                18
+              ],
+              "grasp": [
+                18,
+                30
+              ],
+              "lift": [
+                30,
+                120
+              ],
+              "hold": [
+                120,
+                180
+              ]
+            },
+            "terminal_object_lift_m": 0.2874165177345276,
+            "terminal_EEF_translation_mm": 12.451937402681425,
+            "terminal_original_pitch_roll_loss": 0.08191791019621655,
+            "peak_original_pitch_roll_loss": 0.08302572054808532,
+            "source_default_MP_orientation_threshold": 0.05,
+            "terminal_fails_source_default_native_orientation_gate": true,
+            "initial_target_quaternion_wxyz": [
+              -1.3100818208044984e-09,
+              -1.5400825059685985e-10,
+              -1.3524212305604522e-10,
+              1.0000001192092896
+            ],
+            "terminal_target_quaternion_wxyz": [
+              0.10592567920684814,
+              0.03648770973086357,
+              0.28387773036956787,
+              0.9522929787635803
+            ],
+            "raw_native_ever_success": false,
+            "actual_terminal_native_success": false,
+            "paper_SSR_gate_bound": false,
+            "formal_accepted": false
+          }
+        ],
+        "native_successes": 0,
+        "actual_native_trials": 1,
+        "videos": [
+          {
+            "camera": "chest_camera",
+            "url": "media/grasp-mortar-passive-mp-v39/chest_camera.mp4",
+            "SHA256": "cc261545e658557e501036eb71353ef820e24e055e81f08630edb307022e6e95",
+            "duration_s": 6.0,
+            "scope": "被动关节观测MP诊断，不计DP/ACT成绩"
+          },
+          {
+            "camera": "head_camera",
+            "url": "media/grasp-mortar-passive-mp-v39/head_camera.mp4",
+            "SHA256": "16193da3bb0b7693ebb8667af842981d2a2f7dd032a5070faba6080f93d3c547",
+            "duration_s": 6.0,
+            "scope": "被动关节观测MP诊断，不计DP/ACT成绩"
+          },
+          {
+            "camera": "third_camera",
+            "url": "media/grasp-mortar-passive-mp-v39/third_camera.mp4",
+            "SHA256": "e7c88c19e7d642e067694abe0a27d0e2129f50b354c67e702212088d229813cb",
+            "duration_s": 6.0,
+            "scope": "被动关节观测MP诊断，不计DP/ACT成绩"
+          }
+        ]
+      },
+      "full_visual_passed": false,
+      "paper_ssr": null,
+      "formal_accepted": false
+    },
+    "three_original_same_GPU_acceleration": {
+      "rows": [
+        {
+          "object": "glass_beaker_250ml",
+          "seed": 26101611,
+          "actual_original_gpu_uuid": "GPU-19cfc8d5-7c01-ff52-9758-7dae661d4ce6",
+          "original_workers0_util_median": 0,
+          "workers2_util_median": 90,
+          "original_workers0_util_mean": 15.333333333333334,
+          "workers2_util_mean": 74.53333333333333,
+          "short_observation_s": 14.00110599398613,
+          "sample_count": 15,
+          "actual_selected_GPU_only_owned_training_PID": 3398422,
+          "actual_finite_training_progress": {
+            "train_loss": 0.0035000385250896215,
+            "global_step": 47430,
+            "epoch": 1054,
+            "lr": 0.00022160702542551485
+          },
+          "CPU_original_full918_model918_EMA861_optimizer_restored": true,
+          "optimizer_reset": false,
+          "input_RGB_first_observation_only": true,
+          "original_full8_action_horizon_unchanged": true,
+          "exact_training_RNG_resume": false,
+          "formal_accepted": false,
+          "paper_ssr": null
+        },
+        {
+          "object": "glass_cylinder_100ml",
+          "seed": 26101621,
+          "actual_original_gpu_uuid": "GPU-4094e82f-a6be-affc-14a0-c8272dd297d3",
+          "original_workers0_util_median": 0,
+          "workers2_util_median": 80,
+          "original_workers0_util_mean": 17.8,
+          "workers2_util_mean": 73.4,
+          "short_observation_s": 14.00110599398613,
+          "sample_count": 15,
+          "actual_selected_GPU_only_owned_training_PID": 3398249,
+          "actual_finite_training_progress": {
+            "train_loss": 0.003979594446718693,
+            "global_step": 50884,
+            "epoch": 1130,
+            "lr": 0.00021062723395266457
+          },
+          "CPU_original_full918_model918_EMA861_optimizer_restored": true,
+          "optimizer_reset": false,
+          "input_RGB_first_observation_only": true,
+          "original_full8_action_horizon_unchanged": true,
+          "exact_training_RNG_resume": false,
+          "formal_accepted": false,
+          "paper_ssr": null
+        },
+        {
+          "object": "alcohol_lamp",
+          "seed": 26101631,
+          "actual_original_gpu_uuid": "GPU-d18a7a59-e5e9-7685-e4f9-8bdadad1de83",
+          "original_workers0_util_median": 0,
+          "workers2_util_median": 90,
+          "original_workers0_util_mean": 12.733333333333333,
+          "workers2_util_mean": 64.4,
+          "short_observation_s": 14.00110599398613,
+          "sample_count": 15,
+          "actual_selected_GPU_only_owned_training_PID": 3403448,
+          "actual_finite_training_progress": {
+            "train_loss": 0.004055595491081476,
+            "global_step": 51508,
+            "epoch": 1170,
+            "lr": 0.000204851122480934
+          },
+          "CPU_original_full918_model918_EMA861_optimizer_restored": true,
+          "optimizer_reset": false,
+          "input_RGB_first_observation_only": true,
+          "original_full8_action_horizon_unchanged": true,
+          "exact_training_RNG_resume": false,
+          "formal_accepted": false,
+          "paper_ssr": null
+        }
+      ],
+      "sample_count": 15,
+      "observation_s": 14.00110599398613,
+      "short_window_only": true,
+      "long_run_throughput_factor": null,
+      "exact_training_RNG_resume": false,
+      "note": "相同原GPU在15个一秒采样中利用率中位数90%、80%、90%；完整原模型/EMA/优化器已恢复，原100示范、首帧RGB及8步动作保持。不能把该短窗利用率或CPU取数加速当成长时GPU吞吐倍数。"
+    },
+    "three_Beaker100_original_DP_native_queue": {
+      "seeds": [
+        26101521,
+        26101523,
+        26101525
+      ],
+      "epoch": 3000,
+      "global_step": 114000,
+      "actual_original_validation_CPU_passed": true,
+      "all_three_actual_original_EMA_fullSHA_5090_received": true,
+      "prospective_fixed_trials": 9,
+      "actual_queue_snapshot": {
+        "read_only": true,
+        "at_utc": "2026-10-11T19:23:00.516063+00:00",
+        "rows": [
+          {
+            "object": "glass_beaker_100ml",
+            "seed": 26101521,
+            "status.json": {
+              "status": "running",
+              "started_utc": "2026-10-11T19:18:30.818766+00:00",
+              "training_seed": 26101521,
+              "formal_accepted": false,
+              "paper_ssr": null,
+              "at_utc": "2026-10-11T19:22:54.858764+00:00",
+              "gpu_csv": "GPU-828bb172-121c-cc55-7f4f-ef09a2bd7599, 31299",
+              "stable_samples": 2,
+              "owned_resource_locks_released_while_waiting": true,
+              "original_18GiB_threshold_unchanged": true,
+              "child_cpu_affinity": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "final_admission_gpu": "GPU-828bb172-121c-cc55-7f4f-ef09a2bd7599, 31299",
+              "warm_shader_cache": null,
+              "pid": 1558006,
+              "start_ticks": "186923970",
+              "actual_GPU_csv": "GPU-828bb172-121c-cc55-7f4f-ef09a2bd7599, 21291, 65",
+              "actual_min_free_GPU_MiB": 21291,
+              "episodes_completed": 0
+            },
+            "spatial_components.json": {
+              "schema": "grasp.t500.prospective.spatial_components.v1",
+              "episodes_completed": 0,
+              "expected_episodes": 3,
+              "success_count": 0,
+              "success_rate": null,
+              "success_and_terminal_translation_20mm_count": 0,
+              "success_and_terminal_translation_20mm_rate": null,
+              "terminal_translation_mean_mm": null,
+              "paper_ssr": null,
+              "paper_ssr_unknown_reason": "Authoritative strict target reference and active phases are unbound; fixed terminal translation is a development proxy. Full trajectory geometry and visual acceptance pending; paper spatial numeric orientation cutoff is unspecified.",
+              "formal_accepted": false,
+              "test_scope": "First three positions of each pre-frozen object-specific original ±2cm uniform cohort, replicates0/1/2 frozen before this test, preserving all three original training seeds; original completed model selection, full6s/default physical resets. Development only; formal50 per seed, all safety constraints and whole visual remain open.",
+              "protocol_sha256": "905811be9ea70a2e41e0ffa7846624611e9587e20490d4d65e01e7b74b22ce08",
+              "reset_invocations": 0,
+              "observer_extra_camera_data_reads": 0,
+              "observer_extra_physics_calls": 0,
+              "camera_capture_rate_hz": 30.0,
+              "pose_check_rate_hz": 120.0,
+              "video_timebase": "one frame per unique native policy-observation time; fps=1/step_dt; final physical substeps use last observed RGB",
+              "observer_policy_predictions": 0,
+              "original_success_predicate_calls_per_done": 1,
+              "cohorts": {
+                "uniform+0cm": {
+                  "expected_episodes": 3,
+                  "episodes_completed": 0,
+                  "success_count": 0,
+                  "translation_component_count": 0,
+                  "actual_outside_count": 0,
+                  "paper_ssr": null,
+                  "formal_accepted": false,
+                  "success_rate": null,
+                  "translation_component_rate": null
+                }
+              },
+              "frozen_matrix_sha256": "d758b7a57aab1afdda8201306c26a6e586ebf9a269f96d2cb289ea20ad0dc2fa",
+              "camera_source": "already returned native _get_raw_observations RGB tensors; observer never accesses Camera.data"
+            },
+            "ACTUAL_DP5090_PHYSICS_RENDER_TORCH_WITNESS_V1225.json": {
+              "passed": true,
+              "actual_torch_gpu_uuid": "GPU-828bb172-121c-cc55-7f4f-ef09a2bd7599",
+              "torch_gpu_name": "NVIDIA GeForce RTX 5090",
+              "renderer_activeGpu": 1,
+              "physics_cudaDevice": 1,
+              "multiGPU_enabled": false,
+              "formal_accepted": false
+            },
+            "ACTUAL_ALL21_NAMED_ORIGINAL_ASSET_CONFIGURATION_BINDING_V1336.json": {
+              "passed": true,
+              "at_utc": "2026-10-11T19:21:49.888250+00:00",
+              "object": "glass_beaker_100ml",
+              "task": "Psi-IL-Grasp-v2",
+              "actual_target_key": "bottle",
+              "previous_scene_asset": "/home/liyufeng/lyf-back/chembench/psilab/assets/usd/asset_collection/sim_ready/solid_assets_all/glass_beaker_100ml/Beaker003.usd",
+              "configured_named_original_USD": "/data/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/all21_author_confirmed_assets_private_CPU_v1342/solid_assets_all/glass_beaker_100ml/Beaker003.usd",
+              "actual_original_USD_SHA256": "ee17fdf71fa0d14175dcd327909c51501212b70949dbed7cd1ae135a50621018",
+              "actual_source_manifest_SHA256": "8998d3fec212a018ae8eee06fb87d82187615619ccfa1400a16c62dd75e7c5d5",
+              "actual_USD_and_texture_files_fullSHA": 5,
+              "silent_fallback_refused": true,
+              "original_scale_mass_rigid_properties_and_initial_state_unchanged": true,
+              "source_USD_and_texture_bytes_unchanged": true,
+              "unresolved_builtin_MDL_identifiers": [
+                "OmniGlass.mdl",
+                "OmniPBR.mdl"
+              ],
+              "runtime_material_and_whole_visual_qualified": false,
+              "dataset_collection_asset_fullSHA_bound": false,
+              "shared_project_changed": false,
+              "model_changed": false,
+              "dataset_changed": false,
+              "formal_accepted": false,
+              "paper_ssr": null
+            },
+            "ACTUAL_DP_ORIGINAL_EMA_NATIVE_INPUT_CONTRACT_V1225.json": {
+              "passed": true,
+              "training_seed": 26101521,
+              "actual_GPU_loaded_EMA_fingerprint": {
+                "tensor_count": 918,
+                "ordered_tensor_bytes_SHA256": "59447468aac96d473f67882c9555455a41690777a30947510b692a7170a8a9f5"
+              },
+              "n_obs_steps": 1,
+              "state_dimensions": 27,
+              "action_dim": 13,
+              "action_horizon": 8,
+              "actual_normalizer_fields": [
+                "action",
+                "arm2_eef_pos",
+                "arm2_eef_quat",
+                "arm2_pos",
+                "chest_camera_rgb",
+                "hand2_pos",
+                "head_camera_rgb",
+                "target_pose",
+                "third_camera_rgb"
+              ],
+              "actual_loaded_encoder_source": "/data/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/three_Beaker100_original_DP_EMA_and_source_closure_CPU_v1424/BrownLarge_DP_exact_training_serving_sources_v124/psi_dp/model/vision/timm_obs_encoder.py",
+              "recorded_training_state_injected": false,
+              "formal_accepted": false,
+              "paper_ssr": null
+            }
+          },
+          {
+            "object": "glass_beaker_100ml",
+            "seed": 26101523
+          },
+          {
+            "object": "glass_beaker_100ml",
+            "seed": 26101525
+          }
+        ],
+        "formal_accepted": false,
+        "paper_ssr": null,
+        "queue": {
+          "status": "dispatching_three_preselected_original_DP_fixed3",
+          "finished": [],
+          "formal_accepted": false,
+          "paper_ssr": null,
+          "at_utc": "2026-10-11T19:18:30.780819+00:00",
+          "current_original_seed": 26101521,
+          "controller_pid": 1554759,
+          "controller_start_ticks": "186919720"
+        }
+      },
+      "note": "三份原100示范DP均已完成3000轮/114000步，完整状态核验、真实验证RGB推理和5090完整哈希接收通过。按事先冻结的三个种子各取±2cm组前三位置，共9次开发复测；三份依次在5090实际运行，见带时间的状态快照。位置未据成绩重选，全部模型保留；正式50次、±3/4/5cm扩大范围、论文SSR及完整视觉待验收。历史94%使用400示范，不能合并计算。",
+      "paper_goal_protocol_bound": false,
+      "formal_accepted": false,
+      "paper_ssr": null
+    }
   }
 }
