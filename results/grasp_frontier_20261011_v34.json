@@ -1,0 +1,1623 @@
+{
+  "schema": "grasp.t500.actual_frontier.v34",
+  "updated_utc": "2026-10-11T12:51:54.819452+00:00",
+  "formal_accepted_objects": 0,
+  "formal_accepted_methods": 0,
+  "paper_ssr": null,
+  "cards": [
+    {
+      "title": "原定模型训练",
+      "status": "51份训练完成，15路训练中",
+      "note": "透明大试剂瓶三个原DP种子均已完成3000轮，三个原ACT验证最佳模型均保持原始选择规则；总体51完成/15运行是此前逐份核验快照，当前原模型复测继续。"
+    },
+    {
+      "title": "原生复测与资产核对",
+      "status": "透明大瓶：范围外DP7/9，另一原DP终点保持2/3",
+      "note": "新增36段原视频。+1/+2/+3cm各3例：3/3、2/3、2/3，20mm分量均未通过；另一原DP曾成功3/3但末次落瓶。ACT三原模型已到测试机，真实速度观测接口修复后复测中。"
+    },
+    {
+      "title": "训练读取加速",
+      "status": "原始GPU短时试跑约1.87倍",
+      "note": "512个输入、四步损失及更新后的优化器一致。完整训练已接续，新检查点核验通过；稳定完整训练吞吐继续测量。"
+    }
+  ],
+  "strict_spatial_scope": "Table11给出终点空间20mm筛查；C.3的SSR检查整条轨迹中适用阶段的全部活动约束。固定最终目标不能作为移动过程中每一帧的目标。严格目标坐标系、旋转阈值和阶段仍待绑定。",
+  "full_scene_metric_diagnostic": {
+    "source_evidence_SHA256": "7b58b0daca0a13875bb602795f73313149c72fd36278eadc8655e548618a2f14",
+    "same_native_direct_solver_frames": 1487,
+    "actual_visible_meshes": 66,
+    "actual_full_surface_pair_checks": 927888,
+    "full_visual_qualified": false,
+    "formal_accepted": false
+  },
+  "glass_renderer_ABBA": {
+    "original_RGB_images_reviewed": 24,
+    "control": "worldEps1 →0.001 →0.001 →1",
+    "all_original_shader_inputs_and_solver_states_unchanged": true,
+    "white_body_persists": true,
+    "production_fix_selected": false,
+    "producer_SHA256": "f2d7fec46176c96956508cb646cbf480c595dadadf08175d205ffb01fb2c1ef0",
+    "images": [
+      {
+        "camera": "chest",
+        "url": "media/grasp_latest_glass_worldeps_v31/chest.png",
+        "SHA256": "a01c5470cb5d8eb78a1084c5fac8973c6f4f7fb782ee258b905f6df468f094a1"
+      },
+      {
+        "camera": "head",
+        "url": "media/grasp_latest_glass_worldeps_v31/head.png",
+        "SHA256": "3b001dd0f92e8274ac7ce624eefc96f085d6934a224258030ceed2d0ab36633c"
+      },
+      {
+        "camera": "third",
+        "url": "media/grasp_latest_glass_worldeps_v31/third.png",
+        "SHA256": "e314ddf738657bb829bfe73ae679eaa8937807c1e3364eb65759f222291050f0"
+      }
+    ]
+  },
+  "input_cpu_canary": {
+    "original_samples_per_s": 33.18522049803135,
+    "optimized_workers2_samples_per_s": 70.45854566616043,
+    "ratio": 2.1231905230323918,
+    "same_batched_input_samples": 512,
+    "GPU_training_speed_measured": false,
+    "original_optimizer_reset": false
+  },
+  "training_gpu_canary": {
+    "passed": true,
+    "same_batched_input_samples": 512,
+    "same_input_loss_and_post_optimizer": true,
+    "original_samples_per_s": 36.18250120784747,
+    "optimized_samples_per_s": 67.61699424692125,
+    "diagnostic_ratio": 1.8687761207690108,
+    "full_production_throughput_proved": false,
+    "optimizer_reset": false
+  },
+  "original_fullstate_continuation": {
+    "actual_started": true,
+    "original_cpu_restore_passed": true,
+    "first_production_full_optimizer_CPU_passed": true,
+    "saved_checkpoint_epoch": 1200,
+    "resumed_epoch": 1201,
+    "resumed_global_step": 54045,
+    "replayed_updates": 672,
+    "exact_training_trajectory_resume": false,
+    "logical_seed_count_increase": 0,
+    "original_empty_training_validation_preserved": true,
+    "evidence_url": "verification/T-500-grasp-original-continuation-v32.json"
+  },
+  "original_ClearLarge_DP_development_pilot": {
+    "completed": true,
+    "sampled_utc": "2026-10-11T10:48:32.484041+00:00",
+    "episodes": 3,
+    "successes": 0,
+    "success_rate": 0.0,
+    "terminal_translation_errors_mm": [
+      209.92544994856775,
+      167.34035566478104,
+      228.2955033156481
+    ],
+    "physical_terminal_hold_count": 0,
+    "returned_and_executed_action_pairs": 538,
+    "actual_source_pins_preserved": true,
+    "development_horizon_s": 6,
+    "position_box_half_range_cm": 2,
+    "formal_accepted": false,
+    "paper_ssr": null,
+    "full_visual_passed": false,
+    "object_task_SR_qualified": false,
+    "actual_loaded_asset": "glass_beaker_100ml/Beaker003.usd",
+    "wrong_object_silent_fallback_confirmed": true,
+    "excluded_from_requested_object_SR": true,
+    "raw_original_results_preserved": true
+  },
+  "correct_original_ClearLarge_DP_development_pilot": {
+    "completed": true,
+    "completed_utc": "2026-10-11T11:21:11.859499+00:00",
+    "original_training_seed": 26101601,
+    "episodes": 3,
+    "successes": 3,
+    "success_rate": 1.0,
+    "terminal_hold_count": 3,
+    "terminal20mm_component_count": 0,
+    "terminal_translation_errors_mm": [
+      26.270442708781566,
+      46.07730548478725,
+      57.56557868379228
+    ],
+    "returned_and_executed_action_pairs": 538,
+    "decoded_original_videos": 9,
+    "decoded_frames": 1614,
+    "original_asset_fullSHA_bound": true,
+    "original_USD_SHA256": "0275b501d41b9ff23d4f920aaf17a4d0a94f391a3fb129297f936e4790c4f19b",
+    "original_asset_and_texture_files": 8,
+    "actual_physical_GPU_UUID": "GPU-b129224c-c735-a03f-de6c-185d2a2724b1",
+    "actual_renderer_GPU": 0,
+    "actual_physics_GPU": 0,
+    "prior_prototype_GPU1_metadata_inconsistent_actual_GPU0_witness_authoritative": true,
+    "actual_source_pins_preserved": true,
+    "development_horizon_s": 6,
+    "position_box_half_range_cm": 2,
+    "collection_GPU_model_qualified": false,
+    "paper_ssr": null,
+    "formal_accepted": false,
+    "full_visual_passed": false,
+    "sampled_visual_frames": 54,
+    "sampled_visual_note": "头部与第三人称抽查显示持瓶到末帧；胸部升高后目标出画。未据抽查宣称全程无穿模或材质正常。",
+    "candidate": "t500-native-dp-clearlargeseed26101601-correct-original-asset-v33",
+    "comparison_image": {
+      "url": "media/grasp-clearlargedp-original-asset-v33/original_training_wrong_and_correct_asset.png",
+      "SHA256": "c66492e5f74ee92eb5ad0ab9ec7142e42191f651d519c92cb441f1340bac1ffd",
+      "width": 1088,
+      "height": 1548,
+      "note": "原采集、错误资产与正确资产的原始首帧。不同重置状态/有损视频，仅作对象身份核对，不是同状态渲染因果对照。"
+    },
+    "evidence_url": "verification/T-500-grasp-original-object-binding-v33.json"
+  },
+  "private_original_asset_catalog": {
+    "actual_named_objects": 20,
+    "actual_file_fullSHA_verified": 106,
+    "unmapped_object": "paper_crucible",
+    "runtime_qualified": false,
+    "shared_assets_edited": false
+  },
+  "ClearLarge_original_outside9_development": {
+    "controller_launched": true,
+    "launch_utc": "2026-10-11T11:43:09.481082+00:00",
+    "predeclared_cases": 9,
+    "cohorts": {
+      "outside_only+1cm": {
+        "expected_episodes": 3,
+        "episodes_completed": 3,
+        "success_count": 3,
+        "translation_component_count": 0,
+        "actual_outside_count": 3,
+        "paper_ssr": null,
+        "formal_accepted": false,
+        "success_rate": 1.0,
+        "translation_component_rate": 0.0
+      },
+      "outside_only+2cm": {
+        "expected_episodes": 3,
+        "episodes_completed": 3,
+        "success_count": 2,
+        "translation_component_count": 0,
+        "actual_outside_count": 3,
+        "paper_ssr": null,
+        "formal_accepted": false,
+        "success_rate": 0.6666666666666666,
+        "translation_component_rate": 0.0
+      },
+      "outside_only+3cm": {
+        "expected_episodes": 3,
+        "episodes_completed": 3,
+        "success_count": 2,
+        "translation_component_count": 0,
+        "actual_outside_count": 3,
+        "paper_ssr": null,
+        "formal_accepted": false,
+        "success_rate": 0.6666666666666666,
+        "translation_component_rate": 0.0
+      }
+    },
+    "source_matrix_SHA256": "d758b7a57aab1afdda8201306c26a6e586ebf9a269f96d2cb289ea20ad0dc2fa",
+    "results_pending": true,
+    "formal_accepted": false,
+    "paper_ssr": null,
+    "completed": true,
+    "actual_closed_exit_code": 0,
+    "successes": 7,
+    "terminal_hold_count": 7,
+    "episodes": 9,
+    "terminal20mm_component_count": 0,
+    "candidate": "t500-native-dp-clearlargeseed26101601-outside9-original-asset-v34",
+    "original_videos": 27,
+    "full_visual_passed": false
+  },
+  "original_ClearLarge_DP1603_development": {
+    "candidate": "t500-native-dp-clearlargeseed26101603-fixed3-original-asset-v34",
+    "training_seed": 26101603,
+    "kind": "fixed3",
+    "episodes": 3,
+    "ever_success_count": 3,
+    "terminal_hold_count": 2,
+    "terminal20mm_component_count": 0,
+    "cohorts": {
+      "uniform_box+0cm": {
+        "expected_episodes": 3,
+        "episodes_completed": 3,
+        "success_count": 3,
+        "translation_component_count": 0,
+        "actual_outside_count": 0,
+        "paper_ssr": null,
+        "formal_accepted": false,
+        "success_rate": 1.0,
+        "translation_component_rate": 0.0
+      }
+    },
+    "terminal_translation_errors_mm": [
+      23.588820804595514,
+      52.69309160784289,
+      246.97845902545052
+    ],
+    "actual_outcomes": [
+      {
+        "type": "outcome",
+        "episode": 1,
+        "success": true,
+        "failure": false,
+        "timeout": true,
+        "eef_translation_error_mm": 23.588820804595514,
+        "eef_rotation_error_rad": 0.04401510685071473,
+        "translation_within_20mm": false,
+        "success_and_terminal_translation_20mm": false,
+        "collision_check": null,
+        "orientation_cutoff_rad": null,
+        "paper_ssr": null,
+        "formal_accepted": false,
+        "first_relaxed_success": {
+          "done_check_index": 208,
+          "eef_translation_error_mm": 95.04757118284968,
+          "eef_rotation_error_rad": 0.048846097624200405,
+          "translation_within_20mm": false
+        },
+        "terminal_object_lift_m": 0.29258906841278076,
+        "terminal_object_xy_drift_m": 0.026571063083972956,
+        "physical_lift_region_at_terminal": true,
+        "cohort": "uniform_box+0cm",
+        "cohort_episode": 1,
+        "requested_offset_m": [
+          0.01596888341510878,
+          0.018302967053007862,
+          0.0
+        ],
+        "actual_initial_xy_offset_m": [
+          0.015819907188415527,
+          0.018587112426757812
+        ],
+        "outside_collection_box_actual": false
+      },
+      {
+        "type": "outcome",
+        "episode": 2,
+        "success": true,
+        "failure": false,
+        "timeout": true,
+        "eef_translation_error_mm": 52.69309160784289,
+        "eef_rotation_error_rad": 0.1530336270124538,
+        "translation_within_20mm": false,
+        "success_and_terminal_translation_20mm": false,
+        "collision_check": null,
+        "orientation_cutoff_rad": null,
+        "paper_ssr": null,
+        "formal_accepted": false,
+        "first_relaxed_success": {
+          "done_check_index": 216,
+          "eef_translation_error_mm": 94.57261838630785,
+          "eef_rotation_error_rad": 0.03836995960617685,
+          "translation_within_20mm": false
+        },
+        "terminal_object_lift_m": 0.3214203119277954,
+        "terminal_object_xy_drift_m": 0.055715476302345066,
+        "physical_lift_region_at_terminal": true,
+        "cohort": "uniform_box+0cm",
+        "cohort_episode": 2,
+        "requested_offset_m": [
+          -0.015086221731176628,
+          0.0024396704922475497,
+          0.0
+        ],
+        "actual_initial_xy_offset_m": [
+          -0.015153884887695312,
+          0.002472400665283203
+        ],
+        "outside_collection_box_actual": false
+      },
+      {
+        "type": "outcome",
+        "episode": 3,
+        "success": true,
+        "failure": false,
+        "timeout": true,
+        "eef_translation_error_mm": 246.97845902545052,
+        "eef_rotation_error_rad": 1.2088338079824401,
+        "translation_within_20mm": false,
+        "success_and_terminal_translation_20mm": false,
+        "collision_check": null,
+        "orientation_cutoff_rad": null,
+        "paper_ssr": null,
+        "formal_accepted": false,
+        "first_relaxed_success": {
+          "done_check_index": 211,
+          "eef_translation_error_mm": 85.63793226759809,
+          "eef_rotation_error_rad": 0.046993332958430625,
+          "translation_within_20mm": false
+        },
+        "terminal_object_lift_m": -0.034687578678131104,
+        "terminal_object_xy_drift_m": 0.1640964289355571,
+        "physical_lift_region_at_terminal": false,
+        "cohort": "uniform_box+0cm",
+        "cohort_episode": 3,
+        "requested_offset_m": [
+          0.019014266538802473,
+          -0.004658108350253492,
+          0.0
+        ],
+        "actual_initial_xy_offset_m": [
+          0.0189591646194458,
+          -0.004633903503417969
+        ],
+        "outside_collection_box_actual": false
+      }
+    ],
+    "decoded_original_videos": 9,
+    "actual_decoded_frames": 1614,
+    "exact_returned_and_executed_action_pairs": 538,
+    "sampled_original_frames_reviewed": 54,
+    "full_visual_passed": false,
+    "formal_accepted": false,
+    "paper_ssr": null,
+    "source_video_manifest": [
+      {
+        "relative": "media/episode_001_chest_camera.mp4",
+        "bytes": 323062,
+        "SHA256": "966b9597df7581a7c651f6e39c4dbae082d71102a4c51f84bc4e530387430836",
+        "actual_decoded_frames": 180,
+        "fps": 30.0,
+        "selected_original_frame_indices": [
+          0,
+          36,
+          72,
+          107,
+          143,
+          179
+        ],
+        "duration_s": 6.0
+      },
+      {
+        "relative": "media/episode_001_head_camera.mp4",
+        "bytes": 733066,
+        "SHA256": "bf17b0d8feaa080ae65811ad4704a0640ca1d11ca77ed328c5d82f91bb35f8ec",
+        "actual_decoded_frames": 180,
+        "fps": 30.0,
+        "selected_original_frame_indices": [
+          0,
+          36,
+          72,
+          107,
+          143,
+          179
+        ],
+        "duration_s": 6.0
+      },
+      {
+        "relative": "media/episode_001_third_camera.mp4",
+        "bytes": 492666,
+        "SHA256": "f94752768d8258c6ed447ccf040f6847213d9f10407762e9bb609d9ab02a7738",
+        "actual_decoded_frames": 180,
+        "fps": 30.0,
+        "selected_original_frame_indices": [
+          0,
+          36,
+          72,
+          107,
+          143,
+          179
+        ],
+        "duration_s": 6.0
+      },
+      {
+        "relative": "media/episode_002_chest_camera.mp4",
+        "bytes": 359237,
+        "SHA256": "f2923c72acb77742ff237c9d94c5a1c168c32e1308b5fe13103df72be4e4a5a7",
+        "actual_decoded_frames": 179,
+        "fps": 30.0,
+        "selected_original_frame_indices": [
+          0,
+          36,
+          71,
+          107,
+          142,
+          178
+        ],
+        "duration_s": 5.966666666666667
+      },
+      {
+        "relative": "media/episode_002_head_camera.mp4",
+        "bytes": 756913,
+        "SHA256": "0a5d133ea8cec8f7d36560a76f371d38df6b9a80721a8adeed2758c7087d9694",
+        "actual_decoded_frames": 179,
+        "fps": 30.0,
+        "selected_original_frame_indices": [
+          0,
+          36,
+          71,
+          107,
+          142,
+          178
+        ],
+        "duration_s": 5.966666666666667
+      },
+      {
+        "relative": "media/episode_002_third_camera.mp4",
+        "bytes": 524383,
+        "SHA256": "c7f5387195e8792b854decbffb376d2bbefe437513b54e25e2169644518396d2",
+        "actual_decoded_frames": 179,
+        "fps": 30.0,
+        "selected_original_frame_indices": [
+          0,
+          36,
+          71,
+          107,
+          142,
+          178
+        ],
+        "duration_s": 5.966666666666667
+      },
+      {
+        "relative": "media/episode_003_chest_camera.mp4",
+        "bytes": 350481,
+        "SHA256": "d3f3d5695166d2480474c6e77305f10db0359bb22235e491e31907d46a5bf0c4",
+        "actual_decoded_frames": 179,
+        "fps": 30.0,
+        "selected_original_frame_indices": [
+          0,
+          36,
+          71,
+          107,
+          142,
+          178
+        ],
+        "duration_s": 5.966666666666667
+      },
+      {
+        "relative": "media/episode_003_head_camera.mp4",
+        "bytes": 640123,
+        "SHA256": "2428967e424c18bbb020cd8b497fccc6ff99ba880bcd24530a6b5e572e5f3148",
+        "actual_decoded_frames": 179,
+        "fps": 30.0,
+        "selected_original_frame_indices": [
+          0,
+          36,
+          71,
+          107,
+          142,
+          178
+        ],
+        "duration_s": 5.966666666666667
+      },
+      {
+        "relative": "media/episode_003_third_camera.mp4",
+        "bytes": 521960,
+        "SHA256": "54bcb831f94da4a6aa3eae0c35e32bebd410fed96f2444268cff0bfd8afe4da6",
+        "actual_decoded_frames": 179,
+        "fps": 30.0,
+        "selected_original_frame_indices": [
+          0,
+          36,
+          71,
+          107,
+          142,
+          178
+        ],
+        "duration_s": 5.966666666666667
+      }
+    ]
+  },
+  "actual_new_original_development_results": [
+    {
+      "candidate": "t500-native-dp-clearlargeseed26101601-outside9-original-asset-v34",
+      "training_seed": 26101601,
+      "kind": "outside9",
+      "episodes": 9,
+      "ever_success_count": 7,
+      "terminal_hold_count": 7,
+      "terminal20mm_component_count": 0,
+      "cohorts": {
+        "outside_only+1cm": {
+          "expected_episodes": 3,
+          "episodes_completed": 3,
+          "success_count": 3,
+          "translation_component_count": 0,
+          "actual_outside_count": 3,
+          "paper_ssr": null,
+          "formal_accepted": false,
+          "success_rate": 1.0,
+          "translation_component_rate": 0.0
+        },
+        "outside_only+2cm": {
+          "expected_episodes": 3,
+          "episodes_completed": 3,
+          "success_count": 2,
+          "translation_component_count": 0,
+          "actual_outside_count": 3,
+          "paper_ssr": null,
+          "formal_accepted": false,
+          "success_rate": 0.6666666666666666,
+          "translation_component_rate": 0.0
+        },
+        "outside_only+3cm": {
+          "expected_episodes": 3,
+          "episodes_completed": 3,
+          "success_count": 2,
+          "translation_component_count": 0,
+          "actual_outside_count": 3,
+          "paper_ssr": null,
+          "formal_accepted": false,
+          "success_rate": 0.6666666666666666,
+          "translation_component_rate": 0.0
+        }
+      },
+      "terminal_translation_errors_mm": [
+        47.95098407612673,
+        34.50950068731512,
+        43.577894032558575,
+        32.199791751501216,
+        23.397070700073748,
+        284.118053332669,
+        255.7107006975896,
+        49.86025521365404,
+        39.11194128391827
+      ],
+      "actual_outcomes": [
+        {
+          "type": "outcome",
+          "episode": 1,
+          "success": true,
+          "failure": false,
+          "timeout": true,
+          "eef_translation_error_mm": 47.95098407612673,
+          "eef_rotation_error_rad": 0.027359190583246797,
+          "translation_within_20mm": false,
+          "success_and_terminal_translation_20mm": false,
+          "collision_check": null,
+          "orientation_cutoff_rad": null,
+          "paper_ssr": null,
+          "formal_accepted": false,
+          "first_relaxed_success": {
+            "done_check_index": 218,
+            "eef_translation_error_mm": 98.66317173765822,
+            "eef_rotation_error_rad": 0.03641233066613065,
+            "translation_within_20mm": false
+          },
+          "terminal_object_lift_m": 0.3021928071975708,
+          "terminal_object_xy_drift_m": 0.06624297404500115,
+          "physical_lift_region_at_terminal": true,
+          "cohort": "outside_only+1cm",
+          "cohort_episode": 1,
+          "requested_offset_m": [
+            -0.027008996358369206,
+            -0.025204701166033714,
+            0.0
+          ],
+          "actual_initial_xy_offset_m": [
+            -0.027172207832336426,
+            -0.024909019470214844
+          ],
+          "outside_collection_box_actual": true
+        },
+        {
+          "type": "outcome",
+          "episode": 2,
+          "success": true,
+          "failure": false,
+          "timeout": true,
+          "eef_translation_error_mm": 34.50950068731512,
+          "eef_rotation_error_rad": 0.02612347546093153,
+          "translation_within_20mm": false,
+          "success_and_terminal_translation_20mm": false,
+          "collision_check": null,
+          "orientation_cutoff_rad": null,
+          "paper_ssr": null,
+          "formal_accepted": false,
+          "first_relaxed_success": {
+            "done_check_index": 214,
+            "eef_translation_error_mm": 100.3353183334775,
+            "eef_rotation_error_rad": 0.03435655391157495,
+            "translation_within_20mm": false
+          },
+          "terminal_object_lift_m": 0.29602348804473877,
+          "terminal_object_xy_drift_m": 0.06788448494010603,
+          "physical_lift_region_at_terminal": true,
+          "cohort": "outside_only+1cm",
+          "cohort_episode": 2,
+          "requested_offset_m": [
+            -0.02954382630306651,
+            -0.011649108571558507,
+            0.0
+          ],
+          "actual_initial_xy_offset_m": [
+            -0.029600858688354492,
+            -0.011623382568359375
+          ],
+          "outside_collection_box_actual": true
+        },
+        {
+          "type": "outcome",
+          "episode": 3,
+          "success": true,
+          "failure": false,
+          "timeout": true,
+          "eef_translation_error_mm": 43.577894032558575,
+          "eef_rotation_error_rad": 0.04151980121689117,
+          "translation_within_20mm": false,
+          "success_and_terminal_translation_20mm": false,
+          "collision_check": null,
+          "orientation_cutoff_rad": null,
+          "paper_ssr": null,
+          "formal_accepted": false,
+          "first_relaxed_success": {
+            "done_check_index": 209,
+            "eef_translation_error_mm": 87.77362019412405,
+            "eef_rotation_error_rad": 0.038359912497356895,
+            "translation_within_20mm": false
+          },
+          "terminal_object_lift_m": 0.2882394790649414,
+          "terminal_object_xy_drift_m": 0.024490744174171207,
+          "physical_lift_region_at_terminal": true,
+          "cohort": "outside_only+1cm",
+          "cohort_episode": 3,
+          "requested_offset_m": [
+            0.00557690061712398,
+            0.02514121960445414,
+            0.0
+          ],
+          "actual_initial_xy_offset_m": [
+            0.00552213191986084,
+            0.025168418884277344
+          ],
+          "outside_collection_box_actual": true
+        },
+        {
+          "type": "outcome",
+          "episode": 4,
+          "success": true,
+          "failure": false,
+          "timeout": true,
+          "eef_translation_error_mm": 32.199791751501216,
+          "eef_rotation_error_rad": 0.05588816650846845,
+          "translation_within_20mm": false,
+          "success_and_terminal_translation_20mm": false,
+          "collision_check": null,
+          "orientation_cutoff_rad": null,
+          "paper_ssr": null,
+          "formal_accepted": false,
+          "first_relaxed_success": {
+            "done_check_index": 212,
+            "eef_translation_error_mm": 92.47642404037805,
+            "eef_rotation_error_rad": 0.051873812120128794,
+            "translation_within_20mm": false
+          },
+          "terminal_object_lift_m": 0.29911112785339355,
+          "terminal_object_xy_drift_m": 0.05453793607228004,
+          "physical_lift_region_at_terminal": true,
+          "cohort": "outside_only+2cm",
+          "cohort_episode": 1,
+          "requested_offset_m": [
+            0.035865917281022584,
+            -0.00488938148740669,
+            0.0
+          ],
+          "actual_initial_xy_offset_m": [
+            0.035819292068481445,
+            -0.0048675537109375
+          ],
+          "outside_collection_box_actual": true
+        },
+        {
+          "type": "outcome",
+          "episode": 5,
+          "success": true,
+          "failure": false,
+          "timeout": true,
+          "eef_translation_error_mm": 23.397070700073748,
+          "eef_rotation_error_rad": 0.03274974687168867,
+          "translation_within_20mm": false,
+          "success_and_terminal_translation_20mm": false,
+          "collision_check": null,
+          "orientation_cutoff_rad": null,
+          "paper_ssr": null,
+          "formal_accepted": false,
+          "first_relaxed_success": {
+            "done_check_index": 211,
+            "eef_translation_error_mm": 91.5482941466216,
+            "eef_rotation_error_rad": 0.0436104898672012,
+            "translation_within_20mm": false
+          },
+          "terminal_object_lift_m": 0.29464423656463623,
+          "terminal_object_xy_drift_m": 0.04802037478975767,
+          "physical_lift_region_at_terminal": true,
+          "cohort": "outside_only+2cm",
+          "cohort_episode": 2,
+          "requested_offset_m": [
+            0.006121062366271704,
+            -0.03320271675336902,
+            0.0
+          ],
+          "actual_initial_xy_offset_m": [
+            0.006070375442504883,
+            -0.03317880630493164
+          ],
+          "outside_collection_box_actual": true
+        },
+        {
+          "type": "outcome",
+          "episode": 6,
+          "success": false,
+          "failure": false,
+          "timeout": true,
+          "eef_translation_error_mm": 284.118053332669,
+          "eef_rotation_error_rad": 0.38728853607174946,
+          "translation_within_20mm": false,
+          "success_and_terminal_translation_20mm": false,
+          "collision_check": null,
+          "orientation_cutoff_rad": null,
+          "paper_ssr": null,
+          "formal_accepted": false,
+          "first_relaxed_success": null,
+          "terminal_object_lift_m": -0.03523141145706177,
+          "terminal_object_xy_drift_m": 0.1616431227591796,
+          "physical_lift_region_at_terminal": false,
+          "cohort": "outside_only+2cm",
+          "cohort_episode": 3,
+          "requested_offset_m": [
+            -0.013514895193776865,
+            0.038966654871026345,
+            0.0
+          ],
+          "actual_initial_xy_offset_m": [
+            -0.013570785522460938,
+            0.03899431228637695
+          ],
+          "outside_collection_box_actual": true
+        },
+        {
+          "type": "outcome",
+          "episode": 7,
+          "success": false,
+          "failure": false,
+          "timeout": true,
+          "eef_translation_error_mm": 255.7107006975896,
+          "eef_rotation_error_rad": 0.789082103169155,
+          "translation_within_20mm": false,
+          "success_and_terminal_translation_20mm": false,
+          "collision_check": null,
+          "orientation_cutoff_rad": null,
+          "paper_ssr": null,
+          "formal_accepted": false,
+          "first_relaxed_success": null,
+          "terminal_object_lift_m": -0.03528684377670288,
+          "terminal_object_xy_drift_m": 0.15986879371010057,
+          "physical_lift_region_at_terminal": false,
+          "cohort": "outside_only+3cm",
+          "cohort_episode": 1,
+          "requested_offset_m": [
+            -0.003185886475775987,
+            0.040855356736861595,
+            0.0
+          ],
+          "actual_initial_xy_offset_m": [
+            -0.003253936767578125,
+            0.04088926315307617
+          ],
+          "outside_collection_box_actual": true
+        },
+        {
+          "type": "outcome",
+          "episode": 8,
+          "success": true,
+          "failure": false,
+          "timeout": true,
+          "eef_translation_error_mm": 49.86025521365404,
+          "eef_rotation_error_rad": 0.023384417647004566,
+          "translation_within_20mm": false,
+          "success_and_terminal_translation_20mm": false,
+          "collision_check": null,
+          "orientation_cutoff_rad": null,
+          "paper_ssr": null,
+          "formal_accepted": false,
+          "first_relaxed_success": {
+            "done_check_index": 223,
+            "eef_translation_error_mm": 103.7976061859793,
+            "eef_rotation_error_rad": 0.016137316669089713,
+            "translation_within_20mm": false
+          },
+          "terminal_object_lift_m": 0.3016880750656128,
+          "terminal_object_xy_drift_m": 0.08340881963086945,
+          "physical_lift_region_at_terminal": true,
+          "cohort": "outside_only+3cm",
+          "cohort_episode": 2,
+          "requested_offset_m": [
+            -0.03161466307718891,
+            -0.031500293292333253,
+            0.0
+          ],
+          "actual_initial_xy_offset_m": [
+            -0.031659722328186035,
+            -0.03148078918457031
+          ],
+          "outside_collection_box_actual": true
+        },
+        {
+          "type": "outcome",
+          "episode": 9,
+          "success": true,
+          "failure": false,
+          "timeout": true,
+          "eef_translation_error_mm": 39.11194128391827,
+          "eef_rotation_error_rad": 0.06895986947225502,
+          "translation_within_20mm": false,
+          "success_and_terminal_translation_20mm": false,
+          "collision_check": null,
+          "orientation_cutoff_rad": null,
+          "paper_ssr": null,
+          "formal_accepted": false,
+          "first_relaxed_success": {
+            "done_check_index": 202,
+            "eef_translation_error_mm": 95.19126018192911,
+            "eef_rotation_error_rad": 0.041730784351522124,
+            "translation_within_20mm": false
+          },
+          "terminal_object_lift_m": 0.2892792224884033,
+          "terminal_object_xy_drift_m": 0.05175537203699603,
+          "physical_lift_region_at_terminal": true,
+          "cohort": "outside_only+3cm",
+          "cohort_episode": 3,
+          "requested_offset_m": [
+            0.0013541878580502834,
+            0.030600894827195052,
+            0.0
+          ],
+          "actual_initial_xy_offset_m": [
+            0.0012960433959960938,
+            0.030628681182861328
+          ],
+          "outside_collection_box_actual": true
+        }
+      ],
+      "decoded_original_videos": 27,
+      "actual_decoded_frames": 4836,
+      "exact_returned_and_executed_action_pairs": 1612,
+      "sampled_original_frames_reviewed": 162,
+      "full_visual_passed": false,
+      "formal_accepted": false,
+      "paper_ssr": null,
+      "source_video_manifest": [
+        {
+          "relative": "media/episode_001_chest_camera.mp4",
+          "bytes": 321045,
+          "SHA256": "9e67026f0f0d00e5ec3e599d99b4d68f72f945d1df1a39d4ee65562feda69b02",
+          "actual_decoded_frames": 180,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            72,
+            107,
+            143,
+            179
+          ],
+          "duration_s": 6.0
+        },
+        {
+          "relative": "media/episode_001_head_camera.mp4",
+          "bytes": 709676,
+          "SHA256": "868414aadf5a7a611760d6f665948cbeef5189f16ce2fb01180330f23cde2ed1",
+          "actual_decoded_frames": 180,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            72,
+            107,
+            143,
+            179
+          ],
+          "duration_s": 6.0
+        },
+        {
+          "relative": "media/episode_001_third_camera.mp4",
+          "bytes": 509839,
+          "SHA256": "2626ea16a24be57b2d5bfd2e8a299e5edac644d2cc53d9559d50ef218131729e",
+          "actual_decoded_frames": 180,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            72,
+            107,
+            143,
+            179
+          ],
+          "duration_s": 6.0
+        },
+        {
+          "relative": "media/episode_002_chest_camera.mp4",
+          "bytes": 348815,
+          "SHA256": "5882dfd25ff231ccc3b5efa0b3b02f806b79ab07bf82ba166cdf5260d57de1de",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_002_head_camera.mp4",
+          "bytes": 741956,
+          "SHA256": "06a6030e0e0b9a02ee9f91fc0f4dd14166f23330ff91873c992f1ffeadf2965f",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_002_third_camera.mp4",
+          "bytes": 518120,
+          "SHA256": "51e72ec3a08320471c03ed2556472cf2e64f364e8d70bbc3efb637e4804ff0be",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_003_chest_camera.mp4",
+          "bytes": 301056,
+          "SHA256": "16e08d76bc03af41e70a356f61efa47a9cbf6e6a2e5cc7e966b30123f7054b26",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_003_head_camera.mp4",
+          "bytes": 692756,
+          "SHA256": "c65199bc6d5f818233d3a920422873f0102a405fed3c2515e766c9dd07747783",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_003_third_camera.mp4",
+          "bytes": 468217,
+          "SHA256": "458926b299de59c50d047d219b809ff8f9998763c29865941bc50d74a30fc9e6",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_004_chest_camera.mp4",
+          "bytes": 312161,
+          "SHA256": "531afc9b1fecdf8e25f693038413cc044cdbe30880b3554a80f1e56666adedf4",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_004_head_camera.mp4",
+          "bytes": 685897,
+          "SHA256": "128ce47ac1dfcffb8589731e702cb37738d47fed151a0e024cea182eea8c2902",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_004_third_camera.mp4",
+          "bytes": 503772,
+          "SHA256": "d0980d0e9c9ddd1aaa2cd81ed442daebae823682b8e806be57f0ca6205e2ffaa",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_005_chest_camera.mp4",
+          "bytes": 292475,
+          "SHA256": "3755315aec57b82c4bc78e5400b539ca6461ada142172bae56038689ff8f2d8e",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_005_head_camera.mp4",
+          "bytes": 637708,
+          "SHA256": "c1ca0ff81fca9f3ed3432bdb8aecbd78784e887e83120a523551e3e4d1f691fb",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_005_third_camera.mp4",
+          "bytes": 499260,
+          "SHA256": "d7aaf3fb08372b89dd38cea332e387ccd2a1a38e2b0cd96293b0115ccebad60b",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_006_chest_camera.mp4",
+          "bytes": 987068,
+          "SHA256": "eb7810fc020fe14f00ba41d1cf12c3f47ec3d288805b5c6efce2e0c42b4b126f",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_006_head_camera.mp4",
+          "bytes": 579815,
+          "SHA256": "3f35e74031a3783875bf3b4da035a6c559aec7f62d2a7f069005aa83d3ab7833",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_006_third_camera.mp4",
+          "bytes": 571826,
+          "SHA256": "e72e34c9b3fcc145952ee6ee0a3126b73e78b4aaf3f20e3da1c93864212d7c05",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_007_chest_camera.mp4",
+          "bytes": 491131,
+          "SHA256": "a2f0ff54b2cf024463dd22aa2c211a1f6ea2e83cb29c8d7edf826516518ae6e1",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_007_head_camera.mp4",
+          "bytes": 575745,
+          "SHA256": "db13543fa65d72815abbf4ace8ed9ae72302c9e2ee4fde030e635613ea10379b",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_007_third_camera.mp4",
+          "bytes": 562095,
+          "SHA256": "d5c549c93e1dcf1b37f178233a505e2c01238f632947dffeff4823883a65828f",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_008_chest_camera.mp4",
+          "bytes": 319502,
+          "SHA256": "d5e2ad465cc18983b7d70b027c5c52244eca585e9d37e25719f3d122d2d10e9d",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_008_head_camera.mp4",
+          "bytes": 760888,
+          "SHA256": "f381e87231d05bd967af8c669ca2df744bea1cdbbc69d14c2d243fd79393ac80",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_008_third_camera.mp4",
+          "bytes": 486819,
+          "SHA256": "2137b8967dd18942d507afe4cb2b1c3ee5bad396744b7bad6ccca117100ee775",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_009_chest_camera.mp4",
+          "bytes": 326265,
+          "SHA256": "eaecfb51393ae1e00bd05f37a3decb965f32a72430e530bb38e783d79bd124d6",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_009_head_camera.mp4",
+          "bytes": 752748,
+          "SHA256": "4662fba5143a098ba009705dffe0ff88dcf0c33629543063a37b34af7e6e67ee",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_009_third_camera.mp4",
+          "bytes": 503631,
+          "SHA256": "8df3bfd7875ea077d7991998e838d281c0ba11fc8faa0856035525f7126b95f4",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        }
+      ]
+    },
+    {
+      "candidate": "t500-native-dp-clearlargeseed26101603-fixed3-original-asset-v34",
+      "training_seed": 26101603,
+      "kind": "fixed3",
+      "episodes": 3,
+      "ever_success_count": 3,
+      "terminal_hold_count": 2,
+      "terminal20mm_component_count": 0,
+      "cohorts": {
+        "uniform_box+0cm": {
+          "expected_episodes": 3,
+          "episodes_completed": 3,
+          "success_count": 3,
+          "translation_component_count": 0,
+          "actual_outside_count": 0,
+          "paper_ssr": null,
+          "formal_accepted": false,
+          "success_rate": 1.0,
+          "translation_component_rate": 0.0
+        }
+      },
+      "terminal_translation_errors_mm": [
+        23.588820804595514,
+        52.69309160784289,
+        246.97845902545052
+      ],
+      "actual_outcomes": [
+        {
+          "type": "outcome",
+          "episode": 1,
+          "success": true,
+          "failure": false,
+          "timeout": true,
+          "eef_translation_error_mm": 23.588820804595514,
+          "eef_rotation_error_rad": 0.04401510685071473,
+          "translation_within_20mm": false,
+          "success_and_terminal_translation_20mm": false,
+          "collision_check": null,
+          "orientation_cutoff_rad": null,
+          "paper_ssr": null,
+          "formal_accepted": false,
+          "first_relaxed_success": {
+            "done_check_index": 208,
+            "eef_translation_error_mm": 95.04757118284968,
+            "eef_rotation_error_rad": 0.048846097624200405,
+            "translation_within_20mm": false
+          },
+          "terminal_object_lift_m": 0.29258906841278076,
+          "terminal_object_xy_drift_m": 0.026571063083972956,
+          "physical_lift_region_at_terminal": true,
+          "cohort": "uniform_box+0cm",
+          "cohort_episode": 1,
+          "requested_offset_m": [
+            0.01596888341510878,
+            0.018302967053007862,
+            0.0
+          ],
+          "actual_initial_xy_offset_m": [
+            0.015819907188415527,
+            0.018587112426757812
+          ],
+          "outside_collection_box_actual": false
+        },
+        {
+          "type": "outcome",
+          "episode": 2,
+          "success": true,
+          "failure": false,
+          "timeout": true,
+          "eef_translation_error_mm": 52.69309160784289,
+          "eef_rotation_error_rad": 0.1530336270124538,
+          "translation_within_20mm": false,
+          "success_and_terminal_translation_20mm": false,
+          "collision_check": null,
+          "orientation_cutoff_rad": null,
+          "paper_ssr": null,
+          "formal_accepted": false,
+          "first_relaxed_success": {
+            "done_check_index": 216,
+            "eef_translation_error_mm": 94.57261838630785,
+            "eef_rotation_error_rad": 0.03836995960617685,
+            "translation_within_20mm": false
+          },
+          "terminal_object_lift_m": 0.3214203119277954,
+          "terminal_object_xy_drift_m": 0.055715476302345066,
+          "physical_lift_region_at_terminal": true,
+          "cohort": "uniform_box+0cm",
+          "cohort_episode": 2,
+          "requested_offset_m": [
+            -0.015086221731176628,
+            0.0024396704922475497,
+            0.0
+          ],
+          "actual_initial_xy_offset_m": [
+            -0.015153884887695312,
+            0.002472400665283203
+          ],
+          "outside_collection_box_actual": false
+        },
+        {
+          "type": "outcome",
+          "episode": 3,
+          "success": true,
+          "failure": false,
+          "timeout": true,
+          "eef_translation_error_mm": 246.97845902545052,
+          "eef_rotation_error_rad": 1.2088338079824401,
+          "translation_within_20mm": false,
+          "success_and_terminal_translation_20mm": false,
+          "collision_check": null,
+          "orientation_cutoff_rad": null,
+          "paper_ssr": null,
+          "formal_accepted": false,
+          "first_relaxed_success": {
+            "done_check_index": 211,
+            "eef_translation_error_mm": 85.63793226759809,
+            "eef_rotation_error_rad": 0.046993332958430625,
+            "translation_within_20mm": false
+          },
+          "terminal_object_lift_m": -0.034687578678131104,
+          "terminal_object_xy_drift_m": 0.1640964289355571,
+          "physical_lift_region_at_terminal": false,
+          "cohort": "uniform_box+0cm",
+          "cohort_episode": 3,
+          "requested_offset_m": [
+            0.019014266538802473,
+            -0.004658108350253492,
+            0.0
+          ],
+          "actual_initial_xy_offset_m": [
+            0.0189591646194458,
+            -0.004633903503417969
+          ],
+          "outside_collection_box_actual": false
+        }
+      ],
+      "decoded_original_videos": 9,
+      "actual_decoded_frames": 1614,
+      "exact_returned_and_executed_action_pairs": 538,
+      "sampled_original_frames_reviewed": 54,
+      "full_visual_passed": false,
+      "formal_accepted": false,
+      "paper_ssr": null,
+      "source_video_manifest": [
+        {
+          "relative": "media/episode_001_chest_camera.mp4",
+          "bytes": 323062,
+          "SHA256": "966b9597df7581a7c651f6e39c4dbae082d71102a4c51f84bc4e530387430836",
+          "actual_decoded_frames": 180,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            72,
+            107,
+            143,
+            179
+          ],
+          "duration_s": 6.0
+        },
+        {
+          "relative": "media/episode_001_head_camera.mp4",
+          "bytes": 733066,
+          "SHA256": "bf17b0d8feaa080ae65811ad4704a0640ca1d11ca77ed328c5d82f91bb35f8ec",
+          "actual_decoded_frames": 180,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            72,
+            107,
+            143,
+            179
+          ],
+          "duration_s": 6.0
+        },
+        {
+          "relative": "media/episode_001_third_camera.mp4",
+          "bytes": 492666,
+          "SHA256": "f94752768d8258c6ed447ccf040f6847213d9f10407762e9bb609d9ab02a7738",
+          "actual_decoded_frames": 180,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            72,
+            107,
+            143,
+            179
+          ],
+          "duration_s": 6.0
+        },
+        {
+          "relative": "media/episode_002_chest_camera.mp4",
+          "bytes": 359237,
+          "SHA256": "f2923c72acb77742ff237c9d94c5a1c168c32e1308b5fe13103df72be4e4a5a7",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_002_head_camera.mp4",
+          "bytes": 756913,
+          "SHA256": "0a5d133ea8cec8f7d36560a76f371d38df6b9a80721a8adeed2758c7087d9694",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_002_third_camera.mp4",
+          "bytes": 524383,
+          "SHA256": "c7f5387195e8792b854decbffb376d2bbefe437513b54e25e2169644518396d2",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_003_chest_camera.mp4",
+          "bytes": 350481,
+          "SHA256": "d3f3d5695166d2480474c6e77305f10db0359bb22235e491e31907d46a5bf0c4",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_003_head_camera.mp4",
+          "bytes": 640123,
+          "SHA256": "2428967e424c18bbb020cd8b497fccc6ff99ba880bcd24530a6b5e572e5f3148",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        },
+        {
+          "relative": "media/episode_003_third_camera.mp4",
+          "bytes": 521960,
+          "SHA256": "54bcb831f94da4a6aa3eae0c35e32bebd410fed96f2444268cff0bfd8afe4da6",
+          "actual_decoded_frames": 179,
+          "fps": 30.0,
+          "selected_original_frame_indices": [
+            0,
+            36,
+            71,
+            107,
+            142,
+            178
+          ],
+          "duration_s": 5.966666666666667
+        }
+      ]
+    }
+  ],
+  "original_ClearLarge_ACT_native_frontier": {
+    "original_candidates": 3,
+    "original_best_weights_all69_fullSHA_received": true,
+    "all3_CPU_original344_model_loaders_passed": true,
+    "all3_5090_original_weight_stats_runtime_fullSHA_intake_passed": true,
+    "first_native_zero_completed_trial_missing_velocity_failure_preserved": true,
+    "actual_native_legacy_observation_velocity_bridge_CPU_six_cases_passed": true,
+    "first_original1423_retry_started": true,
+    "formal_accepted": false,
+    "paper_ssr": null
+  },
+  "evidence_url": "verification/T-500-grasp-outside-and-terminal-hold-v34.json"
+}
