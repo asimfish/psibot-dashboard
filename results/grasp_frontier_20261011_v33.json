@@ -1,0 +1,178 @@
+{
+  "schema": "grasp.t500.actual_frontier.v33",
+  "updated_utc": "2026-10-11T11:45:47.102963+00:00",
+  "formal_accepted_objects": 0,
+  "formal_accepted_methods": 0,
+  "paper_ssr": null,
+  "cards": [
+    {
+      "title": "原定模型训练",
+      "status": "51份训练完成，15路训练中",
+      "note": "透明大试剂瓶三个原DP种子都已完成3000轮，原模型、EMA及完整优化器逐份核对通过；原生复测继续。"
+    },
+    {
+      "title": "原生复测与资产核对",
+      "status": "透明大瓶原DP：正确资产3/3，SSR未通过",
+      "note": "此前0/3加载了烧杯，排除透明大瓶SR。原始瓶子复核3/3，固定终点20mm分量0/3；新增9段原录像，±3/4/5cm范围外复测已排程。小玻璃发白仍待解决。"
+    },
+    {
+      "title": "训练读取加速",
+      "status": "原始GPU短时试跑约1.87倍",
+      "note": "512个输入、四步损失及更新后的优化器一致。完整训练已接续，新检查点核验通过；稳定完整训练吞吐继续测量。"
+    }
+  ],
+  "strict_spatial_scope": "Table11给出终点空间20mm筛查；C.3的SSR检查整条轨迹中适用阶段的全部活动约束。固定最终目标不能作为移动过程中每一帧的目标。严格目标坐标系、旋转阈值和阶段仍待绑定。",
+  "full_scene_metric_diagnostic": {
+    "source_evidence_SHA256": "7b58b0daca0a13875bb602795f73313149c72fd36278eadc8655e548618a2f14",
+    "same_native_direct_solver_frames": 1487,
+    "actual_visible_meshes": 66,
+    "actual_full_surface_pair_checks": 927888,
+    "full_visual_qualified": false,
+    "formal_accepted": false
+  },
+  "glass_renderer_ABBA": {
+    "original_RGB_images_reviewed": 24,
+    "control": "worldEps1 →0.001 →0.001 →1",
+    "all_original_shader_inputs_and_solver_states_unchanged": true,
+    "white_body_persists": true,
+    "production_fix_selected": false,
+    "producer_SHA256": "f2d7fec46176c96956508cb646cbf480c595dadadf08175d205ffb01fb2c1ef0",
+    "images": [
+      {
+        "camera": "chest",
+        "url": "media/grasp_latest_glass_worldeps_v31/chest.png",
+        "SHA256": "a01c5470cb5d8eb78a1084c5fac8973c6f4f7fb782ee258b905f6df468f094a1"
+      },
+      {
+        "camera": "head",
+        "url": "media/grasp_latest_glass_worldeps_v31/head.png",
+        "SHA256": "3b001dd0f92e8274ac7ce624eefc96f085d6934a224258030ceed2d0ab36633c"
+      },
+      {
+        "camera": "third",
+        "url": "media/grasp_latest_glass_worldeps_v31/third.png",
+        "SHA256": "e314ddf738657bb829bfe73ae679eaa8937807c1e3364eb65759f222291050f0"
+      }
+    ]
+  },
+  "input_cpu_canary": {
+    "original_samples_per_s": 33.18522049803135,
+    "optimized_workers2_samples_per_s": 70.45854566616043,
+    "ratio": 2.1231905230323918,
+    "same_batched_input_samples": 512,
+    "GPU_training_speed_measured": false,
+    "original_optimizer_reset": false
+  },
+  "training_gpu_canary": {
+    "passed": true,
+    "same_batched_input_samples": 512,
+    "same_input_loss_and_post_optimizer": true,
+    "original_samples_per_s": 36.18250120784747,
+    "optimized_samples_per_s": 67.61699424692125,
+    "diagnostic_ratio": 1.8687761207690108,
+    "full_production_throughput_proved": false,
+    "optimizer_reset": false
+  },
+  "original_fullstate_continuation": {
+    "actual_started": true,
+    "original_cpu_restore_passed": true,
+    "first_production_full_optimizer_CPU_passed": true,
+    "saved_checkpoint_epoch": 1200,
+    "resumed_epoch": 1201,
+    "resumed_global_step": 54045,
+    "replayed_updates": 672,
+    "exact_training_trajectory_resume": false,
+    "logical_seed_count_increase": 0,
+    "original_empty_training_validation_preserved": true,
+    "evidence_url": "verification/T-500-grasp-original-continuation-v32.json"
+  },
+  "original_ClearLarge_DP_development_pilot": {
+    "completed": true,
+    "sampled_utc": "2026-10-11T10:48:32.484041+00:00",
+    "episodes": 3,
+    "successes": 0,
+    "success_rate": 0.0,
+    "terminal_translation_errors_mm": [
+      209.92544994856775,
+      167.34035566478104,
+      228.2955033156481
+    ],
+    "physical_terminal_hold_count": 0,
+    "returned_and_executed_action_pairs": 538,
+    "actual_source_pins_preserved": true,
+    "development_horizon_s": 6,
+    "position_box_half_range_cm": 2,
+    "formal_accepted": false,
+    "paper_ssr": null,
+    "full_visual_passed": false,
+    "object_task_SR_qualified": false,
+    "actual_loaded_asset": "glass_beaker_100ml/Beaker003.usd",
+    "wrong_object_silent_fallback_confirmed": true,
+    "excluded_from_requested_object_SR": true,
+    "raw_original_results_preserved": true
+  },
+  "correct_original_ClearLarge_DP_development_pilot": {
+    "completed": true,
+    "completed_utc": "2026-10-11T11:21:11.859499+00:00",
+    "original_training_seed": 26101601,
+    "episodes": 3,
+    "successes": 3,
+    "success_rate": 1.0,
+    "terminal_hold_count": 3,
+    "terminal20mm_component_count": 0,
+    "terminal_translation_errors_mm": [
+      26.270442708781566,
+      46.07730548478725,
+      57.56557868379228
+    ],
+    "returned_and_executed_action_pairs": 538,
+    "decoded_original_videos": 9,
+    "decoded_frames": 1614,
+    "original_asset_fullSHA_bound": true,
+    "original_USD_SHA256": "0275b501d41b9ff23d4f920aaf17a4d0a94f391a3fb129297f936e4790c4f19b",
+    "original_asset_and_texture_files": 8,
+    "actual_physical_GPU_UUID": "GPU-b129224c-c735-a03f-de6c-185d2a2724b1",
+    "actual_renderer_GPU": 0,
+    "actual_physics_GPU": 0,
+    "prior_prototype_GPU1_metadata_inconsistent_actual_GPU0_witness_authoritative": true,
+    "actual_source_pins_preserved": true,
+    "development_horizon_s": 6,
+    "position_box_half_range_cm": 2,
+    "collection_GPU_model_qualified": false,
+    "paper_ssr": null,
+    "formal_accepted": false,
+    "full_visual_passed": false,
+    "sampled_visual_frames": 54,
+    "sampled_visual_note": "头部与第三人称抽查显示持瓶到末帧；胸部升高后目标出画。未据抽查宣称全程无穿模或材质正常。",
+    "candidate": "t500-native-dp-clearlargeseed26101601-correct-original-asset-v33",
+    "comparison_image": {
+      "url": "media/grasp-clearlargedp-original-asset-v33/original_training_wrong_and_correct_asset.png",
+      "SHA256": "c66492e5f74ee92eb5ad0ab9ec7142e42191f651d519c92cb441f1340bac1ffd",
+      "width": 1088,
+      "height": 1548,
+      "note": "原采集、错误资产与正确资产的原始首帧。不同重置状态/有损视频，仅作对象身份核对，不是同状态渲染因果对照。"
+    },
+    "evidence_url": "verification/T-500-grasp-original-object-binding-v33.json"
+  },
+  "private_original_asset_catalog": {
+    "actual_named_objects": 20,
+    "actual_file_fullSHA_verified": 106,
+    "unmapped_object": "paper_crucible",
+    "runtime_qualified": false,
+    "shared_assets_edited": false
+  },
+  "ClearLarge_original_outside9_development": {
+    "controller_launched": true,
+    "launch_utc": "2026-10-11T11:43:09.481082+00:00",
+    "predeclared_cases": 9,
+    "cohorts": {
+      "+1cm": 3,
+      "+2cm": 3,
+      "+3cm": 3
+    },
+    "source_matrix_SHA256": "d758b7a57aab1afdda8201306c26a6e586ebf9a269f96d2cb289ea20ad0dc2fa",
+    "results_pending": true,
+    "formal_accepted": false,
+    "paper_ssr": null
+  }
+}

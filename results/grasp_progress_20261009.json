@@ -1,7 +1,7 @@
 {
   "schema": "grasp.progress_snapshot.v1",
-  "updated_utc": "2026-10-11T10:40:52.458719+00:00",
-  "update_mode": "原拇指网格3次对照、原始RAW/JPEG/视频与已核实训练进度；每条证据按自身时间戳报告。正式验收0/21、0/42。",
+  "updated_utc": "2026-10-11T11:45:47.102963+00:00",
+  "update_mode": "Latest asset-binding results updated; original68 training rows retain their own actual snapshot dates.",
   "totals": {
     "productive_training_runs": 68,
     "DP": 35,
@@ -7263,8 +7263,8 @@
   },
   "sampled_utc": "2026-10-11T10:40:52.458719+00:00",
   "latest_frontier": {
-    "schema": "grasp.t500.actual_frontier.v32",
-    "updated_utc": "2026-10-11T10:50:27.387806+00:00",
+    "schema": "grasp.t500.actual_frontier.v33",
+    "updated_utc": "2026-10-11T11:45:47.102963+00:00",
     "formal_accepted_objects": 0,
     "formal_accepted_methods": 0,
     "paper_ssr": null,
@@ -7275,9 +7275,9 @@
         "note": "透明大试剂瓶三个原DP种子都已完成3000轮，原模型、EMA及完整优化器逐份核对通过；原生复测继续。"
       },
       {
-        "title": "视觉与原生复测",
-        "status": "透明瓶渲染与空间SSR仍待验收",
-        "note": "玻璃原图对照仍有发白。透明大瓶DP在同型号RTX5090上复测；上一显存保护退出的0回合尝试未计入成功率。"
+        "title": "原生复测与资产核对",
+        "status": "透明大瓶原DP：正确资产3/3，SSR未通过",
+        "note": "此前0/3加载了烧杯，排除透明大瓶SR。原始瓶子复核3/3，固定终点20mm分量0/3；新增9段原录像，±3/4/5cm范围外复测已排程。小玻璃发白仍待解决。"
       },
       {
         "title": "训练读取加速",
@@ -7368,7 +7368,76 @@
       "position_box_half_range_cm": 2,
       "formal_accepted": false,
       "paper_ssr": null,
-      "full_visual_passed": false
+      "full_visual_passed": false,
+      "object_task_SR_qualified": false,
+      "actual_loaded_asset": "glass_beaker_100ml/Beaker003.usd",
+      "wrong_object_silent_fallback_confirmed": true,
+      "excluded_from_requested_object_SR": true,
+      "raw_original_results_preserved": true
+    },
+    "correct_original_ClearLarge_DP_development_pilot": {
+      "completed": true,
+      "completed_utc": "2026-10-11T11:21:11.859499+00:00",
+      "original_training_seed": 26101601,
+      "episodes": 3,
+      "successes": 3,
+      "success_rate": 1.0,
+      "terminal_hold_count": 3,
+      "terminal20mm_component_count": 0,
+      "terminal_translation_errors_mm": [
+        26.270442708781566,
+        46.07730548478725,
+        57.56557868379228
+      ],
+      "returned_and_executed_action_pairs": 538,
+      "decoded_original_videos": 9,
+      "decoded_frames": 1614,
+      "original_asset_fullSHA_bound": true,
+      "original_USD_SHA256": "0275b501d41b9ff23d4f920aaf17a4d0a94f391a3fb129297f936e4790c4f19b",
+      "original_asset_and_texture_files": 8,
+      "actual_physical_GPU_UUID": "GPU-b129224c-c735-a03f-de6c-185d2a2724b1",
+      "actual_renderer_GPU": 0,
+      "actual_physics_GPU": 0,
+      "prior_prototype_GPU1_metadata_inconsistent_actual_GPU0_witness_authoritative": true,
+      "actual_source_pins_preserved": true,
+      "development_horizon_s": 6,
+      "position_box_half_range_cm": 2,
+      "collection_GPU_model_qualified": false,
+      "paper_ssr": null,
+      "formal_accepted": false,
+      "full_visual_passed": false,
+      "sampled_visual_frames": 54,
+      "sampled_visual_note": "头部与第三人称抽查显示持瓶到末帧；胸部升高后目标出画。未据抽查宣称全程无穿模或材质正常。",
+      "candidate": "t500-native-dp-clearlargeseed26101601-correct-original-asset-v33",
+      "comparison_image": {
+        "url": "media/grasp-clearlargedp-original-asset-v33/original_training_wrong_and_correct_asset.png",
+        "SHA256": "c66492e5f74ee92eb5ad0ab9ec7142e42191f651d519c92cb441f1340bac1ffd",
+        "width": 1088,
+        "height": 1548,
+        "note": "原采集、错误资产与正确资产的原始首帧。不同重置状态/有损视频，仅作对象身份核对，不是同状态渲染因果对照。"
+      },
+      "evidence_url": "verification/T-500-grasp-original-object-binding-v33.json"
+    },
+    "private_original_asset_catalog": {
+      "actual_named_objects": 20,
+      "actual_file_fullSHA_verified": 106,
+      "unmapped_object": "paper_crucible",
+      "runtime_qualified": false,
+      "shared_assets_edited": false
+    },
+    "ClearLarge_original_outside9_development": {
+      "controller_launched": true,
+      "launch_utc": "2026-10-11T11:43:09.481082+00:00",
+      "predeclared_cases": 9,
+      "cohorts": {
+        "+1cm": 3,
+        "+2cm": 3,
+        "+3cm": 3
+      },
+      "source_matrix_SHA256": "d758b7a57aab1afdda8201306c26a6e586ebf9a269f96d2cb289ea20ad0dc2fa",
+      "results_pending": true,
+      "formal_accepted": false,
+      "paper_ssr": null
     }
   }
 }
