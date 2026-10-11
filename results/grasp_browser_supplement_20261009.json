@@ -1,6 +1,6 @@
 {
   "schema": "grasp.browser.supplement.v1",
-  "updated_utc": "2026-10-10T19:25:50.960894+00:00",
+  "updated_utc": "2026-10-11T11:45:47.102963+00:00",
   "source_pins": [
     {
       "source": "/home/liyufeng/ops/grasp_acceptance_20260917/NATIVE_EPISODE_LEDGER_20261002.json",
@@ -12247,6 +12247,177 @@
         }
       ],
       "continuation_development": true
+    },
+    {
+      "candidate": "t500-native-dp-clearlargeseed26101601-correct-original-asset-v33",
+      "display_name": "DP s26101601 · 原始瓶子资产复核 · 3集",
+      "object": "clear_reagent_bottle_large",
+      "development": true,
+      "native_development": true,
+      "current_native": true,
+      "progress": {
+        "episode_num": 3,
+        "episode_success_num": 3,
+        "success_rate": 1.0,
+        "final": true
+      },
+      "protocol": {
+        "method": "dp",
+        "seed": 26101021,
+        "episode_length_s": 6,
+        "checkpoint_sha256": "0062448525f9472ccb095c5e9c968104f4fe7f037e450dc6342f0f75c4f6819a",
+        "actual_xy_range_cm": 2,
+        "reset_offsets": [
+          {
+            "episode": 1,
+            "offset_m": [
+              0.01596888341510878,
+              0.018302967053007862,
+              0.0
+            ],
+            "outside_collection_box": false,
+            "cohort": "uniform_box+0cm",
+            "cohort_episode": 1,
+            "original_frozen_episode": 1
+          },
+          {
+            "episode": 2,
+            "offset_m": [
+              -0.015086221731176628,
+              0.0024396704922475497,
+              0.0
+            ],
+            "outside_collection_box": false,
+            "cohort": "uniform_box+0cm",
+            "cohort_episode": 2,
+            "original_frozen_episode": 2
+          },
+          {
+            "episode": 3,
+            "offset_m": [
+              0.019014266538802473,
+              -0.004658108350253492,
+              0.0
+            ],
+            "outside_collection_box": false,
+            "cohort": "uniform_box+0cm",
+            "cohort_episode": 3,
+            "original_frozen_episode": 3
+          }
+        ],
+        "execution_gpu_uuid": "GPU-b129224c-c735-a03f-de6c-185d2a2724b1",
+        "renderer_activeGpu": 0,
+        "physics_cudaDevice": 0,
+        "collection_test_GPU_model_qualified": false,
+        "note": "保持原始种子26101601 EMA、同三组冻结±2cm位置、原生复位+4；私有绑定原始USD及七份纹理，拒绝默认资产回退。原采集GPU型号未绑定。这是范围内开发复核，非正式50集/三种子评测。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": 26101601
+        },
+        "last": {
+          "epoch": 3000,
+          "global_step": 114000
+        }
+      },
+      "paper_ssr_percent": null,
+      "formal_accepted": false,
+      "metric_note": "原始资产复核3/3，终点保持3/3；固定终点20mm分量0/3，误差26.3、46.1、57.6mm。原先0/3实际加载烧杯，已排除该物体SR。程序SSR不能作为论文SSR；抽查54帧不等于全程穿模/材质验收。",
+      "cases": [
+        {
+          "episode": 1,
+          "camera": "chest_camera",
+          "success": true,
+          "physical_lift_region_at_terminal": true,
+          "url": "media/grasp-clearlargedp-original-asset-v33/episode_001_chest_camera.mp4",
+          "sha256": "f17ea4abbd989ff70c8b7034affc31ad431bab10b9fa34892adbb1ed5a41fc4f",
+          "bytes": 327761,
+          "caption": "chest_camera · 原始透明大瓶资产，6秒开发试跑；终点平移误差26.3mm。论文SSR与完整视觉未验收。"
+        },
+        {
+          "episode": 1,
+          "camera": "head_camera",
+          "success": true,
+          "physical_lift_region_at_terminal": true,
+          "url": "media/grasp-clearlargedp-original-asset-v33/episode_001_head_camera.mp4",
+          "sha256": "1801bfa856788bfd5748dfb8204dc9320ade3a96652058c89529761bd28c26c5",
+          "bytes": 727764,
+          "caption": "head_camera · 原始透明大瓶资产，6秒开发试跑；终点平移误差26.3mm。论文SSR与完整视觉未验收。"
+        },
+        {
+          "episode": 1,
+          "camera": "third_camera",
+          "success": true,
+          "physical_lift_region_at_terminal": true,
+          "url": "media/grasp-clearlargedp-original-asset-v33/episode_001_third_camera.mp4",
+          "sha256": "60121b009c380407b0253453be73f11f59d98f8104345a4083db302a0c6756e8",
+          "bytes": 493518,
+          "caption": "third_camera · 原始透明大瓶资产，6秒开发试跑；终点平移误差26.3mm。论文SSR与完整视觉未验收。"
+        },
+        {
+          "episode": 2,
+          "camera": "chest_camera",
+          "success": true,
+          "physical_lift_region_at_terminal": true,
+          "url": "media/grasp-clearlargedp-original-asset-v33/episode_002_chest_camera.mp4",
+          "sha256": "4cf3fa100c7e5b0a45cd34bd0403bdc1042492bd72d97a9c00223aca848a524c",
+          "bytes": 358270,
+          "caption": "chest_camera · 原始透明大瓶资产，6秒开发试跑；终点平移误差46.1mm。论文SSR与完整视觉未验收。"
+        },
+        {
+          "episode": 2,
+          "camera": "head_camera",
+          "success": true,
+          "physical_lift_region_at_terminal": true,
+          "url": "media/grasp-clearlargedp-original-asset-v33/episode_002_head_camera.mp4",
+          "sha256": "73613d588eee024202be794190b5c1f1db70a8f5e465b6bc92d3fbf818cb85ce",
+          "bytes": 731470,
+          "caption": "head_camera · 原始透明大瓶资产，6秒开发试跑；终点平移误差46.1mm。论文SSR与完整视觉未验收。"
+        },
+        {
+          "episode": 2,
+          "camera": "third_camera",
+          "success": true,
+          "physical_lift_region_at_terminal": true,
+          "url": "media/grasp-clearlargedp-original-asset-v33/episode_002_third_camera.mp4",
+          "sha256": "4961472e8633543dfcf2fbc21d89d806b79703b86685aa5c46ee91f0d918436a",
+          "bytes": 525152,
+          "caption": "third_camera · 原始透明大瓶资产，6秒开发试跑；终点平移误差46.1mm。论文SSR与完整视觉未验收。"
+        },
+        {
+          "episode": 3,
+          "camera": "chest_camera",
+          "success": true,
+          "physical_lift_region_at_terminal": true,
+          "url": "media/grasp-clearlargedp-original-asset-v33/episode_003_chest_camera.mp4",
+          "sha256": "f06ac88595aee13b794743a2421a3672133096aac9ca2d0888bb472852770c3a",
+          "bytes": 281254,
+          "caption": "chest_camera · 原始透明大瓶资产，6秒开发试跑；终点平移误差57.6mm。论文SSR与完整视觉未验收。"
+        },
+        {
+          "episode": 3,
+          "camera": "head_camera",
+          "success": true,
+          "physical_lift_region_at_terminal": true,
+          "url": "media/grasp-clearlargedp-original-asset-v33/episode_003_head_camera.mp4",
+          "sha256": "3f02c170f092b847ca22ca8863570929e5c8a1090965a7b4bc26c696ffa73ae0",
+          "bytes": 661538,
+          "caption": "head_camera · 原始透明大瓶资产，6秒开发试跑；终点平移误差57.6mm。论文SSR与完整视觉未验收。"
+        },
+        {
+          "episode": 3,
+          "camera": "third_camera",
+          "success": true,
+          "physical_lift_region_at_terminal": true,
+          "url": "media/grasp-clearlargedp-original-asset-v33/episode_003_third_camera.mp4",
+          "sha256": "e19df6f903fc7cc0a61ddddf8c048b1fb1e84e7f3b79cc078183daa20a3cd05e",
+          "bytes": 468398,
+          "caption": "third_camera · 原始透明大瓶资产，6秒开发试跑；终点平移误差57.6mm。论文SSR与完整视觉未验收。"
+        }
+      ]
     }
   ],
   "act_complete_records": 66,
