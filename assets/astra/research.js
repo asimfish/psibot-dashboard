@@ -65,12 +65,13 @@
  }
  function drawProtocol(){
   const fields={H:'图像/动作历史',M:'文字记忆',C:'分类执行反馈',resolution_only:'仅RGB分辨率',...cameras,...keys};
-  $('protocol-conditions').innerHTML=protocol.conditions.map(c=>`<tr><th scope="row">${esc(c.label)}</th><td>${esc(c.changed.length?c.changed.map(k=>fields[k]||k).join('、'):'无删除')}</td><td>0 / 20 · 待执行</td><td>同任务固定接口、初态、预算与其他输入</td></tr>`).join('');
+  const taskNames={fr3_place:'FR3 放置',psi_grasp:'PsiBot 抓取',psi_pick_place_100ml:'100ml 放置',psi_roundtrip_100ml:'100ml 往返'};
+  $('protocol-conditions').innerHTML=protocol.conditions.map(c=>{const applicable=Object.entries(protocol.task_camera_conditions).filter(([,t])=>t.conditions.includes(c.id)).map(([id])=>taskNames[id]);return `<tr><th scope="row">${esc(c.label)}</th><td>${esc(c.changed.length?c.changed.map(k=>fields[k]||k).join('、'):'无删除')}</td><td>${esc(applicable.join('、'))}</td><td>每个适用任务 0 / 20 · 待执行</td><td>同任务固定接口、初态、预算与其他输入</td></tr>`;}).join('');
   $('psi-coverage').innerHTML=study.tasks.filter(t=>t.id.startsWith('psi_')).map(t=>{const rr=study.rows.filter(r=>r.task===t.id),n=rr.reduce((a,r)=>a+r.attempts,0);return `<li><button data-task="${esc(t.id)}">${esc(t.title)}</button><span>${n}条原记录 · ${rr.length}个条件${t.id==='psi_roundtrip'?' · 选例':''}</span></li>`;}).join('');
  }
  async function init(){
   const load=async n=>{const res=await fetch('results/astra/'+n);if(!res.ok)throw Error(n+' HTTP '+res.status);return res.json();};
-  [study,protocol,episodes,audit,traces,report]=await Promise.all(['input_study_v5.json','protocol_v5.json','episodes.json','video_audit.json','decision_traces.json','experiments.json'].map(load));audit=audit.records;
+  [study,protocol,episodes,audit,traces,report]=await Promise.all(['input_study_v5.json','protocol_v6.json','episodes.json','video_audit.json','decision_traces.json','experiments.json'].map(load));audit=audit.records;
   const p=new URLSearchParams(location.search),legacy={inputs:'fr3_place',actions:'panda_square',long:'psi_roundtrip'},target=p.get('task')||legacy[p.get('study')];
   if(study.tasks.some(t=>t.id===target))currentTask=target;
   currentRow=study.rows.find(r=>r.task===currentTask&&r.condition===p.get('condition'))?.id||'';

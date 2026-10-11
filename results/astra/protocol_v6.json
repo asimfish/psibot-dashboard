@@ -1,0 +1,318 @@
+{
+  "schema": "safelab.astra.input_requirement_protocol.v6",
+  "status": "registered_design_native_qualification_pending",
+  "research_question": "哪些输入影响成功、任务内重试和真实耗时？",
+  "minimum_trials_per_task_condition": 20,
+  "seed_list": [
+    11000,
+    11001,
+    11002,
+    11003,
+    11004,
+    11005,
+    11006,
+    11007,
+    11008,
+    11009,
+    11010,
+    11011,
+    11012,
+    11013,
+    11014,
+    11015,
+    11016,
+    11017,
+    11018,
+    11019
+  ],
+  "condition_count": null,
+  "conditions": [
+    {
+      "id": "rich",
+      "label": "完整基线",
+      "changed": []
+    },
+    {
+      "id": "minus_S",
+      "label": "去末端位姿/开口",
+      "changed": [
+        "S"
+      ]
+    },
+    {
+      "id": "minus_J",
+      "label": "去关节状态",
+      "changed": [
+        "J"
+      ]
+    },
+    {
+      "id": "minus_K",
+      "label": "去相机标定",
+      "changed": [
+        "K"
+      ]
+    },
+    {
+      "id": "minus_F",
+      "label": "去数值执行误差",
+      "changed": [
+        "F"
+      ]
+    },
+    {
+      "id": "minus_H",
+      "label": "去图像/动作历史",
+      "changed": [
+        "H"
+      ]
+    },
+    {
+      "id": "minus_M",
+      "label": "去文字记忆",
+      "changed": [
+        "M"
+      ]
+    },
+    {
+      "id": "minus_C",
+      "label": "去分类执行反馈",
+      "changed": [
+        "C"
+      ]
+    },
+    {
+      "id": "minus_head",
+      "label": "去头部相机",
+      "changed": [
+        "head_camera"
+      ]
+    },
+    {
+      "id": "minus_chest",
+      "label": "去胸部相机",
+      "changed": [
+        "chest_camera"
+      ]
+    },
+    {
+      "id": "minus_third",
+      "label": "去第三视角",
+      "changed": [
+        "third_camera"
+      ]
+    },
+    {
+      "id": "minus_wrist",
+      "label": "去腕部相机",
+      "changed": [
+        "wrist_camera"
+      ]
+    },
+    {
+      "id": "rgb_half_resolution",
+      "label": "RGB宽高各减半",
+      "changed": [
+        "resolution_only"
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "id": "A",
+      "tasks": [
+        "fr3_place",
+        "psi_grasp"
+      ],
+      "planned_attempts": 520,
+      "priority": "先完成短任务单项对照"
+    },
+    {
+      "id": "B",
+      "tasks": [
+        "psi_pick_place_100ml",
+        "psi_roundtrip_100ml"
+      ],
+      "planned_attempts": 480,
+      "priority": "手势接口及短任务资格后扩展；长程预算单独冻结"
+    }
+  ],
+  "trial_order": "每seed对条件做固定随机置换(seed=20261011)；每次从同一完整初态快照重置并核SHA，条件不得共享可写记忆。",
+  "fixed": [
+    "实际回执模型/推理档位",
+    "同任务提示和成功判据",
+    "动作接口与控制器",
+    "同任务请求/动作/墙钟预算",
+    "所有未被消融输入",
+    "手势库及参数界限"
+  ],
+  "budgets": {
+    "short_task_candidate": {
+      "max_requests": 30,
+      "max_action_s": 120,
+      "max_wall_s": 2400
+    },
+    "long_task": null,
+    "status": "需真实链路资格和可兑现资源后冻结；长程不套用短任务预算"
+  },
+  "psi_hand_action": {
+    "mode": "frozen_library_selection_and_bounded_refinement",
+    "model_fields": [
+      "gesture_id",
+      "closure_fraction",
+      "named_synergy_delta"
+    ],
+    "forbidden": [
+      "absolute_hand_joint_angles",
+      "free_joint_delta_vector",
+      "library_edit"
+    ],
+    "adapter_state": "actual_provider_cpu_bound_upstream_transport_passed_native_pending",
+    "library_state": "Actual PsiBot GraspMPTask provider exported with exact source/limits; five modes; native parity qualification pending.",
+    "default_candidate_delta_bound": 0.05,
+    "delta_unit": "rad-equivalent at each resultant joint, qualification required",
+    "whole_arm_control": "末端位移/旋转仍由模型决定；不给现成完整任务脚本"
+  },
+  "retry_definition": {
+    "task_retry": "同一子目标失败后重新开始一次执行尝试；第一次不计重试，按独立原生attempt_id及failure→restart事件计数。",
+    "not_retry": [
+      "普通模型调用",
+      "无失败的连续微调",
+      "新模型请求网络重发",
+      "仿真reset"
+    ],
+    "separate": [
+      "task_retries",
+      "action_rejections",
+      "network_retries",
+      "manual_resets"
+    ],
+    "registration": "Freeze native subgoal events and failure/restart predicates before trials; model-written attempt claims cannot alone create a retry."
+  },
+  "metrics": [
+    "success/attempted registered trials; never count not-run as observed failures",
+    "success/valid native terminals",
+    "Wilson 95% CI",
+    "paired success delta pp",
+    "task retries median/IQR and coverage",
+    "model requests",
+    "request latency median/p95",
+    "full episode wall median/IQR",
+    "model waiting vs physics vs rendering time",
+    "fixed-budget restricted time and time-to-success with failures censored at budget"
+  ],
+  "analysis": "成败用同seed配对差值/discordant counts及区间；费用/恢复先报全部尝试，再报两条件都成功的匹配seed。失败早停不当更快；20是最低起点，小差异可能仍不确定。 Missing wall/request timestamps remain missing with coverage; seconds of model waiting cannot replace full wall time. Replacements retain original IDs and report matching state hashes; until all registered trials are observed the full-registered CI stays null.",
+  "failures": "每个预注册ID保留中断/拒绝/超时；若补跑，追加replacement ID并保留原尝试，正式比较至少20个有效匹配初态。",
+  "logging": "实际模型可见字段+原PNG SHA、输入文本/图像总量、动作/原生回读、attempt_id与事件、逐请求真实时戳、同步视频与终态；评分状态不给模型。",
+  "execution_frontier": "Actual provider and upstream gpt-6-astra/xhigh interface qualified; native GPU/visual integration still pending. Formal completions zero.",
+  "trial_schedule": {
+    "path": "trial_schedule_v6.csv",
+    "sha256": "7365f04f53663f76108e9dd630f43cd4b54ade82fb64c957f7dff3de9e8c5c93",
+    "planned_rows": 1000,
+    "randomization_seed": 20261011,
+    "state": "registered_design_runtime_and_initial_state_pins_unbound"
+  },
+  "input_integrity": {
+    "camera_deletion": "Remove named current/history RGB attachments. Preserve fixed full calibration K to isolate image availability; removing camera calibration is the separate minus_K intervention.",
+    "resolution": "PIL LANCZOS 640x480 to 320x240 for every retained current/history RGB; K focal length /2, principal point (c+0.5)/2-0.5.",
+    "bundles": "Keep static task/robot/action definitions constant. Dynamic pose, joints, calibration, feedback and memories are separately serialized, with explicit masks on the actual upstream request. No deleted information in summaries, image labels or recovery prompts.",
+    "first_step": "Not-yet-available feedback/history is recorded distinctly from condition deletion.",
+    "model_identity": "Bind actual upstream model and effort receipt on every request; a mismatch invalidates comparison and is retained in accounting."
+  },
+  "task_camera_conditions": {
+    "fr3_place": {
+      "camera_names": [
+        "head_camera",
+        "chest_camera",
+        "third_camera",
+        "wrist_camera"
+      ],
+      "conditions": [
+        "rich",
+        "minus_S",
+        "minus_J",
+        "minus_K",
+        "minus_F",
+        "minus_H",
+        "minus_M",
+        "minus_C",
+        "minus_head",
+        "minus_chest",
+        "minus_third",
+        "minus_wrist",
+        "rgb_half_resolution"
+      ]
+    },
+    "psi_grasp": {
+      "camera_names": [
+        "head_camera",
+        "chest_camera",
+        "third_camera",
+        "wrist_camera"
+      ],
+      "conditions": [
+        "rich",
+        "minus_S",
+        "minus_J",
+        "minus_K",
+        "minus_F",
+        "minus_H",
+        "minus_M",
+        "minus_C",
+        "minus_head",
+        "minus_chest",
+        "minus_third",
+        "minus_wrist",
+        "rgb_half_resolution"
+      ]
+    },
+    "psi_pick_place_100ml": {
+      "camera_names": [
+        "head_camera",
+        "chest_camera",
+        "third_camera"
+      ],
+      "conditions": [
+        "rich",
+        "minus_S",
+        "minus_J",
+        "minus_K",
+        "minus_F",
+        "minus_H",
+        "minus_M",
+        "minus_C",
+        "minus_head",
+        "minus_chest",
+        "minus_third",
+        "rgb_half_resolution"
+      ]
+    },
+    "psi_roundtrip_100ml": {
+      "camera_names": [
+        "head_camera",
+        "chest_camera",
+        "third_camera"
+      ],
+      "conditions": [
+        "rich",
+        "minus_S",
+        "minus_J",
+        "minus_K",
+        "minus_F",
+        "minus_H",
+        "minus_M",
+        "minus_C",
+        "minus_head",
+        "minus_chest",
+        "minus_third",
+        "rgb_half_resolution"
+      ]
+    }
+  },
+  "registration_delta": {
+    "previous_design_rows": 1040,
+    "current_rows": 1000,
+    "removed_noop_rows": 40,
+    "reason": "Original 100ml native scenes have exactly three cameras, no wrist channel. Preserve the scene and exclude wrist-removal no-op comparisons."
+  }
+}
