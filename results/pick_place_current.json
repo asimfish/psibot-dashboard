@@ -2,19 +2,19 @@
   "schema_version": 1,
   "task": "T-494",
   "generation": "paper_v4",
-  "published_at": "2026-10-12T14:19:08.050742+00:00",
-  "source_updated_at": "2026-10-12T14:19:07.330670+00:00",
+  "published_at": "2026-10-12T14:29:11.459744+00:00",
+  "source_updated_at": "2026-10-12T14:28:58.624527+00:00",
   "refresh_seconds": 60,
   "publish_seconds": 600,
   "totals": {
     "objects": 13,
     "verified_models": 26,
     "required_models": 26,
-    "complete_cells": 96,
+    "complete_cells": 97,
     "required_cells": 104,
-    "complete_trials": 4800,
+    "complete_trials": 4850,
     "required_trials": 5200,
-    "same_gpu_cells": 49,
+    "same_gpu_cells": 50,
     "formal_accepted_objects": null
   },
   "protocol": {
@@ -489,8 +489,8 @@
               "added_cm": 2,
               "xy_half_range_cm": 5,
               "complete": false,
-              "status": "PENDING",
-              "status_label": "待核验",
+              "status": "RUNNING",
+              "status_label": "测试中",
               "episodes": null,
               "sr_percent": null,
               "terminal_spatial_ssr20_percent": null,
@@ -2161,15 +2161,22 @@
             {
               "added_cm": 2,
               "xy_half_range_cm": 5,
-              "complete": false,
-              "status": "RUNNING",
-              "status_label": "测试中",
-              "episodes": null,
-              "sr_percent": null,
-              "terminal_spatial_ssr20_percent": null,
+              "complete": true,
+              "status": "COMPLETE50_GEOMETRY_AUDITED",
+              "status_label": "完整50次核验完成",
+              "episodes": 50,
+              "sr_percent": 32,
+              "terminal_spatial_ssr20_percent": 14,
               "paper_ssr_percent": null,
-              "test_gpu": null,
-              "same_gpu": null
+              "test_gpu": "RTX 4090",
+              "same_gpu": true,
+              "successes": 16,
+              "spatial_safe_successes": 7,
+              "settled_outside_count": 28,
+              "outside_sr_percent": 17.86,
+              "outside_spatial_ssr20_percent": 10.71,
+              "raw_sha256": "6ab8adaf27af5d329604d98598cba0f508228d68626c169defd0725ca852b131",
+              "receipt_sha256": "0cfbe59d112c6c69def787af8007cff94e2b888c1e193a550b0216aa3391ad29"
             },
             {
               "added_cm": 3,
@@ -2589,7 +2596,7 @@
     {
       "name": "liyufeng_4090",
       "status_label": "原生测试中",
-      "activity": "锥形瓶 · ACT · +2cm",
+      "activity": "100 mL 玻璃量筒 · DP · +2cm",
       "available_gib": null,
       "required_gib": null
     },
@@ -2604,34 +2611,6 @@
       "name": "5090 · GPU1",
       "status_label": "显卡正在运行其他作业，等待空闲",
       "activity": "",
-      "available_gib": null,
-      "required_gib": null
-    },
-    {
-      "name": "mainskill · 小透明试剂瓶",
-      "status_label": "验证未达门槛，保留原模型",
-      "activity": "ACT独立候选 · 尚未验收",
-      "available_gib": null,
-      "required_gib": null
-    },
-    {
-      "name": "mainskill · 100 mL 塑料量筒",
-      "status_label": "验证通过，等待50次测试",
-      "activity": "ACT独立候选 · 尚未验收",
-      "available_gib": null,
-      "required_gib": null
-    },
-    {
-      "name": "mainskill · GPU1",
-      "status_label": "DP候选训练中",
-      "activity": "100 mL 玻璃烧杯 · DP候选 · 6831/282000优化步",
-      "available_gib": null,
-      "required_gib": null
-    },
-    {
-      "name": "mainskill · GPU0",
-      "status_label": "DP候选训练中",
-      "activity": "100 mL 塑料量筒 · DP候选 · 7844/282000优化步",
       "available_gib": null,
       "required_gib": null
     },
@@ -2666,42 +2645,70 @@
     {
       "name": "aliyun · GPU8",
       "status_label": "DP候选训练中",
-      "activity": "250 mL 透明容量瓶 · DP候选 · 22792/282000优化步",
+      "activity": "250 mL 透明容量瓶 · DP候选 · 23543/282000优化步",
       "available_gib": null,
       "required_gib": null
     },
     {
       "name": "aliyun · GPU9",
       "status_label": "DP候选训练中",
-      "activity": "锥形瓶 · DP候选 · 22639/282000优化步",
+      "activity": "锥形瓶 · DP候选 · 23368/282000优化步",
       "available_gib": null,
       "required_gib": null
     },
     {
       "name": "aliyun · GPU14",
       "status_label": "DP候选训练中",
-      "activity": "100 mL 玻璃量筒 · DP候选 · 15975/282000优化步",
+      "activity": "100 mL 玻璃量筒 · DP候选 · 16719/282000优化步",
       "available_gib": null,
       "required_gib": null
     },
     {
       "name": "aliyun · GPU12",
       "status_label": "DP候选训练中",
-      "activity": "250 mL 棕色容量瓶 · DP候选 · 7234/282000优化步",
+      "activity": "250 mL 棕色容量瓶 · DP候选 · 7993/282000优化步",
+      "available_gib": null,
+      "required_gib": null
+    },
+    {
+      "name": "mainskill · 小透明试剂瓶",
+      "status_label": "验证未达门槛，保留原模型",
+      "activity": "ACT独立候选 · 尚未验收",
+      "available_gib": null,
+      "required_gib": null
+    },
+    {
+      "name": "mainskill · 100 mL 塑料量筒",
+      "status_label": "验证通过，等待50次测试",
+      "activity": "ACT独立候选 · 尚未验收",
+      "available_gib": null,
+      "required_gib": null
+    },
+    {
+      "name": "mainskill · GPU1",
+      "status_label": "DP候选训练中",
+      "activity": "100 mL 玻璃烧杯 · DP候选 · 7345/282000优化步",
+      "available_gib": null,
+      "required_gib": null
+    },
+    {
+      "name": "mainskill · GPU0",
+      "status_label": "DP候选训练中",
+      "activity": "100 mL 塑料量筒 · DP候选 · 8376/282000优化步",
       "available_gib": null,
       "required_gib": null
     },
     {
       "name": "30109 · GPU2",
       "status_label": "ACT候选训练中",
-      "activity": "酒精灯 · ACT候选 · 1422/10000优化步",
+      "activity": "酒精灯 · ACT候选 · 2082/10000优化步",
       "available_gib": null,
       "required_gib": null
     },
     {
       "name": "30109 · GPU3",
       "status_label": "ACT候选训练中",
-      "activity": "250 mL 玻璃烧杯 · ACT候选 · 1422/10000优化步",
+      "activity": "250 mL 玻璃烧杯 · ACT候选 · 2082/10000优化步",
       "available_gib": null,
       "required_gib": null
     },
@@ -2734,16 +2741,30 @@
       "required_gib": null
     },
     {
+      "name": "5090 · GPU0 · 候选",
+      "status_label": "增加1cm · 候选50次筛查中",
+      "activity": "100 mL 玻璃量筒 · 增加1cm · 1/50回合 · 等待采集同型号卡复测",
+      "available_gib": null,
+      "required_gib": null
+    },
+    {
+      "name": "5090 · GPU1 · 候选",
+      "status_label": "增加3cm · 候选50次筛查中",
+      "activity": "100 mL 玻璃量筒 · 增加3cm · 3/50回合 · 等待采集同型号卡复测",
+      "available_gib": null,
+      "required_gib": null
+    },
+    {
       "name": "volc-pro6000 · GPU0 · 候选",
       "status_label": "Pro6000候选测试中，待4090复测",
-      "activity": "100 mL 塑料量筒 · ACT · +0cm · 34/50回合",
+      "activity": "100 mL 塑料量筒 · ACT · +0cm · 43/50回合",
       "available_gib": null,
       "required_gib": null
     },
     {
       "name": "volc-pro6000 · GPU1 · 候选",
       "status_label": "Pro6000候选测试中，待4090复测",
-      "activity": "100 mL 玻璃量筒 · ACT · +0cm · 35/50回合",
+      "activity": "100 mL 玻璃量筒 · ACT · +0cm · 43/50回合",
       "available_gib": null,
       "required_gib": null
     }
@@ -2751,28 +2772,28 @@
   "training_servers": [
     {
       "name": "30109",
-      "source_updated_at": "2026-10-12T14:18:51.359422+00:00",
+      "source_updated_at": "2026-10-12T14:28:04.580246+00:00",
       "status_label": "2 个训练作业正在更新",
       "optimizer_records": 2,
       "training_gpu_count": 2
     },
     {
       "name": "aliyun",
-      "source_updated_at": "2026-10-12T14:18:41.886482+00:00",
+      "source_updated_at": "2026-10-12T14:28:17.910766+00:00",
       "status_label": "4 个训练作业正在更新",
       "optimizer_records": 4,
       "training_gpu_count": 4
     },
     {
       "name": "mainskill",
-      "source_updated_at": "2026-10-12T14:18:41.886482+00:00",
+      "source_updated_at": "2026-10-12T14:28:17.910766+00:00",
       "status_label": "2 个训练作业正在更新",
       "optimizer_records": 2,
       "training_gpu_count": 2
     },
     {
       "name": "volc-pro6000",
-      "source_updated_at": "2026-10-12T14:18:23.259513+00:00",
+      "source_updated_at": "2026-10-12T14:28:50.597509+00:00",
       "status_label": "2 张卡正在运行候选原生测试",
       "optimizer_records": null
     }
@@ -2817,17 +2838,17 @@
   "sources": [
     {
       "name": "CURRENT_OBJECT_PROGRESS_V4",
-      "updated_at": "2026-10-12T14:19:07.330670+00:00",
+      "updated_at": "2026-10-12T14:28:58.624527+00:00",
       "stale": false
     },
     {
       "name": "DP_BOUNDED_OPTIMIZER_PROGRESS",
-      "updated_at": "2026-10-12T14:18:51.359422+00:00",
+      "updated_at": "2026-10-12T14:28:03.431753+00:00",
       "stale": false
     },
     {
       "name": "SERVER_TRAINING_PROGRESS",
-      "updated_at": "2026-10-12T14:18:25.291360+00:00",
+      "updated_at": "2026-10-12T14:27:29.533160+00:00",
       "stale": false
     },
     {
@@ -2842,73 +2863,28 @@
     },
     {
       "name": "FLEET_DP_TRAINING_PROGRESS",
-      "updated_at": "2026-10-12T14:18:41.886482+00:00",
+      "updated_at": "2026-10-12T14:28:17.910766+00:00",
       "stale": false
     },
     {
       "name": "PRO6000_PICKPLACE_RESOURCE_WATCH",
-      "updated_at": "2026-10-12T14:18:23.259513+00:00",
+      "updated_at": "2026-10-12T14:28:50.597509+00:00",
       "stale": false
     },
     {
       "name": "EFFECTIVENESS_STATUS",
-      "updated_at": "2026-10-12T14:15:03.441845+00:00",
+      "updated_at": "2026-10-12T14:25:07.670802+00:00",
       "stale": false
     }
   ],
   "alerts": [
     "部分来源超过20分钟未更新；请检查对应监管服务",
     "后台每5分钟核对真实训练更新、测试闭合回合及完整50次效果；最近巡检已完成",
-    "完整50次效果复核：12组零成功，9组SR与终态空间SSR20相差至少20个百分点；待分析原因，未作为论文指标验收",
     "论文SSR全轨迹约束与目标定义的等价性尚待完成；当前显示终态空间SSR20",
     "独立DP/ACT候选的训练、验证与测试分别显示；候选进度不计入模型或SR/SSR验收通过数",
     "首轮104组已收齐，按实际位置覆盖选定统一+2cm；17组同型号显卡复核正在接续，原结果保留归档"
   ],
   "candidate_progress": [
-    {
-      "host": "mainskill",
-      "object": "clear_reagent_bottle_small",
-      "method": "act",
-      "active": false,
-      "gpu": null,
-      "optimizer_updates": null,
-      "required_updates": 10000,
-      "source_updated_at": "2026-10-12T14:18:06.166873+00:00",
-      "status_label": "验证未达门槛，保留原模型"
-    },
-    {
-      "host": "mainskill",
-      "object": "plastic_cylinder_100ml",
-      "method": "act",
-      "active": false,
-      "gpu": null,
-      "optimizer_updates": null,
-      "required_updates": 10000,
-      "source_updated_at": "2026-10-12T14:18:06.166873+00:00",
-      "status_label": "验证通过，等待50次测试"
-    },
-    {
-      "host": "mainskill",
-      "object": "glass_beaker_100ml",
-      "method": "dp",
-      "active": true,
-      "gpu": 1,
-      "optimizer_updates": 6831,
-      "required_updates": 282000,
-      "source_updated_at": "2026-10-12T14:18:06.166873+00:00",
-      "status_label": "DP候选训练中"
-    },
-    {
-      "host": "mainskill",
-      "object": "plastic_cylinder_100ml",
-      "method": "dp",
-      "active": true,
-      "gpu": 0,
-      "optimizer_updates": 7844,
-      "required_updates": 282000,
-      "source_updated_at": "2026-10-12T14:18:06.166873+00:00",
-      "status_label": "DP候选训练中"
-    },
     {
       "host": "aliyun",
       "object": "brown_volumetric_flask_250ml",
@@ -2917,7 +2893,7 @@
       "gpu": null,
       "optimizer_updates": null,
       "required_updates": 10000,
-      "source_updated_at": "2026-10-12T14:18:06.166873+00:00",
+      "source_updated_at": "2026-10-12T14:28:04.580246+00:00",
       "status_label": "验证未达门槛，保留原模型"
     },
     {
@@ -2928,7 +2904,7 @@
       "gpu": null,
       "optimizer_updates": null,
       "required_updates": 10000,
-      "source_updated_at": "2026-10-12T14:18:06.166873+00:00",
+      "source_updated_at": "2026-10-12T14:28:04.580246+00:00",
       "status_label": "验证通过，等待50次测试"
     },
     {
@@ -2939,7 +2915,7 @@
       "gpu": null,
       "optimizer_updates": null,
       "required_updates": 10000,
-      "source_updated_at": "2026-10-12T14:18:06.166873+00:00",
+      "source_updated_at": "2026-10-12T14:28:04.580246+00:00",
       "status_label": "验证未达门槛，保留原模型"
     },
     {
@@ -2950,7 +2926,7 @@
       "gpu": null,
       "optimizer_updates": null,
       "required_updates": 10000,
-      "source_updated_at": "2026-10-12T14:18:06.166873+00:00",
+      "source_updated_at": "2026-10-12T14:28:04.580246+00:00",
       "status_label": "验证未达门槛，保留原模型"
     },
     {
@@ -2959,9 +2935,9 @@
       "method": "dp",
       "active": true,
       "gpu": 8,
-      "optimizer_updates": 22792,
+      "optimizer_updates": 23543,
       "required_updates": 282000,
-      "source_updated_at": "2026-10-12T14:18:06.166873+00:00",
+      "source_updated_at": "2026-10-12T14:28:04.580246+00:00",
       "status_label": "DP候选训练中"
     },
     {
@@ -2970,9 +2946,9 @@
       "method": "dp",
       "active": true,
       "gpu": 9,
-      "optimizer_updates": 22639,
+      "optimizer_updates": 23368,
       "required_updates": 282000,
-      "source_updated_at": "2026-10-12T14:18:06.166873+00:00",
+      "source_updated_at": "2026-10-12T14:28:04.580246+00:00",
       "status_label": "DP候选训练中"
     },
     {
@@ -2981,9 +2957,9 @@
       "method": "dp",
       "active": true,
       "gpu": 14,
-      "optimizer_updates": 15975,
+      "optimizer_updates": 16719,
       "required_updates": 282000,
-      "source_updated_at": "2026-10-12T14:18:06.166873+00:00",
+      "source_updated_at": "2026-10-12T14:28:04.580246+00:00",
       "status_label": "DP候选训练中"
     },
     {
@@ -2992,9 +2968,53 @@
       "method": "dp",
       "active": true,
       "gpu": 12,
-      "optimizer_updates": 7234,
+      "optimizer_updates": 7993,
       "required_updates": 282000,
-      "source_updated_at": "2026-10-12T14:18:06.166873+00:00",
+      "source_updated_at": "2026-10-12T14:28:04.580246+00:00",
+      "status_label": "DP候选训练中"
+    },
+    {
+      "host": "mainskill",
+      "object": "clear_reagent_bottle_small",
+      "method": "act",
+      "active": false,
+      "gpu": null,
+      "optimizer_updates": null,
+      "required_updates": 10000,
+      "source_updated_at": "2026-10-12T14:28:04.580246+00:00",
+      "status_label": "验证未达门槛，保留原模型"
+    },
+    {
+      "host": "mainskill",
+      "object": "plastic_cylinder_100ml",
+      "method": "act",
+      "active": false,
+      "gpu": null,
+      "optimizer_updates": null,
+      "required_updates": 10000,
+      "source_updated_at": "2026-10-12T14:28:04.580246+00:00",
+      "status_label": "验证通过，等待50次测试"
+    },
+    {
+      "host": "mainskill",
+      "object": "glass_beaker_100ml",
+      "method": "dp",
+      "active": true,
+      "gpu": 1,
+      "optimizer_updates": 7345,
+      "required_updates": 282000,
+      "source_updated_at": "2026-10-12T14:28:04.580246+00:00",
+      "status_label": "DP候选训练中"
+    },
+    {
+      "host": "mainskill",
+      "object": "plastic_cylinder_100ml",
+      "method": "dp",
+      "active": true,
+      "gpu": 0,
+      "optimizer_updates": 8376,
+      "required_updates": 282000,
+      "source_updated_at": "2026-10-12T14:28:04.580246+00:00",
       "status_label": "DP候选训练中"
     },
     {
@@ -3003,9 +3023,9 @@
       "method": "act",
       "active": true,
       "gpu": 2,
-      "optimizer_updates": 1422,
+      "optimizer_updates": 2082,
       "required_updates": 10000,
-      "source_updated_at": "2026-10-12T14:18:06.166873+00:00",
+      "source_updated_at": "2026-10-12T14:28:04.580246+00:00",
       "status_label": "ACT候选训练中"
     },
     {
@@ -3014,9 +3034,9 @@
       "method": "act",
       "active": true,
       "gpu": 3,
-      "optimizer_updates": 1422,
+      "optimizer_updates": 2082,
       "required_updates": 10000,
-      "source_updated_at": "2026-10-12T14:18:06.166873+00:00",
+      "source_updated_at": "2026-10-12T14:28:04.580246+00:00",
       "status_label": "ACT候选训练中"
     }
   ],
@@ -3032,7 +3052,7 @@
       "sr_percent": 66.0,
       "terminal_spatial20_proxy_percent": 54.0,
       "paper_ssr_percent": null,
-      "source_updated_at": "2026-10-12T14:18:19.220300+00:00"
+      "source_updated_at": "2026-10-12T14:27:46.817475+00:00"
     },
     {
       "object": "glass_cylinder_100ml",
@@ -3045,7 +3065,7 @@
       "sr_percent": 50.0,
       "terminal_spatial20_proxy_percent": 36.0,
       "paper_ssr_percent": null,
-      "source_updated_at": "2026-10-12T14:18:19.220300+00:00"
+      "source_updated_at": "2026-10-12T14:27:46.817475+00:00"
     },
     {
       "object": "plastic_cylinder_100ml",
@@ -3058,7 +3078,7 @@
       "sr_percent": 78.0,
       "terminal_spatial20_proxy_percent": 70.0,
       "paper_ssr_percent": null,
-      "source_updated_at": "2026-10-12T14:18:19.220300+00:00"
+      "source_updated_at": "2026-10-12T14:27:46.817475+00:00"
     },
     {
       "object": "plastic_cylinder_100ml",
@@ -3071,7 +3091,33 @@
       "sr_percent": 58.0,
       "terminal_spatial20_proxy_percent": 50.0,
       "paper_ssr_percent": null,
-      "source_updated_at": "2026-10-12T14:18:19.220300+00:00"
+      "source_updated_at": "2026-10-12T14:27:46.817475+00:00"
+    },
+    {
+      "object": "glass_cylinder_100ml",
+      "gpu": 0,
+      "closed_trials": 1,
+      "added_cm": 1,
+      "active": true,
+      "status_label": "增加1cm · 候选50次筛查中",
+      "formal_evaluation_credit": 0,
+      "sr_percent": null,
+      "terminal_spatial20_proxy_percent": null,
+      "paper_ssr_percent": null,
+      "source_updated_at": "2026-10-12T14:27:46.817475+00:00"
+    },
+    {
+      "object": "glass_cylinder_100ml",
+      "gpu": 1,
+      "closed_trials": 3,
+      "added_cm": 3,
+      "active": true,
+      "status_label": "增加3cm · 候选50次筛查中",
+      "formal_evaluation_credit": 0,
+      "sr_percent": null,
+      "terminal_spatial20_proxy_percent": null,
+      "paper_ssr_percent": null,
+      "source_updated_at": "2026-10-12T14:27:46.817475+00:00"
     }
   ],
   "candidate_pro6000_testing": [
@@ -3080,11 +3126,11 @@
       "method": "act",
       "gpu": 0,
       "added_cm": 0,
-      "closed_trials": 34,
+      "closed_trials": 43,
       "active": true,
       "formal_evaluation_credit": 0,
       "paper_ssr_percent": null,
-      "source_updated_at": "2026-10-12T14:18:43.294083+00:00",
+      "source_updated_at": "2026-10-12T14:28:06.321563+00:00",
       "status_label": "Pro6000候选测试中，待4090复测"
     },
     {
@@ -3092,16 +3138,16 @@
       "method": "act",
       "gpu": 1,
       "added_cm": 0,
-      "closed_trials": 35,
+      "closed_trials": 43,
       "active": true,
       "formal_evaluation_credit": 0,
       "paper_ssr_percent": null,
-      "source_updated_at": "2026-10-12T14:18:43.294083+00:00",
+      "source_updated_at": "2026-10-12T14:28:06.321563+00:00",
       "status_label": "Pro6000候选测试中，待4090复测"
     }
   ],
   "provenance": {
-    "matrix_sha256": "67c03553fcb5cf975eeb00d79ea64aff38bafb0ceb8a0611821ea6997d2c7941",
+    "matrix_sha256": "c53ad4c438c67c5da03ae9d2dda0405131ee1bf31df3c5430b9d5daa9b196c2c",
     "paper_pdf_sha256": "0fbe7e861843402f601ff1643cc00ce82f2be5c22ba39c8bda5f886eb66113d0"
   }
 }
