@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-12T22:54:49.662747+00:00",
-  "source_updated_at": "2026-10-12T22:54:27.964571+00:00",
+  "published_at": "2026-10-12T22:55:56.249923+00:00",
+  "source_updated_at": "2026-10-12T22:55:27.798154+00:00",
   "tasks": [
     {
       "task": "T3",
@@ -38,13 +38,13 @@
       "whole_accepted": false,
       "state": "running",
       "run": "t3_held_v6_pro_001",
-      "sim_s": 105.99166666666666,
-      "executed": 72,
+      "sim_s": 106.99166666666666,
+      "executed": 73,
       "unknown_usage": null,
       "latest_failed": null,
       "native_alive": true,
-      "updated_at": "2026-10-12T22:54:27.964571+00:00",
-      "note": "修订倒液任务完整验收0/100。Pro6000三路、5090一路原生模型采集并行，均已严格初始物理检查及ROOT原始三图审核；新增真实杯沿几何版本只改当前输入，不变物理、验收和模型动作归属，8项CPU检查通过。旧5090完整轨迹因洒漏29粒子/B0失败排除。DP/ACT实际GPU训练及检查点仍0，等待合格全轨迹。 最新原生实测：5090 t3_held_v6_5090_001 93.1秒，A倾75.2°，A液体1254/B0/累计洒漏29，失败排除；5090 t3_batch_v8_5090_002 44.7秒，A倾32.8°，A液体1290/B0/累计洒漏0，运行中；Pro6000 t3_held_v6_pro_001 106.0秒，A倾52.1°，A液体1290/B0/累计洒漏0，运行中；Pro6000 t3_flight_v7_pro_001 83.0秒，A倾25.4°，A液体1290/B0/累计洒漏0，失败排除；Pro6000 t3_authored_v9_pro_001 11.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。",
+      "updated_at": "2026-10-12T22:55:27.798154+00:00",
+      "note": "修订倒液任务完整验收0/100。Pro6000两路、5090一路原生模型采集继续并行，均通过严格初始物理检查及ROOT原始三图审核；真实杯沿几何版本已实际执行模型动作。旧Pro完整轨迹在51.55秒B倾斜10.028°越过原10°规则，已等在途模型请求闭合后关闭并封存；旧5090累计洒漏29粒子/B0也已失败排除。最新源仅调整当前几何输入，物理及验收规则不变。DP/ACT实际GPU训练、检查点及泛化结果仍0，等待合格全轨迹。 最新原生实测：5090 t3_held_v6_5090_001 93.1秒，A倾75.2°，A液体1254/B0/累计洒漏29，失败排除；5090 t3_batch_v8_5090_002 45.0秒，A倾32.9°，A液体1290/B0/累计洒漏0，运行中；Pro6000 t3_held_v6_pro_001 107.0秒，A倾53.4°，A液体1290/B0/累计洒漏0，运行中；Pro6000 t3_flight_v7_pro_001 83.0秒，A倾25.4°，A液体1290/B0/累计洒漏0，失败排除；Pro6000 t3_authored_v9_pro_001 12.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -115,7 +115,7 @@
           "last_request_status": "executed",
           "internal_success": false,
           "stop_reason": "native_physical_safety_violation",
-          "captured_epoch": 1791845667.5659583
+          "captured_epoch": 1791845727.5024
         },
         {
           "episode_id": "t3_batch_v8_5090_002",
@@ -123,9 +123,9 @@
           "source_kind": "actual_Astra_xhigh_teacher",
           "source_sha256": "8d8e1d88e426f509d0781bff49e911701f801dbbd9260c1ceb9e737c74cf1270",
           "native_alive": true,
-          "native_process_state": "R",
-          "sim_s": 44.675,
-          "A_tilt_deg": 32.75643264572188,
+          "native_process_state": "S",
+          "sim_s": 44.99166666666667,
+          "A_tilt_deg": 32.87472637462951,
           "liquid_counts": {
             "total": 1290,
             "A": 1290,
@@ -136,12 +136,12 @@
             "currently_spilled_outside": 0
           },
           "safety_violation": false,
-          "model_requests": 30,
-          "executed_primitives": 29,
+          "model_requests": 31,
+          "executed_primitives": 30,
           "last_request_status": "started",
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791845667.5676718
+          "captured_epoch": 1791845727.5046082
         },
         {
           "episode_id": "t3_held_v6_pro_001",
@@ -150,8 +150,8 @@
           "source_sha256": "ced4a73031b2676bc1f5c3b000ff7d04092800b23a72f22070ad9c734953e7db",
           "native_alive": true,
           "native_process_state": "S",
-          "sim_s": 105.99166666666666,
-          "A_tilt_deg": 52.12903614221854,
+          "sim_s": 106.99166666666666,
+          "A_tilt_deg": 53.39304882341761,
           "liquid_counts": {
             "total": 1290,
             "A": 1290,
@@ -162,12 +162,12 @@
             "currently_spilled_outside": 0
           },
           "safety_violation": false,
-          "model_requests": 73,
-          "executed_primitives": 72,
+          "model_requests": 74,
+          "executed_primitives": 73,
           "last_request_status": "started",
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791845667.9604313
+          "captured_epoch": 1791845727.794029
         },
         {
           "episode_id": "t3_flight_v7_pro_001",
@@ -193,7 +193,7 @@
           "last_request_status": "started",
           "internal_success": false,
           "stop_reason": "ROOT_independent_B_preservation_failed_at_tick6186_native_SIGINT_only_after_actual_GEN_closed",
-          "captured_epoch": 1791845667.9631445
+          "captured_epoch": 1791845727.7967324
         },
         {
           "episode_id": "t3_authored_v9_pro_001",
@@ -202,8 +202,8 @@
           "source_sha256": "d93930a9f7fe158c57e8f42c75eb1d2139cade38ce810288ca419eab26b294da",
           "native_alive": true,
           "native_process_state": "S",
-          "sim_s": 10.991666666666667,
-          "A_tilt_deg": 0.03724554876883565,
+          "sim_s": 11.991666666666667,
+          "A_tilt_deg": 0.031073613855913854,
           "liquid_counts": {
             "total": 1290,
             "A": 1290,
@@ -214,12 +214,12 @@
             "currently_spilled_outside": 0
           },
           "safety_violation": false,
-          "model_requests": 9,
-          "executed_primitives": 8,
+          "model_requests": 10,
+          "executed_primitives": 9,
           "last_request_status": "started",
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791845667.964571
+          "captured_epoch": 1791845727.7981536
         }
       ]
     },
@@ -264,7 +264,7 @@
       "sim_s": null,
       "executed": 0,
       "unknown_usage": null,
-      "updated_at": "2026-10-12T22:39:10.274303+00:00",
+      "updated_at": "2026-10-12T22:54:51.922719+00:00",
       "latest_failed": null,
       "note": "台面原生柜子五阶段：开柜→取A→取B→还A→还B，A杯/B棕瓶保持原槽位。原生搁板接触和连续稳定检查已通过；继续调整实际搁板位置以让头/胸/第三相机都看到容器。完整验收0。 DP、ACT 训练的数据资格独立核验。",
       "legacy": {
@@ -403,7 +403,7 @@
     "video_fps": 15,
     "acceptance": "完整有序物理过程、释放稳定、安全与不变约束、真实模型响应来源、已知用量及预算、三路完整视频均通过后，才计入整条验收。"
   },
-  "program_revision": "2026-10-12T22:39:10.274303+00:00",
+  "program_revision": "2026-10-12T22:54:51.922719+00:00",
   "fleet": [
     {
       "host": "liyufeng_4090",
