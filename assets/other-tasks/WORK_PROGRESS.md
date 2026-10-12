@@ -27,3 +27,5 @@ checked API snapshot. No force push or existing native process intervention.
 Follow-up: repair staging, verify real optimizer updates, reconcile existing DP
 models, run native 50-episode evaluations, bind each task's safety constraints
 and actual held-out reset support, retain data/config/checkpoint provenance.
+
+T-537 staging display: show SHA-acknowledged source bytes separately from optimizer updates; planned GPU placement stays explicitly unallocated until the owned trainer launch receipt. Per-instance candidate data-interface status is separate from native SR/SSR acceptance.
