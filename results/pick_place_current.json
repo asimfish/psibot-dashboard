@@ -2,17 +2,17 @@
   "schema_version": 1,
   "task": "T-494",
   "generation": "paper_v4",
-  "published_at": "2026-10-12T05:46:23.324793+00:00",
-  "source_updated_at": "2026-10-12T05:45:58.451517+00:00",
+  "published_at": "2026-10-12T05:56:26.879742+00:00",
+  "source_updated_at": "2026-10-12T05:56:03.585671+00:00",
   "refresh_seconds": 60,
   "publish_seconds": 600,
   "totals": {
     "objects": 13,
     "verified_models": 26,
     "required_models": 26,
-    "complete_cells": 101,
+    "complete_cells": 102,
     "required_cells": 104,
-    "complete_trials": 5050,
+    "complete_trials": 5100,
     "required_trials": 5200,
     "same_gpu_cells": 39,
     "formal_accepted_objects": null
@@ -1074,15 +1074,22 @@
             {
               "added_cm": 1,
               "xy_half_range_cm": 4,
-              "complete": false,
-              "status": "RUNNING",
-              "status_label": "测试中",
-              "episodes": null,
-              "sr_percent": null,
-              "terminal_spatial_ssr20_percent": null,
+              "complete": true,
+              "status": "COMPLETE50_GEOMETRY_AUDITED",
+              "status_label": "完整50次核验完成",
+              "episodes": 50,
+              "sr_percent": 40,
+              "terminal_spatial_ssr20_percent": 40,
               "paper_ssr_percent": null,
-              "test_gpu": null,
-              "same_gpu": null
+              "test_gpu": "RTX 5090",
+              "same_gpu": false,
+              "successes": 20,
+              "spatial_safe_successes": 20,
+              "settled_outside_count": 13,
+              "outside_sr_percent": 15.38,
+              "outside_spatial_ssr20_percent": 15.38,
+              "raw_sha256": "cf371764fad4f6d744cea8c3c18c07287e16d1a2cdd675e62063a5100278d26e",
+              "receipt_sha256": "94bb661845b4d1d9ab126e0413df3c8c76887de4051cf17d995ca483dab4f805"
             },
             {
               "added_cm": 2,
@@ -2637,8 +2644,8 @@
     },
     {
       "name": "5090 · GPU1",
-      "status_label": "原生测试中",
-      "activity": "250 mL 透明容量瓶 · DP · +1cm",
+      "status_label": "等待队列",
+      "activity": "",
       "available_gib": null,
       "required_gib": null
     },
@@ -2653,28 +2660,28 @@
   "training_servers": [
     {
       "name": "30109",
-      "source_updated_at": "2026-10-12T05:45:24.434497+00:00",
+      "source_updated_at": "2026-10-12T05:55:45.384543+00:00",
       "status_label": "等待可核验的训练更新",
       "optimizer_records": 0,
       "training_gpu_count": 0
     },
     {
       "name": "aliyun",
-      "source_updated_at": "2026-10-12T05:45:56.055024+00:00",
+      "source_updated_at": "2026-10-12T05:56:18.925347+00:00",
       "status_label": "等待可核验的训练更新",
       "optimizer_records": 0,
       "training_gpu_count": 0
     },
     {
       "name": "mainskill",
-      "source_updated_at": "2026-10-12T05:45:56.055024+00:00",
+      "source_updated_at": "2026-10-12T05:56:18.925347+00:00",
       "status_label": "等待可核验的训练更新",
       "optimizer_records": 0,
       "training_gpu_count": 0
     },
     {
       "name": "volc-pro6000",
-      "source_updated_at": "2026-10-12T05:45:46.421248+00:00",
+      "source_updated_at": "2026-10-12T05:55:55.357383+00:00",
       "status_label": "原生环境校验通过，待派发正式测试",
       "optimizer_records": null
     }
@@ -2719,17 +2726,17 @@
   "sources": [
     {
       "name": "CURRENT_OBJECT_PROGRESS_V4",
-      "updated_at": "2026-10-12T05:45:58.451517+00:00",
+      "updated_at": "2026-10-12T05:56:03.585671+00:00",
       "stale": false
     },
     {
       "name": "DP_BOUNDED_OPTIMIZER_PROGRESS",
-      "updated_at": "2026-10-12T05:45:24.434497+00:00",
+      "updated_at": "2026-10-12T05:55:36.782725+00:00",
       "stale": false
     },
     {
       "name": "SERVER_TRAINING_PROGRESS",
-      "updated_at": "2026-10-12T05:43:39.368796+00:00",
+      "updated_at": "2026-10-12T05:55:45.384543+00:00",
       "stale": false
     },
     {
@@ -2744,17 +2751,17 @@
     },
     {
       "name": "FLEET_DP_TRAINING_PROGRESS",
-      "updated_at": "2026-10-12T05:45:56.055024+00:00",
+      "updated_at": "2026-10-12T05:56:18.925347+00:00",
       "stale": false
     },
     {
       "name": "PRO6000_PICKPLACE_RESOURCE_WATCH",
-      "updated_at": "2026-10-12T05:45:46.421248+00:00",
+      "updated_at": "2026-10-12T05:55:55.357383+00:00",
       "stale": false
     },
     {
       "name": "EFFECTIVENESS_STATUS",
-      "updated_at": "2026-10-12T05:45:01.231662+00:00",
+      "updated_at": "2026-10-12T05:55:10.645718+00:00",
       "stale": false
     }
   ],
@@ -2765,7 +2772,7 @@
     "论文SSR全轨迹约束与目标定义的等价性尚待完成；当前显示终态空间SSR20"
   ],
   "provenance": {
-    "matrix_sha256": "41720e0c62f65a2eb5a17d0a4f239aa2e63327e50e1b74b2bf56e23ba822d870",
+    "matrix_sha256": "52f5cd39703f46651f8971c6d17dad8daee42b3e43269703c7b6bfa01c560f50",
     "paper_pdf_sha256": "0fbe7e861843402f601ff1643cc00ce82f2be5c22ba39c8bda5f886eb66113d0"
   }
 }
