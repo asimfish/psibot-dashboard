@@ -2,8 +2,8 @@
   "schema_version": 1,
   "task": "T-494",
   "generation": "paper_v4",
-  "published_at": "2026-10-12T08:07:26.489745+00:00",
-  "source_updated_at": "2026-10-12T08:07:15.898598+00:00",
+  "published_at": "2026-10-12T08:27:35.148745+00:00",
+  "source_updated_at": "2026-10-12T08:27:22.645703+00:00",
   "refresh_seconds": 60,
   "publish_seconds": 600,
   "totals": {
@@ -2546,14 +2546,14 @@
     },
     {
       "name": "5090 · GPU0",
-      "status_label": "显卡正在运行其他作业，等待空闲",
+      "status_label": "等待队列",
       "activity": "",
       "available_gib": null,
       "required_gib": null
     },
     {
       "name": "5090 · GPU1",
-      "status_label": "显卡正在运行其他作业，等待空闲",
+      "status_label": "等待队列",
       "activity": "",
       "available_gib": null,
       "required_gib": null
@@ -2569,28 +2569,28 @@
   "training_servers": [
     {
       "name": "30109",
-      "source_updated_at": "2026-10-12T08:06:17.344568+00:00",
+      "source_updated_at": "2026-10-12T08:27:03.718741+00:00",
       "status_label": "等待可核验的训练更新",
       "optimizer_records": 0,
       "training_gpu_count": 0
     },
     {
       "name": "aliyun",
-      "source_updated_at": "2026-10-12T08:07:05.331883+00:00",
+      "source_updated_at": "2026-10-12T08:26:52.081833+00:00",
       "status_label": "等待可核验的训练更新",
       "optimizer_records": 0,
       "training_gpu_count": 0
     },
     {
       "name": "mainskill",
-      "source_updated_at": "2026-10-12T08:07:05.331883+00:00",
+      "source_updated_at": "2026-10-12T08:26:52.081833+00:00",
       "status_label": "等待可核验的训练更新",
       "optimizer_records": 0,
       "training_gpu_count": 0
     },
     {
       "name": "volc-pro6000",
-      "source_updated_at": "2026-10-12T08:06:35.448358+00:00",
+      "source_updated_at": "2026-10-12T08:26:55.966221+00:00",
       "status_label": "原生环境校验通过，待派发正式测试",
       "optimizer_records": null
     }
@@ -2635,17 +2635,17 @@
   "sources": [
     {
       "name": "CURRENT_OBJECT_PROGRESS_V4",
-      "updated_at": "2026-10-12T08:07:15.898598+00:00",
+      "updated_at": "2026-10-12T08:27:22.645703+00:00",
       "stale": false
     },
     {
       "name": "DP_BOUNDED_OPTIMIZER_PROGRESS",
-      "updated_at": "2026-10-12T08:06:17.344568+00:00",
+      "updated_at": "2026-10-12T08:26:45.843497+00:00",
       "stale": false
     },
     {
       "name": "SERVER_TRAINING_PROGRESS",
-      "updated_at": "2026-10-12T08:05:52.339513+00:00",
+      "updated_at": "2026-10-12T08:27:03.718741+00:00",
       "stale": false
     },
     {
@@ -2660,27 +2660,28 @@
     },
     {
       "name": "FLEET_DP_TRAINING_PROGRESS",
-      "updated_at": "2026-10-12T08:07:05.331883+00:00",
+      "updated_at": "2026-10-12T08:26:52.081833+00:00",
       "stale": false
     },
     {
       "name": "PRO6000_PICKPLACE_RESOURCE_WATCH",
-      "updated_at": "2026-10-12T08:06:35.448358+00:00",
+      "updated_at": "2026-10-12T08:26:55.966221+00:00",
       "stale": false
     },
     {
       "name": "EFFECTIVENESS_STATUS",
-      "updated_at": "2026-10-12T08:05:07.624020+00:00",
+      "updated_at": "2026-10-12T08:25:10.059972+00:00",
       "stale": false
     }
   ],
   "alerts": [
     "部分来源超过20分钟未更新；请检查对应监管服务",
     "后台每5分钟核对真实训练更新、测试闭合回合及完整50次效果；最近巡检已完成",
+    "完整50次效果复核：12组零成功，9组SR与终态空间SSR20相差至少20个百分点；待分析原因，未作为论文指标验收",
     "论文SSR全轨迹约束与目标定义的等价性尚待完成；当前显示终态空间SSR20"
   ],
   "provenance": {
-    "matrix_sha256": "db5fb14309d22483bea0a005b67277cb93b7a2540a504fd4353b31305bd8435c",
+    "matrix_sha256": "fcaea802de891a7051ea6feea6af78ce2b1e01787cc708486eff7f0a4f550105",
     "paper_pdf_sha256": "0fbe7e861843402f601ff1643cc00ce82f2be5c22ba39c8bda5f886eb66113d0"
   }
 }
