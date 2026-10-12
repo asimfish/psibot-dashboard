@@ -25,6 +25,7 @@ As of2026-10-12:47 accepted formal outcomes (FR3 36, Psi grasp6, Psi100ml A→B3
 - [ ] Publish paired success/retry/time analysis and per-condition evidence.
 
 ## Task Board
+- [ ] T-007 - Publish readable53trial Astra input comparison panel with exact original media reuse (owner: safelab_astra_publication007)
 - [ ] REV-006 - Independent review of47 accepted Astra publication snapshot (owner: snapshot47_review)
 - [x] T-005 - Continue registered Astra ablations after terminal reconciliation and verify input-video comparisons (owner: safelab_astra_resume005)
 - [ ] T-004 - Complete experiments and research-question coverage (owner: safelab_astra_web004, in_progress).
@@ -33,3 +34,8 @@ Historical claims and review tasks retain their own workflow records; this plan 
 
 ## T-005 continuation
 Primary workflow: Pipeline (diagnose → execute → audit → report). Isolated checkout preserves old claims and originals.47 accepted/325 actual replies. Persistent ownerV6 continues one10-case batch at a time, quarantines4 interrupted IDs and retains originals. v27 has actual model and native outcomes; two closed cases individually accepted, remaining cases running. Current review phase publishes only this verified47-case snapshot, not completion of1000 trials or input-effect analysis. No full-study finish.
+
+## T-007 publication phase
+Primary workflow: Pipeline (audited reader → deduplicated media → publication gate → independent root review → GitHub publication). Publish a precise53/472 snapshot; keep47 history and the incomplete50 n20 cohorts/46 paired contrasts explicit. No changes to root T-006 execution ownership or scope.
+
+T-007 publication result: exact53/472 fixed snapshot deployed at https://asimfish.github.io/psibot-astra-experiments/ (main b261effe2d7eb67cb41542be6090b950a0203fbc,91.52MB;350originals reused/54neworiginals,zero reencoding). Actual public bytes and36PNG/18MP4browser acceptance passed;dashboard entry PR next. This publication preserves47history and does not finish or change rootT006/scientific cohorts.
