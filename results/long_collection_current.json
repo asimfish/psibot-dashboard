@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-12T22:17:03.438746+00:00",
-  "source_updated_at": "2026-10-12T22:03:41.494777+00:00",
+  "published_at": "2026-10-12T22:18:09.438152+00:00",
+  "source_updated_at": "2026-10-12T22:18:08.580118+00:00",
   "tasks": [
     {
       "task": "T3",
@@ -38,13 +38,13 @@
       "whole_accepted": false,
       "state": "running",
       "run": "t3_held_v6_pro_001",
-      "sim_s": 84.99166666666666,
-      "executed": 58,
+      "sim_s": 85.99166666666666,
+      "executed": 59,
       "unknown_usage": null,
       "latest_failed": null,
       "native_alive": true,
-      "updated_at": "2026-10-12T22:16:50.965370+00:00",
-      "note": "明早100条目标，目前新版完整验收0/100。两条V6、一条V7及一条V8共四条实际原生采集均已通过原始241行严格物理检查、源文件、全17手部几何、渲染/物理一致性和ROOT三张真实初始照片核验，在两张Pro6000及两张5090推进。V8模型一次自选1至4步原动作，每步当前实测状态检查，拒绝后停止剩余动作，不生成、替换、重复任务动作；原物理与整条验收标准未改变。V8首条漏打包校验文件的初始化失败已排除且模型请求0，修复后新episode已准入。ACT/DP官方真实模型配置的CPU存取检查在30109、Pro6000、5090均通过；代码部署已完成，GPU训练/真实检查点/原生学习策略成功数据/批量重置资格仍为0。另进行有限零模型请求的B杯口原生液体重力诊断，仅诊断、不计入数据。原费用账本、未知用量保留、预算上限和有限队列不变。 最新原生实测：5090 t3_held_v6_5090_001 93.1秒，A倾75.2°，A液体1254/B0/累计洒漏29，失败排除；5090 t3_batch_v8_5090_002 10.5秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中；Pro6000 t3_held_v6_pro_001 85.0秒，A倾44.9°，A液体1290/B0/累计洒漏0，运行中；Pro6000 t3_flight_v7_pro_001 66.0秒，A倾50.4°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。",
+      "updated_at": "2026-10-12T22:17:50.792160+00:00",
+      "note": "明早100条目标，当前新版完整验收0/100。Pro6000两条V6/V7和5090另一卡V8仍执行；5090 V6在93.083原生物理秒/A倾75.16度时累计洒漏29个粒子且B为0，原安全阈值停止，整条FAILED排除；63个实际Astra/xhigh响应均完整且已知用量，零自动重试，未知旧用量保留。所有四条曾通过各自严格初始与ROOT真实三相机照片准入；初始与失败前缀均不计完整数据。V8每次模型自选1至4步原动作、逐步实测检查，原物理/整条验收标准保持原值。B口零模型请求原生重力诊断已关闭：1287/1290粒子进入B并稳定5秒，诊断不计数据。ACT/DP真实配置CPU存取在30109/Pro6000/5090均通过，代码已部署；GPU训练、真实检查点、原生策略完整数据及批量重置资格仍0。网页按分钟只读核对PID/start/argv、源文件和实测粒子状态；独立整条审计与ROOT9实际阶段图核验后才增加计数。 最新原生实测：5090 t3_held_v6_5090_001 93.1秒，A倾75.2°，A液体1254/B0/累计洒漏29，失败排除；5090 t3_batch_v8_5090_002 12.1秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中；Pro6000 t3_held_v6_pro_001 86.0秒，A倾46.3°，A液体1290/B0/累计洒漏0，运行中；Pro6000 t3_flight_v7_pro_001 66.0秒，A倾50.4°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -115,7 +115,7 @@
           "last_request_status": "executed",
           "internal_success": false,
           "stop_reason": "native_physical_safety_violation",
-          "captured_epoch": 1791843410.4340622
+          "captured_epoch": 1791843470.4844713
         },
         {
           "episode_id": "t3_batch_v8_5090_002",
@@ -123,9 +123,9 @@
           "source_kind": "actual_Astra_xhigh_teacher",
           "source_sha256": "8d8e1d88e426f509d0781bff49e911701f801dbbd9260c1ceb9e737c74cf1270",
           "native_alive": true,
-          "native_process_state": "S",
-          "sim_s": 10.5,
-          "A_tilt_deg": 0.03576493685267165,
+          "native_process_state": "R",
+          "sim_s": 12.125,
+          "A_tilt_deg": 0.03674882579250358,
           "liquid_counts": {
             "total": 1290,
             "A": 1290,
@@ -136,12 +136,12 @@
             "currently_spilled_outside": 0
           },
           "safety_violation": false,
-          "model_requests": 8,
-          "executed_primitives": 7,
+          "model_requests": 9,
+          "executed_primitives": 8,
           "last_request_status": "started",
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791843410.4351993
+          "captured_epoch": 1791843470.4858418
         },
         {
           "episode_id": "t3_held_v6_pro_001",
@@ -150,8 +150,8 @@
           "source_sha256": "ced4a73031b2676bc1f5c3b000ff7d04092800b23a72f22070ad9c734953e7db",
           "native_alive": true,
           "native_process_state": "S",
-          "sim_s": 84.99166666666666,
-          "A_tilt_deg": 44.90562575003203,
+          "sim_s": 85.99166666666666,
+          "A_tilt_deg": 46.31430831094944,
           "liquid_counts": {
             "total": 1290,
             "A": 1290,
@@ -162,12 +162,12 @@
             "currently_spilled_outside": 0
           },
           "safety_violation": false,
-          "model_requests": 59,
-          "executed_primitives": 58,
+          "model_requests": 60,
+          "executed_primitives": 59,
           "last_request_status": "started",
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791843410.9631116
+          "captured_epoch": 1791843470.78987
         },
         {
           "episode_id": "t3_flight_v7_pro_001",
@@ -193,7 +193,7 @@
           "last_request_status": "started",
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791843410.9653697
+          "captured_epoch": 1791843470.7921603
         }
       ]
     },
@@ -238,7 +238,7 @@
       "sim_s": null,
       "executed": 0,
       "unknown_usage": null,
-      "updated_at": "2026-10-12T22:03:41.494777+00:00",
+      "updated_at": "2026-10-12T22:18:08.580118+00:00",
       "latest_failed": null,
       "note": "台面原生柜子五阶段：开柜→取A→取B→还A→还B，A杯/B棕瓶保持原槽位。原生搁板接触和连续稳定检查已通过；继续调整实际搁板位置以让头/胸/第三相机都看到容器。完整验收0。 DP、ACT 训练的数据资格独立核验。",
       "legacy": {
@@ -377,7 +377,7 @@
     "video_fps": 15,
     "acceptance": "完整有序物理过程、释放稳定、安全与不变约束、真实模型响应来源、已知用量及预算、三路完整视频均通过后，才计入整条验收。"
   },
-  "program_revision": "2026-10-12T22:03:41.494777+00:00",
+  "program_revision": "2026-10-12T22:18:08.580118+00:00",
   "fleet": [
     {
       "host": "liyufeng_4090",
@@ -387,7 +387,7 @@
     {
       "host": "5090",
       "role": "采集与测试",
-      "status": "V6原生2410726与V8新原生3053901均已严格初始/ROOT真实三相机准入，分别占用两卡；旧V8初始化失败0GEN已封存。ACT/DP官方真实配置CPU存取2项通过。"
+      "status": "V6已完整失败并封存，原生粒子洒漏29/B0；V8原生3053901继续实际模型自选动作采集。ACT/DP真实配置CPU存取2项通过。"
     },
     {
       "host": "Pro6000",
