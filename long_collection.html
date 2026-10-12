@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>长任务采集 · PsiBot Dashboard</title><link rel="stylesheet" href="assets/long-collection/panel.css"></head>
+<body><header><a href="index.html">← 返回主看板</a><nav aria-label="页面导航"><a href="#tasks">采集进度</a><a href="#scenes">初始场景</a><a href="#acceptance">验收标准</a></nav></header>
+<main><div class="intro"><p class="eyebrow">PSIBOT / NATIVE COLLECTION</p><h1>长任务采集</h1><p class="lead">三个连续任务，从原始场景到整条独立验收。</p><p class="muted">阶段进度展示本轮已核验的过程；完整通过数只统计通过整条验收的示范。</p></div>
+<section class="summary" aria-label="整体进度"><div><span>已有完整示范的任务</span><strong id="complete">— / 3</strong></div><div><span>整条验收通过</span><strong id="episodes">— 条</strong></div><div><span>原始记录</span><strong class="smallstat">120 Hz 物理 · 三视角视频</strong><span>GPT-6 Astra · xhigh</span></div></section>
+<div class="freshness"><div><p id="connection" role="status">正在读取采集状态…</p><p class="muted" id="timestamps"></p></div><button id="refresh" type="button">刷新状态</button></div><p id="loadError" class="error" hidden>状态来源暂不可用，请稍后刷新。</p>
+<section id="tasks"><h2>三个任务的当前进度</h2><div id="taskCards" class="tasks"></div><p class="muted" id="next"></p></section>
+<section id="scenes"><h2>初始场景 · 原始三视角</h2><p class="muted">每张照片直接来自标注轮次的第一帧；点击可查看原图。场景照片保持采集时的原始内容。</p><div id="sceneCards"></div></section>
+<section id="acceptance" class="protocol"><h2>什么时候算完成</h2><p>每个任务至少有一条连续原生示范通过整条独立验收，才计入完成。失败、响应中断和诊断片段均保留，但完整通过数不会因此增加。</p><ol><li>按物体身份和指定次序完成全部阶段；原杯垫与已完成物体保持正确。</li><li>释放、张手和退让后，物体在指定支撑面连续稳定至少 1 秒，同时满足位置、倾角、速度与手部距离要求。</li><li>完整核对 120 Hz 物理及动作记录、实际模型响应来源、已知使用量和预算。</li><li>三路 15 fps 原始视频完整解码，时钟一致，并逐阶段复核关键过程。</li></ol><p class="muted">完整通过数不是成功率。本面板不把多次失败尝试作为独立评测样本计算成功率。</p></section>
+<footer>状态自动刷新，每分钟尝试读取新数据。源记录时间与网页发布时间分别展示。<a href="results/long_collection_current.json">下载公开状态 JSON</a></footer></main><script src="assets/long-collection/panel.js" defer></script></body></html>
