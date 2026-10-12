@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-12T15:13:59.178494+00:00",
+  "published_at": "2026-10-12T16:14:32.325368+00:00",
   "source_updated_at": "2026-10-12T15:02:46.246822+00:00",
   "tasks": [
     {
@@ -43,8 +43,8 @@
       "unknown_usage": null,
       "latest_failed": null,
       "native_alive": false,
-      "updated_at": "2026-10-12T14:39:51.264495+00:00",
-      "note": "新版：A、B各在一块相同垫子上，第三垫空置；真实液体从A倒入B后，A归还原垫。场景已部署，5090完成私有依赖准备，正在检查可用卡并重启原生场景。旧版倾斜归位任务的1条验收独立保留，不计入新版。 DP、ACT 训练等待此版本通过完整验收的数据。",
+      "updated_at": "2026-10-12T16:03:49.349837+00:00",
+      "note": "三块相同垫子、A真实液体倒入B后回原垫。已确认加载器自动SDF改写，关闭后剧烈跳动消失；正在复验休眠导致的接触报告缺失和实际液体保持。新版完整验收0，旧版1独立保留。 DP、ACT 训练等待此版本通过完整验收的数据。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -106,9 +106,9 @@
       "sim_s": null,
       "executed": 0,
       "unknown_usage": null,
-      "updated_at": "2026-10-12T14:39:51.264495+00:00",
+      "updated_at": "2026-10-12T16:03:49.349837+00:00",
       "latest_failed": null,
-      "note": "柜子新版：透明烧杯A和棕色试剂瓶B在同一层两个原槽位；依次开柜、取A、取B、还A、还B。场景已部署，原生检查排在倒液场景之后；原称重版本继续单独保留。 DP、ACT 训练等待此版本通过完整验收的数据。",
+      "note": "开柜→取A→取B→还A→还B；A透明杯/B棕瓶保持原槽位。三张新原生照片已检查，仍有门框/手臂遮挡；当前并行试验台面上的缩小原生柜子，保留实体柜门与搁板。完整验收0。 DP、ACT 训练等待此版本通过完整验收的数据。",
       "legacy": {
         "title": "三杯五阶段称量",
         "accepted_count": 0,
@@ -123,9 +123,9 @@
           "sim_s": 47.6,
           "executed": 31,
           "unknown_usage": 1,
+          "reviewed_at": "2026-10-12T11:57:25.002343+00:00",
           "reason": "此轮未通过整条验收，原始失败证据已保留。",
-          "proof_sha256": "1174652573684f3e9c82a5a25634415010339e5e5ffd136974a7c567216c8c0a",
-          "reviewed_at": "2026-10-12T11:57:25.002343+00:00"
+          "proof_sha256": "1174652573684f3e9c82a5a25634415010339e5e5ffd136974a7c567216c8c0a"
         },
         "version": "psibot_5_weigh_sequence_v1"
       },
@@ -165,10 +165,10 @@
           "run": "collect_56"
         }
       ],
-      "completed_phases": 1,
-      "phase_basis": "本轮已独立核验的释放稳定阶段",
+      "completed_phases": 2,
+      "phase_basis": "已闭合失败轮次的已完成阶段",
       "whole_accepted": false,
-      "state": "closed_pending_review",
+      "state": "failed",
       "run": "collect_57",
       "native_alive": false,
       "sim_s": 160.1,
@@ -176,17 +176,17 @@
       "unknown_usage": 1,
       "updated_at": "2026-10-12T15:02:46.246822+00:00",
       "latest_failed": {
-        "run": "collect_56",
-        "completed_phases": 1,
+        "run": "collect_57",
+        "completed_phases": 2,
         "total_phases": 7,
-        "sim_s": 110.6,
-        "executed": 73,
+        "sim_s": 160.1,
+        "executed": 106,
         "unknown_usage": 1,
-        "reason": "返回阶段未完成；上游响应中断，使用量存在未知项",
-        "proof_sha256": "53c7a79d05ca6459816059a60e5018e6619e50839cb41b7a45a6e071aa3df517",
-        "reviewed_at": "2026-10-12T10:49:15.182031+00:00"
+        "reviewed_at": "2026-10-12T15:15:47.933835+00:00",
+        "reason": "此轮未通过整条验收，原始失败证据已保留。",
+        "proof_sha256": "5a4ddcd27b6480c26577119f8f4b898c0e36038bc8eb3bc5b31c0ff2ff584514"
       },
-      "note": "已结束，等待整条独立验收。",
+      "note": "此轮已失败并排除，等待下一轮原有准入检查。",
       "contacts": [
         {
           "object": "A",
@@ -238,12 +238,12 @@
     "video_fps": 15,
     "acceptance": "完整有序物理过程、释放稳定、安全与不变约束、真实模型响应来源、已知用量及预算、三路完整视频均通过后，才计入整条验收。"
   },
-  "program_revision": "2026-10-12T14:39:51.264495+00:00",
+  "program_revision": "2026-10-12T16:03:49.349837+00:00",
   "fleet": [
     {
       "host": "liyufeng_4090",
       "role": "采集与测试",
-      "status": "T7 原生采集运行中"
+      "status": "T7本轮完成2/7阶段后模型响应流中断，完整轨迹未通过；已封存排查。"
     },
     {
       "host": "5090",
@@ -253,12 +253,12 @@
     {
       "host": "Pro6000",
       "role": "采集与测试",
-      "status": "两卡当前有其他原生测试；本任务已部署，CPU启动准备通过。"
+      "status": "新版T3原生场景复验；T5已有原生照片，发现视角遮挡后修正。"
     },
     {
       "host": "30109",
       "role": "DP / ACT 训练",
-      "status": "连接与环境已核验；等待新版合格数据"
+      "status": "先前环境已核验；最近一次SSH连接被重置，当前未启动训练"
     },
     {
       "host": "mainskill",
