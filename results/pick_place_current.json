@@ -2,19 +2,19 @@
   "schema_version": 1,
   "task": "T-494",
   "generation": "paper_v4",
-  "published_at": "2026-10-12T16:12:25.312743+00:00",
-  "source_updated_at": "2026-10-12T16:12:05.737129+00:00",
+  "published_at": "2026-10-12T16:20:53.756367+00:00",
+  "source_updated_at": "2026-10-12T16:20:47.969036+00:00",
   "refresh_seconds": 60,
   "publish_seconds": 600,
   "totals": {
     "objects": 13,
     "verified_models": 26,
     "required_models": 26,
-    "complete_cells": 99,
+    "complete_cells": 100,
     "required_cells": 104,
-    "complete_trials": 4950,
+    "complete_trials": 5000,
     "required_trials": 5200,
-    "same_gpu_cells": 52,
+    "same_gpu_cells": 53,
     "formal_accepted_objects": null
   },
   "protocol": {
@@ -692,8 +692,8 @@
               "added_cm": 2,
               "xy_half_range_cm": 5,
               "complete": false,
-              "status": "PENDING",
-              "status_label": "待核验",
+              "status": "HOLD_FAILURE",
+              "status_label": "需恢复",
               "episodes": null,
               "sr_percent": null,
               "terminal_spatial_ssr20_percent": null,
@@ -2281,15 +2281,22 @@
             {
               "added_cm": 2,
               "xy_half_range_cm": 5,
-              "complete": false,
-              "status": "RUNNING",
-              "status_label": "测试中",
-              "episodes": null,
-              "sr_percent": null,
-              "terminal_spatial_ssr20_percent": null,
+              "complete": true,
+              "status": "COMPLETE50_GEOMETRY_AUDITED",
+              "status_label": "完整50次核验完成",
+              "episodes": 50,
+              "sr_percent": 4,
+              "terminal_spatial_ssr20_percent": 4,
               "paper_ssr_percent": null,
-              "test_gpu": null,
-              "same_gpu": null
+              "test_gpu": "RTX 4090",
+              "same_gpu": true,
+              "successes": 2,
+              "spatial_safe_successes": 2,
+              "settled_outside_count": 28,
+              "outside_sr_percent": 7.14,
+              "outside_spatial_ssr20_percent": 7.14,
+              "raw_sha256": "385d668f8ea8b46491b5244a417944a39df2d27f6c1ff8aab69f2a2b42d301cb",
+              "receipt_sha256": "2be6376b6699a5e4cc37a7adc5f2ee1bdca3f2ffbfe07db865260f716a3afb6d"
             },
             {
               "added_cm": 3,
@@ -2369,8 +2376,8 @@
               "added_cm": 2,
               "xy_half_range_cm": 5,
               "complete": false,
-              "status": "PENDING",
-              "status_label": "待核验",
+              "status": "HOLD_FAILURE",
+              "status_label": "需恢复",
               "episodes": null,
               "sr_percent": null,
               "terminal_spatial_ssr20_percent": null,
@@ -2610,21 +2617,21 @@
   "workers": [
     {
       "name": "liyufeng_4090",
-      "status_label": "原生测试中",
-      "activity": "研钵 · DP · +2cm",
+      "status_label": "需恢复",
+      "activity": "",
       "available_gib": null,
       "required_gib": null
     },
     {
       "name": "5090 · GPU0",
-      "status_label": "等待队列",
+      "status_label": "显卡正在运行其他作业，等待空闲",
       "activity": "",
       "available_gib": null,
       "required_gib": null
     },
     {
       "name": "5090 · GPU1",
-      "status_label": "等待队列",
+      "status_label": "显卡正在运行其他作业，等待空闲",
       "activity": "",
       "available_gib": null,
       "required_gib": null
@@ -2632,7 +2639,7 @@
     {
       "name": "aliyun · GPU11",
       "status_label": "ACT候选训练中",
-      "activity": "250 mL 棕色容量瓶 · ACT候选 · 822/10000优化步",
+      "activity": "250 mL 棕色容量瓶 · ACT候选 · 1542/10000优化步",
       "available_gib": null,
       "required_gib": null
     },
@@ -2646,42 +2653,42 @@
     {
       "name": "aliyun · GPU15",
       "status_label": "ACT候选训练中",
-      "activity": "锥形瓶 · ACT候选 · 5742/10000优化步",
+      "activity": "锥形瓶 · ACT候选 · 6502/10000优化步",
       "available_gib": null,
       "required_gib": null
     },
     {
       "name": "aliyun · GPU13",
       "status_label": "ACT候选训练中",
-      "activity": "250 mL 透明容量瓶 · ACT候选 · 5722/10000优化步",
+      "activity": "250 mL 透明容量瓶 · ACT候选 · 6462/10000优化步",
       "available_gib": null,
       "required_gib": null
     },
     {
       "name": "aliyun · GPU8",
       "status_label": "DP候选训练中",
-      "activity": "250 mL 透明容量瓶 · DP候选 · 31240/282000优化步",
+      "activity": "250 mL 透明容量瓶 · DP候选 · 31883/282000优化步",
       "available_gib": null,
       "required_gib": null
     },
     {
       "name": "aliyun · GPU9",
       "status_label": "DP候选训练中",
-      "activity": "锥形瓶 · DP候选 · 31159/282000优化步",
+      "activity": "锥形瓶 · DP候选 · 31809/282000优化步",
       "available_gib": null,
       "required_gib": null
     },
     {
       "name": "aliyun · GPU14",
       "status_label": "DP候选训练中",
-      "activity": "100 mL 玻璃量筒 · DP候选 · 24767/282000优化步",
+      "activity": "100 mL 玻璃量筒 · DP候选 · 25434/282000优化步",
       "available_gib": null,
       "required_gib": null
     },
     {
       "name": "aliyun · GPU12",
       "status_label": "DP候选训练中",
-      "activity": "250 mL 棕色容量瓶 · DP候选 · 16190/282000优化步",
+      "activity": "250 mL 棕色容量瓶 · DP候选 · 16869/282000优化步",
       "available_gib": null,
       "required_gib": null
     },
@@ -2702,28 +2709,28 @@
     {
       "name": "mainskill · GPU1",
       "status_label": "DP候选训练中",
-      "activity": "100 mL 玻璃烧杯 · DP候选 · 12813/282000优化步",
+      "activity": "100 mL 玻璃烧杯 · DP候选 · 13250/282000优化步",
       "available_gib": null,
       "required_gib": null
     },
     {
       "name": "mainskill · GPU0",
       "status_label": "DP候选训练中",
-      "activity": "100 mL 塑料量筒 · DP候选 · 13891/282000优化步",
+      "activity": "100 mL 塑料量筒 · DP候选 · 14323/282000优化步",
       "available_gib": null,
       "required_gib": null
     },
     {
       "name": "30109 · GPU2",
       "status_label": "ACT候选训练中",
-      "activity": "酒精灯 · ACT候选 · 8522/10000优化步",
+      "activity": "酒精灯 · ACT候选 · 9062/10000优化步",
       "available_gib": null,
       "required_gib": null
     },
     {
       "name": "30109 · GPU3",
       "status_label": "ACT候选训练中",
-      "activity": "250 mL 玻璃烧杯 · ACT候选 · 8602/10000优化步",
+      "activity": "250 mL 玻璃烧杯 · ACT候选 · 9122/10000优化步",
       "available_gib": null,
       "required_gib": null
     },
@@ -2743,6 +2750,13 @@
     },
     {
       "name": "5090 · GPU0 · 候选",
+      "status_label": "增加0cm · 候选50次筛查中",
+      "activity": "100 mL 塑料量筒 · 增加0cm · 1/50回合 · 等待采集同型号卡复测",
+      "available_gib": null,
+      "required_gib": null
+    },
+    {
+      "name": "5090 · GPU0 · 候选",
       "status_label": "增加1cm · 5090筛查完成：SR 78.0%，终态空间SSR20 70.0%；待4090复测",
       "activity": "100 mL 塑料量筒 · 增加1cm · 50/50回合 · 等待采集同型号卡复测",
       "available_gib": null,
@@ -2752,6 +2766,13 @@
       "name": "5090 · GPU1 · 候选",
       "status_label": "增加3cm · 5090筛查完成：SR 58.0%，终态空间SSR20 50.0%；待4090复测",
       "activity": "100 mL 塑料量筒 · 增加3cm · 50/50回合 · 等待采集同型号卡复测",
+      "available_gib": null,
+      "required_gib": null
+    },
+    {
+      "name": "5090 · GPU1 · 候选",
+      "status_label": "增加0cm · 候选50次筛查中",
+      "activity": "100 mL 玻璃量筒 · 增加0cm · 1/50回合 · 等待采集同型号卡复测",
       "available_gib": null,
       "required_gib": null
     },
@@ -2786,14 +2807,14 @@
     {
       "name": "volc-pro6000 · GPU0 · 候选",
       "status_label": "增加2cm · Pro6000候选测试中，待4090复测",
-      "activity": "100 mL 塑料量筒 · ACT · +2cm · 39/50回合",
+      "activity": "100 mL 塑料量筒 · ACT · +2cm · 43/50回合",
       "available_gib": null,
       "required_gib": null
     },
     {
       "name": "volc-pro6000 · GPU1 · 候选",
       "status_label": "增加2cm · Pro6000候选测试中，待4090复测",
-      "activity": "100 mL 玻璃量筒 · ACT · +2cm · 42/50回合",
+      "activity": "100 mL 玻璃量筒 · ACT · +2cm · 46/50回合",
       "available_gib": null,
       "required_gib": null
     }
@@ -2801,28 +2822,28 @@
   "training_servers": [
     {
       "name": "30109",
-      "source_updated_at": "2026-10-12T16:11:23.137495+00:00",
+      "source_updated_at": "2026-10-12T16:20:22.849138+00:00",
       "status_label": "2 个训练作业正在更新",
       "optimizer_records": 2,
       "training_gpu_count": 2
     },
     {
       "name": "aliyun",
-      "source_updated_at": "2026-10-12T16:12:13.865350+00:00",
+      "source_updated_at": "2026-10-12T16:20:38.576245+00:00",
       "status_label": "7 个训练作业正在更新",
       "optimizer_records": 7,
       "training_gpu_count": 7
     },
     {
       "name": "mainskill",
-      "source_updated_at": "2026-10-12T16:12:13.865350+00:00",
+      "source_updated_at": "2026-10-12T16:20:38.576245+00:00",
       "status_label": "2 个训练作业正在更新",
       "optimizer_records": 2,
       "training_gpu_count": 2
     },
     {
       "name": "volc-pro6000",
-      "source_updated_at": "2026-10-12T16:12:06.608408+00:00",
+      "source_updated_at": "2026-10-12T16:20:22.114471+00:00",
       "status_label": "2 张卡正在运行候选原生测试",
       "optimizer_records": null
     }
@@ -2830,8 +2851,8 @@
   "controllers": [
     {
       "role": "native-local",
-      "active": true,
-      "state": "active"
+      "active": false,
+      "state": "failed"
     },
     {
       "role": "native-5090-gpu0",
@@ -2867,17 +2888,17 @@
   "sources": [
     {
       "name": "CURRENT_OBJECT_PROGRESS_V4",
-      "updated_at": "2026-10-12T16:12:05.737129+00:00",
+      "updated_at": "2026-10-12T16:20:47.969036+00:00",
       "stale": false
     },
     {
       "name": "DP_BOUNDED_OPTIMIZER_PROGRESS",
-      "updated_at": "2026-10-12T16:11:10.924215+00:00",
+      "updated_at": "2026-10-12T16:20:22.849138+00:00",
       "stale": false
     },
     {
       "name": "SERVER_TRAINING_PROGRESS",
-      "updated_at": "2026-10-12T16:10:23.284803+00:00",
+      "updated_at": "2026-10-12T16:19:27.444112+00:00",
       "stale": false
     },
     {
@@ -2892,17 +2913,17 @@
     },
     {
       "name": "FLEET_DP_TRAINING_PROGRESS",
-      "updated_at": "2026-10-12T16:12:13.865350+00:00",
+      "updated_at": "2026-10-12T16:20:38.576245+00:00",
       "stale": false
     },
     {
       "name": "PRO6000_PICKPLACE_RESOURCE_WATCH",
-      "updated_at": "2026-10-12T16:12:06.608408+00:00",
+      "updated_at": "2026-10-12T16:20:22.114471+00:00",
       "stale": false
     },
     {
       "name": "EFFECTIVENESS_STATUS",
-      "updated_at": "2026-10-12T16:10:03.412516+00:00",
+      "updated_at": "2026-10-12T16:20:05.463393+00:00",
       "stale": false
     }
   ],
@@ -2912,7 +2933,8 @@
     "完整50次效果复核：13组零成功，9组SR与终态空间SSR20相差至少20个百分点；待分析原因，未作为论文指标验收",
     "论文SSR全轨迹约束与目标定义的等价性尚待完成；当前显示终态空间SSR20",
     "独立DP/ACT候选的训练、验证与测试分别显示；候选进度不计入模型或SR/SSR验收通过数",
-    "首轮104组已收齐，按实际位置覆盖选定统一+2cm；17组同型号显卡复核正在接续，原结果保留归档"
+    "首轮104组已收齐，按实际位置覆盖选定统一+2cm；17组同型号显卡复核正在接续，原结果保留归档",
+    "至少一个后台监管服务未确认运行，请检查服务状态"
   ],
   "candidate_progress": [
     {
@@ -2921,9 +2943,9 @@
       "method": "act",
       "active": true,
       "gpu": 11,
-      "optimizer_updates": 822,
+      "optimizer_updates": 1542,
       "required_updates": 10000,
-      "source_updated_at": "2026-10-12T16:11:23.137495+00:00",
+      "source_updated_at": "2026-10-12T16:19:52.765723+00:00",
       "status_label": "ACT候选训练中"
     },
     {
@@ -2934,7 +2956,7 @@
       "gpu": null,
       "optimizer_updates": null,
       "required_updates": 10000,
-      "source_updated_at": "2026-10-12T16:11:23.137495+00:00",
+      "source_updated_at": "2026-10-12T16:19:52.765723+00:00",
       "status_label": "验证通过，等待50次测试"
     },
     {
@@ -2943,9 +2965,9 @@
       "method": "act",
       "active": true,
       "gpu": 15,
-      "optimizer_updates": 5742,
+      "optimizer_updates": 6502,
       "required_updates": 10000,
-      "source_updated_at": "2026-10-12T16:11:23.137495+00:00",
+      "source_updated_at": "2026-10-12T16:19:52.765723+00:00",
       "status_label": "ACT候选训练中"
     },
     {
@@ -2954,9 +2976,9 @@
       "method": "act",
       "active": true,
       "gpu": 13,
-      "optimizer_updates": 5722,
+      "optimizer_updates": 6462,
       "required_updates": 10000,
-      "source_updated_at": "2026-10-12T16:11:23.137495+00:00",
+      "source_updated_at": "2026-10-12T16:19:52.765723+00:00",
       "status_label": "ACT候选训练中"
     },
     {
@@ -2965,9 +2987,9 @@
       "method": "dp",
       "active": true,
       "gpu": 8,
-      "optimizer_updates": 31240,
+      "optimizer_updates": 31883,
       "required_updates": 282000,
-      "source_updated_at": "2026-10-12T16:11:23.137495+00:00",
+      "source_updated_at": "2026-10-12T16:19:52.765723+00:00",
       "status_label": "DP候选训练中"
     },
     {
@@ -2976,9 +2998,9 @@
       "method": "dp",
       "active": true,
       "gpu": 9,
-      "optimizer_updates": 31159,
+      "optimizer_updates": 31809,
       "required_updates": 282000,
-      "source_updated_at": "2026-10-12T16:11:23.137495+00:00",
+      "source_updated_at": "2026-10-12T16:19:52.765723+00:00",
       "status_label": "DP候选训练中"
     },
     {
@@ -2987,9 +3009,9 @@
       "method": "dp",
       "active": true,
       "gpu": 14,
-      "optimizer_updates": 24767,
+      "optimizer_updates": 25434,
       "required_updates": 282000,
-      "source_updated_at": "2026-10-12T16:11:23.137495+00:00",
+      "source_updated_at": "2026-10-12T16:19:52.765723+00:00",
       "status_label": "DP候选训练中"
     },
     {
@@ -2998,9 +3020,9 @@
       "method": "dp",
       "active": true,
       "gpu": 12,
-      "optimizer_updates": 16190,
+      "optimizer_updates": 16869,
       "required_updates": 282000,
-      "source_updated_at": "2026-10-12T16:11:23.137495+00:00",
+      "source_updated_at": "2026-10-12T16:19:52.765723+00:00",
       "status_label": "DP候选训练中"
     },
     {
@@ -3011,7 +3033,7 @@
       "gpu": null,
       "optimizer_updates": null,
       "required_updates": 10000,
-      "source_updated_at": "2026-10-12T16:11:23.137495+00:00",
+      "source_updated_at": "2026-10-12T16:19:52.765723+00:00",
       "status_label": "验证未达门槛，保留原模型"
     },
     {
@@ -3022,7 +3044,7 @@
       "gpu": null,
       "optimizer_updates": null,
       "required_updates": 10000,
-      "source_updated_at": "2026-10-12T16:11:23.137495+00:00",
+      "source_updated_at": "2026-10-12T16:19:52.765723+00:00",
       "status_label": "验证通过，等待50次测试"
     },
     {
@@ -3031,9 +3053,9 @@
       "method": "dp",
       "active": true,
       "gpu": 1,
-      "optimizer_updates": 12813,
+      "optimizer_updates": 13250,
       "required_updates": 282000,
-      "source_updated_at": "2026-10-12T16:11:23.137495+00:00",
+      "source_updated_at": "2026-10-12T16:19:52.765723+00:00",
       "status_label": "DP候选训练中"
     },
     {
@@ -3042,9 +3064,9 @@
       "method": "dp",
       "active": true,
       "gpu": 0,
-      "optimizer_updates": 13891,
+      "optimizer_updates": 14323,
       "required_updates": 282000,
-      "source_updated_at": "2026-10-12T16:11:23.137495+00:00",
+      "source_updated_at": "2026-10-12T16:19:52.765723+00:00",
       "status_label": "DP候选训练中"
     },
     {
@@ -3053,9 +3075,9 @@
       "method": "act",
       "active": true,
       "gpu": 2,
-      "optimizer_updates": 8522,
+      "optimizer_updates": 9062,
       "required_updates": 10000,
-      "source_updated_at": "2026-10-12T16:11:23.137495+00:00",
+      "source_updated_at": "2026-10-12T16:19:52.765723+00:00",
       "status_label": "ACT候选训练中"
     },
     {
@@ -3064,9 +3086,9 @@
       "method": "act",
       "active": true,
       "gpu": 3,
-      "optimizer_updates": 8602,
+      "optimizer_updates": 9122,
       "required_updates": 10000,
-      "source_updated_at": "2026-10-12T16:11:23.137495+00:00",
+      "source_updated_at": "2026-10-12T16:19:52.765723+00:00",
       "status_label": "ACT候选训练中"
     }
   ],
@@ -3082,7 +3104,7 @@
       "sr_percent": 66.0,
       "terminal_spatial20_proxy_percent": 54.0,
       "paper_ssr_percent": null,
-      "source_updated_at": "2026-10-12T16:12:00.714992+00:00"
+      "source_updated_at": "2026-10-12T16:20:44.716344+00:00"
     },
     {
       "object": "glass_cylinder_100ml",
@@ -3095,7 +3117,20 @@
       "sr_percent": 50.0,
       "terminal_spatial20_proxy_percent": 36.0,
       "paper_ssr_percent": null,
-      "source_updated_at": "2026-10-12T16:12:00.714992+00:00"
+      "source_updated_at": "2026-10-12T16:20:44.716344+00:00"
+    },
+    {
+      "object": "plastic_cylinder_100ml",
+      "gpu": 0,
+      "closed_trials": 1,
+      "added_cm": 0,
+      "active": true,
+      "status_label": "增加0cm · 候选50次筛查中",
+      "formal_evaluation_credit": 0,
+      "sr_percent": null,
+      "terminal_spatial20_proxy_percent": null,
+      "paper_ssr_percent": null,
+      "source_updated_at": "2026-10-12T16:20:44.716344+00:00"
     },
     {
       "object": "plastic_cylinder_100ml",
@@ -3108,7 +3143,7 @@
       "sr_percent": 78.0,
       "terminal_spatial20_proxy_percent": 70.0,
       "paper_ssr_percent": null,
-      "source_updated_at": "2026-10-12T16:12:00.714992+00:00"
+      "source_updated_at": "2026-10-12T16:20:44.716344+00:00"
     },
     {
       "object": "plastic_cylinder_100ml",
@@ -3121,7 +3156,20 @@
       "sr_percent": 58.0,
       "terminal_spatial20_proxy_percent": 50.0,
       "paper_ssr_percent": null,
-      "source_updated_at": "2026-10-12T16:12:00.714992+00:00"
+      "source_updated_at": "2026-10-12T16:20:44.716344+00:00"
+    },
+    {
+      "object": "glass_cylinder_100ml",
+      "gpu": 1,
+      "closed_trials": 1,
+      "added_cm": 0,
+      "active": true,
+      "status_label": "增加0cm · 候选50次筛查中",
+      "formal_evaluation_credit": 0,
+      "sr_percent": null,
+      "terminal_spatial20_proxy_percent": null,
+      "paper_ssr_percent": null,
+      "source_updated_at": "2026-10-12T16:20:44.716344+00:00"
     },
     {
       "object": "glass_cylinder_100ml",
@@ -3134,7 +3182,7 @@
       "sr_percent": 68.0,
       "terminal_spatial20_proxy_percent": 48.0,
       "paper_ssr_percent": null,
-      "source_updated_at": "2026-10-12T16:12:00.714992+00:00"
+      "source_updated_at": "2026-10-12T16:20:44.716344+00:00"
     },
     {
       "object": "glass_cylinder_100ml",
@@ -3147,7 +3195,7 @@
       "sr_percent": 48.0,
       "terminal_spatial20_proxy_percent": 38.0,
       "paper_ssr_percent": null,
-      "source_updated_at": "2026-10-12T16:12:00.714992+00:00"
+      "source_updated_at": "2026-10-12T16:20:44.716344+00:00"
     }
   ],
   "candidate_pro6000_testing": [
@@ -3162,7 +3210,7 @@
       "paper_ssr_percent": null,
       "sr_percent": 80.0,
       "terminal_spatial20_proxy_percent": 68.0,
-      "source_updated_at": "2026-10-12T16:12:06.652981+00:00",
+      "source_updated_at": "2026-10-12T16:20:22.249842+00:00",
       "status_label": "增加0cm · Pro6000筛查完成：SR 80.0%，终态空间误差20mm代理 68.0%；待4090复测和论文SSR验收"
     },
     {
@@ -3176,7 +3224,7 @@
       "paper_ssr_percent": null,
       "sr_percent": 36.0,
       "terminal_spatial20_proxy_percent": 20.0,
-      "source_updated_at": "2026-10-12T16:12:06.652981+00:00",
+      "source_updated_at": "2026-10-12T16:20:22.249842+00:00",
       "status_label": "增加0cm · Pro6000筛查完成：SR 36.0%，终态空间误差20mm代理 20.0%；待4090复测和论文SSR验收"
     },
     {
@@ -3184,13 +3232,13 @@
       "method": "act",
       "gpu": 0,
       "added_cm": 2,
-      "closed_trials": 39,
+      "closed_trials": 43,
       "active": true,
       "formal_evaluation_credit": 0,
       "paper_ssr_percent": null,
       "sr_percent": null,
       "terminal_spatial20_proxy_percent": null,
-      "source_updated_at": "2026-10-12T16:12:06.652981+00:00",
+      "source_updated_at": "2026-10-12T16:20:22.249842+00:00",
       "status_label": "增加2cm · Pro6000候选测试中，待4090复测"
     },
     {
@@ -3198,20 +3246,20 @@
       "method": "act",
       "gpu": 1,
       "added_cm": 2,
-      "closed_trials": 42,
+      "closed_trials": 46,
       "active": true,
       "formal_evaluation_credit": 0,
       "paper_ssr_percent": null,
       "sr_percent": null,
       "terminal_spatial20_proxy_percent": null,
-      "source_updated_at": "2026-10-12T16:12:06.652981+00:00",
+      "source_updated_at": "2026-10-12T16:20:22.249842+00:00",
       "status_label": "增加2cm · Pro6000候选测试中，待4090复测"
     }
   ],
   "fleet_gpu_telemetry": [
     {
       "host": "aliyun",
-      "source_updated_at": "2026-10-12T16:12:20.038752+00:00",
+      "source_updated_at": "2026-10-12T16:20:20.449083+00:00",
       "fresh": true,
       "status_label": "已同步",
       "gpus": [
@@ -3248,7 +3296,7 @@
           "model": "PPU-ZW810E",
           "memory_total_mib": 98304.0,
           "memory_used_mib": 6865.0,
-          "utilization_percent": 100.0
+          "utilization_percent": 0.0
         },
         {
           "index": 5,
@@ -3283,7 +3331,7 @@
           "model": "PPU-ZW810E",
           "memory_total_mib": 98304.0,
           "memory_used_mib": 20939.0,
-          "utilization_percent": 0.0
+          "utilization_percent": 14.0
         },
         {
           "index": 10,
@@ -3318,7 +3366,7 @@
           "model": "PPU-ZW810E",
           "memory_total_mib": 98304.0,
           "memory_used_mib": 20845.0,
-          "utilization_percent": 100.0
+          "utilization_percent": 0.0
         },
         {
           "index": 15,
@@ -3328,13 +3376,13 @@
           "utilization_percent": 0.0
         }
       ],
-      "cpu_percent": 42.9,
+      "cpu_percent": 44.4,
       "memory_total_gib": 1800.0,
-      "memory_available_gib": 465.0
+      "memory_available_gib": 465.5
     },
     {
       "host": "30109",
-      "source_updated_at": "2026-10-12T16:12:19.582710+00:00",
+      "source_updated_at": "2026-10-12T16:20:20.417789+00:00",
       "fresh": true,
       "status_label": "已同步",
       "gpus": [
@@ -3357,14 +3405,14 @@
           "model": "NVIDIA A100-SXM4-80GB",
           "memory_total_mib": 81920.0,
           "memory_used_mib": 7057.0,
-          "utilization_percent": 0.0
+          "utilization_percent": 85.0
         },
         {
           "index": 3,
           "model": "NVIDIA A100-SXM4-80GB",
           "memory_total_mib": 81920.0,
           "memory_used_mib": 7057.0,
-          "utilization_percent": 29.0
+          "utilization_percent": 0.0
         },
         {
           "index": 4,
@@ -3385,23 +3433,23 @@
           "model": "NVIDIA A100-SXM4-80GB",
           "memory_total_mib": 81920.0,
           "memory_used_mib": 2307.0,
-          "utilization_percent": 96.0
+          "utilization_percent": 12.0
         },
         {
           "index": 7,
           "model": "NVIDIA A100-SXM4-80GB",
           "memory_total_mib": 81920.0,
           "memory_used_mib": 1155.0,
-          "utilization_percent": 32.0
+          "utilization_percent": 29.0
         }
       ],
-      "cpu_percent": 57.0,
+      "cpu_percent": 57.4,
       "memory_total_gib": 1007.0,
-      "memory_available_gib": 433.3
+      "memory_available_gib": 432.4
     },
     {
       "host": "mainskill",
-      "source_updated_at": "2026-10-12T16:12:21.195328+00:00",
+      "source_updated_at": "2026-10-12T16:20:22.714127+00:00",
       "fresh": true,
       "status_label": "已同步",
       "gpus": [
@@ -3417,35 +3465,35 @@
           "model": "NVIDIA A100-SXM4-80GB",
           "memory_total_mib": 81920.0,
           "memory_used_mib": 60265.0,
-          "utilization_percent": 96.0
+          "utilization_percent": 100.0
         },
         {
           "index": 2,
           "model": "NVIDIA A100-SXM4-80GB",
           "memory_total_mib": 81920.0,
           "memory_used_mib": 20495.0,
-          "utilization_percent": 77.0
+          "utilization_percent": 75.0
         },
         {
           "index": 3,
           "model": "NVIDIA A100-SXM4-80GB",
           "memory_total_mib": 81920.0,
           "memory_used_mib": 41734.0,
-          "utilization_percent": 80.0
+          "utilization_percent": 97.0
         },
         {
           "index": 4,
           "model": "NVIDIA A100-SXM4-80GB",
           "memory_total_mib": 81920.0,
           "memory_used_mib": 15279.0,
-          "utilization_percent": 76.0
+          "utilization_percent": 75.0
         },
         {
           "index": 5,
           "model": "NVIDIA A100-SXM4-80GB",
           "memory_total_mib": 81920.0,
           "memory_used_mib": 45017.0,
-          "utilization_percent": 97.0
+          "utilization_percent": 79.0
         },
         {
           "index": 6,
@@ -3459,16 +3507,16 @@
           "model": "NVIDIA A100-SXM4-80GB",
           "memory_total_mib": 81920.0,
           "memory_used_mib": 42819.0,
-          "utilization_percent": 98.0
+          "utilization_percent": 87.0
         }
       ],
-      "cpu_percent": 22.9,
+      "cpu_percent": 23.0,
       "memory_total_gib": 1007.0,
-      "memory_available_gib": 346.9
+      "memory_available_gib": 346.1
     },
     {
       "host": "liyufeng_4090",
-      "source_updated_at": "2026-10-12T16:12:19.747751+00:00",
+      "source_updated_at": "2026-10-12T16:20:20.545685+00:00",
       "fresh": true,
       "status_label": "已同步",
       "gpus": [
@@ -3476,17 +3524,17 @@
           "index": 0,
           "model": "NVIDIA GeForce RTX 4090",
           "memory_total_mib": 24564.0,
-          "memory_used_mib": 12277.0,
-          "utilization_percent": 74.0
+          "memory_used_mib": 584.0,
+          "utilization_percent": 2.0
         }
       ],
-      "cpu_percent": 13.2,
+      "cpu_percent": 4.6,
       "memory_total_gib": 62.4,
-      "memory_available_gib": 21.9
+      "memory_available_gib": 38.7
     },
     {
       "host": "5090",
-      "source_updated_at": "2026-10-12T16:12:19.815292+00:00",
+      "source_updated_at": "2026-10-12T16:20:20.903345+00:00",
       "fresh": true,
       "status_label": "已同步",
       "gpus": [
@@ -3494,24 +3542,24 @@
           "index": 0,
           "model": "NVIDIA GeForce RTX 5090",
           "memory_total_mib": 32607.0,
-          "memory_used_mib": 390.0,
-          "utilization_percent": 20.0
+          "memory_used_mib": 13542.0,
+          "utilization_percent": 84.0
         },
         {
           "index": 1,
           "model": "NVIDIA GeForce RTX 5090",
           "memory_total_mib": 32607.0,
-          "memory_used_mib": 24.0,
-          "utilization_percent": 0.0
+          "memory_used_mib": 7166.0,
+          "utilization_percent": 57.0
         }
       ],
-      "cpu_percent": 20.2,
+      "cpu_percent": 40.7,
       "memory_total_gib": 251.2,
-      "memory_available_gib": 102.1
+      "memory_available_gib": 84.6
     },
     {
       "host": "volc-pro6000",
-      "source_updated_at": "2026-10-12T16:12:20.504790+00:00",
+      "source_updated_at": "2026-10-12T16:20:21.596817+00:00",
       "fresh": true,
       "status_label": "已同步",
       "gpus": [
@@ -3519,24 +3567,24 @@
           "index": 0,
           "model": "NVIDIA RPBZZZ6",
           "memory_total_mib": 97887.0,
-          "memory_used_mib": 23697.0,
-          "utilization_percent": 95.0
+          "memory_used_mib": 20437.0,
+          "utilization_percent": 61.0
         },
         {
           "index": 1,
           "model": "NVIDIA RPBZZZ6",
           "memory_total_mib": 97887.0,
-          "memory_used_mib": 24736.0,
-          "utilization_percent": 97.0
+          "memory_used_mib": 27015.0,
+          "utilization_percent": 54.0
         }
       ],
-      "cpu_percent": 11.5,
+      "cpu_percent": 15.7,
       "memory_total_gib": 1883.9,
-      "memory_available_gib": 1658.9
+      "memory_available_gib": 1652.0
     }
   ],
   "provenance": {
-    "matrix_sha256": "bd77ef7745ed80ca54b6af0dbd6533c97d7f03b45dcb91a84cc2157f5359c4ea",
+    "matrix_sha256": "f86e0e22c26f9961291515c399b08ef1e51c0cb0dc88a3b59f69990835d3947b",
     "paper_pdf_sha256": "0fbe7e861843402f601ff1643cc00ce82f2be5c22ba39c8bda5f886eb66113d0"
   }
 }
