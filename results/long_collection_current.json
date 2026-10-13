@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-13T09:43:27.490097+00:00",
-  "source_updated_at": "2026-10-13T09:02:49.496773+00:00",
+  "published_at": "2026-10-13T09:44:35.308437+00:00",
+  "source_updated_at": "2026-10-13T09:44:14.718115+00:00",
   "tasks": [
     {
       "task": "T3",
@@ -34,17 +34,17 @@
         }
       ],
       "completed_phases": 0,
-      "phase_basis": "新版场景正在准备；旧版成果单独保留",
+      "phase_basis": "初始资格通过；完整有序过程待独立验收",
       "whole_accepted": false,
-      "state": "unavailable",
-      "run": null,
-      "sim_s": null,
-      "executed": 0,
+      "state": "running",
+      "run": "t3_zero_post_v12_5090_001",
+      "sim_s": 5.991666666666666,
+      "executed": 4,
       "unknown_usage": null,
       "latest_failed": null,
-      "native_alive": false,
-      "updated_at": "2026-10-13T09:02:49.496773+00:00",
-      "note": "新版整条验收仍0/100。5090与Pro双卡三路原生真实动作已实际抓取、持握并搬杯，44次GPT-6 Astra/xhigh完成响应；第45次连接失败，桥保守暂停且三路已关闭，未完成倒液/归位，全部失败轨迹永久排除训练和验收。物理原件、完整120Hz与三视频保留；正在修复传输连接故障的可证明零POST等待，未知请求不重试，原模型/物理门/验收不改。首whole合格后才DP/ACT训练及100条扩采。 最新原生实测：Pro6000 t3_stream_v11_pro_fresh_002 33.8秒，A倾8.7°，A液体1290/B0/累计洒漏0，已关闭待审计；Pro6000 t3_stream_v11_pro_fresh_003 28.4秒，A倾2.1°，A液体1290/B0/累计洒漏0，已关闭待审计。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
+      "native_alive": true,
+      "updated_at": "2026-10-13T09:44:14.718115+00:00",
+      "note": "新版整条验收仍0/100。5090与Pro双卡三路原生真实动作已实际抓取、持握并搬杯，44次GPT-6 Astra/xhigh完成响应；第45次连接失败，桥保守暂停且三路已关闭，未完成倒液/归位，全部失败轨迹永久排除训练和验收。物理原件、完整120Hz与三视频保留；正在修复传输连接故障的可证明零POST等待，未知请求不重试，原模型/物理门/验收不改。首whole合格后才DP/ACT训练及100条扩采。 最新原生实测：5090 t3_zero_post_v12_5090_001 6.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -92,14 +92,14 @@
       },
       "parallel_native_runs": [
         {
-          "episode_id": "t3_stream_v11_pro_fresh_002",
-          "host": "Pro6000",
+          "episode_id": "t3_zero_post_v12_5090_001",
+          "host": "5090",
           "source_kind": "actual_Astra_xhigh_teacher",
-          "source_sha256": "701c249302d0a14dd14d4031d89a61c8adc46f1fa1fa919ba0e7d04c4cc53b96",
-          "native_alive": false,
-          "native_process_state": "closed",
-          "sim_s": 33.75,
-          "A_tilt_deg": 8.727888352132727,
+          "source_sha256": "968b0931f455e1d88436c32d3b3fec07c619de749d04bfe8d1e3cfad05d9fe03",
+          "native_alive": true,
+          "native_process_state": "S",
+          "sim_s": 5.991666666666666,
+          "A_tilt_deg": 0.031943537648731646,
           "liquid_counts": {
             "total": 1290,
             "A": 1290,
@@ -110,38 +110,12 @@
             "currently_spilled_outside": 0
           },
           "safety_violation": false,
-          "model_requests": 16,
-          "executed_primitives": 24,
-          "last_request_status": "native_model_failed_or_unknown_usage",
+          "model_requests": 2,
+          "executed_primitives": 4,
+          "last_request_status": "started",
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791884559.0556562
-        },
-        {
-          "episode_id": "t3_stream_v11_pro_fresh_003",
-          "host": "Pro6000",
-          "source_kind": "actual_Astra_xhigh_teacher",
-          "source_sha256": "701c249302d0a14dd14d4031d89a61c8adc46f1fa1fa919ba0e7d04c4cc53b96",
-          "native_alive": false,
-          "native_process_state": "closed",
-          "sim_s": 28.4,
-          "A_tilt_deg": 2.1088940177021454,
-          "liquid_counts": {
-            "total": 1290,
-            "A": 1290,
-            "B": 0,
-            "outside_vessels": 0,
-            "in_transit": 0,
-            "spill": 0,
-            "currently_spilled_outside": 0
-          },
-          "safety_violation": false,
-          "model_requests": 15,
-          "executed_primitives": 21,
-          "last_request_status": "native_model_failed_or_unknown_usage",
-          "internal_success": null,
-          "stop_reason": null,
-          "captured_epoch": 1791884559.0562732
+          "captured_epoch": 1791884654.7181153
         }
       ],
       "native_initial_images": [
