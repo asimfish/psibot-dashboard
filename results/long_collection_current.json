@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-13T12:01:22.830750+00:00",
+  "published_at": "2026-10-13T13:00:50.611291+00:00",
   "source_updated_at": "2026-10-13T11:33:07.537566+00:00",
   "tasks": [
     {
@@ -44,7 +44,7 @@
       "latest_failed": null,
       "native_alive": false,
       "updated_at": "2026-10-13T11:33:07.537566+00:00",
-      "note": "新版完整验收仍0/100。三路新初始原门与ROOT原图已核；两路模型控制再次遇到上游网络中断，模型桥已保守暂停。累计489请求，已知内部估算187.679702、未知预留200（旧150完整保留，加一条已发送无终态50）；不得重投未知请求。新结果回取与SSH监管已有真实恢复验证，此次SSH转发仍正常，失败证据指向上游共享代理曾短暂拒绝连接、另一SSE流未闭合。正在核验任务独立网络出口，保持原物理门/真实模型/费用门。首条完整合格数据后才ACT/DP和四卡有效任务；未启动空训练。 最新原生实测：5090 t3_zero_post_v13_5090_001 13.5秒，A倾0.0°，A液体1290/B0/累计洒漏0，已关闭待审计；5090 t3_zero_post_v13_5090_002 9.7秒，A倾0.0°，A液体1290/B0/累计洒漏0，已关闭待审计；Pro6000 t3_zero_post_v13_pro_003 10.5秒，A倾0.0°，A液体1290/B0/累计洒漏0，已关闭待审计。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
+      "note": "新版完整验收仍0/100。三路新初始原门与ROOT原图已核；两路模型控制再次遇到上游网络中断，模型桥已保守暂停。累计489请求，已知内部估算187.679702、未知预留200（旧150完整保留，加一条已发送无终态50）；不得重投未知请求。新结果回取与SSH监管已有真实恢复验证，此次SSH转发仍正常，失败证据指向上游共享代理曾短暂拒绝连接、另一SSE流未闭合。正在核验任务独立网络出口，保持原物理门/真实模型/费用门。首条完整合格数据后才ACT/DP和四卡有效任务；未启动空训练。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -90,86 +90,7 @@
         "actual_native_ACT_policy": 0,
         "actual_native_DP_policy": 0
       },
-      "parallel_native_runs": [
-        {
-          "episode_id": "t3_zero_post_v13_5090_001",
-          "host": "5090",
-          "source_kind": "actual_Astra_xhigh_teacher",
-          "source_sha256": "bfa56f21b027ffbdf59e7ae0ea0adfd252af105d0cf8d657973069236046a169",
-          "native_alive": false,
-          "native_process_state": "closed",
-          "sim_s": 13.5,
-          "A_tilt_deg": 0.03412625399923312,
-          "liquid_counts": {
-            "total": 1290,
-            "A": 1290,
-            "B": 0,
-            "outside_vessels": 0,
-            "in_transit": 0,
-            "spill": 0,
-            "currently_spilled_outside": 0
-          },
-          "safety_violation": false,
-          "model_requests": 5,
-          "executed_primitives": 9,
-          "last_request_status": "native_model_failed_or_unknown_usage",
-          "internal_success": null,
-          "stop_reason": null,
-          "captured_epoch": 1791892874.8654466
-        },
-        {
-          "episode_id": "t3_zero_post_v13_5090_002",
-          "host": "5090",
-          "source_kind": "actual_Astra_xhigh_teacher",
-          "source_sha256": "bfa56f21b027ffbdf59e7ae0ea0adfd252af105d0cf8d657973069236046a169",
-          "native_alive": false,
-          "native_process_state": "closed",
-          "sim_s": 9.7,
-          "A_tilt_deg": 0.03335790754379743,
-          "liquid_counts": {
-            "total": 1290,
-            "A": 1290,
-            "B": 0,
-            "outside_vessels": 0,
-            "in_transit": 0,
-            "spill": 0,
-            "currently_spilled_outside": 0
-          },
-          "safety_violation": false,
-          "model_requests": 4,
-          "executed_primitives": 8,
-          "last_request_status": "native_model_failed_or_unknown_usage",
-          "internal_success": null,
-          "stop_reason": null,
-          "captured_epoch": 1791892874.8658762
-        },
-        {
-          "episode_id": "t3_zero_post_v13_pro_003",
-          "host": "Pro6000",
-          "source_kind": "actual_Astra_xhigh_teacher",
-          "source_sha256": "bfa56f21b027ffbdf59e7ae0ea0adfd252af105d0cf8d657973069236046a169",
-          "native_alive": false,
-          "native_process_state": "closed",
-          "sim_s": 10.5,
-          "A_tilt_deg": 0.030589127822209267,
-          "liquid_counts": {
-            "total": 1290,
-            "A": 1290,
-            "B": 0,
-            "outside_vessels": 0,
-            "in_transit": 0,
-            "spill": 0,
-            "currently_spilled_outside": 0
-          },
-          "safety_violation": false,
-          "model_requests": 3,
-          "executed_primitives": 7,
-          "last_request_status": "native_model_failed_or_unknown_usage",
-          "internal_success": null,
-          "stop_reason": null,
-          "captured_epoch": 1791892875.0041153
-        }
-      ],
+      "parallel_native_runs": [],
       "native_initial_images": [
         {
           "view": "新版场景复核 · 头部视角",
