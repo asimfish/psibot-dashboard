@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-13T10:29:10.498711+00:00",
-  "source_updated_at": "2026-10-13T10:10:42.477866+00:00",
+  "published_at": "2026-10-13T10:30:17.379746+00:00",
+  "source_updated_at": "2026-10-13T10:30:10.301390+00:00",
   "tasks": [
     {
       "task": "T3",
@@ -34,17 +34,17 @@
         }
       ],
       "completed_phases": 0,
-      "phase_basis": "新版场景正在准备；旧版成果单独保留",
+      "phase_basis": "初始资格通过；完整有序过程待独立验收",
       "whole_accepted": false,
-      "state": "unavailable",
-      "run": null,
-      "sim_s": null,
-      "executed": 0,
+      "state": "running",
+      "run": "t3_zero_post_v13_5090_001",
+      "sim_s": 10.5,
+      "executed": 7,
       "unknown_usage": null,
       "latest_failed": null,
-      "native_alive": false,
-      "updated_at": "2026-10-13T10:10:42.477866+00:00",
-      "note": "新版整条仍0/100。用户已明确同意500内部估算/累计650门槛，历史474请求与旧未知150全部保留，旧失败不重投。新V13仅改已证明零模型POST的连接失败等待，补Nullable errno及脱敏底层类型，保持最多3次连接/650秒、任何发送后不重试、原模型与物理验收不变。5090与Pro6000两卡三路新seed已启动严格原生初始检查；每路原241窗口及ROOT三原图通过后才真实Astra/xhigh动作。上轮knownzero失败关闭不增加未知预留，所有未倒液归位前缀仍排除。首whole原件关闭、独立物理/粒子/三视频和ROOT九阶段图通过后才ACT/DP实际训练及100条扩采。 最新原生实测：5090 t3_zero_post_v12_5090_001 20.5秒，A倾3.8°，A液体1290/B0/累计洒漏0，已关闭待审计。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
+      "native_alive": true,
+      "updated_at": "2026-10-13T10:30:10.301390+00:00",
+      "note": "新版整条仍0/100。用户已明确同意500内部估算/累计650门槛，历史474请求与旧未知150全部保留，旧失败不重投。新V13仅改已证明零模型POST的连接失败等待，补Nullable errno及脱敏底层类型，保持最多3次连接/650秒、任何发送后不重试、原模型与物理验收不变。5090与Pro6000两卡三路新seed已启动严格原生初始检查；每路原241窗口及ROOT三原图通过后才真实Astra/xhigh动作。上轮knownzero失败关闭不增加未知预留，所有未倒液归位前缀仍排除。首whole原件关闭、独立物理/粒子/三视频和ROOT九阶段图通过后才ACT/DP实际训练及100条扩采。 最新原生实测：5090 t3_zero_post_v13_5090_001 10.5秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中；5090 t3_zero_post_v13_5090_002 4.8秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中；Pro6000 t3_zero_post_v13_pro_003 6.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -92,14 +92,14 @@
       },
       "parallel_native_runs": [
         {
-          "episode_id": "t3_zero_post_v12_5090_001",
+          "episode_id": "t3_zero_post_v13_5090_001",
           "host": "5090",
           "source_kind": "actual_Astra_xhigh_teacher",
-          "source_sha256": "968b0931f455e1d88436c32d3b3fec07c619de749d04bfe8d1e3cfad05d9fe03",
-          "native_alive": false,
-          "native_process_state": "closed",
-          "sim_s": 20.5,
-          "A_tilt_deg": 3.8102717284969505,
+          "source_sha256": "bfa56f21b027ffbdf59e7ae0ea0adfd252af105d0cf8d657973069236046a169",
+          "native_alive": true,
+          "native_process_state": "S",
+          "sim_s": 10.5,
+          "A_tilt_deg": 0.038485521159841204,
           "liquid_counts": {
             "total": 1290,
             "A": 1290,
@@ -110,12 +110,64 @@
             "currently_spilled_outside": 0
           },
           "safety_violation": false,
-          "model_requests": 11,
-          "executed_primitives": 15,
-          "last_request_status": "native_model_failed_or_unknown_usage",
+          "model_requests": 3,
+          "executed_primitives": 7,
+          "last_request_status": "started",
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791887315.590094
+          "captured_epoch": 1791887409.9281044
+        },
+        {
+          "episode_id": "t3_zero_post_v13_5090_002",
+          "host": "5090",
+          "source_kind": "actual_Astra_xhigh_teacher",
+          "source_sha256": "bfa56f21b027ffbdf59e7ae0ea0adfd252af105d0cf8d657973069236046a169",
+          "native_alive": true,
+          "native_process_state": "S",
+          "sim_s": 4.791666666666667,
+          "A_tilt_deg": 0.03621012838882427,
+          "liquid_counts": {
+            "total": 1290,
+            "A": 1290,
+            "B": 0,
+            "outside_vessels": 0,
+            "in_transit": 0,
+            "spill": 0,
+            "currently_spilled_outside": 0
+          },
+          "safety_violation": false,
+          "model_requests": 2,
+          "executed_primitives": 4,
+          "last_request_status": "started",
+          "internal_success": null,
+          "stop_reason": null,
+          "captured_epoch": 1791887409.928328
+        },
+        {
+          "episode_id": "t3_zero_post_v13_pro_003",
+          "host": "Pro6000",
+          "source_kind": "actual_Astra_xhigh_teacher",
+          "source_sha256": "bfa56f21b027ffbdf59e7ae0ea0adfd252af105d0cf8d657973069236046a169",
+          "native_alive": true,
+          "native_process_state": "S",
+          "sim_s": 5.991666666666666,
+          "A_tilt_deg": 0.028796261049705844,
+          "liquid_counts": {
+            "total": 1290,
+            "A": 1290,
+            "B": 0,
+            "outside_vessels": 0,
+            "in_transit": 0,
+            "spill": 0,
+            "currently_spilled_outside": 0
+          },
+          "safety_violation": false,
+          "model_requests": 2,
+          "executed_primitives": 4,
+          "last_request_status": "started",
+          "internal_success": null,
+          "stop_reason": null,
+          "captured_epoch": 1791887410.3013902
         }
       ],
       "native_initial_images": [
