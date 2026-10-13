@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-13T08:50:30.810175+00:00",
-  "source_updated_at": "2026-10-13T08:49:35.863083+00:00",
+  "published_at": "2026-10-13T08:51:41.045489+00:00",
+  "source_updated_at": "2026-10-13T08:51:36.144171+00:00",
   "tasks": [
     {
       "task": "T3",
@@ -38,13 +38,13 @@
       "whole_accepted": false,
       "state": "running",
       "run": "t3_stream_v11_5090_fresh_002",
-      "sim_s": 29.341666666666665,
-      "executed": 20,
+      "sim_s": 32.99166666666667,
+      "executed": 23,
       "unknown_usage": null,
       "latest_failed": null,
       "native_alive": true,
-      "updated_at": "2026-10-13T08:49:35.863083+00:00",
-      "note": "新版倒液完整验收仍0/100，旧版禁用液体倾斜归位1条独立保留。5090一卡、Pro6000两卡三路独立seed均通过原241窗口、1290粒子初态和ROOT三原图，已进入实际GPT-6 Astra/xhigh动作。每分钟绑定实际原生Python PID/start/源61复核，并逐行重算原生接触、检查原物理与B保全；无前缀验收或训练入库。4090最新显存9.2GB低于原23GB准入且本地磁盘2.6GB，待容量满足再加入，外部计算保留。首whole关闭后必须独立全程粒子/动作/三视频审计及ROOT九张阶段图；通过后首批DP/ACT实际训练、原生策略验证与100条扩采。 最新原生实测：5090 t3_stream_v11_5090_fresh_002 29.3秒，A倾5.9°，A液体1290/B0/累计洒漏0，运行中；Pro6000 t3_stream_v11_pro_fresh_002 26.0秒，A倾3.6°，A液体1290/B0/累计洒漏0，运行中；Pro6000 t3_stream_v11_pro_fresh_003 25.0秒，A倾2.6°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
+      "updated_at": "2026-10-13T08:51:36.144171+00:00",
+      "note": "新版倒液完整验收仍0/100，旧版禁用液体倾斜归位1条独立保留。5090一卡、Pro6000两卡三路独立seed均通过原241窗口、1290粒子初态和ROOT三原图，已进入实际GPT-6 Astra/xhigh动作。每分钟绑定实际原生Python PID/start/源61复核，并逐行重算原生接触、检查原物理与B保全；无前缀验收或训练入库。4090最新显存9.2GB低于原23GB准入且本地磁盘2.6GB，待容量满足再加入，外部计算保留。首whole关闭后必须独立全程粒子/动作/三视频审计及ROOT九张阶段图；通过后首批DP/ACT实际训练、原生策略验证与100条扩采。 最新原生实测：5090 t3_stream_v11_5090_fresh_002 33.0秒，A倾10.1°，A液体1290/B0/累计洒漏0，运行中；Pro6000 t3_stream_v11_pro_fresh_002 27.0秒，A倾3.3°，A液体1290/B0/累计洒漏0，运行中；Pro6000 t3_stream_v11_pro_fresh_003 26.0秒，A倾2.4°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -98,8 +98,34 @@
           "source_sha256": "701c249302d0a14dd14d4031d89a61c8adc46f1fa1fa919ba0e7d04c4cc53b96",
           "native_alive": true,
           "native_process_state": "S",
-          "sim_s": 29.341666666666665,
-          "A_tilt_deg": 5.908434126196514,
+          "sim_s": 32.99166666666667,
+          "A_tilt_deg": 10.092102574462773,
+          "liquid_counts": {
+            "total": 1290,
+            "A": 1290,
+            "B": 0,
+            "outside_vessels": 0,
+            "in_transit": 0,
+            "spill": 0,
+            "currently_spilled_outside": 0
+          },
+          "safety_violation": false,
+          "model_requests": 15,
+          "executed_primitives": 23,
+          "last_request_status": "started",
+          "internal_success": null,
+          "stop_reason": null,
+          "captured_epoch": 1791881495.6501994
+        },
+        {
+          "episode_id": "t3_stream_v11_pro_fresh_002",
+          "host": "Pro6000",
+          "source_kind": "actual_Astra_xhigh_teacher",
+          "source_sha256": "701c249302d0a14dd14d4031d89a61c8adc46f1fa1fa919ba0e7d04c4cc53b96",
+          "native_alive": true,
+          "native_process_state": "S",
+          "sim_s": 26.991666666666667,
+          "A_tilt_deg": 3.3327037230746317,
           "liquid_counts": {
             "total": 1290,
             "A": 1290,
@@ -115,33 +141,7 @@
           "last_request_status": "started",
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791881375.454973
-        },
-        {
-          "episode_id": "t3_stream_v11_pro_fresh_002",
-          "host": "Pro6000",
-          "source_kind": "actual_Astra_xhigh_teacher",
-          "source_sha256": "701c249302d0a14dd14d4031d89a61c8adc46f1fa1fa919ba0e7d04c4cc53b96",
-          "native_alive": true,
-          "native_process_state": "S",
-          "sim_s": 25.991666666666667,
-          "A_tilt_deg": 3.5622384625186374,
-          "liquid_counts": {
-            "total": 1290,
-            "A": 1290,
-            "B": 0,
-            "outside_vessels": 0,
-            "in_transit": 0,
-            "spill": 0,
-            "currently_spilled_outside": 0
-          },
-          "safety_violation": false,
-          "model_requests": 13,
-          "executed_primitives": 19,
-          "last_request_status": "started",
-          "internal_success": null,
-          "stop_reason": null,
-          "captured_epoch": 1791881375.862469
+          "captured_epoch": 1791881496.1431131
         },
         {
           "episode_id": "t3_stream_v11_pro_fresh_003",
@@ -150,8 +150,8 @@
           "source_sha256": "701c249302d0a14dd14d4031d89a61c8adc46f1fa1fa919ba0e7d04c4cc53b96",
           "native_alive": true,
           "native_process_state": "S",
-          "sim_s": 24.991666666666667,
-          "A_tilt_deg": 2.6236257631908844,
+          "sim_s": 25.991666666666667,
+          "A_tilt_deg": 2.4036523633123448,
           "liquid_counts": {
             "total": 1290,
             "A": 1290,
@@ -162,12 +162,12 @@
             "currently_spilled_outside": 0
           },
           "safety_violation": false,
-          "model_requests": 13,
-          "executed_primitives": 19,
+          "model_requests": 14,
+          "executed_primitives": 20,
           "last_request_status": "started",
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791881375.8630834
+          "captured_epoch": 1791881496.1441712
         }
       ],
       "native_initial_images": [
