@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-13T01:05:54.155020+00:00",
-  "source_updated_at": "2026-10-13T00:36:46.381278+00:00",
+  "published_at": "2026-10-13T01:07:01.425702+00:00",
+  "source_updated_at": "2026-10-13T01:06:58.272954+00:00",
   "tasks": [
     {
       "task": "T3",
@@ -43,7 +43,7 @@
       "unknown_usage": null,
       "latest_failed": null,
       "native_alive": false,
-      "updated_at": "2026-10-13T00:36:46.381278+00:00",
+      "updated_at": "2026-10-13T01:06:58.272954+00:00",
       "note": "修订倒液任务完整验收0/100。旧V8/V9均到时限未完成，V9最后一次模型响应流超时且无最终用量，费用桥按规则暂停；V10初始严格门控和ROOT三视角审核通过，首个请求被暂停桥拒绝，实际执行动作0。已修复120秒流读取超时、旧单动作解析限制和跨任务截止转发，19项边界回归通过；新源V11已冻结部署准备。已知累计模型费161.36美元，两笔未知请求保守预留100美元；当前300美元上限不足新增50美元请求预留，等待400美元额度确认。DP/ACT真实GPU训练/检查点/泛化仍0。 最新原生实测：5090 t3_held_v6_5090_001 93.1秒，A倾75.2°，A液体1254/B0/累计洒漏29，失败排除；5090 t3_batch_v8_5090_002 59.5秒，A倾58.9°，A液体1290/B0/累计洒漏0，失败排除；Pro6000 t3_held_v6_pro_001 115.0秒，A倾52.9°，A液体1290/B0/累计洒漏0，失败排除；Pro6000 t3_flight_v7_pro_001 83.0秒，A倾25.4°，A液体1290/B0/累计洒漏0，失败排除；Pro6000 t3_authored_v9_pro_001 25.0秒，A倾2.5°，A液体1290/B0/累计洒漏0，失败排除；Pro6000 t3_clarity_v10_pro_001 0.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，失败排除。 DP、ACT 训练的数据资格独立核验。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
@@ -115,7 +115,7 @@
           "last_request_status": "executed",
           "internal_success": false,
           "stop_reason": "native_physical_safety_violation",
-          "captured_epoch": 1791853517.8587947
+          "captured_epoch": 1791853577.9210927
         },
         {
           "episode_id": "t3_batch_v8_5090_002",
@@ -141,7 +141,7 @@
           "last_request_status": "started",
           "internal_success": false,
           "stop_reason": "incomplete_original_finite_deadline_no_whole_transfer",
-          "captured_epoch": 1791853517.863508
+          "captured_epoch": 1791853577.9243507
         },
         {
           "episode_id": "t3_held_v6_pro_001",
@@ -167,7 +167,7 @@
           "last_request_status": "started",
           "internal_success": false,
           "stop_reason": "incomplete_source_superseded_due_conflicting_public_guidance_after_paid_GEN_closed",
-          "captured_epoch": 1791853518.2168303
+          "captured_epoch": 1791853578.2091095
         },
         {
           "episode_id": "t3_flight_v7_pro_001",
@@ -193,7 +193,7 @@
           "last_request_status": "started",
           "internal_success": false,
           "stop_reason": "ROOT_independent_B_preservation_failed_at_tick6186_native_SIGINT_only_after_actual_GEN_closed",
-          "captured_epoch": 1791853518.2195563
+          "captured_epoch": 1791853578.2116897
         },
         {
           "episode_id": "t3_authored_v9_pro_001",
@@ -219,7 +219,7 @@
           "last_request_status": "started",
           "internal_success": false,
           "stop_reason": "incomplete_original_finite_deadline_last_provider_stream_usage_unknown",
-          "captured_epoch": 1791853518.2212327
+          "captured_epoch": 1791853578.213088
         },
         {
           "episode_id": "t3_clarity_v10_pro_001",
@@ -245,7 +245,7 @@
           "last_request_status": "native_model_failed_or_unknown_usage",
           "internal_success": false,
           "stop_reason": "provider_interrupted_campaign_already_paused_zero_model_forwards",
-          "captured_epoch": 1791853518.2222996
+          "captured_epoch": 1791853578.2139454
         }
       ]
     },
@@ -290,9 +290,9 @@
       "sim_s": null,
       "executed": 0,
       "unknown_usage": null,
-      "updated_at": "2026-10-13T00:36:46.381278+00:00",
+      "updated_at": "2026-10-13T01:06:58.272954+00:00",
       "latest_failed": null,
-      "note": "柜子五阶段仍完整验收0。新外侧双垫已在三相机完整可见；B保持原搁板槽位并通过241行原生稳定、真实搁板接触与53个机器人渲染链接核对。A在头/胸视角仍被原生不透明门框遮挡，未准入模型。正在提取真实柜门网格来诊断遮挡；这几轮均0模型请求，原门/搁板/碰撞和相机保持。 DP、ACT 训练的数据资格独立核验。",
+      "note": "柜子完整验收仍0。原始原生网格与三原图定位了低矮烧杯被门框遮挡的问题；第二搁板方案在原头/胸视角越界，已在CPU上排除。按用户允许的不同容器设置，准备原生较高透明瓶A与小棕色瓶B版本，三相机投影检查通过，继续严格原生稳定/接触和ROOT三原图验证。没有改变柜门、搁板、碰撞、相机或稳定门槛；模型请求0。 DP、ACT 训练的数据资格独立核验。",
       "legacy": {
         "title": "三杯五阶段称量",
         "accepted_count": 0,
@@ -429,12 +429,12 @@
     "video_fps": 15,
     "acceptance": "完整有序物理过程、释放稳定、安全与不变约束、真实模型响应来源、已知用量及预算、三路完整视频均通过后，才计入整条验收。"
   },
-  "program_revision": "2026-10-13T00:36:46.381278+00:00",
+  "program_revision": "2026-10-13T01:06:58.272954+00:00",
   "fleet": [
     {
       "host": "liyufeng_4090",
       "role": "采集与测试",
-      "status": "旧T7全轨迹失败已封存；新读取4090空闲约23.5GB/IsaacSim5.1/Torch2.7，准备在自有目录补全原生PBD采集依赖，尚未启动新正式采集。"
+      "status": "4090 私有环境依赖与全部61个修订T3源文件核验完成；正在进行600秒上限的零模型原生初始资格检查，已实际初始化1290个PBD流体粒子；尚未计入合格采集。"
     },
     {
       "host": "5090",
