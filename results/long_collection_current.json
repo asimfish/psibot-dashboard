@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-13T08:42:16.753716+00:00",
-  "source_updated_at": "2026-10-13T08:19:52.063874+00:00",
+  "published_at": "2026-10-13T08:43:22.995745+00:00",
+  "source_updated_at": "2026-10-13T08:42:18.292889+00:00",
   "tasks": [
     {
       "task": "T3",
@@ -34,17 +34,17 @@
         }
       ],
       "completed_phases": 0,
-      "phase_basis": "新版场景正在准备；旧版成果单独保留",
+      "phase_basis": "初始资格通过；完整有序过程待独立验收",
       "whole_accepted": false,
-      "state": "unavailable",
-      "run": null,
-      "sim_s": null,
-      "executed": 0,
+      "state": "running",
+      "run": "t3_stream_v11_5090_fresh_002",
+      "sim_s": 20.991666666666667,
+      "executed": 15,
       "unknown_usage": null,
       "latest_failed": null,
-      "native_alive": false,
-      "updated_at": "2026-10-13T08:19:52.063874+00:00",
-      "note": "新版倒液完整验收仍0/100，旧版禁用液体倾斜归位1条独立保留。按用户对400内部估算续采方案的继续指令，启用累计400估算上限、保留既往418/500及2笔未知100预留，不重试旧未知请求。模型桥与SSH通道已恢复，实际身份目录HTTP200包含GPT-6 Astra，仍固定xhigh。三路新原生教师正在启动/严格初始检查：Pro6000两卡和5090一卡；首轮私有快照漏相机校验文件已在零模型阶段关闭保留，现补65字节原旁文件、实际CPU相机加载器与61源SHA通过后新编号重启。每路须原241窗口及ROOT三原图审核后才模型动作。4090显存/磁盘不足暂未启动，原准入不改。首个新版whole经独立审计及ROOT9阶段图后才DP/ACT训练；真实训练/检查点/泛化当前0。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
+      "native_alive": true,
+      "updated_at": "2026-10-13T08:42:18.292889+00:00",
+      "note": "新版倒液完整验收仍0/100，旧版禁用液体倾斜归位1条独立保留。按用户对400内部估算续采方案的继续指令，启用累计400估算上限、保留既往418/500及2笔未知100预留，不重试旧未知请求。模型桥与SSH通道已恢复，实际身份目录HTTP200包含GPT-6 Astra，仍固定xhigh。三路新原生教师正在启动/严格初始检查：Pro6000两卡和5090一卡；首轮私有快照漏相机校验文件已在零模型阶段关闭保留，现补65字节原旁文件、实际CPU相机加载器与61源SHA通过后新编号重启。每路须原241窗口及ROOT三原图审核后才模型动作。4090显存/磁盘不足暂未启动，原准入不改。首个新版whole经独立审计及ROOT9阶段图后才DP/ACT训练；真实训练/检查点/泛化当前0。 最新原生实测：5090 t3_stream_v11_5090_fresh_002 21.0秒，A倾5.3°，A液体1290/B0/累计洒漏0，运行中；Pro6000 t3_stream_v11_pro_fresh_002 17.0秒，A倾4.1°，A液体1290/B0/累计洒漏0，运行中；Pro6000 t3_stream_v11_pro_fresh_003 16.0秒，A倾3.1°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -90,7 +90,86 @@
         "actual_native_ACT_policy": 0,
         "actual_native_DP_policy": 0
       },
-      "parallel_native_runs": [],
+      "parallel_native_runs": [
+        {
+          "episode_id": "t3_stream_v11_5090_fresh_002",
+          "host": "5090",
+          "source_kind": "actual_Astra_xhigh_teacher",
+          "source_sha256": "701c249302d0a14dd14d4031d89a61c8adc46f1fa1fa919ba0e7d04c4cc53b96",
+          "native_alive": true,
+          "native_process_state": "S",
+          "sim_s": 20.991666666666667,
+          "A_tilt_deg": 5.339964713440594,
+          "liquid_counts": {
+            "total": 1290,
+            "A": 1290,
+            "B": 0,
+            "outside_vessels": 0,
+            "in_transit": 0,
+            "spill": 0,
+            "currently_spilled_outside": 0
+          },
+          "safety_violation": false,
+          "model_requests": 11,
+          "executed_primitives": 15,
+          "last_request_status": "started",
+          "internal_success": null,
+          "stop_reason": null,
+          "captured_epoch": 1791880937.6280463
+        },
+        {
+          "episode_id": "t3_stream_v11_pro_fresh_002",
+          "host": "Pro6000",
+          "source_kind": "actual_Astra_xhigh_teacher",
+          "source_sha256": "701c249302d0a14dd14d4031d89a61c8adc46f1fa1fa919ba0e7d04c4cc53b96",
+          "native_alive": true,
+          "native_process_state": "S",
+          "sim_s": 16.991666666666667,
+          "A_tilt_deg": 4.125585628678269,
+          "liquid_counts": {
+            "total": 1290,
+            "A": 1290,
+            "B": 0,
+            "outside_vessels": 0,
+            "in_transit": 0,
+            "spill": 0,
+            "currently_spilled_outside": 0
+          },
+          "safety_violation": false,
+          "model_requests": 9,
+          "executed_primitives": 13,
+          "last_request_status": "started",
+          "internal_success": null,
+          "stop_reason": null,
+          "captured_epoch": 1791880938.2923617
+        },
+        {
+          "episode_id": "t3_stream_v11_pro_fresh_003",
+          "host": "Pro6000",
+          "source_kind": "actual_Astra_xhigh_teacher",
+          "source_sha256": "701c249302d0a14dd14d4031d89a61c8adc46f1fa1fa919ba0e7d04c4cc53b96",
+          "native_alive": true,
+          "native_process_state": "S",
+          "sim_s": 15.991666666666667,
+          "A_tilt_deg": 3.0824815207427285,
+          "liquid_counts": {
+            "total": 1290,
+            "A": 1290,
+            "B": 0,
+            "outside_vessels": 0,
+            "in_transit": 0,
+            "spill": 0,
+            "currently_spilled_outside": 0
+          },
+          "safety_violation": false,
+          "model_requests": 9,
+          "executed_primitives": 13,
+          "last_request_status": "started",
+          "internal_success": null,
+          "stop_reason": null,
+          "captured_epoch": 1791880938.292889
+        }
+      ],
       "native_initial_images": [
         {
           "view": "新版场景复核 · 头部视角",
