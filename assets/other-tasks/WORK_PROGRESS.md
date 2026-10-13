@@ -1,29 +1,35 @@
 # T-537 — Other task acceptance panel
 
-The panel covers the remaining project task families while existing Grasp and
-PickPlace conversations keep their jobs. The inventory contains 23 baseline
-dataset identities and 36 catalog entries including additions and history.
+This panel covers 23 baseline identities and 36 catalog entries outside Grasp
+and PickPlace. Nine task categories have a sidebar, separate tables and domain
+summaries. Within each category, rows are ordered by embodiment and object.
+Desktop buttons and the mobile selector share one filter; robot and object
+filters apply within the selected categories. Seed job details are collapsed
+by default. Existing Grasp and PickPlace files are not changed.
 
-Paper Table 18 and Table 21 targets are shown for matched representative
-instances. Table 2 aggregates are explicitly labeled as family averages.
-Unknown identities, actual source randomization, full-trajectory SSR, native
-SR, and final acceptance remain unknown until source-bound evidence exists.
+Paper Tables 18 and 21 references are shown for matched representative
+instances. Table 2 aggregates remain labeled as category averages. Unknown
+native SR/SSR, actual reset coverage and final acceptance remain unknown.
 
-Two stack ACT candidates have finite 100-episode, 36,000-frame, three-camera
-inputs with 13-dimensional absolute joint actions matching recorded IK targets.
-The paper ACT recipe is 5,000 epochs, batch 64, action chunk 4. Data staging
-is a separate phase and contributes no optimizer updates or acceptance.
-The first stream-transfer attempt is preserved for repair.
+Both PsiBot stack sources have 100 episodes / 36,000 frames / three real RGB
+cameras and 13-dimensional IK target actions. All six independently seeded
+ACT runs completed 5,000 epochs / 10,000 optimizer updates. Both hosts were
+read directly; model, config, normalizer and optimizer state for all six runs
+were independently checked against their completion SHA manifests on
+persistent storage. No formal native50 SR/SSR result has been produced.
 
-Validation: 16 real Chromium/evidence checks pass, including desktop/mobile,
-filters, paper method order, unavailable and malformed live data, stale
-snapshots, untrusted labels rendered as text, and privacy. Source input audits
-pass for both candidates. No new full SR/SSR acceptance is claimed.
+A connection failure preserves a source-matched immutable training completion
+receipt while separately labeling current connection status as unavailable.
+Transient optimizer progress is never promoted to completed training.
+Multi-seed task rows aggregate all seeds rather than displaying only the last
+read seed. These changes do not create native acceptance credit.
 
-Deployment uses dedicated files, one additive homepage link, and a source-bound
-public branch updater. Main is unprotected and has no active rulesets at the
-checked API snapshot. No force push or existing native process intervention.
+Validation covers category grouping/order/navigation, robot and object
+filters, mobile layout, paper method order, unavailable/malformed/stale data,
+untrusted text, privacy and independent seed labels. Dedicated files are
+published with a task-scoped conventional commit and ordinary PR.
 
-Follow-up: repair staging, verify real optimizer updates, reconcile existing DP
-models, run native 50-episode evaluations, bind each task's safety constraints
-and actual held-out reset support, retain data/config/checkpoint provenance.
+Next frontier: bind original per-task safety calibrations and actual held-out
+reset support, repair isolated native metric implementations, prepare a
+qualified DP recipe and execute native50 tests with frozen checkpoint hashes.
+Pro6000 received no new training jobs. Full task acceptance remains open.
