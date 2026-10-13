@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-13T13:39:25.325915+00:00",
-  "source_updated_at": "2026-10-13T11:33:07.537566+00:00",
+  "published_at": "2026-10-13T13:43:06.450617+00:00",
+  "source_updated_at": "2026-10-13T13:42:26.966106+00:00",
   "tasks": [
     {
       "task": "T3",
@@ -34,17 +34,17 @@
         }
       ],
       "completed_phases": 0,
-      "phase_basis": "新版场景正在准备；旧版成果单独保留",
+      "phase_basis": "初始资格通过；完整有序过程待独立验收",
       "whole_accepted": false,
-      "state": "unavailable",
-      "run": null,
-      "sim_s": null,
+      "state": "running",
+      "run": "t3_private_egress_v15_5090_001",
+      "sim_s": 5.325,
       "executed": 0,
       "unknown_usage": null,
       "latest_failed": null,
-      "native_alive": false,
-      "updated_at": "2026-10-13T11:33:07.537566+00:00",
-      "note": "新版完整验收仍0/100。三路新初始原门与ROOT原图已核；两路模型控制再次遇到上游网络中断，模型桥已保守暂停。累计489请求，已知内部估算187.679702、未知预留200（旧150完整保留，加一条已发送无终态50）；不得重投未知请求。新结果回取与SSH监管已有真实恢复验证，此次SSH转发仍正常，失败证据指向上游共享代理曾短暂拒绝连接、另一SSE流未闭合。正在核验任务独立网络出口，保持原物理门/真实模型/费用门。首条完整合格数据后才ACT/DP和四卡有效任务；未启动空训练。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
+      "native_alive": true,
+      "updated_at": "2026-10-13T13:42:26.966106+00:00",
+      "note": "新版完整验收仍0/100。三路新初始原门与ROOT原图已核；两路模型控制再次遇到上游网络中断，模型桥已保守暂停。累计489请求，已知内部估算187.679702、未知预留200（旧150完整保留，加一条已发送无终态50）；不得重投未知请求。新结果回取与SSH监管已有真实恢复验证，此次SSH转发仍正常，失败证据指向上游共享代理曾短暂拒绝连接、另一SSE流未闭合。正在核验任务独立网络出口，保持原物理门/真实模型/费用门。首条完整合格数据后才ACT/DP和四卡有效任务；未启动空训练。 最新原生实测：5090 t3_private_egress_v15_5090_001 5.3秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中；5090 t3_private_egress_v15_5090_002 4.1秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -90,7 +90,60 @@
         "actual_native_ACT_policy": 0,
         "actual_native_DP_policy": 0
       },
-      "parallel_native_runs": [],
+      "parallel_native_runs": [
+        {
+          "episode_id": "t3_private_egress_v15_5090_001",
+          "host": "5090",
+          "source_kind": "actual_Astra_xhigh_teacher",
+          "source_sha256": "bfd37c18721260d894c33e0ae3eb807f9e5e490115e405f93479777cd3d75789",
+          "native_alive": true,
+          "native_process_state": "R",
+          "sim_s": 5.325,
+          "A_tilt_deg": 0.03126145823231643,
+          "liquid_counts": {
+            "total": 1290,
+            "A": 1290,
+            "B": 0,
+            "outside_vessels": 0,
+            "in_transit": 0,
+            "spill": 0,
+            "currently_spilled_outside": 0
+          },
+          "safety_violation": false,
+          "model_requests": 1,
+          "executed_primitives": 0,
+          "last_request_status": "started",
+          "internal_success": null,
+          "stop_reason": null,
+          "captured_epoch": 1791898946.9659274
+        },
+        {
+          "episode_id": "t3_private_egress_v15_5090_002",
+          "host": "5090",
+          "source_kind": "actual_Astra_xhigh_teacher",
+          "source_sha256": "bfd37c18721260d894c33e0ae3eb807f9e5e490115e405f93479777cd3d75789",
+          "native_alive": true,
+          "native_process_state": "R",
+          "sim_s": 4.075,
+          "A_tilt_deg": 0.032492444996749976,
+          "liquid_counts": {
+            "total": 1290,
+            "A": 1290,
+            "B": 0,
+            "outside_vessels": 0,
+            "in_transit": 0,
+            "spill": 0,
+            "currently_spilled_outside": 0
+          },
+          "safety_violation": false,
+          "model_requests": 1,
+          "executed_primitives": 0,
+          "last_request_status": "started",
+          "internal_success": null,
+          "stop_reason": null,
+          "captured_epoch": 1791898946.9661057
+        }
+      ],
       "native_initial_images": [
         {
           "view": "新版场景复核 · 头部视角",
