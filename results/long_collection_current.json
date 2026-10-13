@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-13T14:08:52.435795+00:00",
-  "source_updated_at": "2026-10-13T14:08:28.626084+00:00",
+  "published_at": "2026-10-13T14:10:11.322671+00:00",
+  "source_updated_at": "2026-10-13T14:09:28.759243+00:00",
   "tasks": [
     {
       "task": "T3",
@@ -37,14 +37,14 @@
       "phase_basis": "初始资格通过；完整有序过程待独立验收",
       "whole_accepted": false,
       "state": "running",
-      "run": "t3_private_egress_v15_pro_001",
+      "run": "t3_private_egress_v15_5090_001",
       "sim_s": 30.991666666666667,
-      "executed": 22,
+      "executed": 23,
       "unknown_usage": null,
       "latest_failed": null,
       "native_alive": true,
-      "updated_at": "2026-10-13T14:08:28.626084+00:00",
-      "note": "5090 GPU0/GPU1、Pro6000 GPU1三路实际原生控制在运行。独立网络出口与有限服务托管已启用；最新快照完成模型请求8、进行中2、排队0，累计499/650，已知内部估算190.817712、未知预留200，遵守500/650共享门。新版完整验收0/100，初始和失败前缀不计；完整验收后接ACT/DP和有效四卡作业。 最新原生实测：5090 t3_private_egress_v15_5090_001 28.0秒，A倾2.9°，A液体1290/B0/累计洒漏0，运行中；5090 t3_private_egress_v15_5090_002 26.5秒，A倾2.4°，A液体1290/B0/累计洒漏0，运行中；Pro6000 t3_private_egress_v15_pro_001 31.0秒，A倾4.4°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
+      "updated_at": "2026-10-13T14:09:28.759243+00:00",
+      "note": "新版T3三路真实原生模型控制持续运行；5090 GPU0原物理顺序诊断在26.75秒达到拿起条件（>=10mm离垫、稳定持握3秒），正在向B搬运，未计子阶段/整条验收信用；GPU1已离垫继续稳定。最新模型闭包48、累计539/650、已知内部估算205.988232、未知预留200，500/650门维持。完整验收仍0/100；只有真实倒液>=95%、A原垫归位和全程物理/视频/ROOT9图通过才计数，随后接ACT/DP和有效四卡任务。 最新原生实测：5090 t3_private_egress_v15_5090_001 31.0秒，A倾2.7°，A液体1290/B0/累计洒漏0，运行中；5090 t3_private_egress_v15_5090_002 26.5秒，A倾2.4°，A液体1290/B0/累计洒漏0，运行中；Pro6000 t3_private_egress_v15_pro_001 31.0秒，A倾4.4°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -98,8 +98,8 @@
           "source_sha256": "bfd37c18721260d894c33e0ae3eb807f9e5e490115e405f93479777cd3d75789",
           "native_alive": true,
           "native_process_state": "S",
-          "sim_s": 27.991666666666667,
-          "A_tilt_deg": 2.924995946261216,
+          "sim_s": 30.991666666666667,
+          "A_tilt_deg": 2.689014278787931,
           "liquid_counts": {
             "total": 1290,
             "A": 1290,
@@ -110,12 +110,12 @@
             "currently_spilled_outside": 0
           },
           "safety_violation": false,
-          "model_requests": 16,
-          "executed_primitives": 21,
+          "model_requests": 17,
+          "executed_primitives": 23,
           "last_request_status": "started",
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791900508.2540085
+          "captured_epoch": 1791900568.3083847
         },
         {
           "episode_id": "t3_private_egress_v15_5090_002",
@@ -141,7 +141,7 @@
           "last_request_status": "started",
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791900508.2545907
+          "captured_epoch": 1791900568.3088856
         },
         {
           "episode_id": "t3_private_egress_v15_pro_001",
@@ -167,7 +167,7 @@
           "last_request_status": "started",
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791900508.6260843
+          "captured_epoch": 1791900568.7592425
         }
       ],
       "native_initial_images": [
@@ -232,7 +232,7 @@
       "sim_s": null,
       "executed": 0,
       "unknown_usage": null,
-      "updated_at": "2026-10-13T13:46:27.891316+00:00",
+      "updated_at": "2026-10-13T14:09:16.558750+00:00",
       "latest_failed": null,
       "note": "柜子完整验收仍0。新独立原生观测器已实测241行，17手体与被动柜门原生目标/接触/稳定门通过，0模型请求，已关闭封存；这只证明观测接口，不解决原透明烧杯门框遮挡。旧高瓶漂移31.9mm超过原25mm失败仍排除；原柜门/物理/相机/验收不变。 DP、ACT 训练的数据资格独立核验。",
       "legacy": {
@@ -371,7 +371,7 @@
     "video_fps": 15,
     "acceptance": "完整有序物理过程、释放稳定、安全与不变约束、真实模型响应来源、已知用量及预算、三路完整视频均通过后，才计入整条验收。"
   },
-  "program_revision": "2026-10-13T13:46:27.891316+00:00",
+  "program_revision": "2026-10-13T14:09:16.558750+00:00",
   "fleet": [
     {
       "host": "liyufeng_4090",
