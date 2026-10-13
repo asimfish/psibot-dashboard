@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-13T13:44:16.439575+00:00",
-  "source_updated_at": "2026-10-13T13:43:27.382782+00:00",
+  "published_at": "2026-10-13T13:45:33.632923+00:00",
+  "source_updated_at": "2026-10-13T13:45:27.473866+00:00",
   "tasks": [
     {
       "task": "T3",
@@ -38,13 +38,13 @@
       "whole_accepted": false,
       "state": "running",
       "run": "t3_private_egress_v15_5090_001",
-      "sim_s": 5.991666666666666,
+      "sim_s": 10.275,
       "executed": 4,
       "unknown_usage": null,
       "latest_failed": null,
       "native_alive": true,
-      "updated_at": "2026-10-13T13:43:27.382782+00:00",
-      "note": "5090 GPU0/GPU1与Pro6000 GPU1三路原生控制已放行，61文件源bfd37c18；任务独立网络出口、模型桥、SSH监管及物理监视改为有限服务。当前2条模型GEN进行中、第三路排队；500/650已授权费用门保留未知200，动态预留只允许能容纳的GEN并行数。新版完整验收仍0/100；失败前缀与旧版1条不计。首条完整验收后才启动ACT/DP和有效四卡任务。 最新原生实测：5090 t3_private_egress_v15_5090_001 6.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中；5090 t3_private_egress_v15_5090_002 6.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中；Pro6000 t3_private_egress_v15_pro_001 4.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
+      "updated_at": "2026-10-13T13:45:27.473866+00:00",
+      "note": "5090 GPU0/GPU1与Pro6000 GPU1三路原生控制已放行，61文件源bfd37c18；任务独立网络出口、模型桥、SSH监管及物理监视改为有限服务。当前2条模型GEN进行中、第三路排队；500/650已授权费用门保留未知200，动态预留只允许能容纳的GEN并行数。新版完整验收仍0/100；失败前缀与旧版1条不计。首条完整验收后才启动ACT/DP和有效四卡任务。 最新原生实测：5090 t3_private_egress_v15_5090_001 10.3秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中；5090 t3_private_egress_v15_5090_002 9.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中；Pro6000 t3_private_egress_v15_pro_001 7.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -97,9 +97,9 @@
           "source_kind": "actual_Astra_xhigh_teacher",
           "source_sha256": "bfd37c18721260d894c33e0ae3eb807f9e5e490115e405f93479777cd3d75789",
           "native_alive": true,
-          "native_process_state": "S",
-          "sim_s": 5.991666666666666,
-          "A_tilt_deg": 0.03193507209199175,
+          "native_process_state": "R",
+          "sim_s": 10.275,
+          "A_tilt_deg": 0.03329097751920504,
           "liquid_counts": {
             "total": 1290,
             "A": 1290,
@@ -115,7 +115,7 @@
           "last_request_status": "started",
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791899007.0000675
+          "captured_epoch": 1791899127.0615718
         },
         {
           "episode_id": "t3_private_egress_v15_5090_002",
@@ -123,9 +123,35 @@
           "source_kind": "actual_Astra_xhigh_teacher",
           "source_sha256": "bfd37c18721260d894c33e0ae3eb807f9e5e490115e405f93479777cd3d75789",
           "native_alive": true,
-          "native_process_state": "R",
-          "sim_s": 5.991666666666666,
-          "A_tilt_deg": 0.03323541307399333,
+          "native_process_state": "S",
+          "sim_s": 8.991666666666667,
+          "A_tilt_deg": 0.03373618840840134,
+          "liquid_counts": {
+            "total": 1290,
+            "A": 1290,
+            "B": 0,
+            "outside_vessels": 0,
+            "in_transit": 0,
+            "spill": 0,
+            "currently_spilled_outside": 0
+          },
+          "safety_violation": false,
+          "model_requests": 3,
+          "executed_primitives": 6,
+          "last_request_status": "started",
+          "internal_success": null,
+          "stop_reason": null,
+          "captured_epoch": 1791899127.0617661
+        },
+        {
+          "episode_id": "t3_private_egress_v15_pro_001",
+          "host": "Pro6000",
+          "source_kind": "actual_Astra_xhigh_teacher",
+          "source_sha256": "bfd37c18721260d894c33e0ae3eb807f9e5e490115e405f93479777cd3d75789",
+          "native_alive": true,
+          "native_process_state": "S",
+          "sim_s": 6.991666666666666,
+          "A_tilt_deg": 0.04088430218116977,
           "liquid_counts": {
             "total": 1290,
             "A": 1290,
@@ -137,37 +163,11 @@
           },
           "safety_violation": false,
           "model_requests": 2,
-          "executed_primitives": 3,
+          "executed_primitives": 4,
           "last_request_status": "started",
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791899007.0002754
-        },
-        {
-          "episode_id": "t3_private_egress_v15_pro_001",
-          "host": "Pro6000",
-          "source_kind": "actual_Astra_xhigh_teacher",
-          "source_sha256": "bfd37c18721260d894c33e0ae3eb807f9e5e490115e405f93479777cd3d75789",
-          "native_alive": true,
-          "native_process_state": "S",
-          "sim_s": 3.9916666666666667,
-          "A_tilt_deg": 0.037597491986615716,
-          "liquid_counts": {
-            "total": 1290,
-            "A": 1290,
-            "B": 0,
-            "outside_vessels": 0,
-            "in_transit": 0,
-            "spill": 0,
-            "currently_spilled_outside": 0
-          },
-          "safety_violation": false,
-          "model_requests": 1,
-          "executed_primitives": 0,
-          "last_request_status": "started",
-          "internal_success": null,
-          "stop_reason": null,
-          "captured_epoch": 1791899007.3827825
+          "captured_epoch": 1791899127.473866
         }
       ],
       "native_initial_images": [
