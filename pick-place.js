@@ -9,6 +9,8 @@
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const finite = v => typeof v === 'number' && Number.isFinite(v);
   const pct = v => finite(v) && v >= 0 && v <= 100 ? v.toFixed(v % 1 ? 1 : 0) + '%' : '—';
+  const spatialBound = c => c.complete && c.episodes === 50 && data.protocol.paper_ssr_equivalence === 'LOCAL_REPOSITORY_SPATIAL20_DOMAIN_BOUND' && finite(c.paper_ssr_percent) && c.paper_ssr_percent === c.terminal_spatial_ssr20_percent;
+  const spatialLabel = c => spatialBound(c) ? '空间 SSR20 · 本地论文实现已绑定' : '终态空间 SSR20 · 绑定待核验';
   const date = s => s ? new Date(s).toLocaleString('zh-CN', {timeZone:'Asia/Shanghai',hour12:false}) : '未核验';
   let data, selected = 'glass_beaker_250ml', method = 'dp', busy = false, origin = 'fallback', lastError = false;
   function valid(d) {
@@ -17,6 +19,7 @@
       const cs = o.methods[m].conditions;
       if (cs.length !== 4 || new Set(cs.map(c => c.added_cm)).size !== 4 || cs.some(c => ![0,1,2,3].includes(c.added_cm))) throw Error('泛化档位不完整');
       if (cs.some(c => c.complete && (c.episodes !== 50 || !Number.isFinite(c.sr_percent) || !Number.isFinite(c.terminal_spatial_ssr20_percent)))) throw Error('测试结果不完整');
+      if (cs.some(c => c.paper_ssr_percent != null && (!c.complete || !finite(c.paper_ssr_percent) || c.paper_ssr_percent < 0 || c.paper_ssr_percent > 100 || c.paper_ssr_percent !== c.terminal_spatial_ssr20_percent))) throw Error('空间 SSR 绑定数据无效');
       const ref=o.methods[m].paper_reference;
       if(ref && [ref.sr_percent,ref.ssr_percent].some(v=>!finite(v)||v<0||v>100)) throw Error('论文参考值无效');
     }
@@ -61,10 +64,25 @@
     $('modelStatus').className = 'pill ' + (m.verified_model ? 'pass' : 'pending');
     $('trainingDetails').innerHTML = train(m);
     $('reference').textContent = `采集 ${o.source_episodes} 条 · XY ±3cm · ${o.collection_gpu}。` + (m.paper_reference ? `论文 Table 20 参考：SR ${pct(m.paper_reference.sr_percent)} / SSR ${pct(m.paper_reference.ssr_percent)}（3 seeds × 50）。` : '论文 Table 20 无精确对应行。');
-    $('conditions').innerHTML = m.conditions.map(c => `<article class="condition"><h3>+${c.added_cm}cm</h3><small>测试 XY ±${c.xy_half_range_cm}cm${c.added_cm === 0 ? ' · 采集范围对照' : ''}</small>${c.complete ? `<div class="scores">${pct(c.sr_percent)}</div><small>SR · ${c.successes}/50 成功</small><div class="bar"><span style="width:${c.sr_percent}%"></span></div><div class="scores">${pct(c.terminal_spatial_ssr20_percent)}</div><small>终态空间 SSR20 · ${c.spatial_safe_successes}/50</small><div class="bar ssr"><span style="width:${c.terminal_spatial_ssr20_percent}%"></span></div><p class="small">实际范围外 ${c.settled_outside_count}/50<br>范围外 SR ${pct(c.outside_sr_percent)} / SSR20 ${pct(c.outside_spatial_ssr20_percent)}</p><div class="hardware ${c.same_gpu ? 'pass' : 'pending'}">${esc(c.test_gpu || '测试显卡待核验')} · ${c.same_gpu === true ? '采集同型号' : c.same_gpu === false ? '跨型号 · 选定档位需复核' : '同型号状态待核验'}</div>` : `<div class="state"><span class="pill pending">${esc(c.status_label)}</span><p class="small">完整50次结束后显示 SR / SSR20</p></div>`}</article>`).join('');
+    $('conditions').innerHTML = m.conditions.map(c => `<article class="condition"><h3>+${c.added_cm}cm</h3><small>测试 XY ±${c.xy_half_range_cm}cm${c.added_cm === 0 ? ' · 采集范围对照' : ''}</small>${c.complete ? `<div class="scores">${pct(c.sr_percent)}</div><small>SR · ${c.successes}/50 成功</small><div class="bar"><span style="width:${c.sr_percent}%"></span></div><div class="scores">${pct(c.terminal_spatial_ssr20_percent)}</div><small>${spatialLabel(c)} · ${c.spatial_safe_successes}/50</small><div class="bar ssr"><span style="width:${c.terminal_spatial_ssr20_percent}%"></span></div><p class="small">实际范围外 ${c.settled_outside_count}/50<br>范围外 SR ${pct(c.outside_sr_percent)} / SSR20 ${pct(c.outside_spatial_ssr20_percent)}</p><div class="hardware ${c.same_gpu ? 'pass' : 'pending'}">${esc(c.test_gpu || '测试显卡待核验')} · ${c.same_gpu === true ? '采集同型号' : c.same_gpu === false ? '跨型号 · 选定档位需复核' : '同型号状态待核验'}</div>` : `<div class="state"><span class="pill pending">${esc(c.status_label)}</span><p class="small">完整50次结束后显示 SR / SSR20</p></div>`}</article>`).join('');
     const primary=data.protocol.primary_added_cm;
-    $('acceptance').textContent = `当前 ${m.conditions.filter(c=>c.complete).length}/4 档完整测试。${primary===2?'共同泛化档位已按位置覆盖选为 +2cm（XY ±5cm），采集同型号卡复核接续中。':'共同泛化档位待位置覆盖核验。'}论文 SSR 等价性仍待核验，未签发该物体完整论文验收。`;
-    $('commonCondition').textContent=primary===2?'首轮完整曲线按实际位置覆盖选定共同 +2cm（XY ±5cm）：所有物体和方法采用同一档位，完整四档与原始跨卡结果保留。采集同型号显卡复核、SR 门槛与论文 SSR 核验仍分别验收。':'按实际落在采集范围外的覆盖率选择共同泛化档位，保留完整曲线；统一档位的采集同型号显卡复核与论文 SSR 核验分别记录。';
+    const cell=m.conditions.find(c=>c.added_cm===primary),ref=m.paper_reference;
+    const blockers=[];
+    if(m.conditions.filter(c=>c.complete).length!==4)blockers.push('四档50次尚未全部完成');
+    if(!cell?.complete)blockers.push('共同档位50次待完成');
+    else {
+      if(cell.same_gpu!==true)blockers.push('采集同型号显卡待复核');
+      if(!spatialBound(cell))blockers.push('空间 SSR 原始记录绑定待核验');
+    }
+    if(!ref)blockers.push('论文无精确对应行');
+    else if(cell?.complete){
+      if(cell.sr_percent<ref.sr_percent)blockers.push(`SR ${pct(cell.sr_percent)} / 目标 ${pct(ref.sr_percent)}`);
+      if(spatialBound(cell)&&cell.paper_ssr_percent<ref.ssr_percent)blockers.push(`SSR ${pct(cell.paper_ssr_percent)} / 目标 ${pct(ref.ssr_percent)}`);
+    }
+    $('acceptance').textContent = `当前 ${m.conditions.filter(c=>c.complete).length}/4 档完整测试。${primary===2?'共同档位 +2cm（XY ±5cm）。':'共同档位待位置覆盖核验。'}${blockers.length?'待验收：'+blockers.join('；')+'。':'当前方法已满足本轮 SR / 空间 SSR 参考门槛；物体验收还需 DP / ACT 均达标。'}`;
+    const bound=data.objects.reduce((n,o)=>n+Object.values(o.methods).reduce((s,m)=>s+m.conditions.filter(spatialBound).length,0),0);
+    $('ssrBinding').textContent=bound?`${bound} 组完整50次已绑定本地论文空间域实现：原生任务成功、空间记录有效、终态物体到原生放置目标的三维距离 ≤20mm，分母50。按每组原始记录和模型 SHA 核验后计分；未完整或未绑定的组继续标为待核验。`:'当前数据尚未携带已审阅的空间 SSR 绑定；测试格暂显示终态空间 SSR20，完整50次及绑定核验后签发。';
+    $('commonCondition').textContent=primary===2?'首轮完整曲线按实际位置覆盖选定共同 +2cm（XY ±5cm）：所有物体和方法采用同一档位，完整四档与原始跨卡结果保留。最终验收逐项检查采集同型号显卡、SR 和已绑定空间 SSR 的论文门槛。':'按实际落在采集范围外的覆盖率选择共同泛化档位，保留完整曲线；统一档位的采集同型号显卡复核与论文 SSR 核验分别记录。';
     $('evidence').innerHTML = `<p>模型 SHA256：${esc(m.model_sha256 || '模型未完成')}</p>` + m.conditions.filter(c=>c.complete).map(c=>`<p>+${c.added_cm}cm · 原始记录 SHA256：${esc(c.raw_sha256)}<br>结果核验记录 SHA256：${esc(c.receipt_sha256)}</p>`).join('');
   }
   function matrix() {
@@ -73,7 +91,7 @@
     for(const o of data.objects) for(const k of ['dp','act']) {
       const m = o.methods[k], n = m.conditions.filter(c=>c.complete).length;
       if(stage==='training' && m.verified_model || stage==='testing' && n===4 || stage==='complete' && n!==4) continue;
-      html += `<tr data-task="${esc(o.id)}-${k}"><td><button data-object="${esc(o.id)}" data-method="${k}">${esc(o.label)}<span class="cell-label">${k.toUpperCase()} · 采集 ${esc(o.collection_gpu)}</span></button></td><td class="paper-sr">${m.paper_reference?`<strong>${pct(m.paper_reference.sr_percent)}</strong>`:'—<span class="cell-label">论文未对应</span>'}</td><td class="paper-ssr">${m.paper_reference?`<strong>${pct(m.paper_reference.ssr_percent)}</strong>`:'—<span class="cell-label">论文未对应</span>'}</td><td><span class="pill ${m.verified_model ? 'pass' : 'pending'}">${esc(m.status_label)}</span>${m.optimizer_updates !== null ? `<span class="cell-label">${m.optimizer_updates.toLocaleString()}/${m.required_updates.toLocaleString()}</span>` : ''}</td>` + m.conditions.map(c=>`<td>${c.complete ? `<strong>${pct(c.sr_percent)} / ${pct(c.terminal_spatial_ssr20_percent)}</strong><span class="cell-label">50次 · 范围外 ${c.settled_outside_count}次</span><span class="cell-label">${c.same_gpu === true ? '采集同型号' : c.same_gpu === false ? '跨型号需复核' : '显卡待核验'}</span>` : `<span class="pill pending">${esc(c.status_label)}</span>`}</td>`).join('') + '</tr>';
+      html += `<tr data-task="${esc(o.id)}-${k}"><td><button data-object="${esc(o.id)}" data-method="${k}">${esc(o.label)}<span class="cell-label">${k.toUpperCase()} · 采集 ${esc(o.collection_gpu)}</span></button></td><td class="paper-sr">${m.paper_reference?`<strong>${pct(m.paper_reference.sr_percent)}</strong>`:'—<span class="cell-label">论文未对应</span>'}</td><td class="paper-ssr">${m.paper_reference?`<strong>${pct(m.paper_reference.ssr_percent)}</strong>`:'—<span class="cell-label">论文未对应</span>'}</td><td><span class="pill ${m.verified_model ? 'pass' : 'pending'}">${esc(m.status_label)}</span>${m.optimizer_updates !== null ? `<span class="cell-label">${m.optimizer_updates.toLocaleString()}/${m.required_updates.toLocaleString()}</span>` : ''}</td>` + m.conditions.map(c=>`<td>${c.complete ? `<strong>${pct(c.sr_percent)} / ${pct(c.terminal_spatial_ssr20_percent)}</strong><span class="cell-label">50次 · ${spatialBound(c)?'空间 SSR 已绑定':'SSR 绑定待核验'} · 范围外 ${c.settled_outside_count}次</span><span class="cell-label">${c.same_gpu === true ? '采集同型号' : c.same_gpu === false ? '跨型号需复核' : '显卡待核验'}</span>` : `<span class="pill pending">${esc(c.status_label)}</span>`}</td>`).join('') + '</tr>';
     }
     $('matrix').innerHTML = html;
     $('emptyMatrix').hidden = !!html;
@@ -131,7 +149,7 @@
   }
   function render() {
     const t = data.totals;
-    $('stats').innerHTML = [[`${t.verified_models} / ${t.required_models}`,'模型核验完成','DP + ACT · 最终预算与模型校验'],[`${t.complete_cells} / ${t.required_cells}`,'完整测试组','每物体 × 方法 × 四档泛化'],[`${t.complete_trials.toLocaleString()} / ${t.required_trials.toLocaleString()}`,'已核验原生试次','每组 50 次 · 含成功与失败'],[`${t.same_gpu_cells} / ${t.complete_cells}`,'完整组使用采集同型号卡','最终论文验收：待统一档位与SSR核验']].map(([v,l,s])=>`<div class="card stat"><strong>${v}</strong><span>${l}</span><small>${s}</small></div>`).join('');
+    $('stats').innerHTML = [[`${t.verified_models} / ${t.required_models}`,'模型核验完成','DP + ACT · 最终预算与模型校验'],[`${t.complete_cells} / ${t.required_cells}`,'完整测试组','每物体 × 方法 × 四档泛化'],[`${t.complete_trials.toLocaleString()} / ${t.required_trials.toLocaleString()}`,'已核验原生试次','每组 50 次 · 含成功与失败'],[`${t.same_gpu_cells} / ${t.complete_cells}`,'完整组使用采集同型号卡','最终验收：同型号卡及 SR / 空间 SSR 门槛']].map(([v,l,s])=>`<div class="card stat"><strong>${v}</strong><span>${l}</span><small>${s}</small></div>`).join('');
     menu(); detail(); matrix(); fleet(); freshness();
     $('alerts').innerHTML = data.alerts.map(a=>`<li>${esc(a)}</li>`).join('');
     $('controllers').innerHTML = data.controllers.map(c=>`<div><strong>${esc(c.role)}</strong><span class="pill ${c.active ? 'pass' : 'pending'}">${c.active ? '运行中' : '未确认运行'}</span></div>`).join('');
