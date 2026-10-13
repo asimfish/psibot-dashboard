@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-13T00:08:56.999865+00:00",
+  "published_at": "2026-10-13T00:10:02.255743+00:00",
   "source_updated_at": "2026-10-13T00:04:46.402789+00:00",
   "tasks": [
     {
@@ -44,7 +44,7 @@
       "latest_failed": null,
       "native_alive": false,
       "updated_at": "2026-10-13T00:04:46.402789+00:00",
-      "note": "修订倒液任务完整验收0/100。旧V8/V9均到时限未完成，V9最后一次模型响应流超时且无最终用量，费用桥按规则暂停；V10初始严格门控和ROOT三视角审核通过，首个请求被暂停桥拒绝，实际执行动作0。已修复120秒流读取超时、旧单动作解析限制和跨任务截止转发，19项边界回归通过；新源V11已冻结部署准备。已知累计模型费161.36美元，两笔未知请求保守预留100美元；当前300美元上限不足新增50美元请求预留，等待400美元额度确认。DP/ACT真实GPU训练/检查点/泛化仍0。 最新原生实测：5090 t3_held_v6_5090_001 93.1秒，A倾75.2°，A液体1254/B0/累计洒漏29，失败排除；5090 t3_batch_v8_5090_002 59.5秒，A倾58.9°，A液体1290/B0/累计洒漏0，已关闭待审计；Pro6000 t3_held_v6_pro_001 115.0秒，A倾52.9°，A液体1290/B0/累计洒漏0，失败排除；Pro6000 t3_flight_v7_pro_001 83.0秒，A倾25.4°，A液体1290/B0/累计洒漏0，失败排除；Pro6000 t3_authored_v9_pro_001 25.0秒，A倾2.5°，A液体1290/B0/累计洒漏0，已关闭待审计；Pro6000 t3_clarity_v10_pro_001 0.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，失败排除。 DP、ACT 训练的数据资格独立核验。",
+      "note": "修订倒液任务完整验收0/100。旧V8/V9均到时限未完成，V9最后一次模型响应流超时且无最终用量，费用桥按规则暂停；V10初始严格门控和ROOT三视角审核通过，首个请求被暂停桥拒绝，实际执行动作0。已修复120秒流读取超时、旧单动作解析限制和跨任务截止转发，19项边界回归通过；新源V11已冻结部署准备。已知累计模型费161.36美元，两笔未知请求保守预留100美元；当前300美元上限不足新增50美元请求预留，等待400美元额度确认。DP/ACT真实GPU训练/检查点/泛化仍0。 最新原生实测：5090 t3_held_v6_5090_001 93.1秒，A倾75.2°，A液体1254/B0/累计洒漏29，失败排除；5090 t3_batch_v8_5090_002 59.5秒，A倾58.9°，A液体1290/B0/累计洒漏0，失败排除；Pro6000 t3_held_v6_pro_001 115.0秒，A倾52.9°，A液体1290/B0/累计洒漏0，失败排除；Pro6000 t3_flight_v7_pro_001 83.0秒，A倾25.4°，A液体1290/B0/累计洒漏0，失败排除；Pro6000 t3_authored_v9_pro_001 25.0秒，A倾2.5°，A液体1290/B0/累计洒漏0，失败排除；Pro6000 t3_clarity_v10_pro_001 0.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，失败排除。 DP、ACT 训练的数据资格独立核验。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -115,7 +115,7 @@
           "last_request_status": "executed",
           "internal_success": false,
           "stop_reason": "native_physical_safety_violation",
-          "captured_epoch": 1791850095.0691102
+          "captured_epoch": 1791850155.6683216
         },
         {
           "episode_id": "t3_batch_v8_5090_002",
@@ -139,9 +139,9 @@
           "model_requests": 41,
           "executed_primitives": 40,
           "last_request_status": "started",
-          "internal_success": null,
-          "stop_reason": null,
-          "captured_epoch": 1791850095.0753117
+          "internal_success": false,
+          "stop_reason": "incomplete_original_finite_deadline_no_whole_transfer",
+          "captured_epoch": 1791850155.6741729
         },
         {
           "episode_id": "t3_held_v6_pro_001",
@@ -167,7 +167,7 @@
           "last_request_status": "started",
           "internal_success": false,
           "stop_reason": "incomplete_source_superseded_due_conflicting_public_guidance_after_paid_GEN_closed",
-          "captured_epoch": 1791850095.4244845
+          "captured_epoch": 1791850157.4330797
         },
         {
           "episode_id": "t3_flight_v7_pro_001",
@@ -193,7 +193,7 @@
           "last_request_status": "started",
           "internal_success": false,
           "stop_reason": "ROOT_independent_B_preservation_failed_at_tick6186_native_SIGINT_only_after_actual_GEN_closed",
-          "captured_epoch": 1791850095.4275382
+          "captured_epoch": 1791850157.435693
         },
         {
           "episode_id": "t3_authored_v9_pro_001",
@@ -217,9 +217,9 @@
           "model_requests": 20,
           "executed_primitives": 19,
           "last_request_status": "started",
-          "internal_success": null,
-          "stop_reason": null,
-          "captured_epoch": 1791850095.429152
+          "internal_success": false,
+          "stop_reason": "incomplete_original_finite_deadline_last_provider_stream_usage_unknown",
+          "captured_epoch": 1791850157.437108
         },
         {
           "episode_id": "t3_clarity_v10_pro_001",
@@ -244,8 +244,8 @@
           "executed_primitives": 0,
           "last_request_status": "native_model_failed_or_unknown_usage",
           "internal_success": false,
-          "stop_reason": "provider_interrupted",
-          "captured_epoch": 1791850095.4302104
+          "stop_reason": "provider_interrupted_campaign_already_paused_zero_model_forwards",
+          "captured_epoch": 1791850157.4379487
         }
       ]
     },
