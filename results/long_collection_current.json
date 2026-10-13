@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-13T13:43:06.450617+00:00",
-  "source_updated_at": "2026-10-13T13:42:26.966106+00:00",
+  "published_at": "2026-10-13T13:44:16.439575+00:00",
+  "source_updated_at": "2026-10-13T13:43:27.382782+00:00",
   "tasks": [
     {
       "task": "T3",
@@ -38,13 +38,13 @@
       "whole_accepted": false,
       "state": "running",
       "run": "t3_private_egress_v15_5090_001",
-      "sim_s": 5.325,
-      "executed": 0,
+      "sim_s": 5.991666666666666,
+      "executed": 4,
       "unknown_usage": null,
       "latest_failed": null,
       "native_alive": true,
-      "updated_at": "2026-10-13T13:42:26.966106+00:00",
-      "note": "新版完整验收仍0/100。三路新初始原门与ROOT原图已核；两路模型控制再次遇到上游网络中断，模型桥已保守暂停。累计489请求，已知内部估算187.679702、未知预留200（旧150完整保留，加一条已发送无终态50）；不得重投未知请求。新结果回取与SSH监管已有真实恢复验证，此次SSH转发仍正常，失败证据指向上游共享代理曾短暂拒绝连接、另一SSE流未闭合。正在核验任务独立网络出口，保持原物理门/真实模型/费用门。首条完整合格数据后才ACT/DP和四卡有效任务；未启动空训练。 最新原生实测：5090 t3_private_egress_v15_5090_001 5.3秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中；5090 t3_private_egress_v15_5090_002 4.1秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
+      "updated_at": "2026-10-13T13:43:27.382782+00:00",
+      "note": "5090 GPU0/GPU1与Pro6000 GPU1三路原生控制已放行，61文件源bfd37c18；任务独立网络出口、模型桥、SSH监管及物理监视改为有限服务。当前2条模型GEN进行中、第三路排队；500/650已授权费用门保留未知200，动态预留只允许能容纳的GEN并行数。新版完整验收仍0/100；失败前缀与旧版1条不计。首条完整验收后才启动ACT/DP和有效四卡任务。 最新原生实测：5090 t3_private_egress_v15_5090_001 6.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中；5090 t3_private_egress_v15_5090_002 6.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中；Pro6000 t3_private_egress_v15_pro_001 4.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -97,9 +97,9 @@
           "source_kind": "actual_Astra_xhigh_teacher",
           "source_sha256": "bfd37c18721260d894c33e0ae3eb807f9e5e490115e405f93479777cd3d75789",
           "native_alive": true,
-          "native_process_state": "R",
-          "sim_s": 5.325,
-          "A_tilt_deg": 0.03126145823231643,
+          "native_process_state": "S",
+          "sim_s": 5.991666666666666,
+          "A_tilt_deg": 0.03193507209199175,
           "liquid_counts": {
             "total": 1290,
             "A": 1290,
@@ -110,12 +110,12 @@
             "currently_spilled_outside": 0
           },
           "safety_violation": false,
-          "model_requests": 1,
-          "executed_primitives": 0,
+          "model_requests": 2,
+          "executed_primitives": 4,
           "last_request_status": "started",
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791898946.9659274
+          "captured_epoch": 1791899007.0000675
         },
         {
           "episode_id": "t3_private_egress_v15_5090_002",
@@ -124,8 +124,34 @@
           "source_sha256": "bfd37c18721260d894c33e0ae3eb807f9e5e490115e405f93479777cd3d75789",
           "native_alive": true,
           "native_process_state": "R",
-          "sim_s": 4.075,
-          "A_tilt_deg": 0.032492444996749976,
+          "sim_s": 5.991666666666666,
+          "A_tilt_deg": 0.03323541307399333,
+          "liquid_counts": {
+            "total": 1290,
+            "A": 1290,
+            "B": 0,
+            "outside_vessels": 0,
+            "in_transit": 0,
+            "spill": 0,
+            "currently_spilled_outside": 0
+          },
+          "safety_violation": false,
+          "model_requests": 2,
+          "executed_primitives": 3,
+          "last_request_status": "started",
+          "internal_success": null,
+          "stop_reason": null,
+          "captured_epoch": 1791899007.0002754
+        },
+        {
+          "episode_id": "t3_private_egress_v15_pro_001",
+          "host": "Pro6000",
+          "source_kind": "actual_Astra_xhigh_teacher",
+          "source_sha256": "bfd37c18721260d894c33e0ae3eb807f9e5e490115e405f93479777cd3d75789",
+          "native_alive": true,
+          "native_process_state": "S",
+          "sim_s": 3.9916666666666667,
+          "A_tilt_deg": 0.037597491986615716,
           "liquid_counts": {
             "total": 1290,
             "A": 1290,
@@ -141,7 +167,7 @@
           "last_request_status": "started",
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791898946.9661057
+          "captured_epoch": 1791899007.3827825
         }
       ],
       "native_initial_images": [
@@ -206,7 +232,7 @@
       "sim_s": null,
       "executed": 0,
       "unknown_usage": null,
-      "updated_at": "2026-10-13T11:33:07.537566+00:00",
+      "updated_at": "2026-10-13T13:43:20.378492+00:00",
       "latest_failed": null,
       "note": "柜子完整验收仍0。新独立原生观测器已实测241行，17手体与被动柜门原生目标/接触/稳定门通过，0模型请求，已关闭封存；这只证明观测接口，不解决原透明烧杯门框遮挡。旧高瓶漂移31.9mm超过原25mm失败仍排除；原柜门/物理/相机/验收不变。 DP、ACT 训练的数据资格独立核验。",
       "legacy": {
@@ -345,7 +371,7 @@
     "video_fps": 15,
     "acceptance": "完整有序物理过程、释放稳定、安全与不变约束、真实模型响应来源、已知用量及预算、三路完整视频均通过后，才计入整条验收。"
   },
-  "program_revision": "2026-10-13T11:33:07.537566+00:00",
+  "program_revision": "2026-10-13T13:43:20.378492+00:00",
   "fleet": [
     {
       "host": "liyufeng_4090",
@@ -355,12 +381,12 @@
     {
       "host": "5090",
       "role": "采集与测试",
-      "status": "两路新初始资格及三图已过；上游SSE/代理故障后模型控制已关闭排除，核验独立出口中。"
+      "status": "GPU0/GPU1两路V15原生控制运行，初始原物理与ROOT三图各通过，真实教师请求已发出；只读全程物理监视已运行。"
     },
     {
       "host": "Pro6000",
       "role": "采集与测试",
-      "status": "GPU1新初始物理和ROOT三原图通过，尚无模型请求；上游暂停期间不放行。四卡Pro JOB准入有效，待真实可执行训练/评测数据与环境门。"
+      "status": "GPU1 V15原生控制运行、初始241/all17与ROOT三图通过，教师首请求按共享500/650预算排队；GPU0现有任务保留。四卡JOB已获用户授权，准备有真实数据的有效采集/训练/测试。"
     },
     {
       "host": "30109",
