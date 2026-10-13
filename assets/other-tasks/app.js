@@ -53,7 +53,7 @@ function renderJobs(data){
  $('job-count').textContent=data.jobs.length+' 个作业 · '+complete+' 个训练完成';
  if(!data.jobs.length){root.append(node('p','正在核对模型与就绪的数据，尚未计入有效训练。','muted'));return;}
  for(const j of data.jobs){
-  const box=node('article',null,'job'),placement=j.gpu_allocated===true?'GPU '+j.gpu:'计划 GPU '+j.gpu;
+  const box=node('article',null,'job'),placement=j.gpu_allocated===true?'GPU '+j.gpu:j.status==='ACT_PAPER_BUDGET_COMPLETED_PENDING_NATIVE50'?'训练时 GPU '+j.gpu:'计划 GPU '+j.gpu;
   box.append(node('strong',j.identity),node('span',(j.method||'ACT').toUpperCase()+' · seed '+(j.seed??'待核对')+' · '+j.host+' · '+placement,'sub'),node('p',labels[j.status]||j.status));
   let fraction=null;
   if(Number.isFinite(j.optimizer_updates)&&j.required_updates>0){box.append(node('p',j.optimizer_updates+' / '+j.required_updates+' 次优化更新'));fraction=j.optimizer_updates/j.required_updates;}

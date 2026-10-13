@@ -24,7 +24,7 @@ Transient optimizer progress is never promoted to completed training.
 Multi-seed task rows aggregate all seeds rather than displaying only the last
 read seed. These changes do not create native acceptance credit.
 
-Validation covers category grouping/order/navigation, robot and object
+Validation: 24 real Chromium checks cover category grouping/order/navigation, robot and object
 filters, mobile layout, paper method order, unavailable/malformed/stale data,
 untrusted text, privacy and independent seed labels. Dedicated files are
 published with a task-scoped conventional commit and ordinary PR.
@@ -33,3 +33,6 @@ Next frontier: bind original per-task safety calibrations and actual held-out
 reset support, repair isolated native metric implementations, prepare a
 qualified DP recipe and execute native50 tests with frozen checkpoint hashes.
 Pro6000 received no new training jobs. Full task acceptance remains open.
+
+Completed workers show their historical training GPU; released cards are not
+shown as current or planned allocations.
