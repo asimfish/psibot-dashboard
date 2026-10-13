@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-13T10:32:31.417750+00:00",
-  "source_updated_at": "2026-10-13T10:32:10.279738+00:00",
+  "published_at": "2026-10-13T10:33:37.728791+00:00",
+  "source_updated_at": "2026-10-13T10:32:34.535693+00:00",
   "tasks": [
     {
       "task": "T3",
@@ -34,17 +34,17 @@
         }
       ],
       "completed_phases": 0,
-      "phase_basis": "初始资格通过；完整有序过程待独立验收",
+      "phase_basis": "新版场景正在准备；旧版成果单独保留",
       "whole_accepted": false,
-      "state": "running",
-      "run": "t3_zero_post_v13_5090_001",
-      "sim_s": 13.5,
-      "executed": 9,
+      "state": "unavailable",
+      "run": null,
+      "sim_s": null,
+      "executed": 0,
       "unknown_usage": null,
       "latest_failed": null,
-      "native_alive": true,
-      "updated_at": "2026-10-13T10:32:10.279738+00:00",
-      "note": "新版整条仍0/100。用户已明确同意500内部估算/累计650门槛，历史474请求与旧未知150全部保留，旧失败不重投。新V13仅改已证明零模型POST的连接失败等待，补Nullable errno及脱敏底层类型，保持最多3次连接/650秒、任何发送后不重试、原模型与物理验收不变。5090与Pro6000两卡三路新seed已启动严格原生初始检查；每路原241窗口及ROOT三原图通过后才真实Astra/xhigh动作。上轮knownzero失败关闭不增加未知预留，所有未倒液归位前缀仍排除。首whole原件关闭、独立物理/粒子/三视频和ROOT九阶段图通过后才ACT/DP实际训练及100条扩采。 最新原生实测：5090 t3_zero_post_v13_5090_001 13.5秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中；5090 t3_zero_post_v13_5090_002 9.5秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中；Pro6000 t3_zero_post_v13_pro_003 10.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
+      "native_alive": false,
+      "updated_at": "2026-10-13T10:32:34.535693+00:00",
+      "note": "用户已明确批准内部用量估算500、累计650请求；旧未知150全部保留且不重投。新版完整验收仍0/100。5090两卡和Pro6000 GPU1的三条新任务均通过原241行物理检查、17手部几何检查和ROOT三张原生照片核验，现已放行真实Astra/xhigh控制。新监控已实核三实际进程与逐行原门，目前无违规；结束后独立审核完整粒子轨迹、13维控制、三路视频，再由ROOT检查九阶段图。通过完整验收后接ACT/DP训练和扩大采集。 最新原生实测：5090 t3_zero_post_v13_5090_001 13.5秒，A倾0.0°，A液体1290/B0/累计洒漏0，已关闭待审计；5090 t3_zero_post_v13_5090_002 9.7秒，A倾0.0°，A液体1290/B0/累计洒漏0，已关闭待审计；Pro6000 t3_zero_post_v13_pro_003 10.5秒，A倾0.0°，A液体1290/B0/累计洒漏0，已关闭待审计。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -96,8 +96,8 @@
           "host": "5090",
           "source_kind": "actual_Astra_xhigh_teacher",
           "source_sha256": "bfa56f21b027ffbdf59e7ae0ea0adfd252af105d0cf8d657973069236046a169",
-          "native_alive": true,
-          "native_process_state": "S",
+          "native_alive": false,
+          "native_process_state": "closed",
           "sim_s": 13.5,
           "A_tilt_deg": 0.03412625399923312,
           "liquid_counts": {
@@ -112,20 +112,20 @@
           "safety_violation": false,
           "model_requests": 5,
           "executed_primitives": 9,
-          "last_request_status": "started",
+          "last_request_status": "native_model_failed_or_unknown_usage",
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791887529.9545856
+          "captured_epoch": 1791887590.0339088
         },
         {
           "episode_id": "t3_zero_post_v13_5090_002",
           "host": "5090",
           "source_kind": "actual_Astra_xhigh_teacher",
           "source_sha256": "bfa56f21b027ffbdf59e7ae0ea0adfd252af105d0cf8d657973069236046a169",
-          "native_alive": true,
-          "native_process_state": "S",
-          "sim_s": 9.5,
-          "A_tilt_deg": 0.033451307463301994,
+          "native_alive": false,
+          "native_process_state": "closed",
+          "sim_s": 9.7,
+          "A_tilt_deg": 0.03335790754379743,
           "liquid_counts": {
             "total": 1290,
             "A": 1290,
@@ -136,22 +136,22 @@
             "currently_spilled_outside": 0
           },
           "safety_violation": false,
-          "model_requests": 3,
-          "executed_primitives": 7,
-          "last_request_status": "started",
+          "model_requests": 4,
+          "executed_primitives": 8,
+          "last_request_status": "native_model_failed_or_unknown_usage",
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791887529.9548645
+          "captured_epoch": 1791887590.0341892
         },
         {
           "episode_id": "t3_zero_post_v13_pro_003",
           "host": "Pro6000",
           "source_kind": "actual_Astra_xhigh_teacher",
           "source_sha256": "bfa56f21b027ffbdf59e7ae0ea0adfd252af105d0cf8d657973069236046a169",
-          "native_alive": true,
-          "native_process_state": "S",
-          "sim_s": 9.991666666666667,
-          "A_tilt_deg": 0.033189949675117326,
+          "native_alive": false,
+          "native_process_state": "closed",
+          "sim_s": 10.5,
+          "A_tilt_deg": 0.030589127822209267,
           "liquid_counts": {
             "total": 1290,
             "A": 1290,
@@ -164,10 +164,10 @@
           "safety_violation": false,
           "model_requests": 3,
           "executed_primitives": 7,
-          "last_request_status": "started",
+          "last_request_status": "native_model_failed_or_unknown_usage",
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791887530.2797377
+          "captured_epoch": 1791887590.4133267
         }
       ],
       "native_initial_images": [
@@ -232,7 +232,7 @@
       "sim_s": null,
       "executed": 0,
       "unknown_usage": null,
-      "updated_at": "2026-10-13T10:10:42.477866+00:00",
+      "updated_at": "2026-10-13T10:32:34.535693+00:00",
       "latest_failed": null,
       "note": "柜子完整验收仍0。新独立原生观测器已实测241行，17手体与被动柜门原生目标/接触/稳定门通过，0模型请求，已关闭封存；这只证明观测接口，不解决原透明烧杯门框遮挡。旧高瓶漂移31.9mm超过原25mm失败仍排除；原柜门/物理/相机/验收不变。 DP、ACT 训练的数据资格独立核验。",
       "legacy": {
@@ -371,7 +371,7 @@
     "video_fps": 15,
     "acceptance": "完整有序物理过程、释放稳定、安全与不变约束、真实模型响应来源、已知用量及预算、三路完整视频均通过后，才计入整条验收。"
   },
-  "program_revision": "2026-10-13T10:10:42.477866+00:00",
+  "program_revision": "2026-10-13T10:32:34.535693+00:00",
   "fleet": [
     {
       "host": "liyufeng_4090",
@@ -381,17 +381,17 @@
     {
       "host": "5090",
       "role": "采集与测试",
-      "status": "新V13原生教师已启动严格初始化，原≥25GB准入/61源/真实相机加载通过；原241及ROOT3后真实模型动作，0整条。"
+      "status": "双卡各一路新V13真实模型原生采集；各自原25GB准入、61文件、241行物理及ROOT三图已通过；逐行监管运行，完整0。"
     },
     {
       "host": "Pro6000",
       "role": "采集与测试",
-      "status": "双卡V13独立seed原生初始化已启动，保留原双≥60GB准入与所有外部计算；已核源61/相机/预算650，原严格初态及ROOT3后才模型动作。"
+      "status": "GPU1一路新V13真实模型原生采集；原60GB使用卡准入、61文件、241行物理及ROOT三图已通过。GPU0有其他作业，完整保留；没有降低容量门。"
     },
     {
       "host": "30109",
       "role": "DP / ACT 训练",
-      "status": "最新ACT原GPU4已被其他计算使用，GPU5及GPU6各81GB空闲可作DP/ACT；数据盘1.73GiB，首whole紧凑导出/核容量后才实际训练。"
+      "status": "ACT目标GPU6、DP目标GPU5；最新DP卡有其他负载但剩74GB超过原60GB门，保留既有作业。数据盘约1.73GiB；首条完整合格数据核容量并紧凑导出后才启动训练。"
     },
     {
       "host": "mainskill",
