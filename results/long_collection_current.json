@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-13T18:38:32.033791+00:00",
-  "source_updated_at": "2026-10-13T18:37:39.026605+00:00",
+  "published_at": "2026-10-13T18:39:38.698395+00:00",
+  "source_updated_at": "2026-10-13T18:39:26.720624+00:00",
   "tasks": [
     {
       "task": "T3",
@@ -38,13 +38,13 @@
       "whole_accepted": false,
       "state": "running",
       "run": "t3_goal_move_v17_5090_005",
-      "sim_s": 99.325,
-      "executed": 63,
+      "sim_s": 100.825,
+      "executed": 64,
       "unknown_usage": null,
       "latest_failed": null,
       "native_alive": true,
-      "updated_at": "2026-10-13T18:37:39.026605+00:00",
-      "note": "完整0/100。首实际Astra调用完成36.1秒、内部估算0.32013；Astra自主选择连续目标平移约278mm/7s、零旋转、当前6hand targets原样。原生执行840ticks后时间预算边界交还模型，尚未到位/尚未抓取整条成功。首真实GEN已发生，新006因GPU1余21046低于原25000没有启动；Pro0余12558、Pro1余53575均低原60000，保留外部作业不降门。当前仅5090 GPU0 native3892587/start203581609真实采集；旧私有CFG截止修复及原客户端预检通过。旧92分钟/失败尝试，新整条平均未有。 最新原生实测：5090 t3_goal_move_v17_5090_005 99.3秒，A倾47.8°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
+      "updated_at": "2026-10-13T18:38:39.419118+00:00",
+      "note": "完整0/100。5090 GPU0实际采集中，原native13/17及粒子标准未改；A已提起并逐步倾斜约55°，仍A1290/B0/spill0，尚未完整倾倒。V17连续大位移曾出现跟踪误差，V18按距离设置原servo插值坡度，固定模型终点/hand targets不变，CPU及独立动作审计通过，真实验证待查。已通过用户API创建四卡Pro6000固定目标20/278/120mm和短预算四种实际验证job-3won8nq4vgf9（零GEN、禁止WHOLE/训练），已准备原环境/62源、失败快速退出及900s守卫。首最新6调用均值63秒；整条尝试未结束，尚無新版平均。 最新原生实测：5090 t3_goal_move_v17_5090_005 100.8秒，A倾54.7°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -98,8 +98,8 @@
           "source_sha256": "6421c68ede9aefa4529f5d9226480f2744a1a0718183384c308397273a8a11ba",
           "native_alive": true,
           "native_process_state": "S",
-          "sim_s": 99.325,
-          "A_tilt_deg": 47.8241638480583,
+          "sim_s": 100.825,
+          "A_tilt_deg": 54.738524527852405,
           "liquid_counts": {
             "total": 1290,
             "A": 1290,
@@ -110,12 +110,12 @@
             "currently_spilled_outside": 0
           },
           "safety_violation": false,
-          "model_requests": 27,
-          "executed_primitives": 63,
+          "model_requests": 28,
+          "executed_primitives": 64,
           "last_request_status": "started",
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791916659.0266051
+          "captured_epoch": 1791916719.419118
         }
       ],
       "native_initial_images": [
@@ -180,7 +180,7 @@
       "sim_s": null,
       "executed": 0,
       "unknown_usage": null,
-      "updated_at": "2026-10-13T17:51:11.892971+00:00",
+      "updated_at": "2026-10-13T18:39:26.720624+00:00",
       "latest_failed": null,
       "note": "柜子完整验收0。4090新槽位真GPU检查确认A杯底原架子130–146支撑点，却持续数值振荡。一次有界2400步自然等待仅3孤立原门通过、最长1帧，随后A倒伏并超原25mm；已失败关闭，0模型、不重启同候选。现准备用户允许的两原生小瓶，A蓝色玻璃/B原褐色，只变初始物件与视觉颜色，保留原架/门/碰撞/物理阈值，须重新原241/all17/ROOT3。 DP、ACT 训练的数据资格独立核验。",
       "legacy": {
@@ -319,7 +319,7 @@
     "video_fps": 15,
     "acceptance": "完整有序物理过程、释放稳定、安全与不变约束、真实模型响应来源、已知用量及预算、三路完整视频均通过后，才计入整条验收。"
   },
-  "program_revision": "2026-10-13T17:51:11.892971+00:00",
+  "program_revision": "2026-10-13T18:39:26.720624+00:00",
   "fleet": [
     {
       "host": "liyufeng_4090",
@@ -334,7 +334,7 @@
     {
       "host": "Pro6000",
       "role": "采集与测试",
-      "status": "两卡外部任务增加：GPU0余12558/GPU1余53575，原60000门未满足；未启动教师，连续目标控制器实际资格已通过。"
+      "status": "原两卡因外部任务显存低原门未启动；新增四卡JOB job-3won8nq4vgf9已创建，实际运行/结果待查。四卡各有不同控制器验证，不算采集完整数据。"
     },
     {
       "host": "30109",
