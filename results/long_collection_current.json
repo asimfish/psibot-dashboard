@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-14T14:29:58.975803+00:00",
-  "source_updated_at": "2026-10-14T14:29:58.284390+00:00",
+  "published_at": "2026-10-14T14:31:09.956505+00:00",
+  "source_updated_at": "2026-10-14T14:31:01.427324+00:00",
   "tasks": [
     {
       "task": "T3",
@@ -37,14 +37,14 @@
       "phase_basis": "初始资格通过；完整有序过程待独立验收",
       "whole_accepted": false,
       "state": "running",
-      "run": "t3_host_v48_5090_curobo_001",
-      "sim_s": 25.475,
+      "run": "t3_host_v48_pro_curobo_001",
+      "sim_s": 25.991666666666667,
       "executed": 0,
       "unknown_usage": null,
       "latest_failed": null,
       "native_alive": true,
-      "updated_at": "2026-10-14T14:29:57.880654+00:00",
-      "note": "WHOLE0/100。新增Source48Pro0与5090GPU0两路原生启动，等待实际初始ROOT图审；普通移动模型调用0，模型只选偏移。先前600自然步不收敛已证实，因此改为真实MotionGen验证measured q→原nativeTarget的碰撞链接，再从原target连续规划command轨迹，不执行未经规划bridge。实测非空原场景JS链接Success0.210s，主路径Success0.271s208rows，FK约2.48µm，算法资格无新native control。新controller CPU32项保护PASS，原120Hz物理门不变。当前仅允许首次成功规划路径资格；发现官方失败startcheck会遗留self成本禁用，任何失败planner不再复用，完整失败续试控制器待修。Qwen偏移实际10.9s已过；真正抓取/倾倒和WHOLE尚未过，DP/ACT新完整数据仍0。 最新原生实测：Pro6000 t3_host_v48_pro_curobo_001 18.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中；5090 t3_host_v48_5090_curobo_001 25.5秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
+      "updated_at": "2026-10-14T14:31:00.823836+00:00",
+      "note": "WHOLE0/100。新增Source48Pro0与5090GPU0两路原生启动，等待实际初始ROOT图审；普通移动模型调用0，模型只选偏移。先前600自然步不收敛已证实，因此改为真实MotionGen验证measured q→原nativeTarget的碰撞链接，再从原target连续规划command轨迹，不执行未经规划bridge。实测非空原场景JS链接Success0.210s，主路径Success0.271s208rows，FK约2.48µm，算法资格无新native control。新controller CPU32项保护PASS，原120Hz物理门不变。当前仅允许首次成功规划路径资格；发现官方失败startcheck会遗留self成本禁用，任何失败planner不再复用，完整失败续试控制器待修。Qwen偏移实际10.9s已过；真正抓取/倾倒和WHOLE尚未过，DP/ACT新完整数据仍0。 最新原生实测：Pro6000 t3_host_v48_pro_curobo_001 26.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -101,8 +101,8 @@
           "source_sha256": "9108173c1359ced772f8bd7bc23b2db35f04563d7953eaf9e8154ead21870d85",
           "native_alive": true,
           "native_process_state": "running",
-          "sim_s": 17.991666666666667,
-          "A_tilt_deg": 0.03474647367948623,
+          "sim_s": 25.991666666666667,
+          "A_tilt_deg": 0.03517797880500147,
           "liquid_counts": {
             "total": 1290,
             "A": 1290,
@@ -118,33 +118,7 @@
           "last_request_status": null,
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791988197.8806539
-        },
-        {
-          "episode_id": "t3_host_v48_5090_curobo_001",
-          "host": "5090",
-          "source_kind": "actual_native_curobo_qualification",
-          "source_sha256": "9108173c1359ced772f8bd7bc23b2db35f04563d7953eaf9e8154ead21870d85",
-          "native_alive": true,
-          "native_process_state": "running",
-          "sim_s": 25.475,
-          "A_tilt_deg": 0.040389250060976045,
-          "liquid_counts": {
-            "total": 1290,
-            "A": 1290,
-            "B": 0,
-            "outside_vessels": 0,
-            "in_transit": 0,
-            "spill": 0,
-            "currently_spilled_outside": 0
-          },
-          "safety_violation": false,
-          "model_requests": 0,
-          "executed_primitives": 0,
-          "last_request_status": null,
-          "internal_success": null,
-          "stop_reason": null,
-          "captured_epoch": 1791988197.4042249
+          "captured_epoch": 1791988260.823836
         }
       ],
       "native_initial_images": [
@@ -209,7 +183,7 @@
       "sim_s": null,
       "executed": 0,
       "unknown_usage": null,
-      "updated_at": "2026-10-14T14:29:58.284390+00:00",
+      "updated_at": "2026-10-14T14:31:01.427324+00:00",
       "latest_failed": null,
       "note": "新原Shelf7左右双瓶原生241步通过，ROOT实际head/third两瓶可见，chest仍裁切。保留结果但视觉不放行；按用户要求暂停扩展，优先T3。 DP、ACT 训练的数据资格独立核验。",
       "legacy": {
@@ -351,7 +325,7 @@
     "video_fps": 15,
     "acceptance": "完整有序物理过程、释放稳定、安全与不变约束、真实模型响应来源、已知用量及预算、三路完整视频均通过后，才计入整条验收。"
   },
-  "program_revision": "2026-10-14T14:29:58.284390+00:00",
+  "program_revision": "2026-10-14T14:31:01.427324+00:00",
   "fleet": [
     {
       "host": "liyufeng_4090",
