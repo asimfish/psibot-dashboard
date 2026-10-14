@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-14T19:13:31.898792+00:00",
-  "source_updated_at": "2026-10-14T19:13:06.249120+00:00",
+  "published_at": "2026-10-14T19:14:38.632584+00:00",
+  "source_updated_at": "2026-10-14T19:14:08.525622+00:00",
   "tasks": [
     {
       "task": "T3",
@@ -38,13 +38,13 @@
       "whole_accepted": false,
       "state": "running",
       "run": "t3_host_v55_pro_curobo_002",
-      "sim_s": 79.99166666666666,
-      "executed": 20,
+      "sim_s": 82.99166666666666,
+      "executed": 22,
       "unknown_usage": null,
       "latest_failed": null,
       "native_alive": true,
-      "updated_at": "2026-10-14T19:13:06.068243+00:00",
-      "note": "完整验收0/100。8个独立快抓阶段已通过原始抬升+3秒稳定门；新5090连续144.25秒、新4090连续92.90秒。5090实际倾角40.3度，本地4090已持杯到B处；Pro55实际26.42度、云g2实际26.89度，继续同world筛选倾倒路径。云g0/g1/g3倾倒滑脱，已被原始规则剔除并自然封存，不计数据。当前瓶颈是持杯倾倒路径绕行及抓持稳定性，完整5分钟目标未达到。 最新原生实测：Pro6000 t3_host_v55_pro_curobo_002 80.0秒，A倾26.6°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
+      "updated_at": "2026-10-14T19:14:08.318371+00:00",
+      "note": "完整验收0/100，8个独立快抓阶段通过。新四卡云job-r03fsofv2ch3已真实启动4个Native，正在初始场景验收；每GPU最多3个独立seed，失败自然封口后可续下一条。现有5090约40.4度、Pro55约26度、云旧g2约29度保持原world继续倾倒；4090已将杯子转至负Y倾倒并连续推进。快抓连续耗时4090 92.90秒、5090 144.25秒，仅phase1；完整5分钟目标未达到。 最新原生实测：Pro6000 t3_host_v55_pro_curobo_002 83.0秒，A倾28.6°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -101,8 +101,8 @@
           "source_sha256": "aac8e6b9c265eadf408f24bf9b0023e9f51f6ae1e2551d40f68e4688e3eadd31",
           "native_alive": true,
           "native_process_state": "running",
-          "sim_s": 79.99166666666666,
-          "A_tilt_deg": 26.56055014755725,
+          "sim_s": 82.99166666666666,
+          "A_tilt_deg": 28.601744878007096,
           "liquid_counts": {
             "total": 1290,
             "A": 1290,
@@ -114,11 +114,11 @@
           },
           "safety_violation": false,
           "model_requests": 0,
-          "executed_primitives": 20,
+          "executed_primitives": 22,
           "last_request_status": null,
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1792005186.0682425
+          "captured_epoch": 1792005248.318371
         }
       ],
       "native_initial_images": [
@@ -183,7 +183,7 @@
       "sim_s": null,
       "executed": 0,
       "unknown_usage": null,
-      "updated_at": "2026-10-14T19:13:06.249120+00:00",
+      "updated_at": "2026-10-14T19:14:08.525622+00:00",
       "latest_failed": null,
       "note": "新原Shelf7左右双瓶原生241步通过，ROOT实际head/third两瓶可见，chest仍裁切。保留结果但视觉不放行；按用户要求暂停扩展，优先T3。 DP、ACT 训练的数据资格独立核验。",
       "legacy": {
@@ -325,12 +325,12 @@
     "video_fps": 15,
     "acceptance": "完整有序物理过程、释放稳定、安全与不变约束、真实模型响应来源、已知用量及预算、三路完整视频均通过后，才计入整条验收。"
   },
-  "program_revision": "2026-10-14T19:13:06.249120+00:00",
+  "program_revision": "2026-10-14T19:14:08.525622+00:00",
   "fleet": [
     {
       "host": "liyufeng_4090",
       "role": "采集与测试",
-      "status": "Source56 native4137137连续92.90秒快抓通过，已实际持杯到B左侧38mm，接续正Y方向倾倒。"
+      "status": "Source56 native4137137快抓92.90秒通过，已持杯到B并完成方向切换，负Y连续倾倒中，无模型调用。"
     },
     {
       "host": "5090",
@@ -360,7 +360,7 @@
     {
       "host": "云Pro6000四路",
       "role": "T3采集",
-      "status": "job-4l2ldxk8g3fl：g2仍持杯26.89度并继续；g0/g1/g3倾倒滑脱，原始规则失败并自然封存。固定四卡job暂有三卡空闲，待g2结束释放；下一版准备失败后有界续队列。"
+      "status": "新job-r03fsofv2ch3四路Native已启动，待初始图验收，有界失败补位队列已实际部署；旧job g2有效倾倒中，另外三路滑脱自然封口，固定allocation暂闲。"
     }
   ],
   "training": {
