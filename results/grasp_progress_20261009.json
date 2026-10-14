@@ -1,6 +1,6 @@
 {
   "schema": "grasp.progress_snapshot.v1",
-  "updated_utc": "2026-10-14T15:56:56.917591+00:00",
+  "updated_utc": "2026-10-14T19:39:47.255376+00:00",
   "update_mode": "Each training row retains actual receipt time; all6 recovered DP have observed updates; 4 finalDP CPU/SSD gates and 3 new ACT full-state durable gates passed.",
   "totals": {
     "productive_training_runs": 92,
@@ -1582,7 +1582,7 @@
       "seed": 26102051,
       "state": "原完整状态恢复后持续有限更新",
       "epochs_target": 3000,
-      "sampled_utc": "2026-10-14T15:44:19.309276+00:00",
+      "sampled_utc": "2026-10-14T19:36:47.245295+00:00",
       "formal_accepted": false,
       "raw_status": "running",
       "active_productive": true,
@@ -1590,18 +1590,18 @@
       "actual_source_fullSHA_unchanged": true,
       "status_note": "原模型、EMA、优化器与全局随机状态恢复后有实测更新；工作进程随机状态未完全还原。最终保存完成另行核验。启动前容量变化曾被保护拦下；复用已验证1800轮缓存，按原容量标准重新等待后启动。",
       "source_adoption_gate_SHA256": "ea288b797524f4f80f9dc0033f106499b72fff0909b8dcf03e4074439a427bd4",
-      "train_loss": 0.0006674514152109623,
-      "global_step": 258072,
-      "epoch": 1925,
+      "train_loss": 0.000779536203481257,
+      "global_step": 275428,
+      "epoch": 2055,
       "original_saved_counters": {
         "epoch": 500,
         "global_step": 67134
       },
       "optimizer_reset": false,
       "logical_seed_count_increase": 0,
-      "lr": 8.605530064582983e-05,
+      "lr": 6.820964575580408e-05,
       "checkpoint_transport": "private_Ali_persistent_SSD_two_phase_CPU_verified",
-      "source_receipt_SHA256": "ab9717cdd2b0d0bb71ee8924fd5bfedf219dd3823fd74bf8a516b24c3175cbce"
+      "source_receipt_SHA256": "c47adc1a6ceb4a92717389b7cc8d0832c158b3df23c6f018038b87548b8a4fa8"
     },
     {
       "host": "mainskill",
@@ -1612,7 +1612,7 @@
       "seed": 26102053,
       "state": "原完整状态恢复后持续有限更新",
       "epochs_target": 3000,
-      "sampled_utc": "2026-10-14T15:44:19.309276+00:00",
+      "sampled_utc": "2026-10-14T19:36:47.245295+00:00",
       "formal_accepted": false,
       "raw_status": "running",
       "active_productive": true,
@@ -1620,18 +1620,18 @@
       "actual_source_fullSHA_unchanged": true,
       "status_note": "原模型、EMA、优化器与全局随机状态恢复后有实测更新；工作进程随机状态未完全还原。最终保存完成另行核验。",
       "source_adoption_gate_SHA256": "ea288b797524f4f80f9dc0033f106499b72fff0909b8dcf03e4074439a427bd4",
-      "train_loss": 0.0012672182638198137,
-      "global_step": 249248,
-      "epoch": 1860,
+      "train_loss": 0.0007643949356861413,
+      "global_step": 266585,
+      "epoch": 1989,
       "original_saved_counters": {
         "epoch": 550,
         "global_step": 73834
       },
       "optimizer_reset": false,
       "logical_seed_count_increase": 0,
-      "lr": 9.560489356969492e-05,
+      "lr": 7.713274492273433e-05,
       "checkpoint_transport": "private_Ali_persistent_SSD_two_phase_CPU_verified",
-      "source_receipt_SHA256": "ab9717cdd2b0d0bb71ee8924fd5bfedf219dd3823fd74bf8a516b24c3175cbce"
+      "source_receipt_SHA256": "c47adc1a6ceb4a92717389b7cc8d0832c158b3df23c6f018038b87548b8a4fa8"
     },
     {
       "host": "mainskill",
@@ -1642,13 +1642,13 @@
       "seed": 26102055,
       "state": "原3000轮已返回，最终完整检查点保存中",
       "epochs_target": 3000,
-      "sampled_utc": "2026-10-14T15:44:19.309276+00:00",
+      "sampled_utc": "2026-10-14T19:36:47.245295+00:00",
       "formal_accepted": false,
       "raw_status": "running",
       "active_productive": true,
       "completed_training": false,
       "actual_source_fullSHA_unchanged": true,
-      "status_note": "实际训练预算已完成，等完整SHA、独立CPU读回及持久提交后才计训练完成；发送字节不是完成证明。旧2999轮保存超时记录保留；此次从已验证2850轮完整状态恢复，没有声称恢复那149轮未保存更新。",
+      "status_note": "实际训练预算已完成，等完整SHA、独立CPU读回及持久提交后才计训练完成；发送字节不是完成证明。旧2999轮保存超时记录保留；此次从已验证2850轮完整状态恢复，没有声称恢复那149轮未保存更新。最终保存主线程20分钟等待曾报错，写线程仍有实测字节前进；已部署独立看护、精确进程与共享查询锁保护，最终保存时限显式从原始返回起6小时改为12小时。完整CPU提交及真实退出码待核，未计训练完成。",
       "source_adoption_gate_SHA256": "ea288b797524f4f80f9dc0033f106499b72fff0909b8dcf03e4074439a427bd4",
       "train_loss": 0.0004218374129207527,
       "global_step": 401999,
@@ -1661,7 +1661,7 @@
       "logical_seed_count_increase": 0,
       "lr": 0.0,
       "checkpoint_transport": "private_Ali_persistent_SSD_two_phase_CPU_verified",
-      "source_receipt_SHA256": "ab9717cdd2b0d0bb71ee8924fd5bfedf219dd3823fd74bf8a516b24c3175cbce",
+      "source_receipt_SHA256": "c47adc1a6ceb4a92717389b7cc8d0832c158b3df23c6f018038b87548b8a4fa8",
       "actual_phase": "final_checkpoint_drain",
       "actual_completed_epochs": 3000
     },
@@ -1815,10 +1815,10 @@
       "epochs_target": 3000,
       "formal_accepted": false,
       "paper_ssr": null,
-      "epoch": 2407,
-      "global_step": 320232,
-      "train_loss": 0.00044038190389983356,
-      "sampled_utc": "2026-10-14T15:44:19.309276+00:00",
+      "epoch": 2632,
+      "global_step": 350134,
+      "train_loss": 0.00035287096397951245,
+      "sampled_utc": "2026-10-14T19:36:47.245295+00:00",
       "gpu_uuid": "GPU-13622178-b7d1-6d74-af69-8aa49fd27da2",
       "state": "原完整状态恢复后持续有限更新",
       "completed_training": false,
@@ -1831,9 +1831,9 @@
       },
       "optimizer_reset": false,
       "logical_seed_count_increase": 0,
-      "lr": 2.8207330447335513e-05,
+      "lr": 1.1075352132808823e-05,
       "checkpoint_transport": "private_Ali_persistent_SSD_two_phase_CPU_verified",
-      "source_receipt_SHA256": "ab9717cdd2b0d0bb71ee8924fd5bfedf219dd3823fd74bf8a516b24c3175cbce"
+      "source_receipt_SHA256": "c47adc1a6ceb4a92717389b7cc8d0832c158b3df23c6f018038b87548b8a4fa8"
     },
     {
       "host": "mainskill",
@@ -1844,10 +1844,10 @@
       "epochs_target": 3000,
       "formal_accepted": false,
       "paper_ssr": null,
-      "epoch": 2156,
-      "global_step": 286783,
-      "train_loss": 0.0006588498363271356,
-      "sampled_utc": "2026-10-14T15:44:19.309276+00:00",
+      "epoch": 2333,
+      "global_step": 310369,
+      "train_loss": 0.0003170746786054224,
+      "sampled_utc": "2026-10-14T19:36:47.245295+00:00",
       "gpu_uuid": "GPU-3d4e7515-a762-7159-7525-c4b935ad9dd8",
       "state": "原完整状态恢复后持续有限更新",
       "completed_training": false,
@@ -1860,9 +1860,9 @@
       },
       "optimizer_reset": false,
       "logical_seed_count_increase": 0,
-      "lr": 5.5355545227755286e-05,
+      "lr": 3.540506108724228e-05,
       "checkpoint_transport": "private_Ali_persistent_SSD_two_phase_CPU_verified",
-      "source_receipt_SHA256": "ab9717cdd2b0d0bb71ee8924fd5bfedf219dd3823fd74bf8a516b24c3175cbce"
+      "source_receipt_SHA256": "c47adc1a6ceb4a92717389b7cc8d0832c158b3df23c6f018038b87548b8a4fa8"
     },
     {
       "host": "mainskill",
@@ -1873,10 +1873,10 @@
       "epochs_target": 3000,
       "formal_accepted": false,
       "paper_ssr": null,
-      "epoch": 2202,
-      "global_step": 292939,
-      "train_loss": 0.00035470613511279225,
-      "sampled_utc": "2026-10-14T15:44:19.309276+00:00",
+      "epoch": 2423,
+      "global_step": 322320,
+      "train_loss": 0.0005101253045722842,
+      "sampled_utc": "2026-10-14T19:36:47.245295+00:00",
       "gpu_uuid": "GPU-fd7b49d0-672c-e7a8-ad06-c66ba554be18",
       "state": "原完整状态恢复后持续有限更新",
       "completed_training": false,
@@ -1889,9 +1889,9 @@
       },
       "optimizer_reset": false,
       "logical_seed_count_increase": 0,
-      "lr": 4.9801068235455683e-05,
+      "lr": 2.6777283802355258e-05,
       "checkpoint_transport": "private_Ali_persistent_SSD_two_phase_CPU_verified",
-      "source_receipt_SHA256": "ab9717cdd2b0d0bb71ee8924fd5bfedf219dd3823fd74bf8a516b24c3175cbce"
+      "source_receipt_SHA256": "c47adc1a6ceb4a92717389b7cc8d0832c158b3df23c6f018038b87548b8a4fa8"
     },
     {
       "host": "aliyun",
@@ -1901,10 +1901,10 @@
       "object": "brown_volumetric_flask_250ml",
       "seed": 26102111,
       "epochs_target": 3000,
-      "epoch": 2406,
-      "global_step": 322435,
-      "train_loss": 0.0006782716372981668,
-      "sampled_utc": "2026-10-14T15:44:19.384611+00:00",
+      "epoch": 2524,
+      "global_step": 338252,
+      "train_loss": 0.0006628921255469322,
+      "sampled_utc": "2026-10-14T19:36:46.978238+00:00",
       "formal_accepted": false,
       "paper_ssr": null,
       "completed_training": false,
@@ -1925,8 +1925,8 @@
         "formal_accepted": false
       },
       "unsaved_first133_updates_not_restored": true,
-      "lr": 2.834624679849284e-05,
-      "source_receipt_SHA256": "93f9817b6b5ccc008b2b632ac88af651bc82ec7c30faeac63e805942edbfe620",
+      "lr": 1.841066676122505e-05,
+      "source_receipt_SHA256": "0c892585df11301ae68d4e2bded29f71c9cd974c03f34355259cd1ff5991422e",
       "raw_status": "running"
     },
     {
@@ -1937,10 +1937,10 @@
       "object": "brown_volumetric_flask_250ml",
       "seed": 26102113,
       "epochs_target": 3000,
-      "epoch": 2406,
-      "global_step": 322521,
-      "train_loss": 0.000736362999305129,
-      "sampled_utc": "2026-10-14T15:44:19.384611+00:00",
+      "epoch": 2524,
+      "global_step": 338323,
+      "train_loss": 0.000722758355550468,
+      "sampled_utc": "2026-10-14T19:36:46.978238+00:00",
       "formal_accepted": false,
       "paper_ssr": null,
       "completed_training": false,
@@ -1961,8 +1961,8 @@
         "formal_accepted": false
       },
       "unsaved_first133_updates_not_restored": true,
-      "lr": 2.8287003319543532e-05,
-      "source_receipt_SHA256": "93f9817b6b5ccc008b2b632ac88af651bc82ec7c30faeac63e805942edbfe620",
+      "lr": 1.8370536710375533e-05,
+      "source_receipt_SHA256": "0c892585df11301ae68d4e2bded29f71c9cd974c03f34355259cd1ff5991422e",
       "raw_status": "running"
     },
     {
@@ -1973,10 +1973,10 @@
       "object": "brown_volumetric_flask_250ml",
       "seed": 26102115,
       "epochs_target": 3000,
-      "epoch": 2450,
-      "global_step": 328351,
-      "train_loss": 0.0006840637652203441,
-      "sampled_utc": "2026-10-14T15:44:19.384611+00:00",
+      "epoch": 2602,
+      "global_step": 348796,
+      "train_loss": 0.0007411350961774588,
+      "sampled_utc": "2026-10-14T19:36:46.978238+00:00",
       "formal_accepted": false,
       "paper_ssr": null,
       "completed_training": false,
@@ -1997,8 +1997,8 @@
         "formal_accepted": false
       },
       "unsaved_first133_updates_not_restored": true,
-      "lr": 2.4401700792684763e-05,
-      "source_receipt_SHA256": "93f9817b6b5ccc008b2b632ac88af651bc82ec7c30faeac63e805942edbfe620",
+      "lr": 1.29058006409899e-05,
+      "source_receipt_SHA256": "0c892585df11301ae68d4e2bded29f71c9cd974c03f34355259cd1ff5991422e",
       "raw_status": "running"
     },
     {
@@ -2096,10 +2096,10 @@
       "object": "glass_beaker_500ml",
       "seed": 26102311,
       "epochs_target": 3000,
-      "epoch": 2249,
-      "global_step": 301412,
-      "train_loss": 0.0007801604806445539,
-      "sampled_utc": "2026-10-14T15:44:19.527733+00:00",
+      "epoch": 2374,
+      "global_step": 318141,
+      "train_loss": 0.0008069999166764319,
+      "sampled_utc": "2026-10-14T19:36:47.032191+00:00",
       "active_productive": true,
       "completed_training": false,
       "state": "原3000轮训练持续有限更新",
@@ -2108,9 +2108,9 @@
       "logical_seed_count_increase": 1,
       "formal_accepted": false,
       "paper_ssr": null,
-      "source_receipt_SHA256": "04601f04f0b97192cbffa41c5aa7e39ff397046f6209340698ab719a3e7cb970",
+      "source_receipt_SHA256": "0c531b126d94c9a4f1bee5dfa02797a3fb31c8e2ddab3d89a7a98df154172562",
       "raw_status": "running",
-      "lr": 4.442410309440676e-05
+      "lr": 3.137428877168571e-05
     },
     {
       "host": "aliyun",
@@ -2120,10 +2120,10 @@
       "object": "glass_beaker_500ml",
       "seed": 26102313,
       "epochs_target": 3000,
-      "epoch": 2251,
-      "global_step": 301747,
-      "train_loss": 0.0007941699004732072,
-      "sampled_utc": "2026-10-14T15:44:19.527733+00:00",
+      "epoch": 2376,
+      "global_step": 318472,
+      "train_loss": 0.0006711400928907096,
+      "sampled_utc": "2026-10-14T19:36:47.032191+00:00",
       "active_productive": true,
       "completed_training": false,
       "state": "原3000轮训练持续有限更新",
@@ -2132,9 +2132,9 @@
       "logical_seed_count_increase": 1,
       "formal_accepted": false,
       "paper_ssr": null,
-      "source_receipt_SHA256": "04601f04f0b97192cbffa41c5aa7e39ff397046f6209340698ab719a3e7cb970",
+      "source_receipt_SHA256": "0c531b126d94c9a4f1bee5dfa02797a3fb31c8e2ddab3d89a7a98df154172562",
       "raw_status": "running",
-      "lr": 4.41441166470627e-05
+      "lr": 3.113603045725444e-05
     },
     {
       "host": "aliyun",
@@ -2144,10 +2144,10 @@
       "object": "glass_beaker_500ml",
       "seed": 26102315,
       "epochs_target": 3000,
-      "epoch": 2211,
-      "global_step": 296391,
-      "train_loss": 0.0008008444565348327,
-      "sampled_utc": "2026-10-14T15:44:19.527733+00:00",
+      "epoch": 2329,
+      "global_step": 312215,
+      "train_loss": 0.0008019881206564605,
+      "sampled_utc": "2026-10-14T19:36:47.032191+00:00",
       "active_productive": true,
       "completed_training": false,
       "state": "原3000轮训练持续有限更新",
@@ -2156,9 +2156,9 @@
       "logical_seed_count_increase": 1,
       "formal_accepted": false,
       "paper_ssr": null,
-      "source_receipt_SHA256": "04601f04f0b97192cbffa41c5aa7e39ff397046f6209340698ab719a3e7cb970",
+      "source_receipt_SHA256": "0c531b126d94c9a4f1bee5dfa02797a3fb31c8e2ddab3d89a7a98df154172562",
       "raw_status": "running",
-      "lr": 4.870702987917406e-05
+      "lr": 3.577400497290352e-05
     },
     {
       "host": "aliyun",
@@ -2251,10 +2251,10 @@
   "servers": [
     {
       "host": "aliyun",
-      "state": "6原DP当前更新；持久归档原Main状态",
+      "state": "6原DP实际更新；保存原Main完整状态",
       "role": "训练",
       "note": "两个对象各3原DP继续，已有ACT完成。原Main状态须完整SHA与独立CPU读回通过；归档按有限前缀续传推进。",
-      "sampled_utc": "2026-10-14T15:44:19.527733+00:00"
+      "sampled_utc": "2026-10-14T19:36:47.032191+00:00"
     },
     {
       "host": "30109",
@@ -2279,17 +2279,17 @@
     },
     {
       "host": "mainskill",
-      "state": "6原DP已恢复：5训练、1最终保存",
+      "state": "5原DP训练、1原DP最终保存",
       "role": "训练 / 采集 / 测试准备",
-      "note": "六条原任务恢复及有限更新全部通过；原种子、优化器、预算和容量保护保持。最终保存须完整持久权重核验，旧失败记录保留。",
-      "sampled_utc": "2026-10-14T15:44:19.309276+00:00"
+      "note": "最终保存已接独立监控与回退；原预算和写线程保持，已有异常不改写。完整权重CPU资格和退出码待核。",
+      "sampled_utc": "2026-10-14T19:36:47.245295+00:00"
     },
     {
       "host": "volc-pro6000",
-      "state": "235分块烘焙关闭；约7微米漏包络待修",
+      "state": "542复合形状私有GPU属性及4352射线通过",
       "role": "采集 / 测试准备",
-      "note": "同型号GPU实际烘焙235块；五块经160实际射线核实坐标。仍有数值漏包络，compound接触与完整视觉待验，尚未采用。",
-      "sampled_utc": "2026-10-14T15:49:18.874250+00:00"
+      "note": "完整静态覆盖和私有GPU核验已过，原机器人关节/真实接触与完整视觉待验，未采用候选。",
+      "sampled_utc": "2026-10-14T19:35:56.262913+00:00"
     }
   ],
   "beaker100_diagnosis": {
@@ -7951,8 +7951,8 @@
   },
   "sampled_utc": "2026-10-12T11:09:58.538121+00:00",
   "latest_frontier": {
-    "schema": "grasp.frontier.v59",
-    "updated_utc": "2026-10-14T15:56:56.917591+00:00",
+    "schema": "grasp.frontier.v60",
+    "updated_utc": "2026-10-14T19:39:47.255376+00:00",
     "formal_accepted_objects": 0,
     "formal_accepted_methods": 0,
     "paper_ssr": null,
@@ -7960,22 +7960,22 @@
       {
         "title": "训练进度",
         "status": "78份完成；11训练、1最终保存",
-        "note": "33 DP / 45 ACT已完成训练。6条原Main已恢复并有实测有限更新；6条Ali继续。一个DP已完成3000轮、等最终持久权重核验。训练完成不计正式验收。"
+        "note": "33 DP / 45 ACT训练完成。12条原任务按原种子和预算继续；最终保存仍需完整权重与真实退出核验，不计正式验收。"
       },
       {
-        "title": "采集与视觉",
-        "status": "235块完整包络误差约7微米；待验",
-        "note": "放大输入再缩回后，实际烘焙静态误差明显降低，仍未通过数值全覆盖。GPU实际射线已核对五个分块的坐标。完整接触、质量惯量与视觉待验，尚未用于新采集。"
+        "title": "几何与物理核验",
+        "status": "542块静态覆盖和私有GPU检查通过",
+        "note": "完整静态原始凸体分区覆盖通过，544形状4352射线及质量/质心/惯量读回通过。原机器人关节与真实接触、完整视觉继续验收；未用于正式采集。"
       },
       {
         "title": "验收加速",
-        "status": "恢复队列已闭合；确定步骤自动执行",
-        "note": "两条原任务都通过完整模型、EMA、优化器、全局随机状态及有限更新核验；没有重复种子或重置预算。采集与测试已按确定阶段自动推进，局部加速不代表整段实测提速。"
+        "status": "同结果CPU分析提速29.17倍",
+        "note": "同542条分块与2条汇总逐值一致，分析从237.10秒降到8.13秒。已自动接上GPU结束、完整SHA拉取与CPU检查，减少阶段间调度等待。"
       },
       {
         "title": "逐物体正式验收",
         "status": "DP和ACT同时通过：0/21",
-        "note": "逐物体独立对照论文成功率、Spatial SSR、3/4/5/6cm测试范围和完整视觉。训练与静态诊断不计通过。"
+        "note": "逐物体核验论文SR、Spatial SSR、±3/4/5/6cm测试和完整视觉。单项几何或私有GPU检查不计任务通过。"
       }
     ],
     "strict_spatial_scope": "Table11给出终点空间20mm筛查；C.3的SSR检查整条轨迹中适用阶段的全部活动约束。固定最终目标不能作为移动过程中每一帧的目标。严格目标坐标系、旋转阈值和阶段仍待绑定。",
@@ -14010,7 +14010,7 @@
       "all3_original_videos_full_decoded": true,
       "unresolved_glass_white_appearance": true
     },
-    "evidence_url": "results/grasp_frontier_20261014_v59.json",
+    "evidence_url": "results/grasp_frontier_20261015_v60.json",
     "author_confirmed_paper_object_alias": {
       "schema": "grasp.author_confirmed_paper_object_alias.v1",
       "at_utc": "2026-10-11T15:22:00.679921+00:00",
@@ -26668,8 +26668,8 @@
       "full_visual_passed": false
     },
     "new_original30Hz_source_quality": {
-      "schema": "grasp.original30Hz.source.visual.geometry.v59",
-      "updated_utc": "2026-10-14T15:56:56.917591+00:00",
+      "schema": "grasp.original30Hz.source.visual.geometry.v60",
+      "updated_utc": "2026-10-14T19:39:47.255376+00:00",
       "source_rows": [
         {
           "object": "glass_beaker_50ml",
@@ -26865,7 +26865,7 @@
       ],
       "renderer_note": "固定100ml烧杯开发姿态，左：原实时渲染；中：路径追踪；右：恢复原实时渲染。物理状态完全相同。玻璃底部外观不同，恢复后画面一致；该场景没有复现新50/500ml抬升时的大片发白，尚未选定修复。",
       "source_note": "五类主来源520次采集、510个原专家成功标记；1560段原视频完整性通过，未采用为新训练来源。Mortar完整86040个保存姿态中27个时刻有交叉。500ml烧杯两组指尖参数对照均0/3；恢复原手型仍有302个保存姿态交叉。正式验收0/21，24个新模型未启动。",
-      "geometry_note": "表格展示完整保存姿态检查与既有前缀检查，各组分别保留。交叉配对数含三角变体，不能当物理事件数或穿透深度。Grasp使用Spatial严格位姿及阶段约束，终点平移不能代替论文SSR。",
+      "geometry_note": "两个指尖的完整静态覆盖与私有GPU复合刚体属性/4352射线检查已通过；下一步原机器人关节、实际接触和全程视觉。数值质量门不计论文SSR，候选尚未用于正式采集或测试。",
       "prospective_training_identities_not_started": 24,
       "new_sources_adopted": false,
       "formal_accepted": false,
@@ -26919,8 +26919,8 @@
         }
       ],
       "latest_diagnostics": {
-        "schema": "grasp.current.visual.cooking.diagnostics.v59",
-        "updated_utc": "2026-10-14T15:56:56.917591+00:00",
+        "schema": "grasp.current.visual.geometry.compound.v60",
+        "updated_utc": "2026-10-14T19:39:47.255376+00:00",
         "note": "以下是原专家流程的开发诊断。所有原成功阈值保持；结果不能计入DP/ACT成功率或论文Spatial SSR。网格检查仅覆盖保存时刻，不能据此宣称全程无穿模。",
         "rows": [
           {
@@ -27065,6 +27065,18 @@
             "title": "500ml烧杯：完整指尖包络已缩小烘焙误差",
             "result": "235块真实烘焙完成；覆盖和动态接触仍待通过",
             "detail": "同型号卡235个分块采用放大输入再缩回的方法，未修改原资产；完整小指3954个原网格点中364个、拇指5425个点中130个仍超出凸包并集1微米。最大静态欧氏漏包络约7微米；这不是运动穿模深度或论文SSR。另五个分块经GPU0两个私有物理步、160条实际双向射线核实坐标。只记录诊断进展；完整compound接触、质量惯量和视觉未通过，尚未采用。",
+            "full_visual_passed": false
+          },
+          {
+            "title": "500ml烧杯：542分块完整静态覆盖通过",
+            "result": "数值覆盖通过；尚未用于正式采集",
+            "detail": "8微米保守外扩与切面重叠候选，实际烹制后完整原始凸体分区连续体均被覆盖；小指/拇指最外侧误差11.21/14.68微米，低于预先固定15微米质量门。这是几何数值门，不是论文SSR。旧12微米候选外侧超标的失败记录保留。原机器人接触及完整视觉待验。",
+            "full_visual_passed": false
+          },
+          {
+            "title": "500ml烧杯：实际GPU复合刚体属性与射线通过",
+            "result": "质量、质心、惯量及4352条射线通过；原机器人接触待验",
+            "detail": "GPU0私有场景含两个331/211形状复合刚体及两个原几何对照，完成2个物理步。原质量、质心与接触偏移读回一致，惯量差在固定数值门内；544个形状全部4352条双向射线，最坏位置误差0.317微米，低于既定2微米坐标门。542分块几何与完整静态证据逐值一致。默认材料三参数仅与同场景对照相等，未声称历史材料、GPU接触核或原机器人关节兼容性已通过。无抓取回合或正式通过增量。",
             "full_visual_passed": false
           }
         ],
@@ -28003,166 +28015,437 @@
         "full235_runtime_frames_not_individually_qualified": true,
         "formal_accepted": false,
         "paper_ssr": null
+      },
+      "actual_full_tip_guard8_cooking": {
+        "passed_static_full_source_continuous_coverage": true,
+        "actual_cooking_calls": 542,
+        "guard_geometry_expansion_m": 8e-06,
+        "numeric_outward_QA_limit_m": 1.5e-05,
+        "numeric_QA_is_not_paper_SSR": true,
+        "body_rows": [
+          {
+            "body_name": "hand2_link_5_2",
+            "actual_cooked_shapes": 331,
+            "source_piece_partition_volume_ratio_to_original_ideal": 1.0000000000000004,
+            "max_full_piece_registered_vertex_hull_inward_Euclidean_m": 0.0,
+            "max_full_piece_exported_polygon_plane_hull_inward_Euclidean_m": 0.0,
+            "source_pieces_full_containment_at1um_passed": 331,
+            "maximum_outward_Euclidean_m": 1.1208212227965709e-05,
+            "full_original_ideal_continuous_volume_containment_at1um": true,
+            "outward15um_gate_passed": true,
+            "necessary_GPU_complexity_passed": true
+          },
+          {
+            "body_name": "hand2_link_1_3",
+            "actual_cooked_shapes": 211,
+            "source_piece_partition_volume_ratio_to_original_ideal": 0.9999999999999996,
+            "max_full_piece_registered_vertex_hull_inward_Euclidean_m": 0.0,
+            "max_full_piece_exported_polygon_plane_hull_inward_Euclidean_m": 0.0,
+            "source_pieces_full_containment_at1um_passed": 211,
+            "maximum_outward_Euclidean_m": 1.4683159115172637e-05,
+            "full_original_ideal_continuous_volume_containment_at1um": true,
+            "outward15um_gate_passed": true,
+            "necessary_GPU_complexity_passed": true
+          }
+        ],
+        "source_evidence_SHA256": "2febef954bccf6629f7803392de14bab3903ae7075e5991a47eb83a19a58086d",
+        "candidate_installed": false,
+        "original_asset_files_modified": false,
+        "formal_accepted": false,
+        "paper_ssr": null,
+        "full_visual_passed": false
+      },
+      "actual_all542_GPU_compound_qualification": {
+        "passed_private_GPU_properties_and_ray_frame_gate": true,
+        "actual_GPU_tensor_ordinal": 0,
+        "actual_private_steps": 2,
+        "actual_cooking_calls": 544,
+        "actual_scene_rays": 4352,
+        "actual_candidate_shapes": 542,
+        "actual_original_geometry_controls": 2,
+        "max_actual_ray_distance_error_m": 3.017151987139144e-07,
+        "max_actual_ray_position_error_m": 3.174043473588899e-07,
+        "numeric_frame_gate_m": 2e-06,
+        "source_properties_body_rows": [
+          {
+            "mode": "guard8_compound",
+            "body_name": "hand2_link_5_2",
+            "actual_GPU_tensor_count": 1,
+            "actual_shapes": 331,
+            "actual_properties_set_and_readback": [
+              {
+                "phase": "properties_immediately_after_source_set",
+                "passed": true,
+                "actual_maximum_absolute_difference": {
+                  "mass_kg": 0.0,
+                  "COM_translation_m": 0.0,
+                  "COM_quaternion_min_sign_L2": 0.0,
+                  "inertia_kg_m2": 2.2737367544323206e-13,
+                  "contact_offset_m": 0.0,
+                  "rest_offset_m": 0.0
+                },
+                "inertia_positive_definite": true
+              },
+              {
+                "phase": "properties_after_second_GPU_step",
+                "passed": true,
+                "actual_maximum_absolute_difference": {
+                  "mass_kg": 0.0,
+                  "COM_translation_m": 0.0,
+                  "COM_quaternion_min_sign_L2": 0.0,
+                  "inertia_kg_m2": 2.2737367544323206e-13,
+                  "contact_offset_m": 0.0,
+                  "rest_offset_m": 0.0
+                },
+                "inertia_positive_definite": true
+              }
+            ],
+            "source_properties_readback_gate_passed": true,
+            "default_context_static_dynamic_restitution_triplets_equal_to_source_geometry_control": true,
+            "actual_triplet_minima": [
+              [
+                0.5,
+                0.5,
+                0.0
+              ]
+            ],
+            "actual_triplet_maxima": [
+              [
+                0.5,
+                0.5,
+                0.0
+              ]
+            ],
+            "historical_original_material_tensor_unknown": true,
+            "full_material_equivalence_not_claimed": true
+          },
+          {
+            "mode": "guard8_compound",
+            "body_name": "hand2_link_1_3",
+            "actual_GPU_tensor_count": 1,
+            "actual_shapes": 211,
+            "actual_properties_set_and_readback": [
+              {
+                "phase": "properties_immediately_after_source_set",
+                "passed": true,
+                "actual_maximum_absolute_difference": {
+                  "mass_kg": 0.0,
+                  "COM_translation_m": 0.0,
+                  "COM_quaternion_min_sign_L2": 0.0,
+                  "inertia_kg_m2": 6.821210263296962e-13,
+                  "contact_offset_m": 0.0,
+                  "rest_offset_m": 0.0
+                },
+                "inertia_positive_definite": true
+              },
+              {
+                "phase": "properties_after_second_GPU_step",
+                "passed": true,
+                "actual_maximum_absolute_difference": {
+                  "mass_kg": 0.0,
+                  "COM_translation_m": 0.0,
+                  "COM_quaternion_min_sign_L2": 0.0,
+                  "inertia_kg_m2": 6.821210263296962e-13,
+                  "contact_offset_m": 0.0,
+                  "rest_offset_m": 0.0
+                },
+                "inertia_positive_definite": true
+              }
+            ],
+            "source_properties_readback_gate_passed": true,
+            "default_context_static_dynamic_restitution_triplets_equal_to_source_geometry_control": true,
+            "actual_triplet_minima": [
+              [
+                0.5,
+                0.5,
+                0.0
+              ]
+            ],
+            "actual_triplet_maxima": [
+              [
+                0.5,
+                0.5,
+                0.0
+              ]
+            ],
+            "historical_original_material_tensor_unknown": true,
+            "full_material_equivalence_not_claimed": true
+          },
+          {
+            "mode": "original_geometry_single_hull_control",
+            "body_name": "hand2_link_5_2",
+            "actual_GPU_tensor_count": 1,
+            "actual_shapes": 1,
+            "actual_properties_set_and_readback": [
+              {
+                "phase": "properties_immediately_after_source_set",
+                "passed": true,
+                "actual_maximum_absolute_difference": {
+                  "mass_kg": 0.0,
+                  "COM_translation_m": 0.0,
+                  "COM_quaternion_min_sign_L2": 0.0,
+                  "inertia_kg_m2": 2.2737367544323206e-13,
+                  "contact_offset_m": 0.0,
+                  "rest_offset_m": 0.0
+                },
+                "inertia_positive_definite": true
+              },
+              {
+                "phase": "properties_after_second_GPU_step",
+                "passed": true,
+                "actual_maximum_absolute_difference": {
+                  "mass_kg": 0.0,
+                  "COM_translation_m": 0.0,
+                  "COM_quaternion_min_sign_L2": 0.0,
+                  "inertia_kg_m2": 2.2737367544323206e-13,
+                  "contact_offset_m": 0.0,
+                  "rest_offset_m": 0.0
+                },
+                "inertia_positive_definite": true
+              }
+            ],
+            "source_properties_readback_gate_passed": true,
+            "default_context_static_dynamic_restitution_triplets_equal_to_source_geometry_control": true,
+            "actual_triplet_minima": [
+              [
+                0.5,
+                0.5,
+                0.0
+              ]
+            ],
+            "actual_triplet_maxima": [
+              [
+                0.5,
+                0.5,
+                0.0
+              ]
+            ],
+            "historical_original_material_tensor_unknown": true,
+            "full_material_equivalence_not_claimed": true
+          },
+          {
+            "mode": "original_geometry_single_hull_control",
+            "body_name": "hand2_link_1_3",
+            "actual_GPU_tensor_count": 1,
+            "actual_shapes": 1,
+            "actual_properties_set_and_readback": [
+              {
+                "phase": "properties_immediately_after_source_set",
+                "passed": true,
+                "actual_maximum_absolute_difference": {
+                  "mass_kg": 0.0,
+                  "COM_translation_m": 0.0,
+                  "COM_quaternion_min_sign_L2": 0.0,
+                  "inertia_kg_m2": 6.821210263296962e-13,
+                  "contact_offset_m": 0.0,
+                  "rest_offset_m": 0.0
+                },
+                "inertia_positive_definite": true
+              },
+              {
+                "phase": "properties_after_second_GPU_step",
+                "passed": true,
+                "actual_maximum_absolute_difference": {
+                  "mass_kg": 0.0,
+                  "COM_translation_m": 0.0,
+                  "COM_quaternion_min_sign_L2": 0.0,
+                  "inertia_kg_m2": 6.821210263296962e-13,
+                  "contact_offset_m": 0.0,
+                  "rest_offset_m": 0.0
+                },
+                "inertia_positive_definite": true
+              }
+            ],
+            "source_properties_readback_gate_passed": true,
+            "default_context_static_dynamic_restitution_triplets_equal_to_source_geometry_control": true,
+            "actual_triplet_minima": [
+              [
+                0.5,
+                0.5,
+                0.0
+              ]
+            ],
+            "actual_triplet_maxima": [
+              [
+                0.5,
+                0.5,
+                0.0
+              ]
+            ],
+            "historical_original_material_tensor_unknown": true,
+            "full_material_equivalence_not_claimed": true
+          }
+        ],
+        "all542_geometry_exact_equal_to_static_fullsource_proof": true,
+        "historical_material_tensor_unknown": true,
+        "full_material_equivalence_not_claimed": true,
+        "original_robot_contact_articulation_and_GPU_contact_kernel_pending": true,
+        "actual_original_task_steps": 0,
+        "expert_policy_episodes": 0,
+        "renderer_calls": 0,
+        "candidate_installed": false,
+        "formal_accepted": false,
+        "paper_ssr": null,
+        "full_visual_passed": false,
+        "actual_raw_SHA256": "6896ef37d37f4ee216d3770056f0d29703d37426d274613c8bafd811c5fc038f",
+        "source_gate_SHA256": "a9127f903fd2c04ff48ac0df670e1410925a5ed55912672c4badcf6ee5e8b700",
+        "independent_review_SHA256": "1c112e7d406ef3b7c3ed09ead75b19ad3c25c310afff37f3d150ea23ed552aba"
+      },
+      "verified_batched_geometry_speed": {
+        "source_SHA256": "9ca677f832bd7826c19981671616214acc13124d37b631d38288abe29771d234",
+        "same542_row_and2body_outputs_exact_equal": true,
+        "baseline_seconds": 237.0966,
+        "batched_seconds": 8.1269,
+        "speedup": 29.1744,
+        "total_training_or_sampling_speedup_not_claimed": true
       }
     },
     "latest_original_Main_recovery": {
-      "updated_utc": "2026-10-14T15:56:56.917591+00:00",
+      "updated_utc": "2026-10-14T19:39:47.255376+00:00",
       "original_training_rows": [
         {
           "seed": 26102251,
-          "active_productive": true,
-          "raw_status": "running",
+          "sampled_utc": "2026-10-14T19:36:47.245295+00:00",
           "actual_progress": {
-            "train_loss": 0.00044038190389983356,
-            "global_step": 320232,
-            "epoch": 2407,
-            "lr": 2.8207330447335513e-05
+            "train_loss": 0.00035287096397951245,
+            "global_step": 350134,
+            "epoch": 2632,
+            "lr": 1.1075352132808823e-05
           },
-          "sampled_utc": "2026-10-14T15:44:19.309276+00:00",
-          "receipt_SHA256": "ab9717cdd2b0d0bb71ee8924fd5bfedf219dd3823fd74bf8a516b24c3175cbce"
+          "raw_status": "running",
+          "source_receipt_SHA256": "c47adc1a6ceb4a92717389b7cc8d0832c158b3df23c6f018038b87548b8a4fa8"
         },
         {
           "seed": 26102253,
-          "active_productive": true,
-          "raw_status": "running",
+          "sampled_utc": "2026-10-14T19:36:47.245295+00:00",
           "actual_progress": {
-            "train_loss": 0.0006588498363271356,
-            "global_step": 286783,
-            "epoch": 2156,
-            "lr": 5.5355545227755286e-05
+            "train_loss": 0.0003170746786054224,
+            "global_step": 310369,
+            "epoch": 2333,
+            "lr": 3.540506108724228e-05
           },
-          "sampled_utc": "2026-10-14T15:44:19.309276+00:00",
-          "receipt_SHA256": "ab9717cdd2b0d0bb71ee8924fd5bfedf219dd3823fd74bf8a516b24c3175cbce"
+          "raw_status": "running",
+          "source_receipt_SHA256": "c47adc1a6ceb4a92717389b7cc8d0832c158b3df23c6f018038b87548b8a4fa8"
         },
         {
           "seed": 26102055,
-          "active_productive": true,
-          "raw_status": "running",
+          "sampled_utc": "2026-10-14T19:36:47.245295+00:00",
           "actual_progress": {
             "train_loss": 0.0004218374129207527,
             "global_step": 401999,
             "epoch": 2999,
             "lr": 0.0
           },
-          "sampled_utc": "2026-10-14T15:44:19.309276+00:00",
-          "receipt_SHA256": "ab9717cdd2b0d0bb71ee8924fd5bfedf219dd3823fd74bf8a516b24c3175cbce"
+          "raw_status": "running",
+          "source_receipt_SHA256": "c47adc1a6ceb4a92717389b7cc8d0832c158b3df23c6f018038b87548b8a4fa8"
         },
         {
           "seed": 26102051,
-          "active_productive": true,
-          "raw_status": "running",
+          "sampled_utc": "2026-10-14T19:36:47.245295+00:00",
           "actual_progress": {
-            "train_loss": 0.0006674514152109623,
-            "global_step": 258072,
-            "epoch": 1925,
-            "lr": 8.605530064582983e-05
+            "train_loss": 0.000779536203481257,
+            "global_step": 275428,
+            "epoch": 2055,
+            "lr": 6.820964575580408e-05
           },
-          "sampled_utc": "2026-10-14T15:44:19.309276+00:00",
-          "receipt_SHA256": "ab9717cdd2b0d0bb71ee8924fd5bfedf219dd3823fd74bf8a516b24c3175cbce"
+          "raw_status": "running",
+          "source_receipt_SHA256": "c47adc1a6ceb4a92717389b7cc8d0832c158b3df23c6f018038b87548b8a4fa8"
         },
         {
           "seed": 26102053,
-          "active_productive": true,
-          "raw_status": "running",
+          "sampled_utc": "2026-10-14T19:36:47.245295+00:00",
           "actual_progress": {
-            "train_loss": 0.0012672182638198137,
-            "global_step": 249248,
-            "epoch": 1860,
-            "lr": 9.560489356969492e-05
+            "train_loss": 0.0007643949356861413,
+            "global_step": 266585,
+            "epoch": 1989,
+            "lr": 7.713274492273433e-05
           },
-          "sampled_utc": "2026-10-14T15:44:19.309276+00:00",
-          "receipt_SHA256": "ab9717cdd2b0d0bb71ee8924fd5bfedf219dd3823fd74bf8a516b24c3175cbce"
+          "raw_status": "running",
+          "source_receipt_SHA256": "c47adc1a6ceb4a92717389b7cc8d0832c158b3df23c6f018038b87548b8a4fa8"
         },
         {
           "seed": 26102255,
-          "active_productive": true,
-          "raw_status": "running",
+          "sampled_utc": "2026-10-14T19:36:47.245295+00:00",
           "actual_progress": {
-            "train_loss": 0.00035470613511279225,
-            "global_step": 292939,
-            "epoch": 2202,
-            "lr": 4.9801068235455683e-05
+            "train_loss": 0.0005101253045722842,
+            "global_step": 322320,
+            "epoch": 2423,
+            "lr": 2.6777283802355258e-05
           },
-          "sampled_utc": "2026-10-14T15:44:19.309276+00:00",
-          "receipt_SHA256": "ab9717cdd2b0d0bb71ee8924fd5bfedf219dd3823fd74bf8a516b24c3175cbce"
+          "raw_status": "running",
+          "source_receipt_SHA256": "c47adc1a6ceb4a92717389b7cc8d0832c158b3df23c6f018038b87548b8a4fa8"
         },
         {
           "seed": 26102111,
-          "active_productive": true,
-          "raw_status": "running",
+          "sampled_utc": "2026-10-14T19:36:46.978238+00:00",
           "actual_progress": {
-            "train_loss": 0.0006782716372981668,
-            "global_step": 322435,
-            "epoch": 2406,
-            "lr": 2.834624679849284e-05
+            "train_loss": 0.0006628921255469322,
+            "global_step": 338252,
+            "epoch": 2524,
+            "lr": 1.841066676122505e-05
           },
-          "sampled_utc": "2026-10-14T15:44:19.384611+00:00",
-          "receipt_SHA256": "93f9817b6b5ccc008b2b632ac88af651bc82ec7c30faeac63e805942edbfe620"
+          "raw_status": "running",
+          "source_receipt_SHA256": "0c892585df11301ae68d4e2bded29f71c9cd974c03f34355259cd1ff5991422e"
         },
         {
           "seed": 26102113,
-          "active_productive": true,
-          "raw_status": "running",
+          "sampled_utc": "2026-10-14T19:36:46.978238+00:00",
           "actual_progress": {
-            "train_loss": 0.000736362999305129,
-            "global_step": 322521,
-            "epoch": 2406,
-            "lr": 2.8287003319543532e-05
+            "train_loss": 0.000722758355550468,
+            "global_step": 338323,
+            "epoch": 2524,
+            "lr": 1.8370536710375533e-05
           },
-          "sampled_utc": "2026-10-14T15:44:19.384611+00:00",
-          "receipt_SHA256": "93f9817b6b5ccc008b2b632ac88af651bc82ec7c30faeac63e805942edbfe620"
+          "raw_status": "running",
+          "source_receipt_SHA256": "0c892585df11301ae68d4e2bded29f71c9cd974c03f34355259cd1ff5991422e"
         },
         {
           "seed": 26102115,
-          "active_productive": true,
-          "raw_status": "running",
+          "sampled_utc": "2026-10-14T19:36:46.978238+00:00",
           "actual_progress": {
-            "train_loss": 0.0006840637652203441,
-            "global_step": 328351,
-            "epoch": 2450,
-            "lr": 2.4401700792684763e-05
+            "train_loss": 0.0007411350961774588,
+            "global_step": 348796,
+            "epoch": 2602,
+            "lr": 1.29058006409899e-05
           },
-          "sampled_utc": "2026-10-14T15:44:19.384611+00:00",
-          "receipt_SHA256": "93f9817b6b5ccc008b2b632ac88af651bc82ec7c30faeac63e805942edbfe620"
+          "raw_status": "running",
+          "source_receipt_SHA256": "0c892585df11301ae68d4e2bded29f71c9cd974c03f34355259cd1ff5991422e"
         },
         {
           "seed": 26102311,
-          "active_productive": true,
-          "raw_status": "running",
+          "sampled_utc": "2026-10-14T19:36:47.032191+00:00",
           "actual_progress": {
-            "train_loss": 0.0007801604806445539,
-            "global_step": 301412,
-            "epoch": 2249,
-            "lr": 4.442410309440676e-05
+            "train_loss": 0.0008069999166764319,
+            "global_step": 318141,
+            "epoch": 2374,
+            "lr": 3.137428877168571e-05
           },
-          "sampled_utc": "2026-10-14T15:44:19.527733+00:00",
-          "receipt_SHA256": "04601f04f0b97192cbffa41c5aa7e39ff397046f6209340698ab719a3e7cb970"
+          "raw_status": "running",
+          "source_receipt_SHA256": "0c531b126d94c9a4f1bee5dfa02797a3fb31c8e2ddab3d89a7a98df154172562"
         },
         {
           "seed": 26102313,
-          "active_productive": true,
-          "raw_status": "running",
+          "sampled_utc": "2026-10-14T19:36:47.032191+00:00",
           "actual_progress": {
-            "train_loss": 0.0007941699004732072,
-            "global_step": 301747,
-            "epoch": 2251,
-            "lr": 4.41441166470627e-05
+            "train_loss": 0.0006711400928907096,
+            "global_step": 318472,
+            "epoch": 2376,
+            "lr": 3.113603045725444e-05
           },
-          "sampled_utc": "2026-10-14T15:44:19.527733+00:00",
-          "receipt_SHA256": "04601f04f0b97192cbffa41c5aa7e39ff397046f6209340698ab719a3e7cb970"
+          "raw_status": "running",
+          "source_receipt_SHA256": "0c531b126d94c9a4f1bee5dfa02797a3fb31c8e2ddab3d89a7a98df154172562"
         },
         {
           "seed": 26102315,
-          "active_productive": true,
-          "raw_status": "running",
+          "sampled_utc": "2026-10-14T19:36:47.032191+00:00",
           "actual_progress": {
-            "train_loss": 0.0008008444565348327,
-            "global_step": 296391,
-            "epoch": 2211,
-            "lr": 4.870702987917406e-05
+            "train_loss": 0.0008019881206564605,
+            "global_step": 312215,
+            "epoch": 2329,
+            "lr": 3.577400497290352e-05
           },
-          "sampled_utc": "2026-10-14T15:44:19.527733+00:00",
-          "receipt_SHA256": "04601f04f0b97192cbffa41c5aa7e39ff397046f6209340698ab719a3e7cb970"
+          "raw_status": "running",
+          "source_receipt_SHA256": "0c531b126d94c9a4f1bee5dfa02797a3fb31c8e2ddab3d89a7a98df154172562"
         }
       ],
       "original_Main6_fullstate_RNG_restore_and_cache_retirement_passed": true,
@@ -28173,13 +28456,31 @@
       "original51_cache_bytes_not_retransferred": true,
       "remaining2_archival_fullstate_globalRNG_and_actual_finite_updates_passed": true,
       "unchanged_original52GiBboot_two_stable30s_8GiBruntimeGPU_4GiBdisk_48GiBhost_8hprelaunch_guards": true,
-      "original30mintraining_and30min_actual_final_byte_stall_and6hfinal_drain_guards": true,
+      "original30mintraining_and30min_actual_final_byte_stall_and6hfinal_drain_guards": false,
       "original_model_optimizer_seed_and3000budget_preserved": true,
       "exact_dataloader_worker_RNG_restored": false,
       "exact_training_trajectory_resume": false,
       "final_checkpoints_and_independent_validation_pending": true,
       "formal_accepted": false,
-      "paper_ssr": null
+      "paper_ssr": null,
+      "original55_terminal_only_wall_explicitly_changed_from6h_to12h": true,
+      "all_other_original_training_seed_optimizer_and3000_budget_preserved": true,
+      "actual_original55_terminal_supervision": {
+        "sampled_utc": "2026-10-14T19:36:59.238420+00:00",
+        "old_controller_paused_learner_writer_live": true,
+        "independent_supervisor_and_watchdog_live": true,
+        "final_wall_anchored_at_original_return": true,
+        "explicit_final_wall_hours": 12,
+        "actual_bytes_sent": 2295389968,
+        "bytes_are_not_commit_proof": true,
+        "prior_writer_join_exception_retained": true,
+        "actual_learner_exit_and_full_CPU_commit_pending": true,
+        "original30min_byte_8GiB_GPU_4GiB_disk_72h_learner_guards_preserved": true,
+        "independent30s_watchdog_with_owned_query_cleanup_and_confirmed_old_resume": true,
+        "source_receipt_SHA256": "b0e3553ad5be78c433ab334780ed856b17b10a11ebd6c5ec4741971537d53eae",
+        "supervisor_script_SHA256": "61b1932d155fb14c794927c2b9670e5c16bf8e02257bd1b328b1a87b34df7262",
+        "independent_review_SHA256": "81a6ac6167d44c1a9101c54d1e8706e28b07244d4283124be2656a626ad4944a"
+      }
     }
   },
   "dashboard_browser_totals": {
