@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-14T16:18:34.812679+00:00",
-  "source_updated_at": "2026-10-14T16:18:23.602585+00:00",
+  "published_at": "2026-10-14T16:19:42.411256+00:00",
+  "source_updated_at": "2026-10-14T16:19:35.558251+00:00",
   "tasks": [
     {
       "task": "T3",
@@ -43,8 +43,8 @@
       "unknown_usage": null,
       "latest_failed": null,
       "native_alive": true,
-      "updated_at": "2026-10-14T16:18:23.340175+00:00",
-      "note": "新版WHOLE 0/100。Source52两路已通过ROOT初始241行与6张照片，完整planner实际初始化通过（Pro26.59s/5090 21.59s）。直接从初始到高位接近实际224/223tick，Pro含planner初始化到首READY44.15s，旧前缀耗时已取消。5090高位手预成形自动26.84s完成，Pro也完成，均0采集模型调用；两路保持同world继续下降/抓取。静态低位端点有6.5mm余量，但Pro斜降中途手扫A被预检拒绝且0动作；已拆成高位横移转腕、再下降。尚无稳定抬杯/倾倒/归位完整资格，5分钟整条仍未达到，DP/ACT数据0。 最新原生实测：Pro6000 t3_host_v52_pro_curobo_001 19.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中；5090 t3_host_v52_5090_curobo_001 17.5秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
+      "updated_at": "2026-10-14T16:19:26.014329+00:00",
+      "note": "新版WHOLE 0/100，还差100条。Source52两路同world并行；实际直接接近Pro含初始化44.15秒，5090高位预成形26.84秒，简单动作0模型调用。Pro旧低位候选两次小幅闭手仍0接触，已确认拇指/食指中点偏离杯心约35毫米；已保留世界抬手重张开，改测中点对齐候选，5090并行低位对照。尚无稳定抬杯、倾倒、归位完整验收，单条5分钟仍未达到，DP/ACT合格数据0。 最新原生实测：Pro6000 t3_host_v52_pro_curobo_001 19.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中；5090 t3_host_v52_5090_curobo_001 18.9秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -118,7 +118,7 @@
           "last_request_status": null,
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791994703.3401754
+          "captured_epoch": 1791994766.0143294
         },
         {
           "episode_id": "t3_host_v52_5090_curobo_001",
@@ -127,8 +127,8 @@
           "source_sha256": "2d6b9f23be488d0d9e87e60b2aba8139456c9ac433c20ce6bf3f29000b1800ce",
           "native_alive": true,
           "native_process_state": "running",
-          "sim_s": 17.541666666666668,
-          "A_tilt_deg": 0.03333445657471814,
+          "sim_s": 18.866666666666667,
+          "A_tilt_deg": 0.03415369495869412,
           "liquid_counts": {
             "total": 1290,
             "A": 1290,
@@ -144,7 +144,7 @@
           "last_request_status": null,
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791994702.887178
+          "captured_epoch": 1791994765.2696
         }
       ],
       "native_initial_images": [
@@ -209,7 +209,7 @@
       "sim_s": null,
       "executed": 0,
       "unknown_usage": null,
-      "updated_at": "2026-10-14T16:18:23.602585+00:00",
+      "updated_at": "2026-10-14T16:19:35.558251+00:00",
       "latest_failed": null,
       "note": "新原Shelf7左右双瓶原生241步通过，ROOT实际head/third两瓶可见，chest仍裁切。保留结果但视觉不放行；按用户要求暂停扩展，优先T3。 DP、ACT 训练的数据资格独立核验。",
       "legacy": {
@@ -351,7 +351,7 @@
     "video_fps": 15,
     "acceptance": "完整有序物理过程、释放稳定、安全与不变约束、真实模型响应来源、已知用量及预算、三路完整视频均通过后，才计入整条验收。"
   },
-  "program_revision": "2026-10-14T16:18:23.602585+00:00",
+  "program_revision": "2026-10-14T16:19:35.558251+00:00",
   "fleet": [
     {
       "host": "liyufeng_4090",
@@ -361,12 +361,12 @@
     {
       "host": "5090",
       "role": "采集与测试",
-      "status": "Source52同PID1454772已完成223tick初始接近、自动手预成形、229tick降至杯沿上方并保持；现在独立低位抓取资格。"
+      "status": "Source52同PID1454772并行测试较低的杯心对齐姿态，继续hold/降低/实际接触验证；未取得稳定抓取。"
     },
     {
       "host": "Pro6000",
       "role": "采集与测试",
-      "status": "Source52同PID1213398完成224tick直接接近及手预成形、223tick杯沿上方下降、126tick高位转腕横移，继续实际抓取资格。"
+      "status": "Source52同PID1213398旧偏心姿态两次闭手0接触，已抬手张开，继续较大避碰余量的杯心对齐姿态；未取得稳定抓取。"
     },
     {
       "host": "30109",
