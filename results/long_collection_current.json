@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-14T17:09:18.941353+00:00",
-  "source_updated_at": "2026-10-14T17:08:53.267309+00:00",
+  "published_at": "2026-10-14T17:39:43.901464+00:00",
+  "source_updated_at": "2026-10-14T17:09:52.607576+00:00",
   "tasks": [
     {
       "task": "T3",
@@ -43,8 +43,8 @@
       "unknown_usage": null,
       "latest_failed": null,
       "native_alive": false,
-      "updated_at": "2026-10-14T17:08:53.267309+00:00",
-      "note": "新版WHOLE 0/100，还差100条。Pro6000 Source53已真实完成6339帧抓取段（301秒），原逐帧物理检查phase1通过，随后360帧保持及24.04秒抬高对准均执行；同一世界正接续小角度倾倒，不重新抓取，完整轨迹尚未完成。5090正在部署Source54直接cuRobo快速抓取；本地4090最新23639MiB空闲，接入资格中。简单动作0模型调用，整条5分钟目标尚未达到。历史前缀同family最多计1条，不复制计100。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
+      "updated_at": "2026-10-14T17:09:52.607576+00:00",
+      "note": "新版WHOLE 0/100，还差100条。Source53实际抓取phase1通过后，在小角度倾倒路径中cuRobo大绕行触发原安全门（无洒漏），该条失败不计数。已精确复核：2.4cm目标的计划中途偏杯228.5mm，旧碰撞检查未拦；新整条FK杯位/倾角与局部路径检查能在执行前拒绝。修复Source55已Pro实际native1352695启动。5090 Source54快抓并行部署；云4卡四独立seed/抓位Source56准备提交；4090当前被其他原生作业占用，保留CPU/JIT准备且未抢卡。整条5分钟目标仍未达到。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -156,7 +156,7 @@
       "sim_s": null,
       "executed": 0,
       "unknown_usage": null,
-      "updated_at": "2026-10-14T17:08:53.267309+00:00",
+      "updated_at": "2026-10-14T17:09:52.607576+00:00",
       "latest_failed": null,
       "note": "新原Shelf7左右双瓶原生241步通过，ROOT实际head/third两瓶可见，chest仍裁切。保留结果但视觉不放行；按用户要求暂停扩展，优先T3。 DP、ACT 训练的数据资格独立核验。",
       "legacy": {
@@ -298,12 +298,12 @@
     "video_fps": 15,
     "acceptance": "完整有序物理过程、释放稳定、安全与不变约束、真实模型响应来源、已知用量及预算、三路完整视频均通过后，才计入整条验收。"
   },
-  "program_revision": "2026-10-14T17:08:53.267309+00:00",
+  "program_revision": "2026-10-14T17:09:52.607576+00:00",
   "fleet": [
     {
       "host": "liyufeng_4090",
       "role": "采集与测试",
-      "status": "新鲜查询23639MiB空闲/util0%；cuRobo本地环境资格与有限collector接入中。"
+      "status": "环境准备期间其他native作业接手，目前free11170MiB；未抢占。任务私有cuRobo依赖/JIT在CPU准备。"
     },
     {
       "host": "5090",
@@ -313,7 +313,7 @@
     {
       "host": "Pro6000",
       "role": "采集与测试",
-      "status": "Source53 PID1299855实际抓取phase1通过；同world执行倾倒，完整验收0。"
+      "status": "Source53原安全门失败已关闭，未计数据；修复Source55新native1352695实际启动，初始照片待ROOT。"
     },
     {
       "host": "30109",
@@ -333,7 +333,7 @@
     {
       "host": "云Pro6000三组",
       "role": "T3采集",
-      "status": "上一有限四卡同world窗口资格已结束，job-iv1vvfn3bobl为STOPPED；新手部路径先取得实际资格，再扩并行。"
+      "status": "已实时确认4卡Pro6000 job可用，正准备Source56四独立seed/抓位有限采集；尚未宣称新任务已运行。"
     }
   ],
   "training": {
