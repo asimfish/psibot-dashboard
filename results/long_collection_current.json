@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-14T15:45:34.214804+00:00",
-  "source_updated_at": "2026-10-14T15:45:30.521232+00:00",
+  "published_at": "2026-10-14T15:47:25.103820+00:00",
+  "source_updated_at": "2026-10-14T15:47:05.629745+00:00",
   "tasks": [
     {
       "task": "T3",
@@ -43,8 +43,8 @@
       "unknown_usage": null,
       "latest_failed": null,
       "native_alive": true,
-      "updated_at": "2026-10-14T15:45:30.263481+00:00",
-      "note": "新版WHOLE 0/100，还差100条。Pro Source50同PID/world已实际完成无模型抬高、转腕、预成形、横移、下降和保持；目前抓取前位置，尚未完整抓持/倾倒/归位。5090 Source50已关闭：旧前缀126.05秒通过，但完整planner导入缺transforms3d；之前仅MotionGen预检不足，正在任务私有环境修复并完整复验。Source51在验证直接cuRobo接近、取消实测188.54秒旧前缀重放，及真实17手部几何路径检查；原c437物理门不变。单次完整5分钟未达成，完成100条暂无可信ETA。 最新原生实测：Pro6000 t3_host_v50_pro_curobo_001 42.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
+      "updated_at": "2026-10-14T15:47:05.459896+00:00",
+      "note": "新版WHOLE 0/100，还差100条。Source51已在Pro6000 PID1206524和5090 PID1424942两路实际启动，正在原生初始场景资格；完整planner预检已过，取消旧3180步前缀重放，直接cuRobo接近尚待实际验证。5090缺transforms3d已在私有环境固定0.4.2修复并完整GPU导入3.01秒通过。Source50 Pro同world抓取前状态保留，基础移动0模型调用，尚未完整抓持/倾倒/归位。Source51实际17手体方向包围盒CPU复核通过，原c437物理门不变。完整尝试5分钟未达成；100条暂无可信完成时间，DP/ACT合格数据0。 最新原生实测：Pro6000 t3_host_v50_pro_curobo_001 42.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -118,7 +118,7 @@
           "last_request_status": null,
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791992730.2634807
+          "captured_epoch": 1791992825.4598958
         }
       ],
       "native_initial_images": [
@@ -183,7 +183,7 @@
       "sim_s": null,
       "executed": 0,
       "unknown_usage": null,
-      "updated_at": "2026-10-14T15:45:30.521232+00:00",
+      "updated_at": "2026-10-14T15:47:05.629745+00:00",
       "latest_failed": null,
       "note": "新原Shelf7左右双瓶原生241步通过，ROOT实际head/third两瓶可见，chest仍裁切。保留结果但视觉不放行；按用户要求暂停扩展，优先T3。 DP、ACT 训练的数据资格独立核验。",
       "legacy": {
@@ -325,22 +325,22 @@
     "video_fps": 15,
     "acceptance": "完整有序物理过程、释放稳定、安全与不变约束、真实模型响应来源、已知用量及预算、三路完整视频均通过后，才计入整条验收。"
   },
-  "program_revision": "2026-10-14T15:45:30.521232+00:00",
+  "program_revision": "2026-10-14T15:47:05.629745+00:00",
   "fleet": [
     {
       "host": "liyufeng_4090",
       "role": "采集与测试",
-      "status": "23:08实时检查仅9149MiB空闲，低于既有23000MiB启动门槛；未抢占外部进程。"
+      "status": "最新实际查询11330MiB空闲、87%利用率，低于原23000MiB启动门槛；未抢占其他作业。"
     },
     {
       "host": "5090",
       "role": "采集与测试",
-      "status": "Source50_002已关闭，完整planner缺transforms3d；私有固定0.4.2修复及完整预检进行中，无新增采集合格数据。"
+      "status": "Source51 native PID1424942/start211554142已启动；私有transforms3d0.4.2完整planner预检PASS，初始场景资格进行中。"
     },
     {
       "host": "Pro6000",
       "role": "采集与测试",
-      "status": "Source50 GPU0同PID1131776已完成无模型抬高、转腕、预成形、高位横移与杯沿上方下降；抓持未验收。"
+      "status": "Source51 GPU0 PID1206524/start234886216已启动，验证无旧前缀的直接cuRobo；Source50旧world抓取前状态暂保留。"
     },
     {
       "host": "30109",
