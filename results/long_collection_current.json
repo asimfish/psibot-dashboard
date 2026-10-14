@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-14T14:25:43.743796+00:00",
-  "source_updated_at": "2026-10-14T14:25:43.028205+00:00",
+  "published_at": "2026-10-14T14:27:05.608918+00:00",
+  "source_updated_at": "2026-10-14T14:26:46.413326+00:00",
   "tasks": [
     {
       "task": "T3",
@@ -43,8 +43,8 @@
       "unknown_usage": null,
       "latest_failed": null,
       "native_alive": false,
-      "updated_at": "2026-10-14T14:25:43.028205+00:00",
-      "note": "WHOLE0/100。实际Source46 600个保持原13目标的自然物理步后，target−measured最大0.008631rad、qvel约0.014016rad/s，连续稳定0；后段误差几乎固定，单纯延长等待无法解决，严格门拒绝原生规划，0新cuRobo控制。Source47最终CPU接口已通过，但同坏交接条件暂不重复准入。正在查cuRobo自身jointspace collision-checked目标交接，不能不规划偏置/放宽120Hz物理门。官方Qwen偏移资格10.90秒已通过；5分钟同world窗口已实测四路两次，完整抓取/倾倒未通过；真实Astra usage_limit_reached旧未知请求不重投，DP/ACT完整新数据0。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
+      "updated_at": "2026-10-14T14:26:46.413326+00:00",
+      "note": "WHOLE0/100。新增Source48Pro0与5090GPU0两路原生启动，等待实际初始ROOT图审；普通移动模型调用0，模型只选偏移。先前600自然步不收敛已证实，因此改为真实MotionGen验证measured q→原nativeTarget的碰撞链接，再从原target连续规划command轨迹，不执行未经规划bridge。实测非空原场景JS链接Success0.210s，主路径Success0.271s208rows，FK约2.48µm，算法资格无新native control。新controller CPU32项保护PASS，原120Hz物理门不变。当前仅允许首次成功规划路径资格；发现官方失败startcheck会遗留self成本禁用，任何失败planner不再复用，完整失败续试控制器待修。Qwen偏移实际10.9s已过；真正抓取/倾倒和WHOLE尚未过，DP/ACT新完整数据仍0。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -156,7 +156,7 @@
       "sim_s": null,
       "executed": 0,
       "unknown_usage": null,
-      "updated_at": "2026-10-14T14:25:43.028205+00:00",
+      "updated_at": "2026-10-14T14:26:46.413326+00:00",
       "latest_failed": null,
       "note": "新原Shelf7左右双瓶原生241步通过，ROOT实际head/third两瓶可见，chest仍裁切。保留结果但视觉不放行；按用户要求暂停扩展，优先T3。 DP、ACT 训练的数据资格独立核验。",
       "legacy": {
@@ -298,7 +298,7 @@
     "video_fps": 15,
     "acceptance": "完整有序物理过程、释放稳定、安全与不变约束、真实模型响应来源、已知用量及预算、三路完整视频均通过后，才计入整条验收。"
   },
-  "program_revision": "2026-10-14T14:25:43.028205+00:00",
+  "program_revision": "2026-10-14T14:26:46.413326+00:00",
   "fleet": [
     {
       "host": "liyufeng_4090",
