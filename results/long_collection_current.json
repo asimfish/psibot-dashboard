@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-14T11:32:15.565145+00:00",
-  "source_updated_at": "2026-10-14T11:32:12.053718+00:00",
+  "published_at": "2026-10-14T11:33:32.871790+00:00",
+  "source_updated_at": "2026-10-14T11:33:14.328931+00:00",
   "tasks": [
     {
       "task": "T3",
@@ -34,17 +34,17 @@
         }
       ],
       "completed_phases": 0,
-      "phase_basis": "初始资格通过；完整有序过程待独立验收",
+      "phase_basis": "新版场景正在准备；旧版成果单独保留",
       "whole_accepted": false,
-      "state": "running",
-      "run": "t3_cloud_v33_qwen_b_012",
-      "sim_s": 113.99166666666666,
-      "executed": 35,
+      "state": "unavailable",
+      "run": null,
+      "sim_s": null,
+      "executed": 0,
       "unknown_usage": null,
       "latest_failed": null,
-      "native_alive": true,
-      "updated_at": "2026-10-14T11:32:11.530898+00:00",
-      "note": "完整验收0/100。Source32本轮8路已全部闭合；完成原抓取前段但未倒入B，最大A倾角57.4度，未形成完整轨迹。实际失败取证：腕关节接近限位；一轮A对腕滑转25.96度、滑移21.77毫米，手接触99降34；两Qwen side copy分别384token截断/改变schema。新Source33四卡job-83o5wg3zjtsv正实际采集，direct、medium、两路medium+Qwen三机制并行；原初始门4/4和ROOT12照片全部通过。闭合坏copy被丢弃，继续原已完成Astra动作，数字绑定与全部物理验收不放宽。下一步优先修正抓持/关节可动范围和简单阶段路由，卡数以真实进程遥测为准。5分钟全任务目标未实现，DP/ACT训练数据仍0。 最新原生实测：云Pro6000组012 t3_cloud_v33_direct_012 95.0秒，A倾41.9°，A液体1290/B0/累计洒漏0，运行中；云Pro6000组012 t3_cloud_v33_qwen_b_012 114.0秒，A倾39.3°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
+      "native_alive": false,
+      "updated_at": "2026-10-14T11:33:14.328931+00:00",
+      "note": "完整验收0/100。Source32本轮8路已全部闭合；完成原抓取前段但未倒入B，最大A倾角57.4度，未形成完整轨迹。实际失败取证：腕关节接近限位；一轮A对腕滑转25.96度、滑移21.77毫米，手接触99降34；两Qwen side copy分别384token截断/改变schema。新Source33四卡job-83o5wg3zjtsv正实际采集，direct、medium、两路medium+Qwen三机制并行；原初始门4/4和ROOT12照片全部通过。闭合坏copy被丢弃，继续原已完成Astra动作，数字绑定与全部物理验收不放宽。下一步优先修正抓持/关节可动范围和简单阶段路由，卡数以真实进程遥测为准。5分钟全任务目标未实现，DP/ACT训练数据仍0。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -91,60 +91,7 @@
         "actual_native_ACT_policy": 0,
         "actual_native_DP_policy": 0
       },
-      "parallel_native_runs": [
-        {
-          "episode_id": "t3_cloud_v33_direct_012",
-          "host": "云Pro6000组012",
-          "source_kind": "actual_Astra_mixed_teacher",
-          "source_sha256": "d4131829c6d8fcc57a2cdde5e048233a418591888fc454271bd309e0a0f69f5e",
-          "native_alive": true,
-          "native_process_state": "running",
-          "sim_s": 94.99166666666666,
-          "A_tilt_deg": 41.851451068861216,
-          "liquid_counts": {
-            "total": 1290,
-            "A": 1290,
-            "B": 0,
-            "outside_vessels": 0,
-            "in_transit": 0,
-            "spill": 0,
-            "currently_spilled_outside": 0
-          },
-          "safety_violation": false,
-          "model_requests": 25,
-          "executed_primitives": 32,
-          "last_request_status": "started",
-          "internal_success": null,
-          "stop_reason": null,
-          "captured_epoch": 1791977531.465508
-        },
-        {
-          "episode_id": "t3_cloud_v33_qwen_b_012",
-          "host": "云Pro6000组012",
-          "source_kind": "actual_Astra_mixed_teacher",
-          "source_sha256": "d4131829c6d8fcc57a2cdde5e048233a418591888fc454271bd309e0a0f69f5e",
-          "native_alive": true,
-          "native_process_state": "running",
-          "sim_s": 113.99166666666666,
-          "A_tilt_deg": 39.28470828869252,
-          "liquid_counts": {
-            "total": 1290,
-            "A": 1290,
-            "B": 0,
-            "outside_vessels": 0,
-            "in_transit": 0,
-            "spill": 0,
-            "currently_spilled_outside": 0
-          },
-          "safety_violation": false,
-          "model_requests": 29,
-          "executed_primitives": 35,
-          "last_request_status": "started",
-          "internal_success": null,
-          "stop_reason": null,
-          "captured_epoch": 1791977531.530898
-        }
-      ],
+      "parallel_native_runs": [],
       "native_initial_images": [
         {
           "view": "新版场景复核 · 头部视角",
@@ -207,7 +154,7 @@
       "sim_s": null,
       "executed": 0,
       "unknown_usage": null,
-      "updated_at": "2026-10-14T11:32:12.053718+00:00",
+      "updated_at": "2026-10-14T11:33:14.328931+00:00",
       "latest_failed": null,
       "note": "新原Shelf7左右双瓶原生241步通过，ROOT实际head/third两瓶可见，chest仍裁切。保留结果但视觉不放行；按用户要求暂停扩展，优先T3。 DP、ACT 训练的数据资格独立核验。",
       "legacy": {
@@ -347,7 +294,7 @@
     "video_fps": 15,
     "acceptance": "完整有序物理过程、释放稳定、安全与不变约束、真实模型响应来源、已知用量及预算、三路完整视频均通过后，才计入整条验收。"
   },
-  "program_revision": "2026-10-14T11:32:12.053718+00:00",
+  "program_revision": "2026-10-14T11:33:14.328931+00:00",
   "fleet": [
     {
       "host": "liyufeng_4090",
