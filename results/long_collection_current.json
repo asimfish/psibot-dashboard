@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-14T16:05:15.226855+00:00",
-  "source_updated_at": "2026-10-14T16:04:53.124588+00:00",
+  "published_at": "2026-10-14T16:06:24.771790+00:00",
+  "source_updated_at": "2026-10-14T16:05:55.172202+00:00",
   "tasks": [
     {
       "task": "T3",
@@ -37,14 +37,14 @@
       "phase_basis": "初始资格通过；完整有序过程待独立验收",
       "whole_accepted": false,
       "state": "running",
-      "run": "t3_host_v50_pro_curobo_001",
-      "sim_s": 41.99166666666667,
-      "executed": 13,
+      "run": "t3_host_v52_pro_curobo_001",
+      "sim_s": 10.991666666666667,
+      "executed": 10,
       "unknown_usage": null,
       "latest_failed": null,
       "native_alive": true,
-      "updated_at": "2026-10-14T16:04:52.981122+00:00",
-      "note": "新版WHOLE 0/100，还差100条。Source51两路在planner实例化阶段发现pre-App导入造成Warp运行时冲突，已关闭且0新动作；Source52仅撤回这处导入顺序，恢复Source50 Pro已成功顺序，保留独立完整依赖预检。Source52 Pro PID1213398及5090 PID1454772已实际启动，正在初始场景资格；直接cuRobo接近、省去旧3180步前缀仍待实测。Source50 Pro仍保留抓取前world；稳定抓持/倾倒/归位未完整验收。原c437门槛不变，完整尝试5分钟未达成，100条暂无可信ETA，DP/ACT合格数据0。 最新原生实测：Pro6000 t3_host_v50_pro_curobo_001 42.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中；Pro6000 t3_host_v52_pro_curobo_001 9.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中；5090 t3_host_v52_5090_curobo_001 8.8秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
+      "updated_at": "2026-10-14T16:05:54.997177+00:00",
+      "note": "新版WHOLE 0/100。Source52两路已通过ROOT初始241行与6张照片，完整planner实际初始化通过（Pro26.59s/5090 21.59s）。直接从初始到高位接近实际224/223tick，Pro含planner初始化到首READY44.15s，旧前缀耗时已取消。5090高位手预成形自动26.84s完成，Pro也完成，均0采集模型调用；两路保持同world继续下降/抓取。静态低位端点有6.5mm余量，但Pro斜降中途手扫A被预检拒绝且0动作；已拆成高位横移转腕、再下降。尚无稳定抬杯/倾倒/归位完整资格，5分钟整条仍未达到，DP/ACT数据0。 最新原生实测：Pro6000 t3_host_v52_pro_curobo_001 11.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中；5090 t3_host_v52_5090_curobo_001 8.8秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -95,40 +95,14 @@
       },
       "parallel_native_runs": [
         {
-          "episode_id": "t3_host_v50_pro_curobo_001",
-          "host": "Pro6000",
-          "source_kind": "actual_native_curobo_qualification",
-          "source_sha256": "cb035ec232a67208c33329d19eac37e2bfff1b33ae271ab3e0cb79495ffcf85a",
-          "native_alive": true,
-          "native_process_state": "running",
-          "sim_s": 41.99166666666667,
-          "A_tilt_deg": 0.033372863205971035,
-          "liquid_counts": {
-            "total": 1290,
-            "A": 1290,
-            "B": 0,
-            "outside_vessels": 0,
-            "in_transit": 0,
-            "spill": 0,
-            "currently_spilled_outside": 0
-          },
-          "safety_violation": false,
-          "model_requests": 0,
-          "executed_primitives": 13,
-          "last_request_status": null,
-          "internal_success": null,
-          "stop_reason": null,
-          "captured_epoch": 1791993892.9620533
-        },
-        {
           "episode_id": "t3_host_v52_pro_curobo_001",
           "host": "Pro6000",
           "source_kind": "actual_native_curobo_qualification",
           "source_sha256": "2d6b9f23be488d0d9e87e60b2aba8139456c9ac433c20ce6bf3f29000b1800ce",
           "native_alive": true,
           "native_process_state": "running",
-          "sim_s": 8.991666666666667,
-          "A_tilt_deg": 0.03325489649319654,
+          "sim_s": 10.991666666666667,
+          "A_tilt_deg": 0.02891007870066524,
           "liquid_counts": {
             "total": 1290,
             "A": 1290,
@@ -140,11 +114,11 @@
           },
           "safety_violation": false,
           "model_requests": 0,
-          "executed_primitives": 9,
+          "executed_primitives": 10,
           "last_request_status": null,
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791993892.9811218
+          "captured_epoch": 1791993954.9971766
         },
         {
           "episode_id": "t3_host_v52_5090_curobo_001",
@@ -170,7 +144,7 @@
           "last_request_status": null,
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1791993892.5357974
+          "captured_epoch": 1791993954.5915709
         }
       ],
       "native_initial_images": [
@@ -235,7 +209,7 @@
       "sim_s": null,
       "executed": 0,
       "unknown_usage": null,
-      "updated_at": "2026-10-14T16:04:53.124588+00:00",
+      "updated_at": "2026-10-14T16:05:55.172202+00:00",
       "latest_failed": null,
       "note": "新原Shelf7左右双瓶原生241步通过，ROOT实际head/third两瓶可见，chest仍裁切。保留结果但视觉不放行；按用户要求暂停扩展，优先T3。 DP、ACT 训练的数据资格独立核验。",
       "legacy": {
@@ -377,7 +351,7 @@
     "video_fps": 15,
     "acceptance": "完整有序物理过程、释放稳定、安全与不变约束、真实模型响应来源、已知用量及预算、三路完整视频均通过后，才计入整条验收。"
   },
-  "program_revision": "2026-10-14T16:04:53.124588+00:00",
+  "program_revision": "2026-10-14T16:05:55.172202+00:00",
   "fleet": [
     {
       "host": "liyufeng_4090",
@@ -387,12 +361,12 @@
     {
       "host": "5090",
       "role": "采集与测试",
-      "status": "Source52 PID1454772/start211593685已实际启动；Source51 Warp导入冲突关闭，原私有依赖修复保留。"
+      "status": "Source52同PID1454772已完成223tick初始接近、自动手预成形、229tick降至杯沿上方并保持；现在独立低位抓取资格。"
     },
     {
       "host": "Pro6000",
       "role": "采集与测试",
-      "status": "Source52 PID1213398/start234929591已实际启动；Source50抓取前world暂保留；新路径尚待资格。"
+      "status": "Source52同PID1213398完成224tick直接接近及手预成形、223tick杯沿上方下降、126tick高位转腕横移，继续实际抓取资格。"
     },
     {
       "host": "30109",
