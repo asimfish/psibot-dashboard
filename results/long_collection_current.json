@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-14T18:25:41.839789+00:00",
-  "source_updated_at": "2026-10-14T18:25:40.047721+00:00",
+  "published_at": "2026-10-14T18:26:50.329792+00:00",
+  "source_updated_at": "2026-10-14T18:26:42.344819+00:00",
   "tasks": [
     {
       "task": "T3",
@@ -38,13 +38,13 @@
       "whole_accepted": false,
       "state": "running",
       "run": "t3_host_v55_pro_curobo_002",
-      "sim_s": 12.991666666666667,
+      "sim_s": 24.991666666666667,
       "executed": 0,
       "unknown_usage": null,
       "latest_failed": null,
       "native_alive": true,
-      "updated_at": "2026-10-14T18:25:39.831264+00:00",
-      "note": "新版WHOLE 0/100，还差100条。Source53实际抓取phase1通过后，在小角度倾倒路径中cuRobo大绕行触发原安全门（无洒漏），该条失败不计数。已精确复核：2.4cm目标的计划中途偏杯228.5mm，旧碰撞检查未拦；新整条FK杯位/倾角与局部路径检查能在执行前拒绝。修复Source55已Pro实际native1352695启动。5090 Source54快抓并行部署；云4卡四独立seed/抓位Source56准备提交；4090当前被其他原生作业占用，保留CPU/JIT准备且未抢卡。整条5分钟目标仍未达到。 最新原生实测：Pro6000 t3_host_v55_pro_curobo_002 13.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中；5090 t3_host_v54_5090_curobo_002 5.4秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
+      "updated_at": "2026-10-14T18:26:42.130972+00:00",
+      "note": "新版WHOLE 0/100，还差100条。Pro Source55_002与5090 Source54_002均已ROOT实际三图审核、独立241帧检查并放行；Pro正重执行实际稳定抓取段后接修复倾倒，5090正直接cuRobo快抓。云4卡Source56已成功提交job-4l2ldxk8g3fl（4独立seed/抓位，low_priority，1小时有限），初始图待实际审核。本地4090空闲窗口已进入实际App/cuRobo资格，成功才启动采集。原53倾倒大绕行失败排除，新55/56能在执行前拒绝真实坏路径；原物理阈值不变。整条5分钟目标仍未达到。 最新原生实测：Pro6000 t3_host_v55_pro_curobo_002 25.0秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中；5090 t3_host_v54_5090_curobo_002 8.6秒，A倾0.0°，A液体1290/B0/累计洒漏0，运行中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -101,8 +101,8 @@
           "source_sha256": "aac8e6b9c265eadf408f24bf9b0023e9f51f6ae1e2551d40f68e4688e3eadd31",
           "native_alive": true,
           "native_process_state": "running",
-          "sim_s": 12.991666666666667,
-          "A_tilt_deg": 0.03318611068588879,
+          "sim_s": 24.991666666666667,
+          "A_tilt_deg": 0.013724644422750495,
           "liquid_counts": {
             "total": 1290,
             "A": 1290,
@@ -118,7 +118,7 @@
           "last_request_status": null,
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1792002339.8312638
+          "captured_epoch": 1792002402.1309724
         },
         {
           "episode_id": "t3_host_v54_5090_curobo_002",
@@ -127,8 +127,8 @@
           "source_sha256": "112c589e582c310ea0f3a977261e0c97da45643489474a4dee157e4e65893605",
           "native_alive": true,
           "native_process_state": "running",
-          "sim_s": 5.391666666666667,
-          "A_tilt_deg": 0.036792096294533894,
+          "sim_s": 8.633333333333333,
+          "A_tilt_deg": 0.03325670977519263,
           "liquid_counts": {
             "total": 1290,
             "A": 1290,
@@ -140,11 +140,11 @@
           },
           "safety_violation": false,
           "model_requests": 0,
-          "executed_primitives": 6,
+          "executed_primitives": 8,
           "last_request_status": null,
           "internal_success": null,
           "stop_reason": null,
-          "captured_epoch": 1792002339.7986095
+          "captured_epoch": 1792002402.0153644
         }
       ],
       "native_initial_images": [
@@ -209,7 +209,7 @@
       "sim_s": null,
       "executed": 0,
       "unknown_usage": null,
-      "updated_at": "2026-10-14T18:25:40.047721+00:00",
+      "updated_at": "2026-10-14T18:26:42.344819+00:00",
       "latest_failed": null,
       "note": "新原Shelf7左右双瓶原生241步通过，ROOT实际head/third两瓶可见，chest仍裁切。保留结果但视觉不放行；按用户要求暂停扩展，优先T3。 DP、ACT 训练的数据资格独立核验。",
       "legacy": {
@@ -351,22 +351,22 @@
     "video_fps": 15,
     "acceptance": "完整有序物理过程、释放稳定、安全与不变约束、真实模型响应来源、已知用量及预算、三路完整视频均通过后，才计入整条验收。"
   },
-  "program_revision": "2026-10-14T18:25:40.047721+00:00",
+  "program_revision": "2026-10-14T18:26:42.344819+00:00",
   "fleet": [
     {
       "host": "liyufeng_4090",
       "role": "采集与测试",
-      "status": "环境准备期间其他native作业接手，目前free11170MiB；未抢占。任务私有cuRobo依赖/JIT在CPU准备。"
+      "status": "捕获23639MiB空闲窗口；任务自身App/MotionGen资格已实际启动，仍待资格成功后启动collector。"
     },
     {
       "host": "5090",
       "role": "采集与测试",
-      "status": "Source52有限试验结束；Source54快抓版本CPU六组检查通过，部署中，待初始照片与241帧门。"
+      "status": "Source54_002 native2457239实际初始门放行、cuRobo READY0完成，正在历史Hopen直接快抓。"
     },
     {
       "host": "Pro6000",
       "role": "采集与测试",
-      "status": "Source53原安全门失败已关闭，未计数据；修复Source55新native1352695实际启动，初始照片待ROOT。"
+      "status": "Source55_002 native1466680已实际初始图与241帧门放行，真实抓取段重执行中。"
     },
     {
       "host": "30109",
@@ -386,7 +386,7 @@
     {
       "host": "云Pro6000三组",
       "role": "T3采集",
-      "status": "已实时确认4卡Pro6000 job可用，正准备Source56四独立seed/抓位有限采集；尚未宣称新任务已运行。"
+      "status": "新4卡Source56 job-4l2ldxk8g3fl已提交成功，4独立seed，初始native图待ROOT，尚未计数据。"
     }
   ],
   "training": {
