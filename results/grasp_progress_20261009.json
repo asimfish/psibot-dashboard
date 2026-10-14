@@ -1,6 +1,6 @@
 {
   "schema": "grasp.progress_snapshot.v1",
-  "updated_utc": "2026-10-14T12:17:07.559233+00:00",
+  "updated_utc": "2026-10-14T15:56:56.917591+00:00",
   "update_mode": "Each training row retains actual receipt time; all6 recovered DP have observed updates; 4 finalDP CPU/SSD gates and 3 new ACT full-state durable gates passed.",
   "totals": {
     "productive_training_runs": 92,
@@ -8,16 +8,18 @@
     "ACT": 45,
     "formal_accepted_objects": 0,
     "paper_objects": 21,
-    "active_training_runs": 10,
+    "active_training_runs": 12,
     "completed_training_runs": 78,
     "queued_training_candidates": 0,
     "interrupted_training_runs": 2,
     "completed_DP_training_runs": 33,
     "completed_ACT_training_runs": 45,
-    "recovering_training_runs": 2,
+    "recovering_training_runs": 0,
     "formal_accepted_methods": 0,
-    "counts_scope": "92个已有实际更新身份：78训练完成（33DP/45ACT）、10原DP当前有有限更新、2原DP自动恢复、2历史中断。逐行显示实测时间；训练完成不计正式验收。",
-    "closed_training_pending_final_qualification": 0
+    "counts_scope": "92个已有实际更新身份：78训练完成（33DP/45ACT）、11原DP训练、1原DP最终保存、0恢复、2历史中断。逐行显示实测时间；训练完成不计正式验收。",
+    "closed_training_pending_final_qualification": 0,
+    "actual_training_phase_runs": 11,
+    "final_checkpoint_drain_runs": 1
   },
   "training": [
     {
@@ -1580,7 +1582,7 @@
       "seed": 26102051,
       "state": "原完整状态恢复后持续有限更新",
       "epochs_target": 3000,
-      "sampled_utc": "2026-10-14T12:02:19.614527+00:00",
+      "sampled_utc": "2026-10-14T15:44:19.309276+00:00",
       "formal_accepted": false,
       "raw_status": "running",
       "active_productive": true,
@@ -1588,18 +1590,18 @@
       "actual_source_fullSHA_unchanged": true,
       "status_note": "原模型、EMA、优化器与全局随机状态恢复后有实测更新；工作进程随机状态未完全还原。最终保存完成另行核验。启动前容量变化曾被保护拦下；复用已验证1800轮缓存，按原容量标准重新等待后启动。",
       "source_adoption_gate_SHA256": "ea288b797524f4f80f9dc0033f106499b72fff0909b8dcf03e4074439a427bd4",
-      "train_loss": 0.0006147173116914928,
-      "global_step": 241337,
-      "epoch": 1801,
+      "train_loss": 0.0006674514152109623,
+      "global_step": 258072,
+      "epoch": 1925,
       "original_saved_counters": {
         "epoch": 500,
         "global_step": 67134
       },
       "optimizer_reset": false,
       "logical_seed_count_increase": 0,
-      "lr": 0.00010438980336176563,
+      "lr": 8.605530064582983e-05,
       "checkpoint_transport": "private_Ali_persistent_SSD_two_phase_CPU_verified",
-      "source_receipt_SHA256": "172c20aabd9d6172ec51e0b9a01518fef16ea307a69b919b1c0871a8e9857c0c"
+      "source_receipt_SHA256": "ab9717cdd2b0d0bb71ee8924fd5bfedf219dd3823fd74bf8a516b24c3175cbce"
     },
     {
       "host": "mainskill",
@@ -1608,28 +1610,28 @@
       "method": "DP",
       "object": "glass_beaker_100ml",
       "seed": 26102053,
-      "state": "原完整状态自动归档恢复中",
+      "state": "原完整状态恢复后持续有限更新",
       "epochs_target": 3000,
-      "sampled_utc": "2026-10-14T12:02:19.614527+00:00",
+      "sampled_utc": "2026-10-14T15:44:19.309276+00:00",
       "formal_accepted": false,
-      "raw_status": "not_started",
-      "active_productive": false,
+      "raw_status": "running",
+      "active_productive": true,
       "completed_training": false,
       "actual_source_fullSHA_unchanged": true,
-      "status_note": "两条原任务按队列做完整SHA、CPU读回、缓存迁移与原容量检查；未重复提交，模型、优化器、种子和预算保持。",
+      "status_note": "原模型、EMA、优化器与全局随机状态恢复后有实测更新；工作进程随机状态未完全还原。最终保存完成另行核验。",
       "source_adoption_gate_SHA256": "ea288b797524f4f80f9dc0033f106499b72fff0909b8dcf03e4074439a427bd4",
-      "train_loss": 0.0010603743139654398,
-      "global_step": 208076,
-      "epoch": 1552,
+      "train_loss": 0.0012672182638198137,
+      "global_step": 249248,
+      "epoch": 1860,
       "original_saved_counters": {
         "epoch": 550,
         "global_step": 73834
       },
       "optimizer_reset": false,
       "logical_seed_count_increase": 0,
-      "lr": 0.0002647792614652024,
+      "lr": 9.560489356969492e-05,
       "checkpoint_transport": "private_Ali_persistent_SSD_two_phase_CPU_verified",
-      "source_receipt_SHA256": "172c20aabd9d6172ec51e0b9a01518fef16ea307a69b919b1c0871a8e9857c0c"
+      "source_receipt_SHA256": "ab9717cdd2b0d0bb71ee8924fd5bfedf219dd3823fd74bf8a516b24c3175cbce"
     },
     {
       "host": "mainskill",
@@ -1638,28 +1640,30 @@
       "method": "DP",
       "object": "glass_beaker_100ml",
       "seed": 26102055,
-      "state": "原完整状态恢复后持续有限更新",
+      "state": "原3000轮已返回，最终完整检查点保存中",
       "epochs_target": 3000,
-      "sampled_utc": "2026-10-14T12:02:19.614527+00:00",
+      "sampled_utc": "2026-10-14T15:44:19.309276+00:00",
       "formal_accepted": false,
       "raw_status": "running",
       "active_productive": true,
       "completed_training": false,
       "actual_source_fullSHA_unchanged": true,
-      "status_note": "原模型、EMA、优化器与全局随机状态恢复后有实测更新；工作进程随机状态未完全还原。最终保存完成另行核验。旧2999轮保存超时记录保留；此次从已验证2850轮完整状态恢复，没有声称恢复那149轮未保存更新。",
+      "status_note": "实际训练预算已完成，等完整SHA、独立CPU读回及持久提交后才计训练完成；发送字节不是完成证明。旧2999轮保存超时记录保留；此次从已验证2850轮完整状态恢复，没有声称恢复那149轮未保存更新。",
       "source_adoption_gate_SHA256": "ea288b797524f4f80f9dc0033f106499b72fff0909b8dcf03e4074439a427bd4",
-      "train_loss": 0.00041097844538188523,
-      "global_step": 386455,
-      "epoch": 2883,
+      "train_loss": 0.0004218374129207527,
+      "global_step": 401999,
+      "epoch": 2999,
       "original_saved_counters": {
         "epoch": 600,
         "global_step": 80534
       },
       "optimizer_reset": false,
       "logical_seed_count_increase": 0,
-      "lr": 1.116418790349649e-06,
+      "lr": 0.0,
       "checkpoint_transport": "private_Ali_persistent_SSD_two_phase_CPU_verified",
-      "source_receipt_SHA256": "172c20aabd9d6172ec51e0b9a01518fef16ea307a69b919b1c0871a8e9857c0c"
+      "source_receipt_SHA256": "ab9717cdd2b0d0bb71ee8924fd5bfedf219dd3823fd74bf8a516b24c3175cbce",
+      "actual_phase": "final_checkpoint_drain",
+      "actual_completed_epochs": 3000
     },
     {
       "host": "mainskill",
@@ -1811,10 +1815,10 @@
       "epochs_target": 3000,
       "formal_accepted": false,
       "paper_ssr": null,
-      "epoch": 2192,
-      "global_step": 291659,
-      "train_loss": 0.00041480010258965194,
-      "sampled_utc": "2026-10-14T12:02:19.614527+00:00",
+      "epoch": 2407,
+      "global_step": 320232,
+      "train_loss": 0.00044038190389983356,
+      "sampled_utc": "2026-10-14T15:44:19.309276+00:00",
       "gpu_uuid": "GPU-13622178-b7d1-6d74-af69-8aa49fd27da2",
       "state": "原完整状态恢复后持续有限更新",
       "completed_training": false,
@@ -1827,9 +1831,9 @@
       },
       "optimizer_reset": false,
       "logical_seed_count_increase": 0,
-      "lr": 5.093684729969463e-05,
+      "lr": 2.8207330447335513e-05,
       "checkpoint_transport": "private_Ali_persistent_SSD_two_phase_CPU_verified",
-      "source_receipt_SHA256": "172c20aabd9d6172ec51e0b9a01518fef16ea307a69b919b1c0871a8e9857c0c"
+      "source_receipt_SHA256": "ab9717cdd2b0d0bb71ee8924fd5bfedf219dd3823fd74bf8a516b24c3175cbce"
     },
     {
       "host": "mainskill",
@@ -1840,10 +1844,10 @@
       "epochs_target": 3000,
       "formal_accepted": false,
       "paper_ssr": null,
-      "epoch": 1986,
-      "global_step": 264255,
-      "train_loss": 0.0002963914885185659,
-      "sampled_utc": "2026-10-14T12:02:19.614527+00:00",
+      "epoch": 2156,
+      "global_step": 286783,
+      "train_loss": 0.0006588498363271356,
+      "sampled_utc": "2026-10-14T15:44:19.309276+00:00",
       "gpu_uuid": "GPU-3d4e7515-a762-7159-7525-c4b935ad9dd8",
       "state": "原完整状态恢复后持续有限更新",
       "completed_training": false,
@@ -1856,9 +1860,9 @@
       },
       "optimizer_reset": false,
       "logical_seed_count_increase": 0,
-      "lr": 7.749159355459316e-05,
+      "lr": 5.5355545227755286e-05,
       "checkpoint_transport": "private_Ali_persistent_SSD_two_phase_CPU_verified",
-      "source_receipt_SHA256": "172c20aabd9d6172ec51e0b9a01518fef16ea307a69b919b1c0871a8e9857c0c"
+      "source_receipt_SHA256": "ab9717cdd2b0d0bb71ee8924fd5bfedf219dd3823fd74bf8a516b24c3175cbce"
     },
     {
       "host": "mainskill",
@@ -1869,25 +1873,25 @@
       "epochs_target": 3000,
       "formal_accepted": false,
       "paper_ssr": null,
-      "epoch": 1694,
-      "global_step": 225370,
-      "train_loss": 0.0007810515817254782,
-      "sampled_utc": "2026-10-14T12:02:19.614527+00:00",
+      "epoch": 2202,
+      "global_step": 292939,
+      "train_loss": 0.00035470613511279225,
+      "sampled_utc": "2026-10-14T15:44:19.309276+00:00",
       "gpu_uuid": "GPU-fd7b49d0-672c-e7a8-ad06-c66ba554be18",
-      "state": "原完整状态自动归档恢复中",
+      "state": "原完整状态恢复后持续有限更新",
       "completed_training": false,
-      "active_productive": false,
-      "raw_status": "not_started",
-      "status_note": "两条原任务按队列做完整SHA、CPU读回、缓存迁移与原容量检查；未重复提交，模型、优化器、种子和预算保持。",
+      "active_productive": true,
+      "raw_status": "running",
+      "status_note": "原模型、EMA、优化器与全局随机状态恢复后有实测更新；工作进程随机状态未完全还原。最终保存完成另行核验。",
       "original_saved_counters": {
         "epoch": 0,
         "global_step": 133
       },
       "optimizer_reset": false,
       "logical_seed_count_increase": 0,
-      "lr": 0.0002963313703026738,
+      "lr": 4.9801068235455683e-05,
       "checkpoint_transport": "private_Ali_persistent_SSD_two_phase_CPU_verified",
-      "source_receipt_SHA256": "172c20aabd9d6172ec51e0b9a01518fef16ea307a69b919b1c0871a8e9857c0c"
+      "source_receipt_SHA256": "ab9717cdd2b0d0bb71ee8924fd5bfedf219dd3823fd74bf8a516b24c3175cbce"
     },
     {
       "host": "aliyun",
@@ -1897,10 +1901,10 @@
       "object": "brown_volumetric_flask_250ml",
       "seed": 26102111,
       "epochs_target": 3000,
-      "epoch": 2262,
-      "global_step": 303164,
-      "train_loss": 0.0008219718001782894,
-      "sampled_utc": "2026-10-14T11:44:21.650151+00:00",
+      "epoch": 2406,
+      "global_step": 322435,
+      "train_loss": 0.0006782716372981668,
+      "sampled_utc": "2026-10-14T15:44:19.384611+00:00",
       "formal_accepted": false,
       "paper_ssr": null,
       "completed_training": false,
@@ -1921,8 +1925,8 @@
         "formal_accepted": false
       },
       "unsaved_first133_updates_not_restored": true,
-      "lr": 4.296794403880905e-05,
-      "source_receipt_SHA256": "48cb7c8656c9510bea6c342d9e9a51863ce8e1be1d5a78d9d8079c46fed779ae",
+      "lr": 2.834624679849284e-05,
+      "source_receipt_SHA256": "93f9817b6b5ccc008b2b632ac88af651bc82ec7c30faeac63e805942edbfe620",
       "raw_status": "running"
     },
     {
@@ -1933,10 +1937,10 @@
       "object": "brown_volumetric_flask_250ml",
       "seed": 26102113,
       "epochs_target": 3000,
-      "epoch": 2263,
-      "global_step": 303247,
-      "train_loss": 0.0007891231798566878,
-      "sampled_utc": "2026-10-14T11:44:21.650151+00:00",
+      "epoch": 2406,
+      "global_step": 322521,
+      "train_loss": 0.000736362999305129,
+      "sampled_utc": "2026-10-14T15:44:19.384611+00:00",
       "formal_accepted": false,
       "paper_ssr": null,
       "completed_training": false,
@@ -1957,8 +1961,8 @@
         "formal_accepted": false
       },
       "unsaved_first133_updates_not_restored": true,
-      "lr": 4.289945994988431e-05,
-      "source_receipt_SHA256": "48cb7c8656c9510bea6c342d9e9a51863ce8e1be1d5a78d9d8079c46fed779ae",
+      "lr": 2.8287003319543532e-05,
+      "source_receipt_SHA256": "93f9817b6b5ccc008b2b632ac88af651bc82ec7c30faeac63e805942edbfe620",
       "raw_status": "running"
     },
     {
@@ -1969,10 +1973,10 @@
       "object": "brown_volumetric_flask_250ml",
       "seed": 26102115,
       "epochs_target": 3000,
-      "epoch": 2284,
-      "global_step": 306111,
-      "train_loss": 0.0006602845969609916,
-      "sampled_utc": "2026-10-14T11:44:21.650151+00:00",
+      "epoch": 2450,
+      "global_step": 328351,
+      "train_loss": 0.0006840637652203441,
+      "sampled_utc": "2026-10-14T15:44:19.384611+00:00",
       "formal_accepted": false,
       "paper_ssr": null,
       "completed_training": false,
@@ -1993,8 +1997,8 @@
         "formal_accepted": false
       },
       "unsaved_first133_updates_not_restored": true,
-      "lr": 4.056442434019107e-05,
-      "source_receipt_SHA256": "48cb7c8656c9510bea6c342d9e9a51863ce8e1be1d5a78d9d8079c46fed779ae",
+      "lr": 2.4401700792684763e-05,
+      "source_receipt_SHA256": "93f9817b6b5ccc008b2b632ac88af651bc82ec7c30faeac63e805942edbfe620",
       "raw_status": "running"
     },
     {
@@ -2092,10 +2096,10 @@
       "object": "glass_beaker_500ml",
       "seed": 26102311,
       "epochs_target": 3000,
-      "epoch": 2099,
-      "global_step": 281291,
-      "train_loss": 0.0008884049602784216,
-      "sampled_utc": "2026-10-14T11:44:26.766995+00:00",
+      "epoch": 2249,
+      "global_step": 301412,
+      "train_loss": 0.0007801604806445539,
+      "sampled_utc": "2026-10-14T15:44:19.527733+00:00",
       "active_productive": true,
       "completed_training": false,
       "state": "原3000轮训练持续有限更新",
@@ -2104,9 +2108,9 @@
       "logical_seed_count_increase": 1,
       "formal_accepted": false,
       "paper_ssr": null,
-      "source_receipt_SHA256": "613428b2f164fe2c4dab508133a4c08bd96aeb36c8db6a3a8f81b5ba5b47d54b",
+      "source_receipt_SHA256": "04601f04f0b97192cbffa41c5aa7e39ff397046f6209340698ab719a3e7cb970",
       "raw_status": "running",
-      "lr": 6.250836706059777e-05
+      "lr": 4.442410309440676e-05
     },
     {
       "host": "aliyun",
@@ -2116,10 +2120,10 @@
       "object": "glass_beaker_500ml",
       "seed": 26102313,
       "epochs_target": 3000,
-      "epoch": 2101,
-      "global_step": 281602,
-      "train_loss": 0.0007906248210929334,
-      "sampled_utc": "2026-10-14T11:44:26.766995+00:00",
+      "epoch": 2251,
+      "global_step": 301747,
+      "train_loss": 0.0007941699004732072,
+      "sampled_utc": "2026-10-14T15:44:19.527733+00:00",
       "active_productive": true,
       "completed_training": false,
       "state": "原3000轮训练持续有限更新",
@@ -2128,9 +2132,9 @@
       "logical_seed_count_increase": 1,
       "formal_accepted": false,
       "paper_ssr": null,
-      "source_receipt_SHA256": "613428b2f164fe2c4dab508133a4c08bd96aeb36c8db6a3a8f81b5ba5b47d54b",
+      "source_receipt_SHA256": "04601f04f0b97192cbffa41c5aa7e39ff397046f6209340698ab719a3e7cb970",
       "raw_status": "running",
-      "lr": 6.221102110622662e-05
+      "lr": 4.41441166470627e-05
     },
     {
       "host": "aliyun",
@@ -2140,10 +2144,10 @@
       "object": "glass_beaker_500ml",
       "seed": 26102315,
       "epochs_target": 3000,
-      "epoch": 2068,
-      "global_step": 277135,
-      "train_loss": 0.0010079790372401476,
-      "sampled_utc": "2026-10-14T11:44:26.766995+00:00",
+      "epoch": 2211,
+      "global_step": 296391,
+      "train_loss": 0.0008008444565348327,
+      "sampled_utc": "2026-10-14T15:44:19.527733+00:00",
       "active_productive": true,
       "completed_training": false,
       "state": "原3000轮训练持续有限更新",
@@ -2152,9 +2156,9 @@
       "logical_seed_count_increase": 1,
       "formal_accepted": false,
       "paper_ssr": null,
-      "source_receipt_SHA256": "613428b2f164fe2c4dab508133a4c08bd96aeb36c8db6a3a8f81b5ba5b47d54b",
+      "source_receipt_SHA256": "04601f04f0b97192cbffa41c5aa7e39ff397046f6209340698ab719a3e7cb970",
       "raw_status": "running",
-      "lr": 6.653129353212748e-05
+      "lr": 4.870702987917406e-05
     },
     {
       "host": "aliyun",
@@ -2250,7 +2254,7 @@
       "state": "6原DP当前更新；持久归档原Main状态",
       "role": "训练",
       "note": "两个对象各3原DP继续，已有ACT完成。原Main状态须完整SHA与独立CPU读回通过；归档按有限前缀续传推进。",
-      "sampled_utc": "2026-10-14T11:44:26.766995+00:00"
+      "sampled_utc": "2026-10-14T15:44:19.527733+00:00"
     },
     {
       "host": "30109",
@@ -2275,17 +2279,17 @@
     },
     {
       "host": "mainskill",
-      "state": "4原DP恢复后训练，另2条自动恢复",
+      "state": "6原DP已恢复：5训练、1最终保存",
       "role": "训练 / 采集 / 测试准备",
-      "note": "完整模型、EMA、优化器和全局随机状态均经核验后更新；缓存复用且原容量保护保持。旧2999保存失败和启动前容量拦截保留。",
-      "sampled_utc": "2026-10-14T12:02:19.614527+00:00"
+      "note": "六条原任务恢复及有限更新全部通过；原种子、优化器、预算和容量保护保持。最终保存须完整持久权重核验，旧失败记录保留。",
+      "sampled_utc": "2026-10-14T15:44:19.309276+00:00"
     },
     {
       "host": "volc-pro6000",
-      "state": "235真实烘焙捕获关闭；几何候选拒绝",
+      "state": "235分块烘焙关闭；约7微米漏包络待修",
       "role": "采集 / 测试准备",
-      "note": "同型号GPU核验烘焙输出。没有新专家/策略试验；待修正碰撞几何并通过完整视觉后再采用。",
-      "sampled_utc": "2026-10-14T11:47:35.440718+00:00"
+      "note": "同型号GPU实际烘焙235块；五块经160实际射线核实坐标。仍有数值漏包络，compound接触与完整视觉待验，尚未采用。",
+      "sampled_utc": "2026-10-14T15:49:18.874250+00:00"
     }
   ],
   "beaker100_diagnosis": {
@@ -7947,31 +7951,31 @@
   },
   "sampled_utc": "2026-10-12T11:09:58.538121+00:00",
   "latest_frontier": {
-    "schema": "grasp.frontier.v58",
-    "updated_utc": "2026-10-14T12:17:07.559233+00:00",
+    "schema": "grasp.frontier.v59",
+    "updated_utc": "2026-10-14T15:56:56.917591+00:00",
     "formal_accepted_objects": 0,
     "formal_accepted_methods": 0,
     "paper_ssr": null,
     "cards": [
       {
         "title": "训练进度",
-        "status": "78份完成；10个DP当前训练",
-        "note": "33 DP / 45 ACT训练完成。4条Main恢复后有实测更新，6条Ali继续；另2条按自动队列恢复。旧2999保存超时和容量变化拦截记录均保留，最终保存仍须核验。"
+        "status": "78份完成；11训练、1最终保存",
+        "note": "33 DP / 45 ACT已完成训练。6条原Main已恢复并有实测有限更新；6条Ali继续。一个DP已完成3000轮、等最终持久权重核验。训练完成不计正式验收。"
       },
       {
         "title": "采集与视觉",
-        "status": "实际烘焙候选拒绝；完整视觉待验",
-        "note": "235指尖分块的真实烘焙仍有包络不足和外扩，尚未用于采集。之前原视频与18抽样帧仍可查看，完整穿模与视觉验收仍待通过。"
+        "status": "235块完整包络误差约7微米；待验",
+        "note": "放大输入再缩回后，实际烘焙静态误差明显降低，仍未通过数值全覆盖。GPU实际射线已核对五个分块的坐标。完整接触、质量惯量与视觉待验，尚未用于新采集。"
       },
       {
         "title": "验收加速",
-        "status": "确定步骤自动衔接；保护条件保持",
-        "note": "两条已恢复任务直接复用验证缓存；另2条归档、前缀核验、恢复和有限更新证明自动衔接。小规模双路传输比串行慢，未采用。已有局部加速不代表整段采集提速。"
+        "status": "恢复队列已闭合；确定步骤自动执行",
+        "note": "两条原任务都通过完整模型、EMA、优化器、全局随机状态及有限更新核验；没有重复种子或重置预算。采集与测试已按确定阶段自动推进，局部加速不代表整段实测提速。"
       },
       {
         "title": "逐物体正式验收",
         "status": "DP和ACT同时通过：0/21",
-        "note": "每个物体独立对照论文成功率、Spatial SSR、泛化和完整视觉。训练完成与烘焙核验不计正式通过。"
+        "note": "逐物体独立对照论文成功率、Spatial SSR、3/4/5/6cm测试范围和完整视觉。训练与静态诊断不计通过。"
       }
     ],
     "strict_spatial_scope": "Table11给出终点空间20mm筛查；C.3的SSR检查整条轨迹中适用阶段的全部活动约束。固定最终目标不能作为移动过程中每一帧的目标。严格目标坐标系、旋转阈值和阶段仍待绑定。",
@@ -14006,7 +14010,7 @@
       "all3_original_videos_full_decoded": true,
       "unresolved_glass_white_appearance": true
     },
-    "evidence_url": "results/grasp_frontier_20261014_v58.json",
+    "evidence_url": "results/grasp_frontier_20261014_v59.json",
     "author_confirmed_paper_object_alias": {
       "schema": "grasp.author_confirmed_paper_object_alias.v1",
       "at_utc": "2026-10-11T15:22:00.679921+00:00",
@@ -26664,8 +26668,8 @@
       "full_visual_passed": false
     },
     "new_original30Hz_source_quality": {
-      "schema": "grasp.original30Hz.source.visual.geometry.v58",
-      "updated_utc": "2026-10-14T12:17:07.559233+00:00",
+      "schema": "grasp.original30Hz.source.visual.geometry.v59",
+      "updated_utc": "2026-10-14T15:56:56.917591+00:00",
       "source_rows": [
         {
           "object": "glass_beaker_50ml",
@@ -26915,8 +26919,8 @@
         }
       ],
       "latest_diagnostics": {
-        "schema": "grasp.current.visual.cooking.diagnostics.v58",
-        "updated_utc": "2026-10-14T12:17:07.559233+00:00",
+        "schema": "grasp.current.visual.cooking.diagnostics.v59",
+        "updated_utc": "2026-10-14T15:56:56.917591+00:00",
         "note": "以下是原专家流程的开发诊断。所有原成功阈值保持；结果不能计入DP/ACT成功率或论文Spatial SSR。网格检查仅覆盖保存时刻，不能据此宣称全程无穿模。",
         "rows": [
           {
@@ -27055,6 +27059,12 @@
             "title": "500ml烧杯：精确指尖分块仍被真实烘焙近似",
             "result": "几何候选拒绝；没有新采集或正式测试",
             "detail": "CPU理想凸体分块保持原包络，但235个分块的实际SDK烘焙未通过。拇指25008/32861原网格点、小指2357/3954原网格点落在烘焙后并集外（数值核验容差1微米，非论文SSR标准）；两个小指分块对原理想凸体最大静态欧氏外扩约0.604mm。该值不是运动穿模深度。此次只有烘焙捕获，0物理步、0专家或策略试验；没有采用该候选。继续核对烘焙近似机制、实际接触和完整视觉。",
+            "full_visual_passed": false
+          },
+          {
+            "title": "500ml烧杯：完整指尖包络已缩小烘焙误差",
+            "result": "235块真实烘焙完成；覆盖和动态接触仍待通过",
+            "detail": "同型号卡235个分块采用放大输入再缩回的方法，未修改原资产；完整小指3954个原网格点中364个、拇指5425个点中130个仍超出凸包并集1微米。最大静态欧氏漏包络约7微米；这不是运动穿模深度或论文SSR。另五个分块经GPU0两个私有物理步、160条实际双向射线核实坐标。只记录诊断进展；完整compound接触、质量惯量和视觉未通过，尚未采用。",
             "full_visual_passed": false
           }
         ],
@@ -27939,165 +27949,229 @@
         "formal_accepted": false,
         "paper_ssr": null,
         "full_visual_passed": false
+      },
+      "actual_full_tip_scaled100_cooking": {
+        "actual_same_RPB_GPU0_closed_exit0": true,
+        "actual_cooking_calls": 235,
+        "expert_or_policy_episodes": 0,
+        "original_simulation_steps": 0,
+        "candidate_rejected": true,
+        "numeric_geometry_tolerance_m": 1e-06,
+        "tolerance_is_not_paper_SSR": true,
+        "body_rows": [
+          {
+            "body_name": "hand2_link_5_2",
+            "original_unique_referenced_source_vertices": 3954,
+            "actual_cooked_shapes": 144,
+            "max_original_source_vertex_Euclidean_distance_to_registered_vertex_convex_union_m": 6.984412255496634e-06,
+            "original_source_vertices_outside_registered_vertex_convex_union_at1um": 364,
+            "full_original_source_vertex_union_coverage_at1um": false,
+            "max_actual_registered_vertex_distance_outside_original_ideal_volume_m": 1.8387185887119098e-09,
+            "maximum_minimum_reported_polygon_plane_score_m": 6.976004652357176e-06,
+            "original_source_vertices_outside_reported_plane_union_at1um": 646,
+            "union_Euclidean_candidate_point_hull_evaluations": 6046,
+            "reported_plane_score_not_Euclidean_depth": true
+          },
+          {
+            "body_name": "hand2_link_1_3",
+            "original_unique_referenced_source_vertices": 5425,
+            "actual_cooked_shapes": 91,
+            "max_original_source_vertex_Euclidean_distance_to_registered_vertex_convex_union_m": 6.989365694952126e-06,
+            "original_source_vertices_outside_registered_vertex_convex_union_at1um": 130,
+            "full_original_source_vertex_union_coverage_at1um": false,
+            "max_actual_registered_vertex_distance_outside_original_ideal_volume_m": 1.0693847184976084e-09,
+            "maximum_minimum_reported_polygon_plane_score_m": 6.998813280660078e-06,
+            "original_source_vertices_outside_reported_plane_union_at1um": 355,
+            "union_Euclidean_candidate_point_hull_evaluations": 7034,
+            "reported_plane_score_not_Euclidean_depth": true
+          }
+        ],
+        "source_evidence_SHA256": "5f247fb8a6958263c4ef9fad33d3b24d79fce66b65c1a1584d0cd540ffdb3faa",
+        "registered_vertex_union_not_assumed_actual_contact_surface": true,
+        "full235_compound_mass_inertia_articulation_contact_pending": true,
+        "formal_accepted": false,
+        "paper_ssr": null,
+        "full_visual_passed": false
+      },
+      "actual_five_leaf_GPU_scene_frame_witness": {
+        "actual_GPU0_private_steps": 2,
+        "actual_source_bound_scene_rays": 160,
+        "reported_polygon_plane_ray_oracle_passed": true,
+        "source_evidence_SHA256": "71f78daace8c16b06289f88845fab1150f111aa7b90000c1b6ee2fc1d05b2d50",
+        "actual_task_or_policy_episodes": 0,
+        "original_task_steps": 0,
+        "full235_runtime_frames_not_individually_qualified": true,
+        "formal_accepted": false,
+        "paper_ssr": null
       }
     },
     "latest_original_Main_recovery": {
-      "updated_utc": "2026-10-14T12:17:07.559233+00:00",
+      "updated_utc": "2026-10-14T15:56:56.917591+00:00",
       "original_training_rows": [
         {
           "seed": 26102251,
           "active_productive": true,
           "raw_status": "running",
           "actual_progress": {
-            "train_loss": 0.00041480010258965194,
-            "global_step": 291659,
-            "epoch": 2192,
-            "lr": 5.093684729969463e-05
+            "train_loss": 0.00044038190389983356,
+            "global_step": 320232,
+            "epoch": 2407,
+            "lr": 2.8207330447335513e-05
           },
-          "sampled_utc": "2026-10-14T12:02:19.614527+00:00",
-          "receipt_SHA256": "172c20aabd9d6172ec51e0b9a01518fef16ea307a69b919b1c0871a8e9857c0c"
+          "sampled_utc": "2026-10-14T15:44:19.309276+00:00",
+          "receipt_SHA256": "ab9717cdd2b0d0bb71ee8924fd5bfedf219dd3823fd74bf8a516b24c3175cbce"
         },
         {
           "seed": 26102253,
           "active_productive": true,
           "raw_status": "running",
           "actual_progress": {
-            "train_loss": 0.0002963914885185659,
-            "global_step": 264255,
-            "epoch": 1986,
-            "lr": 7.749159355459316e-05
+            "train_loss": 0.0006588498363271356,
+            "global_step": 286783,
+            "epoch": 2156,
+            "lr": 5.5355545227755286e-05
           },
-          "sampled_utc": "2026-10-14T12:02:19.614527+00:00",
-          "receipt_SHA256": "172c20aabd9d6172ec51e0b9a01518fef16ea307a69b919b1c0871a8e9857c0c"
+          "sampled_utc": "2026-10-14T15:44:19.309276+00:00",
+          "receipt_SHA256": "ab9717cdd2b0d0bb71ee8924fd5bfedf219dd3823fd74bf8a516b24c3175cbce"
         },
         {
           "seed": 26102055,
           "active_productive": true,
           "raw_status": "running",
           "actual_progress": {
-            "train_loss": 0.00041097844538188523,
-            "global_step": 386455,
-            "epoch": 2883,
-            "lr": 1.116418790349649e-06
+            "train_loss": 0.0004218374129207527,
+            "global_step": 401999,
+            "epoch": 2999,
+            "lr": 0.0
           },
-          "sampled_utc": "2026-10-14T12:02:19.614527+00:00",
-          "receipt_SHA256": "172c20aabd9d6172ec51e0b9a01518fef16ea307a69b919b1c0871a8e9857c0c"
+          "sampled_utc": "2026-10-14T15:44:19.309276+00:00",
+          "receipt_SHA256": "ab9717cdd2b0d0bb71ee8924fd5bfedf219dd3823fd74bf8a516b24c3175cbce"
         },
         {
           "seed": 26102051,
           "active_productive": true,
           "raw_status": "running",
           "actual_progress": {
-            "train_loss": 0.0006147173116914928,
-            "global_step": 241337,
-            "epoch": 1801,
-            "lr": 0.00010438980336176563
+            "train_loss": 0.0006674514152109623,
+            "global_step": 258072,
+            "epoch": 1925,
+            "lr": 8.605530064582983e-05
           },
-          "sampled_utc": "2026-10-14T12:02:19.614527+00:00",
-          "receipt_SHA256": "172c20aabd9d6172ec51e0b9a01518fef16ea307a69b919b1c0871a8e9857c0c"
+          "sampled_utc": "2026-10-14T15:44:19.309276+00:00",
+          "receipt_SHA256": "ab9717cdd2b0d0bb71ee8924fd5bfedf219dd3823fd74bf8a516b24c3175cbce"
         },
         {
           "seed": 26102053,
-          "active_productive": false,
-          "raw_status": "not_started",
-          "actual_progress": {},
-          "sampled_utc": "2026-10-14T12:02:19.614527+00:00",
-          "receipt_SHA256": "172c20aabd9d6172ec51e0b9a01518fef16ea307a69b919b1c0871a8e9857c0c"
+          "active_productive": true,
+          "raw_status": "running",
+          "actual_progress": {
+            "train_loss": 0.0012672182638198137,
+            "global_step": 249248,
+            "epoch": 1860,
+            "lr": 9.560489356969492e-05
+          },
+          "sampled_utc": "2026-10-14T15:44:19.309276+00:00",
+          "receipt_SHA256": "ab9717cdd2b0d0bb71ee8924fd5bfedf219dd3823fd74bf8a516b24c3175cbce"
         },
         {
           "seed": 26102255,
-          "active_productive": false,
-          "raw_status": "not_started",
-          "actual_progress": {},
-          "sampled_utc": "2026-10-14T12:02:19.614527+00:00",
-          "receipt_SHA256": "172c20aabd9d6172ec51e0b9a01518fef16ea307a69b919b1c0871a8e9857c0c"
+          "active_productive": true,
+          "raw_status": "running",
+          "actual_progress": {
+            "train_loss": 0.00035470613511279225,
+            "global_step": 292939,
+            "epoch": 2202,
+            "lr": 4.9801068235455683e-05
+          },
+          "sampled_utc": "2026-10-14T15:44:19.309276+00:00",
+          "receipt_SHA256": "ab9717cdd2b0d0bb71ee8924fd5bfedf219dd3823fd74bf8a516b24c3175cbce"
         },
         {
           "seed": 26102111,
           "active_productive": true,
           "raw_status": "running",
           "actual_progress": {
-            "train_loss": 0.0008219718001782894,
-            "global_step": 303164,
-            "epoch": 2262,
-            "lr": 4.296794403880905e-05
+            "train_loss": 0.0006782716372981668,
+            "global_step": 322435,
+            "epoch": 2406,
+            "lr": 2.834624679849284e-05
           },
-          "sampled_utc": "2026-10-14T11:44:21.650151+00:00",
-          "receipt_SHA256": "48cb7c8656c9510bea6c342d9e9a51863ce8e1be1d5a78d9d8079c46fed779ae"
+          "sampled_utc": "2026-10-14T15:44:19.384611+00:00",
+          "receipt_SHA256": "93f9817b6b5ccc008b2b632ac88af651bc82ec7c30faeac63e805942edbfe620"
         },
         {
           "seed": 26102113,
           "active_productive": true,
           "raw_status": "running",
           "actual_progress": {
-            "train_loss": 0.0007891231798566878,
-            "global_step": 303247,
-            "epoch": 2263,
-            "lr": 4.289945994988431e-05
+            "train_loss": 0.000736362999305129,
+            "global_step": 322521,
+            "epoch": 2406,
+            "lr": 2.8287003319543532e-05
           },
-          "sampled_utc": "2026-10-14T11:44:21.650151+00:00",
-          "receipt_SHA256": "48cb7c8656c9510bea6c342d9e9a51863ce8e1be1d5a78d9d8079c46fed779ae"
+          "sampled_utc": "2026-10-14T15:44:19.384611+00:00",
+          "receipt_SHA256": "93f9817b6b5ccc008b2b632ac88af651bc82ec7c30faeac63e805942edbfe620"
         },
         {
           "seed": 26102115,
           "active_productive": true,
           "raw_status": "running",
           "actual_progress": {
-            "train_loss": 0.0006602845969609916,
-            "global_step": 306111,
-            "epoch": 2284,
-            "lr": 4.056442434019107e-05
+            "train_loss": 0.0006840637652203441,
+            "global_step": 328351,
+            "epoch": 2450,
+            "lr": 2.4401700792684763e-05
           },
-          "sampled_utc": "2026-10-14T11:44:21.650151+00:00",
-          "receipt_SHA256": "48cb7c8656c9510bea6c342d9e9a51863ce8e1be1d5a78d9d8079c46fed779ae"
+          "sampled_utc": "2026-10-14T15:44:19.384611+00:00",
+          "receipt_SHA256": "93f9817b6b5ccc008b2b632ac88af651bc82ec7c30faeac63e805942edbfe620"
         },
         {
           "seed": 26102311,
           "active_productive": true,
           "raw_status": "running",
           "actual_progress": {
-            "train_loss": 0.0008884049602784216,
-            "global_step": 281291,
-            "epoch": 2099,
-            "lr": 6.250836706059777e-05
+            "train_loss": 0.0007801604806445539,
+            "global_step": 301412,
+            "epoch": 2249,
+            "lr": 4.442410309440676e-05
           },
-          "sampled_utc": "2026-10-14T11:44:26.766995+00:00",
-          "receipt_SHA256": "613428b2f164fe2c4dab508133a4c08bd96aeb36c8db6a3a8f81b5ba5b47d54b"
+          "sampled_utc": "2026-10-14T15:44:19.527733+00:00",
+          "receipt_SHA256": "04601f04f0b97192cbffa41c5aa7e39ff397046f6209340698ab719a3e7cb970"
         },
         {
           "seed": 26102313,
           "active_productive": true,
           "raw_status": "running",
           "actual_progress": {
-            "train_loss": 0.0007906248210929334,
-            "global_step": 281602,
-            "epoch": 2101,
-            "lr": 6.221102110622662e-05
+            "train_loss": 0.0007941699004732072,
+            "global_step": 301747,
+            "epoch": 2251,
+            "lr": 4.41441166470627e-05
           },
-          "sampled_utc": "2026-10-14T11:44:26.766995+00:00",
-          "receipt_SHA256": "613428b2f164fe2c4dab508133a4c08bd96aeb36c8db6a3a8f81b5ba5b47d54b"
+          "sampled_utc": "2026-10-14T15:44:19.527733+00:00",
+          "receipt_SHA256": "04601f04f0b97192cbffa41c5aa7e39ff397046f6209340698ab719a3e7cb970"
         },
         {
           "seed": 26102315,
           "active_productive": true,
           "raw_status": "running",
           "actual_progress": {
-            "train_loss": 0.0010079790372401476,
-            "global_step": 277135,
-            "epoch": 2068,
-            "lr": 6.653129353212748e-05
+            "train_loss": 0.0008008444565348327,
+            "global_step": 296391,
+            "epoch": 2211,
+            "lr": 4.870702987917406e-05
           },
-          "sampled_utc": "2026-10-14T11:44:26.766995+00:00",
-          "receipt_SHA256": "613428b2f164fe2c4dab508133a4c08bd96aeb36c8db6a3a8f81b5ba5b47d54b"
+          "sampled_utc": "2026-10-14T15:44:19.527733+00:00",
+          "receipt_SHA256": "04601f04f0b97192cbffa41c5aa7e39ff397046f6209340698ab719a3e7cb970"
         }
       ],
-      "original_Main4_fullstate_RNG_restore_and_cache_retirement_passed": true,
+      "original_Main6_fullstate_RNG_restore_and_cache_retirement_passed": true,
       "nearfinal_original55_prior2999_failure_preserved": true,
       "current_original55_exact2850_restore_and_finite_updates": true,
       "current_original51_exact1800_restore_and_finite_updates": true,
       "original51_prior_capacity_failure_preserved": true,
       "original51_cache_bytes_not_retransferred": true,
-      "remaining2_archival_then_reviewed_capacity_fullstate_recovery_automated": true,
+      "remaining2_archival_fullstate_globalRNG_and_actual_finite_updates_passed": true,
       "unchanged_original52GiBboot_two_stable30s_8GiBruntimeGPU_4GiBdisk_48GiBhost_8hprelaunch_guards": true,
       "original30mintraining_and30min_actual_final_byte_stall_and6hfinal_drain_guards": true,
       "original_model_optimizer_seed_and3000budget_preserved": true,
