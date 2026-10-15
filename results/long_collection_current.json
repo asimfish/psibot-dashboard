@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-15T10:56:47.130790+00:00",
-  "source_updated_at": "2026-10-15T10:36:22.556166+00:00",
+  "published_at": "2026-10-15T10:58:10.500846+00:00",
+  "source_updated_at": "2026-10-15T10:57:42.825989+00:00",
   "tasks": [
     {
       "task": "T3",
@@ -117,7 +117,7 @@
       "latest_failed": null,
       "native_alive": false,
       "updated_at": "2026-10-15T07:57:51.736970+00:00",
-      "note": "正式完整验收8/100，还差92；100条和单次5分钟尚未达到。上一批032四路已达到原倒液phase2，但部分归位动作通信超时后保留未知不重试，原job自然期限已过；没有新增整条。035四个原Native仍保留，参考宏约58/59/62/62后停止，正严格核对旧发送是否零执行后续接，不声称仍在采集。下一036四路的CPU31源/4组门测试通过且正在部署，控制器计划移到数据所在Pro宿主执行，减少每宏跨网往返；尚未提交GPU。ACT已经真实2000/2000训练完成、2538.41秒，checkpoint已保存；DP正在同卡顺序训练，实际优化进度核对中。两策略尚无Native rollout/泛化结果；原物理、安全、B95%连续2秒、A原垫归位连续3秒验收不变。 最新原生实测：云Pro6000组034 t3_cloud_v60_g0_034_00 模拟时间79.6秒，A倾36.2°，A液体1290/B0/累计洒漏0，资格采集中；云Pro6000组035 t3_cloud_v60_g0_035_00 模拟时间148.0秒，A倾82.6°，A液体724/B557/累计洒漏0，资格采集中；云Pro6000组036 t3_cloud_v60_g0_036_00 模拟时间39.0秒，A倾5.0°，A液体1290/B0/累计洒漏0，资格采集中；云Pro6000组034 t3_cloud_v60_g1_034_00 模拟时间75.0秒，A倾34.0°，A液体1290/B0/累计洒漏0，资格采集中；云Pro6000组035 t3_cloud_v60_g1_035_00 模拟时间150.0秒，A倾83.6°，A液体702/B581/累计洒漏0，资格采集中；云Pro6000组036 t3_cloud_v60_g1_036_00 模拟时间39.0秒，A倾4.7°，A液体1290/B0/累计洒漏0，资格采集中；云Pro6000组034 t3_cloud_v60_g2_034_00 模拟时间156.0秒，A倾85.3°，A液体494/B785/累计洒漏0，现场保留，等待控制器接续；云Pro6000组035 t3_cloud_v60_g2_035_00 模拟时间152.4秒，A倾85.0°，A液体513/B769/累计洒漏0，资格采集中；云Pro6000组036 t3_cloud_v60_g2_036_00 模拟时间38.9秒，A倾4.9°，A液体1290/B0/累计洒漏0，资格采集中；云Pro6000组034 t3_cloud_v60_g3_034_00 模拟时间128.0秒，A倾72.3°，A液体1262/B22/累计洒漏0，资格采集中；云Pro6000组035 t3_cloud_v60_g3_035_00 模拟时间154.0秒，A倾85.4°，A液体488/B798/累计洒漏0，资格采集中；云Pro6000组036 t3_cloud_v60_g3_036_00 模拟时间39.0秒，A倾5.1°，A液体1290/B0/累计洒漏0，资格采集中。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
+      "note": "正式完整验收8/100，还差92；100条及单次5分钟均未达到。035四路已严格证明旧发布零执行后，在数据所在Pro宿主恢复新唯一ID本地采集；036新四路已ROOT实际看12原图/241行门和四条signed7真实非mod120资格后继续，共8个本地outer+独立Native环境真实采集，0模型调用。最新32真EXACT：180tick整宏10.43–11.36秒、251tick移动14.44–15.74秒，前宏结束到新发布完成0.69–1.09秒；不再每宏跨网传前缀。037已单次提交4GPU×2并发独立Native环境（8seed），manager并发CPU测试/原签名brokerAST/60000MiB逐launch门通过，实际8环境与显存/吞吐等待验证，未当成已运行。Host006新360tick原hold使B1232/1290、洒漏0、原phase2通过，但原Native期限已到、归位未完，不计整条；034g2本地续采原11:02限，其他路状态独立核对。原物理/clock、B95%连续2秒、A原垫归位连续3秒和整条验收门不变。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -166,356 +166,7 @@
         "actual_native_ACT_policy": 0,
         "actual_native_DP_policy": 0
       },
-      "parallel_native_runs": [
-        {
-          "episode_id": "t3_cloud_v60_g0_034_00",
-          "host": "云Pro6000组034",
-          "source_kind": "actual_native_curobo_qualification",
-          "source_sha256": "f136458a23d131c9bdb692366515f8b2d6af6a42644bb8426d0d7b14e5dae19f",
-          "native_alive": true,
-          "native_process_state": "running",
-          "sim_s": 79.6,
-          "A_tilt_deg": 36.184273475354104,
-          "liquid_counts": {
-            "total": 1290,
-            "A": 1290,
-            "B": 0,
-            "outside_vessels": 0,
-            "in_transit": 0,
-            "spill": 0,
-            "currently_spilled_outside": 0
-          },
-          "safety_violation": false,
-          "model_requests": 0,
-          "executed_primitives": 63,
-          "last_request_status": null,
-          "internal_success": null,
-          "stop_reason": null,
-          "captured_epoch": 1792061764.6084785,
-          "controller_state": "active_or_qualifying",
-          "actively_collecting": true,
-          "collection_role": "source60_native_qualification"
-        },
-        {
-          "episode_id": "t3_cloud_v60_g0_035_00",
-          "host": "云Pro6000组035",
-          "source_kind": "actual_native_curobo_qualification",
-          "source_sha256": "f136458a23d131c9bdb692366515f8b2d6af6a42644bb8426d0d7b14e5dae19f",
-          "native_alive": true,
-          "native_process_state": "running",
-          "sim_s": 147.99166666666667,
-          "A_tilt_deg": 82.58847152345017,
-          "liquid_counts": {
-            "total": 1290,
-            "A": 724,
-            "B": 557,
-            "outside_vessels": 9,
-            "in_transit": 9,
-            "spill": 0,
-            "currently_spilled_outside": 0
-          },
-          "safety_violation": false,
-          "model_requests": 0,
-          "executed_primitives": 102,
-          "last_request_status": null,
-          "internal_success": null,
-          "stop_reason": null,
-          "captured_epoch": 1792061764.6244233,
-          "controller_state": "active_or_qualifying",
-          "actively_collecting": true,
-          "collection_role": "source60_native_qualification"
-        },
-        {
-          "episode_id": "t3_cloud_v60_g0_036_00",
-          "host": "云Pro6000组036",
-          "source_kind": "actual_native_curobo_qualification",
-          "source_sha256": "f136458a23d131c9bdb692366515f8b2d6af6a42644bb8426d0d7b14e5dae19f",
-          "native_alive": true,
-          "native_process_state": "running",
-          "sim_s": 38.95,
-          "A_tilt_deg": 5.003900411158442,
-          "liquid_counts": {
-            "total": 1290,
-            "A": 1290,
-            "B": 0,
-            "outside_vessels": 0,
-            "in_transit": 0,
-            "spill": 0,
-            "currently_spilled_outside": 0
-          },
-          "safety_violation": false,
-          "model_requests": 0,
-          "executed_primitives": 33,
-          "last_request_status": null,
-          "internal_success": null,
-          "stop_reason": null,
-          "captured_epoch": 1792061764.6422231,
-          "controller_state": "active_or_qualifying",
-          "actively_collecting": true,
-          "collection_role": "source60_native_qualification"
-        },
-        {
-          "episode_id": "t3_cloud_v60_g1_034_00",
-          "host": "云Pro6000组034",
-          "source_kind": "actual_native_curobo_qualification",
-          "source_sha256": "f136458a23d131c9bdb692366515f8b2d6af6a42644bb8426d0d7b14e5dae19f",
-          "native_alive": true,
-          "native_process_state": "running",
-          "sim_s": 74.99166666666666,
-          "A_tilt_deg": 33.98423010573597,
-          "liquid_counts": {
-            "total": 1290,
-            "A": 1290,
-            "B": 0,
-            "outside_vessels": 0,
-            "in_transit": 0,
-            "spill": 0,
-            "currently_spilled_outside": 0
-          },
-          "safety_violation": false,
-          "model_requests": 0,
-          "executed_primitives": 60,
-          "last_request_status": null,
-          "internal_success": null,
-          "stop_reason": null,
-          "captured_epoch": 1792061764.9185941,
-          "controller_state": "active_or_qualifying",
-          "actively_collecting": true,
-          "collection_role": "source60_native_qualification"
-        },
-        {
-          "episode_id": "t3_cloud_v60_g1_035_00",
-          "host": "云Pro6000组035",
-          "source_kind": "actual_native_curobo_qualification",
-          "source_sha256": "f136458a23d131c9bdb692366515f8b2d6af6a42644bb8426d0d7b14e5dae19f",
-          "native_alive": true,
-          "native_process_state": "running",
-          "sim_s": 149.99166666666667,
-          "A_tilt_deg": 83.57162506741221,
-          "liquid_counts": {
-            "total": 1290,
-            "A": 702,
-            "B": 581,
-            "outside_vessels": 7,
-            "in_transit": 7,
-            "spill": 0,
-            "currently_spilled_outside": 0
-          },
-          "safety_violation": false,
-          "model_requests": 0,
-          "executed_primitives": 103,
-          "last_request_status": null,
-          "internal_success": null,
-          "stop_reason": null,
-          "captured_epoch": 1792061764.9483256,
-          "controller_state": "active_or_qualifying",
-          "actively_collecting": true,
-          "collection_role": "source60_native_qualification"
-        },
-        {
-          "episode_id": "t3_cloud_v60_g1_036_00",
-          "host": "云Pro6000组036",
-          "source_kind": "actual_native_curobo_qualification",
-          "source_sha256": "f136458a23d131c9bdb692366515f8b2d6af6a42644bb8426d0d7b14e5dae19f",
-          "native_alive": true,
-          "native_process_state": "running",
-          "sim_s": 38.975,
-          "A_tilt_deg": 4.7445981043949175,
-          "liquid_counts": {
-            "total": 1290,
-            "A": 1290,
-            "B": 0,
-            "outside_vessels": 0,
-            "in_transit": 0,
-            "spill": 0,
-            "currently_spilled_outside": 0
-          },
-          "safety_violation": false,
-          "model_requests": 0,
-          "executed_primitives": 33,
-          "last_request_status": null,
-          "internal_success": null,
-          "stop_reason": null,
-          "captured_epoch": 1792061765.004724,
-          "controller_state": "active_or_qualifying",
-          "actively_collecting": true,
-          "collection_role": "source60_native_qualification"
-        },
-        {
-          "episode_id": "t3_cloud_v60_g2_034_00",
-          "host": "云Pro6000组034",
-          "source_kind": "actual_native_curobo_qualification",
-          "source_sha256": "f136458a23d131c9bdb692366515f8b2d6af6a42644bb8426d0d7b14e5dae19f",
-          "native_alive": true,
-          "native_process_state": "running",
-          "sim_s": 156.04166666666666,
-          "A_tilt_deg": 85.29213364223487,
-          "liquid_counts": {
-            "total": 1290,
-            "A": 494,
-            "B": 785,
-            "outside_vessels": 11,
-            "in_transit": 11,
-            "spill": 0,
-            "currently_spilled_outside": 0
-          },
-          "safety_violation": false,
-          "model_requests": 0,
-          "executed_primitives": 107,
-          "last_request_status": null,
-          "internal_success": null,
-          "stop_reason": null,
-          "captured_epoch": 1792061765.4114692,
-          "controller_state": "retained_awaiting_owner",
-          "actively_collecting": false,
-          "collection_role": "source60_native_qualification"
-        },
-        {
-          "episode_id": "t3_cloud_v60_g2_035_00",
-          "host": "云Pro6000组035",
-          "source_kind": "actual_native_curobo_qualification",
-          "source_sha256": "f136458a23d131c9bdb692366515f8b2d6af6a42644bb8426d0d7b14e5dae19f",
-          "native_alive": true,
-          "native_process_state": "running",
-          "sim_s": 152.45,
-          "A_tilt_deg": 85.04875406775245,
-          "liquid_counts": {
-            "total": 1290,
-            "A": 513,
-            "B": 769,
-            "outside_vessels": 8,
-            "in_transit": 8,
-            "spill": 0,
-            "currently_spilled_outside": 0
-          },
-          "safety_violation": false,
-          "model_requests": 0,
-          "executed_primitives": 105,
-          "last_request_status": null,
-          "internal_success": null,
-          "stop_reason": null,
-          "captured_epoch": 1792061765.4304852,
-          "controller_state": "active_or_qualifying",
-          "actively_collecting": true,
-          "collection_role": "source60_native_qualification"
-        },
-        {
-          "episode_id": "t3_cloud_v60_g2_036_00",
-          "host": "云Pro6000组036",
-          "source_kind": "actual_native_curobo_qualification",
-          "source_sha256": "f136458a23d131c9bdb692366515f8b2d6af6a42644bb8426d0d7b14e5dae19f",
-          "native_alive": true,
-          "native_process_state": "running",
-          "sim_s": 38.925,
-          "A_tilt_deg": 4.896618590884816,
-          "liquid_counts": {
-            "total": 1290,
-            "A": 1290,
-            "B": 0,
-            "outside_vessels": 0,
-            "in_transit": 0,
-            "spill": 0,
-            "currently_spilled_outside": 0
-          },
-          "safety_violation": false,
-          "model_requests": 0,
-          "executed_primitives": 33,
-          "last_request_status": null,
-          "internal_success": null,
-          "stop_reason": null,
-          "captured_epoch": 1792061765.4519463,
-          "controller_state": "active_or_qualifying",
-          "actively_collecting": true,
-          "collection_role": "source60_native_qualification"
-        },
-        {
-          "episode_id": "t3_cloud_v60_g3_034_00",
-          "host": "云Pro6000组034",
-          "source_kind": "actual_native_curobo_qualification",
-          "source_sha256": "f136458a23d131c9bdb692366515f8b2d6af6a42644bb8426d0d7b14e5dae19f",
-          "native_alive": true,
-          "native_process_state": "running",
-          "sim_s": 127.99166666666666,
-          "A_tilt_deg": 72.34692694386271,
-          "liquid_counts": {
-            "total": 1290,
-            "A": 1262,
-            "B": 22,
-            "outside_vessels": 6,
-            "in_transit": 6,
-            "spill": 0,
-            "currently_spilled_outside": 0
-          },
-          "safety_violation": false,
-          "model_requests": 0,
-          "executed_primitives": 91,
-          "last_request_status": null,
-          "internal_success": null,
-          "stop_reason": null,
-          "captured_epoch": 1792061765.7678845,
-          "controller_state": "active_or_qualifying",
-          "actively_collecting": true,
-          "collection_role": "source60_native_qualification"
-        },
-        {
-          "episode_id": "t3_cloud_v60_g3_035_00",
-          "host": "云Pro6000组035",
-          "source_kind": "actual_native_curobo_qualification",
-          "source_sha256": "f136458a23d131c9bdb692366515f8b2d6af6a42644bb8426d0d7b14e5dae19f",
-          "native_alive": true,
-          "native_process_state": "running",
-          "sim_s": 153.99166666666667,
-          "A_tilt_deg": 85.39788152520859,
-          "liquid_counts": {
-            "total": 1290,
-            "A": 488,
-            "B": 798,
-            "outside_vessels": 4,
-            "in_transit": 4,
-            "spill": 0,
-            "currently_spilled_outside": 0
-          },
-          "safety_violation": false,
-          "model_requests": 0,
-          "executed_primitives": 105,
-          "last_request_status": null,
-          "internal_success": null,
-          "stop_reason": null,
-          "captured_epoch": 1792061765.783513,
-          "controller_state": "active_or_qualifying",
-          "actively_collecting": true,
-          "collection_role": "source60_native_qualification"
-        },
-        {
-          "episode_id": "t3_cloud_v60_g3_036_00",
-          "host": "云Pro6000组036",
-          "source_kind": "actual_native_curobo_qualification",
-          "source_sha256": "f136458a23d131c9bdb692366515f8b2d6af6a42644bb8426d0d7b14e5dae19f",
-          "native_alive": true,
-          "native_process_state": "running",
-          "sim_s": 38.99166666666667,
-          "A_tilt_deg": 5.086858811673822,
-          "liquid_counts": {
-            "total": 1290,
-            "A": 1290,
-            "B": 0,
-            "outside_vessels": 0,
-            "in_transit": 0,
-            "spill": 0,
-            "currently_spilled_outside": 0
-          },
-          "safety_violation": false,
-          "model_requests": 0,
-          "executed_primitives": 33,
-          "last_request_status": null,
-          "internal_success": null,
-          "stop_reason": null,
-          "captured_epoch": 1792061765.8048317,
-          "controller_state": "active_or_qualifying",
-          "actively_collecting": true,
-          "collection_role": "source60_native_qualification"
-        }
-      ],
+      "parallel_native_runs": [],
       "native_initial_images": [
         {
           "view": "新版场景复核 · 头部视角",
@@ -578,7 +229,7 @@
       "sim_s": null,
       "executed": 0,
       "unknown_usage": null,
-      "updated_at": "2026-10-15T10:36:22.556166+00:00",
+      "updated_at": "2026-10-15T10:57:42.825989+00:00",
       "latest_failed": null,
       "note": "新原Shelf7左右双瓶原生241步通过，ROOT实际head/third两瓶可见，chest仍裁切。保留结果但视觉不放行；按用户要求暂停扩展，优先T3。 DP、ACT 训练的数据资格独立核验。",
       "legacy": {
@@ -720,7 +371,7 @@
     "video_fps": 15,
     "acceptance": "完整有序物理过程、释放稳定、安全与不变约束、真实模型响应来源、已知用量及预算、三路完整视频均通过后，才计入整条验收。"
   },
-  "program_revision": "2026-10-15T10:36:22.556166+00:00",
+  "program_revision": "2026-10-15T10:57:42.825989+00:00",
   "fleet": [
     {
       "host": "liyufeng_4090",
@@ -730,7 +381,7 @@
     {
       "host": "5090",
       "role": "采集与测试",
-      "status": "006保留同Native，最后p122真实240tick完整，A62/B1224/1290、0spill、phase1（差95%门2粒），准备新独立hold360后复查原连续2秒门；005r1原期限已到、closed未完成。"
+      "status": "006新独立hold360完整，原phase2真实通过B1232/1290、0洒漏；原期限自然closed、归位未完，正式不计成功，记录保留。005r1同样closed未完整。"
     },
     {
       "host": "Pro6000",
@@ -750,7 +401,7 @@
     {
       "host": "aliyun",
       "role": "DP / ACT 训练",
-      "status": "ACT真实2000/2000完成，末loss0.0831857；DP顺序已700/2000、末loss0.144771（10:35:55UTC），5个已封存checkpoint正下载CPU留出查询。没有Native策略或泛化验收。"
+      "status": "ACT2000已完成，DP1800/2000仍按原限额顺序训练；已做多milestone留出CPU查询，仍未获得Native策略成功/泛化验收。"
     },
     {
       "host": "云Pro6000四路",
@@ -845,12 +496,22 @@
     {
       "host": "云Pro6000新四路035",
       "role": "T3独立seed参考策略采集",
-      "status": "4个Native仍在原期限，actor均因pub结果未明保守停止；宏58/59/62/62，旧队列/ACK/trace正核对，无FAIL初步仍phase1。下一唯一ID须严格旧结果证明，不声称活动采集。"
+      "status": "4个原Native已新exclusive本地outer恢复，真实推进至reference94–97、A倾76–79°、B188/203/345/389且0洒漏（10:53左右），phase1仍不计整条；原未知请求保留且未重试。"
+    },
+    {
+      "host": "云Pro6000四路036",
+      "role": "T3本地outer独立seed采集",
+      "status": "job-u5ass974nn7y已RUNNING，ROOT12原图/241行与四条真实signed7合格，本地actor四路执行并均已过提杯phase1。无整条新增。"
+    },
+    {
+      "host": "云Pro6000四卡双环境037",
+      "role": "T3每卡2环境并发试验",
+      "status": "单次POST operation weg3pjsbvk14uiygxc22y8ef9已接收，4GPU×2独立Native进程/seed，总8环境；仅CPU/部署通过，真实8并发/显存和吞吐等待确认。"
     }
   ],
   "training": {
-    "dp": "官方DP同固定5条/相同4+1划分，在ACT结束后同Ali GPU2顺序实际训练；10:35:55UTC已700/2000连续有限loss，末loss0.144771，500step checkpoint已封存。10%显存分配限额与5秒自有PID监测，不操作外部进程；留出CPU评估进行中，尚无Native rollout/泛化。",
-    "act": "官方ACT固定5条正式数据（4训练/1完整seed留出）真实2000/2000步训练完成，2538.41秒/42.31分钟，guardian rc0；2000连续有限loss，末loss0.0831857，4个checkpoint已封存并进行留出CPU评估。尚无Native策略rollout或泛化验收。",
+    "dp": "DP在ACT结束后同AliGPU2顺序训练，10:56最新1800/2000连续有限步、末loss0.0380819；500/1000/1500已做36×3留出CPU查询，误差仍明显高于保持当前位置基线。正在按原2000上限自然收尾，尚无Native rollout/泛化。",
+    "act": "ACT真实2000/2000训练完成，42.31分钟、末loss0.0831857；4个封存checkpoint已做48留出查询，ACT500/1500中位优于保持关节基线，但ACT2000并非最好，初始/末段个别误差仍大，不是策略任务通过。ACT500新RGBv2 adapter的36原MP4帧/12模型查询与原训练输入/预测逐元素一致；未做Native rollout或泛化。",
     "launched_jobs": 5
   },
   "generalization": {
