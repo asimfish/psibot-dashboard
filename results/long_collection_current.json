@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-15T23:00:51.308252+00:00",
-  "source_updated_at": "2026-10-15T23:00:41.628021+00:00",
+  "published_at": "2026-10-15T23:02:57.036793+00:00",
+  "source_updated_at": "2026-10-15T23:02:56.698786+00:00",
   "tasks": [
     {
       "task": "T3",
       "title": "三阶段倒液与原垫归位",
-      "accepted_count": 18,
+      "accepted_count": 19,
       "accepted_records": [
         {
           "run": "t3_host_v60_local4090_curobo_001",
@@ -169,6 +169,15 @@
           "proof_sha256": "4f039e3b2e52985d79524e1bee157156cec2f5e048060c5dfc5eeb8c680ebfae",
           "audit_sha256": "2c33f6388dbc7939d65412c80f98384051aaaa61086c36d7cb0c3810ad68fb3d",
           "at": "2026-10-15T22:02:41.352016+00:00"
+        },
+        {
+          "run": "t3_host_v61_local4090_nvme_004",
+          "source_kind": "actual_native_curobo_qualification",
+          "sim_s": 305.21666666666664,
+          "executed": 0,
+          "proof_sha256": "0cd38cb9c6bef831c522f0b626ec867f873a1494f3f936687611b8f81984327f",
+          "audit_sha256": "af9d4d58b4478e3c776af1af3171c38b2368a8b53b6a2686dc826266d2590c65",
+          "at": "2026-10-15T23:01:13.988208+00:00"
         }
       ],
       "phases": [
@@ -200,14 +209,14 @@
       "phase_basis": "当前版本整条独立物理、来源、视频及ROOT实图验收",
       "whole_accepted": true,
       "state": "accepted",
-      "run": "t3_cloud_v61_g2_069_00",
-      "sim_s": 308.6666666666667,
+      "run": "t3_host_v61_local4090_nvme_004",
+      "sim_s": 305.21666666666664,
       "executed": 0,
       "unknown_usage": 0,
       "latest_failed": null,
       "native_alive": false,
-      "updated_at": "2026-10-15T22:02:41.352016+00:00",
-      "note": "正式完整轨迹验收18/100，还差82。主机控制器0路（含4090与新5090）、云端控制器32路实际运行；云端已观测28卡、47个Native环境。061批 closed_preserved_evidence：Native环境0/8、初始准入8/8、控制器0路；062批 closed_preserved_evidence：Native环境0/8、初始准入8/8、控制器0路；063批 closed_preserved_evidence：Native环境0/8、初始准入8/8、控制器0路；064批 closed_preserved_evidence：Native环境0/8、初始准入8/8、控制器0路；065批 closed_preserved_evidence：Native环境0/8、初始准入8/8、控制器0路；066批 closed_preserved_evidence：Native环境0/8、初始准入8/8、控制器0路；067批 closed_preserved_evidence：Native环境0/8、初始准入8/8、控制器0路；068批 closed_preserved_evidence：Native环境0/8、初始准入8/8、控制器0路；069批 closed_preserved_evidence：Native环境0/8、初始准入8/8、控制器0路；070批 paused_worlds_preserved_for_recovery：Native环境4/4、初始准入4/4、控制器0路；071批 paused_worlds_preserved_for_recovery：Native环境4/4、初始准入4/4、控制器0路；072批 collecting：Native环境7/8、初始准入8/8、控制器2路；073批 collecting：Native环境8/8、初始准入8/8、控制器8路；074批 collecting：Native环境8/8、初始准入8/8、控制器8路；075批 collecting：Native环境8/8、初始准入8/8、控制器8路；076批 collecting：Native环境8/8、初始准入8/8、控制器6路。061已封存的环境不计运行；063/064/065三批计划共12卡24环境，实际运行以各批新鲜Native证据计数，各新场景必须独立通过3视角、241行及布局准入。阶段完成和命令执行不计整条成功，仍须原始120Hz物理/控制/粒子记录、三视频、九张阶段图复核及去重。Source60是固定位置诊断；Source61仅整套布局±20毫米XY平移，独立杯间距和朝向泛化尚未证明。归位短步及姿态偏移仍在验证；CPU候选通过不代表Native路径通过。端到端5分钟未达到。5090转发CLI接口已恢复。 耗时实测：当前模型调用为0；物理仿真及录像是主要耗时。已核实云066一条轨迹的51动作采样中，指令窗口等待共152.9秒，占779.9秒采样时长的19.6%；正在验证改进，尚未声称提速。 071为独立窗口实验：同一Native至少3次完整执行计时后，最多12次按实测余量缩短等待；未知执行停止，原Native期限、物理及整条验收保持。尚未证实批次提速。 本机4090新003：closed_preserved_evidence；旧002已因资源守护关闭并保留未验收数据。065g2r3及066稳定性接续按原Native实际状态展示；执行到末尾仍未触发原完成条件时继续记停止，不能计成功。 072新增4卡×2环境共8个独立seed，包含一致快照读取及已正式验收轨迹使用的回正目标候选；仅g3slot1在新Native启动时启用cProfile，仍按原全部验收标准。该GPU同时运行2环境且有profiling开销，不作为单环境速度对照；尚无每tick归因或5分钟完成结论。Root接续按最新状态、精确控制器进程身份和同一Native绑定显示，停止与阶段完成均不增加正式条数。 073、074各计划4卡×2环境、8个新位置seed，保持072控制与原验收标准且不再重复profiling；只有新鲜job状态及真实Native身份才计运行。4090新004：closed_preserved_evidence；003已关闭，旧数据保留且不计验收。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
+      "updated_at": "2026-10-15T23:01:13.988208+00:00",
+      "note": "正式完整轨迹验收19/100，还差81。主机控制器0路（含4090与新5090）、云端控制器26路实际运行；云端已观测32卡、59个Native环境。061批 closed_preserved_evidence：Native环境0/8、初始准入8/8、控制器0路；062批 closed_preserved_evidence：Native环境0/8、初始准入8/8、控制器0路；063批 closed_preserved_evidence：Native环境0/8、初始准入8/8、控制器0路；064批 closed_preserved_evidence：Native环境0/8、初始准入8/8、控制器0路；065批 closed_preserved_evidence：Native环境0/8、初始准入8/8、控制器0路；066批 closed_preserved_evidence：Native环境0/8、初始准入8/8、控制器0路；067批 closed_preserved_evidence：Native环境0/8、初始准入8/8、控制器0路；068批 closed_preserved_evidence：Native环境0/8、初始准入8/8、控制器0路；069批 closed_preserved_evidence：Native环境0/8、初始准入8/8、控制器0路；070批 closed_preserved_evidence：Native环境0/4、初始准入4/4、控制器0路；071批 paused_worlds_preserved_for_recovery：Native环境4/4、初始准入4/4、控制器0路；072批 collecting：Native环境7/8、初始准入8/8、控制器2路；073批 collecting：Native环境8/8、初始准入8/8、控制器6路；074批 collecting：Native环境8/8、初始准入8/8、控制器4路；075批 collecting：Native环境8/8、初始准入8/8、控制器8路；076批 collecting：Native环境8/8、初始准入8/8、控制器6路；077批 native_preparing_or_awaiting_initial_review：Native环境8/8、初始准入0/8、控制器0路；078批 native_preparing_or_awaiting_initial_review：Native环境8/8、初始准入0/8、控制器0路。061已封存的环境不计运行；063/064/065三批计划共12卡24环境，实际运行以各批新鲜Native证据计数，各新场景必须独立通过3视角、241行及布局准入。阶段完成和命令执行不计整条成功，仍须原始120Hz物理/控制/粒子记录、三视频、九张阶段图复核及去重。Source60是固定位置诊断；Source61仅整套布局±20毫米XY平移，独立杯间距和朝向泛化尚未证明。归位短步及姿态偏移仍在验证；CPU候选通过不代表Native路径通过。端到端5分钟未达到。5090转发CLI接口已恢复。 耗时实测：当前模型调用为0；物理仿真及录像是主要耗时。已核实云066一条轨迹的51动作采样中，指令窗口等待共152.9秒，占779.9秒采样时长的19.6%；正在验证改进，尚未声称提速。 071为独立窗口实验：同一Native至少3次完整执行计时后，最多12次按实测余量缩短等待；未知执行停止，原Native期限、物理及整条验收保持。尚未证实批次提速。 本机4090新003：closed_preserved_evidence；旧002已因资源守护关闭并保留未验收数据。065g2r3及066稳定性接续按原Native实际状态展示；执行到末尾仍未触发原完成条件时继续记停止，不能计成功。 072新增4卡×2环境共8个独立seed，包含一致快照读取及已正式验收轨迹使用的回正目标候选；仅g3slot1在新Native启动时启用cProfile，仍按原全部验收标准。该GPU同时运行2环境且有profiling开销，不作为单环境速度对照；尚无每tick归因或5分钟完成结论。Root接续按最新状态、精确控制器进程身份和同一Native绑定显示，停止与阶段完成均不增加正式条数。 073、074各计划4卡×2环境、8个新位置seed，保持072控制与原验收标准且不再重复profiling；只有新鲜job状态及真实Native身份才计运行。4090新004：closed_preserved_evidence；003已关闭，旧数据保留且不计验收。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -252,7 +261,7 @@
         "actual_Astra_xhigh_teacher": 0,
         "actual_Astra_mixed_teacher": 0,
         "actual_local_Qwen_experimental_teacher": 0,
-        "actual_native_curobo_qualification": 18,
+        "actual_native_curobo_qualification": 19,
         "actual_native_ACT_policy": 0,
         "actual_native_DP_policy": 0
       },
@@ -319,7 +328,7 @@
       "sim_s": null,
       "executed": 0,
       "unknown_usage": null,
-      "updated_at": "2026-10-15T23:00:41.628021+00:00",
+      "updated_at": "2026-10-15T23:02:56.698786+00:00",
       "latest_failed": null,
       "note": "新原Shelf7左右双瓶原生241步通过，ROOT实际head/third两瓶可见，chest仍裁切。保留结果但视觉不放行；按用户要求暂停扩展，优先T3。 DP、ACT 训练的数据资格独立核验。",
       "legacy": {
@@ -445,7 +454,7 @@
   "totals": {
     "accepted_tasks": 1,
     "required_tasks": 3,
-    "accepted_episodes": 18
+    "accepted_episodes": 19
   },
   "next": {
     "task": "T5",
@@ -461,7 +470,7 @@
     "video_fps": 15,
     "acceptance": "完整有序物理过程、释放稳定、安全与不变约束、真实模型响应来源、已知用量及预算、三路完整视频均通过后，才计入整条验收。"
   },
-  "program_revision": "2026-10-15T23:00:41.628021+00:00",
+  "program_revision": "2026-10-15T23:02:56.698786+00:00",
   "fleet": [
     {
       "host": "liyufeng_4090",
@@ -541,7 +550,7 @@
     {
       "host": "云Pro6000四卡单环境070",
       "role": "T3每卡1环境吞吐对照与完整验收",
-      "status": "job-7z76mxv04v2e：paused_worlds_preserved_for_recovery；Native环境4/4、已准入4/4、控制器0路、正式验收0条。"
+      "status": "job-7z76mxv04v2e：closed_preserved_evidence；Native环境0/4、已准入4/4、控制器0路、正式验收0条。"
     },
     {
       "host": "云Pro6000四卡单环境071",
@@ -556,12 +565,12 @@
     {
       "host": "云Pro6000四卡双环境073",
       "role": "T3位置变化采集与完整验收",
-      "status": "job-jhhmrqa7unta：collecting；Native环境8/8、已准入8/8、控制器8路、正式验收0条。"
+      "status": "job-jhhmrqa7unta：collecting；Native环境8/8、已准入8/8、控制器6路、正式验收0条。"
     },
     {
       "host": "云Pro6000四卡双环境074",
       "role": "T3位置变化采集与完整验收",
-      "status": "job-sdpfgja1tiec：collecting；Native环境8/8、已准入8/8、控制器8路、正式验收0条。"
+      "status": "job-sdpfgja1tiec：collecting；Native环境8/8、已准入8/8、控制器4路、正式验收0条。"
     },
     {
       "host": "云Pro6000四卡双环境075",
@@ -572,6 +581,16 @@
       "host": "云Pro6000四卡双环境076",
       "role": "T3位置变化采集与完整验收",
       "status": "job-wkk14jhmzbni：collecting；Native环境8/8、已准入8/8、控制器6路、正式验收0条。"
+    },
+    {
+      "host": "云Pro6000四卡双环境077",
+      "role": "T3位置变化采集与完整验收",
+      "status": "job-0y6s7kto9bpp：native_preparing_or_awaiting_initial_review；Native环境8/8、已准入0/8、控制器0路、正式验收0条。"
+    },
+    {
+      "host": "云Pro6000四卡双环境078",
+      "role": "T3位置变化采集与完整验收",
+      "status": "job-opt72wupbc56：native_preparing_or_awaiting_initial_review；Native环境8/8、已准入0/8、控制器0路、正式验收0条。"
     }
   ],
   "training": {
