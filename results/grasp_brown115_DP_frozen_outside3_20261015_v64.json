@@ -1,0 +1,111 @@
+{
+  "schema": "grasp.brown115.frozen_outside3.development.v64",
+  "updated_utc": "2026-10-15T11:03:59.727591+00:00",
+  "runs": [
+    {
+      "candidate": "t500-brown250-dp-s26102115-frozen-outside3-v64",
+      "display_name": "DP · 原3000轮EMA · seed26102115 · 范围外3点0/3",
+      "object": "brown_volumetric_flask_250ml",
+      "development": true,
+      "current_native": true,
+      "paper_ssr_percent": null,
+      "progress": {
+        "episode_num": 3,
+        "episode_success_num": 0,
+        "success_rate": 0.0
+      },
+      "cases": [
+        {
+          "episode": 1,
+          "camera": "chest_camera",
+          "success": false,
+          "url": "media/grasp-brown115-dp-frozen-outside3-v64/episode_001_chest_camera.mp4",
+          "caption": "原DP seed26102115 · 范围外第1点 · 失败；视频编码时长5.13秒，实际物理轨迹20.43秒。完整视觉及论文SSR未通过。"
+        },
+        {
+          "episode": 1,
+          "camera": "head_camera",
+          "success": false,
+          "url": "media/grasp-brown115-dp-frozen-outside3-v64/episode_001_head_camera.mp4",
+          "caption": "原DP seed26102115 · 范围外第1点 · 失败；视频编码时长5.13秒，实际物理轨迹20.43秒。完整视觉及论文SSR未通过。"
+        },
+        {
+          "episode": 1,
+          "camera": "third_camera",
+          "success": false,
+          "url": "media/grasp-brown115-dp-frozen-outside3-v64/episode_001_third_camera.mp4",
+          "caption": "原DP seed26102115 · 范围外第1点 · 失败；视频编码时长5.13秒，实际物理轨迹20.43秒。完整视觉及论文SSR未通过。"
+        },
+        {
+          "episode": 2,
+          "camera": "chest_camera",
+          "success": false,
+          "url": "media/grasp-brown115-dp-frozen-outside3-v64/episode_002_chest_camera.mp4",
+          "caption": "原DP seed26102115 · 范围外第2点 · 失败；视频编码时长5.97秒，实际物理轨迹23.87秒。完整视觉及论文SSR未通过。"
+        },
+        {
+          "episode": 2,
+          "camera": "head_camera",
+          "success": false,
+          "url": "media/grasp-brown115-dp-frozen-outside3-v64/episode_002_head_camera.mp4",
+          "caption": "原DP seed26102115 · 范围外第2点 · 失败；视频编码时长5.97秒，实际物理轨迹23.87秒。完整视觉及论文SSR未通过。"
+        },
+        {
+          "episode": 2,
+          "camera": "third_camera",
+          "success": false,
+          "url": "media/grasp-brown115-dp-frozen-outside3-v64/episode_002_third_camera.mp4",
+          "caption": "原DP seed26102115 · 范围外第2点 · 失败；视频编码时长5.97秒，实际物理轨迹23.87秒。完整视觉及论文SSR未通过。"
+        },
+        {
+          "episode": 3,
+          "camera": "chest_camera",
+          "success": false,
+          "url": "media/grasp-brown115-dp-frozen-outside3-v64/episode_003_chest_camera.mp4",
+          "caption": "原DP seed26102115 · 范围外第3点 · 失败；视频编码时长5.97秒，实际物理轨迹23.87秒。完整视觉及论文SSR未通过。"
+        },
+        {
+          "episode": 3,
+          "camera": "head_camera",
+          "success": false,
+          "url": "media/grasp-brown115-dp-frozen-outside3-v64/episode_003_head_camera.mp4",
+          "caption": "原DP seed26102115 · 范围外第3点 · 失败；视频编码时长5.97秒，实际物理轨迹23.87秒。完整视觉及论文SSR未通过。"
+        },
+        {
+          "episode": 3,
+          "camera": "third_camera",
+          "success": false,
+          "url": "media/grasp-brown115-dp-frozen-outside3-v64/episode_003_third_camera.mp4",
+          "caption": "原DP seed26102115 · 范围外第3点 · 失败；视频编码时长5.97秒，实际物理轨迹23.87秒。完整视觉及论文SSR未通过。"
+        }
+      ],
+      "protocol": {
+        "method": "dp",
+        "seed": 26102786,
+        "episode_length_s": 6,
+        "range_label": "范围外冻结3点（4/5/6cm档）",
+        "duration_label": "配置6秒；实测20.43 / 23.87 / 23.87物理秒",
+        "checkpoint_sha256": "ed54e9e05bc2d25d791f0c31079ad84a9b77b6d0b4d36809f0baec2737f65b99",
+        "collection_gpu_model": "RPBZZZ6",
+        "test_gpu_model": "RTX5090",
+        "note": "原100条训练实际±2cm；这3个开发位置均在±3cm外。保留一条提前失败和两条超时；正式冻结测试未使用。采集与测试GPU型号不同，不能用这3点评定论文成功率。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": 26102115
+        },
+        "last": {
+          "epoch": 3000,
+          "global_step": 402000
+        }
+      },
+      "metric_note": "三个范围外开发位置0/3；已完整解码九视频1536帧，实际查看54张时间抽样图。重置后旧动作继续执行的边界正在修复；全轨迹视觉、穿模排除和论文Spatial SSR均未通过。媒体按30fps编码，实际新策略观测7.5Hz，播放时长不能当物理时长。"
+    }
+  ],
+  "formal_accepted": false,
+  "paper_ssr": null,
+  "full_visual_passed": false
+}
