@@ -1,6 +1,6 @@
 {
   "schema": "grasp.progress_snapshot.v1",
-  "updated_utc": "2026-10-15T11:03:59.727591+00:00",
+  "updated_utc": "2026-10-16T12:24:14.298316+00:00",
   "update_mode": "Each training row retains actual receipt time; all6 recovered DP have observed updates; 4 finalDP CPU/SSD gates and 3 new ACT full-state durable gates passed.",
   "totals": {
     "productive_training_runs": 92,
@@ -8,20 +8,20 @@
     "ACT": 45,
     "formal_accepted_objects": 0,
     "paper_objects": 21,
-    "active_training_runs": 8,
-    "completed_training_runs": 81,
+    "active_training_runs": 5,
+    "completed_training_runs": 84,
     "queued_training_candidates": 0,
-    "interrupted_training_runs": 2,
-    "completed_DP_training_runs": 36,
+    "interrupted_training_runs": 3,
+    "completed_DP_training_runs": 39,
     "completed_ACT_training_runs": 45,
     "recovering_training_runs": 0,
     "formal_accepted_methods": 0,
-    "counts_scope": "92个实际训练身份：81份完整预算CPU核验权重（79正常退出、2保留退出码1）、8路原DP训练、1路原检查点保存、2个历史中断。训练产物不计正式验收。",
+    "counts_scope": "按实际训练身份去重：完整预算权重、当前续训与中断分别列示；Main保存迟到的最终权重已重新CPU核验，退出异常仍保留。训练完成不计验收。",
     "closed_training_pending_final_qualification": 0,
-    "actual_training_phase_runs": 8,
-    "final_checkpoint_drain_runs": 1,
+    "actual_training_phase_runs": 5,
+    "final_checkpoint_drain_runs": 0,
     "clean_exit_completed_training_runs": 79,
-    "completed_with_exit_exception_runs": 2
+    "completed_with_exit_exception_runs": 5
   },
   "training": [
     {
@@ -1582,19 +1582,19 @@
       "method": "DP",
       "object": "glass_beaker_100ml",
       "seed": 26102051,
-      "state": "原预算训练进行中",
+      "state": "3000轮最终权重已重新CPU核验；保留退出异常",
       "epochs_target": 3000,
-      "sampled_utc": "2026-10-15T10:54:51.982105+00:00",
+      "sampled_utc": "2026-10-16T12:21:50.471664+00:00",
       "formal_accepted": false,
-      "raw_status": "running",
-      "active_productive": true,
-      "completed_training": false,
+      "raw_status": "closed_CPUqualified_with_exit_exception",
+      "active_productive": false,
+      "completed_training": true,
       "actual_source_fullSHA_unchanged": true,
-      "status_note": "原种子与完整预算保持；训练完成仍需独立核验及原生评测。",
+      "status_note": "最终文件完整SHA及模型/EMA/优化器有限性重新核验通过；原写线程退出异常仍保留，不需要重训。",
       "source_adoption_gate_SHA256": "ea288b797524f4f80f9dc0033f106499b72fff0909b8dcf03e4074439a427bd4",
       "train_loss": 0.0004884551162831485,
-      "global_step": 344389,
-      "epoch": 2570,
+      "global_step": 402000,
+      "epoch": 3000,
       "original_saved_counters": {
         "epoch": 500,
         "global_step": 67134
@@ -1604,7 +1604,9 @@
       "lr": 1.5094362329942628e-05,
       "checkpoint_transport": "private_Ali_persistent_SSD_two_phase_CPU_verified",
       "source_receipt_SHA256": "2544d8094b47b80cbd4931bb3de81966e5f8d2d5a847942d1c4f327d426dcbea",
-      "actual_exit_code": null
+      "actual_exit_code": 1,
+      "actual_phase": "closed_CPUqualified_with_exit_exception",
+      "final_CPU_qualified_checkpoint_SHA256": "8d22d323c9e6cec65dee05beac21f5060a90b95117b6bcff8a393ddaeb02bfbe"
     },
     {
       "host": "mainskill",
@@ -1613,19 +1615,19 @@
       "method": "DP",
       "object": "glass_beaker_100ml",
       "seed": 26102053,
-      "state": "原预算训练进行中",
+      "state": "3000轮最终权重已重新CPU核验；保留退出异常",
       "epochs_target": 3000,
-      "sampled_utc": "2026-10-15T10:54:51.982105+00:00",
+      "sampled_utc": "2026-10-16T12:21:50.471664+00:00",
       "formal_accepted": false,
-      "raw_status": "running",
-      "active_productive": true,
-      "completed_training": false,
+      "raw_status": "closed_CPUqualified_with_exit_exception",
+      "active_productive": false,
+      "completed_training": true,
       "actual_source_fullSHA_unchanged": true,
-      "status_note": "原种子与完整预算保持；训练完成仍需独立核验及原生评测。",
+      "status_note": "最终文件完整SHA及模型/EMA/优化器有限性重新核验通过；原写线程退出异常仍保留，不需要重训。",
       "source_adoption_gate_SHA256": "ea288b797524f4f80f9dc0033f106499b72fff0909b8dcf03e4074439a427bd4",
       "train_loss": 0.0005961369024589658,
-      "global_step": 334931,
-      "epoch": 2499,
+      "global_step": 402000,
+      "epoch": 3000,
       "original_saved_counters": {
         "epoch": 550,
         "global_step": 73834
@@ -1635,7 +1637,9 @@
       "lr": 2.0333239217912623e-05,
       "checkpoint_transport": "private_Ali_persistent_SSD_two_phase_CPU_verified",
       "source_receipt_SHA256": "2544d8094b47b80cbd4931bb3de81966e5f8d2d5a847942d1c4f327d426dcbea",
-      "actual_exit_code": null
+      "actual_exit_code": 1,
+      "actual_phase": "closed_CPUqualified_with_exit_exception",
+      "final_CPU_qualified_checkpoint_SHA256": "35b66e14f3e0836c1affd8017100bab31dddc9f7d97359af8cab060c0e89b33b"
     },
     {
       "host": "mainskill",
@@ -1644,15 +1648,15 @@
       "method": "DP",
       "object": "glass_beaker_100ml",
       "seed": 26102055,
-      "state": "完整3000轮权重已核验；退出异常保留",
+      "state": "3000轮最终权重已重新CPU核验；保留退出异常",
       "epochs_target": 3000,
-      "sampled_utc": "2026-10-15T06:14:01.781840+00:00",
+      "sampled_utc": "2026-10-16T12:21:50.471664+00:00",
       "formal_accepted": false,
       "raw_status": "closed_CPUqualified_with_exit_exception",
       "active_productive": false,
       "completed_training": true,
       "actual_source_fullSHA_unchanged": true,
-      "status_note": "2,807,316,613字节已持久化；模型、EMA、优化器独立CPU核验通过。原写线程关闭异常、进程退出码1保留，不记正常退出。",
+      "status_note": "最终文件完整SHA及模型/EMA/优化器有限性重新核验通过；原写线程退出异常仍保留，不需要重训。",
       "source_adoption_gate_SHA256": "ea288b797524f4f80f9dc0033f106499b72fff0909b8dcf03e4074439a427bd4",
       "train_loss": null,
       "global_step": 402000,
@@ -1822,16 +1826,16 @@
       "epochs_target": 3000,
       "formal_accepted": false,
       "paper_ssr": null,
-      "epoch": 2614,
-      "global_step": 347724,
+      "epoch": 3000,
+      "global_step": 399000,
       "train_loss": 0.0004678019613493234,
-      "sampled_utc": "2026-10-15T11:02:12.187043+00:00",
+      "sampled_utc": "2026-10-16T12:21:50.471664+00:00",
       "gpu_uuid": "GPU-13622178-b7d1-6d74-af69-8aa49fd27da2",
-      "state": "从2300轮完整状态恢复后继续训练",
-      "completed_training": false,
-      "active_productive": true,
-      "raw_status": "running",
-      "status_note": "模型、EMA、优化器及全局随机状态逐项恢复并已产生更新；此前2999轮未保存更新不算已恢复，数据加载器工作线程轨迹不声称精确。",
+      "state": "3000轮最终权重已重新CPU核验；保留退出异常",
+      "completed_training": true,
+      "active_productive": false,
+      "raw_status": "closed_CPUqualified_with_exit_exception",
+      "status_note": "最终文件完整SHA及模型/EMA/优化器有限性重新核验通过；原写线程退出异常仍保留，不需要重训。",
       "original_saved_counters": {
         "epoch": 2300,
         "global_step": 306033
@@ -1841,7 +1845,7 @@
       "lr": 1.2179366215680964e-05,
       "checkpoint_transport": "private_Ali_persistent_SSD_two_phase_CPU_verified",
       "source_receipt_SHA256": "713f5ff804647a358ad702d418e5aa264ac0803c11b0f2f8843247b7af40c6f5",
-      "actual_exit_code": null,
+      "actual_exit_code": 1,
       "prior_actual_exit_code": -15,
       "historical_failed2999_observation": {
         "epoch": 2999,
@@ -1857,7 +1861,8 @@
         }
       },
       "current_loss_and_lr_unobserved": false,
-      "actual_phase": "training"
+      "actual_phase": "closed_CPUqualified_with_exit_exception",
+      "final_CPU_qualified_checkpoint_SHA256": "51c5a542c7d22b7318d0bf1476ff354c17c977016fcbeeb08625ba10d06dbac1"
     },
     {
       "host": "mainskill",
@@ -1871,23 +1876,24 @@
       "epoch": 2999,
       "global_step": 398999,
       "train_loss": 0.00028267066227272153,
-      "sampled_utc": "2026-10-15T10:39:56Z",
+      "sampled_utc": "2026-10-16T12:21:50.471664+00:00",
       "gpu_uuid": "GPU-3d4e7515-a762-7159-7525-c4b935ad9dd8",
-      "state": "最后一轮更新已结束，原检查点保存中",
+      "state": "最终保存未完成；完整恢复点为2900轮",
       "completed_training": false,
       "active_productive": false,
-      "raw_status": "final_checkpoint_drain",
-      "status_note": "原训练返回尚未证明；保持实际保存进度监护，接收提交及完整CPU核验前不计可用权重。",
+      "raw_status": "interrupted_final_save",
+      "status_note": "训练日志到2999轮，完整CPU可恢复检查点仅到2900轮；须从2901续训，不能算3000轮权重完成。",
       "original_saved_counters": {
-        "epoch": 0,
-        "global_step": 133
+        "epoch": 2900,
+        "global_step": 385833
       },
       "optimizer_reset": false,
       "logical_seed_count_increase": 0,
       "lr": 2.7155034811008947e-06,
       "checkpoint_transport": "private_Ali_persistent_SSD_two_phase_CPU_verified",
       "source_receipt_SHA256": "24969998343eb7313a61b42ad7601f3f798d465c40a8e39cecebc77ffdf22353",
-      "actual_exit_code": null
+      "actual_exit_code": -15,
+      "actual_phase": "interrupted_final_save"
     },
     {
       "host": "mainskill",
@@ -1901,13 +1907,13 @@
       "epoch": 3000,
       "global_step": 399000,
       "train_loss": null,
-      "sampled_utc": "2026-10-15T06:06:41.280436+00:00",
+      "sampled_utc": "2026-10-16T12:21:50.471664+00:00",
       "gpu_uuid": "GPU-fd7b49d0-672c-e7a8-ad06-c66ba554be18",
-      "state": "完整3000轮权重已CPU核验；保留退出码1",
+      "state": "3000轮最终权重已重新CPU核验；保留退出异常",
       "completed_training": true,
       "active_productive": false,
       "raw_status": "closed_CPUqualified_with_exit_exception",
-      "status_note": "原写入器join异常保留；完整最终权重、模型/EMA/优化器CPU核验通过。",
+      "status_note": "最终文件完整SHA及模型/EMA/优化器有限性重新核验通过；原写线程退出异常仍保留，不需要重训。",
       "original_saved_counters": {
         "epoch": 0,
         "global_step": 133
@@ -1918,7 +1924,8 @@
       "checkpoint_transport": "private_Ali_persistent_SSD_two_phase_CPU_verified",
       "source_receipt_SHA256": "cf5a44df6b6864cb4318c6ca1bdefffba46981a84dbbdf0def86e4e36430eac7",
       "actual_exit_code": 1,
-      "actual_phase": "closed_full_budget_CPUqualified_actual_exit1"
+      "actual_phase": "closed_CPUqualified_with_exit_exception",
+      "final_CPU_qualified_checkpoint_SHA256": "c1092b99a8256dd6990a15b8770ad3875fcf9bada0781193f42045ddf156b5d2"
     },
     {
       "host": "aliyun",
@@ -1928,16 +1935,16 @@
       "object": "brown_volumetric_flask_250ml",
       "seed": 26102111,
       "epochs_target": 3000,
-      "epoch": 2942,
-      "global_step": 394324,
-      "train_loss": 0.0006897905841469765,
-      "sampled_utc": "2026-10-15T10:54:52.051325+00:00",
+      "epoch": 2952,
+      "global_step": 395671,
+      "train_loss": 0.0007580271922051907,
+      "sampled_utc": "2026-10-16T12:20:27.442905+00:00",
       "formal_accepted": false,
       "paper_ssr": null,
       "completed_training": false,
       "active_productive": true,
-      "state": "原预算训练进行中",
-      "status_note": "原种子与完整预算保持；训练完成仍需独立核验及原生评测。",
+      "state": "原完整状态续训中",
+      "status_note": "原72小时总时限中断；模型/EMA/优化器与全局RNG恢复，工作线程RNG不保证逐位一致。GPU实测100%，原3000轮预算保持。",
       "logical_seed_count_increase": 0,
       "source_adoption_gate_SHA256": "ef007e3955e2476a9ab318692248bc1dfa5d684c5b7706b9d675e1891d0be75e",
       "actual_CPU_SSD_checkpoint": {
@@ -1952,10 +1959,15 @@
         "formal_accepted": false
       },
       "unsaved_first133_updates_not_restored": true,
-      "lr": 2.724371235429623e-07,
+      "lr": 1.8521858828711712e-07,
       "source_receipt_SHA256": "34b17e3eac51f92e66ddc3bc19400ead37746d67c255232e9c0b284e4e91131c",
       "raw_status": "running",
-      "actual_exit_code": null
+      "actual_exit_code": null,
+      "prior_actual_exit_code": 1,
+      "original_saved_counters": {
+        "epoch": 2950,
+        "global_step": 395434
+      }
     },
     {
       "host": "aliyun",
@@ -1965,16 +1977,16 @@
       "object": "brown_volumetric_flask_250ml",
       "seed": 26102113,
       "epochs_target": 3000,
-      "epoch": 2943,
-      "global_step": 394396,
-      "train_loss": 0.0006732268375344574,
-      "sampled_utc": "2026-10-15T10:54:52.051325+00:00",
+      "epoch": 2951,
+      "global_step": 395531,
+      "train_loss": 0.000689363107085228,
+      "sampled_utc": "2026-10-16T12:20:10.925314+00:00",
       "formal_accepted": false,
       "paper_ssr": null,
       "completed_training": false,
       "active_productive": true,
-      "state": "原预算训练进行中",
-      "status_note": "原种子与完整预算保持；训练完成仍需独立核验及原生评测。",
+      "state": "原完整状态续训中",
+      "status_note": "原72小时总时限中断；模型/EMA/优化器与全局RNG恢复，工作线程RNG不保证逐位一致。GPU实测100%，原3000轮预算保持。",
       "logical_seed_count_increase": 0,
       "source_adoption_gate_SHA256": "ef007e3955e2476a9ab318692248bc1dfa5d684c5b7706b9d675e1891d0be75e",
       "actual_CPU_SSD_checkpoint": {
@@ -1989,10 +2001,15 @@
         "formal_accepted": false
       },
       "unsaved_first133_updates_not_restored": true,
-      "lr": 2.673510873736573e-07,
+      "lr": 1.9350297736597242e-07,
       "source_receipt_SHA256": "34b17e3eac51f92e66ddc3bc19400ead37746d67c255232e9c0b284e4e91131c",
       "raw_status": "running",
-      "actual_exit_code": null
+      "actual_exit_code": null,
+      "prior_actual_exit_code": 1,
+      "original_saved_counters": {
+        "epoch": 2950,
+        "global_step": 395434
+      }
     },
     {
       "host": "aliyun",
@@ -2128,22 +2145,27 @@
       "object": "glass_beaker_500ml",
       "seed": 26102311,
       "epochs_target": 3000,
-      "epoch": 2815,
-      "global_step": 377328,
-      "train_loss": 0.0006633626180700958,
-      "sampled_utc": "2026-10-15T10:54:52.053478+00:00",
+      "epoch": 2951,
+      "global_step": 395521,
+      "train_loss": 0.0006969418027438223,
+      "sampled_utc": "2026-10-16T12:20:10.924000+00:00",
       "active_productive": true,
       "completed_training": false,
-      "state": "原预算训练进行中",
-      "status_note": "原种子与完整预算保持；训练完成仍需独立核验及原生评测。",
+      "state": "原完整状态续训中",
+      "status_note": "原72小时总时限中断；模型/EMA/优化器与全局RNG恢复，工作线程RNG不保证逐位一致。GPU实测100%，原3000轮预算保持。",
       "source_adoption_gate_SHA256": "2e365861ca4ac8b4f7a60bc700f8c1cd73a2b4812c5578b12f30696e52425a9a",
-      "logical_seed_count_increase": 1,
+      "logical_seed_count_increase": 0,
       "formal_accepted": false,
       "paper_ssr": null,
       "source_receipt_SHA256": "0215a261d1dcc4a594440e963d64e09ab0d264e41c0365dd5347640475bcd36e",
       "raw_status": "running",
-      "lr": 2.807083328003951e-06,
-      "actual_exit_code": null
+      "lr": 1.9410165017571532e-07,
+      "actual_exit_code": null,
+      "prior_actual_exit_code": 1,
+      "original_saved_counters": {
+        "epoch": 2950,
+        "global_step": 395434
+      }
     },
     {
       "host": "aliyun",
@@ -2153,22 +2175,27 @@
       "object": "glass_beaker_500ml",
       "seed": 26102313,
       "epochs_target": 3000,
-      "epoch": 2818,
-      "global_step": 377642,
-      "train_loss": 0.0006414622184820473,
-      "sampled_utc": "2026-10-15T10:54:52.053478+00:00",
+      "epoch": 2951,
+      "global_step": 395524,
+      "train_loss": 0.0006047960487194359,
+      "sampled_utc": "2026-10-16T12:20:10.898373+00:00",
       "active_productive": true,
       "completed_training": false,
-      "state": "原预算训练进行中",
-      "status_note": "原种子与完整预算保持；训练完成仍需独立核验及原生评测。",
+      "state": "原完整状态续训中",
+      "status_note": "原72小时总时限中断；模型/EMA/优化器与全局RNG恢复，工作线程RNG不保证逐位一致。GPU实测100%，原3000轮预算保持。",
       "source_adoption_gate_SHA256": "2e365861ca4ac8b4f7a60bc700f8c1cd73a2b4812c5578b12f30696e52425a9a",
-      "logical_seed_count_increase": 1,
+      "logical_seed_count_increase": 0,
       "formal_accepted": false,
       "paper_ssr": null,
       "source_receipt_SHA256": "0215a261d1dcc4a594440e963d64e09ab0d264e41c0365dd5347640475bcd36e",
       "raw_status": "running",
-      "lr": 2.7363004378151144e-06,
-      "actual_exit_code": null
+      "lr": 1.939219513044321e-07,
+      "actual_exit_code": null,
+      "prior_actual_exit_code": 1,
+      "original_saved_counters": {
+        "epoch": 2950,
+        "global_step": 395434
+      }
     },
     {
       "host": "aliyun",
@@ -2178,22 +2205,27 @@
       "object": "glass_beaker_500ml",
       "seed": 26102315,
       "epochs_target": 3000,
-      "epoch": 2748,
-      "global_step": 368239,
-      "train_loss": 0.0007898746407590806,
-      "sampled_utc": "2026-10-15T10:54:52.053478+00:00",
+      "epoch": 2851,
+      "global_step": 382122,
+      "train_loss": 0.0006576558807864785,
+      "sampled_utc": "2026-10-16T12:20:10.921595+00:00",
       "active_productive": true,
       "completed_training": false,
-      "state": "原预算训练进行中",
-      "status_note": "原种子与完整预算保持；训练完成仍需独立核验及原生评测。",
+      "state": "原完整状态续训中",
+      "status_note": "原72小时总时限中断；模型/EMA/优化器与全局RNG恢复，工作线程RNG不保证逐位一致。GPU实测100%，原3000轮预算保持。",
       "source_adoption_gate_SHA256": "2e365861ca4ac8b4f7a60bc700f8c1cd73a2b4812c5578b12f30696e52425a9a",
-      "logical_seed_count_increase": 1,
+      "logical_seed_count_increase": 0,
       "formal_accepted": false,
       "paper_ssr": null,
       "source_receipt_SHA256": "0215a261d1dcc4a594440e963d64e09ab0d264e41c0365dd5347640475bcd36e",
       "raw_status": "running",
-      "lr": 5.242035962866686e-06,
-      "actual_exit_code": null
+      "lr": 1.824149758471899e-06,
+      "actual_exit_code": null,
+      "prior_actual_exit_code": 1,
+      "original_saved_counters": {
+        "epoch": 2850,
+        "global_step": 382034
+      }
     },
     {
       "host": "aliyun",
@@ -2578,6 +2610,8 @@
     }
   },
   "remaining": [
+    "Brown250三原ACT开发位置合计1/12，范围外0/9；须先排查失败并改善再扩大正式评测。",
+    "Main DP26102253只有2900轮完整检查点，最终保存故障尚需恢复。",
     "逐对象分别完成DP与ACT的论文成功率、Spatial SSR、三种子正式泛化和完整视觉验收。",
     "3个新DP保持3000轮完整预算；已完成3个ACT的原验证集权重不按测试成绩选择。",
     "绑定各任务严格目标/活跃阶段及碰撞规则；20mm位置单项和液体倾角门均不能代替Grasp Spatial SSR。",
@@ -2596,7 +2630,7 @@
       23.6
     ],
     "act_cpu_dataset_read_speedup": 4.368692462456152,
-    "note": "68个原始逻辑训练身份；51份训练完成=18DP+33ACT，最近已核验15路训练状态。透明容量瓶原始优化器接续已在Ali实际运行，新完整检查点CPU核验通过。训练完成、原判据开发成功和读取接触点分别报告。",
+    "note": "本轮Ali五路DP已恢复实际更新，GPU采样均100%。测试控制器连续执行固定回合，无需逐步等待对话；实测与编码时钟分别报告。",
     "act_total_epoch_throughput_speedup": 1.4458274316296305,
     "benchmark_utc": "2026-10-09T16:33:40.648366+00:00",
     "latest_ali_snapshot_utc": "2026-10-10T08:10:19.876713+00:00",
@@ -3297,7 +3331,7 @@
     "note": "同一2秒动作与手指目标前缀逐位一致，仅增加0.6秒保持。终点位置误差从25.7/25.8mm降至5.9/6.3mm；这是开发诊断，目标与全程约束尚未绑定论文SSR。四条轨迹三相机关键帧已查：头部及第三视角持续覆盖目标，胸部抬升后出画本身不判视觉失败。玻璃渲染与全程穿模仍待验收。",
     "evidence_url": "results/grasp_fixed_action_hold_camera_20261010.json"
   },
-  "latest_training_evidence_url": "verification/T-500-grasp-original-training-progress-v46.json",
+  "latest_training_evidence_url": "verification/T-552-training-resume-v66.json",
   "paper_domain_contract": {
     "schema": "grasp.paper_domain_contract.v1",
     "domains": [
@@ -7984,10 +8018,10 @@
       "collision_free_qualified": false
     }
   },
-  "sampled_utc": "2026-10-12T11:09:58.538121+00:00",
+  "sampled_utc": "2026-10-16T12:24:14.298316+00:00",
   "latest_frontier": {
-    "schema": "grasp.frontier.v64",
-    "updated_utc": "2026-10-15T11:03:59.727591+00:00",
+    "schema": "grasp.frontier.v66",
+    "updated_utc": "2026-10-16T12:24:14.298316+00:00",
     "formal_accepted_objects": 0,
     "formal_accepted_methods": 0,
     "paper_ssr": null,
@@ -7995,22 +8029,22 @@
       {
         "title": "正式验收",
         "status": "DP和ACT同时通过：0/21",
-        "note": "逐物体仍须满足论文SR、Spatial SSR、独立泛化和完整视觉。"
+        "note": "成功率、Spatial SSR、范围外泛化及完整视觉尚未全部通过。"
       },
       {
-        "title": "棕色容量瓶250ml · 新DP开发测试",
-        "status": "范围外冻结3点：0/3",
-        "note": "九视频1536帧完整解码；原失败和超时均保留，可在物体/方法/模型选择器查看。"
+        "title": "DP续训已恢复",
+        "status": "5路均有实际更新；GPU采样100%",
+        "note": "棕色容量瓶2路、500ml烧杯3路，从2950/2850轮保存状态续训，原3000轮预算保持。"
       },
       {
-        "title": "训练与保存",
-        "status": "81份完整权重；8训练、1保存",
-        "note": "79份正常退出，另2份保留原退出码1并通过权重CPU核验。"
+        "title": "训练产物恢复确认",
+        "status": "84份完整预算权重已核验",
+        "note": "本轮新增确认3份Main最终权重；保留原保存线程退出异常。另1份只有2900轮完整恢复点。"
       },
       {
-        "title": "评测重置与时钟",
-        "status": "发现跨回合旧动作，修复对照准备中",
-        "note": "原配置6秒对应约24物理秒；回合2、3在新观测前各有3次旧动作调用。原结果保留。"
+        "title": "棕色容量瓶 · ACT",
+        "status": "3个种子完成12回合：1/12",
+        "note": "+0基线1/3，实际范围外+1/+2/+3cm合计0/9。前两种子的24段视频可在上方选择；第三种子结果已回传，视频待取回。"
       }
     ],
     "strict_spatial_scope": "Table11给出终点空间20mm筛查；C.3的SSR检查整条轨迹中适用阶段的全部活动约束。固定最终目标不能作为移动过程中每一帧的目标。严格目标坐标系、旋转阈值和阶段仍待绑定。",
@@ -25587,15 +25621,15 @@
           "object": "brown_volumetric_flask_250ml",
           "seed": 26102111,
           "epochs_target": 3000,
-          "epoch": 2806,
-          "global_step": 376088,
+          "epoch": 2952,
+          "global_step": 395671,
           "train_loss": 0.007049973588436842,
-          "sampled_utc": "2026-10-12T16:39:32.241323+00:00",
+          "sampled_utc": "2026-10-16T12:20:27.442905+00:00",
           "formal_accepted": false,
           "paper_ssr": null,
           "completed_training": false,
           "active_productive": true,
-          "state": "原预算训练进行中",
+          "state": "原完整状态续训中",
           "status_note": "原100次尝试、95/5固定验证拆分、三RGB原预训练及原网络保持；正式1050位置未使用。DP路径错误记录保留，同原种子重启；恢复尝试不重复计数。",
           "logical_seed_count_increase": 0,
           "source_adoption_gate_SHA256": "ef007e3955e2476a9ab318692248bc1dfa5d684c5b7706b9d675e1891d0be75e",
@@ -25611,7 +25645,8 @@
             "formal_accepted": false
           },
           "unsaved_first133_updates_not_restored": true,
-          "lr": 0.00029609508956634183
+          "lr": 0.00029609508956634183,
+          "raw_status": "running"
         },
         {
           "host": "aliyun",
@@ -25621,15 +25656,15 @@
           "object": "brown_volumetric_flask_250ml",
           "seed": 26102113,
           "epochs_target": 3000,
-          "epoch": 2807,
-          "global_step": 376147,
+          "epoch": 2951,
+          "global_step": 395531,
           "train_loss": 0.005783335771411657,
-          "sampled_utc": "2026-10-12T16:39:32.241323+00:00",
+          "sampled_utc": "2026-10-16T12:20:10.925314+00:00",
           "formal_accepted": false,
           "paper_ssr": null,
           "completed_training": false,
           "active_productive": true,
-          "state": "原预算训练进行中",
+          "state": "原完整状态续训中",
           "status_note": "原100次尝试、95/5固定验证拆分、三RGB原预训练及原网络保持；正式1050位置未使用。DP路径错误记录保留，同原种子重启；恢复尝试不重复计数。",
           "logical_seed_count_increase": 0,
           "source_adoption_gate_SHA256": "ef007e3955e2476a9ab318692248bc1dfa5d684c5b7706b9d675e1891d0be75e",
@@ -25645,7 +25680,8 @@
             "formal_accepted": false
           },
           "unsaved_first133_updates_not_restored": true,
-          "lr": 0.0002960894792911254
+          "lr": 0.0002960894792911254,
+          "raw_status": "running"
         },
         {
           "host": "aliyun",
@@ -25658,11 +25694,11 @@
           "epoch": 3000,
           "global_step": 402000,
           "train_loss": 0.006331129930913448,
-          "sampled_utc": "2026-10-12T16:39:32.241323+00:00",
+          "sampled_utc": "2026-10-15T06:11:35.561998+00:00",
           "formal_accepted": false,
           "paper_ssr": null,
-          "completed_training": false,
-          "active_productive": true,
+          "completed_training": true,
+          "active_productive": false,
           "state": "完整3000轮、最终权重CPU核验通过",
           "status_note": "原100次尝试、95/5固定验证拆分、三RGB原预训练及原网络保持；正式1050位置未使用。DP路径错误记录保留，同原种子重启；恢复尝试不重复计数。",
           "logical_seed_count_increase": 0,
@@ -25679,7 +25715,8 @@
             "formal_accepted": false
           },
           "unsaved_first133_updates_not_restored": true,
-          "lr": 0.00029613079487053585
+          "lr": 0.00029613079487053585,
+          "raw_status": "trained_CPU_qualified"
         },
         {
           "host": "aliyun",
@@ -25708,7 +25745,8 @@
           "actual_optimizer_tensors": 783,
           "original_all7_decoder_layers_verified": true,
           "fullstate_original_archive_SHA256": "2eeb92ed41db5773fb10bbc8c241484e677b496abc4125b9e229d5172bfaf077",
-          "fullstate_archive_storage": "owned Ali persistent SSD; independent destination intake pending"
+          "fullstate_archive_storage": "owned Ali persistent SSD; independent destination intake pending",
+          "raw_status": null
         },
         {
           "host": "aliyun",
@@ -25737,7 +25775,8 @@
           "actual_optimizer_tensors": 783,
           "original_all7_decoder_layers_verified": true,
           "fullstate_original_archive_SHA256": "2eeb92ed41db5773fb10bbc8c241484e677b496abc4125b9e229d5172bfaf077",
-          "fullstate_archive_storage": "owned Ali persistent SSD; independent destination intake pending"
+          "fullstate_archive_storage": "owned Ali persistent SSD; independent destination intake pending",
+          "raw_status": null
         },
         {
           "host": "aliyun",
@@ -25766,10 +25805,11 @@
           "actual_optimizer_tensors": 783,
           "original_all7_decoder_layers_verified": true,
           "fullstate_original_archive_SHA256": "2eeb92ed41db5773fb10bbc8c241484e677b496abc4125b9e229d5172bfaf077",
-          "fullstate_archive_storage": "owned Ali persistent SSD; independent destination intake pending"
+          "fullstate_archive_storage": "owned Ali persistent SSD; independent destination intake pending",
+          "raw_status": null
         }
       ],
-      "note": "原100次尝试完整保留；原DP/ACT输入、固定95/5验证集和三RGB预训练已CPU核验。3ACT自然完成5000轮10000更新，完整模型与优化器RNG、全部七层解码器及验证集选择独立CPU核验通过；原完整状态存放Ali持久SSD，独立接收归档待做。3DP实际更新中。原同RPBZZZ6测试待执行，正式1050未用，完整SSR及视觉未验收。",
+      "note": "2026-10-16已核对：ACT完整训练保留；DP原72小时总时限中断后，现已从最后完整状态继续。",
       "formal_accepted": false,
       "paper_ssr": null
     },
@@ -25829,18 +25869,19 @@
           "object": "glass_beaker_500ml",
           "seed": 26102311,
           "epochs_target": 3000,
-          "epoch": 2669,
-          "global_step": 357773,
+          "epoch": 2951,
+          "global_step": 395521,
           "train_loss": 0.017446788027882576,
-          "sampled_utc": "2026-10-12T16:35:50.595435+00:00",
+          "sampled_utc": "2026-10-16T12:20:10.924000+00:00",
           "active_productive": true,
           "completed_training": false,
-          "state": "原预算训练进行中",
+          "state": "原完整状态续训中",
           "status_note": "120次原尝试保留；按时间顺序选原90条及补采首10条合格示范，95/5验证集与原预算保持。正式1050位置未使用，完整SSR和视觉待验收。",
           "source_adoption_gate_SHA256": "2e365861ca4ac8b4f7a60bc700f8c1cd73a2b4812c5578b12f30696e52425a9a",
           "logical_seed_count_increase": 1,
           "formal_accepted": false,
-          "paper_ssr": null
+          "paper_ssr": null,
+          "raw_status": "running"
         },
         {
           "host": "aliyun",
@@ -25850,18 +25891,19 @@
           "object": "glass_beaker_500ml",
           "seed": 26102313,
           "epochs_target": 3000,
-          "epoch": 2672,
-          "global_step": 358097,
+          "epoch": 2951,
+          "global_step": 395524,
           "train_loss": 0.013815058395266533,
-          "sampled_utc": "2026-10-12T16:35:50.595435+00:00",
+          "sampled_utc": "2026-10-16T12:20:10.898373+00:00",
           "active_productive": true,
           "completed_training": false,
-          "state": "原预算训练进行中",
+          "state": "原完整状态续训中",
           "status_note": "120次原尝试保留；按时间顺序选原90条及补采首10条合格示范，95/5验证集与原预算保持。正式1050位置未使用，完整SSR和视觉待验收。",
           "source_adoption_gate_SHA256": "2e365861ca4ac8b4f7a60bc700f8c1cd73a2b4812c5578b12f30696e52425a9a",
           "logical_seed_count_increase": 1,
           "formal_accepted": false,
-          "paper_ssr": null
+          "paper_ssr": null,
+          "raw_status": "running"
         },
         {
           "host": "aliyun",
@@ -25871,18 +25913,19 @@
           "object": "glass_beaker_500ml",
           "seed": 26102315,
           "epochs_target": 3000,
-          "epoch": 2612,
-          "global_step": 350015,
+          "epoch": 2851,
+          "global_step": 382122,
           "train_loss": 0.012348005548119545,
-          "sampled_utc": "2026-10-12T16:35:50.595435+00:00",
+          "sampled_utc": "2026-10-16T12:20:10.921595+00:00",
           "active_productive": true,
           "completed_training": false,
-          "state": "原预算训练进行中",
+          "state": "原完整状态续训中",
           "status_note": "120次原尝试保留；按时间顺序选原90条及补采首10条合格示范，95/5验证集与原预算保持。正式1050位置未使用，完整SSR和视觉待验收。",
           "source_adoption_gate_SHA256": "2e365861ca4ac8b4f7a60bc700f8c1cd73a2b4812c5578b12f30696e52425a9a",
           "logical_seed_count_increase": 1,
           "formal_accepted": false,
-          "paper_ssr": null
+          "paper_ssr": null,
+          "raw_status": "running"
         },
         {
           "host": "aliyun",
@@ -25911,7 +25954,8 @@
           "actual_optimizer_tensors": 783,
           "original_all7_decoder_layers_verified": true,
           "fullstate_original_archive_SHA256": "b8fb394c40dd7d2a9fd27f4f4b7254a10b9f1890a8e5534f7616663d7532b4c9",
-          "fullstate_archive_storage": "owned Ali persistent SSD; independent destination intake pending"
+          "fullstate_archive_storage": "owned Ali persistent SSD; independent destination intake pending",
+          "raw_status": null
         },
         {
           "host": "aliyun",
@@ -25940,7 +25984,8 @@
           "actual_optimizer_tensors": 783,
           "original_all7_decoder_layers_verified": true,
           "fullstate_original_archive_SHA256": "b8fb394c40dd7d2a9fd27f4f4b7254a10b9f1890a8e5534f7616663d7532b4c9",
-          "fullstate_archive_storage": "owned Ali persistent SSD; independent destination intake pending"
+          "fullstate_archive_storage": "owned Ali persistent SSD; independent destination intake pending",
+          "raw_status": null
         },
         {
           "host": "aliyun",
@@ -25969,10 +26014,11 @@
           "actual_optimizer_tensors": 783,
           "original_all7_decoder_layers_verified": true,
           "fullstate_original_archive_SHA256": "b8fb394c40dd7d2a9fd27f4f4b7254a10b9f1890a8e5534f7616663d7532b4c9",
-          "fullstate_archive_storage": "owned Ali persistent SSD; independent destination intake pending"
+          "fullstate_archive_storage": "owned Ali persistent SSD; independent destination intake pending",
+          "raw_status": null
         }
       ],
-      "note": "120次原尝试全部保留；首100条目标合格示范、原DP/ACT输入及固定95/5验证集已CPU核验。3ACT自然完成5000轮10000更新，完整344模型/783优化器张量、七层梯度、全部loss与验证集选优独立CPU核验通过；3DP实际更新。5.049GB原状态已存Ali持久SSD，独立接收尚待做。同卡原生测试、论文SSR及完整视觉待验收。",
+      "note": "2026-10-16已核对：ACT完整训练保留；DP原72小时总时限中断后，现已从最后完整状态继续。",
       "formal_accepted": false,
       "paper_ssr": null,
       "fullstate_original_archive": {
