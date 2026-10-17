@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-17T10:35:55.600791+00:00",
-  "source_updated_at": "2026-10-17T10:34:52.949475+00:00",
+  "published_at": "2026-10-17T10:37:08.399796+00:00",
+  "source_updated_at": "2026-10-17T10:36:58.868409+00:00",
   "tasks": [
     {
       "task": "T3",
@@ -360,7 +360,7 @@
       "latest_failed": null,
       "native_alive": false,
       "updated_at": "2026-10-16T03:44:00.141712+00:00",
-      "note": "历史物理验收35/100，新增动作与画面质量合格0条（待复核，并非已证明全部失败）。用户指出动作不平滑、过慢、抓姿偏斜、倾倒轴及液体可见性、噪点问题；旧方案扩采和新训练导出已暂停。第35条原速312.72秒，其中等待148.54秒、移动160.60秒；117次cuRobo短步并非期望的连续阶段轨迹。正在对照原pick_place/grasp/pour修复；约4秒每阶段尚未实现。历史原始视频、粒子与验收记录全部保留。 最新诊断：固定机器人左右各50条、零位置随机偏移，正式左0/50右0/50。R72/R73短验证均通过：接近末端误差0.698/0.897mm（原门3mm），原物理前缀重查1756/1887行通过；只证明开手/预抓取/接近，未计数据。已真实查看左右共6张初始原图，新相机保持眼位不变并让双杯+空垫都入镜，机器人表面斑点仍需复核。R75/R76沿用已验证的原速度+重力前馈配置，启动完整取A、倒入B、A回原垫；两包各90项测试及预检通过，原物理/动态门不变。WORK_R75_PRO_RIGHT_FULL_CONTROLLER: closed，{'total': 1290, 'A': 1290, 'B': 0, 'outside_vessels': 0, 'in_transit': 0, 'spill': 0, 'currently_spilled_outside': 0}，ValueError('continuous_tilt_original_IK_proposal_rejected:all_finite_candidates_rejected')。WORK_R76_PRO_LEFT_FULL_CONTROLLER: closed，{'total': 1290, 'A': 1290, 'B': 0, 'outside_vessels': 0, 'in_transit': 0, 'spill': 0, 'currently_spilled_outside': 0}，ValueError('original_phase_boundary_not_qualified:pickup_boundary')。 R79另用同24次原IK结果将倾倒时钟缩为480行4s，CPU原v/a/j及全历史检查通过，尚未GPU或真实倾倒验证。当前仍是诊断，未自动计入100条。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
+      "note": "历史物理验收35/100，新增动作与画面质量合格0条（待复核，并非已证明全部失败）。用户指出动作不平滑、过慢、抓姿偏斜、倾倒轴及液体可见性、噪点问题；旧方案扩采和新训练导出已暂停。第35条原速312.72秒，其中等待148.54秒、移动160.60秒；117次cuRobo短步并非期望的连续阶段轨迹。正在对照原pick_place/grasp/pour修复；约4秒每阶段尚未实现。历史原始视频、粒子与验收记录全部保留。 最新诊断：固定机器人左50/右50；正式左0/50右0/50。R75右完成取杯但倾倒前原joint/world/self全行约束拒绝，R76左起举后滑回垫，均不计。R80同路径逐个/全部移除静态障碍仍同13行失败，排除静态world障碍原因，未在真实场景移除任何障碍。实测左右闭合后中指仍0.418rad/s，现R81在原120ticks内增加原拇指+对向接触与手速<=0.06rad/s连续12样本的起举条件；不改目标/配方/摩擦，69项focused tests与原完整预检通过，已启动有界完整Native，结果待定。旧test_continuous_tilt_native wiring静态fixture单测在父包亦失败，已单独保留baseline失败记录，未隐瞒为通过。R84并行纯GPU分解bound/world/self三项，排查右倾倒具体约束，无Native动作。机器人表面斑点仍未关闭；历史35条保持hold。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -476,7 +476,7 @@
       "sim_s": null,
       "executed": 0,
       "unknown_usage": null,
-      "updated_at": "2026-10-17T10:34:52.949475+00:00",
+      "updated_at": "2026-10-17T10:36:58.868409+00:00",
       "latest_failed": null,
       "note": "新原Shelf7左右双瓶原生241步通过，ROOT实际head/third两瓶可见，chest仍裁切。保留结果但视觉不放行；按用户要求暂停扩展，优先T3。 DP、ACT 训练的数据资格独立核验。",
       "legacy": {
@@ -618,7 +618,7 @@
     "video_fps": 15,
     "acceptance": "完整有序物理过程、释放稳定、安全与不变约束、真实模型响应来源、已知用量及预算、三路完整视频均通过后，才计入整条验收。"
   },
-  "program_revision": "2026-10-17T10:34:52.949475+00:00",
+  "program_revision": "2026-10-17T10:36:58.868409+00:00",
   "fleet": [
     {
       "host": "liyufeng_4090",
