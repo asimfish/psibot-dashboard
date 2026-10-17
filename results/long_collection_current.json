@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "published_at": "2026-10-17T12:19:17.306796+00:00",
-  "source_updated_at": "2026-10-17T11:56:46.200551+00:00",
+  "published_at": "2026-10-17T12:21:26.386799+00:00",
+  "source_updated_at": "2026-10-17T12:21:20.815182+00:00",
   "tasks": [
     {
       "task": "T3",
@@ -360,7 +360,7 @@
       "latest_failed": null,
       "native_alive": false,
       "updated_at": "2026-10-16T03:44:00.141712+00:00",
-      "note": "历史物理验收35/100，新增动作与画面质量合格0条（待复核，并非已证明全部失败）。用户指出动作不平滑、过慢、抓姿偏斜、倾倒轴及液体可见性、噪点问题；旧方案扩采和新训练导出已暂停。第35条原速312.72秒，其中等待148.54秒、移动160.60秒；117次cuRobo短步并非期望的连续阶段轨迹。正在对照原pick_place/grasp/pour修复；约4秒每阶段尚未实现。历史原始视频、粒子与验收记录全部保留。 最新诊断：固定左50右50，正式0/100。右已真实取杯、4s倾倒B1275/1290、回垫松手，最终raw撤手过近A未执行；Cartesian原7IK全GPU/all17已通过。左R101真实下降新原IK241行/全历史/原GPU和held门PASS，回垫松手也完成，首个旧水平egress朝B使掌根gap2.36mm<3mm被拒。R104在实际17手几何中复现：原方向失败；新有限方向选择器选水平-X，两次4.5mm后CPU全障碍free gap4.609mm，非A路径>=4.319mm，原6步/5mm请求/10mm弧长/零实际A接触不变。R105/R106各110 focused tests+原完整预检PASS，两路新Native启动；等待上限统一8s但原95%连续2s/60motion75total不变。额外PRO6000四卡任务job-vx4m9y2x12ia已创建，当前PROVISIONING，计划每卡2环境共8路左右各4；标准额度0后已确认旧操作FAILED，再走支持的low_priority，无重复开卡。R103图像冻结A/B/A隐藏40个同几何guide mesh、物理目标零变化并恢复，表面斑点未明显改善，尚不能称已修；正在查真实渲染参数。历史35保持hold。 双路最新:{\"WORK_R105_PRO_RIGHT_SCENE_EGRESS_WAIT8\": {\"phase\": \"closed\", \"native\": {\"pid\": 39522, \"start\": 259234857, \"uid\": 0, \"pid_namespace\": \"pid:[4026535741]\"}, \"outcome\": \"failed\", \"closed_epoch\": 1792236782.108832, \"error\": \"ValueError('original_phase_boundary_not_qualified:return_boundary')\", \"native_tick\": 7312, \"counts\": {\"total\": 1290, \"A\": 0, \"B\": 1281, \"outside_vessels\": 9, \"in_transit\": 0, \"spill\": 9, \"currently_spilled_outside\": 9}, \"operation_folders\": [\"operation_00\", \"operation_01\", \"operation_02\", \"operation_03\", \"operation_04\", \"operation_05\", \"operation_06\", \"operation_07\", \"operation_08\", \"operation_09\", \"operation_10\", \"operation_11\", \"operation_12\", \"operation_13\", \"operation_14\", \"operation_15\", \"operation_16\", \"operation_17\", \"operation_18\", \"operation_19\", \"operation_20\", \"operation_21\"]}, \"WORK_R106_PRO_LEFT_SCENE_EGRESS_WAIT8\": {\"phase\": \"closed\", \"native\": {\"pid\": 41317, \"start\": 259237019, \"uid\": 0, \"pid_namespace\": \"pid:[4026535741]\"}, \"outcome\": \"failed\", \"closed_epoch\": 1792236466.8522675, \"error\": \"ValueError('original_phase_boundary_not_qualified:pickup_boun DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
+      "note": "历史物理验收35/100，新增动作与画面质量合格0条（待复核，并非已证明全部失败）。用户指出动作不平滑、过慢、抓姿偏斜、倾倒轴及液体可见性、噪点问题；旧方案扩采和新训练导出已暂停。第35条原速312.72秒，其中等待148.54秒、移动160.60秒；117次cuRobo短步并非期望的连续阶段轨迹。正在对照原pick_place/grasp/pour修复；约4秒每阶段尚未实现。历史原始视频、粒子与验收记录全部保留。 最新诊断：固定左50右50，正式0/100。左R110完整原物理及独立6361行controls/particles复算通过，B1272/1290、spill18；三视角各796帧全解码通过，尚有视觉和每阶段约4s速度门，不能计数。R114四卡8环境已结束：3完整原物理通过(右2左1)，1运输门拒绝，4到900s墙钟上限。加R110/R118，共5条完整原物理候选(左3右2)，尚不能正式计数。R118回正4.008s实际执行且全任务通过；R121预抓取4.008s已实际到位(另自然settle77ticks)，全任务续跑。R129端部C2修复70tests+预检通过后启动，解决原lower末端静止接缝jerk突变，原GPU/full17/held/物理门不变。R117材质/双面7组原图已看，斑点未消除；后续查法线与采样。已修复监控统计临时缓存文件消失导致误停的竞态，容量/文件数限制不变。右R112最终自然稳定仍失败，左R113原lower立方插值jerk超标被拒；待修。历史35保持hold。 DP、ACT 训练的数据资格独立核验。 场景图片区暂显示旧版参考图；新版原生三视角原图保留在公开状态记录中。",
       "legacy": {
         "title": "试管架移开、倾斜与恢复",
         "accepted_count": 1,
@@ -476,7 +476,7 @@
       "sim_s": null,
       "executed": 0,
       "unknown_usage": null,
-      "updated_at": "2026-10-17T11:56:46.200551+00:00",
+      "updated_at": "2026-10-17T12:21:20.815182+00:00",
       "latest_failed": null,
       "note": "新原Shelf7左右双瓶原生241步通过，ROOT实际head/third两瓶可见，chest仍裁切。保留结果但视觉不放行；按用户要求暂停扩展，优先T3。 DP、ACT 训练的数据资格独立核验。",
       "legacy": {
@@ -618,7 +618,7 @@
     "video_fps": 15,
     "acceptance": "完整有序物理过程、释放稳定、安全与不变约束、真实模型响应来源、已知用量及预算、三路完整视频均通过后，才计入整条验收。"
   },
-  "program_revision": "2026-10-17T11:56:46.200551+00:00",
+  "program_revision": "2026-10-17T12:21:20.815182+00:00",
   "fleet": [
     {
       "host": "liyufeng_4090",
