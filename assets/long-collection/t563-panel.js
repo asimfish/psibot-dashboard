@@ -2,6 +2,8 @@
 (() => {
   "use strict";
   const IDS = ["t5_oven", "t5_obstruction", "t7_weigh", "t10_weigh"];
+  const CONDITIONS = {t5_oven: ["AB", "BA"], t5_obstruction: ["A_left_B_right", "B_left_A_right"], t7_weigh: ["1234", "4321"], t10_weigh: ["12345", "54321"]};
+  const ACTIONS = {t5_oven: 5, t5_obstruction: 5, t7_weigh: 8, t10_weigh: 10};
   const SOURCE = "https://raw.githubusercontent.com/asimfish/psibot-dashboard/refs/heads/main/results/long_collection_t563_current.json";
   const SNAPSHOT = "results/long_collection_t563_current.json";
   const byId = id => document.getElementById(id);
@@ -22,11 +24,13 @@
     let total = 0;
     for (const scene of data.scenes) {
       if (!IDS.includes(scene.id) || scene.target_count !== 100 ||
+          scene.action_count !== ACTIONS[scene.id] ||
           !Array.isArray(scene.conditions) || scene.conditions.length !== 2 ||
           new Set(scene.conditions.map(c => c.id)).size !== 2) throw Error("Invalid scene");
       let count = 0;
       for (const condition of scene.conditions) {
-        if (condition.target_count !== 50 || !Number.isInteger(condition.accepted_count) ||
+        if (!CONDITIONS[scene.id].includes(condition.id) ||
+            condition.target_count !== 50 || !Number.isInteger(condition.accepted_count) ||
             condition.accepted_count < 0 || condition.accepted_count > 50) throw Error("Invalid count");
         count += condition.accepted_count;
       }
@@ -38,6 +42,9 @@
   }
   function render(data, fallback) {
     validate(data);
+    if (last && Date.parse(data.updated_at) < Date.parse(last.updated_at)) {
+      throw Error("Refusing an older published snapshot");
+    }
     last = data;
     byId("t563-total").textContent = `正式完整验收：${data.formal_accepted} / 400 条`;
     const age = Date.now() - Date.parse(data.updated_at);
@@ -74,7 +81,7 @@
     catch (_) {
       try { render(await read(SNAPSHOT), true); }
       catch (_) {
-        byId("t563-freshness").textContent = "状态源暂不可用；上次记录不能视为当前进度。";
+        byId("t563-freshness").textContent = "未取得可用的新记录；保留上次发布记录，不能视为当前进度。";
         if (!last) byId("t563-total").textContent = "验收数量暂无法核实";
       }
     } finally { busy = false; byId("t563-refresh").disabled = false; }

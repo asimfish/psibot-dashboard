@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_owner": "T-563",
-  "updated_at": "2026-10-17T17:18:24.277144+00:00",
+  "updated_at": "2026-10-17T19:30:17.062096+00:00",
   "formal_accepted": 0,
   "target_total": 400,
   "position_randomization": false,
@@ -15,7 +15,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "开门、取出两物、依原顺序放回原位。 初始原生场景/接触已检查；开门与取放仍在调试。",
+      "note": "单层干燥箱，250ml烧杯和锥形瓶依指定顺序取出并放回原位。008已观察到开门阶段约62.31°，未通过完整五阶段及稳定尾段验收。009三路均因观测接口导入不兼容在初始化失败；修复已通过CPU导入与单步检查，下一轮尚未提交。",
       "conditions": [
         {
           "id": "AB",
@@ -38,7 +38,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "操作身份顺序固定：移开烧杯1、移开锥形瓶1、移动烧杯2、复原烧杯1、复原锥形瓶1。 最新010第一杯放置超差，未完成整条5阶段。",
+      "note": "操作身份顺序固定：移开烧杯1、移开锥形瓶1、移动烧杯2、复原烧杯1、复原锥形瓶1。009完成第一物体取放及退让，第二阶段锥形瓶抓取后，抬升规划被起点自碰撞检查拒绝；未完成整条5阶段。",
       "conditions": [
         {
           "id": "A_left_B_right",
@@ -61,7 +61,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "按新要求四杯均称量后归位，实际为 8 个取放动作。 当前仅离线分支规划通过，016原生验证启动，完整8动作尚未验收。",
+      "note": "四杯按1234或4321依次称量后归位，实际8个取放动作。009位置对照因杯体偏移4.03mm、倾斜5.1716°被检查拒绝；轴向抓取对照在侧向预抓取规划失败。尚无完整任务验收。",
       "conditions": [
         {
           "id": "1234",
@@ -84,7 +84,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "五杯均称量后返回各自颜色垫。 当前仅初始场景检查完成，完整10动作尚未验收。",
+      "note": "五杯按12345或54321依次称量后返回各自颜色垫。009轴向抓取对照在侧向预抓取规划失败；尚无完整10动作验收。",
       "conditions": [
         {
           "id": "12345",
@@ -101,23 +101,31 @@
       ]
     }
   ],
-  "diagnostic_note": "正式完整验收仍为 0/400。六垫任务010中第一杯放置偏差25.318 mm，超过25 mm门槛，未计成功；称量任务015离线种子分支规划已通过，016原生验证已启动，尚无完整任务验收。",
+  "diagnostic_note": "正式完整验收仍为0/400。009已实际启动四卡八环境，结果全部回收：七路动作诊断失败，一路SDK诊断仅完成场景检查。阶段进展、离线规划、场景检查和云提交成功均不计入完整验收。010正在准备，尚未提交。",
   "cloud_status": {
-    "state": "005_pending_native_unverified",
-    "note": "云作业004最终FAILED：四卡CUDA预检通过，但4路Native均失败。005八环境诊断作业已创建，当前PENDING，尚未核实Native结果，均不计验收。",
+    "state": "009_native_diagnostics_completed_no_acceptance",
+    "note": "009四卡八环境诊断已结束：三路干燥箱初始化失败，其余四路动作诊断在后续动作或规划检查中失败；一路SDK诊断仅场景检查完成。010准备中未提交。云提交操作成功不等于原生采集成功。",
     "previous": {
-      "job_name": "t563-longtasks-4gpu-20261017-004",
-      "state": "FAILED",
-      "cuda_preflight_passed": true,
-      "native_failed": 4
+      "job_batch": "008",
+      "oven_opening_observed_deg": 62.30984,
+      "full_episode_accepted": 0,
+      "stable_tail_qualified": false
     },
     "current": {
-      "job_name": "t563-longtasks-4gpu-20261017-005",
-      "http_status": 202,
+      "job_batch": "009",
+      "job_id": "job-f02cugjuppa1",
+      "submission_operation_state": "SUCCEEDED",
       "requested_environments": 8,
+      "native_initialization_failed": 3,
+      "scene_only_completed": 1,
+      "full_episode_accepted": 0,
       "native_success_verified": false,
-      "job_id": "job-u3ulkjz8q4q9",
-      "state": "PENDING"
+      "native_motion_failed": 7,
+      "native_running_or_results_pending": 0,
+      "results_recovered": true,
+      "next_batch": "010",
+      "next_batch_state": "preparing_not_submitted"
     }
-  }
+  },
+  "collection_owner": "T-573"
 }
