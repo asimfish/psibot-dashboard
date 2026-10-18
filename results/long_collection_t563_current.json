@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_owner": "T-563",
-  "updated_at": "2026-10-17T20:05:25.231211+00:00",
+  "updated_at": "2026-10-18T03:10:50.571142+00:00",
   "formal_accepted": 0,
   "target_total": 400,
   "position_randomization": false,
@@ -15,7 +15,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "010三路干燥箱均已实际开门，随后撤离规划失败；稳定尾段位于撤离之后，尚未通过121帧稳定检查，也未完成后续取放。基于失败时刻的离线对照，沿实际腕轴退2cm规划通过；完整原生任务仍待实测。 DEV004新对照已启动，正在初始化，尚未返回结果。",
+      "note": "已实测打开干燥箱约62度，退离20毫米并记录121帧门体稳定；尚未完成后续四次取放。原内层烧杯/锥形瓶位置的平抓存在可达性问题，正在调整单层内部布局。局部开门成功不计为完整五步数据。",
       "conditions": [
         {
           "id": "AB",
@@ -38,7 +38,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "操作身份顺序固定：移开烧杯1、移开锥形瓶1、移动烧杯2、复原烧杯1、复原锥形瓶1。010交换布局对照在预抓取规划失败；此前009完成过第一物体取放，但未完成整条5阶段，均不计正式验收。 DEV004新整段对照已启动，正在初始化，结果待回收。",
+      "note": "完整五步仍未通过。已定位闭手前手指侧推烧杯；DEV两路完整五步轴向对照已执行并保留失败现场：一路杯体扰动4.89毫米/总姿态变化5.13度被拒绝，另一路轴向规划失败、尚未执行接近。正在从保留现场续调；抬升/搬运片段不计正式数据。",
       "conditions": [
         {
           "id": "A_left_B_right",
@@ -61,7 +61,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "四杯按1234或4321依次称量后归位，实际8个取放动作。010在闭手前检测到杯体倾斜5.1429°、偏移3.97mm，被检查拒绝。DEV002三路侧向预抓取规划失败；DEV003在接触观测器初始化时因来源绑定不匹配失败，尚未执行接近动作。",
+      "note": "四杯正反序各50条，实际8次取放。已实测100ml杯抓取、抬升和盘面放置片段；另一次有支撑场景完成稳定121帧及212点轴向退离，均非完整8动作。224个抓取姿态筛出38组可达端点；四杯候选仍有完整场景端点失败，正在加入全机械臂与其他杯体的联合筛选。",
       "conditions": [
         {
           "id": "1234",
@@ -84,7 +84,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "五杯按12345或54321称量后返回各自颜色垫。010侧向预抓取规划失败；DEV001反序对照首次空手接近时腕姿态跟踪误差0.3500rad被拒绝。DEV003接触观测器初始化失败，未进入接近动作；尚无完整10动作验收。",
+      "note": "五杯正反序各50条，实际10次取放。首次找到五杯同时摆放的开手接近/抬升走廊候选，最小模型间隙约3.1毫米；完整场景仍有端点失败，正在联合筛选，不代表已采到完整数据。",
       "conditions": [
         {
           "id": "12345",
@@ -101,10 +101,10 @@
       ]
     }
   ],
-  "diagnostic_note": "正式完整验收仍为0/400。010八路结果已回收：六路原生动作失败、一路离线诊断完成、一路SDK场景检查完成。SDK记录四杯各121帧垫子支撑力，约2.943N；这不等于完整任务或完整接触验收。DEV003三路观测器初始化失败；新的接触场景检查已记录121帧，DEV004干燥箱与遮挡任务两路已启动、处于初始化。",
+  "diagnostic_note": "正式完整验收0/400。原生仿真中已有开门、抓取、实际抬升、放置及退离的分段证据，但尚无完整五/八/十动作通过验收。",
   "cloud_status": {
-    "state": "010_diagnostics_completed_no_acceptance",
-    "note": "010已结束：六路原生动作失败、一路离线诊断完成、一路SDK场景检查完成。DEV001/002/003失败记录保留；接触采样场景复核已完成，DEV004两路整段任务正在初始化。局部成功、启动成功和离线规划均不计入正式验收。",
+    "state": "dev_parallel_debugging",
+    "note": "云010结果已回收：6路原生动作失败、1路离线诊断完成、1路SDK场景检查完成；本轮未新提交云作业。DEV轴向对照失败现场已保留，正在续调和联合布局筛选。",
     "previous": {
       "job_batch": "009",
       "native_motion_failed": 7,
@@ -127,30 +127,24 @@
       "sdk_full_contact_qualified": false
     },
     "dev_status": {
-      "snapshot": "004_launched_initializing_after_003_observer_failure",
-      "native001": "三路启动配置错误；十动作反序对照在首次空手接近时，腕姿态跟踪误差0.3500rad被拒绝，尚未抓杯。",
-      "native002": "三路侧向预抓取规划失败。",
-      "native003": "三路接触观测器来源绑定失败，在动作前结束。",
-      "next_step": "回收DEV004实际动作与完整接触记录，继续检查稳定尾段及整条任务验收。",
+      "snapshot": "native043_044_retained_failure_symbolic050_screening",
+      "native_running_claimed": false,
       "full_episode_accepted": 0,
-      "native_running_claimed": true,
-      "native004": {
-        "state": "initializing",
-        "launched_native_lanes": 2,
-        "results_pending": 2,
-        "lanes": [
-          "干燥箱：实际腕轴退2cm及完整五阶段对照",
-          "六垫遮挡：锥形瓶抓取自碰撞净空对照"
-        ],
-        "full_episode_accepted": 0
-      },
+      "active_native_lanes": 0,
+      "active_batches": [],
+      "retained_diagnostic_environment": "Native035 失败现场保留，仅作分段调试",
+      "layout_search": "224姿态/38可达端点；四杯五杯组合加入完整机械臂后仍有失败，正在修正高度参数并复核",
+      "native030": "有支撑杯体稳定121帧后完成轴向退离，非完整称量任务",
       "contact_canary": {
-        "state": "scene_checked",
-        "actual_rows": 121,
-        "source_count": 53,
-        "filter_count": 60,
+        "state": "positive_native_contact_recorded",
         "full_contact_qualified": false
-      }
+      },
+      "next_step": "完成轴向实测和联合布局筛选，保留失败，完整原生序列及接触/几何/视频均通过后才增加验收数。",
+      "retained_batches": [
+        "Native043 抓取前杯体扰动，现场保留",
+        "Native044 轴向规划失败，尚未执行接近，现场保留",
+        "Native035 仅用于失败后的分段调试"
+      ]
     }
   },
   "collection_owner": "T-573"
