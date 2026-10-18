@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_owner": "T-563",
-  "updated_at": "2026-10-18T06:11:13.529596+00:00",
+  "updated_at": "2026-10-18T07:04:21.938279+00:00",
   "formal_accepted": 0,
   "target_total": 400,
   "position_randomization": false,
@@ -15,7 +15,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "Native098单层A/B实际支撑与布局复测通过；新把手抓取目标IK仍被阻塞，尚无本轮完整开合门与五动作验收。",
+      "note": "Native098单层干燥箱A/B真实支撑布局通过；把手接近曾测到两指真实接触，但闭手后接触消失，后续运动被25毫弧度门拒绝；原3600秒watchdog退出，未开门、未完成五步。",
       "conditions": [
         {
           "id": "AB",
@@ -38,7 +38,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "Native084实际完成A、B两个取放至tick5433；C在tick6133规划被拒，随后外层watchdog以124退出，未完成完整五步。早期Native073的B抬升后跟踪失败及碰杯证据保留。 Cloud012最佳环境连续完成前4动作，第5动作B放低前IK拒绝，仍无完整五步验收。",
+      "note": "Native126用已成功原MotionPlan候选逐条重验，并重新真实连续完成前四个完整动作；第5步提高50毫米的B抓位抓空，抬升实测0而失败。B仍在临时垫上正支撑，正接续原瓶身抓位，未重置场景；完整五步尚未验收。",
       "conditions": [
         {
           "id": "A_left_B_right",
@@ -61,7 +61,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "四杯正反序各50条，实际8次取放。Native100已使用固定对侧55个碰撞包围体，并确认旧错误关节路径被新的world约束拒绝；真实首个取至盘面的动作完成。此前3毫米悬空释放纠正仅属诊断续态，未取得原完整8动作资格；尚无完整8动作验收。",
+      "note": "四杯正反序各50条，实际8次取放。Native100诊断完成首杯取放与返回，后续真实同臂接触532牛暴露原球欠覆盖，失败证据保留。新增实际凸体两级自碰门后，Fresh135已真实抓起首杯78.0毫米并搬运，完整8动作仍未完成。",
       "conditions": [
         {
           "id": "1234",
@@ -84,7 +84,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "五杯正反序各50条，实际10次取放。Native064 attempt8采用五杯与垫子同步向外30毫米的固定标定及7.071毫米抓取偏置，真实接近与闭手完成。原抬升MotionGen规划失败后，连续原IK全门通过，诊断窗口在tick3550实际抬升99.777毫米；尚无完整取放，诊断续态不计正常完整阶段或完整任务通过。",
+      "note": "五杯正反序各50条，实际10次取放。attempt8真实抬升99.777毫米、搬运及下放完成；释放121真实步稳定通过（位置范围9.24微米、旋转0.000205弧度）。撤手前原碰撞门拒绝，完整动作未完成；该诊断已正常失败收尾。正在修正手与杯几何代理的空体积假碰撞，尚未放行修复。",
       "conditions": [
         {
           "id": "12345",
@@ -103,8 +103,8 @@
   ],
   "diagnostic_note": "正式完整验收0/400，DP/ACT可用正式数据仍为0。分段物理动作、静态规划、云端启动及诊断续窗均不计完整五/八/十动作验收。",
   "cloud_status": {
-    "state": "terminal_failures_results_recovered",
-    "note": "Cloud012于2026-10-18 06:01:03 UTC记录8环境全部失败终态，Native均已关闭。norm Bclose100_sec00连续完成前4个动作，tick12741在第5动作B放低前被IK拒绝；其他环境因原路径门、阶段时限、未闭手碰杯、规划或速度门失败。四动作局部进展不计完整五动作验收。",
+    "state": "prepared_bootstrap_verified_not_submitted",
+    "note": "Cloud013八路在几何初始化调用过早时失败，Cloud014部署路径校验保留旧目录而在GPU分配前退出，均无完整任务通过。Cloud015已完成完整CPU部署、7组回归和133真实Native启动121步/三视角检查；尚未提交新云作业。DEV独立Native126已重新真实完成前四个动作，最后抓位仍在调试。",
     "previous": {
       "job_batch": "010",
       "requested_environments": 8,
@@ -121,6 +121,74 @@
       "sdk_full_contact_qualified": false
     },
     "current": {
+      "job_batch": "015",
+      "operation_id": null,
+      "operation_state": null,
+      "submission_http_status": null,
+      "job_id": null,
+      "job_state": null,
+      "requested_gpus": 4,
+      "requested_environments": 8,
+      "native_processes_started": 0,
+      "gpu_allocation_matmul_pci_verified": false,
+      "native_processes_running": 0,
+      "native_running_claimed": false,
+      "results_recovered": false,
+      "full_episode_accepted": 0,
+      "native_success_verified": false,
+      "batch_results_state": "prepared_not_submitted",
+      "evidence_recorded_at": "2026-10-18T07:04:21.938279+00:00",
+      "evidence_source": "root核对015 CPU bootstrap/7回归及Native133真实startup121/三视角；不是云端8环境启动证据。"
+    },
+    "dev_status": {
+      "snapshot": "native126_four_complete_actions_native135_new_full8_t10_released_stable_closed",
+      "native_running_claimed": false,
+      "full_episode_accepted": 0,
+      "retained_diagnostic_environment": "Native126第5动作抓空失败后B仍正支撑，接续真实瓶身抓位；原失败不抹除。Native064 attempt8已失败关闭。",
+      "layout_search": "058统一tick452开手几何：五杯原约束端点和其他杯开手走廊通过；完整机械臂连续运动及物理验收仍未通过",
+      "native030": "有支撑杯体稳定121个真实仿真tick后完成轴向退离，非完整称量任务",
+      "contact_canary": {
+        "state": "positive_native_contact_recorded",
+        "full_contact_qualified": false
+      },
+      "next_step": "完成本机第5动作与全8/10动作原生序列；部署链验证后的新云任务再并行推进，完整物理/接触/三视角验收才计数。",
+      "retained_batches": [
+        "Native073 B抬升后的跟踪失败及碰杯证据",
+        "Native078释放推杯失败及后续诊断碰撞拒绝证据",
+        "Native064早期失跟及新转支300秒超时证据",
+        "Native043/044早期失败证据",
+        "Native084 C规划拒绝及watchdog124退出证据",
+        "Native064 attempt7跟踪失败及新偏置IK自碰拒绝证据"
+      ],
+      "native054": "历史tick5905首个取放完成；不代表完整8动作。",
+      "native064": "五杯正反序各50条，实际10次取放。attempt8真实抬升99.777毫米、搬运及下放完成；释放121真实步稳定通过（位置范围9.24微米、旋转0.000205弧度）。撤手前原碰撞门拒绝，完整动作未完成；该诊断已正常失败收尾。正在修正手与杯几何代理的空体积假碰撞，尚未放行修复。",
+      "snapshot_note": "此为已记录进度快照，不将旧启动证据写成实时运行；015尚未提交，13/14均已失败终止。",
+      "native073": "Native073已完成A的首个取放；B真实抬升后发生0.445弧度关节跟踪偏差并碰到A，失败证据已保留。本轮未完成完整五步，局部取放不增加正式验收数。",
+      "native078": "四杯正反序各50条，实际8次取放。Native054曾完成首杯取至盘面、121个真实仿真tick稳定及空手退离。Native078未触发25毫弧度跟踪门，但释放推动杯体约22毫米而失败；后续诊断续态不计正常阶段通过，盘面抬升又被实际碰撞约束拒绝。尚无完整8动作验收。",
+      "native080": "Native080新单层布局已通过实际支撑、间距及关闭门审计；真实预抓409点到达，末端位置误差0.804毫米，随后把手目标IK因碰撞拒绝，本轮未开门。早期另轮开门局部证据保留，尚无完整五动作验收。",
+      "native084": "Native084实际完成A、B两个取放至tick5433；C在tick6133规划被拒，随后外层watchdog以124退出，未完成完整五步。早期Native073的B抬升后跟踪失败及碰杯证据保留。",
+      "native098": "Native098单层干燥箱A/B真实支撑布局通过；把手接近曾测到两指真实接触，但闭手后接触消失，后续运动被25毫弧度门拒绝；原3600秒watchdog退出，未开门、未完成五步。",
+      "weigh_latest": "四杯正反序各50条，实际8次取放。Native100诊断完成首杯取放与返回，后续真实同臂接触532牛暴露原球欠覆盖，失败证据保留。新增实际凸体两级自碰门后，Fresh135已真实抓起首杯78.0毫米并搬运，完整8动作仍未完成。",
+      "cpu103": "CPU103已完整完成A/B前两个取放；C水平接近在tick6430触发原未闭手守门（XY偏移2.15毫米、相对旋转0.0933弧度，主要为yaw）。额外诊断清理在tick6540因杯体被带偏/倾斜停止；原失败保留，本条完整任务资格为false。",
+      "native126": "Native126用已成功原MotionPlan候选逐条重验，并重新真实连续完成前四个完整动作；第5步提高50毫米的B抓位抓空，抬升实测0而失败。B仍在临时垫上正支撑，正接续原瓶身抓位，未重置场景；完整五步尚未验收。"
+    },
+    "historical_011_startup": {
+      "job_batch": "011",
+      "operation_id": "xfm0qh5yz5knh47ednbnlxdg2",
+      "operation_state": "SUCCEEDED",
+      "job_id": "job-gr7gubh48tkp",
+      "requested_gpus": 4,
+      "requested_environments": 8,
+      "native_processes_started": 8,
+      "gpu_allocation_matmul_pci_verified": true,
+      "evidence_recorded_at": "2026-10-18T04:51:58.959827+00:00",
+      "evidence_source": "root转述独立跟进agent051的已确认启动证据；记录时间非作业启动时间",
+      "results_recovered": false,
+      "full_episode_accepted": 0,
+      "native_success_verified": false,
+      "job_state_at_startup": "RUNNING"
+    },
+    "historical_012_terminal": {
       "job_batch": "012",
       "operation_id": "26q5bcssialmnbp21ygu48bp3",
       "operation_state": "SUCCEEDED",
@@ -151,52 +219,31 @@
         "secondary045_speed_gate": 1
       }
     },
-    "dev_status": {
-      "snapshot": "cloud012_terminal_native100_native064_attempt8",
-      "native_running_claimed": false,
-      "full_episode_accepted": 0,
-      "retained_diagnostic_environment": "Native064 attempt8原lift规划失败保留；后续执行为单独诊断窗口，未取得原完整episode资格。",
-      "layout_search": "058统一tick452开手几何：五杯原约束端点和其他杯开手走廊通过；完整机械臂连续运动及物理验收仍未通过",
-      "native030": "有支撑杯体稳定121个真实仿真tick后完成轴向退离，非完整称量任务",
-      "contact_canary": {
-        "state": "positive_native_contact_recorded",
-        "full_contact_qualified": false
-      },
-      "next_step": "继续完整原生序列调试；分段接触、离线端点或走廊通过均不计数，完整序列及接触/几何/视频验收通过后才增加正式数。",
-      "retained_batches": [
-        "Native073 B抬升后的跟踪失败及碰杯证据",
-        "Native078释放推杯失败及后续诊断碰撞拒绝证据",
-        "Native064早期失跟及新转支300秒超时证据",
-        "Native043/044早期失败证据",
-        "Native084 C规划拒绝及watchdog124退出证据",
-        "Native064 attempt7跟踪失败及新偏置IK自碰拒绝证据"
-      ],
-      "native054": "历史tick5905首个取放完成；不代表完整8动作。",
-      "native064": "五杯正反序各50条，实际10次取放。Native064 attempt8采用五杯与垫子同步向外30毫米的固定标定及7.071毫米抓取偏置，真实接近与闭手完成。原抬升MotionGen规划失败后，连续原IK全门通过，诊断窗口在tick3550实际抬升99.777毫米；尚无完整取放，诊断续态不计正常完整阶段或完整任务通过。",
-      "snapshot_note": "此为已记录结果快照，不报告DEV实时进程数；Cloud012为已回收终态，既往启动证据不代表仍在运行。",
-      "native073": "Native073已完成A的首个取放；B真实抬升后发生0.445弧度关节跟踪偏差并碰到A，失败证据已保留。本轮未完成完整五步，局部取放不增加正式验收数。",
-      "native078": "四杯正反序各50条，实际8次取放。Native054曾完成首杯取至盘面、121个真实仿真tick稳定及空手退离。Native078未触发25毫弧度跟踪门，但释放推动杯体约22毫米而失败；后续诊断续态不计正常阶段通过，盘面抬升又被实际碰撞约束拒绝。尚无完整8动作验收。",
-      "native080": "Native080新单层布局已通过实际支撑、间距及关闭门审计；真实预抓409点到达，末端位置误差0.804毫米，随后把手目标IK因碰撞拒绝，本轮未开门。早期另轮开门局部证据保留，尚无完整五动作验收。",
-      "native084": "Native084实际完成A、B两个取放至tick5433；C在tick6133规划被拒，随后外层watchdog以124退出，未完成完整五步。早期Native073的B抬升后跟踪失败及碰杯证据保留。",
-      "native098": "Native098单层A/B实际支撑与布局复测通过；新把手抓取目标IK仍被阻塞，尚无本轮完整开合门与五动作验收。",
-      "weigh_latest": "四杯正反序各50条，实际8次取放。Native100已使用固定对侧55个碰撞包围体，并确认旧错误关节路径被新的world约束拒绝；真实首个取至盘面的动作完成。此前3毫米悬空释放纠正仅属诊断续态，未取得原完整8动作资格；尚无完整8动作验收。",
-      "cpu103": "CPU103已完整完成A/B前两个取放；C水平接近在tick6430触发原未闭手守门（XY偏移2.15毫米、相对旋转0.0933弧度，主要为yaw）。额外诊断清理在tick6540因杯体被带偏/倾斜停止；原失败保留，本条完整任务资格为false。"
-    },
-    "historical_011_startup": {
-      "job_batch": "011",
-      "operation_id": "xfm0qh5yz5knh47ednbnlxdg2",
+    "historical_013_terminal": {
+      "job_batch": "013",
+      "job_id": "job-52kadnmvf0m5",
       "operation_state": "SUCCEEDED",
-      "job_id": "job-gr7gubh48tkp",
-      "job_state": "RUNNING",
       "requested_gpus": 4,
       "requested_environments": 8,
       "native_processes_started": 8,
       "gpu_allocation_matmul_pci_verified": true,
-      "evidence_recorded_at": "2026-10-18T04:51:58.959827+00:00",
-      "evidence_source": "root转述独立跟进agent051的已确认启动证据；记录时间非作业启动时间",
-      "results_recovered": false,
-      "full_episode_accepted": 0,
-      "native_success_verified": false
+      "native_initialization_failed": 8,
+      "native_processes_running": 0,
+      "formal_accepted": 0,
+      "note": "None geometry manifest：8路于动作前初始化失败，已关闭。"
+    },
+    "historical_014_terminal": {
+      "job_batch": "014",
+      "job_id": "job-qvgvp2k9kyoo",
+      "operation_state": "SUCCEEDED",
+      "job_state": "FAILED",
+      "requested_gpus": 4,
+      "requested_environments": 8,
+      "native_processes_started": 0,
+      "native_processes_running": 0,
+      "gpu_allocation_matmul_pci_verified": false,
+      "formal_accepted": 0,
+      "note": "bootstrap校验残留cloud013字面量，部署即退出；没有GPU采集动作。"
     }
   },
   "collection_owner": "T-573"
