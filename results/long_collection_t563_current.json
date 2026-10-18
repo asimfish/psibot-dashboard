@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_owner": "T-563",
-  "updated_at": "2026-10-18T09:32:28.031963+00:00",
+  "updated_at": "2026-10-18T09:48:57.199833+00:00",
   "formal_accepted": 0,
   "target_total": 400,
   "position_randomization": false,
@@ -103,8 +103,8 @@
   ],
   "diagnostic_note": "正式完整验收0/400，DP/ACT可用正式数据仍为0。分段物理动作、静态规划、云端启动及诊断续窗均不计完整五/八/十动作验收。",
   "cloud_status": {
-    "state": "running_four_cuda_eight_native_verified",
-    "note": "Cloud015已单次提交返回202并创建成功，作业RUNNING。4卡实际CUDA分配、矩阵计算及PCI匹配通过；8路实际Native环境均已核实运行清单、完整接触配置、初始实际/命令约束和120个真实tick几何影子检查，已进入第一阶段动作。四正四交换布局、B抓高+10/+15毫米与放置悬高3/6毫米均为未验收物理候选，完整正式数据仍为0。",
+    "state": "eight_native_terminal_failed",
+    "note": "Cloud015四卡实际CUDA与八路Native启动已验证；随后八路均结束且物理结果失败。两路正常顺序/3毫米悬高因保守几何容量不足停止，两路正常顺序/6毫米悬高撤手被原IK/world/self/exact约束拒绝，四路交换顺序首杯触原速度匹配门。未获得完整验收样本，不再声称八路正在运行。",
     "previous": {
       "job_batch": "010",
       "requested_environments": 8,
@@ -126,19 +126,19 @@
       "operation_state": "SUCCEEDED",
       "submission_http_status": 202,
       "job_id": "job-vwdxef1a1dr6",
-      "job_state": "RUNNING",
+      "job_state": "FAILED",
       "requested_gpus": 4,
       "requested_environments": 8,
       "native_processes_started": 8,
       "gpu_allocation_matmul_pci_verified": true,
-      "native_processes_running": 8,
-      "native_running_claimed": true,
-      "results_recovered": false,
+      "native_processes_running": 0,
+      "native_running_claimed": false,
+      "results_recovered": true,
       "full_episode_accepted": 0,
       "native_success_verified": false,
-      "batch_results_state": "eight_native_actual_first_phase_in_progress",
-      "evidence_recorded_at": "2026-10-18T09:32:28.031963+00:00",
-      "evidence_source": "root逐路核对共享cloud015的8份run_manifest、FULL_TENSOR_CONTACT_SETUP、初始actual/command与120tick exactshadow；R/CLOUD015_NATIVE203.json，4卡CUDA证据CLOUD015_ADMISSION202.json。",
+      "batch_results_state": "all_eight_native_results_failed",
+      "evidence_recorded_at": "2026-10-18T09:43:47.288839+00:00",
+      "evidence_source": "R/CLOUD015_TERMINAL208.json：逐8路最终result均failed/physical_success=false/formal_dataset_accepted=false。先前4卡CUDA与8路Native启动证据保留。 API最终FAILED及ended=1792316541176另见cloud015_job209.json。",
       "native_entry_verified": true,
       "launch_wrapper_processes_started": 8,
       "launch_wrapper_pids": [
@@ -150,7 +150,8 @@
         341,
         344,
         346
-      ]
+      ],
+      "terminal_failed_lanes": 8
     },
     "dev_status": {
       "snapshot": "native194_open_release_withdraw_failed_native200_first_action_t10_diagnostic_first_action",
@@ -174,7 +175,7 @@
       ],
       "native054": "历史tick5905首个取放完成；不代表完整8动作。",
       "native064": "实际10次取放，正反序各50条。attempt10在手型真实收敛后，实际完成接近、闭手、101.49毫米抬升、搬运、下放、121个真实仿真tick释放稳定及40毫米空手退离，第一段诊断取放至tick6653完成。第二段从秤盘取回的预抓被原碰撞约束拒绝，未取起；保留原失败与调试续接身份，尚无完整10次取放验收。",
-      "snapshot_note": "此为有时间戳的证据快照，不报告DEV实时进程数；Cloud015已验证4卡真实CUDA与8路实际Native进入动作，分段结果和调试续接均不算完整正式样本。",
+      "snapshot_note": "此为有时间戳的证据快照，不报告DEV实时进程数；Cloud015已验证八路Native最终失败，分段结果和调试续接均不算完整正式样本。",
       "native073": "Native073已完成A的首个取放；B真实抬升后发生0.445弧度关节跟踪偏差并碰到A，失败证据已保留。本轮未完成完整五步，局部取放不增加正式验收数。",
       "native078": "四杯正反序各50条，实际8次取放。Native054曾完成首杯取至盘面、121个真实仿真tick稳定及空手退离。Native078未触发25毫弧度跟踪门，但释放推动杯体约22毫米而失败；后续诊断续态不计正常阶段通过，盘面抬升又被实际碰撞约束拒绝。尚无完整8动作验收。",
       "native080": "Native080新单层布局已通过实际支撑、间距及关闭门审计；真实预抓409点到达，末端位置误差0.804毫米，随后把手目标IK因碰撞拒绝，本轮未开门。早期另轮开门局部证据保留，尚无完整五动作验收。",
