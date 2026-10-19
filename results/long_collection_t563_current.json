@@ -13,7 +13,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "干燥箱588曾通过2度试开，但完整开门触发原5毫米握点偏移检查；608直接放慢到24仿真秒也触发检查。新632保持原物理参数，在抓取前沿实际把手Y方向调整2毫米，实测双侧握力约8.06、9.08牛，但2度试开未达到原80%到位要求，已停止该次实际尝试；没有重置握点或重试失败物理状态。尚未完成五步，正式0。",
+      "note": "新679已在Pro6000 GPU0启动，验证固定原始握点、手腕与门把手等角度共转的候选。依据588实测：门/把手转约19.90度时手腕仅转14.08度，相对姿态变化5.83度并触发5毫米握点偏移检查。该原因仍为待实测验证的假设；保持原真实抓取、穿透、关节跟踪和握点检查，不重置失败状态。完整干燥箱五步尚未完成，正式0/100。",
       "conditions": [
         {
           "id": "AB",
@@ -36,7 +36,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "固定条件604已自动完成完整五步，664.924秒（11分05秒），本机三视角整段解码通过；5090对照605也完成697.270秒。均未达到180秒整条目标，渲染和完整独立资格仍待验收。当前4090的643恢复资产自带正面第三相机后重跑整条；5090的637已验证另一种烧杯/锥形瓶互换条件，预抓取完成，下降规划出现10.49毫米回退被拒。现有连续cuRobo IK在4.10秒内给出通过原检查的候选；649从保留的现场续调，未从初始场景重来。两种条件仍各需50条完整合格样本。",
+      "note": "固定摆放671已自动完成完整五步，786.063秒，三视角整段解码通过；资产原始正面第三机位已恢复，250ml烧杯刻度材质恢复，387个物理源prim前后SHA完全相同。互换摆放637从保留现场续调已完成五步并正常封存；新672加入同样画质设置自动完成前三步，在第四步放回后的撤手准入被原约束拒绝，正在保留现场排查。胸部画面锥形瓶瓶颈仍有明显白区，渲染未验收；180秒整条目标尚未达到。两条件各50条正式数量均为0。",
       "conditions": [
         {
           "id": "A_left_B_right",
@@ -59,7 +59,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "537保留的真实tick7911状态用于纯规划续查；635已找到4个满足原世界、自碰撞、精确2毫米间隙和末端误差检查的下放终点，但从已验证15个路点向第16点连续连接仍失败。终点可达与整条路径通过已分别记录；没有将纯规划记作真实采集成功，当前没有运行七子任务Native采集。",
+      "note": "原真实7911状态的纯规划中，635找到4个通过原检查的下放终点，但连续连接未通过；674四路姿态弧线纯规划也已结束，均未给出合格整条。下一步核对七任务特有的强制六度弧线与十任务原MotionPlan下放回退的差异。纯规划和首杯部分动作均不计正式采集，正式0/100。",
       "conditions": [
         {
           "id": "1234",
@@ -82,7 +82,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "历史394只完成首杯往返（2/10），已正常封存。后续B杯24仿真秒、2881行候选通过原世界、自碰撞、持杯、命令历史和动态检查，仍需在新现场重验并执行；当前没有运行十子任务Native采集。五杯12345/54321各50条的目标保持。",
+      "note": "新667已真实抓起首杯并向天平搬运，原300秒阶段时限在tick3900触发；没有实际物理检查失败。已保留原轨迹、待执行行与现场记录并正常封存，未延长原3600秒外层时限。B杯24仿真秒的已资格化路径已接入新候选但此次尚未执行到B；完整十步尚未通过，正式0/100。",
       "conditions": [
         {
           "id": "12345",
@@ -99,25 +99,25 @@
       ]
     }
   ],
-  "snapshot_id": 644,
-  "updated_at": "2026-10-19T08:17:44.498857+00:00",
+  "snapshot_id": 682,
+  "updated_at": "2026-10-19T09:39:31.727740+00:00",
   "training_eligible_count": 0,
   "acceptance_note": "正式计数必须是完整任务且通过物理、几何、三视角、轨迹和速度验收；最新整条目标为不超过180秒。调试成功、局部开门和规划通过均不直接增加计数。",
-  "diagnostic_note": "最新任务定义保持固定位置、四种场景、八组各50条，总400条。正式完整验收0/400，DP/ACT正式可用0。已实际检查胸部、头部、第三人称原始RGB；第三机位的斜侧覆盖已定位，资产原有正面机位已复现，643正在整条复验。透明玻璃、标签遮罩/阴影、白色区域和多帧噪点仍在做独立对照，尚未宣称渲染合格。",
+  "diagnostic_note": "四种场景、八条件各50条，总400；位置不随机。正式验收0/400、训练可用0。六垫五步两种初始摆放均已有完整物理诊断候选；最新671已恢复正面第三机位和250ml原始刻度并完成三视频闭合。锥形瓶瓶颈白区、完整独立物理资格和180秒整条速度仍未验收，不将候选、纯规划或部分动作当正式数据。",
   "cloud_status": {
     "state": "qualification_in_progress",
-    "note": "本快照只报告已核实的实例和结果；历史云作业启动记录不能作为当前持续运行的依据，批量扩容与DP/ACT训练仍需完整合格数据。",
+    "note": "当前已核实新679在Pro6000启动、5090的672保留失败规划现场；671已完成封存。历史云提交不作为当前运行证据，DP/ACT正式可用0。",
     "current": []
   },
   "performance": {
     "whole_episode_target_seconds": 180,
-    "latest_completed_native": "604",
-    "latest_completed_wall_seconds": 664.9241357319988,
+    "latest_completed_native": "671",
+    "latest_completed_wall_seconds": 786.0630822069943,
     "latest_completed_three_view_decode_passed": true,
-    "fresh_speed_candidate": "643",
+    "fresh_speed_candidate": "672",
     "fresh_candidate_completed": false,
     "actual_motion_model_calls": 0,
-    "measurement_note": "180秒仍为整条目标，尚未达到；604只证明同一固定条件完整物理候选和三路视频闭合。组件微基准没有作为整条收益。",
+    "measurement_note": "最新画质整条671为786.063秒，180秒目标未达到。逐步原生观测212.287秒、物理step159.054秒、渲染39.446秒，计时含嵌套不能直接累加；此整条动作模型调用为0。",
     "remote605_completed_wall_seconds": 697.2700641830015
   },
   "evidence": {
@@ -134,7 +134,14 @@
     "camera_material_native_state_parity": "native636_local_render/runs/low10/RENDER636_REPORT.json",
     "generalization_second_condition": "5090/native637_gpu1_swapped_front/runs/low10/PURE642_RESULT.json",
     "oven_latest": "PRO/native_oven632_barY_interior/runs/oven_live/AUTO640_RESULT.json",
-    "seven_latest": "PRO/offline_lower635_endpoint/output/ARC0/RESULT.json"
+    "seven_latest": "PRO/offline_lower635_endpoint/output/ARC0/RESULT.json",
+    "full671_native": "native671_local_front_full5/runs/low10/RESULT.json",
+    "full671_closure": "root588/CLOSURE671_ROOT.json",
+    "labels671_physical_source_parity": "native671_local_front_full5/runs/low10/LABELS664_PHYSICS_PARITY.json",
+    "swapped637_complete_candidate": "5090/native637_gpu1_swapped_front/runs/low10/RESUME663_RESULT.json",
+    "swapped672_latest": "5090/native672_gpu1_swapped_quality_auto/runs/low10/LIVE_FAILURE.json",
+    "oven679": "PRO/native_oven679_rigid_follow/FROZEN679.json",
+    "weigh667": "PRO/native667_t10_planning213_front/runs/full667/LIVE_FAILURE.json"
   },
   "render_quality": {
     "required_views": [
@@ -144,8 +151,8 @@
     ],
     "all_accepted": false,
     "authored_front_third_reproduced": true,
-    "full_task_camera_fix_native": "643",
-    "transparent_materials_labels_shadows_and_noise": "pending",
+    "full_task_camera_fix_native": "671",
+    "transparent_materials_labels_shadows_and_noise": "Original A label restored, physical-source exact parity387 verified, full3 videos decode; visible B neck white region remains under investigation; visual acceptance pending",
     "diagnostic_counterfactuals_are_not_collection_data": true
   }
 }
