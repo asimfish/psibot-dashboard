@@ -13,7 +13,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "干燥箱588已修正拇指目标越限，实测双侧握把力约8.05牛、8.66牛；2度试开实际相对转过1.6927度，通过本轮80%到位检查，原5毫米握点偏移、碰撞和跟踪检查保留。这只是小角度诊断成功，尚未完成开门或五步。现在从真实tick2072检查完整开门路径，并保留第一次握点，未重置物体或机械臂。",
+      "note": "干燥箱588曾通过2度试开，但完整开门触发原5毫米握点偏移检查；608直接放慢到24仿真秒也触发检查。新632保持原物理参数，在抓取前沿实际把手Y方向调整2毫米，实测双侧握力约8.06、9.08牛，但2度试开未达到原80%到位要求，已停止该次实际尝试；没有重置握点或重试失败物理状态。尚未完成五步，正式0。",
       "conditions": [
         {
           "id": "AB",
@@ -36,7 +36,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "六垫搬运553、570均已自动完成完整五步，正常关闭且三视角整段解码通过；570实测871.925秒（14分32秒），未达到新180秒整条目标。4090已启动590加速实测：复用39段既有cuRobo候选并按当前现场重验，扩展插值定时、缩短微小开手动作、缓存完全相同输入的支撑几何计算。5090对照493完成前三步，第四步抬升规划因持杯体积与桌面缓冲相交而暂停，未放宽检查。完整独立资格和速度仍未通过，正式0。",
+      "note": "固定条件604已自动完成完整五步，664.924秒（11分05秒），本机三视角整段解码通过；5090对照605也完成697.270秒。均未达到180秒整条目标，渲染和完整独立资格仍待验收。当前4090的643恢复资产自带正面第三相机后重跑整条；5090的637已验证另一种烧杯/锥形瓶互换条件，预抓取完成，下降规划出现10.49毫米回退被拒。现有连续cuRobo IK在4.10秒内给出通过原检查的候选；649从保留的现场续调，未从初始场景重来。两种条件仍各需50条完整合格样本。",
       "conditions": [
         {
           "id": "A_left_B_right",
@@ -59,7 +59,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "最新537只完成首杯放上天平（1/8）；取回阶段已真实抬杯并完成搬运到tick7911，但下放的连续IK在第14路点被拒。原外层时限已到，实例已结束，当前没有在采集七子任务；没有恢复或补写缺失记录。下一步沿当前真实抓姿和障碍几何调通下放路径，再启动新实例。",
+      "note": "537保留的真实tick7911状态用于纯规划续查；635已找到4个满足原世界、自碰撞、精确2毫米间隙和末端误差检查的下放终点，但从已验证15个路点向第16点连续连接仍失败。终点可达与整条路径通过已分别记录；没有将纯规划记作真实采集成功，当前没有运行七子任务Native采集。",
       "conditions": [
         {
           "id": "1234",
@@ -82,7 +82,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "历史394只完成首杯往返（2/10），已正常封存。下一杯完整24仿真秒、2881行规划候选通过原世界、自碰撞、持杯、命令历史与运动学检查，仍未在新物理实例执行。直接缩短路线仍被原自碰撞检查拒绝；当前没有在采集十子任务，规划通过不计正式数据。",
+      "note": "历史394只完成首杯往返（2/10），已正常封存。后续B杯24仿真秒、2881行候选通过原世界、自碰撞、持杯、命令历史和动态检查，仍需在新现场重验并执行；当前没有运行十子任务Native采集。五杯12345/54321各50条的目标保持。",
       "conditions": [
         {
           "id": "12345",
@@ -99,47 +99,26 @@
       ]
     }
   ],
-  "snapshot_id": 594,
-  "updated_at": "2026-10-19T06:53:03.796956+00:00",
+  "snapshot_id": 644,
+  "updated_at": "2026-10-19T08:17:44.498857+00:00",
   "training_eligible_count": 0,
   "acceptance_note": "正式计数必须是完整任务且通过物理、几何、三视角、轨迹和速度验收；最新整条目标为不超过180秒。调试成功、局部开门和规划通过均不直接增加计数。",
-  "diagnostic_note": "整条速度目标已收紧至180秒。六垫最新完整候选14分32秒，590正在实测加速；干燥箱588通过2度小弧诊断，完整开门未完成。七、十子任务尚未调通整条，当前没有在采集。正式完整验收0/400，DP/ACT正式可用数据0；固定位置、八组各50条保持。此页为注明时间的事实快照。",
+  "diagnostic_note": "最新任务定义保持固定位置、四种场景、八组各50条，总400条。正式完整验收0/400，DP/ACT正式可用0。已实际检查胸部、头部、第三人称原始RGB；第三机位的斜侧覆盖已定位，资产原有正面机位已复现，643正在整条复验。透明玻璃、标签遮罩/阴影、白色区域和多帧噪点仍在做独立对照，尚未宣称渲染合格。",
   "cloud_status": {
-    "state": "eight_native_terminal_failed",
-    "note": "Cloud016作业创建成功，四卡真实CUDA分配、矩阵计算和PCI检查通过，八路Native均已失败结束并关闭：四路正常顺序C接近IK/FINETUNE拒绝，四路交换顺序被持物全路径门拒绝。外层API现已确认FAILED（GET200，ended=1792326386219）；八路Native均已关闭。完整验收0，不自动重投。",
-    "current": {
-      "job_batch": "016",
-      "operation_id": "jlpenmeohlcdnqfkxf4pweex3",
-      "operation_state": "SUCCEEDED",
-      "job_id": "job-x8e8dil5vo50",
-      "job_state": "FAILED",
-      "job_state_is_last_observation": true,
-      "requested_gpus": 4,
-      "requested_environments": 8,
-      "native_processes_started": 8,
-      "gpu_allocation_matmul_pci_verified": true,
-      "native_processes_running": 0,
-      "native_running_claimed": false,
-      "results_recovered": true,
-      "full_episode_accepted": 0,
-      "native_success_verified": false,
-      "batch_results_state": "all_eight_native_results_failed",
-      "terminal_failed_lanes": 8,
-      "batch_done_epoch": 1792325914.8949418,
-      "evidence_recorded_at": "2026-10-18T12:47:17.549595+00:00",
-      "evidence_source": "ROOT核对CLOUD016_FINAL298.json：API GET200 job FAILED及ended=1792326386219；先前DONE和八路Native失败终态均保留。",
-      "job_ended_epoch_ms": 1792326386219
-    }
+    "state": "qualification_in_progress",
+    "note": "本快照只报告已核实的实例和结果；历史云作业启动记录不能作为当前持续运行的依据，批量扩容与DP/ACT训练仍需完整合格数据。",
+    "current": []
   },
   "performance": {
     "whole_episode_target_seconds": 180,
-    "latest_completed_native": "570",
-    "latest_completed_wall_seconds": 871.9249486459885,
+    "latest_completed_native": "604",
+    "latest_completed_wall_seconds": 664.9241357319988,
     "latest_completed_three_view_decode_passed": true,
-    "fresh_speed_candidate": "590",
+    "fresh_speed_candidate": "643",
     "fresh_candidate_completed": false,
     "actual_motion_model_calls": 0,
-    "measurement_note": "Native553基线内层逐帧均值40.21毫秒，观察288.61秒、仿真215.93秒；这些是已有仪表结果，未把CPU缓存微基准当成整条实测收益。"
+    "measurement_note": "180秒仍为整条目标，尚未达到；604只证明同一固定条件完整物理候选和三路视频闭合。组件微基准没有作为整条收益。",
+    "remote605_completed_wall_seconds": 697.2700641830015
   },
   "evidence": {
     "full570_closure": "speed_native392/CLOSURE570_BY392.json",
@@ -147,6 +126,26 @@
     "speed590_review": "root588/ROOT590_REVIEW.json",
     "speed590_launch": "root588/ROOT590_START_RECEIPT.json",
     "oven588_small_tug": "native_oven588_legal_balanced/runs/oven_live/AUTO592_RESULT.json",
-    "source_policy": "No failed physical evidence, missing rows, or historical timestamps are replaced."
+    "source_policy": "No failed physical evidence, missing rows, or historical timestamps are replaced.",
+    "full604_closure": "speed_native392/CLOSURE604_BY392.json",
+    "full604_native": "native604_local_A4_control/runs/low10/RESULT.json",
+    "full605_native": "5090/native605_gpu1_A4_control/runs/low10/RESULT.json",
+    "camera_original_front": "native630_local_render/runs/low10/authored_original/07_third_camera.png",
+    "camera_material_native_state_parity": "native636_local_render/runs/low10/RENDER636_REPORT.json",
+    "generalization_second_condition": "5090/native637_gpu1_swapped_front/runs/low10/PURE642_RESULT.json",
+    "oven_latest": "PRO/native_oven632_barY_interior/runs/oven_live/AUTO640_RESULT.json",
+    "seven_latest": "PRO/offline_lower635_endpoint/output/ARC0/RESULT.json"
+  },
+  "render_quality": {
+    "required_views": [
+      "head_camera",
+      "chest_camera",
+      "third_camera"
+    ],
+    "all_accepted": false,
+    "authored_front_third_reproduced": true,
+    "full_task_camera_fix_native": "643",
+    "transparent_materials_labels_shadows_and_noise": "pending",
+    "diagnostic_counterfactuals_are_not_collection_data": true
   }
 }
