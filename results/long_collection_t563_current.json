@@ -13,7 +13,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "730按当前实际把手分段调整规划，实际开到9.59度，第二段仍被原5毫米首握点检查拒绝；未重置或重定首握点。741/743大角度抓姿无IK解；从原预抓现场续调−1/−2度，−1度形成约8.96N/8.96N真实对向抓握，但食指仍处把手边缘，新增0.5毫米平面内余量检查未通过，未试开。正式0/100。",
+      "note": "768将干燥箱深度按1.2重新烘焙实体几何与铰链锚点，保留单层和真实碰撞；实际对向抓握约8.09N/8.77N，但食指仍在把手边缘，额外0.5毫米平面余量未通过，未试拉门。旧730实际9.59度，后续原5毫米首握点检查拒绝。768已到原外部时限退出；未完成整任务，正式0/100。",
       "conditions": [
         {
           "id": "AB",
@@ -36,7 +36,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "715完成完整五步845.416秒，11571行原生记录及头、胸、正面第三视角三路整段视频解码通过；709为855.987秒。组件缓存复制优化未达到180秒整条目标。互换摆放637有完整五步诊断候选；672自动版在第四步实际自碰撞余量检查被拒，保留失败。完整独立验收及画质仍待完成，正式0/100。",
+      "note": "770完整完成五步827.603秒，三路整段视频解码和SHA闭合通过。按实际渲染K与位姿核查1353个移动采样，目标物体保守包围盒在头、胸、正面第三视角均完整入画；不等于无遮挡或全面画质通过。SDK审计记录34713次合法电机指令、0次状态改写尝试（范围限Python SDK）。互换摆放637有完整诊断候选。透明瓶颈白区、完整独立验收及180秒目标仍未解决，正式0/100。",
       "conditions": [
         {
           "id": "A_left_B_right",
@@ -59,7 +59,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "705完成首杯上天平并真实从盘上抓起，但后续未完成；保留原记录。新754已在Pro6000 GPU0开始原生运动，复用历史394实际成功的A杯取回全阶段规划提案，按当前世界、自碰撞、精确2毫米、持杯、SDK及动态检查重验。本机750在初始胶囊轴映射差10.52毫米时被拦截，尚未开始任务；正式0/100。",
+      "note": "783在Pro6000 GPU0已完成首杯入盘，因300秒阶段墙钟超时停在第4295帧放手稳定检查；789从相同物理状态的原循环第48项接续，保留31帧/50微米/17窗口和全部物理门槛，没有重走首阶段。接近阶段改为按当前目标精确IK；新增允许目标与手规划接触的显式策略仍需完整验证，非手臂目标碰撞、SDK深度和精确自碰撞检查保留。旧754已放回A但撤手未完成且到时退出；正式0/100。",
       "conditions": [
         {
           "id": "1234",
@@ -82,7 +82,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "706完成首杯上天平、从盘上抓起及移回垫子上方，下降路径因精确2毫米检查被拒；未完成放回。新752在Pro6000 GPU1实际运行，复用394已实际完成的首杯取回规划提案，保留全部当前检查。5090新748因启动前显存不足被阻止，未宣称运行。正式0/100。",
+      "note": "769完成首杯入盘；取回时当前目标与缓存抓位相差约4.35毫米，执行后真实起杯仅2.3毫米，物理失败。保留原失败和第6360帧真实关节、目标、物体状态，正常关闭三视频，没有在失败现场重试。下一候选使用当前目标精确IK，先参考783结果。5090的748启动预检显存不足，未运行；正式0/100。",
       "conditions": [
         {
           "id": "12345",
@@ -99,25 +99,25 @@
       ]
     }
   ],
-  "snapshot_id": 755,
-  "updated_at": "2026-10-19T11:16:55.185604+00:00",
+  "snapshot_id": 790,
+  "updated_at": "2026-10-19T12:46:27.176655+00:00",
   "training_eligible_count": 0,
   "acceptance_note": "正式计数必须是完整任务且通过物理、几何、三视角、轨迹和速度验收；最新整条目标为不超过180秒。调试成功、局部开门和规划通过均不直接增加计数。",
-  "diagnostic_note": "固定四场景、八组各50条，共400；正式验收0/400，训练可用0。715完整五步三视频闭合通过，845.416秒；完整物理资格和透明物体画质仍待验收。七十任务新双路运行，历史部分动作与纯规划不计正式条数。",
+  "diagnostic_note": "四场景八组各50条，共400；正式0/400，训练可用0。770六垫五步完整827.603秒及三视频闭合通过；相机实际K、全程入画和有限SDK状态写审计有新证据。完整物理/视觉资格和180秒目标仍待达成。",
   "cloud_status": {
     "state": "qualification_in_progress",
-    "note": "实测Pro6000双卡分别运行754七任务、752十任务，原生运动日志已出现；干燥箱741保留实际抓握待处理，743保留预抓现场。4090的750初始化映射检查失败后正常关闭；5090的748因显存预留不足在启动前退出，不干扰其他进程。历史云任务不视为当前运行。正式训练可用0。",
+    "note": "本次核查Pro6000 GPU0的783保留原生进程并接续首杯放手稳定；GPU1的769起杯物理失败后已保存现场并正常关闭。干燥箱768到原外部时限退出，不能算运行中；5090新748启动前显存检查拒绝。正式数据不足，未提交无效训练任务。",
     "current": []
   },
   "performance": {
     "whole_episode_target_seconds": 180,
-    "latest_completed_native": "715",
-    "latest_completed_wall_seconds": 845.4159796469612,
+    "latest_completed_native": "770",
+    "latest_completed_wall_seconds": 827.6026858790428,
     "latest_completed_three_view_decode_passed": true,
-    "fresh_speed_candidate": "715",
+    "fresh_speed_candidate": "770",
     "fresh_candidate_completed": true,
     "actual_motion_model_calls": 0,
-    "measurement_note": "715完成845.416秒，709为855.987秒；两条均11571原生行。单次整条比较约快10.57秒（1.2%），不足以推断稳定因果收益，180秒目标未达到。2.257倍仅为支撑缓存克隆微基准。",
+    "measurement_note": "770整条827.603秒；715为845.416秒，709为855.987秒。单次比较不能证明稳定优化收益，180秒目标未达到；实际运动模型调用0。",
     "remote605_completed_wall_seconds": 697.2700641830015
   },
   "evidence": {
@@ -156,7 +156,15 @@
     "seven754": "PRO/native754_t7_bank394/FROZEN754.json",
     "ten752": "PRO/native752_t10_bank394/FROZEN752.json",
     "source394_bank": "root588/BANK747_SOURCE394.tar.gz",
-    "local750_mapping": "native750_t7_local_bank394/runs/full750/READONLY753_MAPPING.json"
+    "local750_mapping": "native750_t7_local_bank394/runs/full750/READONLY753_MAPPING.json",
+    "full770_closure": "root588/CLOSURE770_ROOT.json",
+    "full770_camera_sdk": "root588/FULL770_CAMERA_AND_SDK_REVIEW.json",
+    "full770_native": "native770_local_camera_state_audit/runs/low10/RESULT.json",
+    "seven783": "PRO/native783_t7_target_contact/FROZEN783.json",
+    "seven789": "PRO/native783_t7_target_contact/runs/full783/PROBE789_RELEASE.json",
+    "ten769_failure": "PRO/native769_t10_high_join/runs/full769/RESUME785_RESULT.json",
+    "ten769_capture": "PRO/native769_t10_high_join/runs/full769/CAPTURE787_STATE.json",
+    "oven768": "PRO/native_oven768_depth120/runs/oven_live/AUTO768_RESULT.json"
   },
   "render_quality": {
     "required_views": [
@@ -166,10 +174,13 @@
     ],
     "all_accepted": false,
     "authored_front_third_reproduced": true,
-    "full_task_camera_fix_native": "709",
-    "transparent_materials_labels_shadows_and_noise": "A原始刻度已恢复；实际RT与PT64spp同机位对照均可见B瓶颈白区，原因未定。704实测三相机缓存与实际渲染姿态误差<0.00001度，机位不变；709完整移动三视频解码通过，全面画质验收尚未完成。",
+    "full_task_camera_fix_native": "770",
+    "transparent_materials_labels_shadows_and_noise": "770修复真实渲染与缓存内参不一致、移动视野裁切及胸部相机肩部遮挡。1353个移动采样/视角保守包围盒完整入画，尚不等于无遮挡或全部画质通过。B锥形瓶瓶颈白区原因仍未确定，透明、标签阴影、噪声完整验收未通过。",
     "diagnostic_counterfactuals_are_not_collection_data": true,
     "camera_metadata_refresh_verified": true,
-    "camera_orientation_max_error_deg": 4.452132e-06
+    "camera_orientation_max_error_deg": 4.452132e-06,
+    "camera_intrinsics_max_error_px": 3.396e-05,
+    "full_task_conservative_object_box_in_frame_fraction": 1.0,
+    "full_task_per_camera_active_samples": 1353
   }
 }
