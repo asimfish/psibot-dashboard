@@ -13,7 +13,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "新679已在Pro6000 GPU0启动，验证固定原始握点、手腕与门把手等角度共转的候选。依据588实测：门/把手转约19.90度时手腕仅转14.08度，相对姿态变化5.83度并触发5毫米握点偏移检查。该原因仍为待实测验证的假设；保持原真实抓取、穿透、关节跟踪和握点检查，不重置失败状态。完整干燥箱五步尚未完成，正式0/100。",
+      "note": "712/713在新鲜抓取前沿真实拇指接触法向调整1.5/2毫米；两路2度小角度试开均通过，完整开门仍触发原5毫米首握点偏移检查，正式0/100。此前等角度共转以及16/24秒慢速对照也未通过。下一步将检查基于当前实际把手位置分段调整偏移的方案；仍保留原首握点、SDK接触、关节跟踪和碰撞检查，不从失败物理状态重试。",
       "conditions": [
         {
           "id": "AB",
@@ -36,7 +36,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "固定摆放671已自动完成完整五步，786.063秒，三视角整段解码通过；资产原始正面第三机位已恢复，250ml烧杯刻度材质恢复，387个物理源prim前后SHA完全相同。互换摆放637从保留现场续调已完成五步并正常封存；新672加入同样画质设置自动完成前三步，在第四步放回后的撤手准入被原约束拒绝，正在保留现场排查。胸部画面锥形瓶瓶颈仍有明显白区，渲染未验收；180秒整条目标尚未达到。两条件各50条正式数量均为0。",
+      "note": "709加入已实测通过的三相机姿态缓存修复后，自动完成完整五步，855.987秒；头部、胸部、正面第三视角三路整段解码通过。671画质版也完成786.063秒，250ml原始刻度恢复，387个物理源prim前后SHA相同。互换初始摆放637有完整五步诊断候选；其自动版672完成前三步后，第四步撤手因实际arm0/arm2自碰撞球余量不足6.4微米被拒，未放宽原检查。715正在整条比较支撑面缓存复制优化，组件微基准2.26倍不等于整条加速。正式0/100。",
       "conditions": [
         {
           "id": "A_left_B_right",
@@ -59,7 +59,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "原真实7911状态的纯规划中，635找到4个通过原检查的下放终点，但连续连接未通过；674四路姿态弧线纯规划也已结束，均未给出合格整条。下一步核对七任务特有的强制六度弧线与十任务原MotionPlan下放回退的差异。纯规划和首杯部分动作均不计正式采集，正式0/100。",
+      "note": "5090 GPU0的705在原300秒时限暂停后，从原待执行行续接，已真实完成首杯放上天平（1/8）；第二步取回已完成预抓，下降接近的纯连续IK在第9路点被拒，尚未闭手。缓存目标不匹配已转原MotionPlan重算，没有恢复初始场景。7911旧状态的原MotionPlan候选虽通过世界、姿态、持杯和动态检查，精确2毫米检查仍失败，未执行。正式0/100。",
       "conditions": [
         {
           "id": "1234",
@@ -82,7 +82,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "新667已真实抓起首杯并向天平搬运，原300秒阶段时限在tick3900触发；没有实际物理检查失败。已保留原轨迹、待执行行与现场记录并正常封存，未延长原3600秒外层时限。B杯24仿真秒的已资格化路径已接入新候选但此次尚未执行到B；完整十步尚未通过，正式0/100。",
+      "note": "5090 GPU1的706通过保留原松手稳定窗口和接触上下文续接，已真实完成首杯放上天平（1/10）；第二步正在从保留现场重算取回路径。原667的300秒暂停和全部失败证据保留。B杯24仿真秒候选只允许在当前现场通过完整检查后使用，目前尚未执行到B，正式0/100。",
       "conditions": [
         {
           "id": "12345",
@@ -99,25 +99,25 @@
       ]
     }
   ],
-  "snapshot_id": 682,
-  "updated_at": "2026-10-19T09:39:31.727740+00:00",
+  "snapshot_id": 731,
+  "updated_at": "2026-10-19T10:23:23.093922+00:00",
   "training_eligible_count": 0,
   "acceptance_note": "正式计数必须是完整任务且通过物理、几何、三视角、轨迹和速度验收；最新整条目标为不超过180秒。调试成功、局部开门和规划通过均不直接增加计数。",
-  "diagnostic_note": "四种场景、八条件各50条，总400；位置不随机。正式验收0/400、训练可用0。六垫五步两种初始摆放均已有完整物理诊断候选；最新671已恢复正面第三机位和250ml原始刻度并完成三视频闭合。锥形瓶瓶颈白区、完整独立物理资格和180秒整条速度仍未验收，不将候选、纯规划或部分动作当正式数据。",
+  "diagnostic_note": "四种场景、八组各50条、固定位置，总400。完整正式验收0/400，DP/ACT可用0。709完整五步及三视频闭合已核实；三相机缓存标定错误已实测修正，但锥形瓶白区和完整独立物理资格仍待验收，180秒整条目标未达到。部分动作、纯规划及物理诊断候选均单独列明。",
   "cloud_status": {
     "state": "qualification_in_progress",
-    "note": "当前已核实新679在Pro6000启动、5090的672保留失败规划现场；671已完成封存。历史云提交不作为当前运行证据，DP/ACT正式可用0。",
+    "note": "已核实本机4090运行715整条对照、5090双卡分别保留705和706当前现场并续调；Pro6000的712/713试验已失败暂停，未将其计为运行成功。历史云提交不作为当前运行证据，正式训练可用0。",
     "current": []
   },
   "performance": {
     "whole_episode_target_seconds": 180,
-    "latest_completed_native": "671",
-    "latest_completed_wall_seconds": 786.0630822069943,
+    "latest_completed_native": "709",
+    "latest_completed_wall_seconds": 855.9870809789863,
     "latest_completed_three_view_decode_passed": true,
-    "fresh_speed_candidate": "672",
+    "fresh_speed_candidate": "715",
     "fresh_candidate_completed": false,
     "actual_motion_model_calls": 0,
-    "measurement_note": "最新画质整条671为786.063秒，180秒目标未达到。逐步原生观测212.287秒、物理step159.054秒、渲染39.446秒，计时含嵌套不能直接累加；此整条动作模型调用为0。",
+    "measurement_note": "709完整五步855.987秒，180秒目标未达到。715保持同一物理和相机行为，仅优化支撑面缓存返回复制；2.257倍是单组件实际捕获结构的微基准，尚无整条收益结论。",
     "remote605_completed_wall_seconds": 697.2700641830015
   },
   "evidence": {
@@ -141,7 +141,15 @@
     "swapped637_complete_candidate": "5090/native637_gpu1_swapped_front/runs/low10/RESUME663_RESULT.json",
     "swapped672_latest": "5090/native672_gpu1_swapped_quality_auto/runs/low10/LIVE_FAILURE.json",
     "oven679": "PRO/native_oven679_rigid_follow/FROZEN679.json",
-    "weigh667": "PRO/native667_t10_planning213_front/runs/full667/LIVE_FAILURE.json"
+    "weigh667": "PRO/native667_t10_planning213_front/runs/full667/LIVE_FAILURE.json",
+    "full709_native": "native709_local_calibrated_full5/runs/low10/RESULT.json",
+    "full709_closure": "root588/CLOSURE709_ROOT.json",
+    "camera704_verified": "root588/CAMERA704_VERIFIED.json",
+    "actual_render_reference676": "native676_local_camera_reference/runs/low10/REFERENCE676_REPORT.json",
+    "support714_CPU": "root588/CPU714_RESULT.json",
+    "full715": "native715_local_support_clone/FROZEN715.json",
+    "seven705": "5090/native705_t7_mp_fallback/runs/full705/RESUME724_RESULT.json",
+    "ten706": "5090/native706_t10_mp_fallback/runs/full706/RESUME719_RESULT.json"
   },
   "render_quality": {
     "required_views": [
@@ -151,8 +159,10 @@
     ],
     "all_accepted": false,
     "authored_front_third_reproduced": true,
-    "full_task_camera_fix_native": "671",
-    "transparent_materials_labels_shadows_and_noise": "Original A label restored, physical-source exact parity387 verified, full3 videos decode; visible B neck white region remains under investigation; visual acceptance pending",
-    "diagnostic_counterfactuals_are_not_collection_data": true
+    "full_task_camera_fix_native": "709",
+    "transparent_materials_labels_shadows_and_noise": "A原始刻度已恢复；实际RT与PT64spp同机位对照均可见B瓶颈白区，原因未定。704实测三相机缓存与实际渲染姿态误差<0.00001度，机位不变；709完整移动三视频解码通过，全面画质验收尚未完成。",
+    "diagnostic_counterfactuals_are_not_collection_data": true,
+    "camera_metadata_refresh_verified": true,
+    "camera_orientation_max_error_deg": 4.452132e-06
   }
 }
