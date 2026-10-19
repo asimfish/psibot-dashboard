@@ -13,7 +13,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "712/713在新鲜抓取前沿真实拇指接触法向调整1.5/2毫米；两路2度小角度试开均通过，完整开门仍触发原5毫米首握点偏移检查，正式0/100。此前等角度共转以及16/24秒慢速对照也未通过。下一步将检查基于当前实际把手位置分段调整偏移的方案；仍保留原首握点、SDK接触、关节跟踪和碰撞检查，不从失败物理状态重试。",
+      "note": "730按当前实际把手分段调整规划，实际开到9.59度，第二段仍被原5毫米首握点检查拒绝；未重置或重定首握点。741/743大角度抓姿无IK解；从原预抓现场续调−1/−2度，−1度形成约8.96N/8.96N真实对向抓握，但食指仍处把手边缘，新增0.5毫米平面内余量检查未通过，未试开。正式0/100。",
       "conditions": [
         {
           "id": "AB",
@@ -36,7 +36,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "709加入已实测通过的三相机姿态缓存修复后，自动完成完整五步，855.987秒；头部、胸部、正面第三视角三路整段解码通过。671画质版也完成786.063秒，250ml原始刻度恢复，387个物理源prim前后SHA相同。互换初始摆放637有完整五步诊断候选；其自动版672完成前三步后，第四步撤手因实际arm0/arm2自碰撞球余量不足6.4微米被拒，未放宽原检查。715正在整条比较支撑面缓存复制优化，组件微基准2.26倍不等于整条加速。正式0/100。",
+      "note": "715完成完整五步845.416秒，11571行原生记录及头、胸、正面第三视角三路整段视频解码通过；709为855.987秒。组件缓存复制优化未达到180秒整条目标。互换摆放637有完整五步诊断候选；672自动版在第四步实际自碰撞余量检查被拒，保留失败。完整独立验收及画质仍待完成，正式0/100。",
       "conditions": [
         {
           "id": "A_left_B_right",
@@ -59,7 +59,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "5090 GPU0的705在原300秒时限暂停后，从原待执行行续接，已真实完成首杯放上天平（1/8）；第二步取回已完成预抓，下降接近的纯连续IK在第9路点被拒，尚未闭手。缓存目标不匹配已转原MotionPlan重算，没有恢复初始场景。7911旧状态的原MotionPlan候选虽通过世界、姿态、持杯和动态检查，精确2毫米检查仍失败，未执行。正式0/100。",
+      "note": "705完成首杯上天平并真实从盘上抓起，但后续未完成；保留原记录。新754已在Pro6000 GPU0开始原生运动，复用历史394实际成功的A杯取回全阶段规划提案，按当前世界、自碰撞、精确2毫米、持杯、SDK及动态检查重验。本机750在初始胶囊轴映射差10.52毫米时被拦截，尚未开始任务；正式0/100。",
       "conditions": [
         {
           "id": "1234",
@@ -82,7 +82,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "5090 GPU1的706通过保留原松手稳定窗口和接触上下文续接，已真实完成首杯放上天平（1/10）；第二步正在从保留现场重算取回路径。原667的300秒暂停和全部失败证据保留。B杯24仿真秒候选只允许在当前现场通过完整检查后使用，目前尚未执行到B，正式0/100。",
+      "note": "706完成首杯上天平、从盘上抓起及移回垫子上方，下降路径因精确2毫米检查被拒；未完成放回。新752在Pro6000 GPU1实际运行，复用394已实际完成的首杯取回规划提案，保留全部当前检查。5090新748因启动前显存不足被阻止，未宣称运行。正式0/100。",
       "conditions": [
         {
           "id": "12345",
@@ -99,25 +99,25 @@
       ]
     }
   ],
-  "snapshot_id": 731,
-  "updated_at": "2026-10-19T10:23:23.093922+00:00",
+  "snapshot_id": 755,
+  "updated_at": "2026-10-19T11:16:55.185604+00:00",
   "training_eligible_count": 0,
   "acceptance_note": "正式计数必须是完整任务且通过物理、几何、三视角、轨迹和速度验收；最新整条目标为不超过180秒。调试成功、局部开门和规划通过均不直接增加计数。",
-  "diagnostic_note": "四种场景、八组各50条、固定位置，总400。完整正式验收0/400，DP/ACT可用0。709完整五步及三视频闭合已核实；三相机缓存标定错误已实测修正，但锥形瓶白区和完整独立物理资格仍待验收，180秒整条目标未达到。部分动作、纯规划及物理诊断候选均单独列明。",
+  "diagnostic_note": "固定四场景、八组各50条，共400；正式验收0/400，训练可用0。715完整五步三视频闭合通过，845.416秒；完整物理资格和透明物体画质仍待验收。七十任务新双路运行，历史部分动作与纯规划不计正式条数。",
   "cloud_status": {
     "state": "qualification_in_progress",
-    "note": "已核实本机4090运行715整条对照、5090双卡分别保留705和706当前现场并续调；Pro6000的712/713试验已失败暂停，未将其计为运行成功。历史云提交不作为当前运行证据，正式训练可用0。",
+    "note": "实测Pro6000双卡分别运行754七任务、752十任务，原生运动日志已出现；干燥箱741保留实际抓握待处理，743保留预抓现场。4090的750初始化映射检查失败后正常关闭；5090的748因显存预留不足在启动前退出，不干扰其他进程。历史云任务不视为当前运行。正式训练可用0。",
     "current": []
   },
   "performance": {
     "whole_episode_target_seconds": 180,
-    "latest_completed_native": "709",
-    "latest_completed_wall_seconds": 855.9870809789863,
+    "latest_completed_native": "715",
+    "latest_completed_wall_seconds": 845.4159796469612,
     "latest_completed_three_view_decode_passed": true,
     "fresh_speed_candidate": "715",
-    "fresh_candidate_completed": false,
+    "fresh_candidate_completed": true,
     "actual_motion_model_calls": 0,
-    "measurement_note": "709完整五步855.987秒，180秒目标未达到。715保持同一物理和相机行为，仅优化支撑面缓存返回复制；2.257倍是单组件实际捕获结构的微基准，尚无整条收益结论。",
+    "measurement_note": "715完成845.416秒，709为855.987秒；两条均11571原生行。单次整条比较约快10.57秒（1.2%），不足以推断稳定因果收益，180秒目标未达到。2.257倍仅为支撑缓存克隆微基准。",
     "remote605_completed_wall_seconds": 697.2700641830015
   },
   "evidence": {
@@ -149,7 +149,14 @@
     "support714_CPU": "root588/CPU714_RESULT.json",
     "full715": "native715_local_support_clone/FROZEN715.json",
     "seven705": "5090/native705_t7_mp_fallback/runs/full705/RESUME724_RESULT.json",
-    "ten706": "5090/native706_t10_mp_fallback/runs/full706/RESUME719_RESULT.json"
+    "ten706": "5090/native706_t10_mp_fallback/runs/full706/RESUME719_RESULT.json",
+    "full715_closure": "root588/CLOSURE715_ROOT.json",
+    "oven730": "PRO/native_oven730_segmented_actual/runs/oven_live/AUTO730_RESULT.json",
+    "oven741": "PRO/native_oven741_face_yaw/runs/oven_live/AUTO741_RESULT.json",
+    "seven754": "PRO/native754_t7_bank394/FROZEN754.json",
+    "ten752": "PRO/native752_t10_bank394/FROZEN752.json",
+    "source394_bank": "root588/BANK747_SOURCE394.tar.gz",
+    "local750_mapping": "native750_t7_local_bank394/runs/full750/READONLY753_MAPPING.json"
   },
   "render_quality": {
     "required_views": [
