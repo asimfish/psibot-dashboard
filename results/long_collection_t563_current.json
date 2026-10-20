@@ -13,7 +13,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "另一条工作流的干燥箱BA新相机版c1064已完成五步，视频约199秒，箱内补光和新视角已生成；本面板尚未独立验收，不计入合格数。AB/BA各50，需继续核对箱内透明物体、门玻璃、支撑几何和3分钟目标。",
+      "note": "修订版仍0/100。归档18张三视角实图复核发现胸部裁掉瓶颈、第三视角被箱体侧壁遮挡；正准备更正面视角、真实胸部安装位置固定的光学对照和门玻璃材质对照。旧流程还存在完整物理记录和部分碰撞门槛缺口，完成自报不计验收。AB/BA各50。",
       "conditions": [
         {
           "id": "AB",
@@ -40,7 +40,7 @@
       "accepted_count": 1,
       "target_count": 100,
       "state": "collecting",
-      "note": "首条修订版878已完整完成五步，三路视频161.2秒、2418帧。独立核对19349物理帧、624万接触点、全程机身净空、平滑关节指令与五次落点；原视频和对齐后的LeRobot数据已同步新v4目录。重复验证891也完成五步，复验中。位置互换892在首步入场规划失败，905正调整偏移重试，不计入合格数。两种摆放仍各需50条。",
+      "note": "修订版1/100已导出新v4目录，完整五步161.2秒、三路2418帧。复跑891物理序列完全重复，保留复验记录但不增加独立样本数。互换版916完成前四步，最后抓取前出现绕腕2.05rad被拒；928仅为该段增加保持平抓方向的原MotionGen约束继续验证。924/925并行验证同门槛的时间参数化修正，失败数据不计数。",
       "conditions": [
         {
           "id": "A_left_B_right",
@@ -67,7 +67,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "旧两行布局的反向入场测试受前排杯子影响，已拒绝并停止该云端批次。新一轮采用单行对称排列、天平显示面朝机器人，缩短杯子到秤盘距离，保留原生水平相机。云端900以4卡8环境并行两种顺序和两档C2速度策略，实体Pro6000的901/902同步验证。机身2.5毫米净空、真实接触与原物理检查保留；整条尚未通过验收。",
+      "note": "单行对称四杯、13厘米间距；天平显示面朝机器人，玻璃已移除。实际URDF测量发现旧放秤目标超出可达范围约6毫米，天平整体向机器人移近2厘米后，910完成前3阶段并继续；反向917首阶段通过。云端923与实体Pro6000并行，尚无整条8阶段验收。",
       "conditions": [
         {
           "id": "1234",
@@ -94,7 +94,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "旧两行布局的反向入场测试受前排杯子影响，已拒绝并停止该云端批次。新一轮采用单行对称排列、天平显示面朝机器人，缩短杯子到秤盘距离，保留原生水平相机。云端900以4卡8环境并行两种顺序和两档C2速度策略，实体Pro6000的901/902同步验证。机身2.5毫米净空、真实接触与原物理检查保留；整条尚未通过验收。",
+      "note": "单行对称五杯、12厘米间距；天平显示面朝机器人，整体移近2厘米。911已完成前3阶段，反向918首阶段通过，继续完整10阶段。云端923比较两种顺序及两档平滑速度策略；其中一路释放后仍与杯子受力接触，已拒绝，不计数。",
       "conditions": [
         {
           "id": "12345",
@@ -115,47 +115,50 @@
       "within_quota_candidate_count": 0
     }
   ],
-  "snapshot_id": 898,
-  "updated_at": "2026-10-20T20:18:08.373547+00:00",
+  "snapshot_id": 931,
+  "updated_at": "2026-10-20T21:14:33.290550+00:00",
   "training_eligible_count": 0,
   "acceptance_note": "修订版现为1/400完整样本通过验收并导出：5b原布局1条；其余仍需采集验收。新数据位于t5710_lerobot_v4_quality_20261021，旧v3保留并排除本轮计数。尚未启动DP/ACT训练，训练集未成套。5b示例视频161.2秒达到3分钟视频目标，实际生成849.8秒，生成速度目标仍未达成。",
-  "diagnostic_note": "整段实际指令最大速度0.7618rad/s、加速度1.8162rad/s²、加加速度19.8784rad/s³；五次落点误差3.9至8.5毫米，机器人接触未出现穿透超标。独立静态投影与动态手部投影核对还发现原视频读取通常晚于渲染7个物理步，约58毫秒；导出已匹配到实际曝光状态。新进程改为当前物理步渲染并逐视频帧检查时钟。",
+  "diagnostic_note": "首条全程指令V/A/J和机身间距复核通过；补查19350条真实接触记录、76660次手与杯子配对，未发现对非目标杯子的受力接触。互换场景与新后端仍受独立平滑度/释放检查约束，阶段完成和退出码0均不等于整条验收。",
   "cloud_status": {
-    "state": "new_one_row_parallel_validation",
+    "state": "native_parallel_validation",
     "current": [
       {
         "host": "cloud_4GPU",
-        "attempt": 900,
+        "attempt": 923,
         "environments": 8,
-        "tasks": "7/10 both orders and C2 speed policies",
-        "state": "all4allocatedCUDAprobes passed;8Nativeworkers started"
+        "tasks": "7/10 both orders, baseline and faster C2",
+        "state": "all4actualCUDAprobespassed;8Nativeworkerslaunched;one release-force failure rejected; fulltaskacceptancepending"
       },
       {
         "host": "PRO6000_GPU0",
-        "attempt": 901,
-        "task": "7 forward",
-        "state": "newone-rowdisplay-facingrobotvalidation"
+        "attempts": [
+          910,
+          917,
+          925
+        ],
+        "state": "7forward3phases;7reverse1phase;5bNative51freshC2canary"
       },
       {
         "host": "PRO6000_GPU1",
-        "attempt": 902,
-        "task": "10 forward",
-        "state": "newone-rowfasterC2validation"
+        "attempts": [
+          911,
+          918
+        ],
+        "state": "10forward3phases;10reverse1phase"
       },
       {
         "host": "5090_GPU0",
-        "attempt": 905,
-        "task": "5b swapped",
-        "state": "freshgraspoffsetvalidation"
+        "attempt": 928,
+        "state": "swapped5b scoped finalpregraspquaternionholdvalidation"
       },
       {
         "host": "5090_GPU1",
-        "attempt": 891,
-        "task": "5b original",
-        "state": "completed5;independentauditpending"
+        "attempt": 924,
+        "state": "original5b boundedtimevariantwithsamecapsC2clockvalidation"
       }
     ],
-    "note": "889旧两行云端批次因反向入场失败已申请取消，失败数据不计数。实体Pro6000的886/887首次上秤已完成，但第二步触发开发时限，均未计成功。4090当前空闲显存约11.8GiB，未达到此采集器16GiB预检门槛，未抢占其他进程。"
+    "note": "旧889已停止，900已结束；919因打包遗漏共享规划索引初始化失败，未采集数据。923已核对全部3352个源文件及共享索引后重提。4090现有任务未被抢占。"
   },
   "performance": {
     "fresh_speed_candidate": "same-scene qualified prefix proposals + source-pinned exact-input support geometry memo + C2 smooth retiming + bounded periodic IK",
@@ -180,6 +183,19 @@
         "joint_acceleration": 2.0,
         "joint_jerk": 20.0
       }
+    },
+    "AA_examples": {
+      "reverse_T10_first_pregrasp": {
+        "wall_seconds": 6.8156,
+        "evaluated_candidates": 1,
+        "descent_IK_queries": 25
+      },
+      "reverse_T7_first_pregrasp": {
+        "wall_seconds": 256.25,
+        "evaluated_candidates": 40,
+        "outcome": "no admitted AA candidate; original fallback used"
+      },
+      "note": "实际场景与分支不同，不能宣称所有阶段都已加速。生成180秒目标仍未达成。"
     }
   },
   "evidence": {
@@ -199,7 +215,8 @@
     "full_three_view_decode": "revision_quality_20261021/MEDIA885_FULL_DECODE.json",
     "render_state_alignment": "revision_quality_20261021/RENDER_ALIGNMENT896.json",
     "new_export": "t5710_lerobot_v4_quality_20261021/5b_obstruction_beaker1L_flask1R.partial/EXPORT_MANIFEST.json",
-    "shorter_C2_regression": "revision_quality_20261021/SHORTER899_REGRESSION.json"
+    "shorter_C2_regression": "revision_quality_20261021/SHORTER899_REGRESSION.json",
+    "inactive_hand_object_contact": "revision_quality_20261021/INACTIVE_FORCE930.json"
   },
   "render_quality": {
     "required_views": [
@@ -218,5 +235,6 @@
     "snapshot_id": 823,
     "exported_candidate_count": 108,
     "status": "Historical count from snapshot823, preserved but excluded from revised quality requirements; not a current total"
-  }
+  },
+  "preview_url": "assets/long-collection/t573_layout920.jpg"
 }
