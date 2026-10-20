@@ -13,21 +13,25 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "768将干燥箱深度按1.2重新烘焙实体几何与铰链锚点，保留单层和真实碰撞；实际对向抓握约8.09N/8.77N，但食指仍在把手边缘，额外0.5毫米平面余量未通过，未试拉门。旧730实际9.59度，后续原5毫米首握点检查拒绝。768已到原外部时限退出；未完成整任务，正式0/100。",
+      "note": "已完成打开门并先后取出两物体的阶段，尚无完整五步样本。c1031使用烧杯暂存垫抬高4.5厘米，已过前三步，正在验证从桌面重新抓杯；c1030抬高3厘米在搬出锥形瓶时被持物碰撞门拒，c1032加入备用搬运路径重试。仍为真实干燥箱单层，AB/BA各50目标不变；未完成或仅局部成功不计数。",
       "conditions": [
         {
           "id": "AB",
           "label": "先烧杯，再锥形瓶",
           "accepted_count": 0,
-          "target_count": 50
+          "target_count": 50,
+          "exported_candidate_count": 0
         },
         {
           "id": "BA",
           "label": "先锥形瓶，再烧杯",
           "accepted_count": 0,
-          "target_count": 50
+          "target_count": 50,
+          "exported_candidate_count": 0
         }
-      ]
+      ],
+      "exported_candidate_count": 0,
+      "within_quota_candidate_count": 0
     },
     {
       "id": "t5_obstruction",
@@ -36,21 +40,25 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "770完整完成五步827.603秒，三路整段视频解码和SHA闭合通过。按实际渲染K与位姿核查1353个移动采样，目标物体保守包围盒在头、胸、正面第三视角均完整入画；不等于无遮挡或全面画质通过。SDK审计记录34713次合法电机指令、0次状态改写尝试（范围限Python SDK）。互换摆放637有完整诊断候选。透明瓶颈白区、完整独立验收及180秒目标仍未解决，正式0/100。",
+      "note": "已导出完整五步候选：原摆放51条、互换摆放50条，两组各50的目标数量已采足候选。101条来源已分别核对4090本机36条与5090的65条completed/5步结果，来源唯一、元数据总帧数一致；多出1条保留为备用。当前逐条物理证据与三视角验收尚未完成，候选数不混记为独立验收数。",
       "conditions": [
         {
           "id": "A_left_B_right",
           "label": "烧杯1在左、锥形瓶1在右",
           "accepted_count": 0,
-          "target_count": 50
+          "target_count": 50,
+          "exported_candidate_count": 51
         },
         {
           "id": "B_left_A_right",
           "label": "锥形瓶1在左、烧杯1在右",
           "accepted_count": 0,
-          "target_count": 50
+          "target_count": 50,
+          "exported_candidate_count": 50
         }
-      ]
+      ],
+      "exported_candidate_count": 101,
+      "within_quota_candidate_count": 100
     },
     {
       "id": "t7_weigh",
@@ -59,21 +67,25 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "783在Pro6000 GPU0已完成首杯入盘，因300秒阶段墙钟超时停在第4295帧放手稳定检查；789从相同物理状态的原循环第48项接续，保留31帧/50微米/17窗口和全部物理门槛，没有重走首阶段。接近阶段改为按当前目标精确IK；新增允许目标与手规划接触的显式策略仍需完整验证，非手臂目标碰撞、SDK深度和精确自碰撞检查保留。旧754已放回A但撤手未完成且到时退出；正式0/100。",
+      "note": "新相机/天平仅保留底座及托盘版本：1234顺序已导出2条，4321顺序0条；旧相机版本3条单独保留。ep2203三路各3043帧、SHA和整段解码通过，导出关节/动作/速度与视频对应Native帧逐值一致。任务动作200.90秒，完整视频202.87秒，生成5642.09秒；180秒目标未达成。发现30Hz状态落盘和四元数标签顺序待修；独立新进程恢复完整120Hz/原生接触记录并验证规划库刷新，首预抓已命中。",
       "conditions": [
         {
           "id": "1234",
           "label": "顺序 1234",
           "accepted_count": 0,
-          "target_count": 50
+          "target_count": 50,
+          "exported_candidate_count": 2
         },
         {
           "id": "4321",
           "label": "顺序 4321",
           "accepted_count": 0,
-          "target_count": 50
+          "target_count": 50,
+          "exported_candidate_count": 0
         }
-      ]
+      ],
+      "exported_candidate_count": 2,
+      "within_quota_candidate_count": 2
     },
     {
       "id": "t10_weigh",
@@ -82,43 +94,49 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "769完成首杯入盘；取回时当前目标与缓存抓位相差约4.35毫米，执行后真实起杯仅2.3毫米，物理失败。保留原失败和第6360帧真实关节、目标、物体状态，正常关闭三视频，没有在失败现场重试。下一候选使用当前目标精确IK，先参考783结果。5090的748启动预检显存不足，未运行；正式0/100。",
+      "note": "新相机/精简天平版本：12345顺序已导出1条ep2802，54321顺序0条；旧版1条分开保留。ep2802任务视频约279.2秒，生成耗时未在本快照独立核定。12路称量后台持续，近期修复包括保留盘上抓握力度、接触动作重新规划、缓存限搬运阶段及更宽姿态重试；各新修复仍待后续完整轨迹证明。",
       "conditions": [
         {
           "id": "12345",
           "label": "顺序 12345",
           "accepted_count": 0,
-          "target_count": 50
+          "target_count": 50,
+          "exported_candidate_count": 1
         },
         {
           "id": "54321",
           "label": "顺序 54321",
           "accepted_count": 0,
-          "target_count": 50
+          "target_count": 50,
+          "exported_candidate_count": 0
         }
-      ]
+      ],
+      "exported_candidate_count": 1,
+      "within_quota_candidate_count": 1
     }
   ],
-  "snapshot_id": 790,
-  "updated_at": "2026-10-19T12:46:27.176655+00:00",
+  "snapshot_id": 820,
+  "updated_at": "2026-10-20T11:08:21.779418+00:00",
   "training_eligible_count": 0,
-  "acceptance_note": "正式计数必须是完整任务且通过物理、几何、三视角、轨迹和速度验收；最新整条目标为不超过180秒。调试成功、局部开门和规划通过均不直接增加计数。",
-  "diagnostic_note": "四场景八组各50条，共400；正式0/400，训练可用0。770六垫五步完整827.603秒及三视频闭合通过；相机实际K、全程入画和有限SDK状态写审计有新证据。完整物理/视觉资格和180秒目标仍待达成。",
+  "acceptance_note": "已导出完整候选与独立验收数分别报告：六垫两组候选数量已达标；新场景称量正序已有整条，反序和干燥箱仍在调试。原始manifest仍未完成完整独立物理/视觉资格，因此严格验收暂记0，不把导出数当验收数。目标400条，单条180秒为待达成提速目标。",
+  "diagnostic_note": "最新核查：六垫51+50条、新版T7正序2条、新版T10正序1条，合计104条已导出候选，按每组50封顶计103/400。旧相机版称量3+1条另存，不混入新版。已读Claude会话492条可见历史及4条工具详情，并实查两端数据、当前进程与原始视频；后续以时间戳快照为准。",
   "cloud_status": {
-    "state": "qualification_in_progress",
-    "note": "本次核查Pro6000 GPU0的783保留原生进程并接续首杯放手稳定；GPU1的769起杯物理失败后已保存现场并正常关闭。干燥箱768到原外部时限退出，不能算运行中；5090新748启动前显存检查拒绝。正式数据不足，未提交无效训练任务。",
+    "state": "collection_and_independent_qualification",
+    "note": "Pro6000上12路称量后台及干燥箱独立试验继续；本次新增私有验证进程，不修改Claude的工作树或进程。4.5厘米抬垫干燥箱正在测第四步重抓，3厘米版c1032重试路径。4090/5090六垫候选已各自来源核对，优先验收已有数量。完整合格数据未确认前不启动训练。",
     "current": []
   },
   "performance": {
     "whole_episode_target_seconds": 180,
-    "latest_completed_native": "770",
-    "latest_completed_wall_seconds": 827.6026858790428,
+    "latest_completed_native": "Claude-w22-ep2203",
+    "latest_completed_wall_seconds": 5642.091626219917,
     "latest_completed_three_view_decode_passed": true,
-    "fresh_speed_candidate": "770",
-    "fresh_candidate_completed": true,
+    "fresh_speed_candidate": "private-cache-refresh-t7-v2",
+    "fresh_candidate_completed": false,
     "actual_motion_model_calls": 0,
-    "measurement_note": "770整条827.603秒；715为845.416秒，709为855.987秒。单次比较不能证明稳定优化收益，180秒目标未达到；实际运动模型调用0。",
-    "remote605_completed_wall_seconds": 697.2700641830015
+    "measurement_note": "ep2203完整视频202.87秒，八动作跨度200.90秒，生成5642.09秒。whole_tick合计1417.11秒，另约4224.98秒在tick之外（包括规划/初始化/资格检查，尚非独占GPU归因）。复用库若启动时不存在会被长期缓存为空，独立CPU复现与刷新修复通过；新进程已实际命中首个预抓，整条收益未定。",
+    "remote605_completed_wall_seconds": 697.2700641830015,
+    "latest_completed_full_video_seconds": 202.86666666666667,
+    "latest_completed_task_motion_seconds": 200.9
   },
   "evidence": {
     "full570_closure": "speed_native392/CLOSURE570_BY392.json",
@@ -164,7 +182,14 @@
     "seven789": "PRO/native783_t7_target_contact/runs/full783/PROBE789_RELEASE.json",
     "ten769_failure": "PRO/native769_t10_high_join/runs/full769/RESUME785_RESULT.json",
     "ten769_capture": "PRO/native769_t10_high_join/runs/full769/CAPTURE787_STATE.json",
-    "oven768": "PRO/native_oven768_depth120/runs/oven_live/AUTO768_RESULT.json"
+    "oven768": "PRO/native_oven768_depth120/runs/oven_live/AUTO768_RESULT.json",
+    "claude_sync": "align_claude_20261020/CLAUDE_ALIGNMENT.json",
+    "obstruction_inventory": "align_claude_20261020/OBSTRUCTION_EXPORT_INVENTORY.json",
+    "obstruction_5090_sources": "align_claude_20261020/OBSTRUCTION_5090_PROVENANCE.json",
+    "ep2203_audit": "align_claude_20261020/EP2203_INDEPENDENT_AUDIT.json",
+    "ep2203_download": "align_claude_20261020/EP2203_DOWNLOAD_RECEIPT.json",
+    "cache_refresh_regression": "align_claude_20261020/CACHE_REFRESH_REGRESSION.json",
+    "head_preview": "align_claude_20261020/head_preview/HEAD_PREVIEW_NATIVE_REPORT.json"
   },
   "render_quality": {
     "required_views": [
@@ -174,13 +199,18 @@
     ],
     "all_accepted": false,
     "authored_front_third_reproduced": true,
-    "full_task_camera_fix_native": "770",
-    "transparent_materials_labels_shadows_and_noise": "770修复真实渲染与缓存内参不一致、移动视野裁切及胸部相机肩部遮挡。1353个移动采样/视角保守包围盒完整入画，尚不等于无遮挡或全部画质通过。B锥形瓶瓶颈白区原因仍未确定，透明、标签阴影、噪声完整验收未通过。",
+    "full_task_camera_fix_native": "Claude-ep2203-plus-private-preview",
+    "transparent_materials_labels_shadows_and_noise": "新版称量已实际检查头、侧面、正面三视角；头部方向恢复原生，但ep2203仍裁天平边缘。独立Native静态对照保持所有姿态及物理状态不变，仅比较头部焦距0.6/0.5/0.42。发现旧缓存内参与真实渲染相差约239–357像素，独立新进程已校正至<0.00004像素并记录每帧相机元数据。全面画质、遮挡及透明标签阴影尚未验收。",
     "diagnostic_counterfactuals_are_not_collection_data": true,
     "camera_metadata_refresh_verified": true,
     "camera_orientation_max_error_deg": 4.452132e-06,
     "camera_intrinsics_max_error_px": 3.396e-05,
     "full_task_conservative_object_box_in_frame_fraction": 1.0,
-    "full_task_per_camera_active_samples": 1353
-  }
+    "full_task_per_camera_active_samples": 1353,
+    "native_head_direction_preserved": true,
+    "renderer_intrinsics_audit": "private-cache-refresh-t7-v2",
+    "maximum_corrected_renderer_sensor_error_px": 2.9650183137164277e-05
+  },
+  "exported_candidate_count": 104,
+  "within_quota_candidate_count": 103
 }
