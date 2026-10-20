@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "task_owner": "T-563",
-  "formal_accepted": 0,
+  "formal_accepted": 1,
   "target_total": 400,
   "position_randomization": false,
-  "status": "debugging",
+  "status": "collecting_and_quality_revision",
   "scenes": [
     {
       "id": "t5_oven",
@@ -13,7 +13,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "另一条工作流已启动两种干燥箱相机版本的完整验证，箱内补光与透明烧杯预览已生成。胸部须同时看到箱内与暂存位置，第三视角左转并拉近；完整三路视频和闭门玻璃透视仍待独立验收。AB/BA各50条，修订版尚无完整验收。",
+      "note": "另一条工作流的干燥箱BA新相机版c1064已完成五步，视频约199秒，箱内补光和新视角已生成；本面板尚未独立验收，不计入合格数。AB/BA各50，需继续核对箱内透明物体、门玻璃、支撑几何和3分钟目标。",
       "conditions": [
         {
           "id": "AB",
@@ -37,17 +37,17 @@
       "id": "t5_obstruction",
       "title": "5 子任务 · 六垫遮挡移位",
       "action_count": 5,
-      "accepted_count": 0,
+      "accepted_count": 1,
       "target_count": 100,
-      "state": "debugging",
-      "note": "头部、胸部恢复水平原生朝向，白噪声修正通过真实可逆对照。完整原生验证已实际完成前两步，第三步已抓杯；放下路径发现末端关节多绕一圈，等价角在机器人与规划器原有限位内，真实Native验证已证明短路径可行。最新5090验证878包含修正与完整120Hz记录，整条仍待完成。两种摆放各50条。",
+      "state": "collecting",
+      "note": "首条修订版878已完整完成五步，三路视频161.2秒、2418帧。独立核对19349物理帧、624万接触点、全程机身净空、平滑关节指令与五次落点；原视频和对齐后的LeRobot数据已同步新v4目录。重复验证891也完成五步，复验中。位置互换892在首步入场规划失败，905正调整偏移重试，不计入合格数。两种摆放仍各需50条。",
       "conditions": [
         {
           "id": "A_left_B_right",
           "label": "烧杯1在左、锥形瓶1在右",
-          "accepted_count": 0,
+          "accepted_count": 1,
           "target_count": 50,
-          "exported_candidate_count": 0
+          "exported_candidate_count": 1
         },
         {
           "id": "B_left_A_right",
@@ -57,8 +57,8 @@
           "exported_candidate_count": 0
         }
       ],
-      "exported_candidate_count": 0,
-      "within_quota_candidate_count": 0
+      "exported_candidate_count": 1,
+      "within_quota_candidate_count": 1
     },
     {
       "id": "t7_weigh",
@@ -67,7 +67,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "四杯改为对称两行，最小中心间距18厘米；天平转向机器人并移除玻璃，头部视野拓宽以包含整个秤盘。原生首段、抓起和搬运已执行，旧开发轮在阶段300秒保护下超时。新一轮879从秤盘上方垂直放下，明确采用600秒开发阶段时限，全部物理、平滑与机身检查保留。1234/4321各50，尚未整条验收。",
+      "note": "旧两行布局的反向入场测试受前排杯子影响，已拒绝并停止该云端批次。新一轮采用单行对称排列、天平显示面朝机器人，缩短杯子到秤盘距离，保留原生水平相机。云端900以4卡8环境并行两种顺序和两档C2速度策略，实体Pro6000的901/902同步验证。机身2.5毫米净空、真实接触与原物理检查保留；整条尚未通过验收。",
       "conditions": [
         {
           "id": "1234",
@@ -94,7 +94,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "五杯改为对称前三后二，最小中心间距16.5厘米；天平朝机器人、去掉玻璃、头部能覆盖秤盘。真实首段规划和抓取验证已推进；新一轮880改为垂直放入秤盘，明确采用600秒开发阶段时限。12345/54321各50条，旧版候选不混计。",
+      "note": "旧两行布局的反向入场测试受前排杯子影响，已拒绝并停止该云端批次。新一轮采用单行对称排列、天平显示面朝机器人，缩短杯子到秤盘距离，保留原生水平相机。云端900以4卡8环境并行两种顺序和两档C2速度策略，实体Pro6000的901/902同步验证。机身2.5毫米净空、真实接触与原物理检查保留；整条尚未通过验收。",
       "conditions": [
         {
           "id": "12345",
@@ -115,42 +115,72 @@
       "within_quota_candidate_count": 0
     }
   ],
-  "snapshot_id": 881,
-  "updated_at": "2026-10-20T18:59:37.509085+00:00",
+  "snapshot_id": 898,
+  "updated_at": "2026-10-20T20:18:08.373547+00:00",
   "training_eligible_count": 0,
-  "acceptance_note": "修订版仍为0/400完整验收、0条进入训练。旧数据保留并退出本轮计数。当前已解决主要闪噪、歪相机、布局和规划绕圈的具体问题，但完整动作、三路视频、实际平滑和接触验收仍在执行；3分钟目标尚未达成。",
-  "diagnostic_note": "5b原生完整验证已完成前两步，C2插值使同一搬运规划的加加速度从PCHIP在13.7秒时仍超限35.64rad/s³，改善为7.19秒、10.71rad/s³并通过检查。真实末端关节等价角验证消除了不必要的一整圈转动，Native状态未被改写。机身检查使用实际网格的分层保守包覆，全部原接触与轨迹约束继续执行。",
+  "acceptance_note": "修订版现为1/400完整样本通过验收并导出：5b原布局1条；其余仍需采集验收。新数据位于t5710_lerobot_v4_quality_20261021，旧v3保留并排除本轮计数。尚未启动DP/ACT训练，训练集未成套。5b示例视频161.2秒达到3分钟视频目标，实际生成849.8秒，生成速度目标仍未达成。",
+  "diagnostic_note": "整段实际指令最大速度0.7618rad/s、加速度1.8162rad/s²、加加速度19.8784rad/s³；五次落点误差3.9至8.5毫米，机器人接触未出现穿透超标。独立静态投影与动态手部投影核对还发现原视频读取通常晚于渲染7个物理步，约58毫秒；导出已匹配到实际曝光状态。新进程改为当前物理步渲染并逐视频帧检查时钟。",
   "cloud_status": {
-    "state": "quality_revision_development_canaries",
+    "state": "new_one_row_parallel_validation",
     "current": [
       {
-        "host": "5090",
-        "attempt": 878,
-        "task": "5b",
-        "state": "fresh full5-step validation"
+        "host": "cloud_4GPU",
+        "attempt": 900,
+        "environments": 8,
+        "tasks": "7/10 both orders and C2 speed policies",
+        "state": "all4allocatedCUDAprobes passed;8Nativeworkers started"
       },
       {
-        "host": "PRO6000",
-        "attempt": 879,
-        "task": "7",
-        "state": "fresh symmetric layout vertical-pan validation"
+        "host": "PRO6000_GPU0",
+        "attempt": 901,
+        "task": "7 forward",
+        "state": "newone-rowdisplay-facingrobotvalidation"
       },
       {
-        "host": "PRO6000",
-        "attempt": 880,
-        "task": "10",
-        "state": "fresh symmetric layout vertical-pan validation"
+        "host": "PRO6000_GPU1",
+        "attempt": 902,
+        "task": "10 forward",
+        "state": "newone-rowfasterC2validation"
+      },
+      {
+        "host": "5090_GPU0",
+        "attempt": 905,
+        "task": "5b swapped",
+        "state": "freshgraspoffsetvalidation"
+      },
+      {
+        "host": "5090_GPU1",
+        "attempt": 891,
+        "task": "5b original",
+        "state": "completed5;independentauditpending"
       }
     ],
-    "note": "当前以5090与双卡Pro6000推进独立修订版验证，另一路工作流推进两种干燥箱相机版本。已停止旧的失败环境，保留证据；旧云端批次未产出合格数据。新大批量采集须使用通过完整验证的版本。开发阶段时限600秒为明示诊断配置，不代表3分钟性能目标已达成。"
+    "note": "889旧两行云端批次因反向入场失败已申请取消，失败数据不计数。实体Pro6000的886/887首次上秤已完成，但第二步触发开发时限，均未计成功。4090当前空闲显存约11.8GiB，未达到此采集器16GiB预检门槛，未抢占其他进程。"
   },
   "performance": {
     "fresh_speed_candidate": "same-scene qualified prefix proposals + source-pinned exact-input support geometry memo + C2 smooth retiming + bounded periodic IK",
-    "fresh_candidate_completed": false,
-    "measurement_note": "称重开发首阶段实测：Native物理记录读取140.19秒、渲染40.41秒、仿真步进10.09秒；机身检查平均1.04毫秒/帧。同帧细分：支撑几何10.43毫秒、Native接触报告7.24毫秒、GPU接触读取4.92毫秒、JSON编码6.78毫秒。现仅缓存输入完全相同的纯几何计算，实际位姿、epoch、指令、每个120Hz物理帧和接触数据持续读取；真实提速尚待完整结果。",
+    "fresh_candidate_completed": true,
+    "measurement_note": "视频时长和生成耗时分开统计。新C2缩时仅作为轨迹候选，所有采样点仍须通过当前世界、自碰撞、实际机身和后续原物理检查。加速度和加加速度上限保持2/20；快档速度上限单独声明，不声称已整条提速成功。",
     "three_minute_target_met": false,
-    "development_stage_watchdog_s": 600,
-    "physics_and_quality_limits_unchanged": true
+    "development_stage_watchdog_s": 900,
+    "physics_and_quality_limits_unchanged": false,
+    "accepted_video_s": 161.2,
+    "accepted_generation_wall_s": 849.788656297,
+    "original_physical_gates_unchanged": true,
+    "declared_speed_policies": {
+      "baseline": {
+        "joint_velocity": 0.8,
+        "eef_velocity": 0.25,
+        "joint_acceleration": 2.0,
+        "joint_jerk": 20.0
+      },
+      "faster": {
+        "joint_velocity": 1.2,
+        "eef_velocity": 0.4,
+        "joint_acceleration": 2.0,
+        "joint_jerk": 20.0
+      }
+    }
   },
   "evidence": {
     "noise_controlled": "revision_quality_20261021/OPTICAL_PROBE842.json",
@@ -163,7 +193,13 @@
     "real_periodic_proof": "quality870/runs/ep870/PERIODIC874_NATIVE_COUNTERFACTUAL.json",
     "real_C2_counterfactual": "quality862/runs/ep862/PROBE866_RESULT.json",
     "profile": "weigh867/runs/ep867/LIVE_WALL_PROFILE871.json",
-    "first_step_media": "revision_quality_20261021/step1_preview856/MEDIA_AUDIT.json"
+    "first_step_media": "revision_quality_20261021/step1_preview856/MEDIA_AUDIT.json",
+    "accepted_native": "revision_quality_20261021/QUALIFICATION878.json",
+    "independent_all_raw_contacts": "revision_quality_20261021/accept878/INDEPENDENT_AUDIT884.json",
+    "full_three_view_decode": "revision_quality_20261021/MEDIA885_FULL_DECODE.json",
+    "render_state_alignment": "revision_quality_20261021/RENDER_ALIGNMENT896.json",
+    "new_export": "t5710_lerobot_v4_quality_20261021/5b_obstruction_beaker1L_flask1R.partial/EXPORT_MANIFEST.json",
+    "shorter_C2_regression": "revision_quality_20261021/SHORTER899_REGRESSION.json"
   },
   "render_quality": {
     "required_views": [
@@ -174,10 +210,10 @@
     "all_accepted": false,
     "diagnostic_counterfactuals_are_not_collection_data": true,
     "native_head_chest_directions_preserved_in_5b": true,
-    "transparent_materials_labels_shadows_and_noise": "Native4.5/5090静态同状态对照证实主要闪噪来自DL降噪路径，关闭后三视角帧差降至约0.44/0.36/0.92；Native5.1/Pro6000新场景三视角静态帧差约0.05至0.07。透明、反射、GI保持开启。5b首步真实三路视频各536帧、35.73秒可整段解码；完整任务和干燥箱玻璃透视仍待验收。"
+    "transparent_materials_labels_shadows_and_noise": "5b完整五步的三路视频逐帧解码通过；相机恢复原生水平朝向，透明材质保留。首条静止全分辨率帧差约0.19/0.36/0.24；头部与第三视角全视频固定背景帧差稳定。胸部存在正常手臂遮挡和远端边缘裁切，第三视角补全物体覆盖。干燥箱闭门透视与所有后续任务仍需验收。"
   },
-  "exported_candidate_count": 0,
-  "within_quota_candidate_count": 0,
+  "exported_candidate_count": 1,
+  "within_quota_candidate_count": 1,
   "legacy_snapshot": {
     "snapshot_id": 823,
     "exported_candidate_count": 108,

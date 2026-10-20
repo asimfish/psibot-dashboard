@@ -6,7 +6,15 @@ const path = require('node:path');
 const vm = require('node:vm');
 const root = path.resolve(__dirname, '..');
 const script = fs.readFileSync(path.join(root, 'assets/long-collection/t563-panel.js'), 'utf8');
-const baseline = JSON.parse(fs.readFileSync(path.join(root, 'results/long_collection_t563_current.json'), 'utf8'));
+const published = JSON.parse(fs.readFileSync(path.join(root, 'results/long_collection_t563_current.json'), 'utf8'));
+// Deterministic zero-count fixture; published progress and timestamps change over time.
+const baseline = JSON.parse(JSON.stringify(published));
+baseline.updated_at = '2026-10-18T00:00:00Z';
+baseline.formal_accepted = 0;
+for (const scene of baseline.scenes) {
+  scene.accepted_count = 0;
+  for (const condition of scene.conditions) condition.accepted_count = 0;
+}
 const copy = value => JSON.parse(JSON.stringify(value));
 function harness(responses) {
   const nodes = new Map(), created = [], requests = [];
@@ -61,4 +69,11 @@ test('newer corrected publication can replace a prior record', async () => {
   const old=copy(baseline);old.updated_at='2026-10-17T00:00:00Z';
   const h=harness([old,baseline]);await h.settle();await h.refresh();await h.settle();
   assert.doesNotMatch(h.nodes.get('t563-freshness').textContent,/保留上次发布记录/);
+});
+
+test('current published progress renders without assuming zero accepted episodes', async () => {
+  const h = harness([published]); await h.settle();
+  assert.equal(h.nodes.get('t563-total').textContent, `正式完整验收：${published.formal_accepted} / 400 条`);
+  assert.equal(h.nodes.get('t563-cards').children.length, 4);
+  assert.equal(h.nodes.get('t563-notice').textContent, published.acceptance_note);
 });
