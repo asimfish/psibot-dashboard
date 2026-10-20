@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_owner": "T-563",
-  "formal_accepted": 2,
+  "formal_accepted": 4,
   "target_total": 400,
   "position_randomization": false,
   "status": "collecting_and_quality_revision",
@@ -13,7 +13,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "修订版仍0/100。新的闭门/开门场景三视角已核对，开门后均能看清烧杯和锥形瓶的颈部、底部及搁板；胸部安装位置保持真实。透明门玻璃与金属箱体分别保留正确材质。当前在调试真实手部接触开门及后续取放，预先打开门的场景图不计采集成功。AB/BA各50。",
+      "note": "修订版0/100。单层搁板及两容器已抬高17厘米、干燥箱向机器人移近4厘米；新实际闭门三视角可透真实玻璃看见两杯颈部和底部。头部/胸部真实矩阵无滚转；仍在扩展完整取放机位覆盖并验证真实手部接触开门，场景图不计成功。AB/BA各50。",
       "conditions": [
         {
           "id": "AB",
@@ -37,28 +37,28 @@
       "id": "t5_obstruction",
       "title": "5 子任务 · 六垫遮挡移位",
       "action_count": 5,
-      "accepted_count": 2,
+      "accepted_count": 4,
       "target_count": 100,
       "state": "collecting",
-      "note": "修订版2/100已导出v4，两种布局各1/50。完整五步分别161.2秒、164.6秒，三路视频及实际动作均独立复核。938虽完成但185.2秒超时，排除；891动作完全重复，排除。六垫缩时版本移植到Pro6000继续验证，当前不把试跑数计入验收数。",
+      "note": "修订版4/100已导出v4，两种布局各2/50。新增完整五步原速127.267秒、135.533秒，实际生成824.0秒、944.9秒；全120Hz状态、原始及张量接触、机身间距、全部39段实际指令与3路视频均独立验收。新片段在VERIFIED_EPISODE_FRAGMENTS中，旧合格导出保留。后续两路已启动。",
       "conditions": [
         {
           "id": "A_left_B_right",
           "label": "烧杯1在左、锥形瓶1在右",
-          "accepted_count": 1,
+          "accepted_count": 2,
           "target_count": 50,
-          "exported_candidate_count": 1
+          "exported_candidate_count": 2
         },
         {
           "id": "B_left_A_right",
           "label": "锥形瓶1在左、烧杯1在右",
-          "accepted_count": 1,
+          "accepted_count": 2,
           "target_count": 50,
-          "exported_candidate_count": 1
+          "exported_candidate_count": 2
         }
       ],
-      "exported_candidate_count": 2,
-      "within_quota_candidate_count": 2
+      "exported_candidate_count": 4,
+      "within_quota_candidate_count": 4
     },
     {
       "id": "t7_weigh",
@@ -67,7 +67,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "修订版0/100。四杯单行对称、13厘米间距，天平显示面朝机器人、玻璃移除。新一轮四卡云端两种顺序均未完成整条；第一次接近杯子的连续规划失败，正在修复。旧版通过忽略邻杯或桌面获得的运动不计新版验收。",
+      "note": "修订版0/100。四杯单行对称、13厘米间距，天平显示面朝机器人、玻璃移除。逆序新试验完成第一杯上秤并放回后，在第二杯接近时未找到合格连续IK；正序候选被全路径碰撞门槛拦截。正定位具体关节/球对，不放宽碰撞与平滑门槛。",
       "conditions": [
         {
           "id": "1234",
@@ -94,7 +94,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "修订版0/100。五杯单行对称、12厘米间距，天平显示面朝机器人。严格保留桌面、邻杯、天平与机身检查，两个新本地环境已启动验证连续下降抓取候选与全程平滑性。仅完成局部动作或退出码为0均不计数。",
+      "note": "修订版0/100。五杯单行对称、12厘米间距，天平显示面朝机器人。新正序完成3/10阶段，逆序完成4/10阶段后均失败关闭；局部动作不计整条验收。正在排查真实起点约束与中间杯下降IK。",
       "conditions": [
         {
           "id": "12345",
@@ -115,52 +115,53 @@
       "within_quota_candidate_count": 0
     }
   ],
-  "snapshot_id": 962,
-  "updated_at": "2026-10-20T22:17:50.319791+00:00",
+  "snapshot_id": 983,
+  "updated_at": "2026-10-20T23:03:37.446939+00:00",
   "training_eligible_count": 0,
-  "acceptance_note": "修订版2/400条完整验收并导出：六垫任务两种布局各1/50条。新数据位于t5710_lerobot_v4_quality_20261021，旧v3保留并排除本轮计数。最新交换布局164.6秒，生成1035.6秒；视频达到3分钟要求，实际生成速度仍未达标。干燥箱、四杯及五杯尚无新版整条合格数据，DP/ACT训练尚未启动。",
-  "diagnostic_note": "新增交换布局完整五步已复核19758条120Hz状态、全量原始接触、机身间距和全部动作速度/加速度/加加速度；三路2469帧完整解码，图像与实际曝光时刻的状态逐帧对齐。人工复核范围为初始及全部五步接近、提起、释放关键帧。另一条185.2秒完整样本超时，未计数。",
+  "acceptance_note": "修订版4/400条完整验收并导出：六垫任务两种布局各2/50。最新两条原速127.267秒、135.533秒，均小于3分钟；实际生成约13.7、15.7分钟，生成速度仍未达标。旧v3保留且不计数。干燥箱、四杯及五杯仍无新版整条合格数据，DP/ACT训练尚未启动。",
+  "diagnostic_note": "新增两条分别核对15274/16264条真实120Hz状态，全量原始接触/张量接触、39段实际规划及连续历史与终点停稳均通过；三视角完整逐帧解码并与曝光状态对齐。人工范围为全部五步的初始、接近、提起、释放关键帧。23/19对实际静止图像的噪声p99差值最高0.709/0.331灰度级，低于已审核1.5门槛。四条真实数值指纹互异，导出逐文件SHA和Parquet数值已读回核验。",
   "cloud_status": {
-    "state": "parallel_debug_and_validation",
+    "state": "parallel_collection_and_precision_debug",
     "current": [
       {
-        "host": "cloud_4GPU",
-        "attempt": 946,
-        "environments": 4,
-        "state": "四路实际CUDA检查通过；全部在接近阶段失败，已结束，正式通过0。"
+        "host": "5090_GPU1",
+        "attempts": [
+          980
+        ],
+        "state": "完整合格971后的新独立环境，保留全部物理和轨迹门槛，正在采集。"
       },
       {
-        "host": "PRO6000_GPU0",
+        "host": "5090_GPU0",
         "attempts": [
-          960
+          981
         ],
-        "state": "五杯正序新连续IK候选，独立环境已启动，实际CUDA/PCI核验通过。"
-      },
-      {
-        "host": "PRO6000_GPU1",
-        "attempts": [
-          961
-        ],
-        "state": "五杯逆序新连续IK候选，独立环境已启动，实际CUDA/PCI核验通过。"
+        "state": "完整合格972后的新独立环境，交换布局继续采集。"
       },
       {
         "host": "PRO6000_5b",
         "attempts": [
-          957,
-          958
+          "957c",
+          "958c"
         ],
-        "state": "两种六垫布局新后端源文件已核验冻结，正在启动。"
+        "state": "完整试验分别于第3/第2阶段失败；已发现规划输入round5可把合法起点误判为自碰撞/越界，正在实际对照验证，不计验收。"
       },
       {
-        "host": "5090",
+        "host": "PRO6000_weigh",
         "attempts": [
-          955,
-          956
+          965,
+          968,
+          969,
+          975
         ],
-        "state": "初始化检查误读停用缓存尾槽，两路在运动前停止；有效障碍物识别已修正并通过31项CPU测试，待新环境复核。"
+        "state": "四路全部失败关闭；五杯正逆完成3/4阶段，四杯逆序完成2阶段。正在定位连续IK和起点约束。"
+      },
+      {
+        "host": "cloud_4GPU",
+        "attempt": 946,
+        "state": "已失败关闭并核对资源释放；新4/8卡批采配置正在接通独立验收与可运行环境。"
       }
     ],
-    "note": "旧923已取消；946已经完成四GPU实际验证并失败关闭，没有新增合格样本。4090现有其他任务未被抢占。"
+    "note": "4090现有其他任务未被抢占；新增云端任务将在运行环境与实际采集配方核验后提交。"
   },
   "performance": {
     "fresh_speed_candidate": "当前状态连续IK + 全门槛重检的五次B样条缩时；不以缓存轨迹替代实际物理执行",
@@ -171,11 +172,15 @@
     "physics_and_quality_limits_unchanged": true,
     "accepted_video_s": [
       161.2,
-      164.6
+      164.6,
+      127.2666666667,
+      135.5333333333
     ],
     "accepted_generation_wall_s": [
       849.788656297,
-      1035.612361431
+      1035.612361431,
+      824.03587066,
+      944.900546287
     ],
     "original_physical_gates_unchanged": true,
     "declared_speed_policies": {
@@ -222,7 +227,9 @@
     "accepted_swapped_native": "revision_quality_20261021/acceptance938939_agent/QUALIFICATION939.json",
     "verified_export_ledger": "t5710_lerobot_v4_quality_20261021/QUALIFIED_DATASETS.json",
     "swapped_export_manifest_sha256": "0a0391d4536b5cbcbd32e401212ff04216587d4f82fd875231f726ad121694f1",
-    "oven_actual_scene_preview": "assets/long-collection/t573_oven940c.png"
+    "oven_actual_scene_preview": "assets/long-collection/t573_oven954r2.png",
+    "verified_export_ledger_sha256": "afb07a14b455854f588630fb5b5e44d0049f15c4e13227d4e40e288e3553dfc8",
+    "new_two_exports": "t5710_lerobot_v4_quality_20261021/PUBLISHED971972_RECEIPT.json"
   },
   "render_quality": {
     "required_views": [
@@ -233,10 +240,10 @@
     "all_accepted": false,
     "diagnostic_counterfactuals_are_not_collection_data": true,
     "native_head_chest_directions_preserved_in_5b": true,
-    "transparent_materials_labels_shadows_and_noise": "六垫两条完整样本三路视频全解码与标定通过，头部/胸部保持水平、第三视角正面，透明容器和标签在逐阶段关键帧人工复核正常。干燥箱开门场景已调整可见性，真实开门取放与四/五杯完整视频仍待验收。"
+    "transparent_materials_labels_shadows_and_noise": "六垫四条完整样本已通过三路完整解码、实际标定/正向机位与噪声检查；新增两条全部五步关键帧已人工抽样。干燥箱闭门透窗可见性有新实际图，但完整开门与桌面取放机位仍待验证。"
   },
-  "exported_candidate_count": 2,
-  "within_quota_candidate_count": 2,
+  "exported_candidate_count": 4,
+  "within_quota_candidate_count": 4,
   "legacy_snapshot": {
     "snapshot_id": 823,
     "exported_candidate_count": 108,
