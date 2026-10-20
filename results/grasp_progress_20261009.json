@@ -1,6 +1,6 @@
 {
   "schema": "grasp.progress_snapshot.v1",
-  "updated_utc": "2026-10-20T22:32:04.090307+00:00",
+  "updated_utc": "2026-10-20T23:29:48.756980+00:00",
   "update_mode": "Each training row retains actual receipt time; all6 recovered DP have observed updates; 4 finalDP CPU/SSD gates and 3 new ACT full-state durable gates passed.",
   "totals": {
     "productive_training_runs": 92,
@@ -2397,10 +2397,10 @@
     },
     {
       "host": "volc-pro6000",
-      "state": "100ml三ACT闭合；GPU0真实30Hz试采，GPU1旧源71/100",
+      "state": "六模型测试和30Hz资格闭合；新数据接续准备",
       "role": "采集 / 测试准备",
-      "note": "三ACT8/12，终点20mm0/12。真实30Hz源4条后接部署单点/三相机资格，再接最后DP2253；没有新增训练。",
-      "sampled_utc": "2026-10-20T22:29:53.414085+00:00"
+      "note": "100ml DP/ACT各8/12；旧源92/100仍在运行。新数据将采用已实测的24秒/30Hz协议；不将原6秒终点不精确源作为严格达标数据。",
+      "sampled_utc": "2026-10-20T23:27:13.204777+00:00"
     }
   ],
   "beaker100_diagnosis": {
@@ -3375,7 +3375,7 @@
     "note": "同一2秒动作与手指目标前缀逐位一致，仅增加0.6秒保持。终点位置误差从25.7/25.8mm降至5.9/6.3mm；这是开发诊断，目标与全程约束尚未绑定论文SSR。四条轨迹三相机关键帧已查：头部及第三视角持续覆盖目标，胸部抬升后出画本身不判视觉失败。玻璃渲染与全程穿模仍待验收。",
     "evidence_url": "results/grasp_fixed_action_hold_camera_20261010.json"
   },
-  "latest_training_evidence_url": "verification/T-552-beaker100-all-three-ACT-v71.json",
+  "latest_training_evidence_url": "verification/T-552-beaker100-final-three-DP-clock-v72.json",
   "paper_domain_contract": {
     "schema": "grasp.paper_domain_contract.v1",
     "domains": [
@@ -8129,10 +8129,10 @@
       "collision_free_qualified": false
     }
   },
-  "sampled_utc": "2026-10-20T22:29:53.414085+00:00",
+  "sampled_utc": "2026-10-20T23:27:13.204777+00:00",
   "latest_frontier": {
-    "schema": "grasp.frontier.v71",
-    "updated_utc": "2026-10-20T22:32:04.090307+00:00",
+    "schema": "grasp.frontier.v72",
+    "updated_utc": "2026-10-20T23:29:48.756980+00:00",
     "formal_accepted_objects": 0,
     "formal_accepted_methods": 0,
     "paper_ssr": null,
@@ -8144,18 +8144,18 @@
       },
       {
         "title": "100ml烧杯 · 最终DP和ACT",
-        "status": "DP两份均3/4；ACT三份3/4、3/4、2/4",
-        "note": "DP合计6/8（75%）、终点20mm4/8；ACT合计8/12（66.7%）、终点20mm0/12。论文SR目标DP78%/ACT66%；当前仍是四点开发测试。三种子和全部失败视频可切换，严格SSR与玻璃视觉均未验收。"
+        "status": "DP三份3/4、2/4、3/4；ACT三份3/4、3/4、2/4",
+        "note": "两种方法各8/12（66.7%），终点20mm分量DP6/12、ACT0/12。论文SR目标DP78%/ACT66%；当前是四点开发测试，三种子与全部失败视频可切换。严格SSR及玻璃视觉仍未验收。"
       },
       {
         "title": "真实30Hz资格检查",
-        "status": "真实30Hz试采合同修复，恢复排队",
-        "note": "首尝试因旧观测脚本硬编码6秒，与保持原物理时长的24秒诊断不一致，0有效新源回合退出。现只将该观测断言精确改为24秒，目标/成功标准不变；新空间数据训练仍关闭，等待实际时钟与三相机门。"
+        "status": "采集30Hz与部署三相机资格通过",
+        "note": "24秒源4/4成功且终点20mm4/4；原6秒源4/4成功但终点20mm0/4，全部保留。部署720次控制均4物理步，三相机每次刷新、渲染额外物理0。旧权重新时钟0/1独立列出；新全100数据和训练资格仍待完成。"
       },
       {
         "title": "并行采集与既有训练",
-        "status": "新3cm源 71/100；完整权重90份",
-        "note": "已完源回合71/71成功，终点20mm71/71；旧时钟数据保留为开发，完成后自动归档/CPU转换。最后DP2253完整权重已SHA送达并排队。",
+        "status": "旧时钟3cm源 92/100；完整权重90份",
+        "note": "最近实测92/92源成功、终点20mm92/92。保留为旧时钟开发数据；真实30Hz新数据另列。100ml最终六模型均已完成四点测试，当前活动训练0。",
         "collection_dataset_id": "brown250_source3cm_pilot4"
       }
     ],
@@ -14191,7 +14191,7 @@
       "all3_original_videos_full_decoded": true,
       "unresolved_glass_white_appearance": true
     },
-    "evidence_url": "results/grasp_frontier_20261015_v64.json",
+    "evidence_url": "verification/T-552-beaker100-final-three-DP-clock-v72.json",
     "author_confirmed_paper_object_alias": {
       "schema": "grasp.author_confirmed_paper_object_alias.v1",
       "at_utc": "2026-10-11T15:22:00.679921+00:00",
@@ -29803,17 +29803,19 @@
       "paper_ssr": null
     },
     "Brown250_new3cm_source100_v2943": {
-      "episodes_completed": 71,
+      "episodes_completed": 92,
       "expected_episodes": 100,
-      "native_successes": 71,
-      "terminal20mm_component_count": 71,
+      "native_successes": 92,
+      "terminal20mm_component_count": 92,
       "GPU_model": "NVIDIA RPBZZZ6",
       "GPU_index": 1,
-      "sampled_utc": "2026-10-20T22:29:53.414085+00:00",
+      "sampled_utc": "2026-10-20T23:27:13.204777+00:00",
       "all_attempts_retained": true,
       "formal_accepted": false,
       "paper_ssr": null,
-      "new_training_dispatched": false
+      "new_training_dispatched": false,
+      "actual_physical_sampling_Hz_approx": 7.5,
+      "training_admitted": false
     },
     "Beaker500_DP_replan1_development_v2946": {
       "status": "completed_development_only",
@@ -29977,6 +29979,498 @@
       "original_zero_rollout_failure_retained": true,
       "observer_duration_guard_AST_only": true,
       "IL_clock_namespace_version": 2978
+    },
+    "Beaker100_all_six_current_v72": {
+      "updated_utc": "2026-10-20T23:24:56.153473+00:00",
+      "rows": [
+        {
+          "method": "DP",
+          "seeds": [
+            {
+              "seed": 26102251,
+              "successes": 3,
+              "terminal20mm": 2,
+              "episodes": 4,
+              "cohorts": {
+                "uniform_box+0cm": {
+                  "expected_episodes": 1,
+                  "episodes_completed": 1,
+                  "success_count": 1,
+                  "translation_component_count": 1,
+                  "actual_outside_count": 0,
+                  "paper_ssr": null,
+                  "formal_accepted": false,
+                  "success_rate": 1.0,
+                  "translation_component_rate": 1.0
+                },
+                "outside_only+1cm": {
+                  "expected_episodes": 1,
+                  "episodes_completed": 1,
+                  "success_count": 1,
+                  "translation_component_count": 1,
+                  "actual_outside_count": 1,
+                  "paper_ssr": null,
+                  "formal_accepted": false,
+                  "success_rate": 1.0,
+                  "translation_component_rate": 1.0
+                },
+                "outside_only+2cm": {
+                  "expected_episodes": 1,
+                  "episodes_completed": 1,
+                  "success_count": 0,
+                  "translation_component_count": 0,
+                  "actual_outside_count": 1,
+                  "paper_ssr": null,
+                  "formal_accepted": false,
+                  "success_rate": 0.0,
+                  "translation_component_rate": 0.0
+                },
+                "outside_only+3cm": {
+                  "expected_episodes": 1,
+                  "episodes_completed": 1,
+                  "success_count": 1,
+                  "translation_component_count": 0,
+                  "actual_outside_count": 1,
+                  "paper_ssr": null,
+                  "formal_accepted": false,
+                  "success_rate": 1.0,
+                  "translation_component_rate": 0.0
+                }
+              },
+              "evidence": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/continued_acceptance_20261021_v2936/Beaker100_DP_s26102251_v2957"
+            },
+            {
+              "seed": 26102253,
+              "successes": 2,
+              "terminal20mm": 2,
+              "episodes": 4,
+              "cohorts": {
+                "uniform_box+0cm": {
+                  "expected_episodes": 1,
+                  "episodes_completed": 1,
+                  "success_count": 1,
+                  "translation_component_count": 1,
+                  "actual_outside_count": 0,
+                  "paper_ssr": null,
+                  "formal_accepted": false,
+                  "success_rate": 1.0,
+                  "translation_component_rate": 1.0
+                },
+                "outside_only+1cm": {
+                  "expected_episodes": 1,
+                  "episodes_completed": 1,
+                  "success_count": 0,
+                  "translation_component_count": 0,
+                  "actual_outside_count": 1,
+                  "paper_ssr": null,
+                  "formal_accepted": false,
+                  "success_rate": 0.0,
+                  "translation_component_rate": 0.0
+                },
+                "outside_only+2cm": {
+                  "expected_episodes": 1,
+                  "episodes_completed": 1,
+                  "success_count": 0,
+                  "translation_component_count": 0,
+                  "actual_outside_count": 1,
+                  "paper_ssr": null,
+                  "formal_accepted": false,
+                  "success_rate": 0.0,
+                  "translation_component_rate": 0.0
+                },
+                "outside_only+3cm": {
+                  "expected_episodes": 1,
+                  "episodes_completed": 1,
+                  "success_count": 1,
+                  "translation_component_count": 1,
+                  "actual_outside_count": 1,
+                  "paper_ssr": null,
+                  "formal_accepted": false,
+                  "success_rate": 1.0,
+                  "translation_component_rate": 1.0
+                }
+              },
+              "evidence": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/continued_acceptance_20261021_v2936/Beaker100_DP_s26102253_v2987"
+            },
+            {
+              "seed": 26102255,
+              "successes": 3,
+              "terminal20mm": 2,
+              "episodes": 4,
+              "cohorts": {
+                "uniform_box+0cm": {
+                  "expected_episodes": 1,
+                  "episodes_completed": 1,
+                  "success_count": 1,
+                  "translation_component_count": 1,
+                  "actual_outside_count": 0,
+                  "paper_ssr": null,
+                  "formal_accepted": false,
+                  "success_rate": 1.0,
+                  "translation_component_rate": 1.0
+                },
+                "outside_only+1cm": {
+                  "expected_episodes": 1,
+                  "episodes_completed": 1,
+                  "success_count": 1,
+                  "translation_component_count": 1,
+                  "actual_outside_count": 1,
+                  "paper_ssr": null,
+                  "formal_accepted": false,
+                  "success_rate": 1.0,
+                  "translation_component_rate": 1.0
+                },
+                "outside_only+2cm": {
+                  "expected_episodes": 1,
+                  "episodes_completed": 1,
+                  "success_count": 0,
+                  "translation_component_count": 0,
+                  "actual_outside_count": 1,
+                  "paper_ssr": null,
+                  "formal_accepted": false,
+                  "success_rate": 0.0,
+                  "translation_component_rate": 0.0
+                },
+                "outside_only+3cm": {
+                  "expected_episodes": 1,
+                  "episodes_completed": 1,
+                  "success_count": 1,
+                  "translation_component_count": 0,
+                  "actual_outside_count": 1,
+                  "paper_ssr": null,
+                  "formal_accepted": false,
+                  "success_rate": 1.0,
+                  "translation_component_rate": 0.0
+                }
+              },
+              "evidence": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/continued_acceptance_20261021_v2936/Beaker100_DP_s26102255_v2957"
+            }
+          ],
+          "successes": 8,
+          "episodes": 12,
+          "terminal20mm": 6,
+          "paper_SR_target": 78,
+          "paper_SSR_target": 40,
+          "formal_accepted": false,
+          "paper_ssr": null,
+          "full_visual_passed": false
+        },
+        {
+          "method": "ACT",
+          "seeds": [
+            {
+              "seed": 26102241,
+              "successes": 3,
+              "terminal20mm": 0,
+              "episodes": 4,
+              "cohorts": {
+                "uniform_box+0cm": {
+                  "expected_episodes": 1,
+                  "episodes_completed": 1,
+                  "success_count": 1,
+                  "translation_component_count": 0,
+                  "actual_outside_count": 0,
+                  "paper_ssr": null,
+                  "formal_accepted": false,
+                  "success_rate": 1.0,
+                  "translation_component_rate": 0.0
+                },
+                "outside_only+1cm": {
+                  "expected_episodes": 1,
+                  "episodes_completed": 1,
+                  "success_count": 1,
+                  "translation_component_count": 0,
+                  "actual_outside_count": 1,
+                  "paper_ssr": null,
+                  "formal_accepted": false,
+                  "success_rate": 1.0,
+                  "translation_component_rate": 0.0
+                },
+                "outside_only+2cm": {
+                  "expected_episodes": 1,
+                  "episodes_completed": 1,
+                  "success_count": 1,
+                  "translation_component_count": 0,
+                  "actual_outside_count": 1,
+                  "paper_ssr": null,
+                  "formal_accepted": false,
+                  "success_rate": 1.0,
+                  "translation_component_rate": 0.0
+                },
+                "outside_only+3cm": {
+                  "expected_episodes": 1,
+                  "episodes_completed": 1,
+                  "success_count": 0,
+                  "translation_component_count": 0,
+                  "actual_outside_count": 1,
+                  "paper_ssr": null,
+                  "formal_accepted": false,
+                  "success_rate": 0.0,
+                  "translation_component_rate": 0.0
+                }
+              },
+              "evidence": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/continued_acceptance_20261021_v2936/Beaker100_ACT_s26102241_v2965"
+            },
+            {
+              "seed": 26102243,
+              "successes": 3,
+              "terminal20mm": 0,
+              "episodes": 4,
+              "cohorts": {
+                "uniform_box+0cm": {
+                  "expected_episodes": 1,
+                  "episodes_completed": 1,
+                  "success_count": 1,
+                  "translation_component_count": 0,
+                  "actual_outside_count": 0,
+                  "paper_ssr": null,
+                  "formal_accepted": false,
+                  "success_rate": 1.0,
+                  "translation_component_rate": 0.0
+                },
+                "outside_only+1cm": {
+                  "expected_episodes": 1,
+                  "episodes_completed": 1,
+                  "success_count": 1,
+                  "translation_component_count": 0,
+                  "actual_outside_count": 1,
+                  "paper_ssr": null,
+                  "formal_accepted": false,
+                  "success_rate": 1.0,
+                  "translation_component_rate": 0.0
+                },
+                "outside_only+2cm": {
+                  "expected_episodes": 1,
+                  "episodes_completed": 1,
+                  "success_count": 1,
+                  "translation_component_count": 0,
+                  "actual_outside_count": 1,
+                  "paper_ssr": null,
+                  "formal_accepted": false,
+                  "success_rate": 1.0,
+                  "translation_component_rate": 0.0
+                },
+                "outside_only+3cm": {
+                  "expected_episodes": 1,
+                  "episodes_completed": 1,
+                  "success_count": 0,
+                  "translation_component_count": 0,
+                  "actual_outside_count": 1,
+                  "paper_ssr": null,
+                  "formal_accepted": false,
+                  "success_rate": 0.0,
+                  "translation_component_rate": 0.0
+                }
+              },
+              "evidence": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/continued_acceptance_20261021_v2936/Beaker100_ACT_s26102243_v2965"
+            },
+            {
+              "seed": 26102245,
+              "successes": 2,
+              "terminal20mm": 0,
+              "episodes": 4,
+              "cohorts": {
+                "uniform_box+0cm": {
+                  "expected_episodes": 1,
+                  "episodes_completed": 1,
+                  "success_count": 1,
+                  "translation_component_count": 0,
+                  "actual_outside_count": 0,
+                  "paper_ssr": null,
+                  "formal_accepted": false,
+                  "success_rate": 1.0,
+                  "translation_component_rate": 0.0
+                },
+                "outside_only+1cm": {
+                  "expected_episodes": 1,
+                  "episodes_completed": 1,
+                  "success_count": 1,
+                  "translation_component_count": 0,
+                  "actual_outside_count": 1,
+                  "paper_ssr": null,
+                  "formal_accepted": false,
+                  "success_rate": 1.0,
+                  "translation_component_rate": 0.0
+                },
+                "outside_only+2cm": {
+                  "expected_episodes": 1,
+                  "episodes_completed": 1,
+                  "success_count": 0,
+                  "translation_component_count": 0,
+                  "actual_outside_count": 1,
+                  "paper_ssr": null,
+                  "formal_accepted": false,
+                  "success_rate": 0.0,
+                  "translation_component_rate": 0.0
+                },
+                "outside_only+3cm": {
+                  "expected_episodes": 1,
+                  "episodes_completed": 1,
+                  "success_count": 0,
+                  "translation_component_count": 0,
+                  "actual_outside_count": 1,
+                  "paper_ssr": null,
+                  "formal_accepted": false,
+                  "success_rate": 0.0,
+                  "translation_component_rate": 0.0
+                }
+              },
+              "evidence": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/continued_acceptance_20261021_v2936/Beaker100_ACT_s26102245_v2965"
+            }
+          ],
+          "successes": 8,
+          "episodes": 12,
+          "terminal20mm": 0,
+          "paper_SR_target": 66,
+          "paper_SSR_target": 26,
+          "formal_accepted": false,
+          "paper_ssr": null,
+          "full_visual_passed": false
+        }
+      ],
+      "all_seeds_and_outcomes_retained": true,
+      "all72_videos_fully_decoded": true,
+      "sampled_contact_sheets_actually_viewed": 24,
+      "scope": "Four fixed development points per seed; source5090/testRPB and legacy physical cadence. Not paper50trials, matched-card or fullSSR/visual acceptance.",
+      "formal_accepted_objects": 0,
+      "formal_accepted_cells": 0
+    },
+    "actual30Hz_source_and_IL_v72": {
+      "source24": {
+        "formal_accepted": false,
+        "paper_ssr": null,
+        "training_launched": false,
+        "status": "completed_actual30Hz_source4_clock_gate",
+        "pid": 1347242,
+        "start_ticks": "289195411",
+        "updated_utc": "2026-10-20T22:55:30.561975+00:00",
+        "passed": true,
+        "clock_qualified": true,
+        "source_native_successes": 4,
+        "terminal20mm": 4,
+        "actual_episodes": 4,
+        "actual_frame_intervals_verified": true,
+        "rows": [
+          {
+            "clock_episode": 2,
+            "actual_frames": 719,
+            "median_interval_s": 0.03333333507180214,
+            "actual_Hz": 29.999998435378156
+          },
+          {
+            "clock_episode": 3,
+            "actual_frames": 719,
+            "median_interval_s": 0.03333333507180214,
+            "actual_Hz": 29.999998435378156
+          },
+          {
+            "clock_episode": 4,
+            "actual_frames": 719,
+            "median_interval_s": 0.03333333507180214,
+            "actual_Hz": 29.999998435378156
+          },
+          {
+            "clock_episode": 5,
+            "actual_frames": 720,
+            "median_interval_s": 0.03333333507180214,
+            "actual_Hz": 29.999998435378156
+          }
+        ],
+        "source_scope": "Frequency diagnostic only; full source visual/geometry curation and matched IL deployment still pending",
+        "new_training_allowed": false,
+        "full_visual_passed": false
+      },
+      "source6": {
+        "formal_accepted": false,
+        "paper_ssr": null,
+        "training_launched": false,
+        "status": "completed_actual30Hz_original6sec_source4_clock_gate",
+        "completed_prior_DP": 0,
+        "updated_utc": "2026-10-20T23:20:50.461901+00:00",
+        "pid": 1377065,
+        "start_ticks": "289423002",
+        "passed": true,
+        "clock_qualified": true,
+        "source_native_successes": 4,
+        "terminal20mm": 0,
+        "actual_episodes": 4,
+        "actual_frame_intervals_verified": true,
+        "rows": [
+          {
+            "clock_episode": 2,
+            "actual_frames": 179,
+            "median_interval_s": 0.03333333507180214,
+            "actual_Hz": 29.999998435378156
+          },
+          {
+            "clock_episode": 3,
+            "actual_frames": 179,
+            "median_interval_s": 0.03333333507180214,
+            "actual_Hz": 29.999998435378156
+          },
+          {
+            "clock_episode": 4,
+            "actual_frames": 179,
+            "median_interval_s": 0.03333333507180214,
+            "actual_Hz": 29.999998435378156
+          },
+          {
+            "clock_episode": 5,
+            "actual_frames": 180,
+            "median_interval_s": 0.03333333507180214,
+            "actual_Hz": 29.999998435378156
+          }
+        ],
+        "source_scope": "Frequency diagnostic only; full source visual/geometry curation and matched IL deployment still pending",
+        "new_training_allowed": false,
+        "full_visual_passed": false
+      },
+      "deployment": {
+        "formal_accepted": false,
+        "paper_ssr": null,
+        "new_training_allowed": false,
+        "status": "completed_actual30Hz_IL_clock_and_camera_gate",
+        "updated_utc": "2026-10-20T23:01:51.056379+00:00",
+        "pid": 1364305,
+        "start_ticks": "289322500",
+        "actual_native_closed_cleanup_confirmed": true,
+        "passed": true,
+        "actual30Hz_IL_clock_qualified": true,
+        "actual_Hz": 29.999998435378156,
+        "actual_policy_inputs": 720,
+        "actual_render_boundaries": 720,
+        "render_extra_physics_events": 0,
+        "all_inputs_four_physics_events": true,
+        "camera": {
+          "chest_camera": {
+            "policy_input_frames": 720,
+            "distinct_RGB_SHA256": 720,
+            "sensor_frame_increments": 719,
+            "frame_increment_fraction": 1.0
+          },
+          "head_camera": {
+            "policy_input_frames": 720,
+            "distinct_RGB_SHA256": 720,
+            "sensor_frame_increments": 719,
+            "frame_increment_fraction": 1.0
+          },
+          "third_camera": {
+            "policy_input_frames": 720,
+            "distinct_RGB_SHA256": 720,
+            "sensor_frame_increments": 719,
+            "frame_increment_fraction": 1.0
+          }
+        },
+        "original_DP918_goal_and_source_bytes_preserved": true,
+        "legacy_training_clock_mismatch_explicit": true,
+        "Native_success": 0,
+        "terminal20mm": 0,
+        "full_visual_passed": false,
+        "scope": "One fixed baseline clock/camera diagnostic; does not qualify a new30Hz dataset or replace the original native policy SR."
+      },
+      "new_training_allowed": false,
+      "formal_accepted": false,
+      "paper_ssr": null
     }
   },
   "dashboard_browser_totals": {
