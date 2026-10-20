@@ -1,6 +1,6 @@
 {
   "schema": "grasp.progress_snapshot.v1",
-  "updated_utc": "2026-10-20T21:33:35.395179+00:00",
+  "updated_utc": "2026-10-20T22:15:35.939782+00:00",
   "update_mode": "Each training row retains actual receipt time; all6 recovered DP have observed updates; 4 finalDP CPU/SSD gates and 3 new ACT full-state durable gates passed.",
   "totals": {
     "productive_training_runs": 92,
@@ -2369,10 +2369,10 @@
     },
     {
       "host": "30109",
-      "state": "三个原DP完成3000轮；接收Main独立检查点",
+      "state": "私有ACT依赖CPU导入已通过",
       "role": "训练",
-      "note": "烧杯250ml、量筒100ml和酒精灯最终状态已在Ali独立CPU核验；Main检查点通过私有SSH回环通道接收，完整哈希与CPU读取通过才提交。",
-      "sampled_utc": "2026-10-12T10:25:21.069293+00:00"
+      "note": "Python3.12/Torch2.6沿用原环境；新增依赖位于任务私有venv并经官方发行SHA核对。未修改共享包、未启动新训练；真实模型forward与GPU训练资格待核。",
+      "sampled_utc": "2026-10-20T22:15:35.939782+00:00"
     },
     {
       "host": "liyufeng_4090",
@@ -2397,10 +2397,10 @@
     },
     {
       "host": "volc-pro6000",
-      "state": "GPU0测100ml最终DP/ACT；GPU1新3cm采集43/100",
+      "state": "GPU0接续100ml ACT；GPU1源采集63/100",
       "role": "采集 / 测试准备",
-      "note": "五个既有最终模型已排队；按原动作与各物体目标测试。源视频完整归档与实际支持审计自动接续。",
-      "sampled_utc": "2026-10-20T21:30:00.014881+00:00"
+      "note": "最近一次采样GPU0/1利用率73%/83%；均保留原锁、容量门和外部进程。真实30Hz源/部署资格与第三DP2253自动排队；未提前宣称通过。",
+      "sampled_utc": "2026-10-20T22:15:35.939782+00:00"
     }
   ],
   "beaker100_diagnosis": {
@@ -3375,7 +3375,7 @@
     "note": "同一2秒动作与手指目标前缀逐位一致，仅增加0.6秒保持。终点位置误差从25.7/25.8mm降至5.9/6.3mm；这是开发诊断，目标与全程约束尚未绑定论文SSR。四条轨迹三相机关键帧已查：头部及第三视角持续覆盖目标，胸部抬升后出画本身不判视觉失败。玻璃渲染与全程穿模仍待验收。",
     "evidence_url": "results/grasp_fixed_action_hold_camera_20261010.json"
   },
-  "latest_training_evidence_url": "verification/T-552-grasp-final-models-v69.json",
+  "latest_training_evidence_url": "verification/T-552-beaker100-final-dp-act-v70.json",
   "paper_domain_contract": {
     "schema": "grasp.paper_domain_contract.v1",
     "domains": [
@@ -8024,7 +8024,7 @@
           ]
         },
         "summary": "四次专家源试采均完成抬升与保持，终点20mm分量4/4；不计DP/ACT或论文SSR验收。",
-        "note": "边界位置为XY四个±2.8cm角点。三路连续原录像各720帧；编码24秒对应实际物理约96.03秒，建议0.25倍速检查接触。视频完整解码与抽帧已复核，完整视觉尚未通过。新100条±3cm采集当前快照43/100，已完成部分43/43原任务成功、终点20mm分量43/43；不计DP/ACT验收。",
+        "note": "边界位置为XY四个±2.8cm角点。三路连续原录像各720帧；编码24秒对应实际物理约96.03秒，建议0.25倍速检查接触。视频完整解码与抽帧已复核，完整视觉尚未通过。新100条±3cm旧时钟源当前63/100，已完成回合均成功且终点20mm合格；新训练频率门未通过。",
         "evidence_url": "verification/T-552-grasp-parallel-source-v68.json"
       }
     ],
@@ -8131,8 +8131,8 @@
   },
   "sampled_utc": "2026-10-20T21:30:00.014881+00:00",
   "latest_frontier": {
-    "schema": "grasp.frontier.v69",
-    "updated_utc": "2026-10-20T21:33:35.395179+00:00",
+    "schema": "grasp.frontier.v70",
+    "updated_utc": "2026-10-20T22:15:35.939782+00:00",
     "formal_accepted_objects": 0,
     "formal_accepted_methods": 0,
     "paper_ssr": null,
@@ -8140,22 +8140,22 @@
       {
         "title": "正式验收",
         "status": "DP和ACT同时通过：0/21",
-        "note": "42个物体×方法单元的逐项成功率、Spatial SSR、独立泛化和完整视觉仍未全部通过。"
+        "note": "逐物体SR、Spatial SSR、范围外泛化、完整视觉四项均须闭合；终点20mm和完成训练不替代正式验收。"
       },
       {
-        "title": "100ml烧杯 · 最终模型测试",
-        "status": "100ml首份最终DP：已测4/4，成功3",
-        "note": "原3000轮DP两种子与5000轮ACT三种子串行推进；当前终点20mm分量2/4（开发分量）。源5090/测试RPB差异已标记，不计正式同卡验收。"
+        "title": "100ml烧杯 · 最终DP和ACT",
+        "status": "DP两份均3/4；ACT已闭合1/3份",
+        "note": "DP合计6/8、终点20mm4/8；当前ACT合计3/4、终点20mm0/4。各模型视频与失败回合可切换；跨卡与玻璃白化已标记。"
       },
       {
-        "title": "500ml烧杯 · 三份原DP已闭合",
-        "status": "三种子均1/4；执行1步诊断2/4",
-        "note": "原版三组仅+3cm成功，终点20mm分量0/12。36原版视频与12诊断视频可切换；玻璃与完整接触尚未视觉验收。"
+        "title": "真实30Hz资格检查",
+        "status": "采集四条 → 部署时钟与三相机",
+        "note": "论文D.4要求实际30Hz。旧采集/测试均约7.5Hz；源四条试采与部署单点校验已自动接续ACT队列。新训练保持关闭，待实际时钟与数据检查通过。"
       },
       {
-        "title": "源数据与训练",
-        "status": "新3cm采集 43/100；完整权重90份",
-        "note": "已完成源回合43/43抬升合格、终点20mm分量43/43。采完自动审计实际支持并归档；论文要求实际30Hz，现链路约7.5Hz，先修正时钟并验证，暂不启动新训练。",
+        "title": "并行采集与既有训练",
+        "status": "新3cm源 63/100；完整权重90份",
+        "note": "已完成源回合63/63成功、终点20mm63/63；GPU1采集与GPU0测试并行。源原件自动归档/转换；另2路历史训练中断保留。",
         "collection_dataset_id": "brown250_source3cm_pilot4"
       }
     ],
@@ -29803,10 +29803,10 @@
       "paper_ssr": null
     },
     "Brown250_new3cm_source100_v2943": {
-      "episodes_completed": 43,
+      "episodes_completed": 63,
       "expected_episodes": 100,
-      "native_successes": 43,
-      "terminal20mm_component_count": 43,
+      "native_successes": 63,
+      "terminal20mm_component_count": 63,
       "GPU_model": "NVIDIA RPBZZZ6",
       "GPU_index": 1,
       "sampled_utc": "2026-10-20T21:30:00.014881+00:00",
@@ -29856,6 +29856,57 @@
       "formal_positions_unused": true,
       "formal_accepted": false,
       "paper_ssr": null
+    },
+    "Beaker100_final_DP_ACT_current_v70": {
+      "DP_completed_seeds": [
+        26102251,
+        26102255
+      ],
+      "DP_successes": [
+        3,
+        3
+      ],
+      "DP_terminal20mm": [
+        2,
+        2
+      ],
+      "ACT_completed_seeds": [
+        26102241
+      ],
+      "ACT_successes": [
+        3
+      ],
+      "ACT_terminal20mm": [
+        0
+      ],
+      "ACT_total_seeds": 3,
+      "source_GPU": "RTX5090",
+      "test_GPU": "RPBZZZ6",
+      "cross_GPU_development_only": true,
+      "paper_ssr": null,
+      "full_visual_passed": false,
+      "formal_accepted": false,
+      "all_seed_results_retained": true
+    },
+    "actual30Hz_qualification_v70": {
+      "source4_status": "queued_after_ACT3",
+      "source4_namespace_version": 2966,
+      "IL_clock1_namespace_version": 2970,
+      "IL_clock1_controlled_render_at_boundary": true,
+      "SDK_step_render_unchanged": true,
+      "actual_Hz_pending": true,
+      "each_camera_RGB_freshness_pending": true,
+      "new_training_allowed": false
+    },
+    "ACT_operational_import_recovery_v70": {
+      "failed_Native_submissions": 1,
+      "valid_rollouts_before_recovery": 0,
+      "source": "queue.py shadowed Python standard library",
+      "old_exact_owned_processes_closed": true,
+      "new_scheduler_name_safe": true,
+      "stdlib_queue_module_origin": "/usr/lib/python3.10/queue.py",
+      "post_recovery_actual_completed_models": 1,
+      "weights_targets_and_positions_unchanged": true
     }
   },
   "dashboard_browser_totals": {
