@@ -13,7 +13,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "按用户复核要求返工：胸部视角须看见箱内与暂存垫；第三视角向左并拉近；闭门后烧杯仍须透明可见。干燥箱补光与多相机预览已生成，完整五步新版本尚未通过。AB、BA各50条目标不变，旧版不计本轮。",
+      "note": "另一条工作流已启动两种干燥箱相机版本的完整验证，箱内补光与透明烧杯预览已生成。胸部须同时看到箱内与暂存位置，第三视角左转并拉近；完整三路视频和闭门玻璃透视仍待独立验收。AB/BA各50条，修订版尚无完整验收。",
       "conditions": [
         {
           "id": "AB",
@@ -40,7 +40,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "头部与胸部恢复原生朝向，以扩大光圈范围拓宽视野，保持画面水平。5090空闲卡已启动完整五步新验证849，包含白噪声修正、统一速度/加速度/加加速度限制、绕路拒收、完整手部与手臂对真实躯干模型的逐帧净空检查；首段预抓规划已通过，整条尚未完成。两种摆放各50。",
+      "note": "头部、胸部恢复水平原生朝向，白噪声修正通过真实可逆对照。完整原生验证已实际完成前两步，第三步已抓杯；放下路径发现末端关节多绕一圈，等价角在机器人与规划器原有限位内，真实Native验证已证明短路径可行。最新5090验证878包含修正与完整120Hz记录，整条仍待完成。两种摆放各50条。",
       "conditions": [
         {
           "id": "A_left_B_right",
@@ -67,7 +67,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "四杯对称与间距、天平面板朝向机器人正在重设；加入躯干与头部避碰。新一排布局实测第一阶段不可达，正在扫桌面可达区域后选择布局；不得把仅摆好或旧版完成计为合格。1234、4321各50条。",
+      "note": "四杯改为对称两行，最小中心间距18厘米；天平转向机器人并移除玻璃，头部视野拓宽以包含整个秤盘。原生首段、抓起和搬运已执行，旧开发轮在阶段300秒保护下超时。新一轮879从秤盘上方垂直放下，明确采用600秒开发阶段时限，全部物理、平滑与机身检查保留。1234/4321各50，尚未整条验收。",
       "conditions": [
         {
           "id": "1234",
@@ -94,7 +94,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "五杯对称且互不干扰、天平面板朝向机器人正在重设；新的一排与两排布局分别暴露预抓不可达、秤盘放置受阻，正在做杯位及秤盘位置联合可达性筛选。12345、54321各50条。",
+      "note": "五杯改为对称前三后二，最小中心间距16.5厘米；天平朝机器人、去掉玻璃、头部能覆盖秤盘。真实首段规划和抓取验证已推进；新一轮880改为垂直放入秤盘，明确采用600秒开发阶段时限。12345/54321各50条，旧版候选不混计。",
       "conditions": [
         {
           "id": "12345",
@@ -115,33 +115,42 @@
       "within_quota_candidate_count": 0
     }
   ],
-  "snapshot_id": 849,
-  "updated_at": "2026-10-20T17:34:18.663759+00:00",
+  "snapshot_id": 881,
+  "updated_at": "2026-10-20T18:59:37.509085+00:00",
   "training_eligible_count": 0,
-  "acceptance_note": "用户最新复核发现相机、布局、自碰撞、绕路和闪噪问题，相关历史版本退出本轮计数并保留原件。修订版仍为0/400完整验收；四种场景、八种条件各50条，无位置随机化。正在运行实际修复验证，尚未训练未合格数据。",
-  "diagnostic_note": "已用同一Native场景做可逆对照：仅关闭当前DL降噪器，头/第三/胸三路静态帧差从22.69/25.19/16.24降至0.44/0.36/0.92；相机、抗锯齿和物理状态未变，重新开启后噪声复现。原轨迹实测末端峰速1.13m/s，存在净移10.46cm却走1.31m的绕路；新版本增加可量化拒收。真实模型确认原躯干没有碰撞体，新加可验证几何净空门，不再用旧的零接触记录代替机身检查。",
+  "acceptance_note": "修订版仍为0/400完整验收、0条进入训练。旧数据保留并退出本轮计数。当前已解决主要闪噪、歪相机、布局和规划绕圈的具体问题，但完整动作、三路视频、实际平滑和接触验收仍在执行；3分钟目标尚未达成。",
+  "diagnostic_note": "5b原生完整验证已完成前两步，C2插值使同一搬运规划的加加速度从PCHIP在13.7秒时仍超限35.64rad/s³，改善为7.19秒、10.71rad/s³并通过检查。真实末端关节等价角验证消除了不必要的一整圈转动，Native状态未被改写。机身检查使用实际网格的分层保守包覆，全部原接触与轨迹约束继续执行。",
   "cloud_status": {
-    "state": "quality_revision_native_canary_running",
+    "state": "quality_revision_development_canaries",
     "current": [
       {
         "host": "5090",
-        "gpu_index": 1,
-        "attempt": 849,
-        "state": "real Native five-step canary running; no new accepted episodes"
+        "attempt": 878,
+        "task": "5b",
+        "state": "fresh full5-step validation"
+      },
+      {
+        "host": "PRO6000",
+        "attempt": 879,
+        "task": "7",
+        "state": "fresh symmetric layout vertical-pan validation"
+      },
+      {
+        "host": "PRO6000",
+        "attempt": 880,
+        "task": "10",
+        "state": "fresh symmetric layout vertical-pan validation"
       }
     ],
-    "note": "5090空闲卡正在跑五步新验证；Pro6000上另一工作流在做干燥箱相机/灯光预览和称量布局可达性扫描。旧云端验证任务已终止且未产出合格数据；新4卡批次须使用通过单条验证的修订版，避免扩大采集错误设置。"
+    "note": "当前以5090与双卡Pro6000推进独立修订版验证，另一路工作流推进两种干燥箱相机版本。已停止旧的失败环境，保留证据；旧云端批次未产出合格数据。新大批量采集须使用通过完整验证的版本。开发阶段时限600秒为明示诊断配置，不代表3分钟性能目标已达成。"
   },
   "performance": {
-    "fresh_speed_candidate": "quality849: CUDAgraph before warmup with256/32 world cache; bounded smooth retiming and nearest-IK branch alternatives",
+    "fresh_speed_candidate": "same-scene qualified prefix proposals + source-pinned exact-input support geometry memo + C2 smooth retiming + bounded periodic IK",
     "fresh_candidate_completed": false,
-    "measurement_note": "原始预抓轨迹峰值关节速度2.956rad/s；重新定时后规划检查0.761rad/s、加速度0.671rad/s²、加加速度7.519rad/s³、末端0.118m/s。仅为首段规划结果，整条真实运动与生成时间仍待核验；三分钟整条生成目标未达。",
-    "limits": {
-      "joint_velocity_rad_s": 0.8,
-      "joint_acceleration_rad_s2": 2.0,
-      "joint_jerk_rad_s3": 20.0,
-      "eef_velocity_m_s": 0.25
-    }
+    "measurement_note": "称重开发首阶段实测：Native物理记录读取140.19秒、渲染40.41秒、仿真步进10.09秒；机身检查平均1.04毫秒/帧。同帧细分：支撑几何10.43毫秒、Native接触报告7.24毫秒、GPU接触读取4.92毫秒、JSON编码6.78毫秒。现仅缓存输入完全相同的纯几何计算，实际位姿、epoch、指令、每个120Hz物理帧和接触数据持续读取；真实提速尚待完整结果。",
+    "three_minute_target_met": false,
+    "development_stage_watchdog_s": 600,
+    "physics_and_quality_limits_unchanged": true
   },
   "evidence": {
     "noise_controlled": "revision_quality_20261021/OPTICAL_PROBE842.json",
@@ -149,7 +158,12 @@
     "native_torso_false_positive_counterfactual": "quality847/runs/ep847/SHELL848_COUNTERFACTUAL.json",
     "convex_geometry_regression": "revision_quality_20261021/CONVEX_CLEARANCE_REGRESSION.json",
     "trajectory_policy_regression": "revision_quality_20261021/TRAJECTORY_QUALITY_REGRESSION.json",
-    "fresh_native_attempt": "quality849/LAUNCH849.json"
+    "fresh_native_attempt": "quality849/LAUNCH849.json",
+    "periodic_IK": "revision_quality_20261021/PERIODIC_IK874_REGRESSION.json",
+    "real_periodic_proof": "quality870/runs/ep870/PERIODIC874_NATIVE_COUNTERFACTUAL.json",
+    "real_C2_counterfactual": "quality862/runs/ep862/PROBE866_RESULT.json",
+    "profile": "weigh867/runs/ep867/LIVE_WALL_PROFILE871.json",
+    "first_step_media": "revision_quality_20261021/step1_preview856/MEDIA_AUDIT.json"
   },
   "render_quality": {
     "required_views": [
@@ -160,7 +174,7 @@
     "all_accepted": false,
     "diagnostic_counterfactuals_are_not_collection_data": true,
     "native_head_chest_directions_preserved_in_5b": true,
-    "transparent_materials_labels_shadows_and_noise": "5090真实Native静态对照已定位并修复主要白噪声；透明材质、反射和全局光照保持开启。新一轮849静态门三路帧差0.199/0.365/0.270，通过后才执行动作。完整运动视频的透明物体、标签阴影、动作遮挡和视野仍待逐段验收。"
+    "transparent_materials_labels_shadows_and_noise": "Native4.5/5090静态同状态对照证实主要闪噪来自DL降噪路径，关闭后三视角帧差降至约0.44/0.36/0.92；Native5.1/Pro6000新场景三视角静态帧差约0.05至0.07。透明、反射、GI保持开启。5b首步真实三路视频各536帧、35.73秒可整段解码；完整任务和干燥箱玻璃透视仍待验收。"
   },
   "exported_candidate_count": 0,
   "within_quota_candidate_count": 0,
