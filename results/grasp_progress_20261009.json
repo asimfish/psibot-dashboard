@@ -1,6 +1,6 @@
 {
   "schema": "grasp.progress_snapshot.v1",
-  "updated_utc": "2026-10-20T20:12:43.258842+00:00",
+  "updated_utc": "2026-10-20T21:33:35.395179+00:00",
   "update_mode": "Each training row retains actual receipt time; all6 recovered DP have observed updates; 4 finalDP CPU/SSD gates and 3 new ACT full-state durable gates passed.",
   "totals": {
     "productive_training_runs": 92,
@@ -8,19 +8,19 @@
     "ACT": 45,
     "formal_accepted_objects": 0,
     "paper_objects": 21,
-    "active_training_runs": 1,
-    "completed_training_runs": 89,
+    "active_training_runs": 0,
+    "completed_training_runs": 90,
     "queued_training_candidates": 0,
     "interrupted_training_runs": 2,
-    "completed_DP_training_runs": 44,
+    "completed_DP_training_runs": 45,
     "completed_ACT_training_runs": 45,
     "recovering_training_runs": 0,
     "formal_accepted_methods": 0,
     "counts_scope": "按实际训练身份去重：完整预算权重、当前续训与中断分别列示；Main保存迟到的最终权重已重新CPU核验，退出异常仍保留。训练完成不计验收。",
     "closed_training_pending_final_qualification": 0,
-    "actual_training_phase_runs": 1,
+    "actual_training_phase_runs": 0,
     "final_checkpoint_drain_runs": 0,
-    "clean_exit_completed_training_runs": 81,
+    "clean_exit_completed_training_runs": 82,
     "completed_with_exit_exception_runs": 5,
     "completed_with_exit_code_unrecorded_runs": 3
   },
@@ -1874,31 +1874,32 @@
       "epochs_target": 3000,
       "formal_accepted": false,
       "paper_ssr": null,
-      "epoch": 2949,
-      "global_step": 392313,
-      "train_loss": 0.00025678981910459697,
-      "sampled_utc": "2026-10-20T20:11:50.915043+00:00",
+      "epoch": 3000,
+      "global_step": 399000,
+      "train_loss": 0.0003785593760124569,
+      "sampled_utc": "2026-10-20T21:27:21.031313+00:00",
       "gpu_uuid": "GPU-019e2226-0561-0824-0000-0000607bce45",
-      "state": "Main原完整2900轮状态迁至Ali实际续训",
-      "completed_training": false,
-      "active_productive": true,
-      "raw_status": "running",
-      "status_note": "12个原输入字段含三路RGB完整有序SHA一致；模型/EMA/优化器精确恢复，保留原Main退出异常。全局RNG恢复，工作线程及跨硬件逐位轨迹不保证一致。",
+      "state": "完整3000轮，模型/EMA/优化器CPU核验通过",
+      "completed_training": true,
+      "active_productive": false,
+      "raw_status": "trained_pending_native_acceptance",
+      "status_note": "Main原2900完整状态迁Ali后续训闭合；原退出异常与跨硬件恢复限制保留。完整权重不计策略验收。",
       "original_saved_counters": {
         "epoch": 2900,
         "global_step": 385833
       },
       "optimizer_reset": false,
       "logical_seed_count_increase": 0,
-      "lr": 2.098995110340118e-07,
+      "lr": 0.0,
       "checkpoint_transport": "private_Ali_persistent_SSD_two_phase_CPU_verified",
       "source_receipt_SHA256": "24969998343eb7313a61b42ad7601f3f798d465c40a8e39cecebc77ffdf22353",
-      "actual_exit_code": null,
+      "actual_exit_code": 0,
       "actual_phase": "actual_training",
       "training_origin_host": "mainskill",
       "prior_actual_exit_code": -15,
       "migration_input_fields_equal": 12,
-      "global_rng_restored": true
+      "global_rng_restored": true,
+      "final_inference_export_SHA256": "d603e41a7cad787d33a57625cd123b83a3087a0b8190f34ca922fbe5fe66084f"
     },
     {
       "host": "mainskill",
@@ -2361,10 +2362,10 @@
   "servers": [
     {
       "host": "aliyun",
-      "state": "五路DP续训完成；Main烧杯1路已迁入并实际更新",
+      "state": "Main烧杯续训已完整闭合",
       "role": "训练",
-      "note": "最终5份权重CPU检查模型/EMA/优化器全有限；迁移前对比12个完整有序输入字段全部相同。",
-      "sampled_utc": "2026-10-20T19:20:05.418744+00:00"
+      "note": "新3cm源采完后自动送Ali做原始转换与共享RGB缓存检查；未提前计入训练完成数。",
+      "sampled_utc": "2026-10-20T21:30:00.014881+00:00"
     },
     {
       "host": "30109",
@@ -2396,10 +2397,10 @@
     },
     {
       "host": "volc-pro6000",
-      "state": "GPU0同RPB DP测试，GPU1新3cm专家采集15/100",
+      "state": "GPU0测100ml最终DP/ACT；GPU1新3cm采集43/100",
       "role": "采集 / 测试准备",
-      "note": "500ml首个DP成功1/4；后两原模型及每步重规划诊断继续。GPU1新100条源数据保留全部尝试；均不计正式验收。",
-      "sampled_utc": "2026-10-20T20:11:41.737916+00:00"
+      "note": "五个既有最终模型已排队；按原动作与各物体目标测试。源视频完整归档与实际支持审计自动接续。",
+      "sampled_utc": "2026-10-20T21:30:00.014881+00:00"
     }
   ],
   "beaker100_diagnosis": {
@@ -3374,7 +3375,7 @@
     "note": "同一2秒动作与手指目标前缀逐位一致，仅增加0.6秒保持。终点位置误差从25.7/25.8mm降至5.9/6.3mm；这是开发诊断，目标与全程约束尚未绑定论文SSR。四条轨迹三相机关键帧已查：头部及第三视角持续覆盖目标，胸部抬升后出画本身不判视觉失败。玻璃渲染与全程穿模仍待验收。",
     "evidence_url": "results/grasp_fixed_action_hold_camera_20261010.json"
   },
-  "latest_training_evidence_url": "verification/T-552-grasp-parallel-source-v68.json",
+  "latest_training_evidence_url": "verification/T-552-grasp-final-models-v69.json",
   "paper_domain_contract": {
     "schema": "grasp.paper_domain_contract.v1",
     "domains": [
@@ -8023,7 +8024,7 @@
           ]
         },
         "summary": "四次专家源试采均完成抬升与保持，终点20mm分量4/4；不计DP/ACT或论文SSR验收。",
-        "note": "边界位置为XY四个±2.8cm角点。三路连续原录像各720帧；编码24秒对应实际物理约96.03秒，建议0.25倍速检查接触。视频完整解码与抽帧已复核，完整视觉尚未通过。新100条±3cm采集在GPU1并行进行，当前快照15/100（原任务成功15，终点20mm分量15）。",
+        "note": "边界位置为XY四个±2.8cm角点。三路连续原录像各720帧；编码24秒对应实际物理约96.03秒，建议0.25倍速检查接触。视频完整解码与抽帧已复核，完整视觉尚未通过。新100条±3cm采集当前快照43/100，已完成部分43/43原任务成功、终点20mm分量43/43；不计DP/ACT验收。",
         "evidence_url": "verification/T-552-grasp-parallel-source-v68.json"
       }
     ],
@@ -8128,10 +8129,10 @@
       "collision_free_qualified": false
     }
   },
-  "sampled_utc": "2026-10-20T20:12:43.258842+00:00",
+  "sampled_utc": "2026-10-20T21:30:00.014881+00:00",
   "latest_frontier": {
-    "schema": "grasp.frontier.v68",
-    "updated_utc": "2026-10-20T20:12:43.258842+00:00",
+    "schema": "grasp.frontier.v69",
+    "updated_utc": "2026-10-20T21:33:35.395179+00:00",
     "formal_accepted_objects": 0,
     "formal_accepted_methods": 0,
     "paper_ssr": null,
@@ -8139,23 +8140,23 @@
       {
         "title": "正式验收",
         "status": "DP和ACT同时通过：0/21",
-        "note": "逐物体成功率、Spatial SSR、范围外泛化及完整视觉尚未全部通过。"
+        "note": "42个物体×方法单元的逐项成功率、Spatial SSR、独立泛化和完整视觉仍未全部通过。"
       },
       {
-        "title": "采集与测试已并行",
-        "status": "新3cm采集 15/100；GPU0继续DP复测",
-        "note": "专家边界试采4/4后，GPU1新采集原任务成功15/15；GPU0与GPU1均已验证为同型号RPB及正确物理卡绑定。",
+        "title": "100ml烧杯 · 最终模型测试",
+        "status": "100ml首份最终DP：已测4/4，成功3",
+        "note": "原3000轮DP两种子与5000轮ACT三种子串行推进；当前终点20mm分量2/4（开发分量）。源5090/测试RPB差异已标记，不计正式同卡验收。"
+      },
+      {
+        "title": "500ml烧杯 · 三份原DP已闭合",
+        "status": "三种子均1/4；执行1步诊断2/4",
+        "note": "原版三组仅+3cm成功，终点20mm分量0/12。36原版视频与12诊断视频可切换；玻璃与完整接触尚未视觉验收。"
+      },
+      {
+        "title": "源数据与训练",
+        "status": "新3cm采集 43/100；完整权重90份",
+        "note": "已完成源回合43/43抬升合格、终点20mm分量43/43。采完自动审计实际支持并归档；论文要求实际30Hz，现链路约7.5Hz，先修正时钟并验证，暂不启动新训练。",
         "collection_dataset_id": "brown250_source3cm_pilot4"
-      },
-      {
-        "title": "500ml烧杯 · 新DP",
-        "status": "两种子均1/4；第三种子继续",
-        "note": "两组均只在+3cm成功，基线及+1/+2cm失败；终点20mm分量0/8。24段视频已归档，玻璃渲染与完整轨迹待核验。"
-      },
-      {
-        "title": "训练与失败排查",
-        "status": "89份完整权重；1路烧杯续训",
-        "note": "原95条训练/5条留出仍独立。已补测32个原示范样本；按同模型同四点安排每步重规划诊断，完整SSR仍待权威目标绑定。"
       }
     ],
     "strict_spatial_scope": "Table11给出终点空间20mm筛查；C.3的SSR检查整条轨迹中适用阶段的全部活动约束。固定最终目标不能作为移动过程中每一帧的目标。严格目标坐标系、旋转阈值和阶段仍待绑定。",
@@ -25158,31 +25159,32 @@
           "epochs_target": 3000,
           "formal_accepted": false,
           "paper_ssr": null,
-          "epoch": 2914,
-          "global_step": 387580,
-          "train_loss": 0.00025840275338850915,
-          "sampled_utc": "2026-10-20T19:19:03.612560+00:00",
+          "epoch": 3000,
+          "global_step": 399000,
+          "train_loss": 0.0003785593760124569,
+          "sampled_utc": "2026-10-20T21:27:21.031313+00:00",
           "gpu_uuid": "GPU-019e2226-0561-0824-0000-0000607bce45",
-          "state": "Main原完整2900轮状态迁至Ali实际续训",
-          "completed_training": false,
-          "active_productive": true,
-          "raw_status": "running",
-          "status_note": "12个原输入字段含三路RGB完整有序SHA一致；模型/EMA/优化器精确恢复，保留原Main退出异常。全局RNG恢复，工作线程及跨硬件逐位轨迹不保证一致。",
+          "state": "完整3000轮，模型/EMA/优化器CPU核验通过",
+          "completed_training": true,
+          "active_productive": false,
+          "raw_status": "trained_pending_native_acceptance",
+          "status_note": "Main原2900完整状态迁Ali后续训闭合；原退出异常与跨硬件恢复限制保留。完整权重不计策略验收。",
           "original_saved_counters": {
             "epoch": 2900,
             "global_step": 385833
           },
           "optimizer_reset": false,
           "logical_seed_count_increase": 0,
-          "lr": 6.11984759869355e-07,
+          "lr": 0.0,
           "checkpoint_transport": "private_Ali_persistent_SSD_two_phase_CPU_verified",
           "source_receipt_SHA256": "24969998343eb7313a61b42ad7601f3f798d465c40a8e39cecebc77ffdf22353",
-          "actual_exit_code": null,
+          "actual_exit_code": 0,
           "actual_phase": "actual_training",
           "training_origin_host": "mainskill",
           "prior_actual_exit_code": -15,
           "migration_input_fields_equal": 12,
-          "global_rng_restored": true
+          "global_rng_restored": true,
+          "final_inference_export_SHA256": "d603e41a7cad787d33a57625cd123b83a3087a0b8190f34ca922fbe5fe66084f"
         },
         {
           "host": "mainskill",
@@ -29801,23 +29803,57 @@
       "paper_ssr": null
     },
     "Brown250_new3cm_source100_v2943": {
-      "episodes_completed": 15,
+      "episodes_completed": 43,
       "expected_episodes": 100,
-      "native_successes": 15,
-      "terminal20mm_component_count": 15,
+      "native_successes": 43,
+      "terminal20mm_component_count": 43,
       "GPU_model": "NVIDIA RPBZZZ6",
       "GPU_index": 1,
-      "sampled_utc": "2026-10-20T20:11:41.737916+00:00",
+      "sampled_utc": "2026-10-20T21:30:00.014881+00:00",
       "all_attempts_retained": true,
       "formal_accepted": false,
       "paper_ssr": null,
       "new_training_dispatched": false
     },
     "Beaker500_DP_replan1_development_v2946": {
-      "status": "queued_after_second_original_DP_test",
-      "intervention": "original8 predictions, execute1 and replan",
+      "status": "completed_development_only",
+      "intervention": "original8 predictions execute1 and replan",
       "checkpoint_unchanged": true,
       "episodes": 4,
+      "successes": 2,
+      "terminal20mm": 0,
+      "full_decode_passed": true,
+      "sampled_visual_review": true,
+      "full_visual_passed": false,
+      "formal_accepted": false,
+      "paper_ssr": null,
+      "candidate": "t552-beaker500-dp-s26102311-native-ood-v69"
+    },
+    "Beaker100_final_DP_ACT_development_v2951_v2956": {
+      "DP_seeds": [
+        26102251,
+        26102255
+      ],
+      "ACT_seeds": [
+        26102241,
+        26102243,
+        26102245
+      ],
+      "partial_first_DP": {
+        "episodes": 4,
+        "successes": 3,
+        "terminal20mm": 2,
+        "terminal_errors_mm": [
+          7.0718545122856655,
+          9.861588456945515,
+          103.81001637651929,
+          26.29229905502604
+        ]
+      },
+      "source_GPU": "NVIDIA GeForce RTX 5090",
+      "test_GPU": "NVIDIA RPBZZZ6",
+      "cross_GPU_development_only": true,
+      "formal_positions_unused": true,
       "formal_accepted": false,
       "paper_ssr": null
     }
