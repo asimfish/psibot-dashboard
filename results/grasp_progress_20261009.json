@@ -1,6 +1,6 @@
 {
   "schema": "grasp.progress_snapshot.v1",
-  "updated_utc": "2026-10-20T19:20:05.418744+00:00",
+  "updated_utc": "2026-10-20T20:12:43.258842+00:00",
   "update_mode": "Each training row retains actual receipt time; all6 recovered DP have observed updates; 4 finalDP CPU/SSD gates and 3 new ACT full-state durable gates passed.",
   "totals": {
     "productive_training_runs": 92,
@@ -1874,10 +1874,10 @@
       "epochs_target": 3000,
       "formal_accepted": false,
       "paper_ssr": null,
-      "epoch": 2914,
-      "global_step": 387580,
-      "train_loss": 0.00025840275338850915,
-      "sampled_utc": "2026-10-20T19:19:03.612560+00:00",
+      "epoch": 2949,
+      "global_step": 392313,
+      "train_loss": 0.00025678981910459697,
+      "sampled_utc": "2026-10-20T20:11:50.915043+00:00",
       "gpu_uuid": "GPU-019e2226-0561-0824-0000-0000607bce45",
       "state": "Main原完整2900轮状态迁至Ali实际续训",
       "completed_training": false,
@@ -1890,7 +1890,7 @@
       },
       "optimizer_reset": false,
       "logical_seed_count_increase": 0,
-      "lr": 6.11984759869355e-07,
+      "lr": 2.098995110340118e-07,
       "checkpoint_transport": "private_Ali_persistent_SSD_two_phase_CPU_verified",
       "source_receipt_SHA256": "24969998343eb7313a61b42ad7601f3f798d465c40a8e39cecebc77ffdf22353",
       "actual_exit_code": null,
@@ -2396,10 +2396,10 @@
     },
     {
       "host": "volc-pro6000",
-      "state": "Brown250两路新DP测试完成；3cm专家边界试采集中",
+      "state": "GPU0同RPB DP测试，GPU1新3cm专家采集15/100",
       "role": "采集 / 测试准备",
-      "note": "原采集与测试均用RPB GPU0；DP成功2/4、1/4。原有ACT第三种子视频已取回；试采集不计DP/ACT验收。",
-      "sampled_utc": "2026-10-20T19:20:05.418744+00:00"
+      "note": "500ml首个DP成功1/4；后两原模型及每步重规划诊断继续。GPU1新100条源数据保留全部尝试；均不计正式验收。",
+      "sampled_utc": "2026-10-20T20:11:41.737916+00:00"
     }
   ],
   "beaker100_diagnosis": {
@@ -3374,7 +3374,7 @@
     "note": "同一2秒动作与手指目标前缀逐位一致，仅增加0.6秒保持。终点位置误差从25.7/25.8mm降至5.9/6.3mm；这是开发诊断，目标与全程约束尚未绑定论文SSR。四条轨迹三相机关键帧已查：头部及第三视角持续覆盖目标，胸部抬升后出画本身不判视觉失败。玻璃渲染与全程穿模仍待验收。",
     "evidence_url": "results/grasp_fixed_action_hold_camera_20261010.json"
   },
-  "latest_training_evidence_url": "verification/T-552-grasp-completed-dp-v67.json",
+  "latest_training_evidence_url": "verification/T-552-grasp-parallel-source-v68.json",
   "paper_domain_contract": {
     "schema": "grasp.paper_domain_contract.v1",
     "domains": [
@@ -7958,6 +7958,73 @@
         "summary": "原始判据3/3；终点20mm分量3/3；原RGB候选3条。3231原RGB帧通过30Hz/有限值/完整SHA检查，216张RAW及JPEG采样帧已查看；合格示范0。",
         "note": "三个固定采集位置的开发对照。原始判据3/3，保持阶段角速度全部低于0.6rad/s；完整GPU接触保留负分离，初始化瓶/台12.345mm、拇指/手掌1.441mm重叠仍待检查。胸部相机白色瓶壁直接出现在原始RAW与JPEG中；不能以3/3或终点20mm替代论文SSR、泛化或视觉验收。",
         "evidence_url": "results/grasp_original_thumb_fixed3_RAW_camera_contact_review_20261011_v30.json"
+      },
+      {
+        "id": "brown250_source3cm_pilot4",
+        "label": "棕色容量瓶 · ±3cm边界专家试采 · 4/4",
+        "candidate_label": "源视频抽帧",
+        "selected_frames_per_candidate": 18,
+        "actual_trials": 4,
+        "media": {
+          "videos": [
+            {
+              "camera": "chest_camera",
+              "url": "media/grasp-brown250-source3cm-pilot4-v68/chest_camera.mp4",
+              "original_url": "media/grasp-brown250-source3cm-pilot4-v68/chest_camera_original.mp4",
+              "actual_decoded_frames": 720,
+              "source_SHA256": "22e050b2dfc6002e106ec7d77307d91516c517aa30b9f869f63e40775c2149a2",
+              "browser_derivative_SHA256": "952ef55f41a8bc543656303d779eedda7251be4db962bd1cd54fe78e6be00229",
+              "full_decode_passed": true
+            },
+            {
+              "camera": "head_camera",
+              "url": "media/grasp-brown250-source3cm-pilot4-v68/head_camera.mp4",
+              "original_url": "media/grasp-brown250-source3cm-pilot4-v68/head_camera_original.mp4",
+              "actual_decoded_frames": 720,
+              "source_SHA256": "127d4a5d7d31a3f75522b132ca6f69ad83c1b96ac415cd43d9f4f9db3e2fb2aa",
+              "browser_derivative_SHA256": "483db1226916207fc79ea99bbc5304c249e463d8674cce820907c82a9281ad1b",
+              "full_decode_passed": true
+            },
+            {
+              "camera": "third_camera",
+              "url": "media/grasp-brown250-source3cm-pilot4-v68/third_camera.mp4",
+              "original_url": "media/grasp-brown250-source3cm-pilot4-v68/third_camera_original.mp4",
+              "actual_decoded_frames": 720,
+              "source_SHA256": "8be43aec3de851a672f7dbc6c8051391d50ce50ce76f9a7f3cd37b5dc2b06257",
+              "browser_derivative_SHA256": "f1c79ec303963c828dd15c3a6137b5752a0dd1495ab158b0e7826fd49c80be91",
+              "full_decode_passed": true
+            }
+          ],
+          "images": [
+            {
+              "episode_index": 0,
+              "url": "media/grasp-brown250-source3cm-pilot4-v68/episode_001_contact_sheet.jpg",
+              "SHA256": "6253eefdb6ea8dba6468886fcd2cfae685150d0b5257387206ffad91cdcb5a74",
+              "actual_selected_frames_reviewed": 18
+            },
+            {
+              "episode_index": 1,
+              "url": "media/grasp-brown250-source3cm-pilot4-v68/episode_002_contact_sheet.jpg",
+              "SHA256": "08b725243a2e6c138ffff6959252452f88907909a0e953160a173dda1f1b76c4",
+              "actual_selected_frames_reviewed": 18
+            },
+            {
+              "episode_index": 2,
+              "url": "media/grasp-brown250-source3cm-pilot4-v68/episode_003_contact_sheet.jpg",
+              "SHA256": "35853bd65b59131f85b9c99d9be74a60ad495fe6a2e6a2dfd75661c2fc3850e3",
+              "actual_selected_frames_reviewed": 18
+            },
+            {
+              "episode_index": 3,
+              "url": "media/grasp-brown250-source3cm-pilot4-v68/episode_004_contact_sheet.jpg",
+              "SHA256": "c79648e22cd6350c18a084b9000e3e9bee9e257df4da3ec0d619f1ace39aa93b",
+              "actual_selected_frames_reviewed": 18
+            }
+          ]
+        },
+        "summary": "四次专家源试采均完成抬升与保持，终点20mm分量4/4；不计DP/ACT或论文SSR验收。",
+        "note": "边界位置为XY四个±2.8cm角点。三路连续原录像各720帧；编码24秒对应实际物理约96.03秒，建议0.25倍速检查接触。视频完整解码与抽帧已复核，完整视觉尚未通过。新100条±3cm采集在GPU1并行进行，当前快照15/100（原任务成功15，终点20mm分量15）。",
+        "evidence_url": "verification/T-552-grasp-parallel-source-v68.json"
       }
     ],
     "thumb_fixed3_original_camera_review": {
@@ -8061,10 +8128,10 @@
       "collision_free_qualified": false
     }
   },
-  "sampled_utc": "2026-10-20T19:20:05.418744+00:00",
+  "sampled_utc": "2026-10-20T20:12:43.258842+00:00",
   "latest_frontier": {
-    "schema": "grasp.frontier.v67",
-    "updated_utc": "2026-10-20T19:20:05.418744+00:00",
+    "schema": "grasp.frontier.v68",
+    "updated_utc": "2026-10-20T20:12:43.258842+00:00",
     "formal_accepted_objects": 0,
     "formal_accepted_methods": 0,
     "paper_ssr": null,
@@ -8075,19 +8142,20 @@
         "note": "逐物体成功率、Spatial SSR、范围外泛化及完整视觉尚未全部通过。"
       },
       {
-        "title": "训练产物已核验",
-        "status": "89份完整权重；1路实际续训",
-        "note": "新增5份DP完整3000轮权重；100ml烧杯原2900轮完整状态已迁Ali续训，另2路历史中断保留。 500ml烧杯三路DP已进入同型号测试队列，待完整权重接收及容量门通过。"
+        "title": "采集与测试已并行",
+        "status": "新3cm采集 15/100；GPU0继续DP复测",
+        "note": "专家边界试采4/4后，GPU1新采集原任务成功15/15；GPU0与GPU1均已验证为同型号RPB及正确物理卡绑定。",
+        "collection_dataset_id": "brown250_source3cm_pilot4"
       },
       {
-        "title": "棕色容量瓶 · 新DP",
-        "status": "两种子：2/4、1/4",
-        "note": "同采集型号RPB；+0基线合计1/2，范围外+1cm为2/2，+2/+3cm为0/4。24段视频可切换。"
+        "title": "500ml烧杯 · 新DP",
+        "status": "两种子均1/4；第三种子继续",
+        "note": "两组均只在+3cm成功，基线及+1/+2cm失败；终点20mm分量0/8。24段视频已归档，玻璃渲染与完整轨迹待核验。"
       },
       {
-        "title": "棕色容量瓶 · ACT",
-        "status": "三种子：0/4、1/4、0/4",
-        "note": "基线1/3，范围外0/9；36段视频全部已归档。新3cm边界专家源试采集正在运行，不计策略验收。"
+        "title": "训练与失败排查",
+        "status": "89份完整权重；1路烧杯续训",
+        "note": "原95条训练/5条留出仍独立。已补测32个原示范样本；按同模型同四点安排每步重规划诊断，完整SSR仍待权威目标绑定。"
       }
     ],
     "strict_spatial_scope": "Table11给出终点空间20mm筛查；C.3的SSR检查整条轨迹中适用阶段的全部活动约束。固定最终目标不能作为移动过程中每一帧的目标。严格目标坐标系、旋转阈值和阶段仍待绑定。",
@@ -29704,28 +29772,19 @@
       "actual_GPU_initializations": 0
     },
     "Brown250_3cm_source_pilot_v2939": {
-      "episodes_planned": 4,
-      "offsets_cm": [
-        [
-          2.8,
-          2.8
-        ],
-        [
-          2.8,
-          -2.8
-        ],
-        [
-          -2.8,
-          2.8
-        ],
-        [
-          -2.8,
-          -2.8
-        ]
+      "episodes_completed": 4,
+      "native_successes": 4,
+      "terminal20mm_component_count": 4,
+      "terminal_translation_mm": [
+        9.225342739419787,
+        9.549106610510774,
+        7.8996609930084425,
+        8.059823924571788
       ],
-      "status": "running_native_source_pilot",
+      "full_decode_passed": true,
+      "sampled_visual_review": true,
+      "full_visual_passed": false,
       "source_only": true,
-      "new_training_dispatched": false,
       "formal_accepted": false,
       "paper_ssr": null
     },
@@ -29738,6 +29797,27 @@
       "episodes_per_seed": 4,
       "status": "waiting_verified_checkpoint_intake",
       "actual_rollouts_completed": 0,
+      "formal_accepted": false,
+      "paper_ssr": null
+    },
+    "Brown250_new3cm_source100_v2943": {
+      "episodes_completed": 15,
+      "expected_episodes": 100,
+      "native_successes": 15,
+      "terminal20mm_component_count": 15,
+      "GPU_model": "NVIDIA RPBZZZ6",
+      "GPU_index": 1,
+      "sampled_utc": "2026-10-20T20:11:41.737916+00:00",
+      "all_attempts_retained": true,
+      "formal_accepted": false,
+      "paper_ssr": null,
+      "new_training_dispatched": false
+    },
+    "Beaker500_DP_replan1_development_v2946": {
+      "status": "queued_after_second_original_DP_test",
+      "intervention": "original8 predictions, execute1 and replan",
+      "checkpoint_unchanged": true,
+      "episodes": 4,
       "formal_accepted": false,
       "paper_ssr": null
     }
