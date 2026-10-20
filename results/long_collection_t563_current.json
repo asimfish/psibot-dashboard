@@ -13,7 +13,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "已完成打开门并先后取出两物体的阶段，尚无完整五步样本。c1031使用烧杯暂存垫抬高4.5厘米，已过前三步，正在验证从桌面重新抓杯；c1030抬高3厘米在搬出锥形瓶时被持物碰撞门拒，c1032加入备用搬运路径重试。仍为真实干燥箱单层，AB/BA各50目标不变；未完成或仅局部成功不计数。",
+      "note": "真实单层干燥箱BA首条c1035已完整五步并导出，原始RESULT、三路SHA和整段解码已核验。完整视频205秒，生成2168.57秒，3分钟生成目标未达。烧杯暂存垫为4.5厘米高红色块，第三相机在机器人左侧以避开开启的门。BA三路后台采集，AB c1036正在测第四步重新抓杯；AB/BA各50目标不变。",
       "conditions": [
         {
           "id": "AB",
@@ -27,11 +27,11 @@
           "label": "先锥形瓶，再烧杯",
           "accepted_count": 0,
           "target_count": 50,
-          "exported_candidate_count": 0
+          "exported_candidate_count": 1
         }
       ],
-      "exported_candidate_count": 0,
-      "within_quota_candidate_count": 0
+      "exported_candidate_count": 1,
+      "within_quota_candidate_count": 1
     },
     {
       "id": "t5_obstruction",
@@ -40,7 +40,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "已导出完整五步候选：原摆放51条、互换摆放50条，两组各50的目标数量已采足候选。101条来源已分别核对4090本机36条与5090的65条completed/5步结果，来源唯一、元数据总帧数一致；多出1条保留为备用。当前逐条物理证据与三视角验收尚未完成，候选数不混记为独立验收数。",
+      "note": "六垫避障五步已导出原摆放51条、交换摆放50条，各50目标候选已采足，多出1条备用。101条均已解析到4090或5090的完整五步结果、来源唯一且固定位置正确。尚待完整独立物理与三视角验收，不把候选数当验收数。",
       "conditions": [
         {
           "id": "A_left_B_right",
@@ -67,7 +67,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "新相机/天平仅保留底座及托盘版本：1234顺序已导出2条，4321顺序0条；旧相机版本3条单独保留。ep2203三路各3043帧、SHA和整段解码通过，导出关节/动作/速度与视频对应Native帧逐值一致。任务动作200.90秒，完整视频202.87秒，生成5642.09秒；180秒目标未达成。发现30Hz状态落盘和四元数标签顺序待修；独立新进程恢复完整120Hz/原生接触记录并验证规划库刷新，首预抓已命中。",
+      "note": "新版天平仅保留底座与盘，原生头部方向、侧面和正面三视角：1234已导出2条，4321已导出1条。另有新增云端4卡8环境中的4个七子任务环境，完整120Hz状态与接触日志已实际写入，初始支撑121及三相机内参核验通过。旧版3条另存，不混计。",
       "conditions": [
         {
           "id": "1234",
@@ -81,11 +81,11 @@
           "label": "顺序 4321",
           "accepted_count": 0,
           "target_count": 50,
-          "exported_candidate_count": 0
+          "exported_candidate_count": 1
         }
       ],
-      "exported_candidate_count": 2,
-      "within_quota_candidate_count": 2
+      "exported_candidate_count": 3,
+      "within_quota_candidate_count": 3
     },
     {
       "id": "t10_weigh",
@@ -94,35 +94,35 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "新相机/精简天平版本：12345顺序已导出1条ep2802，54321顺序0条；旧版1条分开保留。ep2802任务视频约279.2秒，生成耗时未在本快照独立核定。12路称量后台持续，近期修复包括保留盘上抓握力度、接触动作重新规划、缓存限搬运阶段及更宽姿态重试；各新修复仍待后续完整轨迹证明。",
+      "note": "新版12345已导出2条，54321首条ep3202已导出。新增云端4个十子任务环境真实启动；没有完成或验收前不计新条数。近期抓取候选重试仅允许在尚未持杯时切换，失败证据保留；后续完整采集仍在运行。旧版1条另存。",
       "conditions": [
         {
           "id": "12345",
           "label": "顺序 12345",
           "accepted_count": 0,
           "target_count": 50,
-          "exported_candidate_count": 1
+          "exported_candidate_count": 2
         },
         {
           "id": "54321",
           "label": "顺序 54321",
           "accepted_count": 0,
           "target_count": 50,
-          "exported_candidate_count": 0
+          "exported_candidate_count": 1
         }
       ],
-      "exported_candidate_count": 1,
-      "within_quota_candidate_count": 1
+      "exported_candidate_count": 3,
+      "within_quota_candidate_count": 3
     }
   ],
-  "snapshot_id": 820,
-  "updated_at": "2026-10-20T11:08:21.779418+00:00",
+  "snapshot_id": 823,
+  "updated_at": "2026-10-20T12:07:58.603252+00:00",
   "training_eligible_count": 0,
-  "acceptance_note": "已导出完整候选与独立验收数分别报告：六垫两组候选数量已达标；新场景称量正序已有整条，反序和干燥箱仍在调试。原始manifest仍未完成完整独立物理/视觉资格，因此严格验收暂记0，不把导出数当验收数。目标400条，单条180秒为待达成提速目标。",
-  "diagnostic_note": "最新核查：六垫51+50条、新版T7正序2条、新版T10正序1条，合计104条已导出候选，按每组50封顶计103/400。旧相机版称量3+1条另存，不混入新版。已读Claude会话492条可见历史及4条工具详情，并实查两端数据、当前进程与原始视频；后续以时间戳快照为准。",
+  "acceptance_note": "合计108条导出候选，按每组50封顶计107/400。六垫两组候选已采足；新版七、十正反序及干燥箱BA均已出现整条。完整独立物理与视觉资格尚未完成，严格验收仍为0。候选、验收与视频长度、生成耗时分别报告。",
+  "diagnostic_note": "本轮恢复Claude会话597条可见消息（seq1415至2086）及5条工具详情；最后进展为盘上持杯后的错误重试已修正、干燥箱AB进入第四步。已独立核对108条候选总数的来源和元数据。新增4张Pro6000、8个Native环境已通过真实CUDA分配/矩阵乘法并进入动作，不把启动数计作数据条数。",
   "cloud_status": {
-    "state": "collection_and_independent_qualification",
-    "note": "Pro6000上12路称量后台及干燥箱独立试验继续；本次新增私有验证进程，不修改Claude的工作树或进程。4.5厘米抬垫干燥箱正在测第四步重抓，3厘米版c1032重试路径。4090/5090六垫候选已各自来源核对，优先验收已有数量。完整合格数据未确认前不启动训练。",
+    "state": "four_gpu_eight_environment_native_running",
+    "note": "新增云端4卡8环境已真实进入采集，每卡2环境，四种称量条件各2路，完整120Hz物理与原生接触日志保留；8路初始支撑121和三相机内参校准全部通过。另有原Pro6000上的12路称量、3路干燥箱BA及AB测试，Claude的文件和进程未修改。云端任务是有限整条验证批，不提前计入验收或训练。",
     "current": []
   },
   "performance": {
@@ -130,13 +130,15 @@
     "latest_completed_native": "Claude-w22-ep2203",
     "latest_completed_wall_seconds": 5642.091626219917,
     "latest_completed_three_view_decode_passed": true,
-    "fresh_speed_candidate": "private-cache-refresh-t7-v2",
+    "fresh_speed_candidate": "cloud821-four-GPU-eight-Native-plus-scoped-policy822",
     "fresh_candidate_completed": false,
     "actual_motion_model_calls": 0,
-    "measurement_note": "ep2203完整视频202.87秒，八动作跨度200.90秒，生成5642.09秒。whole_tick合计1417.11秒，另约4224.98秒在tick之外（包括规划/初始化/资格检查，尚非独占GPU归因）。复用库若启动时不存在会被长期缓存为空，独立CPU复现与刷新修复通过；新进程已实际命中首个预抓，整条收益未定。",
+    "measurement_note": "ep2203生成5642.09秒，55次规划接口累计3783.01秒（约67%），whole_tick累计1417.11秒，模型调用0。新增云端降低线程竞争并复用成功搬运轨迹；接触动作仍实时规划。私有保留现场证实内层IK搜索错误恢复目标障碍开关会制造起点碰撞；4种CPU回归通过，修正后已原位通过第二步预抓、接近、闭手和抬升，尚未完成整条。所有数值物理门保留。",
     "remote605_completed_wall_seconds": 697.2700641830015,
     "latest_completed_full_video_seconds": 202.86666666666667,
-    "latest_completed_task_motion_seconds": 200.9
+    "latest_completed_task_motion_seconds": 200.9,
+    "ep2203_planner_attempt_count": 55,
+    "ep2203_total_planning_wall_seconds": 3783.0056894258596
   },
   "evidence": {
     "full570_closure": "speed_native392/CLOSURE570_BY392.json",
@@ -189,7 +191,11 @@
     "ep2203_audit": "align_claude_20261020/EP2203_INDEPENDENT_AUDIT.json",
     "ep2203_download": "align_claude_20261020/EP2203_DOWNLOAD_RECEIPT.json",
     "cache_refresh_regression": "align_claude_20261020/CACHE_REFRESH_REGRESSION.json",
-    "head_preview": "align_claude_20261020/head_preview/HEAD_PREVIEW_NATIVE_REPORT.json"
+    "head_preview": "align_claude_20261020/head_preview/HEAD_PREVIEW_NATIVE_REPORT.json",
+    "oven_first_complete": "align_claude_20261020/OVEN_EP1035_DOWNLOAD_RECEIPT.json",
+    "oven_video_decode": "align_claude_20261020/OVEN_EP1035_MEDIA_AUDIT.json",
+    "cloud_eight_native": "align_claude_20261020/CLOUD821_NATIVE_RECEIPT.json",
+    "scoped_target_regression": "align_claude_20261020/SCOPED_TARGET822_REGRESSION.json"
   },
   "render_quality": {
     "required_views": [
@@ -200,7 +206,7 @@
     "all_accepted": false,
     "authored_front_third_reproduced": true,
     "full_task_camera_fix_native": "Claude-ep2203-plus-private-preview",
-    "transparent_materials_labels_shadows_and_noise": "新版称量已实际检查头、侧面、正面三视角；头部方向恢复原生，但ep2203仍裁天平边缘。独立Native静态对照保持所有姿态及物理状态不变，仅比较头部焦距0.6/0.5/0.42。发现旧缓存内参与真实渲染相差约239–357像素，独立新进程已校正至<0.00004像素并记录每帧相机元数据。全面画质、遮挡及透明标签阴影尚未验收。",
+    "transparent_materials_labels_shadows_and_noise": "干燥箱首条三路视频各3075帧，原始SHA和整段解码通过；逐阶段实图发现胸部原生视角仍裁到绿色暂存垫和部分取杯动作，待仅调焦距扩大范围，未按画质验收。新版称量头部方向保持原生，焦距0.42已验证物体投影。新增8路三相机元数据与真实渲染内参最大误差<0.00004像素，持续记录。透明材质、标签阴影、白噪声及全程遮挡仍在独立检查。",
     "diagnostic_counterfactuals_are_not_collection_data": true,
     "camera_metadata_refresh_verified": true,
     "camera_orientation_max_error_deg": 4.452132e-06,
@@ -211,6 +217,6 @@
     "renderer_intrinsics_audit": "private-cache-refresh-t7-v2",
     "maximum_corrected_renderer_sensor_error_px": 2.9650183137164277e-05
   },
-  "exported_candidate_count": 104,
-  "within_quota_candidate_count": 103
+  "exported_candidate_count": 108,
+  "within_quota_candidate_count": 107
 }
