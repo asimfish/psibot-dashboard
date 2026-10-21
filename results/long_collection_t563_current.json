@@ -13,7 +13,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "修订版0/100。单层搁板及两容器已抬高17厘米、干燥箱向机器人移近4厘米；新实际闭门三视角可透真实玻璃看见两杯颈部和底部。头部/胸部真实矩阵无滚转；仍在扩展完整取放机位覆盖并验证真实手部接触开门，场景图不计成功。AB/BA各50。",
+      "note": "修订版0/100。第二段接近路径出现绕腕及机身余量不足，被原平滑性门槛拦截；实际门尚未打开。正在调整近直肘的中间路点，并验证正面第三视角及胸部朝向。透明门窗及玻璃材质保持；静态机位图不计完整任务通过。AB/BA各50。",
       "conditions": [
         {
           "id": "AB",
@@ -40,7 +40,7 @@
       "accepted_count": 4,
       "target_count": 100,
       "state": "collecting",
-      "note": "修订版4/100已导出v4，两种布局各2/50；新增完整原速127.267秒、135.533秒，全120Hz物理/接触/轨迹和三视角验收通过。续采989完成前四步，第五步下降预测持杯与已复位物体相撞，被原门槛拦截；990因本任务盘满导致视频/接触写入失败，均不计数。正归档闭合原始数据腾空间，并在Pro6000准备路径与持杯避障修复后的完整验证。",
+      "note": "修订版4/100已验收导出，两种布局各2/50。新增1000在Pro6000完整完成5阶段；独立审计因缺少ffprobe提前退出，正在补私有媒体工具后重审，尚不计数。1001另一布局在第三阶段下降出现绕行，被几何门槛拦截，已关闭待修复。5090闭合原始日志已无损压缩，继续扩容续采。",
       "conditions": [
         {
           "id": "A_left_B_right",
@@ -67,7 +67,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "修订版0/100。四杯单行对称、13厘米间距，天平面板朝机器人、玻璃移除。已定位合法IK紧贴自碰撞边界导致插值越界；只在原合法候选内优先选择有余量姿态。新完整试验跑过第一杯上秤和放回后，在第二杯下降第20个路点无合法连续IK而失败；继续沿该实测失败排查。",
+      "note": "修订版0/100。四杯单行对称、13厘米间距，天平面板朝机器人、玻璃移除。整台天平及秤盘同步平移5毫米后，原GPU全世界/自碰撞检查通过；1014已越过原第二杯下降失败点，最新到第3阶段open，完整8阶段仍未完成。",
       "conditions": [
         {
           "id": "1234",
@@ -115,50 +115,49 @@
       "within_quota_candidate_count": 0
     }
   ],
-  "snapshot_id": 998,
-  "updated_at": "2026-10-20T23:56:48.860941+00:00",
+  "snapshot_id": 1018,
+  "updated_at": "2026-10-21T00:58:46.892462+00:00",
   "training_eligible_count": 0,
   "acceptance_note": "修订版4/400条完整验收并导出：六垫任务两种布局各2/50。最新两条原速127.267秒、135.533秒，均小于3分钟；实际生成约13.7、15.7分钟，生成速度仍未达标。旧v3保留且不计数。干燥箱、四杯及五杯仍无新版整条合格数据，DP/ACT训练尚未启动。",
-  "diagnostic_note": "已验收四条保持全120Hz物理状态、原始及张量接触、全部实际规划历史、三路完整视频与曝光对齐、去重及逐文件导出读回。新增源路径修复仅绑定原私有输入及精确SHA，保留物理逻辑；CPU通过不算完整Native成功。曾被round5改变的规划起点已做真实反事实验证，续采继续保留全部原门槛。",
+  "diagnostic_note": "完整Native成功、独立验收和已导出分别记录。1000已完整完成，但审计环境缺ffprobe，正在补齐后重审；1001第三阶段绕行仍被原门槛拒绝。原V0.8/A2/J20、机身及全接触门槛保持，正式数量不增加。",
   "cloud_status": {
-    "state": "transport_recovered_source_path_validation",
+    "state": "native51_completed_pending_independent_audit",
     "current": [
       {
-        "host": "5090_GPU1",
+        "host": "PRO6000_5b_GPU0",
         "attempts": [
-          989
+          1000
         ],
-        "state": "完整试验第五步lower失败：持杯与另一容器预测穿入21毫米；单纯放慢不能修复，需调整局部几何路径。前四步完成，不计数。"
+        "state": "完整完成5阶段，physical_success=true；实际生成857.1秒。独立审计因缺少媒体工具ffprobe提前退出，正在补私有工具后重审，未计数。"
       },
       {
-        "host": "5090_GPU0",
+        "host": "PRO6000_5b_GPU1",
         "attempts": [
+          1001
+        ],
+        "state": "1001已关闭失败：第三阶段下降路径1.01米超过0.214米允许值，并有向上绕行；原门槛拦截，正在修复几何路径。"
+      },
+      {
+        "host": "PRO6000_weigh_GPU0",
+        "attempts": [
+          1014
+        ],
+        "state": "原GPU碰撞检查通过；1014已越过旧第二杯接近失败位置，最新第3阶段open，8阶段全轨迹验收仍待完成。"
+      },
+      {
+        "host": "5090_GPU0_GPU1",
+        "attempts": [
+          989,
           990
         ],
-        "state": "已闭合失败：exit124/controller2，视频与全量接触写入Errno28；RESULT旧initializing是盘满未能写完，不能算在运行或成功。仅归档本任务已闭合数据后腾出空间。"
+        "state": "旧失败试跑已闭合；六份原始日志12.35GB→1.90GB无损gzip，逐份完整解压SHA一致，695冻结输入未变。剩余约10.7GiB，继续归档自有闭合数据后再启动，避免重复盘满。"
       },
       {
-        "host": "PRO6000_5b",
-        "attempts": [
-          985,
-          986
-        ],
-        "state": "985在第五步withdraw因旧绝对源路径失败；986第一步搬运时持杯扫过另一物体，被门槛拦下。路径修复21项CPU测试及fresh recipe19项测试通过，正在准备两个新完整验证。"
-      },
-      {
-        "host": "PRO6000_weigh",
-        "attempts": [
-          988
-        ],
-        "state": "合法IK内自碰撞余量优选已跑过首杯上秤/放回；第三阶段第二杯接近时原IK没有合法连续解，失败关闭，未计数。"
-      },
-      {
-        "host": "cloud_4GPU",
-        "attempt": 946,
-        "state": "旧任务失败且资源已释放；新批采仍待完整Native配方、相机与独立验收链验证，不空占卡。"
+        "host": "cloud_4GPU_8GPU",
+        "state": "内网CLI API已恢复HTTP200。最新GET显示4卡/8卡Pro6000训练作业可提交；正在准备有界并行验证作业，尚未提交，未占用新云卡。"
       }
     ],
-    "note": "5090与Pro6000此前SSH传输中断；平台GET确认Pro入口未改，严格主机密钥校验的新专用通路已读回任务。4090现有其他评测未被抢占；未重复提交启动状态未知的任务。"
+    "note": "新建非复用SSH通路已成功读回状态并启动上述任务。4090现有其他评测未被抢占；没有重发状态未知的启动。正式总量仍为4/400。"
   },
   "performance": {
     "fresh_speed_candidate": "当前状态连续IK + 全门槛重检的五次B样条缩时；不以缓存轨迹替代实际物理执行",
@@ -228,7 +227,12 @@
     "verified_export_ledger_sha256": "afb07a14b455854f588630fb5b5e44d0049f15c4e13227d4e40e288e3553dfc8",
     "new_two_exports": "t5710_lerobot_v4_quality_20261021/PUBLISHED971972_RECEIPT.json",
     "source_path_fix994": "revision_quality_20261021/ROOT_REVIEW_PATHFIX994.json",
-    "fresh_recipe994": "revision_quality_20261021/ROOT_REVIEW_RECIPE994.json"
+    "fresh_recipe994": "revision_quality_20261021/ROOT_REVIEW_RECIPE994.json",
+    "native51_full5_completion1000": "revision_quality_20261021/network1015/STATUS10001001_FULL_FRESH.json",
+    "native51_independent_audit1000_start": "revision_quality_20261021/network1015/AUDIT1000_START_FRESH.json",
+    "whole_balance_shift5_gpu_native1014": "revision_quality_20261021/network1015/WEIGH1014_START_FRESH.json",
+    "lossless_closed_raw1011": "revision_quality_20261021/network1015/RAW1011_STATUS_FRESH.json",
+    "cloud_capacity_readonly1015": "revision_quality_20261021/network1015/CLOUD_READ_CAPACITY1015.json"
   },
   "render_quality": {
     "required_views": [
