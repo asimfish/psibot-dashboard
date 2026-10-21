@@ -13,7 +13,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "修订版0/100。完整柜门、单层隔间与透明容器保留。真实预抓取已成功，原5mm接近路径被手指与把手碰撞门拦截。18/20/25/30mm绕开把手的四种偏移，均通过真实CUDA全路径、历史指令连续性及原速度/碰撞检查；四个新仿真源已准备，下一步真实短开门验证。尚未证明抓持开门；完整63度开门及五步AB/BA驱动尚未实现，不计数。",
+      "note": "修订版0/100。18/20/25/30mm四种偏移均已真实运行，四路在接近或闭手时被接触力解析错误拦截。实际SDK及同tick双向报告已定位：带方向符号的力系数被误当成非法负值，正在修正解析；原4N接触保护与几何门槛保留。尚未证明真实抓持开门或完整五步，不计数。",
       "conditions": [
         {
           "id": "AB",
@@ -40,7 +40,7 @@
       "accepted_count": 51,
       "target_count": 100,
       "state": "collecting",
-      "note": "修订版51/100完整验收导出：左烧杯47/50、交换4/50。1097六环境中五条全五步及39PLAN机审成功；其中两条与旧运动重复排除，一路规划失败不计。三个实际新样本分别通过16/38/26对真实静止噪声、各自三视角抽检、44文件SHA和同曝光Parquet数值读回，正式48→51。下一批拟3个左烧杯加5个交换环境，仍须全验收及去重。",
+      "note": "修订版51/100正式验收导出：左烧杯47/50、交换4/50。新批次另有6条完成全五步且通过39条规划及独立运动、接触、几何机审，尚待静止噪声、实际移动画面复核、去重与导出读回，不计入51。失败轨迹已定位到有效IK节点之间的三次样条越过关节限位，正验证有界C2替代轨迹。",
       "conditions": [
         {
           "id": "A_left_B_right",
@@ -66,8 +66,8 @@
       "action_count": 8,
       "accepted_count": 0,
       "target_count": 100,
-      "state": "camera_revision_native_running_quality_hold",
-      "note": "修订版0/100。旧正反序均完整8次取放物理成功；完整52条实际规划/指令连续性、携物包络及世界接触审核均通过。正序仅3对严格静止视频帧，原因已定位为杯体真实微动，保持HOLD；反序已有16对，最终收据组装遇证据文件名错误，正修复。旧胸部画面裁切仍HOLD。新胸部视野只调整缩放、保持相机朝向和物理场景，正反序两路真实Native均推进至第6步，尚未完整验收。",
+      "state": "visual_noise_hold_new_native_running",
+      "note": "修订版0/100。新胸部视野正反序均已完成8次取放；反序通过全量运动、世界碰撞、三视角媒体及13对严格静止噪声机审。原视频胸部第2052帧仍见近处前臂暗部颗粒，人工画面复核HOLD，暂不导出；正序静止帧对不足也HOLD。另两路带独立静止渲染探针的真实Native已到第3步。",
       "conditions": [
         {
           "id": "1234",
@@ -94,7 +94,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "native_running_and_forward_withdraw_debugging",
-      "note": "修订版0/100。五杯对称间距13cm、面板朝机器人、去玻璃保留。旧STD/FAST反序已进入第10步，完整结果待核对；视频已超过180秒，且旧胸部画面裁切HOLD。正序两路均在第6步放回C后、撤手规划起点检查失败，正在按同一真实场景定位，未误计为放置失败。新胸部视野的STD/FAST反序两路真实Native推进至第5步。全部速度/加速度/jerk/碰撞门槛保留。",
+      "note": "修订版0/100。五杯对称布局、面板朝机器人、去玻璃保留。旧两路反序在第10步被2700秒生成时限终止，未完成、不计数。正序第6步撤手的腕部包络与天平底座冲突已定位；只将该阶段悬停高度提高1cm的新正序，和反序一并真实运行，当前到第2—3步，完整结果及质量仍待验收。视频与生成时长目标尚未解决。",
       "conditions": [
         {
           "id": "12345",
@@ -115,13 +115,13 @@
       "within_quota_candidate_count": 0
     }
   ],
-  "snapshot_id": 1121,
-  "updated_at": "2026-10-21T16:30:04+08:00",
+  "snapshot_id": 1143,
+  "updated_at": "2026-10-21T17:16:14+08:00",
   "training_eligible_count": 0,
   "acceptance_note": "修订版51/400已完整验收导出：六垫左烧杯47/50、交换4/50，其余六条件各0。1097新增三条经全量机审、实际运动去重、静止噪声、新画面抽检、44文件及同曝光数值回读，正式48→51。400未完成；DP/ACT未启动，旧v3不计修订版。",
-  "diagnostic_note": "51/400。四路新相机天平仿真实际运行中：T7正反序到第6步，T10两路反序到第5步。旧T10反序到第10步；正序第6步撤手仍在调试。干燥箱四种新偏移已过原CUDA规划门槛并完成仿真源准备，尚未验证真实开门。单条生成180秒目标仍未达成。",
+  "diagnostic_note": "51/400。新六垫6条全五步及独立机审通过，仍待画面/噪声/去重/导出。四杯反序原视频前臂颗粒HOLD；四路新四杯/五杯真实Native推进第2—3步。干燥箱四路接触力解析错误已定位，尚无开门成功。单条生成180秒目标仍未达成。",
   "cloud_status": {
-    "state": "published_51_four_camera_lanes_running_oven_live_prepared",
+    "state": "formal51_six_new_5b_machine_candidates_T7_visual_noise_hold_oven_contact_sign_fix",
     "current": [
       {
         "host": "cloud16GPU32env",
@@ -223,7 +223,7 @@
         "attempts": [
           1117
         ],
-        "state": "四张不同PCI GPU均完成实际CUDA分配/矩阵运算并启动Native；T7正反序至第6步、T10 STD/FAST反序至第5步。胸部仅加大视野，头部及第三视角和物理参数保持。运行不计正式样本。"
+        "state": "T7正反序完整8次取放成功；反序全量机审通过但原视频前臂颗粒HOLD，正序严格静止帧不足HOLD。T10两路反序未在原时限内完成，不计数。"
       },
       {
         "host": "cloud_weigh4_1096",
@@ -231,7 +231,7 @@
         "attempts": [
           1096
         ],
-        "state": "STD/FAST正序均在第6步撤手起点原约束检查失败，未计数；两路反序实际到第10步，完整结果待核。旧胸部裁切与视频超过180秒仍HOLD。"
+        "state": "四路已闭合。正序第6步撤手起点原约束失败；反序在第10步被2700秒Native时限终止，均不计数。"
       },
       {
         "host": "oven_fullq1114_closed_live_sources1124_1127_prepared",
@@ -242,7 +242,36 @@
           1126,
           1127
         ],
-        "state": "四种18/20/25/30mm接近偏移均通过原CUDA世界/自碰撞/手指把手/机身/连续指令与VAJ规划检查，约3.93—4.08秒；只证明规划可行。四个只携带参数、按实际状态重新规划的仿真源已准备，尚未启动真实短开门，不计数。"
+        "state": "四种偏移的真实短开门验证均被接触力解析错误拦截。实际双向tensor与SDK源码已定位signed系数语义，最小修复进行中；纯规划通过不能替代真实开门或完整五步验收。"
+      },
+      {
+        "host": "cloud5b51_batch8_1119",
+        "attempts": [
+          1119
+        ],
+        "state": "8路已闭合：env1/2左烧杯、env3交换完成全五步及39PLAN独立机审。另5路失败不计数；三条仍待质量、去重及导出验收。"
+      },
+      {
+        "host": "cloud5b51_swap16_1121",
+        "attempts": [
+          1121
+        ],
+        "state": "16路已闭合：env2/6/10交换完成全五步及39PLAN独立机审，另13路失败不计数。三条仍待质量、去重及导出验收。"
+      },
+      {
+        "host": "cloud5b51_swap16_1131_and_swap9_1132",
+        "attempts": [
+          1131,
+          1132
+        ],
+        "state": "两批合计25环境真实并行运行；最新记录7路到第五步、18路失败。运行中与未验收结果不计正式数。"
+      },
+      {
+        "host": "cloud_weigh4_1137",
+        "attempts": [
+          1137
+        ],
+        "state": "四张实际独立GPU运行T7正反序、T10正反序，均已有实际物理记录至第2—3步。T7新增13帧独立静止渲染探针仅用于噪声诊断，不伪造任务帧；运行不计正式数据。"
       }
     ],
     "note": "正式数量以公共验收账本和完整导出读回为准；纯规划、运行中、物理成功、重复轨迹和渲染HOLD均不计数。"
@@ -396,7 +425,12 @@
     "oven_live_four_source_staged": "revision_quality_20261021/network1015/OVEN1124_1127_STAGE_ACTUAL.json",
     "T7_reverse_execution_and_world_pass_receipt_assembly_failed": "revision_quality_20261021/network1015/T7_REVERSE1116_READ1_ACTUAL.json",
     "new_actual_three_view_preview_sha256": "9f62237cbaa54e5e75862101006e3ee4a108ad2b81fc0b60938c8dd03b2be186",
-    "preview_scope": "1097 env5真实三视角初始帧聚合；非生成图，非完整动作视频。"
+    "preview_scope": "1097 env5真实三视角初始帧聚合；非生成图，非完整动作视频。",
+    "latest_actual_monitor": "revision_quality_20261021/network1015/ACTIVE_ALL1141_READ1_ACTUAL.json",
+    "T7_reverse_full_machine_receipt_sha256": "29d5037f4224c87878be5f85e3e8b7d88f4ec941140d7df0345f5269759de267",
+    "T7_reverse_original_frame_noise_hold": "assets/long-collection/t573_t7_reverse_original_frame2052_noise_hold.png",
+    "T7_reverse_original_frame_noise_hold_sha256": "b8ce11365abf5a4ea0729ac283441ba5ebeaa819c8b11f3e4f92cc9be03d82a1",
+    "T7_reverse_current_initial_three_view": "assets/long-collection/t573_t7_reverse_camera1117_initial3_hold.jpg"
   },
   "render_quality": {
     "required_views": [
@@ -407,7 +441,7 @@
     "all_accepted": false,
     "diagnostic_counterfactuals_are_not_collection_data": true,
     "native_head_chest_directions_preserved_in_5b": true,
-    "transparent_materials_labels_shadows_and_noise": "六垫正式51条通过原相机/材质来源与独立静止噪声要求。1097新增三条已分别实际查看三视角与阶段/动作聚合抽样；未宣称完整视频人工审阅。T7旧胸部视野裁切、正序静止帧不足仍HOLD；四路新胸部视野正实际运行，尚未视觉验收。干燥箱静态透明对照不能替代完整动作验收。"
+    "transparent_materials_labels_shadows_and_noise": "六垫已正式51条通过原相机、来源与独立静止噪声要求；新增6条继续检查移动时近处手臂。T7新胸部视野已完成动作，但原视频确认前臂暗部颗粒，不能仅凭全图静止噪声通过而验收。正定位真实材质与RTX采样原因。干燥箱静态透明对照不能替代完整动作验收。"
   },
   "exported_candidate_count": 51,
   "within_quota_candidate_count": 51,
