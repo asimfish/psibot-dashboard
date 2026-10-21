@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_owner": "T-563",
-  "formal_accepted": 43,
+  "formal_accepted": 45,
   "target_total": 400,
   "position_randomization": false,
   "status": "collecting_and_quality_revision",
@@ -13,7 +13,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "修订版0/100。保留完整柜门及单层隔间；同场景透射深度ABA对照已通过静态透明检查，材质和物理不变。1074干燥箱只完成静态探针，motion_attempted=false、phases_completed=0；尚无完整开门取放五步、三视角动作渲染及全量验收通过。静态透明PASS不能算完整动作成功，AB/BA各50的正式数量仍为0。",
+      "note": "修订版0/100。保留完整柜门、单层隔间和透明容器。1073静态ABA透明对照已通过；1079渲染准入修复在mixed1087实际通过，完成真实预抓取移动，SDK/壳体检查通过，但接近手柄时规划产生绕行/腕姿偏差，被原路径质量门拦下。尚未建立手柄抓持或证明开门；没有完整五步，AB/BA各50正式仍0。",
       "conditions": [
         {
           "id": "AB",
@@ -37,17 +37,17 @@
       "id": "t5_obstruction",
       "title": "5 子任务 · 六垫遮挡移位",
       "action_count": 5,
-      "accepted_count": 43,
+      "accepted_count": 45,
       "target_count": 100,
       "state": "collecting",
-      "note": "修订版43/100已完整验收导出：左烧杯布局40/50、交换布局3/50。1066的7条完成原独立全量机审、实际静止噪声测量、新一轮三视角抽样审批、逐条44文件SHA及同曝光Parquet动作数值回读，实际120Hz运动指纹与既有36条均不重复；36→43的七条账本CAS收据连续，旧记录保持不变。1078八路已实际启动Native，其中4路失败、另4路已完成完整五步但待独立机审与导出；尚无本批完整验收，不计入43。",
+      "note": "修订版45/100已完整验收导出：左烧杯布局42/50、交换布局3/50。1078原四路完整五步均经39条实际规划全机审计；env1和env7再通过实际静止噪声14/18对、新两条三视角抽样审批、每条44文件SHA和同曝光动作数值回读，真实120Hz运动与既有43条不重复，43→44→45账本CAS连续并保留旧记录。env5和env6分别与既有cloud1053_lane1/7真实运动完全重复，已排除，不因新编号或新参数重复计数；另四路失败也不计数。",
       "conditions": [
         {
           "id": "A_left_B_right",
           "label": "烧杯1在左、锥形瓶1在右",
-          "accepted_count": 40,
+          "accepted_count": 42,
           "target_count": 50,
-          "exported_candidate_count": 40
+          "exported_candidate_count": 42
         },
         {
           "id": "B_left_A_right",
@@ -57,8 +57,8 @@
           "exported_candidate_count": 3
         }
       ],
-      "exported_candidate_count": 43,
-      "within_quota_candidate_count": 43
+      "exported_candidate_count": 45,
+      "within_quota_candidate_count": 45
     },
     {
       "id": "t7_weigh",
@@ -67,7 +67,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "native_complete_pending_independent_audit",
-      "note": "修订版0/100。四杯保持单行对称、13厘米间距、天平面板朝机器人并移除玻璃。1074内T7正序1037已实际完成完整8阶段，physical_success=true、exit0、原速视频约174.27秒小于180秒；这是首次完整物理通过，独立全量机审、噪声/实际画面复核和导出仍待执行，正式1234仍0/50。逆序1082仅准备原布局的最小CPU源修复，尚未完成整条验收；4321仍0/50。原全部碰撞和平滑门槛保留。",
+      "note": "修订版0/100。四杯单行对称、13厘米间距，天平面板朝机器人并去掉玻璃。1074内T7正序1037已完成完整8阶段，physical_success=true、exit0、原速视频约174.27秒小于180秒；生成墙时2027.56秒，不能视为180秒生成目标达成。完整机审遇到旧元数据名称和原终末phase9的适配问题：真实36DOF捕获与运行时手通道已查明，新审计按末动作结束后121tick的原终末窗口精确校验，未改Native/物理/安全门槛，兼容修订后20917条状态/20918条接触、5229条trace已通过原数值与阶段校验，完整几何、视频和噪声验收仍待完成。构造期initial.PNG产生在相机/渲染安装前，不能代表原MP4首帧；实际视频首帧正常，但回放阶段胸部视角会被手臂遮挡，图审仍待完整结论。逆序1087推进到第6次取放；正式1234和4321仍各0/50。",
       "conditions": [
         {
           "id": "1234",
@@ -94,7 +94,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "debugging",
-      "note": "修订版0/100。1074内正序在第2阶段退出时被原连续指令起点约束拦截（tick6485）；逆序在第6阶段失败（tick15483），BdbQuit是后续调试退出，实际原因仍待完整证据。正序CPU原三角面复现定位张开的手碰撞球与相邻B杯约0.9毫米相交；13厘米对称杯距的双顺序候选只有CPU几何/源准备，仍待原GPU因果对照、实际IK及全10阶段验证。原B回垫悬停修复、全部抓取、面板朝向和碰撞门槛保留，两条件正式仍各0。",
+      "note": "修订版0/100。1074正序第2阶段退出在tick6485被原连续指令起点约束拦截；反序第6阶段tick15483失败，BdbQuit仅为后续调试退出。正序原GPU四组因果对照已确认相邻B杯为世界碰撞来源，去掉B仅用于诊断并精确恢复所有旗标，round5不是该碰撞主因。双顺序13厘米对称杯距保留全部门槛，mixed1087正序在第1次搬运时发现捷径轨迹腕姿偏差0.1631rad，超过原0.15门槛而退出；正修复候选提前筛选并保留该门槛。逆序已推进到第6次取放，尚无完整10阶段及全验收结果；两条件正式仍各0/50。",
       "conditions": [
         {
           "id": "12345",
@@ -115,13 +115,13 @@
       "within_quota_candidate_count": 0
     }
   ],
-  "snapshot_id": 1086,
-  "updated_at": "2026-10-21T05:16:47.428383+00:00",
+  "snapshot_id": 1090,
+  "updated_at": "2026-10-21T05:56:04.906595+00:00",
   "training_eligible_count": 0,
-  "acceptance_note": "修订版43/400条完整验收并导出：六垫任务左烧杯布局40/50、交换布局3/50。新增1066七条已通过独立机审、噪声、实际三视角抽样审批、逐条44文件SHA、同曝光动作数值读回和运动去重，旧36条保持完整。干燥箱、四杯和五杯六个条件仍各0条；T7正序首次完整8阶段物理通过但尚未独立全验收和导出，不计数。旧v3保留且不计数，整套400条尚未完成，不可宣称完整训练数据已交付。",
-  "diagnostic_note": "正式43/400。1066七条已完整导出并独立核对36→43收据链，不再是待验候选。mixed1074四路均已关闭：T7正序1037完整8阶段physical_success=true、视频174.27秒，独立全量验收/导出尚未运行，正式仍0；五杯正序phase2 tick6485、逆序phase6 tick15483失败，干燥箱仅静态ABA透明PASS、没有动作成功。1078八路均有实际Native启动，env0及env4在原IK连续性检查失败，env2被speed_match门槛、env3第二阶段lift规划FINETUNE门槛拒绝；另4路已完成完整五步，仍待独立机审、噪声、画面和导出验收。queryv2原CUDA复核raw107、piecewise_linear16的1697点及local_C2_outward2380点全部通过原约束，local_C2另有5点自碰撞；均为纯规划查询、无Native数据和新增正式数量。DP/ACT尚未启动，单条生成3分钟目标仍未达到。",
+  "acceptance_note": "修订版45/400条完整验收并导出：六垫左烧杯布局42/50、交换布局3/50。新增1078两条通过完整机审、噪声、新实际三视角抽样审批、逐条44文件SHA、同曝光数值读回及运动去重，43→45收据连续；另两条真实运动重复已排除。干燥箱、四杯、五杯六个条件仍各0；T7正序完整8阶段物理成功，正式仍待全审和导出。旧v3保留但不计数，400条未完成，不可宣称完整训练集已交付。",
+  "diagnostic_note": "正式45/400，五步六垫左烧杯42/50、左右互换3/50，其余六个条件各0。1078两条新运动已验收导出，另两条重复排除。七步正序完整8次取放已完成；修正审计对原终末phase9的兼容后，状态/接触与trace数值部分通过，完整几何、三视角、噪声和导出尚未完成。mixed1087的七步及十步逆序均推进到第6次取放，十步正序的捷径腕姿偏差超原0.15门槛，正修复候选筛选。干燥箱已通过渲染准入并实际预抓取移动，但接近手柄的规划未通过原路径门，没有抓持或开门成功。新1090七环境任务已提交待实际启动验证。DP/ACT未启动，180秒生成目标仍未达成。",
   "cloud_status": {
-    "state": "published_43_with_T7_fullNative_pending_audit_and_actual1078_queryv2_results",
+    "state": "published_45_with_two_actual1078_duplicates_excluded_and_weigh_pending_acceptance",
     "current": [
       {
         "host": "cloud16GPU32env",
@@ -159,7 +159,7 @@
         "attempts": [
           1074
         ],
-        "state": "四路已实际关闭。T7正序1037首次完整8阶段物理成功、exit0、视频约174.27秒，尚未独立全验收/导出，正式0。T10正序phase2 tick6485失败，逆序phase6 tick15483失败，待定位真实原因；干燥箱只有静态ABA透明PASS，motion_attempted=false、0阶段。"
+        "state": "四路已闭合。T7正序1037完整8阶段物理成功、视频174.27秒，独立审计正在兼容原运行时终末phase9/121tick捕获定义，尚无全验收及导出，正式0。T10正序第2阶段邻杯B碰撞已获原GPU因果对照，反序第6阶段失败；干燥箱仅静态ABA透明PASS，motion_attempted=false。"
       },
       {
         "host": "cloud_query1001_closed",
@@ -178,21 +178,37 @@
         "state": "1013已完整验收并在PRO独立读回后入库，原速140秒；1044第二阶段被平滑性门槛拦截，1058第二阶段规划FINETUNE_TRAJOPT_FAIL，均已关闭且不计数。"
       },
       {
-        "host": "cloud1078_actual_Native_pending_acceptance",
+        "host": "cloud1078_closed_and_verified_two_published",
         "job_id": "job-9le8ovozrsen",
         "attempts": [
           1078
         ],
-        "state": "八env均已实际启动Native；env0及env4原IK连续性失败、env2 speed_match门槛失败、env3第二阶段lift FINETUNE失败。env1/5/6/7已完整五步物理成功，尚待独立机审、噪声、实际画面及导出，不计正式43。"
+        "state": "八路均已闭合。env1/5/6/7完成完整五步及原独立39PLAN机审；env1/7通过实际噪声、新实际图审和44文件/同曝光数值回读后正式43→45。env5/6与cloud1053_lane1/7真实120Hz运动重复排除；env0/2/3/4失败不计数。"
       },
       {
         "host": "cloud_queryv2_closed_pure_planner",
         "job_id": "job-jju1zk72m4ik",
         "attempts": [],
         "state": "原CUDA实查已闭合：raw107全部107点、piecewise_linear16全部1697点、local_C2_outward全部2380点通过原约束；local_C2有5点自碰撞。动态fresh adapter尚待Native验证，不产生正式采集数据。"
+      },
+      {
+        "host": "cloud_mixed1087_actual_progress",
+        "job_id": "job-rva5yiriqpjc",
+        "attempts": [
+          1087
+        ],
+        "state": "四路CUDA/PCI/matmul与Native启动实证已核。干燥箱渲染准入已过且预抓取实走，接近手柄时路径门拒绝，尚未抓持；T7逆序及T10逆序推进到第6次取放，仍运行；T10正序第1次搬运捷径腕姿0.1631rad超原0.15拒绝。完整采集与验收均待完成，不计数。"
+      },
+      {
+        "host": "cloud_mixed7_1090_submitted_only",
+        "attempts": [
+          1090
+        ],
+        "operation_id": "8uvny45qlhpy3yit0jajmhn60",
+        "state": "已提交新4GPU/7环境任务：6个左烧杯布局新候选和1个左右互换动态平滑轨迹验证。提交时操作CLAIMED，尚待读取实际CUDA与Native启动；Aleft42+新增最多6=48≤50，仍需完整机审、实际去重、噪声、图审及导出，不计正式45。"
       }
     ],
-    "note": "正式43/400；T7正序完整Native通过但尚待独立机审/图审/导出，仍0。1078四路失败、四路完整五步待验，queryv2仅纯规划查询通过部分候选；均不得加入正式43。不抢占其他任务显卡，不把作业创建、进程启动、静态透明PASS或单独物理完成当作整条验收。"
+    "note": "正式45/400。1078仅两条新运动完整验收发布，另外两条完整成功但运动重复，不计数。T7完整Native成功与新mixed1087启动均不能替代全量验收、实际噪声、图审和导出。全400未完成，六个其他条件仍0，不占用他人任务显卡。"
   },
   "performance": {
     "fresh_speed_candidate": "当前状态连续IK + 全门槛重检的五次B样条缩时；不以缓存轨迹替代实际物理执行",
@@ -214,7 +230,9 @@
       130.93333333333334,
       128.93333333333334,
       129.6,
-      140.0
+      140.0,
+      128.6,
+      127.46666666666667
     ],
     "accepted_generation_wall_s": [
       849.788656297,
@@ -222,7 +240,9 @@
       824.03587066,
       944.900546287,
       857.0539556,
-      916.078123
+      916.078123,
+      1074.374893371947,
+      1074.2907537980936
     ],
     "original_physical_gates_unchanged": true,
     "declared_speed_policies": {
@@ -246,7 +266,7 @@
       },
       "note": "实际场景与分支不同，不能宣称所有阶段都已加速。生成180秒目标仍未达成。"
     },
-    "generation_measurement_scope": "时长列表仅包含已逐项核对的部分已验收样本，并非43条穷举。T7正序174.27秒仅是已完成Native视频时长且待全验收，其生成墙时约2027.56秒，不能声称生成180秒目标已达成。"
+    "generation_measurement_scope": "时长列表仅包含逐项核对过的部分已验收样本，并非45条穷举。新增1078两条原速视频128.6/127.467秒，生成墙时均约1074秒；T7正序174.27秒仅为待全验收视频时长，其墙时约2027.56秒，均不能宣称生成180秒目标达成。"
   },
   "evidence": {
     "noise_controlled": "revision_quality_20261021/OPTICAL_PROBE842.json",
@@ -271,7 +291,7 @@
     "verified_export_ledger": "t5710_lerobot_v4_quality_20261021/QUALIFIED_DATASETS.json",
     "swapped_export_manifest_sha256": "0a0391d4536b5cbcbd32e401212ff04216587d4f82fd875231f726ad121694f1",
     "oven_actual_scene_preview": "assets/long-collection/t573_oven954r2.png",
-    "verified_export_ledger_sha256": "13037c9b7a085dad8bd67dfe192243f4098af437ae7c691199ec29f3b9f6389f",
+    "verified_export_ledger_sha256": "e99766ff99cf414fbfe6ff9432cebcd777c85bf22e366786d16084f091d2e4ed",
     "new_two_exports": "t5710_lerobot_v4_quality_20261021/PUBLISHED971972_RECEIPT.json",
     "source_path_fix994": "revision_quality_20261021/ROOT_REVIEW_PATHFIX994.json",
     "fresh_recipe994": "revision_quality_20261021/ROOT_REVIEW_RECIPE994.json",
@@ -301,7 +321,19 @@
     "T7_forward_fullNative_pending_independent_acceptance": "revision_quality_20261021/network1015/ACTIVE1086_READ1.json",
     "aleft1078_job": "job-9le8ovozrsen",
     "queryv2_job": "job-jju1zk72m4ik",
-    "latest1078_actual_read": "revision_quality_20261021/network1015/T10QUERY1086_ADMISSION_ACTUAL.json"
+    "latest1078_actual_read": "revision_quality_20261021/network1015/ALEFT1078_FINAL_AUTHORITY1089_ACTUAL.json",
+    "unique2_1078_verified_publication": "revision_quality_20261021/network1015/PUBLISH1078_PROGRESS_READ1_ACTUAL.json",
+    "unique2_1078_independent_receipt": "revision_quality_20261021/acceptance_unique1078_publish_agent/QUALIFIED45_INDEPENDENT_RECEIPT1078.json",
+    "unique2_1078_independent_receipt_sha256": "f6698c4c5877735bb7553e0b37da1e4dd420132166a25f4d68808c92b59f0f82",
+    "unique2_1078_new_actual_review_sha256": "21094ab076bcfed887219bccb7fa90f38a254224c35360d74e506f697790608f",
+    "unique2_1078_review_pack_sha256": "a0f57c68a48ec5323fd9deff360bf9256185905290e0a8df676a4267720fa8a4",
+    "unique2_1078_review_manifest_sha256": "a019f39fcd734f177f3f8173561d4d5c775451fe1a06e0a0736435269b3a528c",
+    "T7_actual_terminal_and_trace": "revision_quality_20261021/network1015/T7_TRACE1089_ACTUAL.json",
+    "T7_fresh_terminal_audit_bundle": "revision_quality_20261021/weigh_acceptance1089_agent/AUDIT_BUNDLE1089.json",
+    "mixed1087_actual_start": "revision_quality_20261021/network1015/MIXED1087_STARTUP_READ1_ACTUAL.json",
+    "T7_audit1089_actual_partial": "revision_quality_20261021/network1015/T7_AUDIT1089_PROGRESS_READ1_ACTUAL.json",
+    "mixed1087_actual_progress": "revision_quality_20261021/network1015/MIXED1087_PROGRESS_READ3_ACTUAL.json",
+    "dynamic7_1090_actual_CPU_admission": "revision_quality_20261021/network1015/MIXED7_1090_ADMISSION_ACTUAL.json"
   },
   "render_quality": {
     "required_views": [
@@ -312,10 +344,10 @@
     "all_accepted": false,
     "diagnostic_counterfactuals_are_not_collection_data": true,
     "native_head_chest_directions_preserved_in_5b": true,
-    "transparent_materials_labels_shadows_and_noise": "六垫正式43条通过完整三路解码、原固定正向机位、独立噪声检查和实际图像抽样；1066七条使用本轮新审批，未借用旧画面审批。干燥箱只证明静态ABA透明PASS，动作渲染未完成；T7正序完整Native的视频、相机和噪声独立验收仍待执行。"
+    "transparent_materials_labels_shadows_and_noise": "六垫正式45条均按原三视角全帧/机位/材质源与独立静止噪声要求验收，新增1078两条使用新实际两图及三聚合图审批。T7构造期initial.PNG不代表相机/渲染插件安装后的原视频，应检查实际MP4；T7视频全审和噪声门槛审批仍待完成。干燥箱静态透明ABA尚不能证明完整动作渲染合格。"
   },
-  "exported_candidate_count": 43,
-  "within_quota_candidate_count": 43,
+  "exported_candidate_count": 45,
+  "within_quota_candidate_count": 45,
   "legacy_snapshot": {
     "snapshot_id": 823,
     "exported_candidate_count": 108,
@@ -323,9 +355,10 @@
   },
   "preview_url": "assets/long-collection/t573_5b1026_actual_initial3.jpg",
   "website_previous_live_snapshot_at_candidate_prepare": {
-    "formal_accepted": 36,
-    "snapshot_id": 1074,
-    "ledger_sha256": "89d44f60b55a6a81d7a198bb9f0153624f38b7d62be6bc4496867f8485d00a12",
-    "basis": "Read-only existing dashboard898_git snapshot; parent also confirmed webpage live36 at preparation. This local candidate has not been remotely published by this agent."
+    "formal_accepted": 43,
+    "snapshot_id": 1086,
+    "ledger_sha256": "13037c9b7a085dad8bd67dfe192243f4098af437ae7c691199ec29f3b9f6389f",
+    "source_snapshot_sha256": "602115e9676c04e32538b1533ea842032112046da661b1576a398eadad146471",
+    "basis": "Read-only dashboard898_git snapshot and parent-confirmed webpage live43. This local45 candidate has not been remotely published by this agent."
   }
 }
