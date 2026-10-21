@@ -1,0 +1,211 @@
+{
+  "updated_utc": "2026-10-21T11:28:01.042433+00:00",
+  "runs": [
+    {
+      "candidate": "t552-beaker100-dp-s26102251-terminal-empty-grasp-v76",
+      "display_name": "DP ·100ml烧杯 ·同点空抓复测0/1",
+      "object": "glass_beaker_100ml",
+      "method": "dp",
+      "development": true,
+      "current_native": false,
+      "paper_ssr_percent": null,
+      "formal_accepted": false,
+      "full_visual_passed": false,
+      "sampled_visual_review": true,
+      "full_decode_passed": true,
+      "progress": {
+        "episode_num": 1,
+        "episode_success_num": 0,
+        "success_rate": 0.0
+      },
+      "cases": [
+        {
+          "episode": 1,
+          "camera": "chest_camera",
+          "url": "media/grasp-terminal-robot-visibility-v76/failed3039/episode_001_chest_camera.mp4",
+          "original_url": "media/grasp-terminal-robot-visibility-v76/failed3039/episode_001_chest_camera.mp4",
+          "success": false,
+          "frames": 720,
+          "encoded_fps": "30/1",
+          "source_SHA256": "0a1ad72dd87c40b7ab8859d14a101d951cff4b512cd9ca27d0f8f04dbb1586e1",
+          "browser_derivative_SHA256": "0a1ad72dd87c40b7ab8859d14a101d951cff4b512cd9ca27d0f8f04dbb1586e1",
+          "caption": "原始H264轨迹；固定点诊断，不计论文SR/SSR或正式验收"
+        },
+        {
+          "episode": 1,
+          "camera": "head_camera",
+          "url": "media/grasp-terminal-robot-visibility-v76/failed3039/episode_001_head_camera.mp4",
+          "original_url": "media/grasp-terminal-robot-visibility-v76/failed3039/episode_001_head_camera.mp4",
+          "success": false,
+          "frames": 720,
+          "encoded_fps": "30/1",
+          "source_SHA256": "c9e47d1ae64d65a89a6c1cf9a54005e3f679a88e263ade0c8e20cfcc698f6ad6",
+          "browser_derivative_SHA256": "c9e47d1ae64d65a89a6c1cf9a54005e3f679a88e263ade0c8e20cfcc698f6ad6",
+          "caption": "原始H264轨迹；固定点诊断，不计论文SR/SSR或正式验收"
+        },
+        {
+          "episode": 1,
+          "camera": "third_camera",
+          "url": "media/grasp-terminal-robot-visibility-v76/failed3039/episode_001_third_camera.mp4",
+          "original_url": "media/grasp-terminal-robot-visibility-v76/failed3039/episode_001_third_camera.mp4",
+          "success": false,
+          "frames": 720,
+          "encoded_fps": "30/1",
+          "source_SHA256": "ef3640dc2c6964dab9ce9acd8fbe4538225bf942d902b2b4e703142ada4c94a3",
+          "browser_derivative_SHA256": "ef3640dc2c6964dab9ce9acd8fbe4538225bf942d902b2b4e703142ada4c94a3",
+          "caption": "原始H264轨迹；固定点诊断，不计论文SR/SSR或正式验收"
+        }
+      ],
+      "cohorts": {
+        "uniform_box+0cm": {
+          "expected_episodes": 1,
+          "episodes_completed": 1,
+          "success_count": 0,
+          "translation_component_count": 0,
+          "actual_outside_count": 0,
+          "paper_ssr": null,
+          "formal_accepted": false,
+          "success_rate": 0.0,
+          "translation_component_rate": 0.0
+        }
+      },
+      "terminal20mm_component_count": 0,
+      "terminal_translation_errors_mm": [
+        93.74878086814518
+      ],
+      "protocol": {
+        "method": "dp",
+        "seed": 26203511,
+        "range_label": "+0固定点（+10/−5mm）",
+        "duration_label": "24秒/真实30Hz，单点开发诊断",
+        "checkpoint_sha256": "a905983551a0f5ff4712250d6d2dfb91830adfb59cd14908f9ce554f0111d4f7",
+        "collection_gpu_model": "NVIDIA GeForce RTX 5090",
+        "test_gpu_model": "NVIDIA RPBZZZ6",
+        "note": "原模型和抓取目标；终止后的视觉干预不改变已完成的720次控制。三种子各50次独立验收另行执行。",
+        "collection_test_gpu_model_match_qualified": false
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": 26102251
+        },
+        "last": {
+          "epoch": 3000,
+          "global_step": 399000
+        }
+      },
+      "metric_note": "原DP2251、同固定点、真实30Hz/720控制/180次8步预测与4步执行。此轮0/1，终点误差93.75mm。其他同点诊断存在失败，单点结果不足以判断稳定成功率。原训练约7.5Hz，源5090/测试RPB；严格SSR、独立泛化和完整视觉仍待验收。 此轮空抓使抬起状态对照未执行；异常关闭由原控制器清理，失败完整保留。",
+      "evidence_url": "verification/T-552-terminal-visual-and-source-pilots-v76.json",
+      "cross_GPU_development_only": true,
+      "terminal_hold_count": 0,
+      "terminal_hold_label": "终点保持抬起",
+      "paper_ssr": null
+    },
+    {
+      "candidate": "t552-beaker100-dp-s26102251-terminal-robot-visibility-v76",
+      "display_name": "DP ·100ml烧杯 ·终止状态可见性对照1/1",
+      "object": "glass_beaker_100ml",
+      "method": "dp",
+      "development": true,
+      "current_native": false,
+      "paper_ssr_percent": null,
+      "formal_accepted": false,
+      "full_visual_passed": false,
+      "sampled_visual_review": true,
+      "full_decode_passed": true,
+      "progress": {
+        "episode_num": 1,
+        "episode_success_num": 1,
+        "success_rate": 1.0
+      },
+      "cases": [
+        {
+          "episode": 1,
+          "camera": "chest_camera",
+          "url": "media/grasp-terminal-robot-visibility-v76/any_terminal3053/episode_001_chest_camera.mp4",
+          "original_url": "media/grasp-terminal-robot-visibility-v76/any_terminal3053/episode_001_chest_camera.mp4",
+          "success": true,
+          "frames": 720,
+          "encoded_fps": "30/1",
+          "source_SHA256": "9a222fe1dcde582c7339f0f64a1e63a2afbc1869ca29ab2e9935b44ac49bdbe6",
+          "browser_derivative_SHA256": "9a222fe1dcde582c7339f0f64a1e63a2afbc1869ca29ab2e9935b44ac49bdbe6",
+          "caption": "原始H264轨迹；固定点诊断，不计论文SR/SSR或正式验收"
+        },
+        {
+          "episode": 1,
+          "camera": "head_camera",
+          "url": "media/grasp-terminal-robot-visibility-v76/any_terminal3053/episode_001_head_camera.mp4",
+          "original_url": "media/grasp-terminal-robot-visibility-v76/any_terminal3053/episode_001_head_camera.mp4",
+          "success": true,
+          "frames": 720,
+          "encoded_fps": "30/1",
+          "source_SHA256": "40245a65a8d042325e32fec0f4df4ab98bb1a70e47181039d180a61a880f9b26",
+          "browser_derivative_SHA256": "40245a65a8d042325e32fec0f4df4ab98bb1a70e47181039d180a61a880f9b26",
+          "caption": "原始H264轨迹；固定点诊断，不计论文SR/SSR或正式验收"
+        },
+        {
+          "episode": 1,
+          "camera": "third_camera",
+          "url": "media/grasp-terminal-robot-visibility-v76/any_terminal3053/episode_001_third_camera.mp4",
+          "original_url": "media/grasp-terminal-robot-visibility-v76/any_terminal3053/episode_001_third_camera.mp4",
+          "success": true,
+          "frames": 720,
+          "encoded_fps": "30/1",
+          "source_SHA256": "8c0ab2bbf527652f11425f3000ac5df52ab23f1f8cd3ed81a72a85aaa30d26bc",
+          "browser_derivative_SHA256": "8c0ab2bbf527652f11425f3000ac5df52ab23f1f8cd3ed81a72a85aaa30d26bc",
+          "caption": "原始H264轨迹；固定点诊断，不计论文SR/SSR或正式验收"
+        }
+      ],
+      "cohorts": {
+        "uniform_box+0cm": {
+          "expected_episodes": 1,
+          "episodes_completed": 1,
+          "success_count": 1,
+          "translation_component_count": 1,
+          "actual_outside_count": 0,
+          "paper_ssr": null,
+          "formal_accepted": false,
+          "success_rate": 1.0,
+          "translation_component_rate": 1.0
+        }
+      },
+      "terminal20mm_component_count": 1,
+      "terminal_translation_errors_mm": [
+        14.228351706285018
+      ],
+      "protocol": {
+        "method": "dp",
+        "seed": 26203511,
+        "range_label": "+0固定点（+10/−5mm）",
+        "duration_label": "24秒/真实30Hz，单点开发诊断",
+        "checkpoint_sha256": "a905983551a0f5ff4712250d6d2dfb91830adfb59cd14908f9ce554f0111d4f7",
+        "collection_gpu_model": "NVIDIA GeForce RTX 5090",
+        "test_gpu_model": "NVIDIA RPBZZZ6",
+        "note": "原模型和抓取目标；终止后的视觉干预不改变已完成的720次控制。三种子各50次独立验收另行执行。",
+        "collection_test_gpu_model_match_qualified": false
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": 26102251
+        },
+        "last": {
+          "epoch": 3000,
+          "global_step": 399000
+        }
+      },
+      "metric_note": "原DP2251、同固定点、真实30Hz/720控制/180次8步预测与4步执行。此轮1/1，终点误差14.23mm。其他同点诊断存在失败，单点结果不足以判断稳定成功率。原训练约7.5Hz，源5090/测试RPB；严格SSR、独立泛化和完整视觉仍待验收。 此轮终止后固定物理状态，99个机器人网格被真正隐藏/恢复；胸相机杯身白化仍在。额外物理步0，未用对照伪造修复。",
+      "evidence_url": "verification/T-552-terminal-visual-and-source-pilots-v76.json",
+      "cross_GPU_development_only": true,
+      "terminal_hold_count": 1,
+      "terminal_hold_label": "终点保持抬起",
+      "paper_ssr": null
+    }
+  ],
+  "formal_accepted": false,
+  "paper_ssr": null
+}
