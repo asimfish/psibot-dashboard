@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_owner": "T-563",
-  "formal_accepted": 100,
+  "formal_accepted": 101,
   "target_total": 400,
   "position_randomization": false,
   "status": "collecting_and_quality_revision",
@@ -12,8 +12,8 @@
       "action_count": 5,
       "accepted_count": 0,
       "target_count": 100,
-      "state": "full1p1rad_opening_four_GPU_job_submitted_full5_camera_pending",
-      "note": "修订版0/100。完整USD与独立PhysX面交集的保守桌体world已完成24真实几何CPU和完整缓存转换/源复核；原1um包络与2mm碰撞margin保留。四路exactC2/grid95×X20/X40完整1.1rad开门测试已提交，等待Native实际缓存/原121/真实4N抓门把/整弧/释放退出/保持验证。只验证开门第一步，完整五步尚未实现通过；新相机因遮挡裁边仍未批准。",
+      "state": "actual_table_GPU_initial_pass_pose_dtype_fix_four_job_submitted_full5_pending",
+      "note": "修订版0/100。原四路constructor120tick/0后续动作：完整桌体GPU包络检查通过，随后A/B Mesh的精确当前姿态比较被float32转列表提升float64产生5.96e-8米差异拦住。修复仅将内部tolist改copy，实际8pose旧失败/新精确相等、错一ULP仍拒绝、JSON负控已过；不加容差、不改碰撞margin。新四路完整1.1rad开门测试已提交，实际后续几何/抓门把/开门/退出/121保持待验证。完整五步的严格物体接触/持物/原world路由继续接线，相机质量仍未批准。",
       "conditions": [
         {
           "id": "AB",
@@ -39,8 +39,8 @@
       "action_count": 5,
       "accepted_count": 99,
       "target_count": 100,
-      "state": "formal99_of100_last_swap_one_fresh_C2_four_preparing",
-      "note": "正式99/100：左烧杯50/50、交换49/50。新四路全闭合，env1/env3完成原五步/39规划；env1运动与旧clock1220_lane1重复排除，env3经真实噪声、5三视角sheet/3近臂PNG根抽查、全部44文件及同曝光数值读回正式99→100（全局）。env0/2原轨迹门失败不计数。最后交换1条准备四种真实不同当前C2 q/rows的新源；正式最多补1，多余仅私有保留。",
+      "state": "formal99_of100_last_swap_one_four_currentC2_Native_phase2",
+      "note": "正式99/100：左烧杯50/50、交换49/50。上一独立env3已正式入库，env1真实重复、env0/2失败排除。最后交换1条的新四路已在独立GPU真实启动并全部完成phase1、进入phase2/lower；四种当前C2真采样438/470/502/535rows在执行前重新过原门，未到新机制触发阶段不称已成功。正式最多补1，溢出私有HOLD。",
       "conditions": [
         {
           "id": "A_left_B_right",
@@ -64,10 +64,10 @@
       "id": "t7_weigh",
       "title": "7 子任务 · 四杯称量",
       "action_count": 8,
-      "accepted_count": 1,
+      "accepted_count": 2,
       "target_count": 100,
-      "state": "formal1_forward_new_seed4_Native_started_reverse_visual_pending",
-      "note": "正式1/100：1234为1/50、4321为0/50。首条全8真实取放，178.27秒视频、生成2154.79秒；52规划/全120Hz/SDK/world/持物/碰撞/躯干/轨迹机审和155静止对噪声、原图抽查及58文件/2674数值独立读回已过。四种真正MotionGen IK+graph种子新job已越过启动准入，在4张独立卡启动Native构场景；仍待实际canonical多样性、完整验收。旧job因容器缺公共目录在Native前失败，保留不重提；新只读基线快照仅供启动，正式CAS仍用实时账本。反序1.5mm两路全部机审通过但实际physics相同，最多1候选；末尾胸部被前臂遮挡1.93秒直到视频结束、头/第三同期可见，视觉待审，不计数。",
+      "state": "formal2_forward1_reverse1_seed_and_pitch_trials",
+      "note": "正式2/100：1234为1/50、4321为1/50。逆序首条完整8次取放/21421tick/52规划、178.47秒视频、生成2186.23秒，全部物理/接触/SDK/world/持物/轨迹机审及166真实静止对噪声通过。根实际看7原sheet+42原PNG，153+84PNG逐SHA/RGB复核；4段胸部自然手臂遮挡明确记录，末尾1.93秒至视频结束不称恢复，其他两同期视角可见。57实际文件及2677同曝光Parquet根独立读回，正式100→101；R0与它真实physics重复不再计数。旧seed四路三路P1规划失败，仅1534一路继续；正在准备1.5mm较少节点的新当前查询，尚未宣称扩采成功。",
       "conditions": [
         {
           "id": "1234",
@@ -79,13 +79,13 @@
         {
           "id": "4321",
           "label": "顺序 4321",
-          "accepted_count": 0,
+          "accepted_count": 1,
           "target_count": 50,
-          "exported_candidate_count": 0
+          "exported_candidate_count": 1
         }
       ],
-      "exported_candidate_count": 1,
-      "within_quota_candidate_count": 1
+      "exported_candidate_count": 2,
+      "within_quota_candidate_count": 2
     },
     {
       "id": "t10_weigh",
@@ -115,13 +115,13 @@
       "within_quota_candidate_count": 0
     }
   ],
-  "snapshot_id": 1248,
-  "updated_at": "2026-10-22T04:00:34.591100+08:00",
+  "snapshot_id": 1255,
+  "updated_at": "2026-10-22T04:21:51.095569+08:00",
   "training_eligible_count": 0,
-  "acceptance_note": "修订版100/400正式验收导出：六垫左烧杯50/50、交换49/50，T7正序1/50，其余五条件各0。新六垫独立样本142.6秒，经原39规划/全物理机审、15真实静止对噪声、5原三视角sheet+3近臂PNG抽查、44文件SHA及2139同曝光数值读回后CAS99→100；旧99完整行不变。完整400条、单条生成3分钟及DP/ACT训练测试仍未完成。",
-  "diagnostic_note": "六垫正式99/100，还缺交换1条：上一四路中env1/env3全五步成功，env1实际运动与旧样本重复排除，env3已正式发布；env0/2失败。最后1条采用真正改变当前C2曲线采样的四种候选CPU准备。T7新四种原MotionGen种子已提交并启动4张独立PCI Native，正在构场景，实际新运动多样性仍待验证；旧启动失败job保留。T7反序机审通过，但两路physics完全相同最多1候选；胸部末尾1.93秒严重遮挡直至视频结束，待质量判断，不计数。干燥箱四路真实完整开门测试已提交，完整五步及相机仍待通过。",
+  "acceptance_note": "修订版101/400正式验收导出：六垫左烧杯50/50、交换49/50，T7正序1/50、逆序1/50，其余四条件各0。新逆序完整8次取放、21421物理tick/52规划，原物理/SDK/world/轨迹机审及166静止对噪声、7原三视角sheet+42原PNG根抽查通过；57实际导出文件逐SHA重核，2677帧动作/状态/速度/EEF/时钟已根机器独立读回一致，CAS100→101且旧100完整行保留。胸部4段自然臂遮挡（末尾1.93秒至视频结束）已明确写入数据限制，其他两视角同期可见。完整400条、生成三分钟与DP/ACT训练测试尚未完成。",
+  "diagnostic_note": "六垫正式99/100，最后交换1条的四种真正当前C2采样变体已启动并全部完成第1阶段，正推进第2阶段；正式最多补1。T7旧四seed三路第一步规划失败，1534一路推进第三步；实际959在30秒预算内只完成91–104/约106节点而没进入完整曲线，下一组参考已通过的1.5mm节点方案准备CPU候选，原完整120Hz/碰撞/axis/30秒预算不变。干燥箱原4路完整桌体GPU包络通过，但A/B网格姿态因float32→列表→float64精度链被精确比较拦住，0动作；只保留float32的新不可变四路已提交。完整五步严格物体接触/持物/world路由仍接线中，相机未批准。",
   "cloud_status": {
-    "state": "formal100_5b99of100_T7seed4_Native_started_oven_fullopening4_submitted",
+    "state": "formal101_T7two_5b_lastone_four_active_oven_dtypefix_new_four_submitted",
     "current": [
       {
         "host": "cloud16GPU32env",
@@ -506,12 +506,22 @@
       {
         "host": "cloud_T7_seed1246_four_Native_started",
         "operation_id": "bm3ry3dd8ewkr6bqoh53y6qm1",
-        "state": "修复后新四路已在4张独立PCI 61/62/63/64:00.0真实运行，均记录至少600个contact tick并规划第一步；1531/1533对照当前pregrasp分别819/825 rows，出现早期路径长度差异，尚不等于整条唯一或验收成功。种子1531对照、1532/3/4；原场景/相机/接触/安全/速度/180秒门不变。"
+        "state": "四路实际新seed中前三路在P1 approach前失败：1531/1532最终FINETUNE_TRAJOPT_FAIL，1533 world_axis_fullpath_gate，均不计数；1534仍运行至P3/tick7413。实际四路959都被原30秒预算截断，仅91–104节点、0完整曲线尝试；旧F1约106节点29.35秒非常贴边。正在CPU准备1.5mm节点新源，原全门不变，不能把OS0或fallback当959成功。"
       },
       {
         "host": "cloud_oven_fullopening1237_root1247",
         "operation_id": "0b9eeg4ar9ohgierbbw0xbw5b",
-        "state": "四路真实Native已启动：独立PCI 61/62/63/64及设备probe/matmul/LAUNCH_RECEIPT完整；目前Kit启动阶段，尚无实际table/动作结果。完整94job+48external/SDKENVABI及启动检查已过。同一40秒预算、真实4N/1.1rad/释放/当前撤手/121原门不变；只测开门第一步，完整五步/相机/正式验收未通过，不计数。"
+        "state": "四路已在constructor120tick/0动作处闭合：完整桌体初始GPU缓存包络全部通过，接着原geometry163 A/B Mesh转换的新精确pose seal失败。已由实际8pose证明tolist引入float64计算差5.96e-8米，新源copy保持原float32和exact equality；原失败及原门全部保留。"
+      },
+      {
+        "host": "cloud_currentC_lower4_1247",
+        "operation_id": "azx5dght5f43a68ayln1wgrjb",
+        "state": "4张独立PCI a1/a2/a3/a4及probe/matmul验证通过，4Native已全部真实完成phase1，目前phase2/lower约tick6982–7168，无首错；还未到phase3新C2采样分支。actual100原账本启动快照只供配额准入，正式CAS仍检查实时账本；新正式最多1条，3条溢出私有HOLD。"
+      },
+      {
+        "host": "cloud_oven_pose1248_root1253",
+        "operation_id": "pfw5t4268ll4oyiu298g70ava",
+        "state": "新不可变四卡四环境完整开门测试已被平台接收，实际Native启动待确认。仅内部float32 pose.copy修复，6新pose/10factory以及实际全部源/SDKENVABI正常+隐藏公共目录检查通过；原完整world/手/躯干/2mm/4N/40秒/1.1rad/121门不变。只验证第一步，完整五步/相机/正式数据仍0。"
       }
     ],
     "note": "正式数量以公共验收账本和完整导出读回为准；纯规划、运行中、物理成功、重复轨迹和渲染HOLD均不计数。"
@@ -555,7 +565,8 @@
       140.8,
       142.8,
       178.26666666666668,
-      142.6
+      142.6,
+      178.46666666666667
     ],
     "accepted_generation_wall_s": [
       849.788656297,
@@ -579,7 +590,8 @@
       1166.0716972337104,
       1183.1274067251943,
       2154.7880347548053,
-      1185.4186045206152
+      1185.4186045206152,
+      2186.22784393467
     ],
     "original_physical_gates_unchanged": true,
     "declared_speed_policies": {
@@ -603,7 +615,7 @@
       },
       "note": "实际场景与分支不同，不能宣称所有阶段都已加速。生成180秒目标仍未达成。"
     },
-    "generation_measurement_scope": "列表为部分已核对样本，非100条穷举。最新六垫视频142.6秒、生成1185.42秒；T7首条视频178.27秒、生成2154.79秒。单条生成180秒目标未达成，不能把视频时长当生成速度。",
+    "generation_measurement_scope": "列表为部分已核对样本，非101条穷举。最新T7逆序视频178.47秒、生成2186.23秒；正序视频178.27秒、生成2154.79秒；六垫最新142.6秒、生成1185.42秒。单条生成180秒目标未达成。",
     "actual_T10_time_split_s": {
       "forward": {
         "plan": 124.54166666666661,
@@ -666,7 +678,7 @@
     "verified_export_ledger": "t5710_lerobot_v4_quality_20261021/QUALIFIED_DATASETS.json",
     "swapped_export_manifest_sha256": "5d728d38b78004feffdce1175cefb69e10dced2c97f51f8b5a754bfa3ae1c6d1",
     "oven_actual_scene_preview": "assets/long-collection/t573_oven954r2.png",
-    "verified_export_ledger_sha256": "dadf7a15e4ca0f73b345e9ab13c889072e4fdf6eb1ed6cabc34fcdff22857bb5",
+    "verified_export_ledger_sha256": "6486f288aaeba4ff6c8669a09287a7b29aee444cc4f9de2baba89b5f0242cf5e",
     "new_two_exports": "t5710_lerobot_v4_quality_20261021/PUBLISHED971972_RECEIPT.json",
     "source_path_fix994": "revision_quality_20261021/ROOT_REVIEW_PATHFIX994.json",
     "fresh_recipe994": "revision_quality_20261021/ROOT_REVIEW_RECIPE994.json",
@@ -773,13 +785,13 @@
     "formal96_receipt": "revision_quality_20261021/FORMAL96_1219_ACTUAL.json",
     "latest_root_actual_visual_review": "revision_quality_20261021/ROOT_ACTUAL_MIX1234_ONE_APPROVAL1246.json",
     "latest_root_actual_visual_review_sha256": "742e01c24ad97c02076560eb55fe5aa2559c0f3bc10574d93267ee99b6c8b086",
-    "latest_actual_publication": "revision_quality_20261021/network1015/MIX1234_ONE_PUBLICATION1248_PROGRESS_READ1_ACTUAL.json",
+    "latest_actual_publication": "revision_quality_20261021/network1015/T7_R1_PUBLICATION1254_FINAL_READ1_ACTUAL.json",
     "T7_reverse_R959_active": "revision_quality_20261021/network1015/R9591218_PROGRESS1219_READ2_ACTUAL.json",
     "oven_clock_camera_actual_POST": "revision_quality_20261021/cloud_submit_oven_clock_camera1216_root1219/POST_RESULT.json",
     "formal98_receipt": "revision_quality_20261021/FORMAL98_1233_ACTUAL.json",
     "T7_forward_actual_sampled_review": "revision_quality_20261021/ROOT_F1_SAMPLED_GIOFF_VISUAL1225_APPROVAL.json",
     "oven_actual_visual_rejection": "revision_quality_20261021/ROOT_OVEN_STATIC1224_IMAGES_ACTUAL_VISUAL_REJECT.json",
-    "latest_actual_frontier": "revision_quality_20261021/ACTUAL_FRONTIER1248.json",
+    "latest_actual_frontier": "revision_quality_20261021/ACTUAL_FRONTIER1254.json",
     "next5b_job_actual_receipt": "revision_quality_20261021/cloud_submit_mix4_1234_root1235/POST_RESULT.json",
     "T7_initial_lift_root_review": "revision_quality_20261021/ROOT_F1_CARRIED_SCOPE1226_REVIEW1235.json",
     "formal99_receipt": "revision_quality_20261021/FORMAL99_1238_ACTUAL.json",
@@ -790,7 +802,15 @@
     "oven_fullopening_singlePOST": "revision_quality_20261021/cloud_submit_oven_fullopening1239_root1248/POST_RESULT.json",
     "oven_fullopening_root_source_review": "revision_quality_20261021/ROOT_OVEN_FULL_OPENING1239_REVIEW1247.json",
     "T7_reverse_original_occlusion_bound": "revision_quality_20261021/weigh_R1_chest_bound1246_local/R1_CHEST_BOUND1246.json",
-    "oven_fullopening_actual_Native_start": "revision_quality_20261021/weigh_diagnosis900_agent/oven_fullopening1247_monitor/ACTUAL_FULL_OPENING1247_READ1.json"
+    "oven_fullopening_actual_Native_start": "revision_quality_20261021/weigh_diagnosis900_agent/oven_fullopening1247_monitor/ACTUAL_FULL_OPENING1247_READ1.json",
+    "formal101_receipt": "revision_quality_20261021/FORMAL101_1254_ACTUAL.json",
+    "T7_reverse_new_root_visual": "revision_quality_20261021/ROOT_R1_SAMPLED_GIOFF_VISUAL1249_APPROVAL.json",
+    "T7_reverse_new_root_visual_sha256": "001ce00ef6942d66026f4a4c8062212b7772ae9d73fb8653bf50f595f5cad013",
+    "T7_reverse_root_all2677_numeric_readback": "revision_quality_20261021/T7_R1_export1250_root_CPU_HOLD/ROOT_R1_PRIVATE_EXPORT1253_INDEPENDENT_REVIEW1254.json",
+    "T7_reverse_complete_actual_launch_source": "revision_quality_20261021/ROOT_R1_LAUNCH_SOURCE_CLOSURE1250_ACTUAL.json",
+    "last5b_one_new_four": "revision_quality_20261021/currentC_lower4_1247_agent/ACTUAL_LOWER4_1247_PROGRESS1256_READ2_RO.json",
+    "oven_pose_actual_RED_GREEN": "revision_quality_20261021/weigh_diagnosis900_agent/oven_pose1248_cpu/ACTUAL_POSE1248_RED_GREEN_CPU.json",
+    "oven_dtypefix_unique_POST": "revision_quality_20261021/cloud_submit_oven_pose1248_root1254/POST_RESULT.json"
   },
   "render_quality": {
     "required_views": [
@@ -801,10 +821,10 @@
     "all_accepted": false,
     "diagnostic_counterfactuals_are_not_collection_data": true,
     "native_head_chest_directions_preserved_in_5b": true,
-    "transparent_materials_labels_shadows_and_noise": "六垫正式99条保留原透明物体/标签/相机/噪声验收；最新1条5原三视角sheet及3原近臂PNG已根实看、15静止对wholeframe temporal P99最大.14536。T7正序首条155静止对/原图/新GIoff精确源与策略已绑定，短暂胸部1.8秒遮挡如实保留。T7反序末尾1.93秒胸部严重遮挡至视频结束仍待审，未计数。干燥箱新相机未批准。均不声称人工审过完整视频。"
+    "transparent_materials_labels_shadows_and_noise": "六垫99条、四杯正反序各1条均已分别绑定实际原图抽查、透明材质/相机/真实噪声与完整数值证据。四杯逆序166静止对最大P99 .16682，7原sheet+42原PNG实际看过；4段胸部自然臂遮挡如实记录，末尾1.93秒直到视频结束，其他两视角同期可见。干燥箱相机仍未批准。均不声称人工看过完整视频。"
   },
-  "exported_candidate_count": 100,
-  "within_quota_candidate_count": 100,
+  "exported_candidate_count": 101,
+  "within_quota_candidate_count": 101,
   "legacy_snapshot": {
     "snapshot_id": 823,
     "exported_candidate_count": 108,
