@@ -1,6 +1,6 @@
 {
   "schema": "grasp.progress_snapshot.v1",
-  "updated_utc": "2026-10-20T23:29:48.756980+00:00",
+  "updated_utc": "2026-10-21T00:13:23.354592+00:00",
   "update_mode": "Each training row retains actual receipt time; all6 recovered DP have observed updates; 4 finalDP CPU/SSD gates and 3 new ACT full-state durable gates passed.",
   "totals": {
     "productive_training_runs": 92,
@@ -2369,10 +2369,10 @@
     },
     {
       "host": "30109",
-      "state": "私有ACT原架构CPU兼容性通过",
+      "state": "私有ACT CPU兼容性通过；八卡有现有计算",
       "role": "训练",
-      "note": "原12源码/3真实Brown源输入前向输出有限且可重复，344张量。此次使用未加载学得权重的固定初始化，仅验证新环境接口；GPU训练资格和新数据门仍待通过。",
-      "sampled_utc": "2026-10-20T22:32:04.090307+00:00"
+      "note": "最近GPU清点八张A100均有外部进程；未抢占。原DP队列CPU核验支持预测8、执行4；新数据与Native资格仍待完成。",
+      "sampled_utc": "2026-10-20T23:43:11Z"
     },
     {
       "host": "liyufeng_4090",
@@ -2383,24 +2383,24 @@
     },
     {
       "host": "5090",
-      "state": "新ACT54例及专家时钟ABBA闭合；动作接触排查",
+      "state": "当前SSH路由超时",
       "role": "采集 / 测试准备",
-      "note": "新增162段原视频完整解码；保留原54例版本。对照配置6秒与实际SDK物理时间，结果未作正式验收。",
-      "sampled_utc": "2026-10-12T13:26:35.956140+00:00"
+      "note": "本地、30109与Ali路径探测均超时；没有据此宣称远端任务停止，也未重复采集或更换认证。",
+      "sampled_utc": "2026-10-21T00:13:23.354592+00:00"
     },
     {
       "host": "mainskill",
-      "state": "原2253训练已停止，NVML有界探测超时",
+      "state": "三ACT原始源数据CPU精度诊断完成",
       "role": "训练 / 采集 / 测试准备",
-      "note": "未重置驱动或抢占任务。2253由原完整2900轮状态迁Ali；其余完整权重与历史退出异常分别保留。",
-      "sampled_utc": "2026-10-20T19:20:05.418744+00:00"
+      "note": "150个固定源帧、三模型原权重和统计文件前后SHA相同，CPU诊断exit0。训练与留出末段误差接近；原13维关节目标标签已核对，无标签修改或新训练。",
+      "sampled_utc": "2026-10-20T23:59:06Z"
     },
     {
       "host": "volc-pro6000",
-      "state": "六模型测试和30Hz资格闭合；新数据接续准备",
+      "state": "路由故障；新采集恢复队列等待",
       "role": "采集 / 测试准备",
-      "note": "100ml DP/ACT各8/12；旧源92/100仍在运行。新数据将采用已实测的24秒/30Hz协议；不将原6秒终点不精确源作为严格达标数据。",
-      "sampled_utc": "2026-10-20T23:27:13.204777+00:00"
+      "note": "原100ml六模型四点测试均已闭合。旧源最后92/100，之后状态未能读取；新真实30Hz100条尚无Native回执。原件、现有任务和全部失败记录保留。",
+      "sampled_utc": "2026-10-21T00:13:23.354592+00:00"
     }
   ],
   "beaker100_diagnosis": {
@@ -3375,7 +3375,7 @@
     "note": "同一2秒动作与手指目标前缀逐位一致，仅增加0.6秒保持。终点位置误差从25.7/25.8mm降至5.9/6.3mm；这是开发诊断，目标与全程约束尚未绑定论文SSR。四条轨迹三相机关键帧已查：头部及第三视角持续覆盖目标，胸部抬升后出画本身不判视觉失败。玻璃渲染与全程穿模仍待验收。",
     "evidence_url": "results/grasp_fixed_action_hold_camera_20261010.json"
   },
-  "latest_training_evidence_url": "verification/T-552-beaker100-final-three-DP-clock-v72.json",
+  "latest_training_evidence_url": "verification/T-552-recovery-and-diagnostics-v73.json",
   "paper_domain_contract": {
     "schema": "grasp.paper_domain_contract.v1",
     "domains": [
@@ -8129,10 +8129,10 @@
       "collision_free_qualified": false
     }
   },
-  "sampled_utc": "2026-10-20T23:27:13.204777+00:00",
+  "sampled_utc": "2026-10-21T00:13:23.354592+00:00",
   "latest_frontier": {
-    "schema": "grasp.frontier.v72",
-    "updated_utc": "2026-10-20T23:29:48.756980+00:00",
+    "schema": "grasp.frontier.v73",
+    "updated_utc": "2026-10-21T00:13:23.354592+00:00",
     "formal_accepted_objects": 0,
     "formal_accepted_methods": 0,
     "paper_ssr": null,
@@ -8149,13 +8149,13 @@
       },
       {
         "title": "真实30Hz资格检查",
-        "status": "采集30Hz与部署三相机资格通过",
-        "note": "24秒源4/4成功且终点20mm4/4；原6秒源4/4成功但终点20mm0/4，全部保留。部署720次控制均4物理步，三相机每次刷新、渲染额外物理0。旧权重新时钟0/1独立列出；新全100数据和训练资格仍待完成。"
+        "status": "30Hz时钟已过；DP4步执行待实测",
+        "note": "采集与三相机时钟已通过。原DP一次缓存执行8步，后续须按论文保留8步预测、执行4步再规划；同一原代码的CPU队列验证已过，Native计数仍待检查。ACT三模型原留出末帧关节误差约0.0065–0.0067rad，不能替代笛卡尔精度或SSR。"
       },
       {
         "title": "并行采集与既有训练",
-        "status": "旧时钟3cm源 92/100；完整权重90份",
-        "note": "最近实测92/92源成功、终点20mm92/92。保留为旧时钟开发数据；真实30Hz新数据另列。100ml最终六模型均已完成四点测试，当前活动训练0。",
+        "status": "新30Hz源100条队列等待连接",
+        "note": "5090与Pro6000现有路由超时，当前远端进度未知；旧源最后实测92/100。新3cm、24秒、30Hz的100条采集配置已冻结，本地恢复队列先核对唯一任务再提交，尚无Native启动回执。旧本地自动转存已因路由等待超时退出，原件保留。",
         "collection_dataset_id": "brown250_source3cm_pilot4"
       }
     ],
@@ -14191,7 +14191,7 @@
       "all3_original_videos_full_decoded": true,
       "unresolved_glass_white_appearance": true
     },
-    "evidence_url": "verification/T-552-beaker100-final-three-DP-clock-v72.json",
+    "evidence_url": "verification/T-552-recovery-and-diagnostics-v73.json",
     "author_confirmed_paper_object_alias": {
       "schema": "grasp.author_confirmed_paper_object_alias.v1",
       "at_utc": "2026-10-11T15:22:00.679921+00:00",
@@ -30471,6 +30471,19 @@
       "new_training_allowed": false,
       "formal_accepted": false,
       "paper_ssr": null
+    },
+    "recovery_and_diagnostics_v73": {
+      "evidence_url": "verification/T-552-recovery-and-diagnostics-v73.json",
+      "formal_accepted_objects": 0,
+      "actual_new_training_launches": 0,
+      "Native_new100_launch_receipt": null,
+      "new_source_recovery_queue_active": true,
+      "DP_prediction8_execution4_CPU_verified": true,
+      "DP_execution4_Native_pending": true,
+      "ACT_source_frames_CPU": 150,
+      "all3_ACT_original_weights_unchanged": true,
+      "strict_SSR_bound": false,
+      "full_visual_passed": false
     }
   },
   "dashboard_browser_totals": {
