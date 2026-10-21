@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_owner": "T-563",
-  "formal_accepted": 51,
+  "formal_accepted": 64,
   "target_total": 400,
   "position_randomization": false,
   "status": "collecting_and_quality_revision",
@@ -12,8 +12,8 @@
       "action_count": 5,
       "accepted_count": 0,
       "target_count": 100,
-      "state": "debugging",
-      "note": "修订版0/100。18/20/25/30mm四种偏移均已真实运行，四路在接近或闭手时被接触力解析错误拦截。实际SDK及同tick双向报告已定位：带方向符号的力系数被误当成非法负值，正在修正解析；原4N接触保护与几何门槛保留。尚未证明真实抓持开门或完整五步，不计数。",
+      "state": "door_arc_retime_debugging",
+      "note": "修订版0/100。带符号接触力解析修复后，四路真实运行均通过原双指4N检查并到达开门规划；原指力约7.9N/8.8N。随后全部被开门轨迹速度匹配的原门槛拦截，短2度开门尚未执行，完整五步仍未实现。不把进程exit0当采集成功。",
       "conditions": [
         {
           "id": "AB",
@@ -37,28 +37,28 @@
       "id": "t5_obstruction",
       "title": "5 子任务 · 六垫遮挡移位",
       "action_count": 5,
-      "accepted_count": 51,
+      "accepted_count": 64,
       "target_count": 100,
       "state": "collecting",
-      "note": "修订版51/100正式验收导出：左烧杯47/50、交换4/50。新批次另有6条完成全五步且通过39条规划及独立运动、接触、几何机审，尚待静止噪声、实际移动画面复核、去重与导出读回，不计入51。失败轨迹已定位到有效IK节点之间的三次样条越过关节限位，正验证有界C2替代轨迹。",
+      "note": "修订版64/100正式验收导出：左烧杯49/50、交换15/50。新增13条均经全五步独立机审、静止噪声、实际画面抽检、120Hz运动去重、逐条44文件与同曝光数值读回及连续账本CAS。人工抽检为65张原图表和39张近手臂原帧，并非全视频逐帧审查。另两批32环境因云容器缺少公共账本挂载，在启动物理前失败，0新增，正在修复。",
       "conditions": [
         {
           "id": "A_left_B_right",
           "label": "烧杯1在左、锥形瓶1在右",
-          "accepted_count": 47,
+          "accepted_count": 49,
           "target_count": 50,
-          "exported_candidate_count": 47
+          "exported_candidate_count": 49
         },
         {
           "id": "B_left_A_right",
           "label": "锥形瓶1在左、烧杯1在右",
-          "accepted_count": 4,
+          "accepted_count": 15,
           "target_count": 50,
-          "exported_candidate_count": 4
+          "exported_candidate_count": 15
         }
       ],
-      "exported_candidate_count": 51,
-      "within_quota_candidate_count": 51
+      "exported_candidate_count": 64,
+      "within_quota_candidate_count": 64
     },
     {
       "id": "t7_weigh",
@@ -66,8 +66,8 @@
       "action_count": 8,
       "accepted_count": 0,
       "target_count": 100,
-      "state": "visual_noise_hold_new_native_running",
-      "note": "修订版0/100。新胸部视野正反序均已完成8次取放；反序通过全量运动、世界碰撞、三视角媒体及13对严格静止噪声机审。原视频胸部第2052帧仍见近处前臂暗部颗粒，人工画面复核HOLD，暂不导出；正序静止帧对不足也HOLD。另两路带独立静止渲染探针的真实Native已到第3步。",
+      "state": "full_physical_complete_visual_noise_hold",
+      "note": "修订版0/100。1137新正反序均已完整完成8次取放，生成墙时2020.10/2079.75秒，仍待全量独立机审、原视频画面/噪声与导出验收。1117反序虽通过运动及全图静止噪声机审，原视频近处前臂仍见颗粒，人工复核HOLD；4路同状态A-B-A采样诊断已提交，不代表噪声已修复。",
       "conditions": [
         {
           "id": "1234",
@@ -93,8 +93,8 @@
       "action_count": 10,
       "accepted_count": 0,
       "target_count": 100,
-      "state": "native_running_and_forward_withdraw_debugging",
-      "note": "修订版0/100。五杯对称布局、面板朝机器人、去玻璃保留。旧两路反序在第10步被2700秒生成时限终止，未完成、不计数。正序第6步撤手的腕部包络与天平底座冲突已定位；只将该阶段悬停高度提高1cm的新正序，和反序一并真实运行，当前到第2—3步，完整结果及质量仍待验收。视频与生成时长目标尚未解决。",
+      "state": "full10_physical_complete_quality_and_speed_pending",
+      "note": "修订版0/100。1137新正反序均已真实完整完成10次取放，生成墙时2846.46/2830.16秒。正序第6步撤手只提高1cm悬停高度，原几何与运动门槛保留。完整独立机审、三视角透明/标签/阴影/噪声与时长验收尚未完成，暂不计数；单条生成180秒目标未达成。",
       "conditions": [
         {
           "id": "12345",
@@ -115,13 +115,13 @@
       "within_quota_candidate_count": 0
     }
   ],
-  "snapshot_id": 1143,
-  "updated_at": "2026-10-21T17:16:14+08:00",
+  "snapshot_id": 1158,
+  "updated_at": "2026-10-21T18:21:43.748189+08:00",
   "training_eligible_count": 0,
-  "acceptance_note": "修订版51/400已完整验收导出：六垫左烧杯47/50、交换4/50，其余六条件各0。1097新增三条经全量机审、实际运动去重、静止噪声、新画面抽检、44文件及同曝光数值回读，正式48→51。400未完成；DP/ACT未启动，旧v3不计修订版。",
-  "diagnostic_note": "51/400。新六垫6条全五步及独立机审通过，仍待画面/噪声/去重/导出。四杯反序原视频前臂颗粒HOLD；四路新四杯/五杯真实Native推进第2—3步。干燥箱四路接触力解析错误已定位，尚无开门成功。单条生成180秒目标仍未达成。",
+  "acceptance_note": "修订版64/400已正式验收导出：六垫左烧杯49/50、交换15/50，其余六条件各0。新增13条通过独立机审、噪声、实际画面抽检、运动去重、逐条44文件及同曝光数值读回，账本连续51→64；400未完成，DP/ACT未启动，旧v3不计修订版。",
+  "diagnostic_note": "64/400。四杯/五杯新正反序均完整物理成功，仍待质量和时长验收；四杯原视频颗粒HOLD。干燥箱修复接触力解析后已到开门轨迹，仍被速度匹配门槛拦截。新32环境因云容器账本路径不可见，在Native启动前失败、0条，正在修复。生成180秒目标仍未达成。",
   "cloud_status": {
-    "state": "formal51_six_new_5b_machine_candidates_T7_visual_noise_hold_oven_contact_sign_fix",
+    "state": "formal64_new32_startup_mount_failure_repair_weigh_full_physical_quality_hold",
     "current": [
       {
         "host": "cloud16GPU32env",
@@ -249,14 +249,14 @@
         "attempts": [
           1119
         ],
-        "state": "8路已闭合：env1/2左烧杯、env3交换完成全五步及39PLAN独立机审。另5路失败不计数；三条仍待质量、去重及导出验收。"
+        "state": "8路已闭合；env1/2左烧杯、env3交换共3条通过全部验收并正式入库，其余5路失败。"
       },
       {
         "host": "cloud5b51_swap16_1121",
         "attempts": [
           1121
         ],
-        "state": "16路已闭合：env2/6/10交换完成全五步及39PLAN独立机审，另13路失败不计数。三条仍待质量、去重及导出验收。"
+        "state": "16路已闭合；env2/6/10交换共3条通过全部验收并正式入库，其余13路失败。"
       },
       {
         "host": "cloud5b51_swap16_1131_and_swap9_1132",
@@ -264,14 +264,42 @@
           1131,
           1132
         ],
-        "state": "两批合计25环境真实并行运行；最新记录7路到第五步、18路失败。运行中与未验收结果不计正式数。"
+        "state": "25路已闭合；1131 env5/14及1132 env0/3/4/5/7共7条交换通过全部验收并正式入库，其余失败。"
       },
       {
         "host": "cloud_weigh4_1137",
         "attempts": [
           1137
         ],
-        "state": "四张实际独立GPU运行T7正反序、T10正反序，均已有实际物理记录至第2—3步。T7新增13帧独立静止渲染探针仅用于噪声诊断，不伪造任务帧；运行不计正式数据。"
+        "state": "四路全部闭合：四杯正反序完整8次、五杯正反序完整10次物理成功。尚待独立完整质量/时长验收，不计正式数。"
+      },
+      {
+        "host": "cloud_swap32_1153_1154_startup_failed",
+        "attempts": [
+          1153,
+          1154
+        ],
+        "operation_ids": [
+          "l0m4bx68adcnnv62svam913ve",
+          "ov0741hkxz84yegre3ck224ac"
+        ],
+        "state": "两批均启动准入失败：容器不可见/project公共账本路径；0/32 Native启动、0 GPU采集、0候选。保留原失败源，准备显式冻结账本快照与联合配额预留的新独立修复。"
+      },
+      {
+        "host": "cloud_render4_1148_diagnostic",
+        "attempts": [
+          1148
+        ],
+        "operation_id": "yl4xn66smkvrkq8icvr7k9cfb",
+        "state": "4卡direct/GI/reflection/combo同状态A-B-A诊断已提交，待实际结果；若baseline未复现颗粒，不宣称修复。诊断不计采集数据。"
+      },
+      {
+        "host": "cloud_oven_signed1150_closed",
+        "attempts": [
+          1150
+        ],
+        "operation_id": "qvqtgi08z08eywwi42x5oxacc",
+        "state": "四路均完成真实双指接触检查后在door_arc原速度匹配门槛失败；短开门未执行，完整五步未实现，0新增。"
       }
     ],
     "note": "正式数量以公共验收账本和完整导出读回为准；纯规划、运行中、物理成功、重复轨迹和渲染HOLD均不计数。"
@@ -344,7 +372,7 @@
       },
       "note": "实际场景与分支不同，不能宣称所有阶段都已加速。生成180秒目标仍未达成。"
     },
-    "generation_measurement_scope": "列表为部分逐项核对的已验收样本，非51条穷举。1097新增三条视频126.67/127.2/136秒，生成991.71/1012.73/1271.22秒；单条生成180秒目标仍未达成。"
+    "generation_measurement_scope": "列表为部分逐项核对的已验收样本，非64条穷举。新增13条生成约937—1339秒，视频约131—145秒；1137四杯约2020/2080秒、五杯约2846/2830秒生成，尚未验收。生成180秒目标仍未达成。"
   },
   "evidence": {
     "noise_controlled": "revision_quality_20261021/OPTICAL_PROBE842.json",
@@ -369,7 +397,7 @@
     "verified_export_ledger": "t5710_lerobot_v4_quality_20261021/QUALIFIED_DATASETS.json",
     "swapped_export_manifest_sha256": "5d728d38b78004feffdce1175cefb69e10dced2c97f51f8b5a754bfa3ae1c6d1",
     "oven_actual_scene_preview": "assets/long-collection/t573_oven954r2.png",
-    "verified_export_ledger_sha256": "49d300c3eca9ac0e3ecf8510aa19d2615d1766a2c47247ee2684ffddd1a3abfe",
+    "verified_export_ledger_sha256": "8c0c7abdd0a877b5ed88885a3e116dd9f37c632fb1273b6bb34a55a023ae9f4a",
     "new_two_exports": "t5710_lerobot_v4_quality_20261021/PUBLISHED971972_RECEIPT.json",
     "source_path_fix994": "revision_quality_20261021/ROOT_REVIEW_PATHFIX994.json",
     "fresh_recipe994": "revision_quality_20261021/ROOT_REVIEW_RECIPE994.json",
@@ -430,7 +458,10 @@
     "T7_reverse_full_machine_receipt_sha256": "29d5037f4224c87878be5f85e3e8b7d88f4ec941140d7df0345f5269759de267",
     "T7_reverse_original_frame_noise_hold": "assets/long-collection/t573_t7_reverse_original_frame2052_noise_hold.png",
     "T7_reverse_original_frame_noise_hold_sha256": "b8ce11365abf5a4ea0729ac283441ba5ebeaa819c8b11f3e4f92cc9be03d82a1",
-    "T7_reverse_current_initial_three_view": "assets/long-collection/t573_t7_reverse_camera1117_initial3_hold.jpg"
+    "T7_reverse_current_initial_three_view": "assets/long-collection/t573_t7_reverse_camera1117_initial3_hold.jpg",
+    "formal64_receipt": "revision_quality_20261021/FORMAL64_1156_ACTUAL.json",
+    "formal13_export_actual_readback": "revision_quality_20261021/network1015/PUBLISH13_1152_READ1_ACTUAL.json",
+    "formal13_actual_sampled_review": "revision_quality_20261021/review_batch1144_actual2/ROOT_ACTUAL_APPROVAL1152.json"
   },
   "render_quality": {
     "required_views": [
@@ -441,15 +472,15 @@
     "all_accepted": false,
     "diagnostic_counterfactuals_are_not_collection_data": true,
     "native_head_chest_directions_preserved_in_5b": true,
-    "transparent_materials_labels_shadows_and_noise": "六垫已正式51条通过原相机、来源与独立静止噪声要求；新增6条继续检查移动时近处手臂。T7新胸部视野已完成动作，但原视频确认前臂暗部颗粒，不能仅凭全图静止噪声通过而验收。正定位真实材质与RTX采样原因。干燥箱静态透明对照不能替代完整动作验收。"
+    "transparent_materials_labels_shadows_and_noise": "六垫正式64条通过各自原相机、来源、独立静止噪声和画面抽检要求；新增13条实际查看65张原图表与39张近手臂原帧，未见四杯式明显颗粒。此为指定帧抽检，非全视频人工审查。四杯原视频近处前臂颗粒仍HOLD，不能以全图静止噪声通过替代画面验收；干燥箱静态透明诊断不代表完整动作通过。"
   },
-  "exported_candidate_count": 51,
-  "within_quota_candidate_count": 51,
+  "exported_candidate_count": 64,
+  "within_quota_candidate_count": 64,
   "legacy_snapshot": {
     "snapshot_id": 823,
     "exported_candidate_count": 108,
     "status": "Historical count from snapshot823, preserved but excluded from revised quality requirements; not a current total"
   },
-  "preview_url": "assets/long-collection/t573_5b1097_swap_actual_initial3.jpg",
-  "website_previous_live_snapshot_at_candidate_prepare": 1097
+  "preview_url": "assets/long-collection/t573_5b1119_swap_formal64_initial3.jpg",
+  "website_previous_live_snapshot_at_candidate_prepare": 1143
 }
