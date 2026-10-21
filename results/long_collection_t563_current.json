@@ -12,8 +12,8 @@
       "action_count": 5,
       "accepted_count": 0,
       "target_count": 100,
-      "state": "local_arc_executed_withdraw_and_contact_debugging",
-      "note": "修订版0/100。新四路真实局部门弧均通过当前IK与全路径准入并执行转门；X25两路完成约2度后在撤手第34个路点被原世界/自碰撞及把手几何门拦截，X20两路在运动中未满足原单接触点对指4N策略。不能报短弧验证成功；完整约63度开门及五步尚未通过。正修复撤手路径及补齐物体阶段原几何/接触绑定，不放宽原门槛。",
+      "state": "four_fresh_Native_withdraw_canaries_submitted",
+      "note": "修订版0/100。旧局部门弧约2度已执行，但撤手/单点对指4N失败。新增四种固定当前腕姿向外直退20/30/40/50mm的GPU纯规划均通过；仅参数转入四张卡的全新Native实测任务，已提交，仍须真实撤手及121tick稳定检查。完整约63度连续开门与AB/BA五步另在开发，尚未通过。",
       "conditions": [
         {
           "id": "AB",
@@ -40,7 +40,7 @@
       "accepted_count": 77,
       "target_count": 100,
       "state": "collecting",
-      "note": "正式77/100：左烧杯50/50已满额、交换27/50。本次11条机审通过候选中，1条实际运动与旧样本重复已排除；其余10条经过噪声、实际50张三视角图表与30张近臂原帧抽检、120Hz运动去重、逐条44文件及同曝光数值读回，连续CAS67→77完成入库。下一批16个实时B2环境正在CPU准备，尚未启动采集。",
+      "note": "正式77/100：左烧杯50/50、交换27/50。新两批12张GPU、23个Native环境均真实启动，最新读回10路原规划/质量门拒绝、13路继续（本轮新增正式0）。主要新瓶颈为第3阶段直降的IK分支和绕行；正在按真实碰撞/机身/轨迹报告修复。通过后仍须原39项机审、噪声、实际图审、120Hz去重、44文件及同曝光数值读回，不提前计数。",
       "conditions": [
         {
           "id": "A_left_B_right",
@@ -67,7 +67,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "full_physical_complete_stationary_noise_and_visual_hold",
-      "note": "修订版0/100。1137正反序均完成8次取放，真实视频173.4/175.73秒；完整Native/几何、源与相机渲染、52条轨迹和执行/世界检查通过，但原episode严格静止相邻帧仅0/1对，少于原6对要求，保持HOLD。额外初始化探针的12对不冒充episode噪声。原近臂颗粒仍需新移动诊断确认修复；生成墙时2020/2080秒未达到3分钟。",
+      "note": "修订版0/100。1137正反序均完成8次取放，真实视频173.4/175.73秒；完整Native/几何、源与相机渲染、52条轨迹和执行/世界检查通过，但原episode严格静止相邻帧仅0/1对，少于原6对要求，保持HOLD。额外初始化探针的12对不冒充episode噪声。原近臂颗粒仍需新移动诊断确认修复；生成墙时2020/2080秒未达到3分钟。 新4GPU任务已提交：三种原129状态移动渲染对照＋一条真实T7第一阶段静止帧验证。诊断不计正式，尚未认定颗粒已修复。",
       "conditions": [
         {
           "id": "1234",
@@ -94,7 +94,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "full10_physical_complete_quality_and_speed_pending",
-      "note": "修订版0/100。1137正反序均完整10次取放，Native/几何与来源、相机渲染核验完成；真实视频224.73/225.2秒超过原180秒，保持HOLD，后续轨迹/执行/噪声尾审未执行，不能称全审通过。生成2846/2830秒。计划约125秒、计划外阶段约98.23秒，后者含真实手形和支撑稳定检查，不能直接删除。已提交实际两阶段性能采样以定位生成瓶颈。",
+      "note": "修订版0/100。1137正反序均完整10次取放，Native/几何与来源、相机渲染核验完成；真实视频224.73/225.2秒超过原180秒，保持HOLD，后续轨迹/执行/噪声尾审未执行，不能称全审通过。生成2846/2830秒。计划约125秒、计划外阶段约98.23秒，后者含真实手形和支撑稳定检查，不能直接删除。实际两阶段性能采样已闭合：7219tick的采集回调累计264.33秒，均值36.62ms/tick。开始CPU等价性能改进；该数不是全生成耗时占比，也未证明端到端提速。",
       "conditions": [
         {
           "id": "12345",
@@ -115,13 +115,13 @@
       "within_quota_candidate_count": 0
     }
   ],
-  "snapshot_id": 1175,
-  "updated_at": "2026-10-21T19:35:41.556924+08:00",
+  "snapshot_id": 1184,
+  "updated_at": "2026-10-21T20:16:12.592226+08:00",
   "training_eligible_count": 0,
   "acceptance_note": "修订版77/400正式验收导出：六垫左烧杯50/50、交换27/50，其余六条件各0。最新10条全机审、噪声、实际画面抽检、运动去重及逐条44文件/同曝光数值读回后连续CAS67→77；1条重复运动排除。完整400条与DP/ACT未完成，旧v3不计修订版。",
-  "diagnostic_note": "77/400正式验收导出，六垫交换还差23条。下一批16个实时B2环境CPU准备中。干燥箱撤手旧终点已定位真实门板/把手碰撞，改为固定当前腕姿向外直退的四路纯规划候选待GPU实裁。四杯episode静止对不足及颗粒HOLD、五杯225秒超180秒HOLD；三路移动渲染对照被SDK阻断，正准备独立受限诊断，第四路真实Native性能采样运行中。生成3分钟与完整400条、DP/ACT仍未达成。",
+  "diagnostic_note": "77/400正式，六垫交换还差23条。12卡23路新采集：最新10路失败、13路继续，主要第3阶段直降IK分支不理想。另已提交4卡干燥箱撤手真实实测、4卡移动渲染/真实T7静止诊断；诊断不计正式。四杯原静止对及颗粒、五杯225秒超180秒仍HOLD。实际性能采样闭合，CPU等价优化进行中。完整400条、生成3分钟与DP/ACT仍未完成。",
   "cloud_status": {
-    "state": "formal77_swap_next16_preparing_oven_withdraw_query_prepared_weigh_quality_hold",
+    "state": "formal77_23actualNative10failed13running_new8GPU_canaries_submitted",
     "current": [
       {
         "host": "cloud16GPU32env",
@@ -330,17 +330,48 @@
         "state": "四路实际转动局部门弧；X25两路撤手第34个waypoint受原worldself/bar几何否决，X20两路运动时不满足原单点对指4N，均未通过最终121静止检查。完整五步0，原阈值保留，正在修复独立新源。"
       },
       {
-        "host": "cloud_weigh_diag1168_root1170_actual4GPU_movingSDKblocked_profiler_running",
+        "host": "cloud_weigh_diag1168_root1170_closed",
         "attempts": [
           1170
         ],
         "operation_id": "tyvw56l7v35n2jla1633o9b9d",
-        "state": "四张实际PCI卡和矩阵计算验证通过，四进程实际启动。三个129状态移动渲染诊断在第一次数值状态写入前被原SDK762保护阻止，0个输入状态执行、无可比图像，不能宣称白粒修复；正在准备独立受限诊断流程。第四路真实Native前两阶段性能采样仍运行；诊断从不计正式。"
+        "state": "四GPU已实际闭合。移动三路被原SDK762在第一状态前阻断，0/129、无可比图像；原失败保留。第四路实际Native前两阶段7219tick/744函数采样完整闭合，采集回调264.33秒（含等待及采样开销，非全生成占比）。未重跑性能采样；新caller明确int32环境0已在实际SDK高层CPU RED/GREEN验证后转新任务。始终0正式。"
       },
       {
-        "host": "liveB2_swap16_next_CPU_preparing",
-        "attempts": [],
-        "state": "下一批仅交换布局16环境，采用已实际1159验证的实时phase2有界C2，原碰撞/SDK/轨迹/噪声/独立39项门槛保留；新完整77账本快照与host实际SHA绑定，交换27+16=43不超50。正在CPU准备，未POST/启动Native，不计数。"
+        "host": "cloud_currentB2_swap23_1177_1178_actualNative_running",
+        "attempts": [
+          1177,
+          1178
+        ],
+        "state": "两批8+4张实际卡全部PCI/矩阵计算通过，16+7环境实际Native启动；最新10路第3–4阶段原规划/质量门拒绝、13路继续，尚无全五步候选。实际77账本、交换27+23=50的联合上限保留，原所有物理/39项/画质门不变。",
+        "operation_ids": [
+          "kv2jshsuej2fclcayi8bssnm0",
+          "ki8m6sedgkexxi934mnjn6uw4"
+        ]
+      },
+      {
+        "host": "cloud_oven_withdrawquery1178_closed_all4_pass",
+        "attempts": [
+          1178
+        ],
+        "operation_id": "qb4trl5gwogd0m6r8sp2nch37",
+        "state": "四张实际GPU纯规划查询闭合，-X20/30/40/50mm四路线原节点及整条q/世界/自碰撞/机身/VAJ门全部通过，均保留原40秒内121tick+额外1秒余量。未执行Native，正式增量0。"
+      },
+      {
+        "host": "cloud_oven_livewithdraw_root1183_submitted",
+        "attempts": [
+          1183
+        ],
+        "operation_id": "52twusdlo7ak2yxv19n541qx7",
+        "state": "4GPU任务单次提交202 CLAIMED。使用已通过查询的距离/C12参数，在新Native状态重算IK与三条指令历史并实际执行；保留4N/40秒/世界自碰撞/SDK/132机身/VAJ/121检查。短弧验证，完整五步未通过，正式0。"
+      },
+      {
+        "host": "cloud_weigh_v3env1177_root1183_submitted",
+        "attempts": [
+          1183
+        ],
+        "operation_id": "jqcaq9uuzrl8d9qkn4b5gjedc",
+        "state": "4GPU任务单次提交202 CLAIMED。三种原129状态/17曝光移动渲染对照，私有诊断严格核1290次指定状态写入及撤销、零Native步；修复的是调用参数类型，保护规范不变。第四路真实T7第一阶段增加120真实静止tick，保留原初始/终末121、三视角和严格6静止对门。无颗粒修复或完整任务通过结论，正式0。"
       }
     ],
     "note": "正式数量以公共验收账本和完整导出读回为准；纯规划、运行中、物理成功、重复轨迹和渲染HOLD均不计数。"
@@ -426,6 +457,16 @@
         "video": 225.2
       },
       "note": "计划外tick包含真实手形/物体稳定检查，并非已证明可删的空等。原稳定性与轨迹门槛保留。"
+    },
+    "actual_prefix_profiler1170": {
+      "Native_ticks": 7219,
+      "profiled_calls": 744,
+      "capture_after_step_wall_s": 264.325628705,
+      "capture_after_step_mean_ms": 36.61526924851087,
+      "not_whole_generation_profile": true,
+      "GPU_kernel_time_not_measured": true,
+      "profiling_overhead_not_subtracted": true,
+      "optimization_speedup_not_yet_proved": true
     }
   },
   "evidence": {
@@ -527,7 +568,12 @@
     "weigh_resume_evidence": "revision_quality_20261021/network1015/WEIGH_RESUME1167_EVIDENCE1170_ACTUAL.json",
     "formal77_receipt": "revision_quality_20261021/FORMAL77_1174_ACTUAL.json",
     "formal10_export_actual_readback": "revision_quality_20261021/network1015/PUBLISH_UNIQUE10_ROOT1174_READ1_ACTUAL.json",
-    "formal10_actual_sampled_review": "revision_quality_20261021/ROOT_ACTUAL_UNIQUE10_APPROVAL1173.json"
+    "formal10_actual_sampled_review": "revision_quality_20261021/ROOT_ACTUAL_UNIQUE10_APPROVAL1173.json",
+    "current23_actual": "revision_quality_20261021/liveB2_swap16_next_agent/PROGRESS23ENV_READ4_ACTUAL.json",
+    "oven_query_all4_original_gates": "revision_quality_20261021/weigh_diagnosis900_agent/oven_full1176/ACTUAL_WITHDRAW1178_COMPACT.json",
+    "oven_fresh_Native_submit": "revision_quality_20261021/cloud_submit_oven_live1179_root1183/POST_RESULT.json",
+    "weigh_render_static_submit": "revision_quality_20261021/cloud_submit_weigh_v3env1177_root1183/POST_RESULT.json",
+    "actual_prefix_profile": "revision_quality_20261021/PROFILER1170_ACTUAL_ATTRIBUTION1181.json"
   },
   "render_quality": {
     "required_views": [
@@ -548,5 +594,5 @@
     "status": "Historical count from snapshot823, preserved but excluded from revised quality requirements; not a current total"
   },
   "preview_url": "assets/long-collection/t573_5b1159_swap_formal67_initial3.jpg",
-  "website_previous_live_snapshot_at_candidate_prepare": 1171
+  "website_previous_live_snapshot_at_candidate_prepare": 1175
 }
