@@ -2517,10 +2517,10 @@
     },
     {
       "host": "volc-pro6000",
-      "state": "新源与补采已闭合；修正玻璃对照运行中",
+      "state": "新源与补采已闭合；玻璃对照前置条件未满足",
       "role": "采集 / 测试准备",
-      "note": "新30Hz源原100次99成功、补采4/4；全部312原视频完整解码。修正后的重置前机器人网格隐藏对照已实际启动，尚无视觉修复结论。",
-      "sampled_utc": "2026-10-21T10:36:55.040784+00:00"
+      "note": "新30Hz源原100次99成功、补采4/4；全部312原视频完整解码。最新DP固定点复测0/1、未抬起，重置前玻璃对照的抬起条件拒绝执行；保留失败，不用先前单点1/1替代完整SR。",
+      "sampled_utc": "2026-10-21T10:48:44Z"
     }
   ],
   "beaker100_diagnosis": {
@@ -30947,9 +30947,15 @@
       "first_ABBA_causal_intervention_valid": false,
       "actual12images_viewed": true,
       "reason": "隐藏关节未隐藏机器人网格，且抓图处于重置后；不用于判断玻璃原因。",
-      "corrected_terminal_mesh_visibility_diagnostic": "Native_running_pre_reset_mesh_effectiveness_guards",
+      "corrected_terminal_mesh_visibility_diagnostic": "terminal_guard_rejected_empty_grasp_before_visual_intervention",
       "production_fix_selected": false,
-      "full_visual_passed": false
+      "full_visual_passed": false,
+      "corrected_policy_diagnostic_outcome": {
+        "success": false,
+        "terminal_error_mm": 93.74878086814518,
+        "object_lift_m": 0.00014317035675048828,
+        "formal_accepted": false
+      }
     }
   },
   "dashboard_browser_totals": {
