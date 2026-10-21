@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_owner": "T-563",
-  "formal_accepted": 85,
+  "formal_accepted": 89,
   "target_total": 400,
   "position_randomization": false,
   "status": "collecting_and_quality_revision",
@@ -37,10 +37,10 @@
       "id": "t5_obstruction",
       "title": "5 子任务 · 六垫遮挡移位",
       "action_count": 5,
-      "accepted_count": 85,
+      "accepted_count": 89,
       "target_count": 100,
       "state": "collecting",
-      "note": "正式85/100：左烧杯50/50、交换35/50。上批23路已闭合：8条完整通过画质/去重/导出验收并入库，15路被原规划或质量检查拒绝。新8卡15环境已提交，实际8卡PCI/计算通过、首批8环境Native启动；修改第3步直降的分支选择，后续仍实时重规划并保留全部原物理、平滑性和验收检查。",
+      "note": "正式89/100：左烧杯50/50、交换39/50。1195批次5条全五步，env6 canonical FP与既有cloud5b51_swap16_1161_lane1重复，已排除；env2/5/8/9四条通过39项机审、噪声、20组三视角图表、12张近臂原帧、120Hz去重和44文件/同曝光读回，已连续CAS85→89。剩余11条继续用新分支并保留全部原门。",
       "conditions": [
         {
           "id": "A_left_B_right",
@@ -52,13 +52,13 @@
         {
           "id": "B_left_A_right",
           "label": "锥形瓶1在左、烧杯1在右",
-          "accepted_count": 35,
+          "accepted_count": 39,
           "target_count": 50,
-          "exported_candidate_count": 35
+          "exported_candidate_count": 39
         }
       ],
-      "exported_candidate_count": 85,
-      "within_quota_candidate_count": 85
+      "exported_candidate_count": 89,
+      "within_quota_candidate_count": 89
     },
     {
       "id": "t7_weigh",
@@ -67,7 +67,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "full_physical_complete_stationary_noise_and_visual_hold",
-      "note": "修订版0/100。正反序已完成8次取放，视频173.4/175.73秒；原Native、几何、52条轨迹与执行/世界检查通过，但episode严格静止帧0/1对少于原6对，保持HOLD。额外1秒真实停稳试验也未获得静止对，正在准备正反序各3秒/4秒四组试验。前臂白粒已在原连续运动帧复现；GI/反射、直接光采样、阴影采样及降噪对照均未修复。胸部相机个别帧有近裁剪遮挡的几何证据，仍待修正。生成2020/2080秒未达到3分钟。",
+      "note": "修订版0/100。正反序完整8次取放，视频173.4/175.73秒；原Native/几何/执行检查通过，但原严格静止对0/1少于6。新正反序3秒/4秒真实停稳四组均闭合：四组0静止对；4秒时四杯XYZ均稳定，四元数微抖仍超门槛。根因定位为profile场景把每个杯子sleep_threshold强制置0（disable_task_sleep=true），正准备只移除该覆盖并读取PhysX真实sleep/wrench状态，原阈值不变。生成2020/2080秒未达3分钟。",
       "conditions": [
         {
           "id": "1234",
@@ -115,13 +115,13 @@
       "within_quota_candidate_count": 0
     }
   ],
-  "snapshot_id": 1196,
-  "updated_at": "2026-10-21T22:16:34.579740+08:00",
+  "snapshot_id": 1200,
+  "updated_at": "2026-10-21T22:57:04.943931+08:00",
   "training_eligible_count": 0,
-  "acceptance_note": "修订版85/400正式验收导出：六垫左烧杯50/50、交换35/50，其余六条件各0。新增8条通过原完整机审、噪声、实际40图表和24近臂原帧复核、120Hz运动去重、44文件及同曝光数值读回，连续入库77→85。完整400条与DP/ACT未完成，旧v3不计修订版。",
-  "diagnostic_note": "85/400正式，六垫交换还差15条。新8卡15环境补采已提交，8卡PCI/计算及首批8个Native环境真实启动；针对第3步直降分支做连续下降前瞻。干燥箱四种短开门撤手实测及121tick均通过，完整开门四卡规划任务已提交。四杯仍受严格静止帧及前臂白粒影响；三种新渲染对照均未修复。五杯225秒超过180秒仍HOLD。完整400条、生成3分钟与DP/ACT未完成。",
+  "acceptance_note": "修订版89/400正式验收导出：六垫左烧杯50/50、交换39/50，其余六条件各0。新增4条完成原完整机审、噪声、20组三视角图表和12张原始近臂帧复核、120Hz运动去重、44文件及同曝光数值读回，正式账本85→89；其中第5条候选与既有1161重复已在发布前排除。完整400条与DP/ACT未完成，旧v3不计修订版。",
+  "diagnostic_note": "89/400正式，六垫交换还差11条。新1195批次15环境已全部闭合：5条全五步，1条与历史正式数据重复，4条完成验收并发布，10条原门槛失败不计数。下一批11环境将只绑定新因子与原完整验收门。干燥箱完整开门查询的两种冗余分支仍在原机身2.5mm门槛失败；称量四组3/4秒停稳试验确认杯子位置稳定但四元数微抖，已定位原场景强制disable_task_sleep=true，准备只恢复PhysX默认睡眠并读取真实睡眠状态。完整400条、生成3分钟与DP/ACT未完成。",
   "cloud_status": {
-    "state": "formal85_new8GPU15env_collection_and4GPU_fullarc_query_submitted",
+    "state": "formal89_new11_collection_pending_sleep_canary_and_oven_branch_query",
     "current": [
       {
         "host": "cloud16GPU32env",
@@ -374,20 +374,20 @@
         "state": "4卡任务闭合：CPU基线/GI反射8均完成129状态17曝光与1290次授权值及7项SDK保护检查；原始前臂白粒成功复现，GI反射未修复。CUDA对照被原读取保护拒绝。真实T7增加120tick的静止对为0/14，首个手指DOF仍在收敛，原阈值不变。正式0。"
       },
       {
-        "host": "cloud_currentC_swap15_1195_submitted",
+        "host": "cloud_currentC_swap15_1195_closed_four_published_one_duplicate",
         "attempts": [
           1195
         ],
         "operation_id": "ud65cas04wzev1czehzl8r414",
-        "state": "新8卡15环境单次提交202 CLAIMED。实际8卡独立PCI/矩阵计算通过，首批8环境Native已启动；最大每卡2环境，交换35+15≤50。第3阶段仅增加目标下方分支前瞻，真实上方运动仍须原完整检查，后续下降仍实时重规划；新增正式0。"
+        "state": "15环境闭合：5条全五步、10条原门失败；env6与既有正式1161lane1重复排除。env2/5/8/9完成根视觉复核和原44文件/数值读回，已通过单次发布85→89；正式新增4条，剩余新配额11。"
       },
       {
-        "host": "cloud_oven_fullquery1184_root1196_submitted",
+        "host": "cloud_oven_fullquery1184_root1196_closed_no_candidate",
         "attempts": [
           1196
         ],
         "operation_id": "vmnfxigsp112yyfpk0un3a47c",
-        "state": "4GPU完整开门连续曲线查询已单次提交202 CLAIMED。保留原4N抓持来源、40秒动作预算、碰撞/机身/平滑性要求；查询显式预测9个随门运动的碰撞部件。计划66度用于跟踪余量，真实成功仍要求1.1rad；查询不计真实执行或正式数据。"
+        "state": "4路连续开门查询均在约9.5度被原torso2.5mm拒绝；新beam宽2/8节点回溯仍在link6→torso slice54约1.44mm处失败，未启动Native，正式0。"
       },
       {
         "host": "cloud_weigh_noise1187_root1192_closed_no_visual_fix",
@@ -396,6 +396,30 @@
         ],
         "operation_id": "fpvibowuu38cluc0mwu2j3783",
         "state": "4实际GPU闭合。直接光32采样、阴影16采样、直接光降噪三路均通过129状态/17曝光/1290数值与SDK保护并输出153张匹配原数值的PNG，但原帧抽查白粒均未消除。FXAA一路请求2实际被运行时改为3，原类型值检查正确拒绝；已定位需配套关闭limitedOps，尚未验证修复。正式0。"
+      },
+      {
+        "host": "cloud_currentC_four1199_published",
+        "attempts": [
+          1200
+        ],
+        "operation_id": "publisher_cpu_worker_2502798",
+        "state": "4条唯一候选已完成CPU发布器的原子44文件导出、CAS和同曝光数值回读，正式85→89；ledger SHA c906ede3191f999ccbf3b7dd977acaba7153855617993a4b0f990b67dec31ecd，swap39。"
+      },
+      {
+        "host": "cloud_weigh_components1196_root1200_submitted",
+        "attempts": [
+          1200
+        ],
+        "operation_id": "pending",
+        "state": "4GPU渲染组件对照已完成CPU/源审查并提交，四路分别测试FXAA配套设置、关闭反射、关闭阴影、关闭间接光；所有结果仍为诊断，不计正式。"
+      },
+      {
+        "host": "cloud_weigh_static1197_root1198_submitted",
+        "attempts": [
+          1198
+        ],
+        "operation_id": "lcszb56rmam2qf3tjwxfsrwic",
+        "state": "4路3/4秒真实静止前缀均闭合，0个严格静止对；杯子XYZ已稳定但四元数微抖，原阈值保留。"
       }
     ],
     "note": "正式数量以公共验收账本和完整导出读回为准；纯规划、运行中、物理成功、重复轨迹和渲染HOLD均不计数。"
@@ -468,7 +492,7 @@
       },
       "note": "实际场景与分支不同，不能宣称所有阶段都已加速。生成180秒目标仍未达成。"
     },
-    "generation_measurement_scope": "列表为部分逐项核对的已验收样本，非85条穷举。新3条视频130.33/142.73/144.87秒；1137四杯约2020/2080秒、五杯约2846/2830秒生成，尚未验收。生成180秒目标仍未达成。",
+    "generation_measurement_scope": "列表为部分逐项核对的已验收样本，非89条穷举。新3条视频130.33/142.73/144.87秒；1137四杯约2020/2080秒、五杯约2846/2830秒生成，尚未验收。生成180秒目标仍未达成。",
     "actual_T10_time_split_s": {
       "forward": {
         "plan": 124.54166666666661,
@@ -609,7 +633,13 @@
     "currentB2_eight_verified_export": "revision_quality_20261021/network1015/PUBLISH_CURRENTB2_EIGHT_ROOT1191_READ1_ACTUAL.json",
     "currentC_swap15_single_POST": "revision_quality_20261021/cloud_submit_currentC1195_root1196/POST_RESULT.json",
     "oven_fullarc_query_single_POST": "revision_quality_20261021/cloud_submit_oven_fullquery1184_root1196/POST_RESULT.json",
-    "noise1192_actual_review": "revision_quality_20261021/weigh_noise1192_review1194_agent/DELIVERY_ACTUAL1192_STATIC1193_REVIEW1195.json"
+    "noise1192_actual_review": "revision_quality_20261021/weigh_noise1192_review1194_agent/DELIVERY_ACTUAL1192_STATIC1193_REVIEW1195.json",
+    "formal89_ledger_sha256": "c906ede3191f999ccbf3b7dd977acaba7153855617993a4b0f990b67dec31ecd",
+    "currentC_four_publish_complete": "revision_quality_20261021/network1015/READ_PUBLIC_C1200_FINAL_RO_ACTUAL.json",
+    "currentC_four_root_approval": "revision_quality_20261021/ROOT_ACTUAL_CURRENTC1195_FOUR_APPROVAL1199.json",
+    "currentC_four_delivery": "revision_quality_20261021/publisher_currentC_four1199_agent/DELIVERY_EXACT4_PUBLISHER1199_CPU_UNARMED.json",
+    "static1198_rootcause": "revision_quality_20261021/network1015/STATIC1198_ROOTCAUSE_READ1_ACTUAL.json",
+    "components1196_submit": "revision_quality_20261021/network1015/ADMIT_WEIGH_COMPONENTS1196_ROOT1200_READ1_ACTUAL.json"
   },
   "render_quality": {
     "required_views": [
