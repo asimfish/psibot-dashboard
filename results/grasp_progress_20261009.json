@@ -1,14 +1,14 @@
 {
   "schema": "grasp.progress_snapshot.v1",
-  "updated_utc": "2026-10-21T08:29:28.784939+00:00",
+  "updated_utc": "2026-10-21T10:43:03.789601+00:00",
   "update_mode": "Each training row retains actual receipt time; all6 recovered DP have observed updates; 4 finalDP CPU/SSD gates and 3 new ACT full-state durable gates passed.",
   "totals": {
-    "productive_training_runs": 92,
-    "DP": 47,
-    "ACT": 45,
+    "productive_training_runs": 98,
+    "DP": 50,
+    "ACT": 48,
     "formal_accepted_objects": 0,
     "paper_objects": 21,
-    "active_training_runs": 0,
+    "active_training_runs": 6,
     "completed_training_runs": 90,
     "queued_training_candidates": 0,
     "interrupted_training_runs": 2,
@@ -16,9 +16,9 @@
     "completed_ACT_training_runs": 45,
     "recovering_training_runs": 0,
     "formal_accepted_methods": 0,
-    "counts_scope": "按实际训练身份去重：完整预算权重、当前续训与中断分别列示；Main保存迟到的最终权重已重新CPU核验，退出异常仍保留。训练完成不计验收。",
+    "counts_scope": "90份旧完整产物、6路新30Hz/3cm数据训练、2路历史中断分别列示。新数据版本与旧模型分开；同一模型种子的新数据训练不覆盖旧成绩。训练完成不计验收。",
     "closed_training_pending_final_qualification": 0,
-    "actual_training_phase_runs": 0,
+    "actual_training_phase_runs": 6,
     "final_checkpoint_drain_runs": 0,
     "clean_exit_completed_training_runs": 82,
     "completed_with_exit_exception_runs": 5,
@@ -2357,15 +2357,135 @@
       "original_all7_decoder_layers_verified": true,
       "fullstate_original_archive_SHA256": "b8fb394c40dd7d2a9fd27f4f4b7254a10b9f1890a8e5534f7616663d7532b4c9",
       "fullstate_archive_storage": "owned Ali persistent SSD; independent destination intake pending"
+    },
+    {
+      "host": "aliyun",
+      "gpu_model": "PPU-ZW810E",
+      "gpu_uuid": "GPU-019e2226-0591-040a-0000-0000e0e40c07",
+      "method": "ACT",
+      "object": "brown_volumetric_flask_250ml",
+      "seed": 26102121,
+      "dataset_version": "actual30Hz3cm_success100_v3036",
+      "state": "新30Hz / 3cm数据：原配置训练中",
+      "epoch": 203,
+      "epochs_target": 5000,
+      "global_step": 408,
+      "train_loss": 2.3683847188949585,
+      "sampled_utc": "2026-10-21T10:42:16.217448+00:00",
+      "formal_accepted": false,
+      "status_note": "原99条成功示范+首条成功补采；100条、24物理秒/条、实际30Hz。原失败91和全部104次尝试保留。新候选，尚无策略验收结果。",
+      "raw_status": "running_finite_updates_actual30Hz_success100",
+      "active_productive": true,
+      "completed_training": false
+    },
+    {
+      "host": "aliyun",
+      "gpu_model": "PPU-ZW810E",
+      "gpu_uuid": "GPU-019e2226-0510-0628-0000-00002087b149",
+      "method": "ACT",
+      "object": "brown_volumetric_flask_250ml",
+      "seed": 26102123,
+      "dataset_version": "actual30Hz3cm_success100_v3036",
+      "state": "新30Hz / 3cm数据：原配置训练中",
+      "epoch": 220,
+      "epochs_target": 5000,
+      "global_step": 442,
+      "train_loss": 2.3398585319519043,
+      "sampled_utc": "2026-10-21T10:42:17.204146+00:00",
+      "formal_accepted": false,
+      "status_note": "原99条成功示范+首条成功补采；100条、24物理秒/条、实际30Hz。原失败91和全部104次尝试保留。新候选，尚无策略验收结果。",
+      "raw_status": "running_finite_updates_actual30Hz_success100",
+      "active_productive": true,
+      "completed_training": false
+    },
+    {
+      "host": "aliyun",
+      "gpu_model": "PPU-ZW810E",
+      "gpu_uuid": "GPU-01de1201-08b2-0430-0000-00004088b74f",
+      "method": "ACT",
+      "object": "brown_volumetric_flask_250ml",
+      "seed": 26102125,
+      "dataset_version": "actual30Hz3cm_success100_v3036",
+      "state": "新30Hz / 3cm数据：原配置训练中",
+      "epoch": 20,
+      "epochs_target": 5000,
+      "global_step": 42,
+      "train_loss": 4.970926284790039,
+      "sampled_utc": "2026-10-21T10:42:13.583280+00:00",
+      "formal_accepted": false,
+      "status_note": "原99条成功示范+首条成功补采；100条、24物理秒/条、实际30Hz。原失败91和全部104次尝试保留。新候选，尚无策略验收结果。",
+      "raw_status": "running_finite_updates_actual30Hz_success100",
+      "active_productive": true,
+      "completed_training": false
+    },
+    {
+      "host": "aliyun",
+      "gpu_model": "PPU-ZW810E",
+      "gpu_uuid": "GPU-019e2226-0561-0824-0000-0000607bce45",
+      "method": "DP",
+      "object": "brown_volumetric_flask_250ml",
+      "seed": 26102111,
+      "dataset_version": "actual30Hz3cm_success100_v3036",
+      "state": "新30Hz / 3cm数据：原配置训练中",
+      "epoch": 0,
+      "epochs_target": 3000,
+      "global_step": 527,
+      "train_loss": 0.07949250936508179,
+      "sampled_utc": "2026-10-21T10:42:15.398972+00:00",
+      "formal_accepted": false,
+      "status_note": "原99条成功示范+首条成功补采；100条、24物理秒/条、实际30Hz。原失败91和全部104次尝试保留。新候选，尚无策略验收结果。",
+      "raw_status": "running_finite_updates_actual30Hz_success100",
+      "active_productive": true,
+      "completed_training": false
+    },
+    {
+      "host": "aliyun",
+      "gpu_model": "PPU-ZW810E",
+      "gpu_uuid": "GPU-01deb21c-8881-010c-0000-000040147b34",
+      "method": "DP",
+      "object": "brown_volumetric_flask_250ml",
+      "seed": 26102113,
+      "dataset_version": "actual30Hz3cm_success100_v3036",
+      "state": "新30Hz / 3cm数据：原配置训练中",
+      "epoch": 0,
+      "epochs_target": 3000,
+      "global_step": 488,
+      "train_loss": 0.07499268651008606,
+      "sampled_utc": "2026-10-21T10:42:12.315483+00:00",
+      "formal_accepted": false,
+      "status_note": "原99条成功示范+首条成功补采；100条、24物理秒/条、实际30Hz。原失败91和全部104次尝试保留。新候选，尚无策略验收结果。",
+      "raw_status": "running_finite_updates_actual30Hz_success100",
+      "active_productive": true,
+      "completed_training": false
+    },
+    {
+      "host": "aliyun",
+      "gpu_model": "PPU-ZW810E",
+      "gpu_uuid": "GPU-01dec218-0142-0810-0000-000060d6763b",
+      "method": "DP",
+      "object": "brown_volumetric_flask_250ml",
+      "seed": 26102115,
+      "dataset_version": "actual30Hz3cm_success100_v3036",
+      "state": "新30Hz / 3cm数据：原配置训练中",
+      "epoch": 0,
+      "epochs_target": 3000,
+      "global_step": 525,
+      "train_loss": 0.07963521778583527,
+      "sampled_utc": "2026-10-21T10:42:14.262683+00:00",
+      "formal_accepted": false,
+      "status_note": "原99条成功示范+首条成功补采；100条、24物理秒/条、实际30Hz。原失败91和全部104次尝试保留。新候选，尚无策略验收结果。",
+      "raw_status": "running_finite_updates_actual30Hz_success100",
+      "active_productive": true,
+      "completed_training": false
     }
   ],
   "servers": [
     {
       "host": "aliyun",
-      "state": "Main烧杯续训已完整闭合",
+      "state": "新30Hz /3cm数据：6路实际训练中",
       "role": "训练",
-      "note": "新3cm源采完后自动送Ali做原始转换与共享RGB缓存检查；未提前计入训练完成数。",
-      "sampled_utc": "2026-10-20T21:30:00.014881+00:00"
+      "note": "DP与ACT各3种子已产生有限更新；90份旧完整产物保留，新数据版本独立列示。",
+      "sampled_utc": "2026-10-21T10:43:03.789601+00:00"
     },
     {
       "host": "30109",
@@ -2383,10 +2503,10 @@
     },
     {
       "host": "5090",
-      "state": "当前SSH路由超时",
+      "state": "SSH已恢复；两卡现有任务保留",
       "role": "采集 / 测试准备",
-      "note": "本地、30109与Ali路径探测均超时；没有据此宣称远端任务停止，也未重复采集或更换认证。",
-      "sampled_utc": "2026-10-21T00:13:23.354592+00:00"
+      "note": "本轮只读核对两张5090均可达，未抢占已有任务或重复采集。",
+      "sampled_utc": "2026-10-21T10:38:15.150812+00:00"
     },
     {
       "host": "mainskill",
@@ -2397,10 +2517,10 @@
     },
     {
       "host": "volc-pro6000",
-      "state": "路由故障；新采集恢复队列等待",
+      "state": "新源与补采已闭合；玻璃对照前置条件未满足",
       "role": "采集 / 测试准备",
-      "note": "原100ml六模型四点测试均已闭合。旧源最后92/100，之后状态未能读取；新真实30Hz100条尚无Native回执。原件、现有任务和全部失败记录保留。",
-      "sampled_utc": "2026-10-21T00:13:23.354592+00:00"
+      "note": "新30Hz源原100次99成功、补采4/4；全部312原视频完整解码。最新DP固定点复测0/1、未抬起，重置前玻璃对照的抬起条件拒绝执行；保留失败，不用先前单点1/1替代完整SR。",
+      "sampled_utc": "2026-10-21T10:48:44Z"
     }
   ],
   "beaker100_diagnosis": {
@@ -3375,7 +3495,7 @@
     "note": "同一2秒动作与手指目标前缀逐位一致，仅增加0.6秒保持。终点位置误差从25.7/25.8mm降至5.9/6.3mm；这是开发诊断，目标与全程约束尚未绑定论文SSR。四条轨迹三相机关键帧已查：头部及第三视角持续覆盖目标，胸部抬升后出画本身不判视觉失败。玻璃渲染与全程穿模仍待验收。",
     "evidence_url": "results/grasp_fixed_action_hold_camera_20261010.json"
   },
-  "latest_training_evidence_url": "verification/T-552-source100-and-DP-k4-v74.json",
+  "latest_training_evidence_url": "verification/T-552-success100-training-v75.json",
   "paper_domain_contract": {
     "schema": "grasp.paper_domain_contract.v1",
     "domains": [
@@ -8064,6 +8184,45 @@
             }
           ]
         }
+      },
+      {
+        "id": "brown250_true30Hz_supplement4",
+        "label": "棕色250ml容量瓶 · 新30Hz补采成功第1条",
+        "candidate_label": "补采4/4成功；此处查看第1条三相机",
+        "actual_trials": 1,
+        "overall_source_attempts": 4,
+        "selected_frames_per_candidate": 24,
+        "summary": "补采原生成功4/4、终点20mm分量4/4；这里只播放首条。原100次仍记99/100，不改写失败。",
+        "note": "12个补采原视频完整解码，4条三相机8阶段抽帧全部查看。首条用于补足新100条成功训练示范，其他3条留作源数据；它们均不算独立测试。完整穿模/接触和严格SSR尚未验收。",
+        "evidence_url": "verification/T-552-success100-training-v75.json",
+        "media": {
+          "videos": [
+            {
+              "camera": "chest_camera",
+              "url": "media/grasp-brown250-source-supplement-v75/chest.mp4",
+              "original_url": "media/grasp-brown250-source-supplement-v75/chest_original.mp4",
+              "actual_decoded_frames": 719
+            },
+            {
+              "camera": "head_camera",
+              "url": "media/grasp-brown250-source-supplement-v75/head.mp4",
+              "original_url": "media/grasp-brown250-source-supplement-v75/head_original.mp4",
+              "actual_decoded_frames": 719
+            },
+            {
+              "camera": "third_camera",
+              "url": "media/grasp-brown250-source-supplement-v75/third.mp4",
+              "original_url": "media/grasp-brown250-source-supplement-v75/third_original.mp4",
+              "actual_decoded_frames": 719
+            }
+          ],
+          "images": [
+            {
+              "episode_index": 0,
+              "url": "media/grasp-brown250-source-supplement-v75/contact_sheet.jpg"
+            }
+          ]
+        }
       }
     ],
     "thumb_fixed3_original_camera_review": {
@@ -8167,10 +8326,10 @@
       "collision_free_qualified": false
     }
   },
-  "sampled_utc": "2026-10-21T00:13:23.354592+00:00",
+  "sampled_utc": "2026-10-21T10:43:03.789601+00:00",
   "latest_frontier": {
-    "schema": "grasp.frontier.actual30Hz.source100.DPk4.v74",
-    "updated_utc": "2026-10-21T08:29:28.784939+00:00",
+    "schema": "grasp.frontier.success100.actual30Hz.training.v75",
+    "updated_utc": "2026-10-21T10:43:03.789601+00:00",
     "formal_accepted_objects": 0,
     "formal_accepted_methods": 0,
     "paper_ssr": null,
@@ -8188,15 +8347,16 @@
       {
         "title": "真实30Hz资格检查",
         "status": "30Hz与DP4步执行已实测通过",
-        "note": "720次控制 /180次神经预测，每次仍预测8步、执行4步；三相机720次图像逐次刷新，渲染额外物理步为0。原DP2251单点1/1、终点15.28mm仅作协议诊断，不能充作论文SR/SSR或泛化验收。",
+        "note": "720次控制 /180次神经预测，每次仍预测8步、执行4步；三相机720次图像逐次刷新，渲染额外物理步为0。原DP2251单点1/1、终点15.28mm仅作协议诊断，不能充作论文SR/SSR或泛化验收。 同一固定点的另一复测未抬起，故原单点1/1不能代表稳定成功率。",
         "run_candidate": "t552-beaker100-dp-s26102251-k4-clock1-v74"
       },
       {
         "title": "并行采集与既有训练",
-        "status": "新30Hz源100条已闭合：99/100成功",
-        "note": "3cm范围、24秒、30Hz，71925帧和300原视频已SHA校验转存Ali；全部动作/观测逐位配对通过，原RGB全量转换中。52个位置超出旧2cm范围。第91条空抓，失败完整保留；追加4个源位置已预先冻结并排队。新模型训练尚未准入。 已实际查看全部100条三相机、8个阶段共2400张选帧；完整接触/穿模仍待核。",
+        "status": "新30Hz示范已筛选100条；6卡训练中",
+        "note": "原100次99/100成功，补采4次4成功；失败与全部104次轨迹保留。取99+首条补采组成100条新数据，实际±3cm、30Hz、24秒；全部312原视频完整解码、原71925帧配对通过。DP/ACT各3种子已实际产生有限损失；旧90份模型保留。严格SSR、独立范围外泛化和完整视觉待验收。",
         "collection_dataset_id": "brown250_true30Hz_source91",
-        "previous_collection_dataset_id": "brown250_source3cm_pilot4"
+        "previous_collection_dataset_id": "brown250_source3cm_pilot4",
+        "supplement_collection_dataset_id": "brown250_true30Hz_supplement4"
       }
     ],
     "strict_spatial_scope": "Table11给出终点空间20mm筛查；C.3的SSR检查整条轨迹中适用阶段的全部活动约束。固定最终目标不能作为移动过程中每一帧的目标。严格目标坐标系、旋转阈值和阶段仍待绑定。",
@@ -30738,6 +30898,64 @@
       "full_visual_passed": false,
       "formal_accepted": false,
       "new_training_allowed": false
+    },
+    "new_actual30Hz_development_training": {
+      "source_gate": {
+        "passed": true,
+        "development_training_allowed": true,
+        "source_qualified_for_development_training": true,
+        "actual_original_episodes": 100,
+        "selected_source_successes": 100,
+        "source_original100_native_successes": 99,
+        "source_failure91_preserved": true,
+        "supplementary_success_added": 1,
+        "other_supplement3_reserved_source_never_test": true,
+        "dataset_seed42_95train5val": true,
+        "dataset_seed": 42,
+        "new_training_dispatched": false,
+        "actual_control_Hz": 30,
+        "physical_duration_s": 24,
+        "source_half_extent_cm": 3,
+        "raw_action_observation_pairing_bitwise_verified": true,
+        "selected_RGB_cache_bitwise_equal": true,
+        "RGB_metadata_NaN_sentinels_replaced_before_sampling": true,
+        "original_pretrained_weights_SHA256": "75235ecba61bd14392599ce26a6896b3c6081412f0f1212ca2115d1f5822b98d",
+        "source_truth_SHA256": "463b81c3ea124e105a8853912174c3847cd575a02fee875b0a83630bc2d1f065",
+        "cache_manifest_SHA256": "4b639c877a9a96f895e85560e9c7eb2492c787112e65bda9934c7d2b6d46546a",
+        "formal_accepted": false,
+        "paper_ssr": null,
+        "full_visual_passed": false
+      },
+      "active_runs": 6,
+      "DP_seeds": [
+        26102111,
+        26102113,
+        26102115
+      ],
+      "ACT_seeds": [
+        26102121,
+        26102123,
+        26102125
+      ],
+      "source_original100_successes": 99,
+      "source_supplement4_successes": 4,
+      "selected_successful_demos": 100,
+      "all104attempts_preserved": true,
+      "formal_accepted": false
+    },
+    "robot_visibility_diagnostic": {
+      "first_ABBA_causal_intervention_valid": false,
+      "actual12images_viewed": true,
+      "reason": "隐藏关节未隐藏机器人网格，且抓图处于重置后；不用于判断玻璃原因。",
+      "corrected_terminal_mesh_visibility_diagnostic": "terminal_guard_rejected_empty_grasp_before_visual_intervention",
+      "production_fix_selected": false,
+      "full_visual_passed": false,
+      "corrected_policy_diagnostic_outcome": {
+        "success": false,
+        "terminal_error_mm": 93.74878086814518,
+        "object_lift_m": 0.00014317035675048828,
+        "formal_accepted": false
+      }
     }
   },
   "dashboard_browser_totals": {
