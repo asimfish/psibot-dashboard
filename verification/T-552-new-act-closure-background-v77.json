@@ -1,0 +1,1289 @@
+{
+  "schema": "grasp.new_ACT3_closure.background_transmission.v77",
+  "updated_utc": "2026-10-21T12:25:59.446082+00:00",
+  "formal_accepted_objects": 0,
+  "formal_accepted_cells": 0,
+  "paper_ssr": null,
+  "full_visual_passed": false,
+  "original90_complete_weights_preserved": true,
+  "total_complete_training_artifacts": 93,
+  "new_DP_active": 3,
+  "new_ACT3_CPU_qualified_registry": {
+    "all3_passed": true,
+    "rows": [
+      {
+        "passed": true,
+        "method": "ACT",
+        "seed": 26102123,
+        "complete_epochs": 5000,
+        "global_step": 10000,
+        "finite_tensor_counts": {
+          "final_model": 344,
+          "optimizer": 783,
+          "best_model": 344,
+          "last_model": 344
+        },
+        "model_and_optimizer_finite": true,
+        "validation_only_selection": {
+          "selected_on": "fixed held-out demonstration frames only",
+          "epoch": 4930,
+          "validation_loss": 0.0428156852722168,
+          "test_results_used": false,
+          "source_runtime": {
+            "policy_config": {
+              "lr": 1e-05,
+              "lr_backbone": 1e-05,
+              "num_queries": 4,
+              "kl_weight": 10,
+              "hidden_dim": 512,
+              "dim_feedforward": 3200,
+              "backbone": "resnet18",
+              "enc_layers": 4,
+              "dec_layers": 7,
+              "nheads": 8,
+              "camera_names": [
+                "chest_camera",
+                "head_camera",
+                "third_camera"
+              ],
+              "input_channels": 3,
+              "state_dim": 26,
+              "action_dim": 13
+            },
+            "num_epochs": 5000,
+            "batch_size": 64,
+            "image_size": [
+              224,
+              224
+            ],
+            "actual_gpu_uuid": "GPU-019e2226-0510-0628-0000-00002087b149",
+            "actual_gpu_name": "PPU-ZW810E",
+            "state_dim": 26,
+            "action_dim": 13,
+            "temporal_aggregation_at_inference": false,
+            "state_fields": [
+              "arm2_pos",
+              "hand2_pos",
+              "arm2_vel",
+              "hand2_vel"
+            ],
+            "training_samples_per_epoch": 95,
+            "batches_per_epoch": 2,
+            "normalizer_fit_on_training_only": true,
+            "source_decoder": "last of seven stacked decoder outputs; independent gradient evidence required",
+            "formal_accepted": false,
+            "physical_dataset_requalified": false
+          },
+          "formal_accepted": false
+        },
+        "train_only_normalizer_bitwise_recomputed": true,
+        "actual_CPU_learned_policy_inputs": 10,
+        "CPU_output_shape": [
+          10,
+          4,
+          13
+        ],
+        "learned_forward_finite_repeatable": true,
+        "original_model_and_forward_unchanged": true,
+        "export_files": {
+          "policy_best.ckpt": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102123/policy_best.ckpt",
+            "bytes": 336778930,
+            "SHA256": "c39914292a6110d53eeb3f5969d36068b6cb22cd81684aedc6320d713a700b9a"
+          },
+          "policy_last.ckpt": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102123/policy_last.ckpt",
+            "bytes": 336778930,
+            "SHA256": "954b6f8aefa0b571da6cc538f56abceb2f3c5723d13e3fda3aa6875eb5b130d3"
+          },
+          "training_state_latest.pt": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102123/training_state_latest.pt",
+            "bytes": 1008100554,
+            "SHA256": "8a6d0717dbef754fd44e5c6746d786178096eb7a40709cb5f9387051065bf3af"
+          },
+          "dataset_stats.pkl": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102123/dataset_stats.pkl",
+            "bytes": 1018,
+            "SHA256": "931e62890a216640864dd44fccfdde4aae48ff74cfa72c6438e78c02e921601a"
+          },
+          "split.json": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102123/split.json",
+            "bytes": 1018,
+            "SHA256": "e882000e1ee85901c060578695ba8fc207eb1eb59f27dd0488e15702fd2303fd"
+          },
+          "effective_runtime.json": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102123/effective_runtime.json",
+            "bytes": 1046,
+            "SHA256": "dd3e0f918b7af2fba822df0ea34a9f4d6ed2e783fb2330e99cb70666745a4a15"
+          },
+          "FIRST_BACKWARD_ALL_DECODER_LAYERS.json": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102123/FIRST_BACKWARD_ALL_DECODER_LAYERS.json",
+            "bytes": 321,
+            "SHA256": "1272d4e7ad024ae13a7304f579208546dafe1243b14788651c3cd52a3728d99c"
+          },
+          "policy_best.selection.json": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102123/policy_best.selection.json",
+            "bytes": 1335,
+            "SHA256": "5e8ac3892156293d817630df9ff96a02df1ef8925a95c4d4d5dde7103ddfb671"
+          },
+          "training_complete.json": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102123/training_complete.json",
+            "bytes": 162,
+            "SHA256": "47bce4656622c17af07d2711fdbd83507b1ce82170c740ec90a0369d40939422"
+          },
+          "progress.json": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102123/progress.json",
+            "bytes": 262,
+            "SHA256": "5d78736e38387b00a1ecf227705f6f26fbb630456f0a87be8735e72e34eb7845"
+          },
+          "loss_history.jsonl": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102123/loss_history.jsonl",
+            "bytes": 1225002,
+            "SHA256": "a519c5a6b5411a641c059fd8fb908daf5df84ec4954c28fb2e425663071f6e80"
+          }
+        },
+        "GPU_initializations": 0,
+        "source_GPU_model": "NVIDIA RPBZZZ6",
+        "source_Hz": 30,
+        "source_half_extent_cm": 3,
+        "source_episode_horizon_s": 24,
+        "Native_evaluation_pending": true,
+        "formal_accepted": false,
+        "paper_ssr": null,
+        "full_visual_passed": false
+      },
+      {
+        "passed": true,
+        "method": "ACT",
+        "seed": 26102125,
+        "complete_epochs": 5000,
+        "global_step": 10000,
+        "finite_tensor_counts": {
+          "final_model": 344,
+          "optimizer": 783,
+          "best_model": 344,
+          "last_model": 344
+        },
+        "model_and_optimizer_finite": true,
+        "validation_only_selection": {
+          "selected_on": "fixed held-out demonstration frames only",
+          "epoch": 4920,
+          "validation_loss": 0.044377222657203674,
+          "test_results_used": false,
+          "source_runtime": {
+            "policy_config": {
+              "lr": 1e-05,
+              "lr_backbone": 1e-05,
+              "num_queries": 4,
+              "kl_weight": 10,
+              "hidden_dim": 512,
+              "dim_feedforward": 3200,
+              "backbone": "resnet18",
+              "enc_layers": 4,
+              "dec_layers": 7,
+              "nheads": 8,
+              "camera_names": [
+                "chest_camera",
+                "head_camera",
+                "third_camera"
+              ],
+              "input_channels": 3,
+              "state_dim": 26,
+              "action_dim": 13
+            },
+            "num_epochs": 5000,
+            "batch_size": 64,
+            "image_size": [
+              224,
+              224
+            ],
+            "actual_gpu_uuid": "GPU-01de1201-08b2-0430-0000-00004088b74f",
+            "actual_gpu_name": "PPU-ZW810E",
+            "state_dim": 26,
+            "action_dim": 13,
+            "temporal_aggregation_at_inference": false,
+            "state_fields": [
+              "arm2_pos",
+              "hand2_pos",
+              "arm2_vel",
+              "hand2_vel"
+            ],
+            "training_samples_per_epoch": 95,
+            "batches_per_epoch": 2,
+            "normalizer_fit_on_training_only": true,
+            "source_decoder": "last of seven stacked decoder outputs; independent gradient evidence required",
+            "formal_accepted": false,
+            "physical_dataset_requalified": false
+          },
+          "formal_accepted": false
+        },
+        "train_only_normalizer_bitwise_recomputed": true,
+        "actual_CPU_learned_policy_inputs": 10,
+        "CPU_output_shape": [
+          10,
+          4,
+          13
+        ],
+        "learned_forward_finite_repeatable": true,
+        "original_model_and_forward_unchanged": true,
+        "export_files": {
+          "policy_best.ckpt": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102125/policy_best.ckpt",
+            "bytes": 336778930,
+            "SHA256": "798237a46a50b75c10b2298a8cbcd1090c28527ed5ea15978554270b69c43c91"
+          },
+          "policy_last.ckpt": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102125/policy_last.ckpt",
+            "bytes": 336778930,
+            "SHA256": "e5dc0310b126b39847d169a748873645c2392ce97f74b57da227b21defd41bf1"
+          },
+          "training_state_latest.pt": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102125/training_state_latest.pt",
+            "bytes": 1008100618,
+            "SHA256": "06c8ad8b11a52447593465b2990354b1144ef4f95f7bef1ba465f4a1a2d592bb"
+          },
+          "dataset_stats.pkl": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102125/dataset_stats.pkl",
+            "bytes": 1018,
+            "SHA256": "931e62890a216640864dd44fccfdde4aae48ff74cfa72c6438e78c02e921601a"
+          },
+          "split.json": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102125/split.json",
+            "bytes": 1018,
+            "SHA256": "b6593c6a0ea974f10f59d1f94462fd206a221635f74b1a9c631ea40449e2063c"
+          },
+          "effective_runtime.json": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102125/effective_runtime.json",
+            "bytes": 1046,
+            "SHA256": "99778e3918ee5c3fb21e62b8357be987d04d6e99282cfe6b860e3167b0293a7a"
+          },
+          "FIRST_BACKWARD_ALL_DECODER_LAYERS.json": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102125/FIRST_BACKWARD_ALL_DECODER_LAYERS.json",
+            "bytes": 320,
+            "SHA256": "624a2935aa671bf0bcc09e930c6432675e6fba08dfc2528ddfeaf43afa517202"
+          },
+          "policy_best.selection.json": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102125/policy_best.selection.json",
+            "bytes": 1337,
+            "SHA256": "63d585ec2a528b18b56e325dcffc9438950c3e4f78fb8c70afc9233a84da03a6"
+          },
+          "training_complete.json": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102125/training_complete.json",
+            "bytes": 164,
+            "SHA256": "e606f3c11ff001baae226a4095e9216dad8ebb82e01564c288666f2fd9e9e171"
+          },
+          "progress.json": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102125/progress.json",
+            "bytes": 263,
+            "SHA256": "39bf74f2f116d3052aadf17eade2274143aa713b93e030c6eab575262a5cea00"
+          },
+          "loss_history.jsonl": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102125/loss_history.jsonl",
+            "bytes": 1225380,
+            "SHA256": "5b2015817601212e6b9032d6983af7c8bc46dd5955dc6294262951b40249e3b7"
+          }
+        },
+        "GPU_initializations": 0,
+        "source_GPU_model": "NVIDIA RPBZZZ6",
+        "source_Hz": 30,
+        "source_half_extent_cm": 3,
+        "source_episode_horizon_s": 24,
+        "Native_evaluation_pending": true,
+        "formal_accepted": false,
+        "paper_ssr": null,
+        "full_visual_passed": false
+      },
+      {
+        "passed": true,
+        "method": "ACT",
+        "seed": 26102121,
+        "complete_epochs": 5000,
+        "global_step": 10000,
+        "finite_tensor_counts": {
+          "final_model": 344,
+          "optimizer": 783,
+          "best_model": 344,
+          "last_model": 344
+        },
+        "model_and_optimizer_finite": true,
+        "validation_only_selection": {
+          "selected_on": "fixed held-out demonstration frames only",
+          "epoch": 4830,
+          "validation_loss": 0.044801242649555206,
+          "test_results_used": false,
+          "source_runtime": {
+            "policy_config": {
+              "lr": 1e-05,
+              "lr_backbone": 1e-05,
+              "num_queries": 4,
+              "kl_weight": 10,
+              "hidden_dim": 512,
+              "dim_feedforward": 3200,
+              "backbone": "resnet18",
+              "enc_layers": 4,
+              "dec_layers": 7,
+              "nheads": 8,
+              "camera_names": [
+                "chest_camera",
+                "head_camera",
+                "third_camera"
+              ],
+              "input_channels": 3,
+              "state_dim": 26,
+              "action_dim": 13
+            },
+            "num_epochs": 5000,
+            "batch_size": 64,
+            "image_size": [
+              224,
+              224
+            ],
+            "actual_gpu_uuid": "GPU-019e2226-0591-040a-0000-0000e0e40c07",
+            "actual_gpu_name": "PPU-ZW810E",
+            "state_dim": 26,
+            "action_dim": 13,
+            "temporal_aggregation_at_inference": false,
+            "state_fields": [
+              "arm2_pos",
+              "hand2_pos",
+              "arm2_vel",
+              "hand2_vel"
+            ],
+            "training_samples_per_epoch": 95,
+            "batches_per_epoch": 2,
+            "normalizer_fit_on_training_only": true,
+            "source_decoder": "last of seven stacked decoder outputs; independent gradient evidence required",
+            "formal_accepted": false,
+            "physical_dataset_requalified": false
+          },
+          "formal_accepted": false
+        },
+        "train_only_normalizer_bitwise_recomputed": true,
+        "actual_CPU_learned_policy_inputs": 10,
+        "CPU_output_shape": [
+          10,
+          4,
+          13
+        ],
+        "learned_forward_finite_repeatable": true,
+        "original_model_and_forward_unchanged": true,
+        "export_files": {
+          "policy_best.ckpt": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102121/policy_best.ckpt",
+            "bytes": 336778930,
+            "SHA256": "514b80b09042d7b2305cf199e169217e3a51f0fe3ad2af93d89aa0bc88082867"
+          },
+          "policy_last.ckpt": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102121/policy_last.ckpt",
+            "bytes": 336778930,
+            "SHA256": "ebdb3879e59ed23605fed3e0e9b0f21091959bf66fd0077e1160cc25b811f256"
+          },
+          "training_state_latest.pt": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102121/training_state_latest.pt",
+            "bytes": 1008100618,
+            "SHA256": "588d25b3574fc2516252b9683c0587ba161ef79c5a849267b428229dcf1f83ec"
+          },
+          "dataset_stats.pkl": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102121/dataset_stats.pkl",
+            "bytes": 1018,
+            "SHA256": "931e62890a216640864dd44fccfdde4aae48ff74cfa72c6438e78c02e921601a"
+          },
+          "split.json": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102121/split.json",
+            "bytes": 1018,
+            "SHA256": "203dd26af67d9ec195b0d8e0446813c0ddee8c631f11dc95fb47573a12e47a82"
+          },
+          "effective_runtime.json": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102121/effective_runtime.json",
+            "bytes": 1046,
+            "SHA256": "cc96646a99a19284725dbcceff1a33f45ce7bdedfe683d2b6cc64ab984b18eae"
+          },
+          "FIRST_BACKWARD_ALL_DECODER_LAYERS.json": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102121/FIRST_BACKWARD_ALL_DECODER_LAYERS.json",
+            "bytes": 320,
+            "SHA256": "0af85825ec5a3befbba6c3a8d616291de4be277edc67e6990f6289890f8fdd94"
+          },
+          "policy_best.selection.json": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102121/policy_best.selection.json",
+            "bytes": 1337,
+            "SHA256": "5e1e2e263097c27c926ded231072373c9b2a15d3c1293dc5f8f4a029f3296ef6"
+          },
+          "training_complete.json": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102121/training_complete.json",
+            "bytes": 164,
+            "SHA256": "656e6a3aa03336999965a20d16a3f50ae17a0627ec8279ebf4a2433b679a4576"
+          },
+          "progress.json": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102121/progress.json",
+            "bytes": 263,
+            "SHA256": "faf0157b4f7923c8ad89d125c4753449c9b81f5707baa146722cbe356f8b64d2"
+          },
+          "loss_history.jsonl": {
+            "path": "/root/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_closed_export_CPU_v3069/26102121/loss_history.jsonl",
+            "bytes": 1225286,
+            "SHA256": "1f181493a425472f9f4920ea7b5dbbb0a972dd410d5bd31f953ffcfafee254ca"
+          }
+        },
+        "GPU_initializations": 0,
+        "source_GPU_model": "NVIDIA RPBZZZ6",
+        "source_Hz": 30,
+        "source_half_extent_cm": 3,
+        "source_episode_horizon_s": 24,
+        "Native_evaluation_pending": true,
+        "formal_accepted": false,
+        "paper_ssr": null,
+        "full_visual_passed": false
+      }
+    ],
+    "formal_accepted": false
+  },
+  "six_new_data_version_training_snapshot": {
+    "updated_utc": "2026-10-21T12:24:12.722231+00:00",
+    "rows": [
+      {
+        "name": "act-full100-brown_volumetric_flask_250ml-s26102123-v3036",
+        "method": "ACT",
+        "seed": 26102123,
+        "status": "trained_pending_independent_checkpoint_and_Native_validation",
+        "progress": {
+          "epoch": 4999,
+          "global_step": 10000,
+          "train_loss": 0.06640805676579475,
+          "validation_loss": 0.04769302159547806,
+          "best_validation_loss": 0.0428156852722168,
+          "actual_gpu_uuid": "GPU-019e2226-0510-0628-0000-00002087b149",
+          "formal_accepted": false
+        },
+        "actual_exit_code": 0
+      },
+      {
+        "name": "dp-full100-brown_volumetric_flask_250ml-s26102111-v3036",
+        "method": "DP",
+        "seed": 26102111,
+        "status": "running",
+        "progress": {
+          "train_loss": 0.00849064625799656,
+          "global_step": 11744,
+          "epoch": 21,
+          "lr": 0.0002999725418369234
+        },
+        "actual_exit_code": null
+      },
+      {
+        "name": "act-full100-brown_volumetric_flask_250ml-s26102125-v3036",
+        "method": "ACT",
+        "seed": 26102125,
+        "status": "trained_pending_independent_checkpoint_and_Native_validation",
+        "progress": {
+          "epoch": 4999,
+          "global_step": 10000,
+          "train_loss": 0.07314671948552132,
+          "validation_loss": 0.04357872158288956,
+          "best_validation_loss": 0.04357872158288956,
+          "actual_gpu_uuid": "GPU-01de1201-08b2-0430-0000-00004088b74f",
+          "formal_accepted": false
+        },
+        "actual_exit_code": 0
+      },
+      {
+        "name": "dp-full100-brown_volumetric_flask_250ml-s26102113-v3036",
+        "method": "DP",
+        "seed": 26102113,
+        "status": "running",
+        "progress": {
+          "train_loss": 0.008045069873332977,
+          "global_step": 11017,
+          "epoch": 20,
+          "lr": 0.00029997648580267725
+        },
+        "actual_exit_code": null
+      },
+      {
+        "name": "dp-full100-brown_volumetric_flask_250ml-s26102115-v3036",
+        "method": "DP",
+        "seed": 26102115,
+        "status": "running",
+        "progress": {
+          "train_loss": 0.010005771182477474,
+          "global_step": 11733,
+          "epoch": 21,
+          "lr": 0.00029997260378872135
+        },
+        "actual_exit_code": null
+      },
+      {
+        "name": "act-full100-brown_volumetric_flask_250ml-s26102121-v3036",
+        "method": "ACT",
+        "seed": 26102121,
+        "status": "trained_pending_independent_checkpoint_and_Native_validation",
+        "progress": {
+          "epoch": 4999,
+          "global_step": 10000,
+          "train_loss": 0.08029931038618088,
+          "validation_loss": 0.04172900319099426,
+          "best_validation_loss": 0.04172900319099426,
+          "actual_gpu_uuid": "GPU-019e2226-0591-040a-0000-0000e0e40c07",
+          "formal_accepted": false
+        },
+        "actual_exit_code": 0
+      }
+    ]
+  },
+  "background_probe": {
+    "passed": true,
+    "scope": "Fixed terminal renderer causality only; original glass shaders and physical state unchanged, robot hidden constantly, visual-only red/cyan background. All policy outcomes predeclared eligible; no scored success or source curation credit.",
+    "terminal_before_reset": true,
+    "terminal_full_EEF_object_pose_and_clock_match": true,
+    "robot_mesh_visibility_effective": true,
+    "robot_mesh_count": 99,
+    "all_original_shader_inputs_identical": true,
+    "physics_events_added": 0,
+    "render_only_calls": 56,
+    "background_changed_chest_pixels": 145025,
+    "diagnostic_mesh_has_no_collision_API": true,
+    "diagnostic_scope_removed": true,
+    "robot_visibility_restored": true,
+    "original_physical_state_hashes": {
+      "robots/robot/root_state_w": {
+        "shape": [
+          1,
+          13
+        ],
+        "SHA256": "a86e89df1c43698619313437e3824642054b60bb624db720bf78d766f4b23f85"
+      },
+      "robots/robot/joint_pos": {
+        "shape": [
+          1,
+          36
+        ],
+        "SHA256": "2217af3b9b3f839de9724e692896f5f145ecbd0e875ffcff24dace77b16a68fd"
+      },
+      "robots/robot/joint_vel": {
+        "shape": [
+          1,
+          36
+        ],
+        "SHA256": "dbe9bf350c2c569c8f228c99e664b5e3333fe1efca5463993fae4088678efba0"
+      },
+      "robots/robot/joint_pos_target": {
+        "shape": [
+          1,
+          36
+        ],
+        "SHA256": "a7fb38cda5779935d24a778e3c968b382d1d34873a1b5abae6a33101540ad918"
+      },
+      "robots/robot/body_link_state_w": {
+        "shape": [
+          1,
+          53,
+          13
+        ],
+        "SHA256": "4f6d942d7f62a05dbc244a34be991d4dd1af294ab43143b495e5d3416c44f1ec"
+      },
+      "rigid_objects/bottle/root_state_w": {
+        "shape": [
+          1,
+          13
+        ],
+        "SHA256": "4ed69f02f42db9eb4a2c2759af3446498b9542868660ad85b0246d22c3d3223b"
+      },
+      "rigid_objects/bottle/body_link_state_w": {
+        "shape": [
+          1,
+          1,
+          13
+        ],
+        "SHA256": "864ff0c3788059127a6e33abf3282689bcdb5d9f662ea3d29251094b2fd387b5"
+      }
+    },
+    "physical_clock": {
+      "actual_PhysX_events": 3035,
+      "actual_sim_time_s": 25.308334653265774,
+      "actual_SDK_PhysX_step_index": 3037
+    },
+    "camera_metadata": {
+      "chest_camera": {
+        "cfg_prim_path": "/World/envs/env_[0-9]+/Robot/camera_chest_base/camera_chest_color",
+        "pos_w": [
+          [
+            -1.5327024459838867,
+            -5.01200008392334,
+            1.1096943616867065
+          ]
+        ],
+        "quat_w_world": [
+          [
+            0.9929412603378296,
+            -2.2042653924359e-08,
+            0.11860743910074234,
+            2.7227148535757806e-08
+          ]
+        ],
+        "quat_w_ros": [
+          [
+            -0.43716689944267273,
+            0.5557743310928345,
+            -0.5557743310928345,
+            0.43716689944267273
+          ]
+        ],
+        "quat_w_opengl": [
+          [
+            0.5557743310928345,
+            0.43716689944267273,
+            -0.43716689944267273,
+            -0.5557743310928345
+          ]
+        ],
+        "intrinsic_matrices": [
+          [
+            [
+              316.14447021484375,
+              0.0,
+              320.0
+            ],
+            [
+              0.0,
+              421.52593994140625,
+              240.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        ]
+      },
+      "head_camera": {
+        "cfg_prim_path": "/World/envs/env_[0-9]+/Robot/camera_head_base/camera_head_color",
+        "pos_w": [
+          [
+            -1.446094274520874,
+            -4.965000152587891,
+            1.6082024574279785
+          ]
+        ],
+        "quat_w_world": [
+          [
+            0.8648250699043274,
+            -7.928190548511793e-09,
+            0.5020732879638672,
+            2.987451352964854e-08
+          ]
+        ],
+        "quat_w_ros": [
+          [
+            0.1813759207725525,
+            -0.6834491491317749,
+            0.6834492087364197,
+            -0.1813759207725525
+          ]
+        ],
+        "quat_w_opengl": [
+          [
+            0.6834491491317749,
+            0.1813759058713913,
+            -0.1813759058713913,
+            -0.6834492087364197
+          ]
+        ],
+        "intrinsic_matrices": [
+          [
+            [
+              615.873046875,
+              0.0,
+              320.0
+            ],
+            [
+              0.0,
+              615.873046875,
+              240.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        ]
+      },
+      "third_camera": {
+        "cfg_prim_path": "/World/envs/env_[0-9]+/Robot/camera_third_base/camera_third_color",
+        "pos_w": [
+          [
+            -0.17535565793514252,
+            -4.988999843597412,
+            1.1519763469696045
+          ]
+        ],
+        "quat_w_world": [
+          [
+            -2.3060071185909692e-08,
+            -0.037161506712436676,
+            -2.143569055590433e-08,
+            0.9993093013763428
+          ]
+        ],
+        "quat_w_ros": [
+          [
+            -0.48107388615608215,
+            0.5182353854179382,
+            0.5182353854179382,
+            -0.48107394576072693
+          ]
+        ],
+        "quat_w_opengl": [
+          [
+            0.5182353854179382,
+            0.48107388615608215,
+            0.48107394576072693,
+            0.5182353854179382
+          ]
+        ],
+        "intrinsic_matrices": [
+          [
+            [
+              316.14447021484375,
+              0.0,
+              320.0
+            ],
+            [
+              0.0,
+              421.52593994140625,
+              240.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        ]
+      }
+    },
+    "USD_camera_metadata": [
+      {
+        "path": "/World/envs/env_0/Robot/falan2/arm2_camera_dep",
+        "clipping_range": [
+          0.009999999776482582,
+          10000000.0
+        ],
+        "focal_length": 2.940000057220459
+      },
+      {
+        "path": "/World/envs/env_0/Robot/falan2/arm2_camera_rgb",
+        "clipping_range": [
+          0.009999999776482582,
+          10000000.0
+        ],
+        "focal_length": 2.940000057220459
+      },
+      {
+        "path": "/World/envs/env_0/Robot/falan1/arm1_camera_rgb",
+        "clipping_range": [
+          0.009999999776482582,
+          10000000.0
+        ],
+        "focal_length": 2.940000057220459
+      },
+      {
+        "path": "/World/envs/env_0/Robot/falan1/arm1_camera_dep",
+        "clipping_range": [
+          0.009999999776482582,
+          10000000.0
+        ],
+        "focal_length": 2.940000057220459
+      },
+      {
+        "path": "/World/envs/env_0/Robot/camera_chest_base/camera_chest_infra2",
+        "clipping_range": [
+          0.009999999776482582,
+          10000000.0
+        ],
+        "focal_length": 0.28453001379966736
+      },
+      {
+        "path": "/World/envs/env_0/Robot/camera_chest_base/camera_chest_color",
+        "clipping_range": [
+          0.009999999776482582,
+          10000000.0
+        ],
+        "focal_length": 0.28453001379966736
+      },
+      {
+        "path": "/World/envs/env_0/Robot/camera_chest_base/camera_chest_infra1",
+        "clipping_range": [
+          0.009999999776482582,
+          10000000.0
+        ],
+        "focal_length": 0.28453001379966736
+      },
+      {
+        "path": "/World/envs/env_0/Robot/camera_head_base/camera_head_color",
+        "clipping_range": [
+          0.0010000000474974513,
+          1000000.0
+        ],
+        "focal_length": 1.940000057220459
+      },
+      {
+        "path": "/World/envs/env_0/Robot/camera_head_base/camera_head_depth",
+        "clipping_range": [
+          0.009999999776482582,
+          10000000.0
+        ],
+        "focal_length": 0.28453001379966736
+      },
+      {
+        "path": "/World/envs/env_0/Robot/camera_head_base/camera_head_infra1",
+        "clipping_range": [
+          0.009999999776482582,
+          10000000.0
+        ],
+        "focal_length": 0.28453001379966736
+      },
+      {
+        "path": "/World/envs/env_0/Robot/camera_head_base/camera_head_infra2",
+        "clipping_range": [
+          0.009999999776482582,
+          10000000.0
+        ],
+        "focal_length": 0.28453001379966736
+      },
+      {
+        "path": "/World/envs/env_0/Robot/camera_third_base/camera_third_color",
+        "clipping_range": [
+          0.009999999776482582,
+          10000000.0
+        ],
+        "focal_length": 0.28453001379966736
+      },
+      {
+        "path": "/OmniverseKit_Persp",
+        "clipping_range": [
+          0.009999999776482582,
+          10000000.0
+        ],
+        "focal_length": 18.14756202697754
+      },
+      {
+        "path": "/OmniverseKit_Front",
+        "clipping_range": [
+          1.0,
+          10000000.0
+        ],
+        "focal_length": 50.0
+      },
+      {
+        "path": "/OmniverseKit_Top",
+        "clipping_range": [
+          1.0,
+          10000000.0
+        ],
+        "focal_length": 50.0
+      },
+      {
+        "path": "/OmniverseKit_Right",
+        "clipping_range": [
+          1.0,
+          10000000.0
+        ],
+        "focal_length": 50.0
+      }
+    ],
+    "images": [
+      {
+        "phase": "A1_no_board",
+        "camera": "chest_camera",
+        "file": "A1_no_board_chest_camera.png",
+        "PNG_SHA256": "772c5fdca7cae4fd9f11e5c61a390493556d41ad903184c5f836dc421fba954a",
+        "raw_RGB_SHA256": "27d356beb0e94331ff8095dc5eeab6122e3fd9dfc9e119320988bcbde701e6c1"
+      },
+      {
+        "phase": "A1_no_board",
+        "camera": "head_camera",
+        "file": "A1_no_board_head_camera.png",
+        "PNG_SHA256": "9c0cd19e59c03b614bc96a67d5e6bd10add45d3ac0a714b1544c4c9e47178768",
+        "raw_RGB_SHA256": "cbb9609db48958469d18451d15821f84bfd651779359bd7adb8e4eee23b795ed"
+      },
+      {
+        "phase": "A1_no_board",
+        "camera": "third_camera",
+        "file": "A1_no_board_third_camera.png",
+        "PNG_SHA256": "f79eb4520c21c9da1a53df3df9cd89550d49d774d873e75f916a7959abbc2b2f",
+        "raw_RGB_SHA256": "bd55f601c3d5df4f0a13166313d65cdd44d5a74f7e74332abfeca3e577ce4148"
+      },
+      {
+        "phase": "B1_red_board",
+        "camera": "chest_camera",
+        "file": "B1_red_board_chest_camera.png",
+        "PNG_SHA256": "b925af624b09e8dcf48673233ad9bd35d72b01b1849d471d32e2c738dbbd9529",
+        "raw_RGB_SHA256": "5af5c17e261c1e3bad0d2c7be5c1c33d119e8d9ecc1d1d123bc8661058ff0798"
+      },
+      {
+        "phase": "B1_red_board",
+        "camera": "head_camera",
+        "file": "B1_red_board_head_camera.png",
+        "PNG_SHA256": "62decbb94b0c4fedf8ec274e2ed5e74dbb37222e074c4aa22490d320faf569f0",
+        "raw_RGB_SHA256": "47c6f6beee68fedebc00b25a713d9099199c954b48420ff6a90cfdaac99d6d29"
+      },
+      {
+        "phase": "B1_red_board",
+        "camera": "third_camera",
+        "file": "B1_red_board_third_camera.png",
+        "PNG_SHA256": "ef8b56b111bef9f68ca713e92da899ef85d38a204155dcb5c20e1b5ecb1b419a",
+        "raw_RGB_SHA256": "ec7d207832c3f7e310bb72948b8a62399d9c6a9f5b59233188a4106bc800f50f"
+      },
+      {
+        "phase": "B2_red_board",
+        "camera": "chest_camera",
+        "file": "B2_red_board_chest_camera.png",
+        "PNG_SHA256": "68b83f31ca139c82825c5dc5e350e1038050f605eca7c6445c866c8a766277bc",
+        "raw_RGB_SHA256": "e2576dbdb8b63b2d733619a60deb7d701ec7e36c811c6ac29ba488668ea93788"
+      },
+      {
+        "phase": "B2_red_board",
+        "camera": "head_camera",
+        "file": "B2_red_board_head_camera.png",
+        "PNG_SHA256": "3743ff7412dc5158549c348a710f723cedb1bdc31d5dc5d60a93a463a0d040f2",
+        "raw_RGB_SHA256": "def024fe2eae80817db68c1a8caf2ded5e85892e5d5fb65e5c41932acfd4544f"
+      },
+      {
+        "phase": "B2_red_board",
+        "camera": "third_camera",
+        "file": "B2_red_board_third_camera.png",
+        "PNG_SHA256": "207c673484618025db45c2930022fbc25288fea31e761b1033b524befeee8301",
+        "raw_RGB_SHA256": "17eb82224e4e1c3c47626fe1e4dee284b38406b1d6b34be24cf3e55c7443d662"
+      },
+      {
+        "phase": "A2_no_board",
+        "camera": "chest_camera",
+        "file": "A2_no_board_chest_camera.png",
+        "PNG_SHA256": "e602a4220f12822ba8dfcbfc42fb17b864fca0e435c3ea390810320af9e4d6bb",
+        "raw_RGB_SHA256": "98c26014e9837ae40845dd800c21cae1a93e78f88b9a9a7df4aeb4d232354ba2"
+      },
+      {
+        "phase": "A2_no_board",
+        "camera": "head_camera",
+        "file": "A2_no_board_head_camera.png",
+        "PNG_SHA256": "e4f9de731013d6a3ef16b50ae5df65f953beb708b9a5838daccc35a8ddec4e20",
+        "raw_RGB_SHA256": "cc3e14618f4f4643b4e875f13d4aa69905ae5e421d62491222340d8e7ff33ba0"
+      },
+      {
+        "phase": "A2_no_board",
+        "camera": "third_camera",
+        "file": "A2_no_board_third_camera.png",
+        "PNG_SHA256": "d58742fc01082167a0fb5e89b1575195878bf3fb2218b07ae1ec89691cb53620",
+        "raw_RGB_SHA256": "1221beed4b04fd2549672ad0f9785652ca9d982cab641a00a9430044795a11d0"
+      },
+      {
+        "phase": "C1_cyan_board",
+        "camera": "chest_camera",
+        "file": "C1_cyan_board_chest_camera.png",
+        "PNG_SHA256": "5bfacf8a3f17f419038b80bb3545822545eb7863e0d0da58ff5784b161afb877",
+        "raw_RGB_SHA256": "879124093b4b2b2c3e4d05ba29bece2d70936933ffbdf276740ebdb1039c2418"
+      },
+      {
+        "phase": "C1_cyan_board",
+        "camera": "head_camera",
+        "file": "C1_cyan_board_head_camera.png",
+        "PNG_SHA256": "aba8b47e74d223ebbe90aced03a9d219a0f56aa9fff31adbab43265e55ed7db4",
+        "raw_RGB_SHA256": "eeee1f42944dbbb1f8fc03f59d38136233ffaed1c1789607295716b0c41aa5a1"
+      },
+      {
+        "phase": "C1_cyan_board",
+        "camera": "third_camera",
+        "file": "C1_cyan_board_third_camera.png",
+        "PNG_SHA256": "59c5324a677d1a451509979c082b51416a25ec669a3aeb01c17f6c4d945a76ce",
+        "raw_RGB_SHA256": "1974485549d53689db2a1cf944e0c13d5ecc650492b6231b42e6a1cddaed86e5"
+      },
+      {
+        "phase": "C2_cyan_board",
+        "camera": "chest_camera",
+        "file": "C2_cyan_board_chest_camera.png",
+        "PNG_SHA256": "028dd393662b0df545fa7d5e88b77e99fe7fe47dfcda8f7ef2ba5a05779cefd9",
+        "raw_RGB_SHA256": "9f3165f245e4060a4ea16dfa05d3d57cf829fb242c4a6c56df13756131883d3e"
+      },
+      {
+        "phase": "C2_cyan_board",
+        "camera": "head_camera",
+        "file": "C2_cyan_board_head_camera.png",
+        "PNG_SHA256": "72fb87cc5dd3dede53ac12202ad53b1857f6a5ba63f4b593e099753cd1c1282b",
+        "raw_RGB_SHA256": "ed06f572a7ec750dcff4871543210e926c12101bc8aca6be1d4fd88ef1d30695"
+      },
+      {
+        "phase": "C2_cyan_board",
+        "camera": "third_camera",
+        "file": "C2_cyan_board_third_camera.png",
+        "PNG_SHA256": "3a8020f48ff06a7cf60c24a7956779a0ce956655fd49dc7b1b4154909f2c6ab8",
+        "raw_RGB_SHA256": "678728934dff9b0c218ccf5b96eb32ce0ae2fe0f94d6b4b55f9b0be870543fff"
+      },
+      {
+        "phase": "A3_no_board",
+        "camera": "chest_camera",
+        "file": "A3_no_board_chest_camera.png",
+        "PNG_SHA256": "84c3ce194a82804bed50c81a53dd8c31a74b9da352bb20be5e7718730437305f",
+        "raw_RGB_SHA256": "d73670dd7cba1114a350a9cbe699350e8484e1994ab20d1a787fec1324223a70"
+      },
+      {
+        "phase": "A3_no_board",
+        "camera": "head_camera",
+        "file": "A3_no_board_head_camera.png",
+        "PNG_SHA256": "034b7ad95296116f95118a5507dd5dae326029d7af2c82d279feca995c4121f0",
+        "raw_RGB_SHA256": "32e2d6afa41365b2e551ae5ea4aa89b8e6f76802eca0f522af04dba098cfbdc9"
+      },
+      {
+        "phase": "A3_no_board",
+        "camera": "third_camera",
+        "file": "A3_no_board_third_camera.png",
+        "PNG_SHA256": "1a4424bedf4ea26e533cb483c50634296f08dcf47e00af8acc2ea14634be3893",
+        "raw_RGB_SHA256": "4abd7645473b9c8a3f0974f596e9989a7ee16c24aae96740805d3b4207de7bc3"
+      }
+    ],
+    "actual_visual_review_pending": true,
+    "full_visual_passed": false,
+    "formal_accepted": false,
+    "paper_ssr": null
+  },
+  "actual_background_visual_review": {
+    "updated_utc": "2026-10-21T11:59:45.924098+00:00",
+    "actual_images_reviewed": 21,
+    "all_three_camera_seven_phase_original_resolution_plates_viewed": true,
+    "findings": {
+      "chest": "White cup against original dark background becomes visibly transmissive with red board and cyan board; A2/A3 returns to white. Same original glass shader and frozen physical pose.",
+      "head": "Cup remains transmissive against tabletop across phases; board affects background and some rim tint.",
+      "third": "Original cup transmissive on dark backdrop; diagnostic board occludes cup from the opposite view, so red/cyan third-view frames cannot prove cup transmission."
+    },
+    "supported_conclusion": "Original glass can transmit scene geometry; chest white appearance depends on background optical path. The model is not simply replaced by an opaque white shader. Exact environment/ray/geometry mechanism not yet isolated.",
+    "original_shaders_identical": true,
+    "extra_physics_events": 0,
+    "robot_hidden_constant": true,
+    "production_fix_selected": false,
+    "full_visual_passed": false,
+    "formal_accepted": false,
+    "paper_ssr": null
+  },
+  "background_original_pngs": [
+    {
+      "url": "media/grasp-background-transmission-v77/A1_no_board_chest_camera.png",
+      "SHA256": "772c5fdca7cae4fd9f11e5c61a390493556d41ad903184c5f836dc421fba954a",
+      "camera": "chest_camera",
+      "phase": "A1_no_board"
+    },
+    {
+      "url": "media/grasp-background-transmission-v77/A1_no_board_head_camera.png",
+      "SHA256": "9c0cd19e59c03b614bc96a67d5e6bd10add45d3ac0a714b1544c4c9e47178768",
+      "camera": "head_camera",
+      "phase": "A1_no_board"
+    },
+    {
+      "url": "media/grasp-background-transmission-v77/A1_no_board_third_camera.png",
+      "SHA256": "f79eb4520c21c9da1a53df3df9cd89550d49d774d873e75f916a7959abbc2b2f",
+      "camera": "third_camera",
+      "phase": "A1_no_board"
+    },
+    {
+      "url": "media/grasp-background-transmission-v77/B1_red_board_chest_camera.png",
+      "SHA256": "b925af624b09e8dcf48673233ad9bd35d72b01b1849d471d32e2c738dbbd9529",
+      "camera": "chest_camera",
+      "phase": "B1_red_board"
+    },
+    {
+      "url": "media/grasp-background-transmission-v77/B1_red_board_head_camera.png",
+      "SHA256": "62decbb94b0c4fedf8ec274e2ed5e74dbb37222e074c4aa22490d320faf569f0",
+      "camera": "head_camera",
+      "phase": "B1_red_board"
+    },
+    {
+      "url": "media/grasp-background-transmission-v77/B1_red_board_third_camera.png",
+      "SHA256": "ef8b56b111bef9f68ca713e92da899ef85d38a204155dcb5c20e1b5ecb1b419a",
+      "camera": "third_camera",
+      "phase": "B1_red_board"
+    },
+    {
+      "url": "media/grasp-background-transmission-v77/B2_red_board_chest_camera.png",
+      "SHA256": "68b83f31ca139c82825c5dc5e350e1038050f605eca7c6445c866c8a766277bc",
+      "camera": "chest_camera",
+      "phase": "B2_red_board"
+    },
+    {
+      "url": "media/grasp-background-transmission-v77/B2_red_board_head_camera.png",
+      "SHA256": "3743ff7412dc5158549c348a710f723cedb1bdc31d5dc5d60a93a463a0d040f2",
+      "camera": "head_camera",
+      "phase": "B2_red_board"
+    },
+    {
+      "url": "media/grasp-background-transmission-v77/B2_red_board_third_camera.png",
+      "SHA256": "207c673484618025db45c2930022fbc25288fea31e761b1033b524befeee8301",
+      "camera": "third_camera",
+      "phase": "B2_red_board"
+    },
+    {
+      "url": "media/grasp-background-transmission-v77/A2_no_board_chest_camera.png",
+      "SHA256": "e602a4220f12822ba8dfcbfc42fb17b864fca0e435c3ea390810320af9e4d6bb",
+      "camera": "chest_camera",
+      "phase": "A2_no_board"
+    },
+    {
+      "url": "media/grasp-background-transmission-v77/A2_no_board_head_camera.png",
+      "SHA256": "e4f9de731013d6a3ef16b50ae5df65f953beb708b9a5838daccc35a8ddec4e20",
+      "camera": "head_camera",
+      "phase": "A2_no_board"
+    },
+    {
+      "url": "media/grasp-background-transmission-v77/A2_no_board_third_camera.png",
+      "SHA256": "d58742fc01082167a0fb5e89b1575195878bf3fb2218b07ae1ec89691cb53620",
+      "camera": "third_camera",
+      "phase": "A2_no_board"
+    },
+    {
+      "url": "media/grasp-background-transmission-v77/C1_cyan_board_chest_camera.png",
+      "SHA256": "5bfacf8a3f17f419038b80bb3545822545eb7863e0d0da58ff5784b161afb877",
+      "camera": "chest_camera",
+      "phase": "C1_cyan_board"
+    },
+    {
+      "url": "media/grasp-background-transmission-v77/C1_cyan_board_head_camera.png",
+      "SHA256": "aba8b47e74d223ebbe90aced03a9d219a0f56aa9fff31adbab43265e55ed7db4",
+      "camera": "head_camera",
+      "phase": "C1_cyan_board"
+    },
+    {
+      "url": "media/grasp-background-transmission-v77/C1_cyan_board_third_camera.png",
+      "SHA256": "59c5324a677d1a451509979c082b51416a25ec669a3aeb01c17f6c4d945a76ce",
+      "camera": "third_camera",
+      "phase": "C1_cyan_board"
+    },
+    {
+      "url": "media/grasp-background-transmission-v77/C2_cyan_board_chest_camera.png",
+      "SHA256": "028dd393662b0df545fa7d5e88b77e99fe7fe47dfcda8f7ef2ba5a05779cefd9",
+      "camera": "chest_camera",
+      "phase": "C2_cyan_board"
+    },
+    {
+      "url": "media/grasp-background-transmission-v77/C2_cyan_board_head_camera.png",
+      "SHA256": "72fb87cc5dd3dede53ac12202ad53b1857f6a5ba63f4b593e099753cd1c1282b",
+      "camera": "head_camera",
+      "phase": "C2_cyan_board"
+    },
+    {
+      "url": "media/grasp-background-transmission-v77/C2_cyan_board_third_camera.png",
+      "SHA256": "3a8020f48ff06a7cf60c24a7956779a0ce956655fd49dc7b1b4154909f2c6ab8",
+      "camera": "third_camera",
+      "phase": "C2_cyan_board"
+    },
+    {
+      "url": "media/grasp-background-transmission-v77/A3_no_board_chest_camera.png",
+      "SHA256": "84c3ce194a82804bed50c81a53dd8c31a74b9da352bb20be5e7718730437305f",
+      "camera": "chest_camera",
+      "phase": "A3_no_board"
+    },
+    {
+      "url": "media/grasp-background-transmission-v77/A3_no_board_head_camera.png",
+      "SHA256": "034b7ad95296116f95118a5507dd5dae326029d7af2c82d279feca995c4121f0",
+      "camera": "head_camera",
+      "phase": "A3_no_board"
+    },
+    {
+      "url": "media/grasp-background-transmission-v77/A3_no_board_third_camera.png",
+      "SHA256": "1a4424bedf4ea26e533cb483c50634296f08dcf47e00af8acc2ea14634be3893",
+      "camera": "third_camera",
+      "phase": "A3_no_board"
+    }
+  ],
+  "actual_matchedGPU_new_ACT_test_queue": {
+    "namespace": "/public_fast_storage/grasp_ssr_ood_multiserver_20261009/Brown250_new_ACT3_actual30Hz3cm_matchedGPU_dev4_v3080",
+    "pid": 3940086,
+    "start_ticks": "294080061",
+    "training_seeds": [
+      26102121,
+      26102123,
+      26102125
+    ],
+    "source_Hz": 30,
+    "source_half_extent_cm": 3,
+    "development_half_extents_cm": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "actual_Native_submissions_at_launch": 0,
+    "waiting_verified_full_budget_CPU_gate_and_SHA_intake": true,
+    "formal_accepted": false,
+    "paper_ssr": null
+  },
+  "verified_weight_transfer_snapshot": {
+    "stage": "verified_chunk_copied",
+    "completed": [
+      {
+        "passed": true,
+        "seed": 26102123,
+        "policy_best_path": "/public_fast_storage/grasp_ssr_ood_multiserver_20261009/Brown250_actual30Hz_success100_ACT3_verified_exports_v3078/26102123/policy_best.ckpt",
+        "bytes": 336778930,
+        "SHA256": "c39914292a6110d53eeb3f5969d36068b6cb22cd81684aedc6320d713a700b9a",
+        "source_closed_CPU_gate_passed": true,
+        "source_GPU_model": "NVIDIA RPBZZZ6",
+        "source_Hz": 30,
+        "source_half_extent_cm": 3,
+        "source_episode_horizon_s": 24,
+        "metadata_files": {
+          "dataset_stats.pkl": {
+            "bytes": 1018,
+            "SHA256": "931e62890a216640864dd44fccfdde4aae48ff74cfa72c6438e78c02e921601a"
+          },
+          "effective_runtime.json": {
+            "bytes": 1046,
+            "SHA256": "dd3e0f918b7af2fba822df0ea34a9f4d6ed2e783fb2330e99cb70666745a4a15"
+          },
+          "policy_best.selection.json": {
+            "bytes": 1335,
+            "SHA256": "5e8ac3892156293d817630df9ff96a02df1ef8925a95c4d4d5dde7103ddfb671"
+          },
+          "split.json": {
+            "bytes": 1018,
+            "SHA256": "e882000e1ee85901c060578695ba8fc207eb1eb59f27dd0488e15702fd2303fd"
+          },
+          "training_complete.json": {
+            "bytes": 162,
+            "SHA256": "47bce4656622c17af07d2711fdbd83507b1ce82170c740ec90a0369d40939422"
+          }
+        },
+        "Native_evaluation_pending": true,
+        "formal_accepted": false,
+        "paper_ssr": null
+      }
+    ],
+    "formal_accepted": false,
+    "paper_ssr": null,
+    "current_seed": 26102125,
+    "updated_utc": "2026-10-21T12:25:54.511902+00:00",
+    "verified_offset": 150994944,
+    "total_bytes": 336778930,
+    "last_chunk_bytes": 16777216,
+    "last_chunk_SHA256": "53041a54537cec764765d58bd00551c2fb8d60302a50a1951eee8ff7cd520e3e"
+  },
+  "other20_source_live_snapshot": {
+    "updated_utc": "2026-10-21T12:19:26.550723+00:00",
+    "batch_status": "controller_started_capacity_pending",
+    "objects": 20,
+    "planned_source_attempts": 80,
+    "actual_Native_submissions": 1,
+    "actual_Native_active": 1,
+    "actual_source_episodes": 2,
+    "actual_source_successes": 1,
+    "actual_objects_CPU_gate_passed": 0,
+    "source_training_allowed": false,
+    "formal_accepted_objects": 0
+  },
+  "neutral_backdrop_probe_launch": {
+    "namespace": "/public_fast_storage/grasp_ssr_ood_multiserver_20261009/Beaker100_DP_s26102251_GLASSBLACKBACKDROP_v3084",
+    "pid": 4090443,
+    "start_ticks": "294138980",
+    "formal_accepted": false,
+    "paper_ssr": null
+  },
+  "previous_terminal_evidence_url": "verification/T-552-terminal-visual-and-source-pilots-v76.json",
+  "original_targets_and_SSR_and_independent_generalization_and_visual_gates_unchanged": true
+}

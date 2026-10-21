@@ -42,7 +42,7 @@ function mountOriginal12Media(ten){
 
 async function loadProgress(){
   try{
-    const response=await fetch('results/grasp_progress_20261009.json?v=20261021-v76');
+    const response=await fetch('results/grasp_progress_20261009.json?v=20261021-v77');
     if(!response.ok)throw Error(`HTTP ${response.status}`);
     const p=await response.json(),t=p.totals,b=p.beaker100_diagnosis,g=p.generalization;
     $('progressUpdated').textContent=`核实时间：${p.updated_utc} · ${p.update_mode}`;
