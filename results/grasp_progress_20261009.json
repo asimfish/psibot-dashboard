@@ -1,6 +1,6 @@
 {
   "schema": "grasp.progress_snapshot.v1",
-  "updated_utc": "2026-10-21T00:13:23.354592+00:00",
+  "updated_utc": "2026-10-21T08:29:28.784939+00:00",
   "update_mode": "Each training row retains actual receipt time; all6 recovered DP have observed updates; 4 finalDP CPU/SSD gates and 3 new ACT full-state durable gates passed.",
   "totals": {
     "productive_training_runs": 92,
@@ -3375,7 +3375,7 @@
     "note": "同一2秒动作与手指目标前缀逐位一致，仅增加0.6秒保持。终点位置误差从25.7/25.8mm降至5.9/6.3mm；这是开发诊断，目标与全程约束尚未绑定论文SSR。四条轨迹三相机关键帧已查：头部及第三视角持续覆盖目标，胸部抬升后出画本身不判视觉失败。玻璃渲染与全程穿模仍待验收。",
     "evidence_url": "results/grasp_fixed_action_hold_camera_20261010.json"
   },
-  "latest_training_evidence_url": "verification/T-552-recovery-and-diagnostics-v73.json",
+  "latest_training_evidence_url": "verification/T-552-source100-and-DP-k4-v74.json",
   "paper_domain_contract": {
     "schema": "grasp.paper_domain_contract.v1",
     "domains": [
@@ -8026,6 +8026,44 @@
         "summary": "四次专家源试采均完成抬升与保持，终点20mm分量4/4；不计DP/ACT或论文SSR验收。",
         "note": "边界位置为XY四个±2.8cm角点。三路连续原录像各720帧；编码24秒对应实际物理约96.03秒，建议0.25倍速检查接触。视频完整解码与抽帧已复核，完整视觉尚未通过。新100条±3cm旧时钟源当前63/100，已完成回合均成功且终点20mm合格；新训练频率门未通过。",
         "evidence_url": "verification/T-552-grasp-parallel-source-v68.json"
+      },
+      {
+        "id": "brown250_true30Hz_source91",
+        "label": "棕色250ml容量瓶 · 新30Hz源第91条失败",
+        "candidate_label": "三相机原视频选帧",
+        "actual_trials": 1,
+        "selected_frames_per_candidate": 24,
+        "summary": "新源100条：原生成功99/100；第91条未抬起。终点20mm100/100是诊断分量，不能代表抓取成功。",
+        "note": "本播放器仅第91条的三相机24秒原轨迹。另100条均保留；已核对实际3cm支持、30Hz及71925帧标签配对。失败不会伪标为成功示范，追加采集不改变原99/100。完整视觉与源训练准入仍待核。",
+        "evidence_url": "verification/T-552-source100-and-DP-k4-v74.json",
+        "media": {
+          "videos": [
+            {
+              "camera": "chest_camera",
+              "url": "media/grasp-brown250-source91-v74/chest_camera.mp4",
+              "original_url": "media/grasp-brown250-source91-v74/chest_camera_original.mp4",
+              "actual_decoded_frames": 719
+            },
+            {
+              "camera": "head_camera",
+              "url": "media/grasp-brown250-source91-v74/head_camera.mp4",
+              "original_url": "media/grasp-brown250-source91-v74/head_camera_original.mp4",
+              "actual_decoded_frames": 719
+            },
+            {
+              "camera": "third_camera",
+              "url": "media/grasp-brown250-source91-v74/third_camera.mp4",
+              "original_url": "media/grasp-brown250-source91-v74/third_camera_original.mp4",
+              "actual_decoded_frames": 719
+            }
+          ],
+          "images": [
+            {
+              "episode_index": 90,
+              "url": "media/grasp-brown250-source91-v74/contact_sheet.jpg"
+            }
+          ]
+        }
       }
     ],
     "thumb_fixed3_original_camera_review": {
@@ -8131,8 +8169,8 @@
   },
   "sampled_utc": "2026-10-21T00:13:23.354592+00:00",
   "latest_frontier": {
-    "schema": "grasp.frontier.v73",
-    "updated_utc": "2026-10-21T00:13:23.354592+00:00",
+    "schema": "grasp.frontier.actual30Hz.source100.DPk4.v74",
+    "updated_utc": "2026-10-21T08:29:28.784939+00:00",
     "formal_accepted_objects": 0,
     "formal_accepted_methods": 0,
     "paper_ssr": null,
@@ -8149,14 +8187,16 @@
       },
       {
         "title": "真实30Hz资格检查",
-        "status": "30Hz时钟已过；DP4步执行待实测",
-        "note": "采集与三相机时钟已通过。原DP一次缓存执行8步，后续须按论文保留8步预测、执行4步再规划；同一原代码的CPU队列验证已过，Native计数仍待检查。ACT三模型原留出末帧关节误差约0.0065–0.0067rad，不能替代笛卡尔精度或SSR。"
+        "status": "30Hz与DP4步执行已实测通过",
+        "note": "720次控制 /180次神经预测，每次仍预测8步、执行4步；三相机720次图像逐次刷新，渲染额外物理步为0。原DP2251单点1/1、终点15.28mm仅作协议诊断，不能充作论文SR/SSR或泛化验收。",
+        "run_candidate": "t552-beaker100-dp-s26102251-k4-clock1-v74"
       },
       {
         "title": "并行采集与既有训练",
-        "status": "新30Hz源100条队列等待连接",
-        "note": "5090与Pro6000现有路由超时，当前远端进度未知；旧源最后实测92/100。新3cm、24秒、30Hz的100条采集配置已冻结，本地恢复队列先核对唯一任务再提交，尚无Native启动回执。旧本地自动转存已因路由等待超时退出，原件保留。",
-        "collection_dataset_id": "brown250_source3cm_pilot4"
+        "status": "新30Hz源100条已闭合：99/100成功",
+        "note": "3cm范围、24秒、30Hz，71925帧和300原视频已SHA校验转存Ali；全部动作/观测逐位配对通过，原RGB全量转换中。52个位置超出旧2cm范围。第91条空抓，失败完整保留；追加4个源位置已预先冻结并排队。新模型训练尚未准入。 已实际查看全部100条三相机、8个阶段共2400张选帧；完整接触/穿模仍待核。",
+        "collection_dataset_id": "brown250_true30Hz_source91",
+        "previous_collection_dataset_id": "brown250_source3cm_pilot4"
       }
     ],
     "strict_spatial_scope": "Table11给出终点空间20mm筛查；C.3的SSR检查整条轨迹中适用阶段的全部活动约束。固定最终目标不能作为移动过程中每一帧的目标。严格目标坐标系、旋转阈值和阶段仍待绑定。",
@@ -30484,6 +30524,220 @@
       "all3_ACT_original_weights_unchanged": true,
       "strict_SSR_bound": false,
       "full_visual_passed": false
+    },
+    "actual_DP_k4_Native": {
+      "passed": true,
+      "actual30Hz_IL_clock_qualified": true,
+      "actual_Hz": 29.999998435378156,
+      "actual_policy_inputs": 720,
+      "actual_render_boundaries": 720,
+      "render_extra_physics_events": 0,
+      "all_inputs_four_physics_events": true,
+      "camera": {
+        "chest_camera": {
+          "policy_input_frames": 720,
+          "distinct_RGB_SHA256": 720,
+          "sensor_frame_increments": 719,
+          "frame_increment_fraction": 1.0
+        },
+        "head_camera": {
+          "policy_input_frames": 720,
+          "distinct_RGB_SHA256": 720,
+          "sensor_frame_increments": 719,
+          "frame_increment_fraction": 1.0
+        },
+        "third_camera": {
+          "policy_input_frames": 720,
+          "distinct_RGB_SHA256": 720,
+          "sensor_frame_increments": 719,
+          "frame_increment_fraction": 1.0
+        }
+      },
+      "original_DP918_goal_and_source_bytes_preserved": true,
+      "legacy_training_clock_mismatch_explicit": true,
+      "Native_success": 1,
+      "terminal20mm": 1,
+      "paper_ssr": null,
+      "formal_accepted": false,
+      "full_visual_passed": false,
+      "new_training_allowed": false,
+      "scope": "One fixed baseline clock/camera diagnostic; does not qualify a new30Hz dataset or replace the original native policy SR.",
+      "actual_DP_execution4_qualified": true,
+      "actual_neural_predictions": 180,
+      "actual_controls": 720,
+      "actual_full4_action_groups": 179,
+      "last_group_length": 4,
+      "all_raw_model_prediction_shapes": [
+        1,
+        8,
+        13
+      ],
+      "model_source_weights_unchanged": true,
+      "Native_neural_and_queue_counter_verified": true
+    },
+    "actual_source100_30Hz": {
+      "passed": true,
+      "actual30Hz_clock_passed": true,
+      "source_failed_episodes": [
+        91
+      ],
+      "native_success_gate_passed": false,
+      "new_training_allowed": false,
+      "scope": "Development source numeric and actual XY support only. Complete glass/contact/collision/orientation visual curation remains open; neither policy SR nor paperSSR.",
+      "actual_episodes": 100,
+      "source_native_successes": 99,
+      "terminal20mm_components": 100,
+      "actual_input_frames": 71925,
+      "actual_reset_XY_min_m": [
+        -0.029535627365112394,
+        -0.02998723983764684
+      ],
+      "actual_reset_XY_max_m": [
+        0.0296977996826171,
+        0.029077148437499645
+      ],
+      "actual_reset_outside_prior2cm": 52,
+      "actual_first_input_XY_min_m": [
+        -0.0296741485595704,
+        -0.029951000213623402
+      ],
+      "actual_first_input_XY_max_m": [
+        0.029610538482665927,
+        0.029092884063720348
+      ],
+      "actual_first_input_max_abs_m": 0.029951000213623402,
+      "nominal_collection_half_extent_m": 0.03,
+      "source_support_is_actual_reset_and_first_input_not_requested_only": true,
+      "all100_attempts_retained": true,
+      "all_numeric_finite": true,
+      "source_components_SHA256": "570d88f41a7db6f3b48f8a052fe13115070f5dba4d915ad0a2c4bae7035c3fca",
+      "input_trace_SHA256": "1f75a917d0d26beceb58908aed1be832b0e54d46280f310f0808ad151c4f8023",
+      "reset_trace_SHA256": "1e145109f05e32c344b01ae42608f9c653f64223adecac2f1c6cdc2e30d220fc",
+      "future_OOD_requirements": "Use frozen separate1050; verify each actual reset is outside the observed source support plus declared3cm box for outside-only cohorts. No formal claims until strict SSR and full visual gates close.",
+      "formal_accepted": false,
+      "paper_ssr": null,
+      "full_visual_passed": false,
+      "training_launched": false,
+      "GPU_initializations": 0
+    },
+    "all100_source_sampled_visual_review": {
+      "reviewed_utc": "2026-10-21T08:32:58.817873+00:00",
+      "actually_viewed_episode_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100
+      ],
+      "actually_viewed_overview_pages": 20,
+      "cameras_per_episode": 3,
+      "phase_samples_per_camera": 8,
+      "total_sampled_frames": 2400,
+      "confirmed_empty_grasp_episodes": [
+        91
+      ],
+      "other99_sampled_lifts_consistent_with_native": true,
+      "brown_glass_body_and_neck_rendering_visible": true,
+      "no_additional_gross_visual_anomalies_in_sampled_overviews": true,
+      "limitations": "Overview phase samples are finite and reduced in resolution; cannot certify all contact intervals or subpixel penetration. Complete collision/strict source safety gates remain open.",
+      "full_visual_passed": false,
+      "formal_accepted": false,
+      "new_training_allowed": false
     }
   },
   "dashboard_browser_totals": {

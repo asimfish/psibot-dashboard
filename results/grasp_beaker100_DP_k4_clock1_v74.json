@@ -1,0 +1,105 @@
+{
+  "updated_utc": "2026-10-21T08:29:28.784939+00:00",
+  "runs": [
+    {
+      "candidate": "t552-beaker100-dp-s26102251-k4-clock1-v74",
+      "display_name": "DP · 100ml烧杯 · 30Hz / 执行4步 · 单点诊断1/1",
+      "object": "glass_beaker_100ml",
+      "method": "dp",
+      "development": true,
+      "current_native": false,
+      "paper_ssr_percent": null,
+      "formal_accepted": false,
+      "full_visual_passed": false,
+      "sampled_visual_review": true,
+      "full_decode_passed": true,
+      "progress": {
+        "episode_num": 1,
+        "episode_success_num": 1,
+        "success_rate": 1.0
+      },
+      "cases": [
+        {
+          "episode": 1,
+          "camera": "chest_camera",
+          "url": "media/grasp-beaker100-dp-k4-clock1-v74/chest_camera.mp4",
+          "success": true,
+          "frames": 720,
+          "encoded_fps": "30/1",
+          "source_SHA256": "191ab3978f7c7b5eca3c4e14fece96ecc6b57f0b905ad5790ac2f5430e15994b",
+          "browser_derivative_SHA256": "3d6ec76d6cb4ea023f10b0a79a521b298703ccd625757a67d58068c485241eac",
+          "caption": "30Hz/执行4步单点诊断；原生成功、终点15.28mm；玻璃白化仍待处理"
+        },
+        {
+          "episode": 1,
+          "camera": "head_camera",
+          "url": "media/grasp-beaker100-dp-k4-clock1-v74/head_camera.mp4",
+          "success": true,
+          "frames": 720,
+          "encoded_fps": "30/1",
+          "source_SHA256": "e939a7afc38da8c49bb006b97602e29b2deef37902cf2889b0c51cd5fc3fe2a6",
+          "browser_derivative_SHA256": "d8aa53293036a0d30a80c9bea1c863f0324c4af6d2e4e5938006624fc98f75f0",
+          "caption": "30Hz/执行4步单点诊断；原生成功、终点15.28mm；玻璃白化仍待处理"
+        },
+        {
+          "episode": 1,
+          "camera": "third_camera",
+          "url": "media/grasp-beaker100-dp-k4-clock1-v74/third_camera.mp4",
+          "success": true,
+          "frames": 720,
+          "encoded_fps": "30/1",
+          "source_SHA256": "0fce4fc298a1cf845bd540ab85d33ee5645fb22d832275d40b9bf2a2b084c11c",
+          "browser_derivative_SHA256": "71168e92d57dc04365979caa5a8a0aec71ffcda73c02ccd0f6a78045a11c826a",
+          "caption": "30Hz/执行4步单点诊断；原生成功、终点15.28mm；玻璃白化仍待处理"
+        }
+      ],
+      "cohorts": {
+        "uniform_box+0cm": {
+          "expected_episodes": 1,
+          "episodes_completed": 1,
+          "success_count": 1,
+          "translation_component_count": 1,
+          "actual_outside_count": 0,
+          "paper_ssr": null,
+          "formal_accepted": false,
+          "success_rate": 1.0,
+          "translation_component_rate": 1.0
+        }
+      },
+      "terminal20mm_component_count": 1,
+      "terminal_translation_errors_mm": [
+        15.28362154261869
+      ],
+      "protocol": {
+        "method": "dp",
+        "seed": 26203511,
+        "range_label": "+0固定诊断点（+10 / −5mm）",
+        "duration_label": "配置24秒；实际30Hz / 720控制步",
+        "checkpoint_sha256": "a905983551a0f5ff4712250d6d2dfb91830adfb59cd14908f9ce554f0111d4f7",
+        "collection_gpu_model": "NVIDIA GeForce RTX 5090",
+        "test_gpu_model": "NVIDIA RPBZZZ6",
+        "note": "现有918张量原DP2251 EMA；原有执行horizon=4选项，模型仍预测8步。单点诊断，不替代原三种子开发成绩、50次/种子的独立测试或论文SSR。",
+        "collection_test_gpu_model_match_qualified": false
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": 26102251
+        },
+        "last": {
+          "epoch": 3000,
+          "global_step": 399000
+        }
+      },
+      "metric_note": "单个固定点的控制周期资格检查：成功1/1、终点20mm分量1/1（15.28mm），不足以判SR达标或泛化。720次控制、180次原8步预测、每次执行4步，实际30Hz与三相机刷新全通过。原训练数据约7.5Hz，源5090/测试RPB；玻璃白化和完整接触检查仍未通过。论文Spatial SSR待核。",
+      "evidence_url": "verification/T-552-source100-and-DP-k4-v74.json",
+      "cross_GPU_development_only": true,
+      "terminal_hold_count": 1,
+      "terminal_hold_label": "终点保持抬起"
+    }
+  ],
+  "formal_accepted": false,
+  "paper_ssr": null
+}
