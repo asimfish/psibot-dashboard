@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_owner": "T-563",
-  "formal_accepted": 101,
+  "formal_accepted": 103,
   "target_total": 400,
   "position_randomization": false,
   "status": "collecting_and_quality_revision",
@@ -13,7 +13,7 @@
       "accepted_count": 0,
       "target_count": 100,
       "state": "formal0_actual_node2_closed_bar_query_geometry_repair_CPU",
-      "note": "修订版0/100。已定位真实完整开门节点失败：节点1全部门通过，节点2仅一节手指对把手SAT约−3.14mm，低于原−2mm门；查询仍用当前闭门把手几何。正在修正每个规划角度对应的门几何投影并做恢复/禁step检查；原2mm、4N、40秒、完整world/self/机身门保持。完整开门/五步与三相机仍未通过，不重复旧失败批次。",
+      "note": "正式0/100。真实开门节点失败已定位为规划查询使用闭门把手几何；新代码对每个未来角度检查对应门几何，并覆盖原retime/final qualify全部后继，7份实际SDK/轨迹源码已闭合。新CPU整套stage发现旧overlay没有被假定必需的pipeline目录，正按实际ENV/源码依赖修正完整闭包。新Native开门/五步和相机仍未通过，原2mm/4N/40秒与完整碰撞门保留。",
       "conditions": [
         {
           "id": "AB",
@@ -37,10 +37,10 @@
       "id": "t5_obstruction",
       "title": "5 子任务 · 六垫遮挡移位",
       "action_count": 5,
-      "accepted_count": 99,
+      "accepted_count": 100,
       "target_count": 100,
-      "state": "formal99_new_env0_full5_machine_pass_CPU_noise_visual_export_pending",
-      "note": "正式99/100：左烧杯50/50、交换49/50。已取回新云四路原终态：env0完整五步及39规划独立机审通过，2052帧/136.8秒、生成1137.07秒，有新实际120Hz运动指纹；另外三路失败排除。正在安排原噪声/三视角近臂抽检、44文件导出和数字读回验收，尚未计入最后一条。5090另一独立尝试在623.58秒后第2步cuRobo规划失败，保留原输入且无外部进程改动。",
+      "state": "complete100_two_layouts50_each_actual_CAS103_and_root_readback",
+      "note": "正式100/100完成，两种物体左右布局各50条。最后env0完整五步39规划，2052帧/136.8秒、生成1137.07秒；原23静止对噪声与全物理机审通过，根实际5图表+3近臂PNG抽查、3帧原视频像素一致。44文件已根独立下载逐SHA核验，全部2052帧状态/动作/速度/EEF与原120Hz对齐、16418行真实运动去重通过，原CAS102→103并fresh完整账本确认。自然胸部前景手臂局部遮挡如实记录，未声称人工通看完整视频。",
       "conditions": [
         {
           "id": "A_left_B_right",
@@ -52,29 +52,29 @@
         {
           "id": "B_left_A_right",
           "label": "锥形瓶1在左、烧杯1在右",
-          "accepted_count": 49,
+          "accepted_count": 50,
           "target_count": 50,
-          "exported_candidate_count": 49
+          "exported_candidate_count": 50
         }
       ],
-      "exported_candidate_count": 99,
-      "within_quota_candidate_count": 99
+      "exported_candidate_count": 100,
+      "within_quota_candidate_count": 100
     },
     {
       "id": "t7_weigh",
       "title": "7 子任务 · 四杯称量",
       "action_count": 8,
-      "accepted_count": 2,
+      "accepted_count": 3,
       "target_count": 100,
-      "state": "formal2_forward1534_private56_root_allSHA_numeric_pass_CAS102_pending_R4_running",
-      "note": "正式2/100，正反序各1。正序1534完整机审、实际源闭合和根原图抽查通过，175.2秒视频；现已真实导出56文件，根独立整文件流读56SHA全部通过，2628帧状态/动作/速度/EEF/曝光和原120Hz关节逐行一致、全21026行运动去重已重算；下一批四路启动后执行原锁定CAS，尚未加数。反序1533完整8次/175.47秒待全机审；另四个新反序seed1536～1539已真实运行在四个独立PCI上，尚不计成功。",
+      "state": "formal3_forward1534_originalCAS102_committed_R1533_CPU_audit_started",
+      "note": "正式3/100：正序2、逆序1。正序1534已通过完整机审、实际源闭合、根原图抽检、56文件整字节SHA与2628帧数值读回，175.2秒，原CAS101→102已真实完成且旧101行保留。逆序1533完整8次/175.47秒已启动独立全量CPU验收，尚未加数。上一随机seed1536完成8步但187.47秒超时，其余3路失败；新批四路被磁盘门拦住，均非当前运行。改用已成功1531参数和最终撤手小幅时钟变化准备两卡八环境，全程重新物理执行并验收。",
       "conditions": [
         {
           "id": "1234",
           "label": "顺序 1234",
-          "accepted_count": 1,
+          "accepted_count": 2,
           "target_count": 50,
-          "exported_candidate_count": 1
+          "exported_candidate_count": 2
         },
         {
           "id": "4321",
@@ -84,8 +84,8 @@
           "exported_candidate_count": 1
         }
       ],
-      "exported_candidate_count": 2,
-      "within_quota_candidate_count": 2
+      "exported_candidate_count": 3,
+      "within_quota_candidate_count": 3
     },
     {
       "id": "t10_weigh",
@@ -93,8 +93,8 @@
       "action_count": 10,
       "accepted_count": 0,
       "target_count": 100,
-      "state": "formal0_actual_four_Native_running_physics_speed_canary_render_pending",
-      "note": "修订版0/100。新四路controls20/32/48/64已在四个独立PCI上真实启动，检查完整十次操作和速度；尚无完整成功或≤180秒结论。原130规划/手形/121稳定/完整120Hz碰撞SDK和轨迹门保留。此批使用原T10渲染源，仅为物理与速度验证，GI白粒/自然休眠与最终三视角仍需独立修订，不能提前作为质量通过数据。",
+      "state": "formal0_actual4_full10_completed_all_over180_final_timing_repair",
+      "note": "正式0/100。四路controls20/32/48/64均已完成全部十次动作，实际视频225.93/229.46/223.43/224.55秒，全部超过180秒而排除，生成3072～3158秒。已逐实际65条PLAN对账：运动约123～129秒，手型/真实稳定等约98秒；第2步新LS候选被原曲线world/self门拒绝，最终走原回退，继续盲调前置controls无效。正在修最终时钟及手型过渡；原碰撞/31tick/121稳定阈值保留，GI噪声和自然休眠修复也单独验证。",
       "conditions": [
         {
           "id": "12345",
@@ -115,13 +115,13 @@
       "within_quota_candidate_count": 0
     }
   ],
-  "snapshot_id": 1312,
-  "updated_at": "2026-10-22T16:37:42.060943+00:00",
+  "snapshot_id": 1334,
+  "updated_at": "2026-10-22T18:09:13.405182+00:00",
   "training_eligible_count": 0,
-  "acceptance_note": "修订版101/400正式验收导出：六垫左烧杯50/50、交换49/50，T7正序1/50、逆序1/50，其余四条件各0。新逆序完整8次取放、21421物理tick/52规划，原物理/SDK/world/轨迹机审及166静止对噪声、7原三视角sheet+42原PNG根抽查通过；57实际导出文件逐SHA重核，2677帧动作/状态/速度/EEF/时钟已根机器独立读回一致，CAS100→101且旧100完整行保留。胸部4段自然臂遮挡（末尾1.93秒至视频结束）已明确写入数据限制，其他两视角同期可见。完整400条、生成三分钟与DP/ACT训练测试尚未完成。",
-  "diagnostic_note": "正式101/400。当前已确证两批共8个真实云Native进程启动：四路T10速度验证、四路T7反序采集。正序1534已完成56文件独立SHA与2628帧数值读回，待原锁定CAS；5b新env0完整五步和39规划机审通过，正在安排噪声/实际画面/导出验收以补最后一条。干燥箱开门节点问题已具体定位。单条生成三分钟目标、完整400条与DP/ACT训练测试均未完成。",
+  "acceptance_note": "修订版103/400正式验收。六垫避障搬运100/100完成：烧杯左/锥形瓶右50条、交换布局50条；四杯正序2/50、逆序1/50；干燥箱与五杯均0。最后六垫样本136.8秒，完整39规划和原物理/SDK/噪声门通过，根8图抽查、44文件独立整SHA、2052帧数值与16418行真实运动去重后，已执行原CAS102→103并独立读取新账本。全部400条、生成三分钟与DP/ACT训练测试尚未完成。",
+  "diagnostic_note": "正式103/400。已通过新双卡Pro6000真实SSH通路恢复CPU验收：CAS102用时12.38秒，新六垫最后一条候选噪声/近臂验收11.19秒，根已抽查8图及3帧原视频像素，原依赖已补齐，44文件独立整SHA与2052帧数值回读及原CAS103已完成，六垫100条齐全。上一批T10四路均完整物理成功但视频223～229秒，超180不计；T7随机seed四路均未合格，新批启动被磁盘门拦住，均已结束，不能再报8路运行。正在释放自有不合格尝试的无损归档空间，准备两卡八环境真实新采。",
   "cloud_status": {
-    "state": "formal101_actual8_cloud_Native_started_forward1534_private56_pass_5b_new_success_pending",
+    "state": "formal102_existing_DEV_CPU_acceptance_recovered_old_jobs_closed_new_multienv_preparing",
     "current": [
       {
         "host": "cloud16GPU32env",
@@ -548,7 +548,7 @@
         "host": "cloud_5b_final9294_1294",
         "operation_id": "pemabocg7h1tu7wz4m20ykmz7",
         "job_id": "job-p18s82p1q6lb",
-        "state": "平台FAILED保留实际单路成功：env0完整五步及39规划机审通过，2052帧/136.8秒、生成1137.07秒。新实际运动指纹420823...，仍须原噪声/实际三视角和44导出数值回读/去重CAS；另外三路失败，不把整批平台状态当全部Native失败。"
+        "state": "已完成env0原全验收和44文件独立SHA/2052帧数值读回，CAS102→103，六垫两布局各50条全部齐全。其余三失败排除；本批无待验。"
       },
       {
         "host": "5090_Native51_ABI1293_actual_pass",
@@ -558,17 +558,22 @@
         "host": "cloud_T10_four1306_actual_started",
         "operation_id": "qstry4rvl5t0s4g090rbbpb4e",
         "job_id": "job-owavt6ufmvs5",
-        "state": "实际GET RUNNING，四个独立PCI的原LAUNCH已取回。四个controls20/32/48/64 Native已真实启动；尚不声称完整10次成功。CPU附件28.12秒实际完成T7正序1534的56文件导出和BOS完整字节读回。"
+        "state": "实际平台SUCCEEDED、四Native均full10物理成功；视频223～229秒全超180，正式0。真实最终65PLAN与约98秒手型/稳定开销已取回并逐tick对账；此批旧渲染仍未质量批准。"
       },
       {
         "host": "cloud_T7_Rscale1302_actual_started",
         "operation_id": "vb6uioni10h1bmzchesprfei1",
         "job_id": "job-ktz2jfi75pey",
-        "state": "实际GET RUNNING；原STARTUP中四个LAUNCH_RECEIPT逐原字节SHA核验，seed1536/1537/1538/1539在PCI61/a1/a3/a4独立启动，原驱动/Torch实际matmul及源码/SDK/账本准入通过；尚不推断完整8步成功。"
+        "state": "实际平台FAILED、四路已闭合：1536全部8次但187.47秒超180；1537第1步下放、1538第4步撤手、1539第3步接近失败，0条合格，不再报RUNNING。"
       },
       {
-        "host": "cloud_Rscale1312_CPU_preparing",
-        "state": "下一批四个新seed1540～1543及CPU验收附件准备中，尚未提交：拟在四个真实Native启动后同步运行根已审的1534单条CAS102、新R1533完整机审和新5b1294噪声/图像/数值验收。"
+        "host": "cloud_Rscale1312_startup_disk_failed",
+        "state": "实际FAILED：固定1536GiB空间门在source复制前拒绝，0个Native、CPU附件均未执行。真实新DEV测得公用盘约128GiB，旧1456GiB预留已失效，正按真实关闭任务/新预算修复；未重投旧任务。",
+        "job_id": "job-7klaae5j677c"
+      },
+      {
+        "host": "owned_new_2xPRO6000_CPU_recovered1320",
+        "state": "实际SSH通过5090转发至新30032端口，已完成原CAS102与5b1308 CPU验收，不额外租GPU跑CPU。当前准备2GPU×4环境新采；先核空间/独立PCI/显存与CPU闭包，尚未启动。"
       }
     ],
     "note": "正式数量以公共验收账本和完整导出读回为准；纯规划、运行中、物理成功、重复轨迹和渲染HOLD均不计数。"
@@ -613,7 +618,9 @@
       142.8,
       178.26666666666668,
       142.6,
-      178.46666666666667
+      178.46666666666667,
+      175.2,
+      136.8
     ],
     "accepted_generation_wall_s": [
       849.788656297,
@@ -638,7 +645,9 @@
       1183.1274067251943,
       2154.7880347548053,
       1185.4186045206152,
-      2186.22784393467
+      2186.22784393467,
+      2051.4,
+      1137.0660612136126
     ],
     "original_physical_gates_unchanged": true,
     "declared_speed_policies": {
@@ -662,7 +671,7 @@
       },
       "note": "实际场景与分支不同，不能宣称所有阶段都已加速。生成180秒目标仍未达成。"
     },
-    "generation_measurement_scope": "列表为部分已核对样本，非101条穷举。最新T7逆序视频178.47秒、生成2186.23秒；正序视频178.27秒、生成2154.79秒；六垫最新142.6秒、生成1185.42秒。单条生成180秒目标未达成。",
+    "generation_measurement_scope": "列表为部分核对样本，非103条穷举。新增正序1534视频175.2秒、生成2051.4秒；新T10四条视频223～229秒均排除。生成180秒尚未实现。",
     "actual_T10_time_split_s": {
       "forward": {
         "plan": 124.54166666666661,
@@ -704,10 +713,10 @@
     "new_seed1534_candidate": {
       "video_s": 175.2,
       "generation_wall_s": 2051.4,
-      "formal_accepted": false,
+      "formal_accepted": true,
       "independent_full_audit_pending": false,
       "actual56_private_export_and_root_allSHA_numeric_passed": true,
-      "formal_CAS_pending": true
+      "formal_CAS_pending": false
     },
     "latest_unaccepted_R1533_candidate": {
       "video_seconds": 175.46666666666667,
@@ -908,9 +917,18 @@
     "root_actual_frontier1312": "revision_quality_20261021/ACTUAL_FRONTIER1312.json",
     "seed1534_root_private56_byte_SHA": "revision_quality_20261021/ROOT_BOS56_CONTINUATION1311_1792686352788640738/ROOT_ALL56_BOS1311_ACTUAL.json",
     "seed1534_root2628_numeric": "revision_quality_20261021/ROOT_SEED1534_NUMERIC1311_ACTUAL.json",
-    "seed1534_root_CAS102_approved_not_executed": "revision_quality_20261021/seed1534_publish1312_root_CPU/FROZEN_ROOT_CAS1312_CPU.json",
     "Rscale1302_four_actual_launch": "revision_quality_20261021/Rscale1302_BOS1308_agent/read_1792686502294519524/STARTUP_EVIDENCE.json.raw",
-    "T10_1306_actual_GET": "revision_quality_20261021/T10_1306_GET_1307_agent/ACTUAL_GET_1792686925671233049.json"
+    "T10_1306_actual_GET": "revision_quality_20261021/T10_1306_GET_1307_agent/ACTUAL_GET_1792686925671233049.json",
+    "root_actual_frontier1326": "revision_quality_20261021/ACTUAL_FRONTIER1326.json",
+    "formal102_actual_readback": "revision_quality_20261021/FORMAL102_1320_ACTUAL.json",
+    "formal102_ledger_sha256": "b33bd5e9a181b43b55defe633910ef5e41d3eeec9c9688472e9b304c4ff3eae6",
+    "new5b_root_sampled_approval": "revision_quality_20261021/ROOT_5B1294_SAMPLED_VISUAL1321_APPROVAL.json",
+    "T10_actual65_plan_and98s_decomposition": "revision_quality_20261021/T10_timing_final1319_CPU_agent/ACTUAL_T10_EXACT65_AND98S_DECOMPOSITION1324.json",
+    "root_actual_frontier1334": "revision_quality_20261021/ACTUAL_FRONTIER1334.json",
+    "formal103_actual_readback": "revision_quality_20261021/FORMAL103_1334_ACTUAL.json",
+    "formal103_ledger_sha256": "2732a603f46e0dfef48ee9140391763a6ca6d018f3c77347643778ab1961bda2",
+    "last5b_root44_independent_SHA": "revision_quality_20261021/5b_private44_root1332_1792692115218737000/ROOT_ALL44_INDEPENDENT_SHA1332.json",
+    "last5b_root2052_independent_numeric": "revision_quality_20261021/5b_private44_root1332_1792692115218737000/ROOT_NUMERIC2052_INDEPENDENT1332.json"
   },
   "render_quality": {
     "required_views": [
@@ -921,10 +939,10 @@
     "all_accepted": false,
     "diagnostic_counterfactuals_are_not_collection_data": true,
     "native_head_chest_directions_preserved_in_5b": true,
-    "transparent_materials_labels_shadows_and_noise": "六垫99条、四杯正反序各1条均已分别绑定实际原图抽查、透明材质/相机/真实噪声与完整数值证据。四杯逆序166静止对最大P99 .16682，7原sheet+42原PNG实际看过；4段胸部自然臂遮挡如实记录，末尾1.93秒直到视频结束，其他两视角同期可见。干燥箱相机仍未批准。均不声称人工看过完整视频。"
+    "transparent_materials_labels_shadows_and_noise": "六垫100条、四杯正序2及逆序1正式样本均已绑定各自实际抽帧、噪声及全量数值验收。新增正序1534通过56文件整SHA与数值读回；六垫最后一条已过23静止对噪声与8图抽查、44文件整SHA和数值读回并正式发布。胸部自然前景手臂遮挡按样本如实记录；干燥箱与五杯相机/渲染尚未最终批准；不声称人工通看全部视频。"
   },
-  "exported_candidate_count": 101,
-  "within_quota_candidate_count": 101,
+  "exported_candidate_count": 103,
+  "within_quota_candidate_count": 103,
   "legacy_snapshot": {
     "snapshot_id": 823,
     "exported_candidate_count": 108,
