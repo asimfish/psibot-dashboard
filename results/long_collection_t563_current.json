@@ -66,8 +66,8 @@
       "action_count": 8,
       "accepted_count": 2,
       "target_count": 100,
-      "state": "formal2_seed1534_audited_sampled_visual_pass_reverse4_new_cloud_job_PENDING",
-      "note": "正式2/100，正反序各1。1534新候选完整8次取放、21026tick/52规划、175.2秒视频及193严格静止对机审通过；根看7原图表+55原PNG，核203PNG/RGB及运动数组后抽样视觉通过。胸部自然手臂遮挡已记录，阈值区间不等于总遮挡或精确恢复边界；对应头/第三视角抽查可见任务。完整实际启动闭合、最新去重/导出CAS待新云通路，未提前加1。新四卡逆序不同种子任务1284实际PENDING，尚未确认Native启动；旧Fpitch任务FAILED的实际原因仍待原卷日志。",
+      "state": "formal2_seed1534_audit_visual_pass_reverse4_provider_RUNNING_Native_unconfirmed",
+      "note": "正式2/100，正反序各1。1534新候选完整8次取放、21026tick/52规划、175.2秒视频及193严格静止对机审通过；根看7原图表+55原PNG，核203PNG/RGB及运动数组后抽样视觉通过。胸部自然手臂遮挡已记录，阈值区间不等于总遮挡或精确恢复边界；对应头/第三视角抽查可见任务。完整实际启动闭合、最新去重/导出CAS待新云通路，未提前加1。新四卡逆序不同种子任务1284容器RUNNING，API日志暂空，尚未确认Native启动；旧Fpitch任务FAILED的实际原因仍待原卷日志。",
       "conditions": [
         {
           "id": "1234",
@@ -115,13 +115,13 @@
       "within_quota_candidate_count": 0
     }
   ],
-  "snapshot_id": 1284,
-  "updated_at": "2026-10-22T14:35:45.119269+00:00",
+  "snapshot_id": 1285,
+  "updated_at": "2026-10-22T14:39:18.712202+00:00",
   "training_eligible_count": 0,
   "acceptance_note": "修订版101/400正式验收导出：六垫左烧杯50/50、交换49/50，T7正序1/50、逆序1/50，其余四条件各0。新逆序完整8次取放、21421物理tick/52规划，原物理/SDK/world/轨迹机审及166静止对噪声、7原三视角sheet+42原PNG根抽查通过；57实际导出文件逐SHA重核，2677帧动作/状态/速度/EEF/时钟已根机器独立读回一致，CAS100→101且旧100完整行保留。胸部4段自然臂遮挡（末尾1.93秒至视频结束）已明确写入数据限制，其他两视角同期可见。完整400条、生成三分钟与DP/ACT训练测试尚未完成。",
-  "diagnostic_note": "新四卡T7逆序采集任务已创建，实际排队中，尚未确认采集进程启动；四路将使用不同规划种子。启动前检查实际数据挂载和运行环境，并取回已有候选的验收证据。5090兼容性检查已推进到最小GPU测试准备；两卡Pro6000仍因个人存储111/100GiB而无法启动。正式仍101/400，完整数据集与三分钟内生成目标均未完成。",
+  "diagnostic_note": "新四卡T7逆序任务的容器已运行，但API尚未返回启动日志，仍未确认四路采集启动。四路将用不同规划种子，必须通过实际挂载与运行环境检查；同时取回已有候选的验收证据。5090最小GPU接口测试准备中；两卡Pro6000仍因个人存储111/100GiB无法启动。正式仍101/400，完整数据集与三分钟内生成目标均未完成。",
   "cloud_status": {
-    "state": "formal101_cloud_reverse4_pending_authorized_auto_project_mount_5090_native51_preparing",
+    "state": "formal101_cloud_reverse4_provider_RUNNING_actual_startup_Native_unconfirmed_5090_preparing",
     "current": [
       {
         "host": "cloud16GPU32env",
@@ -542,7 +542,7 @@
         ],
         "operation_id": "udjs8g5urd0uizhta7t2tyt5e",
         "job_id": "job-qoy0ur7rwagg",
-        "state": "实际平台job PENDING；创建operation成功仅代表创建。四卡拟跑逆序DCBA完整8步，constructor种子1532/1533/1534/1535；原1.5mm规划、120Hz/物理/SDK/碰撞/平滑/噪声/180秒门保留。CPU81独立通过，实际容器挂载/SDK/ABI/PCI/Native仍待验证。"
+        "state": "实际平台job RUNNING但API启动日志暂空，尚未证明实际采集启动；创建operation成功仅代表创建。四卡拟跑逆序DCBA完整8步，constructor种子1532/1533/1534/1535；原1.5mm规划、120Hz/物理/SDK/碰撞/平滑/噪声/180秒门保留。CPU81独立通过，实际容器挂载/SDK/ABI/PCI/Native仍待验证。"
       }
     ],
     "note": "正式数量以公共验收账本和完整导出读回为准；纯规划、运行中、物理成功、重复轨迹和渲染HOLD均不计数。"
@@ -856,7 +856,8 @@
     "cloud_reverse4_authorized_namespace_fix": "revision_quality_20261021/ROOT_RSEED_NAMESPACE1284_AMENDMENT.json",
     "cloud_reverse4_uniquePOST": "revision_quality_20261021/cloud_submit_Rseed1284_root/POST_RESULT.json",
     "cloud_reverse4_actual_PENDING": "revision_quality_20261021/Rseed1284_logs1285_agent/ACTUAL_JOB1284_GET_1792679651062035386.json",
-    "oven_router74_root_CPU": "revision_quality_20261021/ROOT_OVEN_ROUTER1270_REVIEW1282_CPU_ONLY.json"
+    "oven_router74_root_CPU": "revision_quality_20261021/ROOT_OVEN_ROUTER1270_REVIEW1282_CPU_ONLY.json",
+    "cloud_reverse4_actual_provider_RUNNING": "revision_quality_20261021/Rseed1284_logs1285_agent/read_1792679801118375222/ACTUAL_GET_ONLY_RECOVERY1285.json"
   },
   "render_quality": {
     "required_views": [
