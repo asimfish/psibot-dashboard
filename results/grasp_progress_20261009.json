@@ -1,14 +1,14 @@
 {
   "schema": "grasp.progress_snapshot.v1",
-  "updated_utc": "2026-10-21T12:25:59.446082+00:00",
+  "updated_utc": "2026-10-22T17:50:51.159342+00:00",
   "update_mode": "Each training row retains actual receipt time; all6 recovered DP have observed updates; 4 finalDP CPU/SSD gates and 3 new ACT full-state durable gates passed.",
   "totals": {
-    "productive_training_runs": 98,
+    "productive_training_runs": 100,
     "DP": 50,
-    "ACT": 48,
+    "ACT": 50,
     "formal_accepted_objects": 0,
     "paper_objects": 21,
-    "active_training_runs": 3,
+    "active_training_runs": 5,
     "completed_training_runs": 93,
     "queued_training_candidates": 0,
     "interrupted_training_runs": 2,
@@ -16,9 +16,9 @@
     "completed_ACT_training_runs": 48,
     "recovering_training_runs": 0,
     "formal_accepted_methods": 0,
-    "counts_scope": "90份旧完整产物、3份新30Hz/3cm ACT完整训练及CPU复核、3路新DP持续训练、2路历史中断分别列示。新数据版本保留独立记录，完成训练不计验收。",
+    "counts_scope": "93份完整历史与当前模型、3路DP原预算训练、2路ACT采样对照续训、2路历史中断分别列示。新增对照未完成，不计完整权重或正式通过。",
     "closed_training_pending_final_qualification": 0,
-    "actual_training_phase_runs": 3,
+    "actual_training_phase_runs": 5,
     "final_checkpoint_drain_runs": 0,
     "clean_exit_completed_training_runs": 85,
     "completed_with_exit_exception_runs": 5,
@@ -2432,12 +2432,12 @@
       "object": "brown_volumetric_flask_250ml",
       "seed": 26102111,
       "dataset_version": "actual30Hz3cm_success100_v3036",
-      "state": "新30Hz / 3cm数据：原配置训练中",
-      "epoch": 21,
+      "state": "新30Hz / 3cm数据：继续原3000轮预算",
+      "epoch": 391,
       "epochs_target": 3000,
-      "global_step": 11744,
-      "train_loss": 0.00849064625799656,
-      "sampled_utc": "2026-10-21T12:24:12.722231+00:00",
+      "global_step": 208853,
+      "train_loss": 0.0012698365608230233,
+      "sampled_utc": "2026-10-22T17:48:00.059620+00:00",
       "formal_accepted": false,
       "status_note": "原99条成功示范+首条成功补采；100条、24物理秒/条、实际30Hz。原失败91和全部104次尝试保留。新候选，尚无策略验收结果。",
       "raw_status": "running_finite_updates_actual30Hz_success100",
@@ -2452,12 +2452,12 @@
       "object": "brown_volumetric_flask_250ml",
       "seed": 26102113,
       "dataset_version": "actual30Hz3cm_success100_v3036",
-      "state": "新30Hz / 3cm数据：原配置训练中",
-      "epoch": 20,
+      "state": "新30Hz / 3cm数据：继续原3000轮预算",
+      "epoch": 389,
       "epochs_target": 3000,
-      "global_step": 11017,
-      "train_loss": 0.008045069873332977,
-      "sampled_utc": "2026-10-21T12:24:12.722231+00:00",
+      "global_step": 207772,
+      "train_loss": 0.0012176396558061242,
+      "sampled_utc": "2026-10-22T17:48:00.059620+00:00",
       "formal_accepted": false,
       "status_note": "原99条成功示范+首条成功补采；100条、24物理秒/条、实际30Hz。原失败91和全部104次尝试保留。新候选，尚无策略验收结果。",
       "raw_status": "running_finite_updates_actual30Hz_success100",
@@ -2472,17 +2472,61 @@
       "object": "brown_volumetric_flask_250ml",
       "seed": 26102115,
       "dataset_version": "actual30Hz3cm_success100_v3036",
-      "state": "新30Hz / 3cm数据：原配置训练中",
-      "epoch": 21,
+      "state": "新30Hz / 3cm数据：继续原3000轮预算",
+      "epoch": 390,
       "epochs_target": 3000,
-      "global_step": 11733,
-      "train_loss": 0.010005771182477474,
-      "sampled_utc": "2026-10-21T12:24:12.722231+00:00",
+      "global_step": 208789,
+      "train_loss": 0.00113865255843848,
+      "sampled_utc": "2026-10-22T17:48:00.059620+00:00",
       "formal_accepted": false,
       "status_note": "原99条成功示范+首条成功补采；100条、24物理秒/条、实际30Hz。原失败91和全部104次尝试保留。新候选，尚无策略验收结果。",
       "raw_status": "running_finite_updates_actual30Hz_success100",
       "active_productive": true,
       "completed_training": false
+    },
+    {
+      "host": "aliyun",
+      "gpu_model": "PPU-ZW810E",
+      "gpu_uuid": "GPU-019e2226-0591-040a-0000-0000e0e40c07",
+      "method": "ACT",
+      "object": "brown_volumetric_flask_250ml",
+      "seed": 26103116,
+      "variant": "uniform",
+      "parent_seed": 26102121,
+      "dataset_version": "actual30Hz3cm_success100_ACT_continuation_v3116",
+      "state": "原采样续训对照",
+      "epoch": 799,
+      "epochs_target": 5000,
+      "global_step": 11598,
+      "additional_updates": 1598,
+      "train_loss": 0.06517675518989563,
+      "sampled_utc": "2026-10-22T17:48:00.059620+00:00",
+      "active_productive": true,
+      "completed_training": false,
+      "formal_accepted": false,
+      "status_note": "保留原5000轮基线；同模型与优化器新增10000次更新。仅用示教验证集选择，未达起步误差门槛前不扩大测试。"
+    },
+    {
+      "host": "aliyun",
+      "gpu_model": "PPU-ZW810E",
+      "gpu_uuid": "GPU-019e2226-0510-0628-0000-00002087b149",
+      "method": "ACT",
+      "object": "brown_volumetric_flask_250ml",
+      "seed": 26103116,
+      "variant": "phase25",
+      "parent_seed": 26102121,
+      "dataset_version": "actual30Hz3cm_success100_ACT_continuation_v3116",
+      "state": "起步阶段采样对照",
+      "epoch": 782,
+      "epochs_target": 5000,
+      "global_step": 11565,
+      "additional_updates": 1565,
+      "train_loss": 0.06747014075517654,
+      "sampled_utc": "2026-10-22T17:48:00.059620+00:00",
+      "active_productive": true,
+      "completed_training": false,
+      "formal_accepted": false,
+      "status_note": "保留原5000轮基线；同模型与优化器新增10000次更新。仅用示教验证集选择，未达起步误差门槛前不扩大测试。"
     }
   ],
   "servers": [
@@ -3501,7 +3545,7 @@
     "note": "同一2秒动作与手指目标前缀逐位一致，仅增加0.6秒保持。终点位置误差从25.7/25.8mm降至5.9/6.3mm；这是开发诊断，目标与全程约束尚未绑定论文SSR。四条轨迹三相机关键帧已查：头部及第三视角持续覆盖目标，胸部抬升后出画本身不判视觉失败。玻璃渲染与全程穿模仍待验收。",
     "evidence_url": "results/grasp_fixed_action_hold_camera_20261010.json"
   },
-  "latest_training_evidence_url": "verification/T-552-new-act-closure-background-v77.json",
+  "latest_training_evidence_url": "verification/T-552-actual-repairs-v78.json",
   "paper_domain_contract": {
     "schema": "grasp.paper_domain_contract.v1",
     "domains": [
@@ -8334,8 +8378,8 @@
   },
   "sampled_utc": "2026-10-21T10:43:03.789601+00:00",
   "latest_frontier": {
-    "schema": "grasp.frontier.new_ACT3_complete.background_transmission.v77",
-    "updated_utc": "2026-10-21T12:25:59.446082+00:00",
+    "schema": "grasp.frontier.actual_repairs.v78",
+    "updated_utc": "2026-10-22T17:50:51.159342+00:00",
     "formal_accepted_objects": 0,
     "formal_accepted_methods": 0,
     "paper_ssr": null,
@@ -8351,15 +8395,15 @@
         "note": "两种方法各8/12（66.7%），终点20mm分量DP6/12、ACT0/12。论文SR目标DP78%/ACT66%；当前是四点开发测试，三种子与全部失败视频可切换。严格SSR及玻璃视觉仍未验收。"
       },
       {
-        "title": "真实30Hz资格检查",
-        "status": "真实控制周期已核验；玻璃白化与背景光路相关",
-        "note": "原玻璃在红/青背景前能透出背景颜色，撤板后恢复发白；原材质和冻结物理状态未改变。机器人隐藏对照与成功/空抓视频仍保留。原场景完整视觉未通过，下一步检查远处中性背景能否避免遮挡。",
+        "title": "玻璃视觉与数据审计",
+        "status": "5090四回合审计恢复；远背景候选改善白化",
+        "note": "已完成四回合的数据和12段视频审计恢复，无重复采集。旧版100ml/250ml举杯仍白；5090固定远背景候选四回合抽帧未见同样白化。完整穿模、接触与视觉验收仍待完成。",
         "run_candidate": "t552-beaker100-dp-s26102251-terminal-empty-grasp-v76"
       },
       {
         "title": "并行采集与既有训练",
-        "status": "3 ACT训练完成；3 DP训练中；20物体试采已启动",
-        "note": "新30Hz/3cm成功100条训练：3ACT各5000轮/10000次更新完成，全部CPU模型/优化器、训练归一化及真实输入前向复核通过；3DP继续原3000轮。全部完整权重93份。其余20物体队列首个100ml烧杯已实际采集，保留成功和失败；计划80次不等于已完成。原99/100源失败和全部历史模型保留。",
+        "status": "3 DP训练 + 2 ACT采样对照正在运行",
+        "note": "DP三种子当前约389–391/3000轮；两路ACT从同一原模型和优化器继续训练，仅改变采样分布。4090队列已修复，按原显存条件等待；Pro连接恢复后只续测未完成种子。",
         "collection_dataset_id": "brown250_true30Hz_source91",
         "previous_collection_dataset_id": "brown250_source3cm_pilot4",
         "supplement_collection_dataset_id": "brown250_true30Hz_supplement4"
@@ -31071,6 +31115,191 @@
       ],
       "actual_Native_submissions_at_launch": 0,
       "waiting_verified_full_budget_CPU_gate_and_SHA_intake": true,
+      "formal_accepted": false,
+      "paper_ssr": null,
+      "status": "first_seed_closed0of4_postprocessing_fixed_pending_route",
+      "completed_seed": 26102121,
+      "episodes": 4,
+      "successes": 0,
+      "pending_training_seeds": [
+        26102123,
+        26102125
+      ],
+      "first_seed_not_repeated": true
+    },
+    "repairs_v78": {
+      "updated_utc": "2026-10-22T17:50:51.159342+00:00",
+      "sampled_utc": "2026-10-22T17:48:00.059620+00:00",
+      "ACT_startup_comparison": [
+        {
+          "variant": "uniform",
+          "label": "原采样续训",
+          "additional_updates": 1598,
+          "target_additional_updates": 10000,
+          "parent_initial_arm_MAE_rad": 0.03372757509350777,
+          "best_initial_arm_MAE_rad": 0.033997196704149246,
+          "best_initial_joint5_MAE_rad": 0.08888617157936096,
+          "latest_validation": {
+            "additional_updates": 1400,
+            "total_updates": 11400,
+            "train_loss": 0.06891921907663345,
+            "variant": "uniform",
+            "formal_accepted": false,
+            "validation_L1": 0.04257868975400925,
+            "arm_MAE_rad": 0.02125227451324463,
+            "initial_first_action_arm_MAE_rad": 0.044393349438905716,
+            "initial_joint5_MAE_rad": 0.13129960000514984,
+            "development_readiness_passed": false
+          },
+          "development_readiness_passed": false
+        },
+        {
+          "variant": "phase25",
+          "label": "加强起步采样",
+          "additional_updates": 1565,
+          "target_additional_updates": 10000,
+          "parent_initial_arm_MAE_rad": 0.03372757509350777,
+          "best_initial_arm_MAE_rad": 0.029540834948420525,
+          "best_initial_joint5_MAE_rad": 0.0752810463309288,
+          "latest_validation": {
+            "additional_updates": 1400,
+            "total_updates": 11400,
+            "train_loss": 0.0680667981505394,
+            "variant": "phase25",
+            "formal_accepted": false,
+            "validation_L1": 0.03923339769244194,
+            "arm_MAE_rad": 0.018511828035116196,
+            "initial_first_action_arm_MAE_rad": 0.035015057772397995,
+            "initial_joint5_MAE_rad": 0.09968972206115723,
+            "development_readiness_passed": false
+          },
+          "development_readiness_passed": false
+        }
+      ],
+      "source5090_audit_recovered_without_repeated_rollouts": true,
+      "source5090_native_successes": 0,
+      "source5090_episodes": 4,
+      "local4090_queue_recovered": true,
+      "local4090_native_submissions": 0,
+      "Pro_pending_seeds": [
+        26102123,
+        26102125
+      ],
+      "Pro_route_current_status": "连接超时；自动等待恢复，当前采集进度不可确认",
+      "new_ACT_first_seed": {
+        "seed": 26102121,
+        "episodes": 4,
+        "successes": 0,
+        "terminal20mm_components": 0,
+        "actual_episode_controls": [
+          720,
+          719,
+          719,
+          719
+        ],
+        "clock_action_media_CPU_passed": true
+      },
+      "metric_note": "物体成功区域残差、末端严格目标残差和原生成功分别记录；缺少严格目标绑定、允许接触或碰撞证据时，不判完整Spatial SSR通过。",
+      "training_note": "对照保持原ACT架构、损失、学习率、模型与优化器初态；新增训练预算单独列示。加强采样的实际效果仍在验证。",
+      "sheets": [
+        {
+          "label": "5090far250",
+          "episode": 1,
+          "url": "media/grasp-repairs-v78/5090far250_ep1.jpg",
+          "SHA256": "907361f8def5a69e67ff2eff1e24fd6d0ae9e3821d200fafdcdf8b625c04c1e8"
+        },
+        {
+          "label": "5090far250",
+          "episode": 2,
+          "url": "media/grasp-repairs-v78/5090far250_ep2.jpg",
+          "SHA256": "e09b862e206403aa107c39f29b898e0730a2f383d73be6afe728521e87007d57"
+        },
+        {
+          "label": "5090far250",
+          "episode": 3,
+          "url": "media/grasp-repairs-v78/5090far250_ep3.jpg",
+          "SHA256": "24deff33fd79e9681cb54bd48113cd416be5e4e71bada2f8465cabb77a139212"
+        },
+        {
+          "label": "5090far250",
+          "episode": 4,
+          "url": "media/grasp-repairs-v78/5090far250_ep4.jpg",
+          "SHA256": "8922166e587497d14bc0ad38d8e472ac9c7f902760f0e726bb313fbe95b64d6b"
+        },
+        {
+          "label": "Pro250",
+          "episode": 1,
+          "url": "media/grasp-repairs-v78/Pro250_ep1.jpg",
+          "SHA256": "c44bf016f2cc54fb31a0db534ce1f58b01dca1be5397fa72878c03947409a16e"
+        },
+        {
+          "label": "Pro250",
+          "episode": 2,
+          "url": "media/grasp-repairs-v78/Pro250_ep2.jpg",
+          "SHA256": "cbb70b3dcc13d8c87e5c9ad6bf32e0b28dc734a81b6c97044a025b22443764f8"
+        },
+        {
+          "label": "Pro250",
+          "episode": 3,
+          "url": "media/grasp-repairs-v78/Pro250_ep3.jpg",
+          "SHA256": "61ecc3fbe009070cfe645c6cfdfe79478895c22daa3738dafca8dee3a922125d"
+        },
+        {
+          "label": "Pro250",
+          "episode": 4,
+          "url": "media/grasp-repairs-v78/Pro250_ep4.jpg",
+          "SHA256": "c95fb0070b528e2988cd51bba7c70c394d113dcb895671cef82774579a9f05da"
+        },
+        {
+          "label": "Pro100",
+          "episode": 1,
+          "url": "media/grasp-repairs-v78/Pro100_ep1.jpg",
+          "SHA256": "3a9283728eb7a543b0b08b9c360de8eb9164e9867dc9c6adff7c9b102a064a29"
+        },
+        {
+          "label": "Pro100",
+          "episode": 2,
+          "url": "media/grasp-repairs-v78/Pro100_ep2.jpg",
+          "SHA256": "1eff00ff5da656523ed328d27fb1f6731e98bb171b7b73b4f9b6c2098a238b10"
+        },
+        {
+          "label": "Pro100",
+          "episode": 3,
+          "url": "media/grasp-repairs-v78/Pro100_ep3.jpg",
+          "SHA256": "41b684a54535b5f7c285b46468948390464a7f633111292198dc56ecdc92bb1e"
+        },
+        {
+          "label": "Pro100",
+          "episode": 4,
+          "url": "media/grasp-repairs-v78/Pro100_ep4.jpg",
+          "SHA256": "8f50f80de80836f07f19a60515d020dd0dccb7577f2a89052de83e9d26d0d1a9"
+        },
+        {
+          "label": "ACT121",
+          "episode": 1,
+          "url": "media/grasp-repairs-v78/ACT121_ep1.jpg",
+          "SHA256": "d015eec1ff8d6034d02d858b6589294a3275230629e6c3637949734b09b5a39e"
+        },
+        {
+          "label": "ACT121",
+          "episode": 2,
+          "url": "media/grasp-repairs-v78/ACT121_ep2.jpg",
+          "SHA256": "8b08ba5755592568f1cd6afc0e38f9cbe16f0afe1fc6bc680cfc3ba4d005aafb"
+        },
+        {
+          "label": "ACT121",
+          "episode": 3,
+          "url": "media/grasp-repairs-v78/ACT121_ep3.jpg",
+          "SHA256": "d40cef5dd1cb8c153bed1ebfe2ef5e47b2a44317352a31c6111f26edca5cae5b"
+        },
+        {
+          "label": "ACT121",
+          "episode": 4,
+          "url": "media/grasp-repairs-v78/ACT121_ep4.jpg",
+          "SHA256": "84d811ce8a8f37048dc96f5d64539744f27bffbac83fc704889f3db396948f82"
+        }
+      ],
+      "evidence_url": "verification/T-552-actual-repairs-v78.json",
       "formal_accepted": false,
       "paper_ssr": null
     }
