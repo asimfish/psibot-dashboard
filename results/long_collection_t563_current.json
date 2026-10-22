@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_owner": "T-563",
-  "formal_accepted": 104,
+  "formal_accepted": 107,
   "target_total": 400,
   "position_randomization": false,
   "status": "collecting_and_quality_revision",
@@ -12,8 +12,8 @@
       "action_count": 5,
       "accepted_count": 0,
       "target_count": 100,
-      "state": "formal0_camera_perf_one_actual_Native_startup121_fullcook_diagnostic_running",
-      "note": "正式0/100。新版相机构图与性能四source已实际CPU staged，normal及hidden完整来源、环境、SDK与ABI准入均通过。当前仅一个Native环境实际运行初始121步与完整碰撞几何诊断，CUDA映射和矩阵运算检查通过，日志已完成cuRobo warmup并建立Native接触；尚未尝试完整五步，新真实三视角渲染未批准。旧桌面目标区裁切、胸部前景遮挡问题仍待新原图验证，CPU投影与实际启动不代表质量验收。",
+      "state": "formal0_profile1365_closed_timeout_camera_and_internal_perf_revision_pending",
+      "note": "正式0/100。新相机诊断已闭合，原420秒预算超时，无完整五步成功；初始图仍有第三视角杯体窗框遮挡、胸部近处相机壳遮挡和强白色结构反射，未批准渲染。真实已刷计时中世界/自身/把手整段检查约占68.76%，尚需细分；新光学与分段计时方案正做CPU整合，不能算作已验证加速。",
       "conditions": [
         {
           "id": "AB",
@@ -64,10 +64,10 @@
       "id": "t7_weigh",
       "title": "7 子任务 · 四杯称量",
       "action_count": 8,
-      "accepted_count": 4,
+      "accepted_count": 7,
       "target_count": 100,
-      "state": "formal4_R1533_CAS104_verified_Rclock_three_machine_PASS_visual_export_pending",
-      "note": "正式4/100，正序2、逆序2。逆序1533已完成独立全量机审、根实际三视角抽查、56文件整SHA、2632帧同曝光数值与21061行真实运动去重，原CAS103→104及完整账本独立读回通过。另三条Rclock完整8次、视频178.40/179.07/179.00秒，已通过机审，仍待各自根视觉批准、私有导出及数值验收，不计正式；同批两条超时、一条提起失败已排除。",
+      "state": "formal7_F2_R5_three_Rclock_original_CAS105_107_verified_12env_running",
+      "note": "正式7/100：正序2/50、逆序5/50。新三条逆序均已完成52规划/全120Hz机审、根实际21原图表与27原PNG抽查、全部168文件逐SHA及完整同曝光数值/运动去重验收，已原CAS104→105→106→107并独立完整账本读回。新四卡每卡三环境，12个独立Native已全部实际运行续采；不是仅提交。",
       "conditions": [
         {
           "id": "1234",
@@ -79,13 +79,13 @@
         {
           "id": "4321",
           "label": "顺序 4321",
-          "accepted_count": 2,
+          "accepted_count": 5,
           "target_count": 50,
-          "exported_candidate_count": 2
+          "exported_candidate_count": 5
         }
       ],
-      "exported_candidate_count": 4,
-      "within_quota_candidate_count": 4
+      "exported_candidate_count": 7,
+      "within_quota_candidate_count": 7
     },
     {
       "id": "t10_weigh",
@@ -93,8 +93,8 @@
       "action_count": 10,
       "accepted_count": 0,
       "target_count": 100,
-      "state": "formal0_actual_fourGPU_fourNative_new_declared_speed_running",
-      "note": "正式0/100。新增独立四卡PRO6000任务已实际运行四路完整十步尝试：1.45/1.50倍新速度策略×两组规划参数。四卡映射、隔离及新容器完整准入已通过。CPU预计视频177.43/174.48秒，真实结果尚未闭合；原硬限值、碰撞和完整验收保留，尚未批准新五杯渲染质量。",
+      "state": "four_closed_full10_under180_Native_geometry_PASS_media_and_full_tail_pending",
+      "note": "正式0/100。新速度四路都完成原始十步和65规划，三视角视频171.87/167.40/163.67/164.53秒，生成约29–30分钟。四条全120Hz Native状态、接触、SDK及几何/躯干审计通过；原媒体工具PATH缺失正用已校验的原ffprobe/ffmpeg续验，像素、全尾门、视觉与导出尚未全部通过，不计正式。",
       "conditions": [
         {
           "id": "12345",
@@ -115,13 +115,13 @@
       "within_quota_candidate_count": 0
     }
   ],
-  "snapshot_id": 1365,
-  "updated_at": "2026-10-22T20:36:55.755614+00:00",
+  "snapshot_id": 1373,
+  "updated_at": "2026-10-22T21:13:56.940009+00:00",
   "training_eligible_count": 0,
-  "acceptance_note": "修订版104/400正式验收。六垫避障搬运100/100完成，两种物体左右布局各50条；四杯正序2/50、逆序2/50；干燥箱与五杯均0。新增逆序1533的全机审、原图抽检、56文件逐SHA、2632帧同曝光数值与21061行运动去重全部通过，已执行原CAS103→104并独立完整读回账本。另三条Rclock仅机审通过、待视觉与导出，不计正式。全部400条、生成三分钟与DP/ACT训练测试尚未完成。",
-  "diagnostic_note": "正式104/400；六垫搬运两种布局各50条完成，四杯正序与逆序各2条正式入库。双卡六路Rclock全部结束：3条完整且视频≤180秒已通过机审，尚待各自视觉、导出和数值验收；另2条超时、1条提起失败。新四卡PRO6000正在运行4个独立十步环境，采用明示1.45/1.50倍新软限制与两组规划参数，原硬限值、碰撞、SDK、跟踪和完整验收保留。干燥箱新相机与性能四source完成实际CPU normal+hidden ENV/SDK/ABI准入后，已有一个Native环境运行初始121步与完整碰撞几何诊断；CUDA映射/矩阵运算通过，尚未尝试完整五步，渲染未批准，正式增量0。",
+  "acceptance_note": "修订版107/400正式验收：六垫搬运两种左右布局各50条已齐；四杯正序2/50、逆序5/50。新三条原CAS105–107及独立完整账本读回通过；每条原56文件及完整120Hz/同曝光数值验收。干燥箱与五杯正式仍0；四条新五杯已完成且视频≤180秒，仍待完整验收。全部400条、生成三分钟和DP/ACT训练测试尚未完成。",
+  "diagnostic_note": "正式107/400；新四卡PRO6000每卡3个独立Native环境，12路已全部实际运行续采。此前四条五杯十步都完成、三视角视频163.67–171.87秒，全Native/接触/SDK/几何机审通过，正在补原工具链媒体与全尾门验收。干燥箱真实相机仍有遮挡及结构反射问题，闭合性能诊断已找到主要耗时段，继续修复，尚无完整五步验收。",
   "cloud_status": {
-    "state": "formal104_R1533_actual_CAS_verified_Rclock_three_visual_export_pending_T10_fourNative_running",
+    "state": "formal107_T7_12Native_actual_running_T10_four_full10_media_pending_oven_revision",
     "current": [
       {
         "host": "cloud16GPU32env",
@@ -573,17 +573,19 @@
       },
       {
         "host": "owned_new_2xPRO6000_CPU_recovered1320",
-        "state": "双卡六路称量已全部闭合，3条完整且时长达标已过全量机审，等待图像复核及导出验收；另外2条超时、1条提起失败，均不计数。此批已无Native采集进程。"
+        "state": "本批六路全部结束：三条完成8步且视频≤180秒，现已逐条全机审、根原图复核、56文件/全120Hz数值验收并正式CAS105–107入库；另两条超时、一条提起失败均排除。",
+        "actual_active_env_count": 0,
+        "formal_increment": 3
       },
       {
         "host": "owned_2GPU_6Native_Rclock1349_root1353",
         "attempts": [
           1353
         ],
-        "state": "六路全部结束：3条完整8次且视频≤180秒，已过全量机审，等待图像复核及导出验收；2条视频超180秒、1条最后提起失败。尚未新增正式数据。",
+        "state": "本批六路全部结束：三条完成8步且视频≤180秒，现已逐条全机审、根原图复核、56文件/全120Hz数值验收并正式CAS105–107入库；另两条超时、一条提起失败均排除。",
         "actual_GPU_count": 2,
         "actual_env_count": 6,
-        "formal_increment": 0,
+        "formal_increment": 3,
         "actual_active_env_count": 0,
         "actual_closed_env_count": 6,
         "full8_under180_candidates": 3,
@@ -591,7 +593,7 @@
         "physical_lift_failed": 1
       },
       {
-        "host": "cloud_T10_new_speed4_1358_actual_Native_running",
+        "host": "cloud_T10_new_speed4_1358_closed_full10_media_pending",
         "attempts": [
           1358
         ],
@@ -599,21 +601,23 @@
         "job_id": "job-i6bbrnjsblom",
         "actual_GPU_count": 4,
         "actual_env_count": 4,
-        "actual_active_env_count": 4,
-        "state": "四张实际PRO6000、四个独立Native进程已运行；两档明示新速度×两组原规划参数，完整十步与三视角180秒门保留，尚无整条验收或正式新增。",
-        "formal_increment": 0
+        "actual_active_env_count": 0,
+        "state": "四路均已完整十步/65规划且三视角视频≤180秒；全Native状态/接触/SDK和几何/躯干机审通过。媒体工具PATH缺失，正用原完整工具链续验，最终全尾门/视觉/导出尚未全部通过，正式增量0。",
+        "formal_increment": 0,
+        "all_four_physical_success": true,
+        "full_machine_audit_passed": false
       },
       {
-        "host": "oven_camera_perf1360_one_Native_startup121_fullcook_running1365",
+        "host": "oven_camera_perf1365_closed_timeout_not_qualified",
         "attempts": [
           1365
         ],
-        "state": "四source实际CPU normal+hidden完整准入已通过；当前仅一个Native环境实际运行初始121步与完整碰撞几何诊断，全局及单卡CUDA映射/矩阵运算通过，日志已完成cuRobo warmup并建立Native接触。未尝试完整五步，新渲染未批准，正式增量0。",
+        "state": "原420秒预算下399.10秒闭合，timed_out=true，Native退出0但无RESULT，不能称初始121步/完整cook成功。取得三段计时至tick480，相机仍未通过；不是完整五步样本。",
         "actual_CPU_source_count": 4,
         "actual_Native_started": true,
         "formal_increment": 0,
-        "actual_Native_processes": 1,
-        "actual_GPU_count": 1,
+        "actual_Native_processes": 0,
+        "actual_GPU_count": 0,
         "startup121_only": true,
         "physics_debug_only": true,
         "full5_attempted": false,
@@ -621,6 +625,16 @@
         "actual_launch_pgid": 239542,
         "actual_launch_epoch": 1792701235.80868,
         "actual_GPU_PCI": "0000:64:00.0"
+      },
+      {
+        "host": "cloud_Rclock12_1370_actual_4GPU_12Native_running",
+        "job_id": "job-0kr2lsecsfzv",
+        "operation_id": "ksiv72112u7bfozcwc5iacy94",
+        "state": "四张实际卡、每卡三环境，12个独立Native进程已全部实际运行；实际80CPU/800GiB环境、四卡全局及逐环境CUDA映射和矩阵运算检查通过。沿用原六个449文件配置，每个两次新物理运行，仍需每条全120Hz真实运动去重和完整验收。",
+        "actual_GPU_count": 4,
+        "actual_active_env_count": 12,
+        "env_per_GPU": 3,
+        "formal_increment": 0
       }
     ],
     "note": "正式数量以公共验收账本和完整导出读回为准；纯规划、运行中、物理成功、重复轨迹和渲染HOLD均不计数。"
@@ -668,7 +682,10 @@
       178.46666666666667,
       175.2,
       136.8,
-      175.46666666666667
+      175.46666666666667,
+      178.4,
+      179.06666666666666,
+      179.0
     ],
     "accepted_generation_wall_s": [
       849.788656297,
@@ -696,7 +713,10 @@
       2186.22784393467,
       2051.4,
       1137.0660612136126,
-      1574.525082262233
+      1574.525082262233,
+      2804.439880792983,
+      2773.602066380903,
+      2781.1959258443676
     ],
     "original_physical_gates_unchanged": true,
     "declared_speed_policies": {
@@ -734,7 +754,7 @@
       },
       "note": "实际场景与分支不同，不能宣称所有阶段都已加速。生成180秒目标仍未达成。"
     },
-    "generation_measurement_scope": "列表为部分核对样本，非104条穷举。新增逆序1533视频175.4667秒、生成1574.5251秒，已正式入库；此前正序1534视频175.2秒、生成2051.4秒。旧T10四条视频223～229秒均排除；新四卡明示速度策略仍运行，生成180秒尚未实现。",
+    "generation_measurement_scope": "列表为部分正式样本，非107条穷举。新三条四杯正式样本视频178.40/179.07/179.00秒；五杯新四条视频163.67–171.87秒、生成1737.77–1783.67秒，仍待完整验收；生成180秒尚未实现。",
     "actual_T10_time_split_s": {
       "forward": {
         "plan": 124.54166666666661,
@@ -811,7 +831,10 @@
       ],
       "whole120_CPU_audits_active": 0,
       "whole120_CPU_audits_passed": 3,
-      "root_actual_visual_and_export_pending": true
+      "root_actual_visual_and_export_pending": false,
+      "actual_active_env_count": 0,
+      "state": "all_six_closed_three_original_CAS105_107_formal",
+      "formal_increment": 3
     },
     "T10_new_declared_soft_policy_actual4GPU": {
       "speed_multipliers": [
@@ -826,14 +849,32 @@
       "full_hard_limits_world_SDK_contact_tracking_still_required": true,
       "actual_Native_started": true,
       "formal_increment": 0,
-      "actual_Native_processes": 4,
+      "actual_Native_processes": 0,
       "actual_GPU_count": 4,
       "actual_original_controls": [
         20,
         32
       ],
       "provider_normal_hidden_full_admission_PASS": true,
-      "full_episode_not_yet_closed": true
+      "full_episode_not_yet_closed": false,
+      "actual_active_env_count": 0,
+      "actual_full10_complete": 4,
+      "original_video_seconds": [
+        171.86666666666667,
+        167.4,
+        163.66666666666666,
+        164.53333333333333
+      ],
+      "generation_wall_seconds": [
+        1783.6733068157919,
+        1741.2597822649404,
+        1744.4435681849718,
+        1737.7701172251254
+      ],
+      "whole_Native_and_geometry_passed": true,
+      "media_and_full_tail_and_visual_export_pending": true,
+      "actual_launched_Native_processes": 4,
+      "actual_active_GPU_count": 0
     },
     "latest_formal_R1533_episode": {
       "video_seconds": 175.46666666666667,
@@ -860,13 +901,35 @@
       "actual_render_quality_approved": false,
       "actual_performance_speedup_proved": false,
       "formal_increment": 0,
-      "actual_Native_processes": 1,
-      "actual_GPU_count": 1,
+      "actual_Native_processes": 0,
+      "actual_GPU_count": 0,
       "startup121_only": true,
       "physics_debug_only": true,
       "full5_attempted": false,
       "actual_CUDA_mapping_matmul_PASS": true,
-      "full5_and_render_acceptance_pending": true
+      "full5_and_render_acceptance_pending": true,
+      "profile_closed": true,
+      "timed_out": true,
+      "fullcook_success": false
+    },
+    "active_Rclock12_1370": {
+      "actual_GPU_count": 4,
+      "env_per_GPU": 3,
+      "actual_active_env_count": 12,
+      "provider_actual_effective_CPU": 80,
+      "provider_actual_RAM_GiB": 800,
+      "all_global_isolated_CUDA_matmul_passed": true,
+      "configuration_ID_not_unique_proof": true
+    },
+    "oven_actual_partial_profile1365": {
+      "instrumented_union_seconds": 184.517784787,
+      "flushed_intervals": 3,
+      "last_flushed_tick": 480,
+      "mean_outer_tick_wall_s": 0.5071448224277778,
+      "world_self_bar_fraction": 0.687640306735025,
+      "includes_world_updates_constraints_FK_host_and_possible_SAT": true,
+      "specific_subcause_not_yet_proved": true,
+      "unflushed_tail_not_claimed": true
     }
   },
   "evidence": {
@@ -947,8 +1010,8 @@
     "camera1117_native_actual_read": "revision_quality_20261021/network1015/NEW1117_1114_READ2_ACTUAL.json",
     "oven_live_four_source_staged": "revision_quality_20261021/network1015/OVEN1124_1127_STAGE_ACTUAL.json",
     "T7_reverse_execution_and_world_pass_receipt_assembly_failed": "revision_quality_20261021/network1015/T7_REVERSE1116_READ1_ACTUAL.json",
-    "new_actual_three_view_preview_sha256": "b32e2a083937124f5b21dc64d9078cec1b6aef82cd0d9b4bd95fae7742a78b8e",
-    "preview_scope": "四杯逆序1533真实原视频初始头部/胸部/正面第三人称三视图。该样本已通过独立全机审、根实际抽样视觉与56文件/2632帧/21061行数值和运动去重验收，原CAS103→104正式入库；不是干燥箱，不是新六路Rclock的视觉批准，也未声称人工通看完整视频。",
+    "new_actual_three_view_preview_sha256": "db29993b29b5a38c47279ec81cb0401466c6cd3bb2fb2c4dd48a7aae56fa159b",
+    "preview_scope": "最新正式四杯逆序Rclock case01的真实原视频初始头部/胸部/第三人称三视图；该178.40秒样本已完成独立机审、根原图抽样复核、全部56文件和全21415行/2676帧数值验收并CAS105入库。这不是五杯或干燥箱的新视觉批准，也不声称人工通看完整视频。",
     "latest_actual_monitor": "revision_quality_20261021/network1015/ACTIVE_ALL1141_READ1_ACTUAL.json",
     "T7_reverse_full_machine_receipt_sha256": "29d5037f4224c87878be5f85e3e8b7d88f4ec941140d7df0345f5269759de267",
     "T7_reverse_original_frame_noise_hold": "assets/long-collection/t573_t7_reverse_original_frame2052_noise_hold.png",
@@ -1088,7 +1151,20 @@
     "oven_camera_perf_actual_CPU_stage1365": "revision_quality_20261021/OVEN_CAMERA_ACTUAL_CPU1365_1792701071404529985/ACTUAL_TRANSPORT.json",
     "oven_camera_perf_actual_CPU_stage1365_sha256": "2aa4e9f969171bb46893e8b5da8786b55c8bb9cad1fe9dc61d15e3e3d46f5b73",
     "oven_camera_perf_actual_one_Native_running1365": "revision_quality_20261021/OVEN_CAMERA_RUNNING_READ1365_1792701362744287316/ACTUAL_TRANSPORT.json",
-    "oven_camera_perf_actual_one_Native_running1365_sha256": "184211bd64090ecd97e71b7b82c14b541028e4ef767f5e8f62c3a30e56e8363c"
+    "oven_camera_perf_actual_one_Native_running1365_sha256": "184211bd64090ecd97e71b7b82c14b541028e4ef767f5e8f62c3a30e56e8363c",
+    "formal107_actual_ledger_and_live_authority": "revision_quality_20261021/ROOT_FORMAL107_AND_LIVE_AUTHORITY1372_1792703370716202739/ACTUAL_TRANSPORT.json",
+    "formal107_actual_ledger_and_live_authority_sha256": "b34aa5dd01c24758038db4fe26636dc4facdb85ce509301bcb1a21ceede75d17",
+    "formal107_ledger_sha256": "504193a86df10d8fa3643a072c12249d05d49320b809de24d43e166f62692ea1",
+    "original_three_CAS105_107": "ROOT_RCLOCK_CAS105_107_ACTUAL1371_1792703247764883269/ACTUAL_TRANSPORT.json",
+    "original_three_CAS105_107_sha256": "0347ae642ffb3a121ab345aadd1f4613234de45263b4f553982764eef93d9b6d",
+    "actual_4GPU_12Native": "ROOT_RCLOCK12_ALL_NATIVE_READ1371_1792702817283203585/ACTUAL_TRANSPORT.json",
+    "actual_4GPU_12Native_sha256": "4e279ec569c56b011e1c01c4228bf13198db279d19f0ef3d714eabeb8bdb815b",
+    "actual_T10_all4_full10": "T10_FOUR_PROGRESS1366_1792701707715674953/ACTUAL_TRANSPORT.json",
+    "actual_T10_all4_full10_sha256": "28024fb8cc0fe113ca7c079c9f1c07086b5e6c1204e9cf89d826807ae2285df0",
+    "actual_T10_native_geometry_pass_media_PATH_block": "T10_four_CPU_groups1370_READ_1792703226429858165/ACTUAL_TRANSPORT.json",
+    "actual_T10_native_geometry_pass_media_PATH_block_sha256": "f3fd69db26b73683982f9d21dd0d5ff9758f12a47fe3090107953da5f85755f9",
+    "actual_oven_closed_perf": "oven_camera1365_actual_review_agent/ACTUAL1365_CLOSED_PERF_REVIEW.json",
+    "actual_oven_closed_perf_sha256": "ed1fb7c4aef24d3e754a78f848716824352ee7a27be8432e5de626698954d0a5"
   },
   "render_quality": {
     "required_views": [
@@ -1099,7 +1175,7 @@
     "all_accepted": false,
     "diagnostic_counterfactuals_are_not_collection_data": true,
     "native_head_chest_directions_preserved_in_5b": true,
-    "transparent_materials_labels_shadows_and_noise": "六垫100条、四杯正序2及逆序2正式样本均已绑定各自实际抽帧、噪声及全量数值验收。新增逆序1533的根实际原图抽查、56文件整SHA、2632帧同曝光数值与21061行去重通过，已正式103→104。另三条Rclock仅机审通过，尚未根视觉批准或导出；胸部自然前景手臂遮挡按样本披露。干燥箱新版相机已启动一个真实初始121步/完整碰撞几何诊断环境，完整五步未尝试；干燥箱与五杯新版渲染仍未批准；不声称人工通看全部视频。",
+    "transparent_materials_labels_shadows_and_noise": "六垫100条、四杯正序2和逆序5条正式样本均绑定各自原图抽样、真实静噪及全量数值验收。新三条四杯的胸部自然前景手臂遮挡按完整原视频代理区间披露，头部/第三人称仍保留任务可见性；不声称人工通看全部视频。五杯四条像素/全尾验收及根视觉待完成；干燥箱的新相机仍有近处机壳遮挡和局部强白结构反射，未批准。",
     "oven_initial_camera_review": {
       "approved": false,
       "current_objects_visible": true,
@@ -1109,17 +1185,22 @@
       "actual_normal_hidden_ENV_SDK_ABI_closed": true,
       "new_Native_started": true,
       "new_Native_diagnostic_only": true,
-      "new_Native_processes": 1,
-      "full5_attempted": false
+      "new_Native_processes": 0,
+      "full5_attempted": false,
+      "partial_crop_present": true,
+      "current1365_run_closed": true,
+      "current1365_timed_out": true,
+      "chest_self_camera_housing_and_third_pane_occlusion_observed": true,
+      "new1368_optical_candidate_CPU_only": true
     }
   },
-  "exported_candidate_count": 104,
-  "within_quota_candidate_count": 104,
+  "exported_candidate_count": 107,
+  "within_quota_candidate_count": 107,
   "legacy_snapshot": {
     "snapshot_id": 823,
     "exported_candidate_count": 108,
     "status": "Historical count from snapshot823, preserved but excluded from revised quality requirements; not a current total"
   },
-  "preview_url": "assets/long-collection/t573_T7_R1533_actual_initial_three_views.jpg",
-  "website_previous_live_snapshot_at_candidate_prepare": 1354
+  "preview_url": "assets/long-collection/t573_T7_Rclock1349_case01_formal_three_views.jpg",
+  "website_previous_live_snapshot_at_candidate_prepare": 1365
 }
