@@ -66,8 +66,8 @@
       "action_count": 8,
       "accepted_count": 3,
       "target_count": 100,
-      "state": "formal3_Rclock6_closed_three_full8_under180_CPU_audits_running",
-      "note": "正式3/100，正序2、逆序1。新六路已全部闭合：3条完成8次、视频178.40/179.07/179.00秒，正在并行全量机审；2条181.80/185.73秒超时、1条最后提起失败，均不计数。另有逆序1533已通过机审、原图抽检及56文件/全量数值核验，私有导出完成，等待本批来源核验结束后正式入库。",
+      "state": "formal3_Rclock6_closed_three_machine_PASS_visual_export_pending",
+      "note": "正式3/100，正序2、逆序1。新六路已全部闭合：3条完成8次、视频178.40/179.07/179.00秒，均已通过完整机审，继续原图复核与导出验收；2条181.80/185.73秒超时、1条最后提起失败，均不计数。另有逆序1533已通过机审、原图抽检及56文件/全量数值核验，私有导出完成，等待本批来源核验结束后正式入库。",
       "conditions": [
         {
           "id": "1234",
@@ -119,7 +119,7 @@
   "updated_at": "2026-10-22T20:16:48.846502+00:00",
   "training_eligible_count": 0,
   "acceptance_note": "修订版103/400正式验收。六垫避障搬运100/100完成：烧杯左/锥形瓶右50条、交换布局50条；四杯正序2/50、逆序1/50；干燥箱与五杯均0。最后六垫样本136.8秒，完整39规划和原物理/SDK/噪声门通过，根8图抽查、44文件独立整SHA、2052帧数值与16418行真实运动去重后，已执行原CAS102→103并独立读取新账本。全部400条、生成三分钟与DP/ACT训练测试尚未完成。",
-  "diagnostic_note": "正式103/400；六垫搬运两种布局各50条已完成。双卡六路四杯称量已全部结束：3条完成8次且视频不超过180秒，正在并行全量验收；另2条超时、1条提起失败，不计数。新增四卡PRO6000任务已实际运行4个独立十步环境，对比两档速度及两组规划参数。干燥箱五步尚未通过，当前相机仍有目标区裁切问题，正在单独修正并定位运行耗时。",
+  "diagnostic_note": "正式103/400；六垫搬运两种布局各50条已完成。双卡六路四杯称量已全部结束：3条完成8次且视频不超过180秒，已通过完整机审，正在图像复核与导出验收；另2条超时、1条提起失败，不计数。新增四卡PRO6000任务已实际运行4个独立十步环境，对比两档速度及两组规划参数。干燥箱五步尚未通过，当前相机仍有目标区裁切问题，正在单独修正并定位运行耗时。",
   "cloud_status": {
     "state": "formal103_Rclock6_closed_three_pending_audit_T10_fourNative_actual_running",
     "current": [
@@ -573,14 +573,14 @@
       },
       {
         "host": "owned_new_2xPRO6000_CPU_recovered1320",
-        "state": "双卡六路称量已全部闭合，3条完整且时长达标进入CPU全量验收；另外2条超时、1条提起失败，均不计数。此批已无Native采集进程。"
+        "state": "双卡六路称量已全部闭合，3条完整且时长达标已过全量机审，等待图像复核及导出验收；另外2条超时、1条提起失败，均不计数。此批已无Native采集进程。"
       },
       {
         "host": "owned_2GPU_6Native_Rclock1349_root1353",
         "attempts": [
           1353
         ],
-        "state": "六路全部结束：3条完整8次且视频≤180秒，正在并行全量验收；2条视频超180秒、1条最后提起失败。尚未新增正式数据。",
+        "state": "六路全部结束：3条完整8次且视频≤180秒，已过全量机审，等待图像复核及导出验收；2条视频超180秒、1条最后提起失败。尚未新增正式数据。",
         "actual_GPU_count": 2,
         "actual_env_count": 6,
         "formal_increment": 0,
@@ -798,7 +798,9 @@
         179.06666666666666,
         179.0
       ],
-      "whole120_CPU_audits_active": 3
+      "whole120_CPU_audits_active": 0,
+      "whole120_CPU_audits_passed": 3,
+      "root_actual_visual_and_export_pending": true
     },
     "T10_new_declared_soft_policy_actual4GPU": {
       "speed_multipliers": [
@@ -1030,7 +1032,9 @@
     "actual_T10_fourGPU_POST": "root_submit_T10_SPEED1358_1361/POST_RESULT.json",
     "actual_T10_fourNative_source_GPU_proof": "T10_STARTUP_AND_R_AUDITS1362_1792699910315863571/ACTUAL_TRANSPORT.json",
     "actual_T10_fourNative_source_GPU_proof_sha256": "7bbdf6330766caf6445d7de47bcadc2299ef686939548ff1c9be009828e83f64",
-    "actual_oven_resource_stopped_profile": "ACTUAL_FRONTIER_READ1358_1792698598842518729/ACTUAL_TRANSPORT.json"
+    "actual_oven_resource_stopped_profile": "ACTUAL_FRONTIER_READ1358_1792698598842518729/ACTUAL_TRANSPORT.json",
+    "actual_three_machine_PASS": "R_AUDITS_T10_SPEED_PROGRESS1363_1792700315777946938/ACTUAL_TRANSPORT.json",
+    "actual_three_machine_PASS_sha256": "b6f330a167fdaff84760b855ca1ccdb839810ab9a732fb824b11a3a06b3f7805"
   },
   "render_quality": {
     "required_views": [
