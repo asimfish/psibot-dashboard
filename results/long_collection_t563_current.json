@@ -12,8 +12,8 @@
       "action_count": 5,
       "accepted_count": 0,
       "target_count": 100,
-      "state": "formal0_three_full5_debug_closed_torso_node18_CPU_layout_search",
-      "note": "正式0/100。新三路干燥箱调试均已闭合，原GPU世界/73形状、预抓取、接近和抓把手通过，但完整开门弧在约8.95度被机器人胸壳2.5毫米净距门拒绝，均未完成第一步或完整五步。正在CPU检查固定布局与冗余IK支路，再投真实动作；三视角尚未验收，第三视角机身遮挡仍需修正。 ",
+      "state": "formal0_fixed_scene_CPU_full_arc_and_original_retime_pass_Native_pending",
+      "note": "正式0/100。原场景完整门弧约8.95度处被胸壳门拒绝；此前两个零空间端点虽过胸壳，但超关节限位，已排除。新固定场景候选为仅干燥箱宽度65%、箱桌前移15cm、把手抓姿转30度，杯瓶尺寸不缩放；128节点与原C20重定时1720个float32样本通过原关节/VAJ/手臂胸壳检查，真实USD、完整手部/世界碰撞及完整五步仍未验证。第三相机继续修正，不能计正式。 新杯瓶固定位置、同层支撑延长/降低及抓姿候选的8个目标CPU关节/臂胸壳检查通过；实际USD、完整手部与世界碰撞尚未通过，仍为0。",
       "conditions": [
         {
           "id": "AB",
@@ -115,13 +115,13 @@
       "within_quota_candidate_count": 3
     }
   ],
-  "snapshot_id": 1468,
-  "updated_at": "2026-10-23T15:47:43.863054+00:00",
+  "snapshot_id": 1470,
+  "updated_at": "2026-10-23T16:12:19.550143+00:00",
   "training_eligible_count": 0,
   "acceptance_note": "正式114/400：六垫避障搬运100/100（两种左右布局各50），四杯称量11/100（正序3、逆序8），五杯称量3/100（正序3、逆序0），干燥箱0/100。114条已按raw/episodes、labels、lerobot_v21、lerobot_v30整理发布至 /project_a02012413/public/liyufeng/t5710_lerobot_delivery_20261023/。LeRobot 0.3.3/v2.1与0.4.3/v3.0实际全量加载均通过；整理不增加验收条数。",
-  "diagnostic_note": "114条交付包含239792帧/格式、原始三视角15fps/640×480；6358个核心文件SHA、全量数值与原视频SHA均核对通过，两套官方加载器共684次抽样及2052次原始RGB像素对照通过。打开交付根目录preview.html查看114条三视角，阅读DELIVERY_README_ZH.md；原有胸部前景手臂局部遮挡记录保留，不声称完整视频人工通看。新4卡完整运动光学任务job-plach541ylad已实际启动四路，CUDA/PCI/资源检查通过，但四路均在动作前因planning_start_all_joints初始化字段缺失而退出，0条新数据；manager闭合、平台FAILED。正在定位hook调用时序；静态ABA不代表动态颗粒已修复。生成三分钟目标及DP/ACT训练测试未完成。",
+  "diagnostic_note": "114条交付包含239792帧/格式、原始三视角15fps/640×480；6358个核心文件SHA、全量数值与原视频SHA均核对通过，两套官方加载器共684次抽样及2052次原始RGB像素对照通过。打开交付根目录preview.html查看114条三视角，阅读DELIVERY_README_ZH.md；原有胸部前景手臂局部遮挡记录保留，不声称完整视频人工通看。新4卡完整运动光学任务job-plach541ylad已实际启动四路，CUDA/PCI/资源检查通过，但四路均在动作前因planning_start_all_joints初始化字段缺失而退出，0条新数据；manager闭合、平台FAILED。正在定位hook调用时序；静态ABA不代表动态颗粒已修复。生成三分钟目标及DP/ACT训练测试未完成。 本会话独立job-biwfrhh9zpqw也在同一初始化错误处四路关闭；两次均新增0，勿合并计成采集成功。其555原件完整归档经独立HTTP核验。新只读检查明确记录尚未创建字段的缺失，保留全部已存在真实状态对照，原941与物理门不改；根独立11项CPU已通过，四种新源正在实际CPU准入，尚未重启Native。",
   "cloud_status": {
-    "state": "formal114_delivery_published_moving4_1467_closed_initialization_failure",
+    "state": "formal114_delivery_preserved_two_closed_canaries_v3_CPU_source_stage",
     "current": [
       {
         "host": "cloud16GPU32env",
@@ -809,6 +809,17 @@
         "actual_launched_env_count": 4,
         "actual_closed_env_count": 4,
         "actual_launch_verification": "cloud_launcher_GPU_PROBES_and_MANUAL_TASK_RESULT_verified"
+      },
+      {
+        "host": "cloud_moving4_fractional1465_closed_before_capture",
+        "job_id": "job-biwfrhh9zpqw",
+        "operation_id": "b1emsipy8sgsv96vadji43uf4",
+        "actual_GPU_count": 4,
+        "actual_Native_launched": 4,
+        "actual_active_env_count": 0,
+        "actual_closed_env_count": 4,
+        "formal_increment": 0,
+        "state": "平台FAILED终态。四路独立GPU/进程真实启动且原内存/显存准入通过；4/4因新光学检查过早读取未定义planning_start_all_joints而退出，无CAP/INSTALL/新视频。555原件完整归档并独立HTTP全SHA通过；修复只读检查，不改原941或伪造规划状态。"
       }
     ],
     "note": "新4卡完整运动光学任务job-plach541ylad已实际启动四路，CUDA/PCI/资源检查通过，但四路均在动作前因planning_start_all_joints初始化字段缺失而退出，0条新数据；manager闭合、平台FAILED。正在定位hook调用时序；静态ABA不代表动态颗粒已修复。四卡仅约一轮启动即终止，无此批活跃Native；保留完整失败原件，不重启未修复源码。共享盘已恢复超过1TiB，保留512GiB原准入门。",
@@ -825,7 +836,7 @@
   "performance": {
     "fresh_speed_candidate": "当前状态连续IK + 全门槛重检的五次B样条缩时；不以缓存轨迹替代实际物理执行",
     "fresh_candidate_completed": true,
-    "measurement_note": "四卡完整动作光学任务已真实启动并全部因初始化字段错误关闭，尚未完成任何新动作。生成180秒目标仍未达到；原已验收数据及双格式交付不受影响。",
+    "measurement_note": "四路初始化因检查代码错误退出，不是一次完整生成耗时样本，不能用于宣称达到180秒。此前完整称量约1750秒生成；主要规划约37%，其余当前日志不足以继续归因。原抓取、轨迹和物理门保留。",
     "three_minute_target_met": false,
     "development_stage_watchdog_s": 900,
     "physics_and_quality_limits_unchanged": false,
@@ -1554,7 +1565,13 @@
     "moving4_optical1467_job_RUNNING": "revision_quality_20261021/ROOT_MOVING4_OPTICAL1467_JOB_CHECK2_1792770246674692523/ACTUAL_GET.json",
     "moving4_optical1467_actual_closure": "revision_quality_20261021/collection1467_live_agent/ACTUAL_MOVING4_RO1467_1792770341097819155/ACTUAL_TRANSPORT.json",
     "moving4_optical1467_actual_closure_sha256": "cf04ee87f871776ba019940e291588e3482669ae2fd2c263713bfee46cac9678",
-    "moving4_optical1467_platform_FAILED": "revision_quality_20261021/ROOT_MOVING4_OPTICAL1467_JOB_FINAL_1792770393708874722/ACTUAL_GET.json"
+    "moving4_optical1467_platform_FAILED": "revision_quality_20261021/ROOT_MOVING4_OPTICAL1467_JOB_FINAL_1792770393708874722/ACTUAL_GET.json",
+    "moving1465_actual_job_terminal": "revision_quality_20261021/ROOT_MOVING1465_FINAL_JOBSTATE_1792770012028859267/ACTUAL_GET.json",
+    "moving1465_actual_launch_and_failure_logs": "revision_quality_20261021/ROOT_MOVING1465_JOBLOG_READ1_1792769850629991684/ACTUAL_GET.json",
+    "moving1465_complete_archive_independent_HTTP": "revision_quality_20261021/ROOT_MOVING1465_INDEPENDENT_ARCHIVE_HTTP_1792769997918772565/ACTUAL_OBJECT_HTTP_VERIFY.json",
+    "moving1465_archive_sha256": "2bcd4c02731fd2339c0ac7e69d8f1d3140f50d73cb1bca288d751c6626af8494",
+    "optical_preplanning_v3_root_11CPU_review": "revision_quality_20261021/ROOT_COMMON_PREPLANNING1468_REVIEW1469.json",
+    "optical_v3_source_CPU_stage_review": "revision_quality_20261021/ROOT_D4G_SOURCE1468_CPU_REVIEW1470.json"
   },
   "render_quality": {
     "required_views": [
@@ -1716,6 +1733,13 @@
       "actual_active_env_count": 0,
       "all_four_closed": true,
       "failure": "pre-motion planning_start_all_joints AttributeError"
+    },
+    "optical_preplanning_v3": {
+      "common_sha256": "cd4ed7d729c200668a4a8eeaf379794cc2be6bfaf38265b8ad05783bbea229da",
+      "root_actual_CPU_tests": 11,
+      "actual_moving_validation_passed": false,
+      "formal_increment": 0,
+      "scope": "仅修正原941在规划字段实际创建前的只读观察；缺失明确记录，不合成Native字段；所有真实已存在状态必须前后一致。"
     }
   },
   "exported_candidate_count": 114,
