@@ -40,6 +40,33 @@
     if (data.formal_accepted !== total) throw Error("Total mismatch");
     return data;
   }
+  function renderStaticDiagnostic(data, container) {
+    const preview = data.render_quality?.oven_static_diagnostic_preview1521;
+    if (!Array.isArray(preview?.images) || preview.images.length < 1 || preview.images.length > 2) return;
+    const prefix = "assets/diagnostics/t573-oven-static1521/";
+    const allowed = new Set([
+      prefix + "NO_ROOM_TABLE_OLD1486_OLD_vs_CANDIDATE_DIAGNOSTIC.png",
+      prefix + "NO_ROOM_TABLE_OLD1486_CANDIDATE_THIRD_DIAGNOSTIC.png"
+    ]);
+    // Compare the complete raw relative URL: no normalization or decoding can
+    // turn protocols, traversal, encoded paths, queries or fragments into an allowlisted path.
+    if (!preview.images.every(image => image && allowed.has(image.url) &&
+        (image.label === undefined || (typeof image.label === "string" && image.label.length <= 160))) ||
+        new Set(preview.images.map(image => image.url)).size !== preview.images.length) return;
+    const section = text("span", "", "static-diagnostic");
+    section.style.display = "block";
+    section.append(text("span", "相机构图诊断：采用先前采集的初始姿态，未包含房间和桌面；完整场景与画质仍待验收。", "muted"));
+    for (const image of preview.images) {
+      const label = image.label || "查看静态诊断原图（非验收）";
+      const link = text("a", label);
+      link.href = image.url; link.target = "_blank"; link.rel = "noopener noreferrer";
+      const img = document.createElement("img");
+      img.src = image.url; img.alt = label; img.loading = "lazy"; img.width = 640;
+      img.style.maxWidth = "100%"; img.style.height = "auto";
+      link.append(img); section.append(link);
+    }
+    container.append(section);
+  }
   function render(data, fallback) {
     validate(data);
     if (last && Date.parse(data.updated_at) < Date.parse(last.updated_at)) {
@@ -63,6 +90,7 @@
       cards.append(card);
     }
     byId("t563-diagnostic").textContent = [data.diagnostic_note, data.cloud_status?.note].filter(Boolean).join(" ");
+    renderStaticDiagnostic(data, byId("t563-diagnostic"));
   }
   async function read(url) {
     const controller = new AbortController();
