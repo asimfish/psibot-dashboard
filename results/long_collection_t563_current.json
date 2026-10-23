@@ -93,8 +93,8 @@
       "action_count": 10,
       "accepted_count": 3,
       "target_count": 100,
-      "state": "formal3_reverse_full10_visual_HOLD_new_optical_CPU_stage_disk_blocked",
-      "note": "正式3/100：正序3/50、逆序0/50。倒序首条完整10阶段、机审与数值通过，视频161.47秒、生成1892.37秒，但持杯颗粒仍视觉HOLD。透明设置静态ABA已闭合，原图局部更清晰，但动态效果未证实。新正反序源码待CPU准备；共享盘最近观测从约145GiB降至69GiB且持续下降，原512GiB门在任何写入前拒绝，尚未启动新Native。正在分离源码准备与正式采集空间门并核查自有已关闭数据。",
+      "state": "formal3_reverse_visual_HOLD_two_optical_full10_CPU_sources_READY",
+      "note": "正式3/100：正序3/50、逆序0/50。倒序首条完整10阶段、机审与数值通过，视频161.47秒、生成1892.37秒，但持杯颗粒仍视觉HOLD。新正反序完整光学源码均已实际通过normal/hidden、90项SDK/ENV与完整十步检查，28原件已根独立核验；尚未启动新Native。共享盘最近从145GiB降至69GiB，正验证独立内存临时输出与BOS完整无损归档方案，不将源码就绪认作动态验收通过。",
       "conditions": [
         {
           "id": "12345",
@@ -115,13 +115,13 @@
       "within_quota_candidate_count": 3
     }
   ],
-  "snapshot_id": 1461,
-  "updated_at": "2026-10-23T14:37:00.976611+00:00",
+  "snapshot_id": 1463,
+  "updated_at": "2026-10-23T14:50:48.053966+00:00",
   "training_eligible_count": 0,
   "acceptance_note": "修订版114/400正式验收：六垫搬运两种左右布局各50已齐；四杯正序3/50、逆序8/50；五杯正序3/50、逆序0/50；干燥箱0。新增正序四杯完成完整56文件与全120Hz/曝光数值独立验收、原锁定CAS114及全部114条账本复核。全部400条、生成三分钟目标、DP/ACT训练测试尚未完成。",
-  "diagnostic_note": "正式114/400，新增0。上一4卡任务已全部闭合：三路干燥箱均在完整开门弧约8.95度处被原胸壳净距门拒绝，未完成五步；一路透明设置静态ABA成功，全部455原件及432RGB、144状态独立核对，原图局部更清晰，不能认定完整动态颗粒已修复。7正反序新完整光学源码已实际READY；10正反序CPU准备被共享盘空间拦截，原检查在零写入时拒绝。下一批四卡移动验证仍未提交，先处理空间并完成10源码检查；生成三分钟目标未达到。",
+  "diagnostic_note": "正式114/400，新增0。上一4卡任务已全部闭合：三路干燥箱均在完整开门弧约8.95度处被原胸壳净距门拒绝，未完成五步；一路透明设置静态ABA成功，全部455原件及432RGB、144状态独立核对，原图局部更清晰，不能认定完整动态颗粒已修复。7正反序与10正反序的新完整光学源码均已实际CPU READY，原物理门保留。共享盘空间持续下降，正验证独立内存临时输出和BOS全原件无损归档；新四卡完整动作验证尚未提交，生成三分钟目标仍未达到。",
   "cloud_status": {
-    "state": "formal114_previous4GPU_all_closed_T7optical_CPU_READY_T10_CPU_disk_blocked",
+    "state": "formal114_previous4GPU_closed_all4_optical_fulltask_CPU_READY_storage_validation",
     "current": [
       {
         "host": "cloud16GPU32env",
@@ -798,7 +798,7 @@
         "state": "12路均闭合；仅lane0/2/5/8完整8阶段且视频<=180秒，原R1.5mm独立机审4/4 PASS。484完整原件、300PNG、12视频和85347行120Hz已保全；根抽查四条实际持杯原图均有颗粒，全部视觉HOLD，不计正式。另3条完整但视频超180秒，其余失败。"
       },
       {
-        "host": "new_four_role_optical_full_motion_CPU_prepare1461",
+        "host": "new_four_role_optical_full_motion_CPU_READY1463",
         "attempts": [
           1456,
           1457,
@@ -806,7 +806,7 @@
         ],
         "actual_active_env_count": 0,
         "actual_active_GPU_count": 0,
-        "state": "T7正反两份454文件新完整任务源码已通过实际CPU原normal/hidden检查；T10正反仅冻结，CPU准备被共享盘由约145GiB降至69GiB空间门在零写入前拒绝。四卡T7F/T7R/T10F/T10R统一启动器正在CPU核验，尚未POST；分离源码小体积准备与Native512GiB空间预算，保留全部原物理和验收门。"
+        "state": "T7正反454/454文件、T10正反460/462文件新完整任务源码均已实际CPU READY；T10经正常/隐藏完整十步、90项SDK/ENV和28原件根核验。新四卡统一启动器与独立内存输出/BOS闭合归档方案正在CPU验证，尚未POST，Native/GPU0；仅完整运动质量通过后才扩大并行环境。"
       }
     ],
     "note": "上一批4卡均已闭合，无该批活跃Native。新四路正反序移动验证正在准备，未提交或占卡。已确认当前训练规格为4卡和8卡，下一轮用最小4卡同时验证T7正反和T10正反；正式扩采密度须依实际显存、质量和空间预算决定。",
@@ -823,7 +823,7 @@
   "performance": {
     "fresh_speed_candidate": "当前状态连续IK + 全门槛重检的五次B样条缩时；不以缓存轨迹替代实际物理执行",
     "fresh_candidate_completed": true,
-    "measurement_note": "新T7完整光学源码READY，T10源码与四卡完整运动验证仍准备中，未证明动态质量或生成180秒。已关闭干燥箱局部480tick计时中，几何/接触CPU检查占主要部分，render约4%；范围仅该局部，不能外推整条。",
+    "measurement_note": "新T7、T10四份完整光学源码均CPU READY，四卡完整运动验证仍准备中，未证明动态质量或生成180秒。已关闭干燥箱局部480tick计时中，几何/接触CPU检查占主要部分，render约4%；范围仅该局部，不能外推整条。",
     "three_minute_target_met": false,
     "development_stage_watchdog_s": 900,
     "physics_and_quality_limits_unchanged": false,
@@ -1541,7 +1541,9 @@
     "T7_actual_new_source_CPU_READY": "revision_quality_20261021/T7_OPTICAL1456V2_SOURCE_RESULT1458_RO_1792764974461388344/ACTUAL_TRANSPORT.json",
     "T10_CPU_stage_zero_write_space_rejection": "revision_quality_20261021/T10_source_stage1458_CPU_CHAIN_agent/ACTUAL_STAGE1458_1792765392116179310/ACTUAL_TRANSPORT.json",
     "actual_shared_disk_and_closed_own_RAW_inventory": "revision_quality_20261021/STORAGE_F12_R12_MIXED1460_ACTUAL_RO_1792766133573447133/ACTUAL_STORAGE1460.json",
-    "actual_scratch_RAM_disk_inventory": "revision_quality_20261021/LOCAL_SCRATCH1461_ACTUAL_RO_1792766313221215109/ACTUAL_LOCAL_SCRATCH1461.json"
+    "actual_scratch_RAM_disk_inventory": "revision_quality_20261021/LOCAL_SCRATCH1461_ACTUAL_RO_1792766313221215109/ACTUAL_LOCAL_SCRATCH1461.json",
+    "T10_actual_new_source_CPU_READY_root_review": "revision_quality_20261021/ROOT_T10_DUAL_SOURCE1461_ACTUAL_READY_REVIEW1463.json",
+    "T10_actual_new_source_CPU_READY_root_review_SHA": "bc3dc887224bd51cb3dd9be576662c31acbcefc0bae9739e6bd9ad77323a06b0"
   },
   "render_quality": {
     "required_views": [
@@ -1694,7 +1696,7 @@
       "change": "False -> True while original capture remains open; restore only after complete original close",
       "common_hook_SHA": "07114fb112fac9516d148d54316a8c1575e7ca8b27c7c89326b44de8eb667a84",
       "T7_CPU_sources_ready": 2,
-      "T10_CPU_sources_ready": 0,
+      "T10_CPU_sources_ready": 2,
       "new_Native_started": false,
       "full_dynamic_quality_approved": false
     }
