@@ -12,8 +12,8 @@
       "action_count": 5,
       "accepted_count": 0,
       "target_count": 100,
-      "state": "formal0_single_actual_full5_phase1_last_RO_transport_unavailable",
-      "note": "正式0/100。完整cook及73几何/GPU缓存校验已通过；修复派生相机profile与原approach绑定后，唯一完整五步调试Native实际进入第1阶段pregrasp/tick1080。连接故障后当前进度未知；完整开门、五步、动态相机与噪声仍待验收。",
+      "state": "formal0_actual_phase1_approach_resource_closed_cloud4_preparing",
+      "note": "正式0/100。新配置故障已解决，真实预抓取及approach已执行至tick2760/第1阶段；共享卡空闲显存跌破原16GiB门，监督于1177.15秒关闭，无完整阶段成功。保留原碰撞、静止和资源门；正在准备云端独占四源完整五步。",
       "conditions": [
         {
           "id": "AB",
@@ -66,8 +66,8 @@
       "action_count": 8,
       "accepted_count": 11,
       "target_count": 100,
-      "state": "formal11_two_new_full_machine_numeric_PASS_visual_HOLD_cloud12_last10_phase5",
-      "note": "正式11/100：正序3/50、逆序8/50。两条新正序1535/1537均完整8阶段、全机审及根原件/数值核验通过，但持杯透明区颗粒仍可见，均视觉HOLD。云端4卡12环境真实启动，最后10路第5阶段、2路失败；连接暂断，未声明本批完成。",
+      "state": "formal11_six_new_cloud_full8_pending_machine_visual_export_two_other_visual_HOLD",
+      "note": "正式11/100：正序3/50、逆序8/50。新云批12路闭合，其中6条完整8阶段且时长合格，正准备逐条完整机审和画面/导出验收；其余6条原门排除。另1535/1537虽完整机审/根数值通过，但持杯透明区颗粒仍视觉HOLD。",
       "conditions": [
         {
           "id": "1234",
@@ -115,13 +115,13 @@
       "within_quota_candidate_count": 3
     }
   ],
-  "snapshot_id": 1434,
-  "updated_at": "2026-10-23T11:13:09.718679+00:00",
+  "snapshot_id": 1440,
+  "updated_at": "2026-10-23T11:34:43.704409+00:00",
   "training_eligible_count": 0,
   "acceptance_note": "修订版114/400正式验收：六垫搬运两种左右布局各50已齐；四杯正序3/50、逆序8/50；五杯正序3/50、逆序0/50；干燥箱0。新增正序四杯完成完整56文件与全120Hz/曝光数值独立验收、原锁定CAS114及全部114条账本复核。全部400条、生成三分钟目标、DP/ACT训练测试尚未完成。",
-  "diagnostic_note": "正式114/400。新四杯1535与1537均完成八阶段、完整机审及根原件/全120Hz/曝光数值核验，但持杯透明区域仍有颗粒，均视觉HOLD，不入库。云端4张Pro6000已实际启动12环境，最后只读观察为10路第5阶段、2路BdbQuit退出；当前5090跳板无SSH握手导致进度暂不可刷新。干燥箱新版已越过旧配置故障，唯一真实Native最后到第1阶段pregrasp/tick1080，尚无全五步成功。单设置光学ABA已通过18项CPU检查并获唯一执行授权，尚未远程启动。生成三分钟目标未达到。",
+  "diagnostic_note": "正式114/400。云端4卡12环境全部闭合：6条完成全8阶段且视频<=180秒，待完整机审、独立画面检查与导出验收；2条视频超时、2条pregrasp规划失败、2条撤手释放接触门失败，均排除。两条旧新四杯1535/1537虽全机审与原件数值通过，但持杯透明区颗粒仍可见，视觉HOLD。干燥箱到第1阶段approach/tick2760后因共享卡空闲显存低于原16GiB门关闭，正准备云端3干燥箱+1光学诊断混合4卡包。已验证30109替代通路，但长连接再次中断，正在改用逐次严格验证的连接。三分钟生成目标未达到。",
   "cloud_status": {
-    "state": "formal114_cloud4GPU12_launched_last10_phase5_two_failed_oven_phase1_remote_transport_unavailable",
+    "state": "formal114_cloud12_closed_six_full8_candidates_pending_full_acceptance_oven_resource_closed",
     "current": [
       {
         "host": "cloud16GPU32env",
@@ -768,6 +768,21 @@
           1432
         ],
         "state": "真实P1持杯单设置False/True/False对照的6项核心与12项启动监督CPU测试通过；新杯体/标签USD绑定已确认，整链获唯一授权。40文件包本地已准备，因连接故障尚无远程stage/Native；不宣称修复颗粒。"
+      },
+      {
+        "host": "actual1438_connection_and_closed_runs",
+        "attempts": [
+          1438
+        ],
+        "state": "严格原主机密钥的30109→5090→DEV30037及内网API19135已实际恢复。云12job已FAILED、逐路审计中。干燥箱第1阶段approach曾实际到tick2760，因foreignGPU使用量增加1730MiB使空闲14875<16384MiB，原资源监督正确关闭；自身9958MiB，未改门槛/未动外部进程，转独占云4源方案。"
+      },
+      {
+        "host": "cloud12_actual1437_final_six_candidates",
+        "attempts": [
+          1423
+        ],
+        "job_id": "job-accwt9w83fwo",
+        "state": "12路全部闭合。lanes1/4/6/8/9/11完成全8阶段，视频176.27/175.60/175.27/174.93/173.93/179.07秒，待完整验收，不加正式；lanes5/10视频189.27/180.40秒原门排除，2/7首步规划shell-clear拒后异常包装BdbQuit，0/3末尾撤手原释放接触门拒。保留失败原件，不放宽门槛。"
       }
     ],
     "note": "正式数量以公共验收账本和完整导出读回为准。旧静止实验阻塞已查清：7个已归档原件为符号链接，内容SHA全部匹配，恢复原文件形式后原父审计normal/hidden检查通过；没有修改原科学数据。运行中与失联最后状态、物理或机审成功、视觉HOLD均不计正式。"
@@ -1168,6 +1183,18 @@
       ],
       "generation_under180s": false,
       "formal_accepted": false
+    },
+    "oven1431_actual_full5_debug_closed": {
+      "wall_seconds": 1177.151,
+      "last_tick": 2760,
+      "last_phase": 1,
+      "last_subphase": "approach",
+      "completed_phases": 0,
+      "original_resource_floor_MiB": 16384,
+      "actual_free_at_violation_MiB": 14875,
+      "own_used_at_violation_MiB": 9958,
+      "timed_out": false,
+      "full5_success": false
     }
   },
   "evidence": {
@@ -1448,7 +1475,10 @@
     "F1537_visual_HOLD1434_sha256": "d5d9f757754b1fcf349ba65b81f859a4d86009ee5e441358f8097a7beee84731",
     "cloud12_actual_launch_per_lane1431_sha256": "eac85a52db9c98181685fd27b051066177a8d7fd8959e8afb08fbb99008b6432",
     "oven1431_actual_phase1_sha256": "0e1ad526a6da374c8086694fe4834ea5f3d703a0001add3d45ebb628a1dd812e",
-    "root_single_key_ABA_whole_authorization1432_sha256": "8e596fa579dfe75bfc9fbfa8b8b839a8ad8b914cb42506640a68a2d2e71d734e"
+    "root_single_key_ABA_whole_authorization1432_sha256": "8e596fa579dfe75bfc9fbfa8b8b839a8ad8b914cb42506640a68a2d2e71d734e",
+    "actual_connection_recovered1437_sha256": "66b78739c6d5a69562a45c932ef8b80fc67f14e88230a2567e443d7540725e1d",
+    "oven1431_actual_resource_closure_sha256": "2d98a6832aceecb357ab40eb5bccc04053d10996b752997792ec33b4e32922fa",
+    "cloud12_actual_final1437_sha256": "d678926262258a285ad74d67443ebd9bc123eaf40987513fe630be0b14e28980"
   },
   "render_quality": {
     "required_views": [
