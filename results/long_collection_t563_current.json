@@ -115,13 +115,13 @@
       "within_quota_candidate_count": 3
     }
   ],
-  "snapshot_id": 1405,
-  "updated_at": "2026-10-23T06:42:05.752356+00:00",
+  "snapshot_id": 1409,
+  "updated_at": "2026-10-23T07:08:19.065084+00:00",
   "training_eligible_count": 0,
   "acceptance_note": "修订版114/400正式验收：六垫搬运两种左右布局各50已齐；四杯正序3/50、逆序8/50；五杯正序3/50、逆序0/50；干燥箱0。新增正序四杯完成完整56文件与全120Hz/曝光数值独立验收、原锁定CAS114及全部114条账本复核。全部400条、生成三分钟目标、DP/ACT训练测试尚未完成。",
-  "diagnostic_note": "正式114/400。恢复Pro6000已有新四杯正式入库；五杯倒序新两路已真正采集，一路第3阶段被原碰撞门拒绝，另一路继续。已定位拒绝发生于上游加速曲线，原慢规划通过，准备给加速候选补齐同样碰撞检查，失败回退原轨迹。干燥箱已越过缓存错误和GPU逐字节验证，下一处cook几何目标问题正在修复。",
+  "diagnostic_note": "正式114/400。恢复Pro6000已完成新四杯正式入库；五杯倒序两路均闭合，一路完整十阶段、原视频161.47秒，待独立全量机审与渲染/导出验收，暂不计数；另一路第3阶段被原碰撞门拒绝。已定位上游加速曲线问题，原慢规划通过，新加速候选碰撞检查正在验证。干燥箱仅通过既有启动资格，几何目标修复尚待实际验证。",
   "cloud_status": {
-    "state": "formal114_PRO6000_T10reverse_one_active_one_original_collision_reject_oven_polygon_fix",
+    "state": "formal114_PRO6000_T10reverse_first_full10_candidate_closed_machine_pending_oven_geometry_validation",
     "current": [
       {
         "host": "cloud16GPU32env",
@@ -672,12 +672,16 @@
       },
       {
         "host": "owned_PRO6000_T10reverse2_v3_1403",
-        "state": "两GPU各1Native真实启动并越过预热，均进入第3阶段；lane1原碰撞检查拒绝上游加速曲线，已退出不计数；lane0持续执行。新显存守卫保留自身/共享卡余量和失败前完整分项采样，不干扰外来进程。",
-        "actual_GPU_count": 2,
+        "state": "两GPU各1Native实际运行后均闭合：lane0完整十阶段，2422帧、视频161.47秒、生成1892.37秒，尚待独立完整验收；lane1第3阶段原碰撞检查拒绝上游加速曲线，不计数。显存守卫未触发终止。",
+        "actual_GPU_count": 0,
         "actual_launched_env_count": 2,
-        "actual_active_env_count": 1,
-        "actual_closed_env_count": 1,
-        "formal_increment": 0
+        "actual_active_env_count": 0,
+        "actual_closed_env_count": 2,
+        "formal_increment": 0,
+        "actual_previous_GPU_count": 2,
+        "full10_under180_candidates": 1,
+        "complete_original_video_s": 161.46666666666667,
+        "actual_generation_s": 1892.368
       }
     ],
     "note": "正式数量以公共验收账本和完整导出读回为准；纯规划、运行中、物理成功、重复轨迹和渲染HOLD均不计数。"
@@ -1308,7 +1312,9 @@
     "formal114_actual_full_ledger_independent_sha256": "dbe3eb2c904e48fddab9cd2703d0597a8f5a42a9b634afc962759870aae5f9c5",
     "formal114_ledger_sha256": "04e20fcb5ccd39706e09617cc9f2cbc421b22f6aa996395153aa11205cc9801e",
     "F1536_all56_independent": "revision_quality_20261021/ROOT_F1536_ALL56_INDEPENDENT1402.json",
-    "F1536_all56_independent_sha256": "ef9eea9b7adf85febb01c4ce91209bf361e6a64cde54c17e97938abb18545d7a"
+    "F1536_all56_independent_sha256": "ef9eea9b7adf85febb01c4ce91209bf361e6a64cde54c17e97938abb18545d7a",
+    "T10_reverse_first_full10_actual_closed": "revision_quality_20261021/T10_REVERSE2_V3_ACTUAL1403_agent/READ6_1792738616345006178/ACTUAL_TRANSPORT.json",
+    "T10_reverse_full_machine_source_binding_HOLD": "revision_quality_20261021/T10_reverse2_actual1403_machine1407_CPU_HOLD_agent/FROZEN_T10_REVERSE2_FULLMACHINE1407_CPU_HOLD.json"
   },
   "render_quality": {
     "required_views": [
