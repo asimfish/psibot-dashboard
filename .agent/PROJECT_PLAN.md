@@ -25,6 +25,8 @@ As of2026-10-12:47 accepted formal outcomes (FR3 36, Psi grasp6, Psi100ml A→B3
 - [ ] Publish paired success/retry/time analysis and per-condition evidence.
 
 ## Task Board
+- [ ] T-887 - Independent review of T885 Grasp V84 local artifact (owner: codex-t552-v81-review)
+- [x] T-885 - Prepare verified Grasp V84 independent16 and defect evidence artifact (owner: codex-grasp-ssr-ood)
 - [x] T-865 - Prepare verified Grasp V83 ACT progress artifact (owner: codex-grasp-ssr-ood)
 - [x] T-837 - V82 local publication artifact independently verified; public rollout and all21 scientific acceptance remain open in T-552 (owner: codex-grasp-ssr-ood)
 - [x] T-797 - V81 local publication artifact independently verified; public rollout and all21 acceptance remain tracked in T-552 (owner: codex-grasp-ssr-ood)
