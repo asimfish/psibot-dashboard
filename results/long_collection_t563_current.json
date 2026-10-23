@@ -39,8 +39,8 @@
       "action_count": 5,
       "accepted_count": 100,
       "target_count": 100,
-      "state": "fixed100_delivered_user_training_baseline_new1cm_and_handglass_pending",
-      "note": "固定布局100条（两种左右布局各50条）已按用户授权传到 /home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/，包含raw/episodes、labels、lerobot_v21、lerobot_v30；203007帧，5369核心文件SHA一致，目标机LeRobot0.3.3实际首中尾三视角读取通过。旧100条不覆盖1cm：全量初始位置审计的最大跨度仅0.003338毫米。持杯45帧抽查发现部分胸部玻璃白亮块与手指轮廓不连续，尚不能保证透杯手指始终可见。已附原帧和核查报告；本版先供固定基线训练。独立1cm版正在配置/源码CPU验证，尚无新1cm数据通过验收。",
+      "state": "fixed100_state13_delivered_new1cm_four_failed_closed_zero_passed_path_and_guard_repair",
+      "note": "固定布局100条（两种左右布局各50条）已按用户授权交付到 /home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/。推荐训练入口 /home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/lerobot_v21_state13/：13维observation.state、203007帧，头部/胸部/第三人称三视角；目标机官方LeRobot0.3.3首中尾读取及原字段比较通过，原5369核心文件SHA不变、视频未转码。此版无1cm扰动，持杯抽查的胸部玻璃白亮块和手指轮廓疑点仍未全面认证。独立1cm先导job-rdyl0v5q9arc四路均已试过并失败闭合，新1cm验收0。两条A-left完成phase1后，在phase2被原规划质量门以“no short, shell-clear path”拒绝；两条swap在光学INSTALL前被旧固定profile门拒绝。A-left两路的typedTrue观察、原捕获与三视频关闭、恢复False的光学生命周期证据通过，不代表全五步或画质通过。正在分别修正规划路径和固定guard适配，完整运动、9物体初态及画质仍待验收；平台作业亦已结束（FAILED），正在做CPU修复。",
       "conditions": [
         {
           "id": "A_left_B_right",
@@ -64,11 +64,31 @@
         "target_count": 100,
         "two_layouts_each": 50,
         "passed_count": 0,
-        "Native_started_by_this_transfer_root": false,
+        "Native_started_by_this_transfer_root": true,
         "same_object_and_support_XY_offsets": true,
         "other_three_pads_fixed": true,
         "profiles_planned": 100,
-        "baseline100_does_not_count_as_jitter": true
+        "baseline100_does_not_count_as_jitter": true,
+        "actual_job_id": "job-rdyl0v5q9arc",
+        "actual_assigned_cards": 4,
+        "actual_started_workers": 4,
+        "actual_active_workers": 0,
+        "actual_failed_workers": 4,
+        "actual_closed_workers": 4,
+        "actual_optical_INSTALL_count": 2,
+        "optical_lifecycle_closed_pass_count": 2,
+        "layouts_each_pilots": 2,
+        "actual9_initial_pose_numeric_audit_pending": true,
+        "RGB_and_noise_review_pending": true,
+        "actual_state_epoch": 1792779607.2600744,
+        "failure_cause": "Aleft phase2 planning-only no short/shell-clear path rejection; swap original fixed-profile SHA guard before optical INSTALL",
+        "repair_in_progress": true,
+        "all_four_Native_closed": true,
+        "platform_job_status": "FAILED",
+        "platform_ended_at": 1792779325539,
+        "job_terminal": true,
+        "CPU_repair_in_progress": true,
+        "terminal_API_receipt_sha256": "8e6114d78148f9c7b096036bbf7e94b0a2c1ef62fe886124aee7154d56c85347"
       }
     },
     {
@@ -126,11 +146,11 @@
       "within_quota_candidate_count": 3
     }
   ],
-  "snapshot_id": 1489,
-  "updated_at": "2026-10-23T18:02:46.102577+00:00",
+  "snapshot_id": 1492,
+  "updated_at": "2026-10-23T18:24:44.300002+00:00",
   "training_eligible_count": 0,
   "acceptance_note": "正式114/400：六垫避障搬运100/100（两种左右布局各50），四杯称量11/100（正序3、逆序8），五杯称量3/100（正序3、逆序0），干燥箱0/100。114条已按raw/episodes、labels、lerobot_v21、lerobot_v30整理发布至 /project_a02012413/public/liyufeng/t5710_lerobot_delivery_20261023/。LeRobot 0.3.3/v2.1与0.4.3/v3.0实际全量加载均通过；整理不增加验收条数。 固定避障100条已传到训练目标目录；这是未包含1cm扰动的训练基线，透明遮挡后的手指画质尚未全面认证，1cm版另采。",
-  "diagnostic_note": "正式验收仍为114/400。已发布的114条提供原始三视角视频、标签及两版LeRobot，交付记录保留。本轮四路均已结束：T7两路视频超时；T10两路完成十步但画质不合格。完整归档与12段原视频已恢复并校验。干燥箱新场景的几何检查通过，当前正在修正抓门把手预备位置的关节解。",
+  "diagnostic_note": "正式验收仍为114/400。已发布的114条提供原始三视角视频、标签及两版LeRobot，交付记录保留。本轮四路均已结束：T7两路视频超时；T10两路完成十步但画质不合格。完整归档与12段原视频已恢复并校验。干燥箱新场景的几何检查通过，当前正在修正抓门把手预备位置的关节解。 【固定5b交付与独立1cm先导】推荐训练入口 /home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/lerobot_v21_state13/ 已实际读取通过，状态13维、动作窗口10×13、原视频未转码；固定100条不计1cm泛化。新1cm四路已全部失败闭合：A-left两路完成phase1后被phase2原路径质量门拒绝，swap两路被旧固定profile门拒绝；正修路径与guard，验收0；平台作业已结束（FAILED），CPU修复中。两A-left光学生命周期闭合不等于全五步或画质通过；进程/loader成功不计采集验收。",
   "cloud_status": {
     "state": "formal114_T7video_rejected_T10_grain_HOLD_archive_recovered_oven_geometry_PASS_pregrasp_debug",
     "current": [
@@ -2214,7 +2234,30 @@
     "formal_increment": 0,
     "preview": "/home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/preview.html",
     "readme": "/home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/README_FIXED_LAYOUT_ZH.md",
-    "target_validation": "/home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/TARGET_VALIDATION.json"
+    "target_validation": "/home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/TARGET_VALIDATION.json",
+    "recommended_training_root": "/home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/lerobot_v21_state13",
+    "state13_derivative": {
+      "status": "STATE13_PUBLISHED_OFFICIAL_SAMPLE_COMPARE_PASS",
+      "root": "/home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/lerobot_v21_state13",
+      "episodes": 100,
+      "frames": 203007,
+      "state_shape": [
+        13
+      ],
+      "action_shape": [
+        10,
+        13
+      ],
+      "official_loader": "0.3.3",
+      "first_middle_last_sample_original_fields_equal": true,
+      "source_5369_core_SHA_unchanged": true,
+      "video_symlink": "../lerobot_v21/videos",
+      "video_transcoding": false,
+      "one_cm_generalization_passed": false,
+      "all100_hand_glass_visibility_certified": false,
+      "formal_increment": 0,
+      "actual_target_receipt_sha256": "c9737b00368d2565d2749db3bc4915c1d8557160887c4bf3cdc6663708f3b272"
+    }
   },
   "previous_user_visible_notes_snapshot1481": {
     "diagnostic_note": "114条交付包含239792帧/格式、原始三视角15fps/640×480；6358个核心文件SHA、全量数值与原视频SHA均核对通过，两套官方加载器共684次抽样及2052次原始RGB像素对照通过。打开交付根目录preview.html查看114条三视角，阅读DELIVERY_README_ZH.md；原有胸部前景手臂局部遮挡记录保留，不声称完整视频人工通看。新4卡完整运动光学任务job-plach541ylad已实际启动四路，CUDA/PCI/资源检查通过，但四路均在动作前因planning_start_all_joints初始化字段缺失而退出，0条新数据；manager闭合、平台FAILED。正在定位hook调用时序；静态ABA不代表动态颗粒已修复。生成三分钟目标及DP/ACT训练测试未完成。 本会话独立job-biwfrhh9zpqw也在同一初始化错误处四路关闭；两次均新增0，勿合并计成采集成功。其555原件完整归档经独立HTTP核验。新只读检查明确记录尚未创建字段的缺失，保留全部已存在真实状态对照，原941与物理门不改；根独立11项CPU已通过，四种新源共8次正常/隐藏完整任务CPU准入全部通过。新任务job-i4vt5k3s115u已实际启动四路、实际PCI隔离和RAM准入通过；四路光学INSTALL已真实通过，明确记录缺失字段且全部已存在Native状态、相机和材质不变；完整运动与实际持杯画面仍待验收，新增合格数据仍为0。 目标交付路径：/home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/；训练读取lerobot_v21，预览preview.html。5369核心文件SHA核验及目标官方加载通过；全部100条初态检查没有厘米扰动，画质疑点与45个原始解码帧随包附上。",
@@ -2225,5 +2268,141 @@
       "t7_weigh": "正式11/100：正序3/50、逆序8/50。新六条正序与四条逆序候选均全机审通过，完整原件已保全，但实际持杯原图仍有颗粒，全部视觉HOLD，不计正式。单项透明设置静态ABA已完成独立原件与数值对照；新正反序完整任务光学源码已实际通过原normal/hidden、SDK及ENV检查，待完整运动验证，不宣称动态噪声已解决。 已通过的11条29284帧位于 /project_a02012413/public/liyufeng/t5710_lerobot_delivery_20261023/7_weigh/，同时提供两版LeRobot。新4卡完整运动光学任务job-plach541ylad已实际启动四路，CUDA/PCI/资源检查通过，但四路均在动作前因planning_start_all_joints初始化字段缺失而退出，0条新数据；manager闭合、平台FAILED。正在定位hook调用时序；静态ABA不代表动态颗粒已修复。",
       "t10_weigh": "正式3/100：正序3/50、逆序0/50；已通过的3条7501帧位于 /project_a02012413/public/liyufeng/t5710_lerobot_delivery_20261023/10_weigh/，raw/labels及两版LeRobot均已全量核验。新候选持杯颗粒仍视觉HOLD。新4卡完整运动光学任务job-plach541ylad已实际启动四路，CUDA/PCI/资源检查通过，但四路均在动作前因planning_start_all_joints初始化字段缺失而退出，0条新数据；manager闭合、平台FAILED。正在定位hook调用时序；静态ABA不代表动态颗粒已修复。"
     }
+  },
+  "independent_1cm_5b_cloud1486": {
+    "job_id": "job-rdyl0v5q9arc",
+    "shared_disk_actual_state": "FOUR_SOURCE_FAILED_ALL_NATIVE_CLOSED_ZERO_ACCEPTED",
+    "actual_started_workers": 4,
+    "actual_active_workers": 0,
+    "actual_failed_workers": 4,
+    "actual_closed_workers": 4,
+    "optical_INSTALL_received_count": 2,
+    "optical_lifecycle_closed_pass_count": 2,
+    "all_four_Native_closed": true,
+    "two_Aleft_running": false,
+    "full5_and_visual_approved": false,
+    "workers": [
+      {
+        "lane": 3,
+        "condition": "flask1L_beaker1R",
+        "seed": 1,
+        "worker_exit_code": 0,
+        "Native_result_exit_code": 1,
+        "task_status": "failed",
+        "optical_lifecycle_closed_pass": false
+      },
+      {
+        "lane": 1,
+        "condition": "beaker1L_flask1R",
+        "seed": 1,
+        "worker_exit_code": 0,
+        "Native_result_exit_code": 1,
+        "task_status": "failed",
+        "optical_lifecycle_closed_pass": true
+      },
+      {
+        "lane": 0,
+        "condition": "beaker1L_flask1R",
+        "seed": 0,
+        "worker_exit_code": 0,
+        "Native_result_exit_code": 1,
+        "task_status": "failed",
+        "optical_lifecycle_closed_pass": true
+      },
+      {
+        "lane": 2,
+        "condition": "flask1L_beaker1R",
+        "seed": 0,
+        "worker_exit_code": 0,
+        "Native_result_exit_code": 1,
+        "task_status": "failed",
+        "optical_lifecycle_closed_pass": false
+      }
+    ],
+    "actual_states": {
+      "flask1L_beaker1R_seed001": {
+        "task_result": {
+          "task": "t5_obstruction",
+          "status": "failed",
+          "physical_success": false,
+          "error": "RuntimeError: Only exact validated swapped5b scene/motion/stages supported",
+          "exit_code": 1,
+          "output": "/public_fast_storage/liyufeng/t573_native_20261018/revision_quality_20261021/position5b1472_pilot_v1/pilot_runs/flask1L_beaker1R_seed001/native",
+          "formal_dataset_accepted": false
+        },
+        "optical_INSTALL_received": false,
+        "original_complete_task_closed": false,
+        "phase1_completed": false,
+        "log_stage": "fixed_profile_guard_before_optical_install",
+        "optical_lifecycle_closed_pass": false,
+        "full5_and_visual_approved": false
+      },
+      "beaker1L_flask1R_seed001": {
+        "task_result": {
+          "task": "t5_obstruction",
+          "status": "failed",
+          "physical_success": false,
+          "error": "RuntimeError: Planning-only quality rejection: no short, shell-clear path",
+          "exit_code": 1,
+          "output": "/public_fast_storage/liyufeng/t573_native_20261018/revision_quality_20261021/position5b1472_pilot_v1/pilot_runs/beaker1L_flask1R_seed001/native",
+          "formal_dataset_accepted": false
+        },
+        "optical_INSTALL_received": true,
+        "original_complete_task_closed": false,
+        "phase1_completed": true,
+        "log_stage": "phase2_planning_quality_rejection",
+        "optical_lifecycle_closed_pass": true,
+        "full5_and_visual_approved": false
+      },
+      "beaker1L_flask1R_seed000": {
+        "task_result": {
+          "task": "t5_obstruction",
+          "status": "failed",
+          "physical_success": false,
+          "error": "RuntimeError: Planning-only quality rejection: no short, shell-clear path",
+          "exit_code": 1,
+          "output": "/public_fast_storage/liyufeng/t573_native_20261018/revision_quality_20261021/position5b1472_pilot_v1/pilot_runs/beaker1L_flask1R_seed000/native",
+          "formal_dataset_accepted": false
+        },
+        "optical_INSTALL_received": true,
+        "original_complete_task_closed": false,
+        "phase1_completed": true,
+        "log_stage": "phase2_planning_quality_rejection",
+        "optical_lifecycle_closed_pass": true,
+        "full5_and_visual_approved": false
+      },
+      "flask1L_beaker1R_seed000": {
+        "task_result": {
+          "task": "t5_obstruction",
+          "status": "failed",
+          "physical_success": false,
+          "error": "RuntimeError: Only exact validated swapped5b scene/motion/stages supported",
+          "exit_code": 1,
+          "output": "/public_fast_storage/liyufeng/t573_native_20261018/revision_quality_20261021/position5b1472_pilot_v1/pilot_runs/flask1L_beaker1R_seed000/native",
+          "formal_dataset_accepted": false
+        },
+        "optical_INSTALL_received": false,
+        "original_complete_task_closed": false,
+        "phase1_completed": false,
+        "log_stage": "fixed_profile_guard_before_optical_install",
+        "optical_lifecycle_closed_pass": false,
+        "full5_and_visual_approved": false
+      }
+    },
+    "actual9_initial_pose_numeric_audit_pending": true,
+    "RGB_and_noise_review_pending": true,
+    "passed_count": 0,
+    "formal_increment": 0,
+    "source_immutable_preserved": true,
+    "repair_frontier": "Both Aleft phase2 planning-only short/shell-clear path quality and swapped fixed-profile guards require new private CPU candidates; no original scientific gate relaxed.",
+    "actual_source_receipt": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/ROOT_POSITION1491_LIVE_RO_1792779604351635017/ACTUAL_TRANSPORT.json",
+    "actual_source_receipt_sha256": "9e49f2bb1fbe04f46e307ebe5707e452774bf4aa6f578a13a8887f6b1a7c0f9f",
+    "failure_frontier_sha256": "9e49f2bb1fbe04f46e307ebe5707e452774bf4aa6f578a13a8887f6b1a7c0f9f",
+    "epoch": 1792779607.2600744,
+    "platform_job_status": "FAILED",
+    "platform_ended_at": 1792779325539,
+    "job_terminal": true,
+    "CPU_repair_in_progress": true,
+    "terminal_API_receipt_sha256": "8e6114d78148f9c7b096036bbf7e94b0a2c1ef62fe886124aee7154d56c85347"
   }
 }
