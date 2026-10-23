@@ -159,13 +159,13 @@
       "within_quota_candidate_count": 3
     }
   ],
-  "snapshot_id": 1501,
-  "updated_at": "2026-10-23T19:57:59.969574+00:00",
+  "snapshot_id": 1510,
+  "updated_at": "2026-10-23T20:28:18.137715+00:00",
   "training_eligible_count": 0,
   "acceptance_note": "正式114/400：六垫避障搬运100/100（两种左右布局各50），四杯称量11/100（正序3、逆序8），五杯称量3/100（正序3、逆序0），干燥箱0/100。114条已按raw/episodes、labels、lerobot_v21、lerobot_v30整理发布至 /project_a02012413/public/liyufeng/t5710_lerobot_delivery_20261023/。LeRobot 0.3.3/v2.1与0.4.3/v3.0实际全量加载均通过；整理不增加验收条数。 固定避障100条已传到训练目标目录；这是未包含1cm扰动的训练基线，透明遮挡后的手指画质尚未全面认证，1cm版另采。",
-  "diagnostic_note": "正式验收仍为114/400。已发布的114条提供原始三视角视频、标签及两版LeRobot，交付记录保留。本轮四路均已结束：T7两路视频超时；T10两路完成十步但画质不合格。完整归档与12段原视频已恢复并校验。干燥箱的新抓姿已通过完整CPU轨迹检查，待新场景物理验证，相机和渲染仍待验收。 【独立1cm新先导】固定布局100条（左右布局各50条）的训练入口仍为 /home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/lerobot_v21_state13/：13维状态、203007帧、三视角原视频未转码。此固定版不覆盖1cm扰动，手指透过玻璃可见性仍未全面认证。新1cm先导 job-ydszsgujf8rj 四路原任务均已失败闭合，平台终态FAILED，完整任务验收0/100。两条A-left完成第1步后在phase2预抓被原路径质量门拒绝；swap seed0在phase2预抓发生FINETUNE_TRAJOPT_FAIL，swap seed1完成前2步后在phase3撤离被actual_to_command_original_constraints拒绝。四路原件的“仅初始位置子检查”通过：每路9刚体/41物理数组完整，物体与对应垫子同步±1cm、三个空垫固定、两种左右布局及两seed真实初态差异通过，XY与计划的最大残差约20.07µm（门限50µm）。四路光学生命周期均已闭合；这不等于手指透明遮挡、噪声或完整任务通过。绝对时钟起点未认证，全任务120Hz/曝光、三视角RGB及去重仍须独立验收。继续排查原规划拒绝，不降低物理或运动门限。 1497四卡诊断已全部闭合，新增验收0条。三路光学已完成基线与修改设置后的渲染，返回基线阶段超过诊断脚本120秒时限；状态和设置均已恢复。性能诊断在安装前被旧渲染准入的完整十步要求拒绝，尚无耗时数据。原始归档已完整恢复校验，正在按明确的诊断范围修复入口和时限。",
+  "diagnostic_note": "正式验收仍为114/400。已发布的114条提供原始三视角视频、标签及两版LeRobot，交付记录保留。上批1472四路均已结束：T7两路视频超时；T10两路完成十步但画质不合格。完整归档与12段原视频已恢复并校验。干燥箱的新抓姿已通过完整CPU轨迹检查，待新场景物理验证，相机和渲染仍待验收。 【独立1cm新先导】固定布局100条（左右布局各50条）的训练入口仍为 /home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/lerobot_v21_state13/：13维状态、203007帧、三视角原视频未转码。此固定版不覆盖1cm扰动，手指透过玻璃可见性仍未全面认证。新1cm先导 job-ydszsgujf8rj 四路原任务均已失败闭合，平台终态FAILED，完整任务验收0/100。两条A-left完成第1步后在phase2预抓被原路径质量门拒绝；swap seed0在phase2预抓发生FINETUNE_TRAJOPT_FAIL，swap seed1完成前2步后在phase3撤离被actual_to_command_original_constraints拒绝。四路原件的“仅初始位置子检查”通过：每路9刚体/41物理数组完整，物体与对应垫子同步±1cm、三个空垫固定、两种左右布局及两seed真实初态差异通过，XY与计划的最大残差约20.07µm（门限50µm）。四路光学生命周期均已闭合；这不等于手指透明遮挡、噪声或完整任务通过。绝对时钟起点未认证，全任务120Hz/曝光、三视角RGB及去重仍须独立验收。继续排查原规划拒绝，不降低物理或运动门限。 1497四卡诊断已全部闭合，新增验收0条。三路光学已完成基线与修改设置后的渲染，返回基线阶段超过诊断脚本120秒时限；状态和设置均已恢复。性能诊断在安装前被旧渲染准入的完整十步要求拒绝，尚无耗时数据。原始归档已完整恢复校验，正在按明确的诊断范围修复入口和时限。 新四卡诊断仍运行中，四路实际启动和两路光学安装已确认，阶段与画质结果待核。干燥箱最新运行373.53秒后失败闭合：已得到可用IK分支并开始第二段预抓，但被原25mrad手臂跟踪门拒绝，未开门、未抓牢；正沿实际跟踪与指令接缝排查，不放宽门限。正式仍114/400，玻璃与手部颗粒仍HOLD，尚未训练。",
   "cloud_status": {
-    "state": "formal114_diag1497_all_closed_terminal_rejected_originals_recovery_pending",
+    "state": "formal114_cloud1509_RUNNING_4Native2INSTALL_oven1509_closed_tracking25mrad_rejected",
     "current": [
       {
         "host": "cloud16GPU32env",
@@ -1154,9 +1154,257 @@
         "root_all2168_archive_member_SHA_and_gzip_CRC_verified": true,
         "root_original_selected_files_recovered": 1605,
         "root_original_selected_bytes": 318673324
+      },
+      {
+        "host": "cloud_d4g_diagnostic4_1509",
+        "attempts": [
+          1506,
+          1509
+        ],
+        "status": "ACTUAL_FOUR_NATIVE_LAUNCHED_TWO_OPTICAL_INSTALLS_RESULTS_PENDING",
+        "job_id": "job-8y5isqcxuvnc",
+        "operation_id": "ykxb78amuowcac7u6u22wka5d",
+        "platform_job_status": "RUNNING",
+        "submission_accepted": true,
+        "requested_GPU_count": 4,
+        "requested_env_count": 4,
+        "actual_assigned_GPU_count": 4,
+        "actual_launched_env_count": 4,
+        "actual_active_env_count": null,
+        "actual_source_CPU_READY_count": 4,
+        "actual_all4_normal_hidden_SDK_ENV_passed": true,
+        "actual_source_preparation_seconds": 12.895779609680176,
+        "actual_unified_compositor_CPU_passed": true,
+        "Native_launch_verified": true,
+        "roles": [
+          "worldeps_false_0",
+          "worldeps_false_001",
+          "whole_T10F_2phase",
+          "full_T10R_worldeps001_false"
+        ],
+        "source_manifest_sha256_by_role": {
+          "worldeps_false_0": "39af136ea38e929c7ebc11275114e92bcfa12ecafd4a2ad54833ac206b886d62",
+          "worldeps_false_001": "e5ade32154eb6a62fa5bb9e3ae3c0407a55caf85229a7a43ede1b59486afa124",
+          "whole_T10F_2phase": "dfdca73aa100828f1caedca4364bfe6e014ae1306898c54a470a9cfb935fbede",
+          "full_T10R_worldeps001_false": "c5ad88dc267992d6d907d46f389582bc782480e9868833b63af0c4ac05ed1d34"
+        },
+        "source_file_count_by_role": {
+          "worldeps_false_0": 468,
+          "worldeps_false_001": 468,
+          "whole_T10F_2phase": 466,
+          "full_T10R_worldeps001_false": 462
+        },
+        "static_diagnostic_wall_seconds": 180,
+        "profiler_actual_stop_after_phase": 2,
+        "fullmoving_requested_phases": 10,
+        "fractionalTrue_eps0_visually_rejected_not_requested": true,
+        "full_task_results_verified": false,
+        "moving_visual_quality_approved": false,
+        "noise_fix_claim": false,
+        "formal_increment": 0,
+        "training_started": false,
+        "state": "新四卡诊断已实际启动四个独立Native进程，CUDA映射与独立矩阵运算通过。两路静态False设置对照、一路真实前两步性能诊断、一路反序完整十步动态验证并行。后两路光学安装已通过实际初始化，仍未取得阶段结果、完整运动或画质验收，不增加正式条数。",
+        "operation_status": "SUCCEEDED",
+        "platform_job_id": "wtx6imaqplvfmpkh69ikeen32",
+        "job_url": "/pt/api/ai/jobs/baidu/job-8y5isqcxuvnc",
+        "current_process_liveness_not_inferred_from_launch_receipts": true,
+        "actual_unified_CPU_seconds": 15.23617696762085,
+        "actual_global_and_four_isolated_matmul_passed": true,
+        "actual_RAM_spool_initial_admission_passed": true,
+        "actual_initial_tmpfs_bytes": 858993459200,
+        "actual_initial_host_usable_RAM_bytes": 858416447488,
+        "actual_cgroup_RAM_limit_bytes": 858993459200,
+        "actual_launch_PCI": [
+          "0000:61:00.0",
+          "0000:62:00.0",
+          "0000:63:00.0",
+          "0000:64:00.0"
+        ],
+        "actual_launch_owners": [
+          {
+            "pid": 786,
+            "ppid": 71,
+            "pgid": 786,
+            "session": 786,
+            "start_ticks": 314288442
+          },
+          {
+            "pid": 791,
+            "ppid": 71,
+            "pgid": 791,
+            "session": 791,
+            "start_ticks": 314288454
+          },
+          {
+            "pid": 834,
+            "ppid": 71,
+            "pgid": 834,
+            "session": 834,
+            "start_ticks": 314288466
+          },
+          {
+            "pid": 884,
+            "ppid": 71,
+            "pgid": 884,
+            "session": 884,
+            "start_ticks": 314288479
+          }
+        ],
+        "actual_launch_epochs": [
+          1792786610.1914806,
+          1792786610.3082213,
+          1792786610.427453,
+          1792786610.5569897
+        ],
+        "actual_optical_INSTALL_count": 2,
+        "actual_optical_INSTALL_by_role": {
+          "whole_T10F_2phase": {
+            "task": "t10_weigh_forward",
+            "key": "/rtx/raytracing/fractionalCutoutOpacity",
+            "capture_required_bool": true,
+            "capture_required_float": null,
+            "unchanged_fractional_bool": null,
+            "diagnostic_scope1502": "explicit_T10F_two_phase_profile_admission1502_CPU_HOLD_v1",
+            "requested_stop_after_phase": 2,
+            "whole941_setter_boundary_equal": false,
+            "original941_direct_snapshot": false,
+            "absent_fields_before_after_equal": true,
+            "full_available_native_state_equal": true,
+            "snapshot_scope": {
+              "original941_direct_snapshot": false,
+              "field_presence": {
+                "planning_start_all_joints": false,
+                "phase_started": false
+              },
+              "absent_fields": [
+                "planning_start_all_joints",
+                "phase_started"
+              ]
+            },
+            "complete_settings_only_one_bool_delta": true,
+            "complete_settings_only_one_float_delta": null,
+            "cameras_materials_primvars_setter_boundary_equal": true
+          },
+          "full_T10R_worldeps001_false": {
+            "task": "t10_weigh_reverse",
+            "key": "/rtx/translucency/worldEps",
+            "capture_required_bool": null,
+            "capture_required_float": 0.009999999776482582,
+            "unchanged_fractional_bool": false,
+            "diagnostic_scope1502": null,
+            "requested_stop_after_phase": null,
+            "whole941_setter_boundary_equal": false,
+            "original941_direct_snapshot": false,
+            "absent_fields_before_after_equal": true,
+            "full_available_native_state_equal": true,
+            "snapshot_scope": {
+              "original941_direct_snapshot": false,
+              "field_presence": {
+                "planning_start_all_joints": false,
+                "phase_started": false
+              },
+              "absent_fields": [
+                "planning_start_all_joints",
+                "phase_started"
+              ]
+            },
+            "complete_settings_only_one_bool_delta": null,
+            "complete_settings_only_one_float_delta": true,
+            "cameras_materials_primvars_setter_boundary_equal": true
+          }
+        },
+        "phase_results_verified": false,
+        "completed_phases_by_role": null
+      },
+      {
+        "host": "owned_DEV_oven1492_root1506_closed_before_motion",
+        "actual_Native_started": true,
+        "actual_active_env_count": 0,
+        "status": "CLOSED_FAILED_BEFORE_MOTION",
+        "actual_Runtime_seconds": 66.16562256077304,
+        "phases_completed": 0,
+        "motion_attempted": false,
+        "Native_post_constructor_steps": 0,
+        "Native_returncode": 0,
+        "controller_exit_code": 2,
+        "actual_first_blocker": "table_envelope1235_CPU exact old scene schema rejected new1492 schema before motion",
+        "actual_whole_physics_passed": false,
+        "visual_approved": false,
+        "formal_increment": 0,
+        "strict1492_schema_CPU_successor1507_root_tests_passed": 9,
+        "state": "干燥箱上一轮运行66.17秒，在动作前被旧场景声明门拒绝，0步、0新增。新的严格适配已另行启动Native并越过旧门，抓握与完整五步结果仍待核。",
+        "strict_successor1509_controller_started": true
+      },
+      {
+        "host": "owned_DEV_oven_strict_table1507_Native1509_closed_tracking_rejected",
+        "attempts": [
+          1507,
+          1508,
+          1509
+        ],
+        "status": "CLOSED_FAILED_PHASE1_PREGRASP_NATIVE_TRACKING_25MRAD_REJECTED",
+        "actual_controller_started": true,
+        "actual_controller_owner": {
+          "pid": 1411172,
+          "pgid": 1411172,
+          "session": 1411172,
+          "start_ticks": 314294895
+        },
+        "actual_controller_epoch": 1792786675.8813498,
+        "actual_selected_PCI": "0000:64:00.0",
+        "requested_Native_count": 1,
+        "actual_Native_started": true,
+        "actual_active_env_count": 0,
+        "current_Native_liveness_not_inferred_from_controller_start": true,
+        "cook_passed": null,
+        "grip_passed": false,
+        "phases_completed": 0,
+        "full5_passed": false,
+        "visual_approved": false,
+        "formal_increment": 0,
+        "training_started": false,
+        "state": "干燥箱最新运行373.53秒后失败闭合。已越过旧场景声明门，并得到19个IK分支，其中15个通过世界、自碰、把手精确间隙与胸壳检查；第二段预抓轨迹已开始发出，但在tick1430被原25mrad手臂跟踪门拒绝。未开门、未抓牢、0步验收；初始化和73部件尺寸检查的进展保留。初始三张原图已取回，尚待主控目视。",
+        "actual_Native_PID": 1411463,
+        "actual_Native_PGID": 1411463,
+        "actual_Native_started_epoch": 1792786709.5258343,
+        "Native_launch_verified": true,
+        "old_table_schema_gate_crossed": true,
+        "actual_world_pose_GPU_cache_bitwise_PASS": true,
+        "actual_apparatus_dimensions_PASS": true,
+        "actual_apparatus_dimensions_count": 73,
+        "fullcook_report_generated": true,
+        "fullcook_report_bytes": 20904165,
+        "fullcook_report_independently_qualified": null,
+        "terminal_RESULT_or_CANARY_seen": true,
+        "actual_Runtime_seconds": 373.52867914782837,
+        "controller_exit_code": 2,
+        "Native_OS_returncode": 0,
+        "Native_RESULT_exit_code": 2,
+        "last_tick": 1430,
+        "Native_post_constructor_steps": 1310,
+        "motion_attempted": true,
+        "failed_phase": 1,
+        "failed_operation": "second_pregrasp",
+        "actual_first_blocker": "954 safety rejected: ['Native arm tracking exceeds25mrad']",
+        "tracking_limit_rad": 0.025,
+        "original_tracking_gate_unchanged": true,
+        "old_IK0_blocker_crossed": true,
+        "pregrasp_endpoint_IK_branches": 19,
+        "pregrasp_endpoint_world_self_exactbar_torso_accepted_branches": 15,
+        "planned_pregrasp_rows": 845,
+        "planned_pregrasp_seconds": 7.033333333333333,
+        "pregrasp_command_issue_started": true,
+        "whole_pregrasp_executed_success": false,
+        "door_opened": false,
+        "handle_grasp_success": false,
+        "resource_violation": null,
+        "timed_out": false,
+        "initial_three_original_PNG_received": true,
+        "root_initial_three_PNG_visual_review_completed": false,
+        "fullcook_report_sha256": "4dc9500396aae9649ba550c2261c233561bcc95b3363c717a3213d5bc12d8bff"
       }
     ],
-    "note": "1497四卡诊断已全部闭合，新增验收0条。三路光学已完成基线与修改设置后的渲染，返回基线阶段超过诊断脚本120秒时限；状态和设置均已恢复。性能诊断在安装前被旧渲染准入的完整十步要求拒绝，尚无耗时数据。原始归档已完整恢复校验，正在按明确的诊断范围修复入口和时限。 干燥箱的新抓姿已通过完整CPU轨迹检查，待新场景物理验证；相机和渲染仍待验收。",
+    "note": "1497四卡诊断已全部闭合，新增验收0条。三路光学已完成基线与修改设置后的渲染，返回基线阶段超过诊断脚本120秒时限；状态和设置均已恢复。性能诊断在安装前被旧渲染准入的完整十步要求拒绝，尚无耗时数据。原始归档已完整恢复校验，正在按明确的诊断范围修复入口和时限。 干燥箱的新抓姿已通过完整CPU轨迹检查，待新场景物理验证；相机和渲染仍待验收。 新四卡诊断仍运行中，四路实际启动和两路光学安装已确认，阶段与画质结果待核。干燥箱最新运行373.53秒后失败闭合：已得到可用IK分支并开始第二段预抓，但被原25mrad手臂跟踪门拒绝，未开门、未抓牢；正沿实际跟踪与指令接缝排查，不放宽门限。正式仍114/400，玻璃与手部颗粒仍HOLD，尚未训练。",
     "latest_new_credential_capability_and_admission": {
       "actual_capabilities_HTTP": 200,
       "actual_admission_status": "allowed",
@@ -2039,7 +2287,53 @@
     "diagnostic4_1497_full_decoded_recovery": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/ROOT_D4G_DIAG1497_RECOVERY1501_INDEPENDENT.json",
     "diagnostic4_1497_full_decoded_recovery_sha256": "66ca1973cf9c787afbbc1a9a9e6486cfd4cb153cd37cae6c3c275318b832dad3",
     "oven_next_fresh_grasp_full_CPU_path": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/oven1471_ACTUAL1486_agent/ALL_SAMPLE_ORIGINALSDK_HAND_WORLD_SELF_BIAS4_C32_1492_CPU.json",
-    "oven_next_fresh_grasp_full_CPU_path_sha256": "25d8294c842e3182185f4ed78abba29eee87758b037a001eda9f354f81bde438"
+    "oven_next_fresh_grasp_full_CPU_path_sha256": "25d8294c842e3182185f4ed78abba29eee87758b037a001eda9f354f81bde438",
+    "next_four1506_actual_source_review": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/ROOT_D4G_FOUR_ACTUAL_SOURCE1506_REVIEW.json",
+    "next_four1506_actual_source_review_sha256": "dbd0b3496a91bff48f96604c1a8ff49c83d192daf9af61ca70459ba7083dd334",
+    "next_four1506_actual_all_CPU_complete": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/ROOT_D4G_FRONTIER1506_READ1_1792785572244116559/originals/ROOT_D4G_THREE_FAMILY1506_CPU_CONTROL/CPU_COMPLETE1506.json",
+    "next_four1506_actual_all_CPU_complete_sha256": "0b8b5a3d3d6534b855c8c4027405d8db80d8b8c117321a2dfc0c573608829e2b",
+    "next_four1506_frozen_compositor": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/ROOT_D4G_DIAGNOSTIC4_1506_CPU_HOLD_weigh_agent/package1506/FROZEN_MOVING4_STORAGE1462_CPU_HOLD.json",
+    "next_four1506_frozen_compositor_sha256": "e6219e84d6fafe0e3ce6d8b69bb2bfbd9d78827060a3c81edca03f5d24eaac0f",
+    "next_four1506_independent_compositor_review": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/swap1204_independent_four1506_review_agent/INDEPENDENT_FINAL1506_REVIEW.json",
+    "next_four1506_independent_compositor_review_sha256": "b4738e980b865d983b8db6cac64efc2c8486d22f2d2743de1874a078dc7ebb63",
+    "oven1506_actual_closed_failed_before_motion": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/ROOT_D4G_FRONTIER1506_READ1_1792785572244116559/originals/oven_full5_debug1421_cohort1346_perf6_camera1368_world1378_camera1379_scene1492_d4g1506/CANARY_RESULT1325.json",
+    "oven1506_actual_closed_failed_before_motion_sha256": "66371d19332556b06a70a3a723066ca6c170b1085f9452d4e05601be3c6f5ad5",
+    "oven_strict1507_root_CPU_review": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/ROOT_D4G_OVEN1507_CPU_REVIEW1508.json",
+    "oven_strict1507_root_CPU_review_sha256": "f86823d30b472eddeebb18d99646a46a07a0daadd164ee22efc6c5c6bf1829a1",
+    "next_four1509_submission_accepted": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/ROOT_D4G_DIAGNOSTIC4_JOB1509_1792786543020866822/ACTUAL_POST.json",
+    "next_four1509_submission_accepted_sha256": "19352513769a9fb0660923c33dce0fba38aa187a7fcc5fe6e6f7b68c8eaccfee",
+    "next_four1509_operation_created": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/ROOT_D4G_DIAG1509_OPERATION_READ1_1792786671596209940/ACTUAL_GET.json",
+    "next_four1509_operation_created_sha256": "3cc1d50adc6be8888fb7a29300cf554717ed8e968c439c1e18524d9a3e307ebb",
+    "next_four1509_actual_job_RUNNING": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/ROOT_D4G_DIAG1509_JOB_READ1_1792786710910624374/ACTUAL_GET.json",
+    "next_four1509_actual_job_RUNNING_sha256": "995495401809be97356168c9243f2b07d6fe20a8ce737628a195d1d01a0988c8",
+    "next_four1509_actual_four_launch_and_two_install": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/ROOT_D4G_DIAG1509_LOGS_READ1_1792786712624251461/ACTUAL_GET.json",
+    "next_four1509_actual_four_launch_and_two_install_sha256": "10cff2cc11ca007f8998ce3838a03decf3964bc70d975284a25d07a58f33693e",
+    "next_four1509_unified_CPU_READINESS": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/ROOT_D4G_CPU1509_OVEN1508_READ1_1792786342854748310/originals/root_moving4_storage1462_run_D4G_diag1509/READINESS1462.json",
+    "next_four1509_unified_CPU_READINESS_sha256": "60009ec4e5fa2db2e7b4e3cc9367379691de025713726a081799ec307a7ad79f",
+    "next_four1509_actual_run_manifest": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/ROOT_D4G_CPU1509_OVEN1508_READ1_1792786342854748310/originals/root_moving4_storage1462_run_D4G_diag1509/ACTUAL_RUN_MANIFEST1462.json",
+    "next_four1509_actual_run_manifest_sha256": "adab417d878dd6ee2b0d5dc4c69769f10afabcc42782543999d2381af7080475",
+    "oven_strict1507_successor1509_actual_controller_start": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/ROOT_D4G_OVEN_TABLE1507_NATIVE1509_ACTUAL_1792786672728285777/ACTUAL_TRANSPORT.json",
+    "oven_strict1507_successor1509_actual_controller_start_sha256": "c6330123198c4968f8c719d924adf80e710ff8ee78dae1351bb76b7c733ca247",
+    "oven_strict1507_successor1509_actual_Native_initialization": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/oven1471_ACTUAL1486_agent/TABLE1507_NATIVE1509_ACTUAL_RO_1792786914820852766/ACTUAL_TRANSPORT.json",
+    "oven_strict1507_successor1509_actual_Native_initialization_sha256": "bef01f4f948ce7ca374b6a5012eac87c9583ef1aa13dbef91209bccec8a7d735",
+    "oven_strict1507_successor1509_actual_launch": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/oven1471_ACTUAL1486_agent/TABLE1507_NATIVE1509_ACTUAL_RO_1792786914820852766/originals/LAUNCH_RECEIPT1325.json",
+    "oven_strict1507_successor1509_actual_launch_sha256": "2c0ae713c6308b33ebc86cb4defa2053a09fcb582aee8c48d00ee2883aad1016",
+    "oven_strict1507_successor1509_GPU_world_pose_qualification": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/oven1471_ACTUAL1486_agent/TABLE1507_NATIVE1509_ACTUAL_RO_1792786914820852766/originals/native/WORLD_POSE_BATCH1378_QUALIFICATION.json",
+    "oven_strict1507_successor1509_GPU_world_pose_qualification_sha256": "614e94a3f0a175df9127273387ed49575902cbcab24f3e9bfc4d9149677eaae3",
+    "oven_strict1507_successor1509_73_apparatus_dimensions": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/oven1471_ACTUAL1486_agent/TABLE1507_NATIVE1509_ACTUAL_RO_1792786914820852766/originals/native/APPARATUS_CANONICAL_DIMENSIONS1420_QUALIFICATION.json",
+    "oven_strict1507_successor1509_73_apparatus_dimensions_sha256": "91dbd264c7521601a14e4947541b17b468fdc716806828ae8dc54e3607c3b18e",
+    "oven1509_actual_closed_tracking_failure": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/oven1471_ACTUAL1486_agent/SAME_NATIVE1509_SCOPED_RO_1792787094957507852/ACTUAL_TRANSPORT.json",
+    "oven1509_actual_closed_tracking_failure_sha256": "01020e2005eed37399beed45dc89c542dbca2c03f1cbb5374e84b058d950bf9a",
+    "oven1509_actual_CANARY_terminal": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/oven1471_ACTUAL1486_agent/SAME_NATIVE1509_SCOPED_RO_1792787094957507852/originals/CANARY_RESULT1325.json",
+    "oven1509_actual_CANARY_terminal_sha256": "de01d9cba66c1b55711c506ca952a7158d9d6072e5ec1ed449b83b8d8468986f",
+    "oven1509_actual_Native_RESULT_terminal": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/oven1471_ACTUAL1486_agent/SAME_NATIVE1509_SCOPED_RO_1792787094957507852/originals/native/RESULT.json",
+    "oven1509_actual_Native_RESULT_terminal_sha256": "6646be3ad008e6accf55323af73c835ec3e32e139104f6d32910454eb80eb51f",
+    "oven1509_endpoint_IK19_accepted15": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/oven1471_ACTUAL1486_agent/SAME_NATIVE1509_SCOPED_RO_1792787094957507852/originals/native/PREGRASP_ENDPOINT_SEARCH954.json",
+    "oven1509_endpoint_IK19_accepted15_sha256": "836637c9506c84704574c9c9d384a9a1e3830fbdc5eb89b162829fb9f8ddfb29",
+    "oven1509_second_pregrasp845_current_planning": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/oven1471_ACTUAL1486_agent/SAME_NATIVE1509_SCOPED_RO_1792787094957507852/originals/native/FRESH_PREGRASP1132_1351.json",
+    "oven1509_second_pregrasp845_current_planning_sha256": "19dcd595bd98f10ac669366adaf56ea3b767ef160ebecb0a975aa822333a516e",
+    "oven1509_prior_actual_current_planning_RO": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/oven1471_ACTUAL1486_agent/SAME_NATIVE1509_SCOPED_RO_1792787035407746956/ACTUAL_TRANSPORT.json",
+    "oven1509_prior_actual_current_planning_RO_sha256": "5b42d31f0d4e26af3841435126e505420f567a82e6c3720f334bc236a7f7cd9e"
   },
   "render_quality": {
     "required_views": [
@@ -2298,7 +2592,7 @@
     "status": "Historical count from snapshot823, preserved but excluded from revised quality requirements; not a current total"
   },
   "preview_url": "assets/long-collection/t573_T7_Fseed1536_formal114_three_views.jpg",
-  "website_previous_live_snapshot_at_candidate_prepare": 1463,
+  "website_previous_live_snapshot_at_candidate_prepare": 1501,
   "dataset_delivery": {
     "status": "PUBLISHED_AND_VERIFIED",
     "path": "/project_a02012413/public/liyufeng/t5710_lerobot_delivery_20261023/",
