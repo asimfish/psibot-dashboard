@@ -115,13 +115,13 @@
       "within_quota_candidate_count": 3
     }
   ],
-  "snapshot_id": 1419,
-  "updated_at": "2026-10-23T08:35:35.203974+00:00",
+  "snapshot_id": 1426,
+  "updated_at": "2026-10-23T10:05:35.596446+00:00",
   "training_eligible_count": 0,
   "acceptance_note": "修订版114/400正式验收：六垫搬运两种左右布局各50已齐；四杯正序3/50、逆序8/50；五杯正序3/50、逆序0/50；干燥箱0。新增正序四杯完成完整56文件与全120Hz/曝光数值独立验收、原锁定CAS114及全部114条账本复核。全部400条、生成三分钟目标、DP/ACT训练测试尚未完成。",
-  "diagnostic_note": "正式114/400。新四杯已完成8阶段、视频177.87秒，正在独立全量验收；另一组四杯已启动真实Native采集。五杯倒序首条通过全量机审与全120Hz/曝光数值复核，但持杯透明物体与手指区域有可见颗粒，视觉HOLD、不计数；独立静止持杯诊断准备中。干燥箱完整几何cook已通过，缺失的两块独立支撑垫已补入碰撞世界并通过四组实际环境检查，新有界物理启动验证已发起。生成三分钟目标尚未达到。",
+  "diagnostic_note": "正式114/400。两条新四杯均完整八阶段闭合：1535视频177.87秒、通过全量机审，1537视频174.53秒待完整机审；两条尚待原图及导出验收，不加正式。六环境扩采和云端十二环境包已通过代码检查，但旧静止实验原始日志整文件哈希与冻结记录不一致，正在原审计器全量重验，尚未占用新云卡。独立真实P1持杯静止诊断已闭合并取得30原PNG，噪声结论待分析；原五杯倒序仍视觉HOLD。干燥箱新版真实startup121/完整cook已通过，完整五步独立四源环境检查也已通过，完整五步尚待实际执行。生成三分钟目标未达到。",
   "cloud_status": {
-    "state": "formal114_new_F1535_full8_machine_running_F1537_actual_Native_T10_reverse_visual_HOLD_oven_support_startup",
+    "state": "formal114_F1535_machine_PASS_F1537_full8_static_P1_closed_oven_startup_PASS_expansion_parent_evidence_HOLD",
     "current": [
       {
         "host": "cloud16GPU32env",
@@ -685,17 +685,49 @@
       },
       {
         "host": "owned_PRO6000_Fseam1535_1537_current",
-        "state": "1535完整8阶段闭合、视频177.87秒，独立全量CPU机审运行；1537在另一张卡独立Native采集。两条均暂不计入正式数量。",
-        "actual_closed_env_count": 1,
+        "state": "两条均完整八阶段闭合：1535视频177.87秒且21350行/52规划/全部原物理与轨迹检查通过；1537视频174.53秒、20951行待完整机审。两条尚未原图/数值导出全验收，正式增量0。",
+        "actual_closed_env_count": 2,
         "actual_launched_env_count": 2,
-        "actual_active_env_count": 1,
-        "formal_increment": 0
+        "actual_active_env_count": 0,
+        "formal_increment": 0,
+        "full8_under180_candidates": 2,
+        "full_machine_passed_candidates": 1
       },
       {
         "host": "oven_support1411_actual_stage_and_startup1419",
-        "state": "四组完整源码normal/hidden实际环境检查通过，已发起唯一有界startup121控制器；真实子进程资格和完整五步结果尚待验证。",
-        "startup_controller_started": true,
-        "Native_child_identity_pending": true,
+        "state": "旧1419启动完整GPU缓存和cook通过，但原尺寸坐标表示检查失败，已闭合不计数。1420独立完整几何资格修复已通过新1426真实启动，原尺寸/物理阈值未放宽。",
+        "startup_controller_started": false,
+        "Native_child_identity_pending": false,
+        "full5_attempted": false,
+        "formal_increment": 0
+      },
+      {
+        "host": "owned_PRO6000_Fseam6_1425_parent_evidence_HOLD",
+        "state": "完整6环境包已真实stage；六个新源创建前，被旧静止组件physics120整文件SHA不一致拦截。保留原始文件和冻结记录，正在原完整审计器单次重验；0个新Native，不冒称六环境已运行。",
+        "actual_active_env_count": 0,
+        "actual_launched_env_count": 0,
+        "formal_increment": 0
+      },
+      {
+        "host": "cloud_Fseam12_1423_CPU_reviewed_not_submitted",
+        "state": "4卡×3环境方案、12个真实constructor seed、完整451源码/原SDK与物理门和传输包已通过根10项CPU检查。内网API经5090转发恢复，fresh容量/镜像/项目/BOS/配额均可读。等待旧组件证据问题解决后再唯一提交，尚无POST、未占云卡。",
+        "actual_active_env_count": 0,
+        "POST_executed": false,
+        "formal_increment": 0
+      },
+      {
+        "host": "owned_PRO6000_T10_P1_static1423_closed",
+        "state": "补齐原provider系统环境后，真实P1抓杯静止诊断成功闭合：30原640×480 PNG，48次原状态/相机/材料/渲染设置同值检查通过，无额外物理step或setter。根已看首末六图，噪声结论尚待局部测量，不外推旧P7，不计正式。",
+        "actual_active_env_count": 0,
+        "actual_closed_env_count": 1,
+        "formal_increment": 0
+      },
+      {
+        "host": "oven_dimensions1420_actual_startup1426_PASS",
+        "state": "真实GPU启动232.38秒成功闭合：完整cook、原GPU缓存逐字节、73项尺寸独立几何资格全部通过，无超时/信号/资源异常。没有执行运动或五步。后续完整五步独立四源normal/hidden ENV/SDK/ABI已实际通过，准备单AB完整五步诊断。",
+        "actual_active_env_count": 0,
+        "actual_closed_env_count": 1,
+        "startup121_passed": true,
         "full5_attempted": false,
         "formal_increment": 0
       }
@@ -1111,7 +1143,7 @@
     "verified_export_ledger": "t5710_lerobot_v4_quality_20261021/QUALIFIED_DATASETS.json",
     "swapped_export_manifest_sha256": "5d728d38b78004feffdce1175cefb69e10dced2c97f51f8b5a754bfa3ae1c6d1",
     "oven_actual_scene_preview": "assets/long-collection/t573_oven954r2.png",
-    "verified_export_ledger_sha256": "6486f288aaeba4ff6c8669a09287a7b29aee444cc4f9de2baba89b5f0242cf5e",
+    "verified_export_ledger_sha256": "04e20fcb5ccd39706e09617cc9f2cbc421b22f6aa996395153aa11205cc9801e",
     "new_two_exports": "t5710_lerobot_v4_quality_20261021/PUBLISHED971972_RECEIPT.json",
     "source_path_fix994": "revision_quality_20261021/ROOT_REVIEW_PATHFIX994.json",
     "fresh_recipe994": "revision_quality_20261021/ROOT_REVIEW_RECIPE994.json",
@@ -1356,7 +1388,9 @@
     "oven1411_root_six_CPU_sha256": "2904eb932d295a01a38f0140ed4ff623133a5a807fb8c507397c3760a2cd19e3",
     "oven1411_actual_four_source_READY_sha256": "ee2ecc20de4090819ced3b9724638aa9f306c62a5bf700a19c7bb1a4cede4e10",
     "oven1411_actual_startup_controller_start_sha256": "555b02cd18dba90185d25b7f07756ee8b3fc7df3ad4133047721890a0f11f577",
-    "website114_live_HTTP_sha256": "3a251ce71f28dc795c788e678e8725407d474246dd973f4c42bfcb34db3f6865"
+    "website114_live_HTTP_sha256": "3a251ce71f28dc795c788e678e8725407d474246dd973f4c42bfcb34db3f6865",
+    "F1535_full_machine1424_receipt_sha256": "f87429019cc5587f5e7092370b8eb9cbbdfa5852ec669a3f8f2c88639f69268a",
+    "oven_startup1426_PASS_receipt_sha256": "cd43345de1bb57c5f161c2682b42811c910adc9b8a1e905ac133cb2ca5975e05"
   },
   "render_quality": {
     "required_views": [
@@ -1444,7 +1478,11 @@
       "whole_frame_stationary_metric_does_not_qualify_grasp_ROI": true,
       "visual_approved": false,
       "formal_accepted": false,
-      "static_held_diagnostic_preparing": true
+      "static_held_diagnostic_preparing": false,
+      "static_held_P1_diagnostic_closed": true,
+      "static_held_P1_original_PNG_count": 30,
+      "static_P1_is_not_old_P7_material_state_equivalence": true,
+      "static_P1_noise_conclusion_pending": true
     }
   },
   "exported_candidate_count": 114,
