@@ -12,8 +12,8 @@
       "action_count": 5,
       "accepted_count": 0,
       "target_count": 100,
-      "state": "formal0_new_real_geometry_rejected_closed_door_fixed10cm_retime_in_progress",
-      "note": "正式0/100。原场景完整门弧约8.95度处被胸壳门拒绝；此前两个零空间端点虽过胸壳，但超关节限位，已排除。新固定场景候选为仅干燥箱宽度65%、箱桌前移15cm、把手抓姿转30度，杯瓶尺寸不缩放；128节点与原C20重定时1720个float32样本通过原关节/VAJ/手臂胸壳检查，真实USD、完整手部/世界碰撞及完整五步仍未验证。第三相机继续修正，不能计正式。 新杯瓶固定位置、同层支撑延长/降低及抓姿候选的8个目标CPU关节/臂胸壳检查通过；实际USD、完整手部与世界碰撞尚未通过，仍为0。 后续真实USD检查已发现+15cm候选杯瓶与关闭门片干涉，该场景候选已停用；正在退回+10cm并修正原重定时边界过冲，不能据门弧CPU通过判场景可采。",
+      "state": "formal0_new_geometry_passed_pregrasp_endpoint_debug",
+      "note": "正式0/100。新干燥箱完整几何检查已通过，包括73个箱体碰撞形状、完整碰撞捕获和世界坐标检查。本轮运行351.99秒，抓门把手的预备位置未算出可用关节解（0个候选），尚未进入后续抓取和碰撞分支检查，也未开门；正在调整预备抓姿和偏移。第三视角遮挡与玻璃颗粒仍待修正。",
       "conditions": [
         {
           "id": "AB",
@@ -77,8 +77,8 @@
       "action_count": 8,
       "accepted_count": 11,
       "target_count": 100,
-      "state": "formal11_F6_R4_visual_HOLD_new_optical_F_R_CPU_sources_READY",
-      "note": "正式11/100：正序3/50、逆序8/50。新六条正序与四条逆序候选均全机审通过，完整原件已保全，但实际持杯原图仍有颗粒，全部视觉HOLD，不计正式。单项透明设置静态ABA已完成独立原件与数值对照；新正反序完整任务光学源码已实际通过原normal/hidden、SDK及ENV检查，待完整运动验证，不宣称动态噪声已解决。 已通过的11条29284帧位于 /project_a02012413/public/liyufeng/t5710_lerobot_delivery_20261023/7_weigh/，同时提供两版LeRobot。新4卡完整运动光学任务job-plach541ylad已实际启动四路，CUDA/PCI/资源检查通过，但四路均在动作前因planning_start_all_joints初始化字段缺失而退出，0条新数据；manager闭合、平台FAILED。正在定位hook调用时序；静态ABA不代表动态颗粒已修复。",
+      "state": "formal11_v3_video_ceiling_rejected_no_new_formal",
+      "note": "正式11/100：1234顺序3/50、4321顺序8/50。本轮两条视频188.73秒、180.87秒，均超出180秒上限，未通过。正在排查规划与动作耗时，并继续修复玻璃和手部颗粒噪声。",
       "conditions": [
         {
           "id": "1234",
@@ -104,8 +104,8 @@
       "action_count": 10,
       "accepted_count": 3,
       "target_count": 100,
-      "state": "formal3_reverse_visual_HOLD_two_optical_full10_CPU_sources_READY",
-      "note": "正式3/100：正序3/50、逆序0/50；已通过的3条7501帧位于 /project_a02012413/public/liyufeng/t5710_lerobot_delivery_20261023/10_weigh/，raw/labels及两版LeRobot均已全量核验。新候选持杯颗粒仍视觉HOLD。新4卡完整运动光学任务job-plach541ylad已实际启动四路，CUDA/PCI/资源检查通过，但四路均在动作前因planning_start_all_joints初始化字段缺失而退出，0条新数据；manager闭合、平台FAILED。正在定位hook调用时序；静态ABA不代表动态颗粒已修复。",
+      "state": "formal3_v3_runtime2_grain_visual_HOLD_machine_pending",
+      "note": "正式3/100：12345顺序3/50、54321顺序0/50。本轮正反序均完成十步，视频168.47秒、165.40秒；实际生成分别用了29.4和30.6分钟。动态抓杯画面仍有颗粒，完整碰撞复核尚待完成，本轮尚未增加验收数量。",
       "conditions": [
         {
           "id": "12345",
@@ -126,13 +126,13 @@
       "within_quota_candidate_count": 3
     }
   ],
-  "snapshot_id": 1481,
-  "updated_at": "2026-10-23T17:35:07.086436+00:00",
+  "snapshot_id": 1489,
+  "updated_at": "2026-10-23T18:02:46.102577+00:00",
   "training_eligible_count": 0,
   "acceptance_note": "正式114/400：六垫避障搬运100/100（两种左右布局各50），四杯称量11/100（正序3、逆序8），五杯称量3/100（正序3、逆序0），干燥箱0/100。114条已按raw/episodes、labels、lerobot_v21、lerobot_v30整理发布至 /project_a02012413/public/liyufeng/t5710_lerobot_delivery_20261023/。LeRobot 0.3.3/v2.1与0.4.3/v3.0实际全量加载均通过；整理不增加验收条数。 固定避障100条已传到训练目标目录；这是未包含1cm扰动的训练基线，透明遮挡后的手指画质尚未全面认证，1cm版另采。",
-  "diagnostic_note": "114条交付包含239792帧/格式、原始三视角15fps/640×480；6358个核心文件SHA、全量数值与原视频SHA均核对通过，两套官方加载器共684次抽样及2052次原始RGB像素对照通过。打开交付根目录preview.html查看114条三视角，阅读DELIVERY_README_ZH.md；原有胸部前景手臂局部遮挡记录保留，不声称完整视频人工通看。新4卡完整运动光学任务job-plach541ylad已实际启动四路，CUDA/PCI/资源检查通过，但四路均在动作前因planning_start_all_joints初始化字段缺失而退出，0条新数据；manager闭合、平台FAILED。正在定位hook调用时序；静态ABA不代表动态颗粒已修复。生成三分钟目标及DP/ACT训练测试未完成。 本会话独立job-biwfrhh9zpqw也在同一初始化错误处四路关闭；两次均新增0，勿合并计成采集成功。其555原件完整归档经独立HTTP核验。新只读检查明确记录尚未创建字段的缺失，保留全部已存在真实状态对照，原941与物理门不改；根独立11项CPU已通过，四种新源共8次正常/隐藏完整任务CPU准入全部通过。新任务job-i4vt5k3s115u已实际启动四路、实际PCI隔离和RAM准入通过；四路光学INSTALL已真实通过，明确记录缺失字段且全部已存在Native状态、相机和材质不变；完整运动与实际持杯画面仍待验收，新增合格数据仍为0。 目标交付路径：/home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/；训练读取lerobot_v21，预览preview.html。5369核心文件SHA核验及目标官方加载通过；全部100条初态检查没有厘米扰动，画质疑点与45个原始解码帧随包附上。",
+  "diagnostic_note": "正式验收仍为114/400。已发布的114条提供原始三视角视频、标签及两版LeRobot，交付记录保留。本轮四路均已结束：T7两路视频超时；T10两路完成十步但画质不合格。完整归档与12段原视频已恢复并校验。干燥箱新场景的几何检查通过，当前正在修正抓门把手预备位置的关节解。",
   "cloud_status": {
-    "state": "formal114_new_v3_four_Native_actual_INSTALL4_full_motion_pending",
+    "state": "formal114_T7video_rejected_T10_grain_HOLD_archive_recovered_oven_geometry_PASS_pregrasp_debug",
     "current": [
       {
         "host": "cloud16GPU32env",
@@ -839,11 +839,137 @@
         "actual_GPU_count": 4,
         "actual_launched_env_count": 4,
         "formal_increment": 0,
-        "state": "修复版四路已实际启动：四杯正反序和五杯正反序各占一张卡。实际PCI61/62/63/64隔离、800GiB容器RAM与临时输出盘准入通过，四路光学INSTALL均真实通过，明确记录尚未创建字段并核对全部已存在Native状态/相机/材质不变。完整动作和动态画面仍在验证，不计正式。",
-        "actual_optical_INSTALL_count": 4
+        "state": "本轮四路全部闭合、平台FAILED/manager2，四路INSTALL通过；T7正反序原视频188.73/180.87秒被原180秒门拒绝；T10正反序完整10步runtime候选通过，但独立full120机审未完成。最新严格只读恢复已完成：全5227成员/23957778246字节、整包编码SHA和gzip完整CRC全部通过，耗时110.94秒；101个选定原件33352324字节和12个原视频均已取回。原BOS COMPLETE失败仍作为独立回执错误保留，未改原包、未删除原件。 根已实际抽看五杯倒序10秒三视角和正序35秒第三视角，抓持玻璃与手部仍可见颗粒，动态视觉不通过，扩采HOLD；不把单项透明设置或INSTALL通过当成消噪完成。独立full120整机审尚未完成，不增加正式条数。",
+        "actual_optical_INSTALL_count": 4,
+        "previous_state_before_terminal_reconcile1483": "修复版四路已实际启动：四杯正反序和五杯正反序各占一张卡。实际PCI61/62/63/64隔离、800GiB容器RAM与临时输出盘准入通过，四路光学INSTALL均真实通过，明确记录尚未创建字段并核对全部已存在Native状态/相机/材质不变。完整动作和动态画面仍在验证，不计正式。",
+        "status": "FAILED",
+        "actual_active_env_count": 0,
+        "actual_active_GPU_count": 0,
+        "actual_closed_env_count": 4,
+        "all_owned_groups_closed": true,
+        "manager_exit_code": 2,
+        "runtime_RESULT_metadata_SHA_verified": true,
+        "full120_independent_machine_passed": false,
+        "moving_visual_quality_approved": false,
+        "actual_original_RESULT_rows": [
+          {
+            "lane": 0,
+            "task": "t7_weigh_forward",
+            "RESULT_status": "failed",
+            "runtime_physical_success": false,
+            "RESULT_error": "ValueError: Actual video exceeds unchanged180s ceiling",
+            "phases_completed": null,
+            "wall_seconds": null,
+            "frames_per_camera": 2831,
+            "video_seconds": 188.73333333333332,
+            "full120_rows": 22652,
+            "full120_independent_machine_passed": false,
+            "moving_visual_approved": false,
+            "formal_accepted": false
+          },
+          {
+            "lane": 1,
+            "task": "t7_weigh_reverse",
+            "RESULT_status": "failed",
+            "runtime_physical_success": false,
+            "RESULT_error": "ValueError: Actual video exceeds unchanged180s ceiling",
+            "phases_completed": null,
+            "wall_seconds": null,
+            "frames_per_camera": 2713,
+            "video_seconds": 180.86666666666667,
+            "full120_rows": 21707,
+            "full120_independent_machine_passed": false,
+            "moving_visual_approved": false,
+            "formal_accepted": false
+          },
+          {
+            "lane": 2,
+            "task": "t10_weigh_forward",
+            "RESULT_status": "completed",
+            "runtime_physical_success": true,
+            "RESULT_error": null,
+            "phases_completed": 10,
+            "wall_seconds": 1763.9636349440552,
+            "frames_per_camera": 2527,
+            "video_seconds": 168.46666666666667,
+            "full120_rows": 20216,
+            "full120_independent_machine_passed": false,
+            "moving_visual_approved": false,
+            "formal_accepted": false
+          },
+          {
+            "lane": 3,
+            "task": "t10_weigh_reverse",
+            "RESULT_status": "completed",
+            "runtime_physical_success": true,
+            "RESULT_error": null,
+            "phases_completed": 10,
+            "wall_seconds": 1836.0884852162562,
+            "frames_per_camera": 2481,
+            "video_seconds": 165.4,
+            "full120_rows": 19848,
+            "full120_independent_machine_passed": false,
+            "moving_visual_approved": false,
+            "formal_accepted": false
+          }
+        ]
+      },
+      {
+        "host": "owned_DEV_oven1471_controller1482_preNative_admission",
+        "attempts": [
+          1482
+        ],
+        "actual_controller_started": true,
+        "actual_Native_started": false,
+        "actual_active_env_count": 0,
+        "new_Native_PNG_count": 0,
+        "cook_passed": false,
+        "full5_passed": false,
+        "formal_increment": 0,
+        "state": "新固定场景四源码完整CPU准入29.4秒通过；1482控制器被未选用GPU0的冷门拦截（PCI63空闲24747MiB低于32768MiB），真正选用的GPU1尚未启动Native，新增PNG、cook及完整五步物理/画面均未验证。正在CPU准备最小监督修正：非选卡仅按原16GiB probe余量检查，选卡原32/14/16GiB与全部物理门保持；未启动修正后的任务。"
+      },
+      {
+        "host": "scale10_storage1476_CPU_HOLD_only",
+        "requested_GPU_count": 4,
+        "configured_env_per_GPU": [
+          3,
+          3,
+          2,
+          2
+        ],
+        "actual_active_env_count": 0,
+        "actual_Native_launched": 0,
+        "formal_increment": 0,
+        "state": "10环境/四卡的256GiB输出盘方案仅完成12项CPU检查并冻结；四种原源码作为诊断副本，未启动且不计正式。必须新的四路完整机审和动态视觉验收通过后才能扩大。"
+      },
+      {
+        "host": "owned_DEV_oven1471_controller1486_actual_one_Native",
+        "actual_Native_started": true,
+        "actual_active_env_count": 0,
+        "actual_Native_PID": 901552,
+        "actual_Native_start_ticks": 313415305,
+        "actual_GPU_slot": 1,
+        "actual_PCI": "0000:64:00.0",
+        "global_and_isolated_matmul_PASS": true,
+        "visual_approved": false,
+        "cook_and_complete_physics_pending": false,
+        "formal_increment": 0,
+        "state": "正式0/100。新干燥箱完整几何检查已通过，包括73个箱体碰撞形状、完整碰撞捕获和世界坐标检查。本轮运行351.99秒，抓门把手的预备位置未算出可用关节解（0个候选），尚未进入后续抓取和碰撞分支检查，也未开门；正在调整预备抓姿和偏移。第三视角遮挡与玻璃颗粒仍待修正。",
+        "status": "CLOSED_PREGRASP_ENDPOINT_REJECTED",
+        "all_owned_groups_closed": true,
+        "actual_Runtime_seconds": 351.99,
+        "actual_Native_cook73_PASS": true,
+        "actual_fullcook407_records_PASS": true,
+        "actual_fullcook_report_bytes": 20905914,
+        "actual_fullcook_report_sha256": "f6ab4e2a021590f6b765b62e96d95fc293772e6f41971c86e23341cea7cf0673",
+        "actual_world77_GPU_pose_PASS": true,
+        "complete_physics_passed": false,
+        "phases_completed": 0,
+        "actual_first_blocker": "Original solve_ik_candidates returned zero branches at handle_approach_endpoint; downstream world/torso/exactbar checks not reached",
+        "IK_branches": 0
       }
     ],
-    "note": "新4卡完整运动光学任务job-plach541ylad已实际启动四路，CUDA/PCI/资源检查通过，但四路均在动作前因planning_start_all_joints初始化字段缺失而退出，0条新数据；manager闭合、平台FAILED。正在定位hook调用时序；静态ABA不代表动态颗粒已修复。四卡仅约一轮启动即终止，无此批活跃Native；保留完整失败原件，不重启未修复源码。共享盘已恢复超过1TiB，保留512GiB原准入门。",
+    "note": "本轮四卡任务和干燥箱调试均已结束，新增验收0条。全部归档已恢复；T7继续优化时长，T10继续修复动态颗粒。干燥箱完整几何检查通过，当前卡在抓门把手预备位置的关节解。十环境并行方案已完成CPU检查，待画质及物理验收通过后启用。",
     "latest_new_credential_capability_and_admission": {
       "actual_capabilities_HTTP": 200,
       "actual_admission_status": "allowed",
@@ -1286,7 +1412,67 @@
       "render_fraction_approximately": 0.04,
       "CPU_geometry_and_contact_checks_dominant_in_this_window": true,
       "whole_episode_or_model_time_claim": false
-    }
+    },
+    "scale10_storage1476_CPU_HOLD": {
+      "configured_GPU_count": 4,
+      "configured_env_per_GPU": [
+        3,
+        3,
+        2,
+        2
+      ],
+      "diagnostic_replicas": true,
+      "formal_eligible": false,
+      "CPU_tests_passed": 12,
+      "frozen_package_sha256": "f9136c92aca42c827078976ba11125d8fba6489be8173c4cb8862be2b32c5993",
+      "actual_Native_launched": 0,
+      "new_tmpfs_cap_GiB": 256,
+      "retained_tmpfs_GiB": 32,
+      "initial_tmpfs_free_GiB": 288,
+      "initial_host_usable_GiB": 512,
+      "original_runtime_host_usable_GiB": 224,
+      "unchanged_T10_own_free_carddrop_GiB": [
+        32,
+        16,
+        48
+      ],
+      "future_launch_requires_actual_four_canary_full_machine_and_moving_visual_PASS": true,
+      "generation_speedup_proved": false,
+      "formal_increment": 0
+    },
+    "v3_1472_performance_scope": "本轮T10两路原RESULT已验证生成1763.96/1836.09秒，未达生成180秒；视频168.47/165.40秒不是生成耗时。四杯两路原180秒视频门失败；独立机审和画质仍待验收。",
+    "v3_1472_actual_runtime_T10_candidates": [
+      {
+        "lane": 2,
+        "task": "t10_weigh_forward",
+        "RESULT_status": "completed",
+        "runtime_physical_success": true,
+        "RESULT_error": null,
+        "phases_completed": 10,
+        "wall_seconds": 1763.9636349440552,
+        "frames_per_camera": 2527,
+        "video_seconds": 168.46666666666667,
+        "full120_rows": 20216,
+        "full120_independent_machine_passed": false,
+        "moving_visual_approved": false,
+        "formal_accepted": false
+      },
+      {
+        "lane": 3,
+        "task": "t10_weigh_reverse",
+        "RESULT_status": "completed",
+        "runtime_physical_success": true,
+        "RESULT_error": null,
+        "phases_completed": 10,
+        "wall_seconds": 1836.0884852162562,
+        "frames_per_camera": 2481,
+        "video_seconds": 165.4,
+        "full120_rows": 19848,
+        "full120_independent_machine_passed": false,
+        "moving_visual_approved": false,
+        "formal_accepted": false
+      }
+    ]
   },
   "evidence": {
     "noise_controlled": "revision_quality_20261021/OPTICAL_PROBE842.json",
@@ -1596,7 +1782,41 @@
     "v3_1472_actual_four_Native_launches": "revision_quality_20261021/ROOT_D4G_MOVING1472_ACTUAL_FIRST_LAUNCHES.json",
     "v3_1472_actual_running_JOB": "revision_quality_20261021/ROOT_D4G_MOVING1472_JOBSTATE_READ1_1792772717874775579/ACTUAL_GET.json",
     "v3_1472_actual_CPU_READY": "revision_quality_20261021/ROOT_D4G_CANARY_CPU_READY1472_RO_1792772408700493524/ACTUAL_TRANSPORT.json",
-    "v3_1472_actual_four_INSTALL": "revision_quality_20261021/ROOT_D4G_MOVING1472_FOUR_ACTUAL_INSTALL1474.json"
+    "v3_1472_actual_four_INSTALL": "revision_quality_20261021/ROOT_D4G_MOVING1472_FOUR_ACTUAL_INSTALL1474.json",
+    "v3_1472_actual_terminal_logs": "revision_quality_20261021/ROOT_D4G_MOVING1472_LOGS_READ6_1792775326807689192/ACTUAL_GET.json",
+    "v3_1472_actual_terminal_logs_sha256": "f0db96b4d0a5ebf5755557b3c763673cd569df7dbf1ce2331f0323ae3d499186",
+    "v3_1472_partial_BOS_metadata": "revision_quality_20261021/ROOT_D4G_MOVING1472_PARTIAL_BOS1480_RO_1792775953007373607/PARSED_META.json",
+    "v3_1472_original_inventory": "revision_quality_20261021/ROOT_D4G_MOVING1472_PARTIAL_BOS1480_RO_1792775953007373607/originals/STREAMED_ORIGINAL_MEMBERS.json",
+    "v3_1472_full_payload_HTTP": "revision_quality_20261021/ROOT_D4G_MOVING1472_FULL_HTTP1480_1792776396432886548/ACTUAL_OBJECT_HTTP_VERIFY.json",
+    "v3_1472_full_payload_HTTP_sha256": "4e185c5b75b492fc7ff95a5263582bcf44dfd5b5569e6db66b258a66ebd59fbf",
+    "v3_1472_selected_recovery_initial_admission_failed": "revision_quality_20261021/ROOT_D4G_MOVING1472_SELECT1483_READ1_1792777353664366645/ACTUAL_TRANSPORT.json",
+    "v3_1472_selected_recovery_initial_admission_failed_sha256": "b933e424dc1942bb0a21f89e9bd78d8f0903f41de6ac066c6065785b9e3d6604",
+    "oven1471_controller1482_preNative_admission": "revision_quality_20261021/ROOT_D4G_OVEN1471_NATIVE1482_ACTUAL_1792777095006904420/ACTUAL_TRANSPORT.json",
+    "oven1471_controller1482_preNative_admission_sha256": "a7c561ad2018853dbfdef77b7e683feaf66a000b6707cb5ce576cd08aed1315e",
+    "scale10_1476_CPU_HOLD_frozen": "revision_quality_20261021/swap1204_scale10_storage1476_CPU_HOLD_agent/package1476/FROZEN_SWAP1204_MOVING10_STORAGE1476_CPU_HOLD.json",
+    "scale10_1476_CPU_HOLD_frozen_sha256": "f9136c92aca42c827078976ba11125d8fba6489be8173c4cb8862be2b32c5993",
+    "v3_1472_selected_recovery1484_actual_start": "revision_quality_20261021/ROOT_D4G_MOVING1472_SELECT1484_ACTUAL_1792777504530797139/ACTUAL_TRANSPORT.json",
+    "v3_1472_selected_recovery1484_actual_start_sha256": "f97c1d6376f612ee4ff6795b8c16776ad73f566cd60d1872c60ad6697dc57d10",
+    "v3_1472_selected_recovery1484_actual_read1": "revision_quality_20261021/ROOT_D4G_MOVING1472_SELECT1484_READ1_1792777535702409893/ACTUAL_TRANSPORT.json",
+    "v3_1472_selected_recovery1484_actual_read1_sha256": "a06aafebceebbc3253347a4a102c9b5bc381ff58b3e3cd16c50ea08d05591d2a",
+    "v3_1472_original89_metadata": "revision_quality_20261021/ROOT_D4G_MOVING1472_META1484_PARTIAL_RO_1792777620368311156/ACTUAL_TRANSPORT.json",
+    "v3_1472_original89_metadata_sha256": "fc20d87cbaf04b0c745a3a7ca9b0540314dabd57173e06ddffe60c82315dc9f1",
+    "v3_1472_local_nine_original_RESULT_CAP_SHA": "revision_quality_20261021/swap1204_dashboard1483_candidate_1792777326296672568/METADATA9_INDEPENDENT1484.json",
+    "v3_1472_local_nine_original_RESULT_CAP_SHA_sha256": "2f3db06dec37fc521731275424d3ca2c997f9fc46d1542c3ae69a67e99ca6050",
+    "v3_1472_strict_all_archive_and_selected_recovery": "revision_quality_20261021/ROOT_D4G_MOVING1472_VIDEO1485_RO_1792777711601114134/originals/COMPLETE_SELECT1481.json",
+    "v3_1472_strict_all_archive_and_selected_recovery_sha256": "8d94bcea6681ae471b284566ffd62639c5bfe2c7f0d9dedef7a226038b6a2d04",
+    "v3_1472_original_decoded_video_samples": "revision_quality_20261021/ROOT_D4G_MOVING1472_VISUAL1485/DECODED_ORIGINAL_VIDEO_SAMPLES.json",
+    "v3_1472_original_decoded_video_samples_sha256": "89f38603faa0f08c6067f095dcd6464cfef1c6ee90fd9cd1d3b9bf953b1c3a70",
+    "oven1471_actual_Native1486_start": "revision_quality_20261021/ROOT_D4G_OVEN1471_NATIVE1486_ACTUAL_1792777842337176856/ACTUAL_TRANSPORT.json",
+    "oven1471_actual_Native1486_start_sha256": "950e62ffb1a461b8b7c82594a5bb62db4e8baee1edc47a67818f5e475d567306",
+    "oven1471_actual_Native1486_progress": "revision_quality_20261021/oven1471_ACTUAL1486_agent/RO_1792777938380351859/READABLE_PROGRESS1486.json",
+    "oven1486_actual_closed_pregrasp1489": {
+      "path": "revision_quality_20261021/oven1471_ACTUAL1486_agent/RO_1792778435067207202/READABLE_PROGRESS1486.json",
+      "sha256": "9fdadf2fd52405197423fcba9dad2b001697c19c1b3d40aee5e86f611dea3272",
+      "RESULT_sha256": "40bd2566c4c73eca90a993eb235dc27e183d141379f40fd8ecf904abe6c57e47",
+      "formal_increment": 0,
+      "endpoint_report_sha256": "1eb59072d1378c0daabd4c0289df589f2394632691be1653412a19c00d6e6877"
+    }
   },
   "render_quality": {
     "required_views": [
@@ -1765,7 +1985,17 @@
       "actual_moving_validation_passed": false,
       "formal_increment": 0,
       "scope": "仅修正原941在规划字段实际创建前的只读观察；缺失明确记录，不合成Native字段；所有真实已存在状态必须前后一致。",
-      "actual_Native_INSTALL_count": 4
+      "actual_Native_INSTALL_count": 4,
+      "actual_job_id": "job-i4vt5k3s115u",
+      "actual_job_status": "FAILED",
+      "actual_active_Native_count": 0,
+      "actual_closed_Native_count": 4,
+      "actual_INSTALL_evidence_retained": true,
+      "individual_runtime_RESULT_metadata_pending_recovery": false,
+      "independent_full120_machine_and_visual_pending": true,
+      "full_machine_and_moving_visual_approved": false,
+      "actual_runtime_completed_T10_candidates": 2,
+      "T7_original_video_ceiling_rejected": 2
     },
     "fixed5b_hand_glass_review1481": {
       "all100_certified": false,
@@ -1778,6 +2008,63 @@
       ],
       "known_concern": "Bright white vessel regions and discontinuous overlapping finger silhouettes; not a proven shader root cause.",
       "qa_report_sha256": "eb410b4fa440afc015539db39221c0185bad55bbcbbb37857c02d20a1d65b328"
+    },
+    "v3_1472_original_archive_recovery1483": {
+      "payload_bytes": 3549106077,
+      "payload_sha256": "1265a5686374a3b4268d7e6dd5e3024ef73eae0e595dc0b6a29b42fa50e8ea20",
+      "member_count": 5227,
+      "original_member_bytes": 23957778246,
+      "streamed_inventory_bytes": 3770585,
+      "streamed_inventory_sha256": "499a37b3ca85276d2eb0e71504c5046c8d72865eb6e3d441a66b56cefad9bb36",
+      "whole_HTTPS_SHA_verified": true,
+      "whole_HTTPS_receipt_sha256": "4e185c5b75b492fc7ff95a5263582bcf44dfd5b5569e6db66b258a66ebd59fbf",
+      "COMPLETE_exists": false,
+      "COMPLETE_failure": "4MiB receipt bound from duplicate inventory",
+      "source_unlinks": 0,
+      "per_member_SHA_and_full_gzip_CRC_recovery_pending": true,
+      "planned_selected_files": 101,
+      "planned_selected_bytes_approximately": 33350000,
+      "selected_recovery_started": true,
+      "selected_recovery_output_created": true,
+      "recovery_state": "STRICT_FULL_ARCHIVE_AND_ALL_SELECTED_ORIGINALS_RECOVERED",
+      "previous1483_initial_budget_failure_output_created": false,
+      "formal_increment": 0,
+      "actual_metadata_files_SHA_verified": 89,
+      "per_member_SHA_and_full_gzipCRC_recovery_pending": false,
+      "strict_all5227_member_SHA_and_whole_archive_SHA_CRC_PASS": true,
+      "strict_recovery_elapsed_s": 110.94365194113925,
+      "selected_recovery_completed": true,
+      "selected_file_count": 101,
+      "selected_bytes": 33352324,
+      "original_video_files_recovered": 12,
+      "independent_recovery_COMPLETE_exists": true,
+      "independent_recovery_COMPLETE_sha256": "8d94bcea6681ae471b284566ffd62639c5bfe2c7f0d9dedef7a226038b6a2d04",
+      "original_BOS_COMPLETE_failure_not_rewritten": true
+    },
+    "v3_1472_actual_moving_visual1485": {
+      "root_actually_viewed_T10R_second10_cameras": [
+        "head_camera",
+        "chest_camera",
+        "third_camera"
+      ],
+      "root_actually_viewed_T10F_second35_cameras": [
+        "third_camera"
+      ],
+      "held_glass_and_finger_grain_observed": true,
+      "sampled_review_only_not_all_video": true,
+      "dynamic_visual_approved": false,
+      "full120_independent_machine_passed": false,
+      "expansion_HOLD": true,
+      "formal_increment": 0
+    },
+    "oven1471_actual_initial_three_views1486": {
+      "root_actually_viewed_three_initial_PNGs": true,
+      "two_objects_visible": true,
+      "third_left_robot_head_occlusion_observed": true,
+      "glass_grain_observed": true,
+      "visual_approved": false,
+      "cook_and_full_physics_pending": true,
+      "formal_increment": 0
     }
   },
   "exported_candidate_count": 114,
@@ -1928,5 +2215,15 @@
     "preview": "/home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/preview.html",
     "readme": "/home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/README_FIXED_LAYOUT_ZH.md",
     "target_validation": "/home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/TARGET_VALIDATION.json"
+  },
+  "previous_user_visible_notes_snapshot1481": {
+    "diagnostic_note": "114条交付包含239792帧/格式、原始三视角15fps/640×480；6358个核心文件SHA、全量数值与原视频SHA均核对通过，两套官方加载器共684次抽样及2052次原始RGB像素对照通过。打开交付根目录preview.html查看114条三视角，阅读DELIVERY_README_ZH.md；原有胸部前景手臂局部遮挡记录保留，不声称完整视频人工通看。新4卡完整运动光学任务job-plach541ylad已实际启动四路，CUDA/PCI/资源检查通过，但四路均在动作前因planning_start_all_joints初始化字段缺失而退出，0条新数据；manager闭合、平台FAILED。正在定位hook调用时序；静态ABA不代表动态颗粒已修复。生成三分钟目标及DP/ACT训练测试未完成。 本会话独立job-biwfrhh9zpqw也在同一初始化错误处四路关闭；两次均新增0，勿合并计成采集成功。其555原件完整归档经独立HTTP核验。新只读检查明确记录尚未创建字段的缺失，保留全部已存在真实状态对照，原941与物理门不改；根独立11项CPU已通过，四种新源共8次正常/隐藏完整任务CPU准入全部通过。新任务job-i4vt5k3s115u已实际启动四路、实际PCI隔离和RAM准入通过；四路光学INSTALL已真实通过，明确记录缺失字段且全部已存在Native状态、相机和材质不变；完整运动与实际持杯画面仍待验收，新增合格数据仍为0。 目标交付路径：/home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/；训练读取lerobot_v21，预览preview.html。5369核心文件SHA核验及目标官方加载通过；全部100条初态检查没有厘米扰动，画质疑点与45个原始解码帧随包附上。",
+    "cloud_note": "新4卡完整运动光学任务job-plach541ylad已实际启动四路，CUDA/PCI/资源检查通过，但四路均在动作前因planning_start_all_joints初始化字段缺失而退出，0条新数据；manager闭合、平台FAILED。正在定位hook调用时序；静态ABA不代表动态颗粒已修复。四卡仅约一轮启动即终止，无此批活跃Native；保留完整失败原件，不重启未修复源码。共享盘已恢复超过1TiB，保留512GiB原准入门。",
+    "scene_notes": {
+      "t5_oven": "正式0/100。原场景完整门弧约8.95度处被胸壳门拒绝；此前两个零空间端点虽过胸壳，但超关节限位，已排除。新固定场景候选为仅干燥箱宽度65%、箱桌前移15cm、把手抓姿转30度，杯瓶尺寸不缩放；128节点与原C20重定时1720个float32样本通过原关节/VAJ/手臂胸壳检查，真实USD、完整手部/世界碰撞及完整五步仍未验证。第三相机继续修正，不能计正式。 新杯瓶固定位置、同层支撑延长/降低及抓姿候选的8个目标CPU关节/臂胸壳检查通过；实际USD、完整手部与世界碰撞尚未通过，仍为0。 后续真实USD检查已发现+15cm候选杯瓶与关闭门片干涉，该场景候选已停用；正在退回+10cm并修正原重定时边界过冲，不能据门弧CPU通过判场景可采。",
+      "t5_obstruction": "固定布局100条（两种左右布局各50条）已按用户授权传到 /home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/，包含raw/episodes、labels、lerobot_v21、lerobot_v30；203007帧，5369核心文件SHA一致，目标机LeRobot0.3.3实际首中尾三视角读取通过。旧100条不覆盖1cm：全量初始位置审计的最大跨度仅0.003338毫米。持杯45帧抽查发现部分胸部玻璃白亮块与手指轮廓不连续，尚不能保证透杯手指始终可见。已附原帧和核查报告；本版先供固定基线训练。独立1cm版正在配置/源码CPU验证，尚无新1cm数据通过验收。",
+      "t7_weigh": "正式11/100：正序3/50、逆序8/50。新六条正序与四条逆序候选均全机审通过，完整原件已保全，但实际持杯原图仍有颗粒，全部视觉HOLD，不计正式。单项透明设置静态ABA已完成独立原件与数值对照；新正反序完整任务光学源码已实际通过原normal/hidden、SDK及ENV检查，待完整运动验证，不宣称动态噪声已解决。 已通过的11条29284帧位于 /project_a02012413/public/liyufeng/t5710_lerobot_delivery_20261023/7_weigh/，同时提供两版LeRobot。新4卡完整运动光学任务job-plach541ylad已实际启动四路，CUDA/PCI/资源检查通过，但四路均在动作前因planning_start_all_joints初始化字段缺失而退出，0条新数据；manager闭合、平台FAILED。正在定位hook调用时序；静态ABA不代表动态颗粒已修复。",
+      "t10_weigh": "正式3/100：正序3/50、逆序0/50；已通过的3条7501帧位于 /project_a02012413/public/liyufeng/t5710_lerobot_delivery_20261023/10_weigh/，raw/labels及两版LeRobot均已全量核验。新候选持杯颗粒仍视觉HOLD。新4卡完整运动光学任务job-plach541ylad已实际启动四路，CUDA/PCI/资源检查通过，但四路均在动作前因planning_start_all_joints初始化字段缺失而退出，0条新数据；manager闭合、平台FAILED。正在定位hook调用时序；静态ABA不代表动态颗粒已修复。"
+    }
   }
 }
