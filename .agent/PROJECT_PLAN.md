@@ -25,6 +25,7 @@ As of2026-10-12:47 accepted formal outcomes (FR3 36, Psi grasp6, Psi100ml A→B3
 - [ ] Publish paired success/retry/time analysis and per-condition evidence.
 
 ## Task Board
+- [x] T-797 - V81 local publication artifact independently verified; public rollout and all21 acceptance remain tracked in T-552 (owner: codex-grasp-ssr-ood)
 - [ ] T-007 - Publish readable53trial Astra input comparison panel with exact original media reuse (owner: safelab_astra_publication007)
 - [ ] REV-006 - Independent review of47 accepted Astra publication snapshot (owner: snapshot47_review)
 - [x] T-005 - Continue registered Astra ablations after terminal reconciliation and verify input-video comparisons (owner: safelab_astra_resume005)
