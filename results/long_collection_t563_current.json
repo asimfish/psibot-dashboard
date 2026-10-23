@@ -12,8 +12,8 @@
       "action_count": 5,
       "accepted_count": 0,
       "target_count": 100,
-      "state": "formal0_three_full5_debug_closed_torso_node18_CPU_layout_search",
-      "note": "正式0/100。新三路干燥箱调试均已闭合，原GPU世界/73形状、预抓取、接近和抓把手通过，但完整开门弧在约8.95度被机器人胸壳2.5毫米净距门拒绝，均未完成第一步或完整五步。正在CPU检查固定布局与冗余IK支路，再投真实动作；三视角尚未验收，第三视角机身遮挡仍需修正。",
+      "state": "formal0_fixed_scene_CPU_full_arc_and_original_retime_pass_Native_pending",
+      "note": "正式0/100。原场景完整门弧约8.95度处被胸壳门拒绝；此前两个零空间端点虽过胸壳，但超关节限位，已排除。新固定场景候选为仅干燥箱宽度65%、箱桌前移15cm、把手抓姿转30度，杯瓶尺寸不缩放；128节点与原C20重定时1720个float32样本通过原关节/VAJ/手臂胸壳检查，真实USD、完整手部/世界碰撞及完整五步仍未验证。第三相机继续修正，不能计正式。",
       "conditions": [
         {
           "id": "AB",
@@ -66,8 +66,8 @@
       "action_count": 8,
       "accepted_count": 11,
       "target_count": 100,
-      "state": "formal11_F6_R4_visual_HOLD_new_optical_F_R_CPU_sources_READY",
-      "note": "正式11/100：正序3/50、逆序8/50。新六条正序与四条逆序候选均全机审通过，完整原件已保全，但实际持杯原图仍有颗粒，全部视觉HOLD，不计正式。单项透明设置静态ABA已完成独立原件与数值对照；新正反序完整任务光学源码已实际通过原normal/hidden、SDK及ENV检查，待完整运动验证，不宣称动态噪声已解决。",
+      "state": "formal11_new_optical_four_Native_closed_preplanning_check_AttributeError",
+      "note": "正式11/100：正序3/50、逆序8/50。新六条正序与四条逆序候选均全机审通过，完整原件已保全，但实际持杯原图仍有颗粒，全部视觉HOLD，不计正式。单项透明设置静态ABA已完成独立原件与数值对照；新正反序完整任务光学源码已实际通过原normal/hidden、SDK及ENV检查，待完整运动验证，不宣称动态噪声已解决。 最新四卡任务已实际启动四个进程，但光学只读检查在规划起点状态尚未创建时取值，四路均在动作采集前退出；无新CAP/视频数据，日志已完整保全，正在修复该初始化检查，原抓取/运动代码不改。",
       "conditions": [
         {
           "id": "1234",
@@ -93,8 +93,8 @@
       "action_count": 10,
       "accepted_count": 3,
       "target_count": 100,
-      "state": "formal3_reverse_visual_HOLD_two_optical_full10_CPU_sources_READY",
-      "note": "正式3/100：正序3/50、逆序0/50。倒序首条完整10阶段、机审与数值通过，视频161.47秒、生成1892.37秒，但持杯颗粒仍视觉HOLD。新正反序完整光学源码均已实际通过normal/hidden、90项SDK/ENV与完整十步检查，28原件已根独立核验；尚未启动新Native。共享盘最近从145GiB降至69GiB，正验证独立内存临时输出与BOS完整无损归档方案，不将源码就绪认作动态验收通过。",
+      "state": "formal3_new_optical_four_Native_closed_preplanning_check_AttributeError",
+      "note": "正式3/100：正序3/50、逆序0/50。倒序首条完整10阶段、机审与数值通过，视频161.47秒、生成1892.37秒，但持杯颗粒仍视觉HOLD。新正反序完整光学源码均已实际通过normal/hidden、90项SDK/ENV与完整十步检查，28原件已根独立核验；当时尚未启动新Native；后续实际运行结果见本段末尾。共享盘最近从145GiB降至69GiB，正验证独立内存临时输出与BOS完整无损归档方案，不将源码就绪认作动态验收通过。 最新四卡任务已实际启动四个进程，但光学只读检查在规划起点状态尚未创建时取值，四路均在动作采集前退出；无新CAP/视频数据，日志已完整保全，正在修复该初始化检查，原抓取/运动代码不改。",
       "conditions": [
         {
           "id": "12345",
@@ -115,13 +115,13 @@
       "within_quota_candidate_count": 3
     }
   ],
-  "snapshot_id": 1463,
-  "updated_at": "2026-10-23T14:50:48.053966+00:00",
+  "snapshot_id": 1467,
+  "updated_at": "2026-10-23T15:55:45.130202+00:00",
   "training_eligible_count": 0,
   "acceptance_note": "修订版114/400正式验收：六垫搬运两种左右布局各50已齐；四杯正序3/50、逆序8/50；五杯正序3/50、逆序0/50；干燥箱0。新增正序四杯完成完整56文件与全120Hz/曝光数值独立验收、原锁定CAS114及全部114条账本复核。全部400条、生成三分钟目标、DP/ACT训练测试尚未完成。",
-  "diagnostic_note": "正式114/400，新增0。上一4卡任务已全部闭合：三路干燥箱均在完整开门弧约8.95度处被原胸壳净距门拒绝，未完成五步；一路透明设置静态ABA成功，全部455原件及432RGB、144状态独立核对，原图局部更清晰，不能认定完整动态颗粒已修复。7正反序与10正反序的新完整光学源码均已实际CPU READY，原物理门保留。共享盘空间持续下降，正验证独立内存临时输出和BOS全原件无损归档；新四卡完整动作验证尚未提交，生成三分钟目标仍未达到。",
+  "diagnostic_note": "正式114/400，新增0。job-biwfrhh9zpqw四卡真实启动，GPU隔离和800GiB容器内存/临时盘准入通过，但四路共同在新光学只读检查中访问尚未创建的规划起点状态，初始化退出、无新采集CAP或视频。555原件已完整BOS无损归档，175199967字节归档又经独立HTTP全SHA核验；平台FAILED终态，四个自有进程均闭合。正在修复预规划状态检查，保留原运动和碰撞门。干燥箱新固定布局已通过CPU完整门弧及原重定时，真实几何和完整五步仍待验证。三分钟生成目标未达到。",
   "cloud_status": {
-    "state": "formal114_previous4GPU_closed_all4_optical_fulltask_CPU_READY_storage_validation",
+    "state": "formal114_new_four_Native_closed_optical_preplanning_bug_fix_in_progress",
     "current": [
       {
         "host": "cloud16GPU32env",
@@ -806,10 +806,21 @@
         ],
         "actual_active_env_count": 0,
         "actual_active_GPU_count": 0,
-        "state": "T7正反454/454文件、T10正反460/462文件新完整任务源码均已实际CPU READY；T10经正常/隐藏完整十步、90项SDK/ENV和28原件根核验。新四卡统一启动器与独立内存输出/BOS闭合归档方案正在CPU验证，尚未POST，Native/GPU0；仅完整运动质量通过后才扩大并行环境。"
+        "state": "历史1463准备快照：T7正反454/454文件、T10正反460/462文件新完整任务源码均已实际CPU READY；T10经正常/隐藏完整十步、90项SDK/ENV和28原件根核验。新四卡统一启动器与独立内存输出/BOS闭合归档方案正在CPU验证，当时尚未POST；后续1465四路已启动并因初始化检查失败全部闭合（见最新记录）；仅完整运动质量通过后才扩大并行环境。"
+      },
+      {
+        "host": "cloud_moving4_fractional1465_closed_before_capture",
+        "job_id": "job-biwfrhh9zpqw",
+        "operation_id": "b1emsipy8sgsv96vadji43uf4",
+        "actual_GPU_count": 4,
+        "actual_Native_launched": 4,
+        "actual_active_env_count": 0,
+        "actual_closed_env_count": 4,
+        "formal_increment": 0,
+        "state": "平台FAILED终态。四路独立GPU/进程真实启动且原内存/显存准入通过；4/4因新光学检查过早读取未定义planning_start_all_joints而退出，无CAP/INSTALL/新视频。555原件完整归档并独立HTTP全SHA通过；修复只读检查，不改原941或伪造规划状态。"
       }
     ],
-    "note": "上一批4卡均已闭合，无该批活跃Native。新四路正反序移动验证正在准备，未提交或占卡。已确认当前训练规格为4卡和8卡，下一轮用最小4卡同时验证T7正反和T10正反；正式扩采密度须依实际显存、质量和空间预算决定。",
+    "note": "最新4GPU任务已全部闭合，未重复提交。实际四卡与隔离CUDA检查通过；新光学检查生命周期错误已经定位，修复后再投唯一新任务。临时输出及BOS完整归档已实际通过；静态改善和初始化成功均不代替完整动作验收。",
     "latest_new_credential_capability_and_admission": {
       "actual_capabilities_HTTP": 200,
       "actual_admission_status": "allowed",
@@ -823,7 +834,7 @@
   "performance": {
     "fresh_speed_candidate": "当前状态连续IK + 全门槛重检的五次B样条缩时；不以缓存轨迹替代实际物理执行",
     "fresh_candidate_completed": true,
-    "measurement_note": "新T7、T10四份完整光学源码均CPU READY，四卡完整运动验证仍准备中，未证明动态质量或生成180秒。已关闭干燥箱局部480tick计时中，几何/接触CPU检查占主要部分，render约4%；范围仅该局部，不能外推整条。",
+    "measurement_note": "四路初始化因检查代码错误退出，不是一次完整生成耗时样本，不能用于宣称达到180秒。此前完整称量约1750秒生成；主要规划约37%，其余当前日志不足以继续归因。原抓取、轨迹和物理门保留。",
     "three_minute_target_met": false,
     "development_stage_watchdog_s": 900,
     "physics_and_quality_limits_unchanged": false,
@@ -1543,7 +1554,11 @@
     "actual_shared_disk_and_closed_own_RAW_inventory": "revision_quality_20261021/STORAGE_F12_R12_MIXED1460_ACTUAL_RO_1792766133573447133/ACTUAL_STORAGE1460.json",
     "actual_scratch_RAM_disk_inventory": "revision_quality_20261021/LOCAL_SCRATCH1461_ACTUAL_RO_1792766313221215109/ACTUAL_LOCAL_SCRATCH1461.json",
     "T10_actual_new_source_CPU_READY_root_review": "revision_quality_20261021/ROOT_T10_DUAL_SOURCE1461_ACTUAL_READY_REVIEW1463.json",
-    "T10_actual_new_source_CPU_READY_root_review_SHA": "bc3dc887224bd51cb3dd9be576662c31acbcefc0bae9739e6bd9ad77323a06b0"
+    "T10_actual_new_source_CPU_READY_root_review_SHA": "bc3dc887224bd51cb3dd9be576662c31acbcefc0bae9739e6bd9ad77323a06b0",
+    "moving1465_actual_job_terminal": "revision_quality_20261021/ROOT_MOVING1465_FINAL_JOBSTATE_1792770012028859267/ACTUAL_GET.json",
+    "moving1465_actual_launch_and_failure_logs": "revision_quality_20261021/ROOT_MOVING1465_JOBLOG_READ1_1792769850629991684/ACTUAL_GET.json",
+    "moving1465_complete_archive_independent_HTTP": "revision_quality_20261021/ROOT_MOVING1465_INDEPENDENT_ARCHIVE_HTTP_1792769997918772565/ACTUAL_OBJECT_HTTP_VERIFY.json",
+    "moving1465_archive_sha256": "2bcd4c02731fd2339c0ac7e69d8f1d3140f50d73cb1bca288d751c6626af8494"
   },
   "render_quality": {
     "required_views": [
@@ -1697,8 +1712,12 @@
       "common_hook_SHA": "07114fb112fac9516d148d54316a8c1575e7ca8b27c7c89326b44de8eb667a84",
       "T7_CPU_sources_ready": 2,
       "T10_CPU_sources_ready": 2,
-      "new_Native_started": false,
-      "full_dynamic_quality_approved": false
+      "new_Native_started": true,
+      "full_dynamic_quality_approved": false,
+      "actual_new_Native_launched": 4,
+      "actual_active_Native": 0,
+      "new_all_closed_before_capture": true,
+      "new_install_or_capture_qualified": false
     }
   },
   "exported_candidate_count": 114,
@@ -1709,5 +1728,5 @@
     "status": "Historical count from snapshot823, preserved but excluded from revised quality requirements; not a current total"
   },
   "preview_url": "assets/long-collection/t573_T7_Fseed1536_formal114_three_views.jpg",
-  "website_previous_live_snapshot_at_candidate_prepare": 1454
+  "website_previous_live_snapshot_at_candidate_prepare": 1463
 }
