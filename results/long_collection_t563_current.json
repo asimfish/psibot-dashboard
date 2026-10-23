@@ -66,8 +66,8 @@
       "action_count": 8,
       "accepted_count": 11,
       "target_count": 100,
-      "state": "formal11_F6_visual_HOLD_R4_full_machine_PASS_originals_downloading",
-      "note": "正式11/100：正序3/50、逆序8/50。新六条正序已完整机审PASS，726原件/450PNG/18原视频及126633行120Hz数值已下载并独立复核，但六个实际持杯原图均有白灰颗粒，全部视觉HOLD。新反序12路已闭合，4条全8阶段且视频合格，4条均已通过完整机审，正在下载原图做视觉验收；另3条完整但视频超180秒排除。",
+      "state": "formal11_F6_R4_full_machine_PASS_actual_held_grain_visual_HOLD",
+      "note": "正式11/100：正序3/50、逆序8/50。新六条正序已完整机审PASS，726原件/450PNG/18原视频及126633行120Hz数值已下载并独立复核，但六个实际持杯原图均有白灰颗粒，全部视觉HOLD。新反序12路已闭合，4条全8阶段且视频合格，4条均已通过完整机审，但实际持杯原图也有白灰颗粒，全部视觉HOLD；完整原件继续下载保留；另3条完整但视频超180秒排除。",
       "conditions": [
         {
           "id": "1234",
@@ -116,12 +116,12 @@
     }
   ],
   "snapshot_id": 1454,
-  "updated_at": "2026-10-23T13:26:07.001736+00:00",
+  "updated_at": "2026-10-23T13:31:35.841220+00:00",
   "training_eligible_count": 0,
   "acceptance_note": "修订版114/400正式验收：六垫搬运两种左右布局各50已齐；四杯正序3/50、逆序8/50；五杯正序3/50、逆序0/50；干燥箱0。新增正序四杯完成完整56文件与全120Hz/曝光数值独立验收、原锁定CAS114及全部114条账本复核。全部400条、生成三分钟目标、DP/ACT训练测试尚未完成。",
-  "diagnostic_note": "正式114/400，未增加计数。新四杯正序6条已全机审与独立原件数值复核，但六条实际持杯原图均有白灰颗粒，视觉HOLD；反序4条候选也已全机审PASS，原图正在下载，尚未视觉验收。新三干燥箱+一透明渲染ABA的4卡PRO6000任务已创建，四张GPU与四个独立Native已真实启动，正在执行。最新API权限、项目、镜像、存储与4卡准入已核；可提交规格为4或8卡，没有6卡，本轮仅用4卡。三分钟生成目标仍未达到。",
+  "diagnostic_note": "正式114/400，未增加计数。新四杯正序6条已全机审与独立原件数值复核，但六条实际持杯原图均有白灰颗粒，视觉HOLD；反序4条候选也已全机审PASS，但新实际持杯原图同样有颗粒，全部视觉HOLD。新三干燥箱+一透明渲染ABA的4卡PRO6000任务已创建，四张GPU与四个独立Native已真实启动，正在执行。最新API权限、项目、镜像、存储与4卡准入已核；可提交规格为4或8卡，没有6卡，本轮仅用4卡。新透明设置ABA已闭合，待原图对照评估；三分钟生成目标仍未达到。",
   "cloud_status": {
-    "state": "formal114_fourGPU_oven3_ABA_actually_started_F6_visual_HOLD_R4_machine_PASS",
+    "state": "formal114_oven3_active_optical_ABA_closed_F6_R4_visual_HOLD",
     "current": [
       {
         "host": "cloud16GPU32env",
@@ -793,7 +793,7 @@
       {
         "host": "cloud_Rseam12_1432_closed_four_CPU_audits",
         "job_id": "job-wrxynz80h8g6",
-        "state": "12路均真实闭合；仅lane0/2/5/8 full8且视频<=180候选，原R1.5mm独立全机审4/4 PASS，四stderr空，原件正在下载，视觉与正式导出待验收。lane6/9/10虽full8但超180原门排除，其余失败。"
+        "state": "12路均真实闭合；仅lane0/2/5/8 full8且视频<=180候选，原R1.5mm独立全机审4/4 PASS，四stderr空，原图已抽查四条均有持杯颗粒，视觉HOLD；完整原件继续下载，不计正式。lane6/9/10虽full8但超180原门排除，其余失败。"
       }
     ],
     "note": "正式数量以公共验收账本和完整导出读回为准。旧静止实验阻塞已查清：7个已归档原件为符号链接，内容SHA全部匹配，恢复原文件形式后原父审计normal/hidden检查通过；没有修改原科学数据。运行中与失联最后状态、物理或机审成功、视觉HOLD均不计正式。",
@@ -1609,7 +1609,10 @@
       "new_one_key_ABA_CPU_tests": 18,
       "new_ABA_authorized": true,
       "new_ABA_Native_started": true,
-      "new_ABA_cloud_job": "job-yj9jowwcphvz"
+      "new_ABA_cloud_job": "job-yj9jowwcphvz",
+      "new_ABA_actual_capture_closed": true,
+      "new_ABA_actual_capture_wall_seconds": 318.2909,
+      "new_ABA_noise_fix_proved": false
     },
     "F1535_F1537_new_full8_HOLD": {
       "full_machine_and_root_all121_full120_exposure_passed": true,
@@ -1643,6 +1646,13 @@
       "all_actual_isolated_GPU_probes_passed": true,
       "formal_increment": 0,
       "production_multi_environment_packing_still_pending": true
+    },
+    "Rcloud4_actual_visual_HOLD1454": {
+      "actual_four_full_machine_PASS": true,
+      "root_actually_viewed_four_original_P1_lift_third_PNGs": true,
+      "visible_grain_on_gripping_fingers_and_transparent_cup": true,
+      "all_four_visual_approved": false,
+      "formal_increment": 0
     }
   },
   "exported_candidate_count": 114,
