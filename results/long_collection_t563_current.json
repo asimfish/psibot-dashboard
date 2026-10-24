@@ -12,8 +12,8 @@
       "action_count": 5,
       "accepted_count": 0,
       "target_count": 100,
-      "state": "formal0_new_geometry_passed_pregrasp_endpoint_debug",
-      "note": "正式0/100。新干燥箱完整几何检查已通过，包括73个箱体碰撞形状、完整碰撞捕获和世界坐标检查。本轮运行351.99秒，抓门把手的预备位置未算出可用关节解（0个候选），尚未进入后续抓取和碰撞分支检查，也未开门；正在调整预备抓姿和偏移。第三视角遮挡与玻璃颗粒仍待修正。",
+      "state": "formal0_actual1535_pregrasp_shell_and_smoothness_planning_rejected",
+      "note": "正式0/100。最新完整场景运行329.41秒，73个箱体碰撞形状、世界坐标和完整碰撞构造检查通过；预抓路径未同时满足原外壳避碰、腕部姿态和平滑性要求，尚未开门或完成五步。正根据原规划记录调整接近路径。初始头部、胸部视角可透门看到两器皿，第三视角仍被机器人外壳部分遮挡，画质未验收。",
       "conditions": [
         {
           "id": "AB",
@@ -110,8 +110,8 @@
       "action_count": 8,
       "accepted_count": 11,
       "target_count": 100,
-      "state": "formal11_v3_video_ceiling_rejected_no_new_formal",
-      "note": "正式11/100：1234顺序3/50、4321顺序8/50。本轮两条视频188.73秒、180.87秒，均超出180秒上限，未通过。正在排查规划与动作耗时，并继续修复玻璃和手部颗粒噪声。",
+      "state": "formal11_old_video_ceiling_rejected_new_fullmoving_bool_pair_CPU_preparation",
+      "note": "正式11/100：1234顺序3/50、4321顺序8/50。上一批两条视频188.73秒、180.87秒均超180秒，未计新增。正在准备完整任务的两路动态渲染对照，固定相同顺序、种子和胸部构图，比较透明物体设置；尚未提交新作业，也未宣称噪声修复。",
       "conditions": [
         {
           "id": "1234",
@@ -137,8 +137,8 @@
       "action_count": 10,
       "accepted_count": 3,
       "target_count": 100,
-      "state": "formal3_v3_runtime2_grain_visual_HOLD_machine_pending",
-      "note": "正式3/100：12345顺序3/50、54321顺序0/50。本轮正反序均完成十步，视频168.47秒、165.40秒；实际生成分别用了29.4和30.6分钟。动态抓杯画面仍有颗粒，完整碰撞复核尚待完成，本轮尚未增加验收数量。",
+      "state": "formal3_latest1509_reverse_full10_completed_grain_chest_HOLD_CPU_audit_in_progress",
+      "note": "正式3/100：12345顺序3/50、54321顺序0/50。最新逆序样例完成十步，三视角各2406帧、160.4秒，实际生成28.6分钟；三个原视频已完整解码。玻璃颗粒和胸部构图未通过，独立全量物理审查继续进行，因此本轮未增验收数量。正准备修正构图后的两组渲染设置对照。",
       "conditions": [
         {
           "id": "12345",
@@ -159,13 +159,13 @@
       "within_quota_candidate_count": 3
     }
   ],
-  "snapshot_id": 1567,
-  "updated_at": "2026-10-24T04:01:05.490064Z",
+  "snapshot_id": 1568,
+  "updated_at": "2026-10-24T05:24:17Z",
   "training_eligible_count": 0,
   "acceptance_note": "正式114/400：六垫避障搬运100/100（两种左右布局各50），四杯称量11/100（正序3、逆序8），五杯称量3/100（正序3、逆序0），干燥箱0/100。114条已按raw/episodes、labels、lerobot_v21、lerobot_v30整理发布至 /project_a02012413/public/liyufeng/t5710_lerobot_delivery_20261023/。LeRobot 0.3.3/v2.1与0.4.3/v3.0实际全量加载均通过；整理不增加验收条数。 固定避障100条已传到训练目标目录；这是未包含1cm扰动的训练基线，透明遮挡后的手指画质尚未全面认证，1cm版另采。",
-  "diagnostic_note": "正式验收仍为114/400。已发布的114条提供原始三视角视频、标签及两版LeRobot，交付记录保留。上批1472四路均已结束：T7两路视频超时；T10两路完成十步但画质不合格。完整归档与12段原视频已恢复并校验。干燥箱的新抓姿已通过完整CPU轨迹检查，待新场景物理验证，相机和渲染仍待验收。 【独立1cm新先导】固定布局100条（左右布局各50条）的训练入口仍为 /home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/lerobot_v21_state13/：13维状态、203007帧、三视角原视频未转码。此固定版不覆盖1cm扰动，手指透过玻璃可见性仍未全面认证。新1cm先导 job-ydszsgujf8rj 四路原任务均已失败闭合，平台终态FAILED，完整任务验收0/100。两条A-left完成第1步后在phase2预抓被原路径质量门拒绝；swap seed0在phase2预抓发生FINETUNE_TRAJOPT_FAIL，swap seed1完成前2步后在phase3撤离被actual_to_command_original_constraints拒绝。四路原件的“仅初始位置子检查”通过：每路9刚体/41物理数组完整，物体与对应垫子同步±1cm、三个空垫固定、两种左右布局及两seed真实初态差异通过，XY与计划的最大残差约20.07µm（门限50µm）。四路光学生命周期均已闭合；这不等于手指透明遮挡、噪声或完整任务通过。绝对时钟起点未认证，全任务120Hz/曝光、三视角RGB及去重仍须独立验收。继续排查原规划拒绝，不降低物理或运动门限。 1497四卡诊断已全部闭合，新增验收0条。三路光学已完成基线与修改设置后的渲染，返回基线阶段超过诊断脚本120秒时限；状态和设置均已恢复。性能诊断在安装前被旧渲染准入的完整十步要求拒绝，尚无耗时数据。原始归档已完整恢复校验，正在按明确的诊断范围修复入口和时限。 新四卡诊断最后于2026-10-23 20:18:30 UTC确认运行，四路实际启动和两路光学安装的原证据保留。20:38 UTC起采集机与平台回读链路受阻，当前进程状态、阶段与终态未知，不重复创建任务。干燥箱最新运行373.53秒后失败闭合：已得到可用IK分支并开始第二段预抓，但被原25mrad手臂跟踪门拒绝，未开门、未抓牢；正沿实际跟踪与指令接缝排查，不放宽门限。正式仍114/400，玻璃与手部颗粒仍HOLD，尚未训练。 【本线程独立±1cm／持杯渲染复测】±1cm四路仅初始位置子检查通过，完整五步验收仍0；1496四路任务已失败闭合。1502四路持杯诊断在暂停读回处停止并全部关闭，新增A/B/A诊断RGB为0。暂停提交修复通过57项CPU检查，1505新源已完成实际CPU暂存，四卡作业 job-3l73sysvlcya 已确认启动。最后成功读回为作业164.82秒、四路第一阶段，尚无抬杯诊断报告；随后只读链路退出255，当前是否仍在运行及终态均未知，等待读回。手指透玻璃、噪声及画质修复仍未认证，正式条数不增加。 干燥箱新的预抓路径与速度参数仅通过CPU检查；36.82秒为部分动作预算估算，尚未新物理运行，完整五步仍待验证。本机虽有5.1环境，但当前源、资产与资源准入未通过，不能直接替代采集。 【独立本机4.5渲染诊断1514】本机4090已实际启动独立诊断，并在原任务tick1600抓持A、抬高约72.8mm。诊断在读取渲染更新计数时失败：SimulationApp没有get_update_number，A/B/A对照图为0，手指透玻璃与噪声修复均未认证。失败前、暂停后及失败恢复的45项物理数组归档字节一致，时间线暂停和恢复均为同一时间；这只是已观测原件事实，诊断总体仍失败。原任务三视角视频和Native进程均已关闭；外层退出码0不代表任务成功，任务自身结果为失败。Kit IApp最小适配已通过14项CPU检查，独立1517复测已完成并关闭：实际18次渲染得到27张三视角A/B/A原始PNG，45项物理值和时钟保持不变，设置、相机和材质均已恢复。在本机4.5同一持杯姿态的头部、胸部样图中，B=true时指尖重新可见，A2=false后再次消失，已得到局部可逆对照；这不等于固定100条、完整轨迹、噪声或全任务画质通过。此本机4.5诊断不替代云端5.1采集；云端job-3l73sysvlcya仍状态未知。固定100条训练入口不变，±1cm完整五步仍0条，正式验收仍114条。 干燥箱相机构图诊断已完成：调整机位后柜体完整、两物体画面尺寸更大；门面仍有暗反射，且未包含房间和桌面，完整场景与画质仍待验收，不增加正式数据。 【本机±1cm完整五步先导1528】上一条1525已失败闭合，前三步完成，第四步A抓紧后约2.63°，提起时增至约11°。释放后物体仍在运动，登记参考姿态时绝对倾角6.13°，随后回正到1.12°，相对参考却变化5.012°、位移4.81mm，触发原5°/5mm稳定性门；失败保留，门限未改。18张原视频帧抽查未再看到明确的手指擦除，但白块、颗粒及全轨迹画质仍未解决或认证。新1528已实际启动，最后观测为启动阶段：仅撤掉第四步提起、搬运、下放的三项时间压缩，头部和胸部焦距乘0.7，第三视角不改，保留原运动和物理门。该调整是否有效须看实际结果。固定100条训练数据入口不变，±1cm完整五步新增验收仍0条；云端1505仍为未知，5090拒绝连接、API和Pro6000超时的原状态保留，其他任务进度不变。\n10子任务验收复核：正反序两条均记录完整十步，录像168.47秒和165.40秒；实际生成仍约29.4和30.6分钟。89份原始元数据SHA校验通过；约10.56GB物理与接触原始记录已保存在5227成员的校验归档中，尚未恢复到当前验收环境。逐步物理、曝光和去重核验仍待完成，持杯颗粒画质继续待修。当前采集入口和内网API无法访问，云端新结果尚未取回；本轮新增0，正式仍114/400，可训练0。 【本机±1cm最新闭合1533】fixed100固定布局数据已交付至原目标路径，训练入口仍为 /home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/lerobot_v21_state13/；它不代表新增泛化完成，±1cm完整五步仍0/100，正式验收仍114/400。同一持杯姿态的fractionalTrue手指可见性已有A/B/A原图可逆实证，全姿态、白块和噪声仍待验证。1528与1533均已因原任务初始化墙钟超时失败闭合并回收，尚未到FOV安装或phase1；外层退出0不代表任务成功。1533的CUDA原检查3.3838秒通过，原SDK/SATA冷启动约26分钟后出现接触、桌面和报告初始化文件，但trace最终为0字节；并行只读DLL预热使耗时不能当隔离性能测试。全SDK复制已取消并回收，改用1074个实际复制文件、约1.26GB的混合工作集，现已HYBRID_READY并关闭复制进程；它保留原SDK符号链接回退，不是完整克隆，Native兼容性与加速尚未验证。云端1505仍UNKNOWN，其他线程和正式条数保持原记录。 【本机±1cm最新结果1553】固定布局100条已交付，原训练入口不变；它不代表新增泛化完成，±1cm完整五步仍0/100，正式仍114/400。1548仅初始位置子检查已核实，XY最大残差约20微米；完整任务在第三步C撤手被原446容量门拒绝。1551的B左布局在第一步接近时因反向路径约10.3mm超过原2mm门失败。1553将C抓取位置调整5mm，保留原446容量及全部运动、物理门；实际前三步完成，第三步撤手通过，随后第四步tick7110接近规划发生FINETUNE_TRAJOPT_FAIL，任务失败，进程已关闭回收，新增验收0。下一步沿已保存的第四步规划失败排查。world1547持杯A/B/A已闭合，有限姿态手指可见，但worldEps调整未改善白块；全姿态、白块、颗粒及相机覆盖仍待验收。light1550只得到A1/B共18张原图，返回A2前被看门狗关闭，不能称完整对照或恢复已证明。已定位标签子集原PBR材质与当前玻璃绑定的差异，正准备独立原绑定对照，尚未证明白块原因或修复。云端1505仍UNKNOWN，固定100条、其他线程及正式条数均保留。 本机1cm试采1556已真实完成四步，第五步起始关节值被规划入口round5推出原float32上界1ULP；CPU因果已闭合，修复待Native。另一布局第一步同目标graph单独重放27.64秒通过，但不算完整验收。初始化前恢复A原PBR标签的1557首live材质严格匹配；本轮初始化耗尽原300秒门，tick120即关闭，0张持杯诊断图，不能称手指或全画质通过。正在以逐字节一致CuRobo Python私有缓存改善启动，保留原300秒/全部物理与平滑门。新增1cm完整验收仍0/100。 ±1cm试采1563已完成前四步，原round5起点越限已在Native修复验证；第五步改停于轨迹优化失败。保存状态的同目标GPU规划重放1564耗时41.24秒，碰撞/端点/关节和VAJ检查通过，尚待完整Native执行。1562同一持杯姿态已取得并逐张查看三视角9张原图，手指可见、原标签正常，45项物理值与时钟归档字节不变；USDRT姿态诊断仍UNKNOWN，不冒充总体通过。运动视频15张抽帧已生成，root看过14张，胸部视野裁切需修正，完整画质未验收。固定100条交付不变，新增±1cm完整验收仍0/100。",
+  "diagnostic_note": "5090、双卡Pro6000及训练平台回读链路已恢复。干燥箱1535完整场景已实际运行329.41秒，73形状、世界坐标和完整碰撞构造检查通过；预抓路径仍未同时通过外壳避碰、腕姿和运动平滑性门槛，未开门、未完成五步。十子任务逆序的新样例完成十步：原视频160.4秒，实际生成1716.69秒；三路原视频均完整解码。透明烧杯颗粒和胸部构图仍未通过，因此正式仍114/400、训练合格0。七、十子任务的新四路动态渲染对照正在准备源代码，四卡准入预检已允许，尚未提交新作业。 六垫任务的独立进度：固定布局100条（左右布局各50条）的训练入口仍为 /home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/lerobot_v21_state13/：13维状态、203007帧、三视角原视频未转码。此固定版不覆盖1cm扰动，手指透过玻璃可见性仍未全面认证。新1cm先导 job-ydszsgujf8rj 四路原任务均已失败闭合，平台终态FAILED，完整任务验收0/100。两条A-left完成第1步后在phase2预抓被原路径质量门拒绝；swap seed0在phase2预抓发生FINETUNE_TRAJOPT_FAIL，swap seed1完成前2步后在phase3撤离被actual_to_command_original_constraints拒绝。四路原件的“仅初始位置子检查”通过：每路9刚体/41物理数组完整，物体与对应垫子同步±1cm、三个空垫固定、两种左右布局及两seed真实初态差异通过，XY与计划的最大残差约20.07µm（门限50µm）。四路光学生命周期均已闭合；这不等于手指透明遮挡、噪声或完整任务通过。绝对时钟起点未认证，全任务120Hz/曝光、三视角RGB及去重仍须独立验收。继续排查原规划拒绝，不降低物理或运动门限。",
   "cloud_status": {
-    "state": "formal114_cloud1509_last_observed_RUNNING_current_readback_blocked_unknown_oven1509_closed_failed_1512_CPU_only",
+    "state": "formal114_network_recovered_oven1535_closed_failed_T10R1509_completed_visual_HOLD_new4_sources_preparing",
     "current": [
       {
         "host": "cloud16GPU32env",
@@ -1458,9 +1458,39 @@
           "actual_Native_started": false
         },
         "state": "采集回读链路受阻：原任务状态未知，未重复创建。备用Ali与mainskill仅SSH可达，平台/采集机仍不可达，未作为采集替代。干燥箱1512仅CPU准备：预抓路径和速度参数已核，完整五步与新Native均未验证；本机5.1兼容与资源门尚未通过。"
+      },
+      {
+        "host": "d4g_recovered_actual_collection1535",
+        "status": "RECOVERED_ORIGINAL_RESULTS_REVIEWED_NEW_SOURCES_PREPARING",
+        "actual_active_env_count": 0,
+        "formal_increment": 0,
+        "oven_attempt1535": {
+          "status": "CLOSED_PLANNING_REJECTED",
+          "geometry73_pass": true,
+          "fullcook_pass": true,
+          "world_pose_pass": true,
+          "wall_s": 329.411,
+          "complete_phases": 0
+        },
+        "original_cloud1509": {
+          "job_id": "job-8y5isqcxuvnc",
+          "platform_status": "FAILED",
+          "all_owned_groups_closed": true,
+          "full_T10R_completed": true,
+          "full_T10R_video_s": 160.4,
+          "full_T10R_generation_s": 1716.691,
+          "profiler_completed": false,
+          "all3078_original_archive_members_recovered": true
+        },
+        "new_four_gpu": {
+          "admission": "allowed",
+          "submitted": false,
+          "source_preparation": true
+        },
+        "state": "5090、双卡Pro6000及训练平台回读链路已恢复。干燥箱1535完整场景已实际运行329.41秒，73形状、世界坐标和完整碰撞构造检查通过；预抓路径仍未同时通过外壳避碰、腕姿和运动平滑性门槛，未开门、未完成五步。十子任务逆序的新样例完成十步：原视频160.4秒，实际生成1716.69秒；三路原视频均完整解码。透明烧杯颗粒和胸部构图仍未通过，因此正式仍114/400、训练合格0。七、十子任务的新四路动态渲染对照正在准备源代码，四卡准入预检已允许，尚未提交新作业。"
       }
     ],
-    "note": "1497四卡诊断已全部闭合，新增验收0条。三路光学已完成基线与修改设置后的渲染，返回基线阶段超过诊断脚本120秒时限；状态和设置均已恢复。性能诊断在安装前被旧渲染准入的完整十步要求拒绝，尚无耗时数据。原始归档已完整恢复校验，正在按明确的诊断范围修复入口和时限。 干燥箱的新抓姿已通过完整CPU轨迹检查，待新场景物理验证；相机和渲染仍待验收。 新四卡诊断最后于2026-10-23 20:18:30 UTC确认运行，四路实际启动和两路光学安装的原证据保留。20:38 UTC起采集机与平台回读链路受阻，当前进程状态、阶段与终态未知，不重复创建任务。干燥箱最新运行373.53秒后失败闭合：已得到可用IK分支并开始第二段预抓，但被原25mrad手臂跟踪门拒绝，未开门、未抓牢；正沿实际跟踪与指令接缝排查，不放宽门限。正式仍114/400，玻璃与手部颗粒仍HOLD，尚未训练。 干燥箱新的预抓路径与速度参数仅通过CPU检查；36.82秒为部分动作预算估算，尚未新物理运行，完整五步仍待验证。本机虽有5.1环境，但当前源、资产与资源准入未通过，不能直接替代采集。",
+    "note": "5090、双卡Pro6000及训练平台回读链路已恢复。干燥箱1535完整场景已实际运行329.41秒，73形状、世界坐标和完整碰撞构造检查通过；预抓路径仍未同时通过外壳避碰、腕姿和运动平滑性门槛，未开门、未完成五步。十子任务逆序的新样例完成十步：原视频160.4秒，实际生成1716.69秒；三路原视频均完整解码。透明烧杯颗粒和胸部构图仍未通过，因此正式仍114/400、训练合格0。七、十子任务的新四路动态渲染对照正在准备源代码，四卡准入预检已允许，尚未提交新作业。",
     "latest_new_credential_capability_and_admission": {
       "actual_capabilities_HTTP": 200,
       "actual_admission_status": "allowed",
@@ -1973,6 +2003,14 @@
       "all_CPU_VAJ_limit_anchor_torso_hand_world_self_checks_passed": true,
       "Native_cook_contact_history_and_full5_not_yet_validated": true,
       "formal_increment": 0
+    },
+    "actual_T10R1509": {
+      "video_s": 160.4,
+      "generation_wall_s": 1716.691,
+      "three_minute_video_target_met": true,
+      "three_minute_generation_target_met": false,
+      "original_video_decode_pass": true,
+      "formal_accepted": false
     }
   },
   "evidence": {
@@ -2403,7 +2441,8 @@
     "oven1512_partial_CPU_witness_not_Native": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/oven1471_ACTUAL1486_agent/front1512_last_near_pre_factor101_CPU_HOLD/LAST_NEAR_PRE_FRONT_CPU.json",
     "oven1512_partial_CPU_witness_not_Native_sha256": "c2fea022ca2fb1500c4cb6bb11870d3baa8ee99f6a468b3b1d5be13efec6b903",
     "local_fallback1514_environment_RO": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/local_fallback_runtime1514_CPU_RO_weigh_agent/ACTUAL_LOCAL_FALLBACK1514_RO.json",
-    "local_fallback1514_environment_RO_sha256": "e2ee73a593e1b017419e244a13a43bc3aa94a47678874a77f1348f3ef157510a"
+    "local_fallback1514_environment_RO_sha256": "e2ee73a593e1b017419e244a13a43bc3aa94a47678874a77f1348f3ef157510a",
+    "recovered_actual_media1535": "assets/diagnostics/t573-recovery1535/EVIDENCE.json"
   },
   "render_quality": {
     "required_views": [
@@ -2701,6 +2740,108 @@
       ],
       "originals_preserved_in_SHA_verified_archive": true,
       "archive_member_count": 5227
+    },
+    "recovered_actual_media1535": {
+      "evidence_url": "assets/diagnostics/t573-recovery1535/EVIDENCE.json",
+      "evidence_sha256": "2bdfb5644c5f9ac90b9469452a2a605b755ff9519607969a6e59bcb052107e1c",
+      "status": "ORIGINAL_MEDIA_AVAILABLE_VISUAL_HOLD",
+      "media": [
+        {
+          "kind": "original_complete_video",
+          "camera": "head",
+          "url": "assets/diagnostics/t573-recovery1535/T10R1509_head_camera_UNACCEPTED.mp4",
+          "bytes": 2079702,
+          "sha256": "b5a434e6c35c5be0f741f90ae07653bfef5d75eabc03827cdc3793bca74117a8",
+          "frames": 2406,
+          "fps": 15,
+          "duration_s": 160.4,
+          "full_decode_pass": true,
+          "transcoded": false,
+          "quality_status": "HOLD: visible glass grain; chest framing too low"
+        },
+        {
+          "kind": "T10R_original_phase7",
+          "camera": "head",
+          "url": "assets/diagnostics/t573-recovery1535/T10R1509_phase7_head_camera_UNACCEPTED.png",
+          "bytes": 215407,
+          "sha256": "7bebf8b2c24117bd098221dc138643c2473077fae0521126a18d1e085b2ecf61",
+          "original_bytes_unchanged": true,
+          "quality_status": "HOLD; diagnostic evidence only"
+        },
+        {
+          "kind": "oven_original_initial",
+          "camera": "head",
+          "url": "assets/diagnostics/t573-recovery1535/OVEN1535_initial_head_camera_UNACCEPTED.png",
+          "bytes": 215043,
+          "sha256": "4ee1fce12e9271e1e0c8963be9ab7507fae30fbca34751e09f75ab8f5d88d4ea",
+          "original_bytes_unchanged": true,
+          "quality_status": "HOLD; diagnostic evidence only"
+        },
+        {
+          "kind": "original_complete_video",
+          "camera": "chest",
+          "url": "assets/diagnostics/t573-recovery1535/T10R1509_chest_camera_UNACCEPTED.mp4",
+          "bytes": 2235937,
+          "sha256": "6e243dd58882becc59604c358bc36d21304fae55db0c0cd529ca1a0d4c6d6c36",
+          "frames": 2406,
+          "fps": 15,
+          "duration_s": 160.4,
+          "full_decode_pass": true,
+          "transcoded": false,
+          "quality_status": "HOLD: visible glass grain; chest framing too low"
+        },
+        {
+          "kind": "T10R_original_phase7",
+          "camera": "chest",
+          "url": "assets/diagnostics/t573-recovery1535/T10R1509_phase7_chest_camera_UNACCEPTED.png",
+          "bytes": 174208,
+          "sha256": "f0e0c566fdde1e0b470d9c4e91e9f16c72fc32072697a3761e9d498c9f2dfb73",
+          "original_bytes_unchanged": true,
+          "quality_status": "HOLD; diagnostic evidence only"
+        },
+        {
+          "kind": "oven_original_initial",
+          "camera": "chest",
+          "url": "assets/diagnostics/t573-recovery1535/OVEN1535_initial_chest_camera_UNACCEPTED.png",
+          "bytes": 178392,
+          "sha256": "cca1327046a61df2056d3b50d1aae2fa2cafc380b28cc4eb0df5f85b93bade25",
+          "original_bytes_unchanged": true,
+          "quality_status": "HOLD; diagnostic evidence only"
+        },
+        {
+          "kind": "original_complete_video",
+          "camera": "third",
+          "url": "assets/diagnostics/t573-recovery1535/T10R1509_third_camera_UNACCEPTED.mp4",
+          "bytes": 1950415,
+          "sha256": "756ef24efd089dc5320366c372354eea1918c336c8fbf1a339bd1a945b1ea5ec",
+          "frames": 2406,
+          "fps": 15,
+          "duration_s": 160.4,
+          "full_decode_pass": true,
+          "transcoded": false,
+          "quality_status": "HOLD: visible glass grain; chest framing too low"
+        },
+        {
+          "kind": "T10R_original_phase7",
+          "camera": "third",
+          "url": "assets/diagnostics/t573-recovery1535/T10R1509_phase7_third_camera_UNACCEPTED.png",
+          "bytes": 244445,
+          "sha256": "bc520a92f581f40dd61843d5ab4132ef300117c098a01cea162e4dfd4b37892c",
+          "original_bytes_unchanged": true,
+          "quality_status": "HOLD; diagnostic evidence only"
+        },
+        {
+          "kind": "oven_original_initial",
+          "camera": "third",
+          "url": "assets/diagnostics/t573-recovery1535/OVEN1535_initial_third_camera_UNACCEPTED.png",
+          "bytes": 152717,
+          "sha256": "9fb85cb23ebe467144ee5abc431b365459dee62d186fc625cd565cb5ad5520e3",
+          "original_bytes_unchanged": true,
+          "quality_status": "HOLD; diagnostic evidence only"
+        }
+      ],
+      "full_moving_render_accepted": false,
+      "formal_increment": 0
     }
   },
   "exported_candidate_count": 114,
@@ -4169,5 +4310,6 @@
       "authored_focal_renderer_projection_mismatch_observed": true,
       "controlled_cause_test_pending": true
     }
-  }
+  },
+  "previous_diagnostic_note_snapshot1567": "正式验收仍为114/400。已发布的114条提供原始三视角视频、标签及两版LeRobot，交付记录保留。上批1472四路均已结束：T7两路视频超时；T10两路完成十步但画质不合格。完整归档与12段原视频已恢复并校验。干燥箱的新抓姿已通过完整CPU轨迹检查，待新场景物理验证，相机和渲染仍待验收。 【独立1cm新先导】固定布局100条（左右布局各50条）的训练入口仍为 /home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/lerobot_v21_state13/：13维状态、203007帧、三视角原视频未转码。此固定版不覆盖1cm扰动，手指透过玻璃可见性仍未全面认证。新1cm先导 job-ydszsgujf8rj 四路原任务均已失败闭合，平台终态FAILED，完整任务验收0/100。两条A-left完成第1步后在phase2预抓被原路径质量门拒绝；swap seed0在phase2预抓发生FINETUNE_TRAJOPT_FAIL，swap seed1完成前2步后在phase3撤离被actual_to_command_original_constraints拒绝。四路原件的“仅初始位置子检查”通过：每路9刚体/41物理数组完整，物体与对应垫子同步±1cm、三个空垫固定、两种左右布局及两seed真实初态差异通过，XY与计划的最大残差约20.07µm（门限50µm）。四路光学生命周期均已闭合；这不等于手指透明遮挡、噪声或完整任务通过。绝对时钟起点未认证，全任务120Hz/曝光、三视角RGB及去重仍须独立验收。继续排查原规划拒绝，不降低物理或运动门限。 1497四卡诊断已全部闭合，新增验收0条。三路光学已完成基线与修改设置后的渲染，返回基线阶段超过诊断脚本120秒时限；状态和设置均已恢复。性能诊断在安装前被旧渲染准入的完整十步要求拒绝，尚无耗时数据。原始归档已完整恢复校验，正在按明确的诊断范围修复入口和时限。 新四卡诊断最后于2026-10-23 20:18:30 UTC确认运行，四路实际启动和两路光学安装的原证据保留。20:38 UTC起采集机与平台回读链路受阻，当前进程状态、阶段与终态未知，不重复创建任务。干燥箱最新运行373.53秒后失败闭合：已得到可用IK分支并开始第二段预抓，但被原25mrad手臂跟踪门拒绝，未开门、未抓牢；正沿实际跟踪与指令接缝排查，不放宽门限。正式仍114/400，玻璃与手部颗粒仍HOLD，尚未训练。 【本线程独立±1cm／持杯渲染复测】±1cm四路仅初始位置子检查通过，完整五步验收仍0；1496四路任务已失败闭合。1502四路持杯诊断在暂停读回处停止并全部关闭，新增A/B/A诊断RGB为0。暂停提交修复通过57项CPU检查，1505新源已完成实际CPU暂存，四卡作业 job-3l73sysvlcya 已确认启动。最后成功读回为作业164.82秒、四路第一阶段，尚无抬杯诊断报告；随后只读链路退出255，当前是否仍在运行及终态均未知，等待读回。手指透玻璃、噪声及画质修复仍未认证，正式条数不增加。 干燥箱新的预抓路径与速度参数仅通过CPU检查；36.82秒为部分动作预算估算，尚未新物理运行，完整五步仍待验证。本机虽有5.1环境，但当前源、资产与资源准入未通过，不能直接替代采集。 【独立本机4.5渲染诊断1514】本机4090已实际启动独立诊断，并在原任务tick1600抓持A、抬高约72.8mm。诊断在读取渲染更新计数时失败：SimulationApp没有get_update_number，A/B/A对照图为0，手指透玻璃与噪声修复均未认证。失败前、暂停后及失败恢复的45项物理数组归档字节一致，时间线暂停和恢复均为同一时间；这只是已观测原件事实，诊断总体仍失败。原任务三视角视频和Native进程均已关闭；外层退出码0不代表任务成功，任务自身结果为失败。Kit IApp最小适配已通过14项CPU检查，独立1517复测已完成并关闭：实际18次渲染得到27张三视角A/B/A原始PNG，45项物理值和时钟保持不变，设置、相机和材质均已恢复。在本机4.5同一持杯姿态的头部、胸部样图中，B=true时指尖重新可见，A2=false后再次消失，已得到局部可逆对照；这不等于固定100条、完整轨迹、噪声或全任务画质通过。此本机4.5诊断不替代云端5.1采集；云端job-3l73sysvlcya仍状态未知。固定100条训练入口不变，±1cm完整五步仍0条，正式验收仍114条。 干燥箱相机构图诊断已完成：调整机位后柜体完整、两物体画面尺寸更大；门面仍有暗反射，且未包含房间和桌面，完整场景与画质仍待验收，不增加正式数据。 【本机±1cm完整五步先导1528】上一条1525已失败闭合，前三步完成，第四步A抓紧后约2.63°，提起时增至约11°。释放后物体仍在运动，登记参考姿态时绝对倾角6.13°，随后回正到1.12°，相对参考却变化5.012°、位移4.81mm，触发原5°/5mm稳定性门；失败保留，门限未改。18张原视频帧抽查未再看到明确的手指擦除，但白块、颗粒及全轨迹画质仍未解决或认证。新1528已实际启动，最后观测为启动阶段：仅撤掉第四步提起、搬运、下放的三项时间压缩，头部和胸部焦距乘0.7，第三视角不改，保留原运动和物理门。该调整是否有效须看实际结果。固定100条训练数据入口不变，±1cm完整五步新增验收仍0条；云端1505仍为未知，5090拒绝连接、API和Pro6000超时的原状态保留，其他任务进度不变。\n10子任务验收复核：正反序两条均记录完整十步，录像168.47秒和165.40秒；实际生成仍约29.4和30.6分钟。89份原始元数据SHA校验通过；约10.56GB物理与接触原始记录已保存在5227成员的校验归档中，尚未恢复到当前验收环境。逐步物理、曝光和去重核验仍待完成，持杯颗粒画质继续待修。当前采集入口和内网API无法访问，云端新结果尚未取回；本轮新增0，正式仍114/400，可训练0。 【本机±1cm最新闭合1533】fixed100固定布局数据已交付至原目标路径，训练入口仍为 /home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/lerobot_v21_state13/；它不代表新增泛化完成，±1cm完整五步仍0/100，正式验收仍114/400。同一持杯姿态的fractionalTrue手指可见性已有A/B/A原图可逆实证，全姿态、白块和噪声仍待验证。1528与1533均已因原任务初始化墙钟超时失败闭合并回收，尚未到FOV安装或phase1；外层退出0不代表任务成功。1533的CUDA原检查3.3838秒通过，原SDK/SATA冷启动约26分钟后出现接触、桌面和报告初始化文件，但trace最终为0字节；并行只读DLL预热使耗时不能当隔离性能测试。全SDK复制已取消并回收，改用1074个实际复制文件、约1.26GB的混合工作集，现已HYBRID_READY并关闭复制进程；它保留原SDK符号链接回退，不是完整克隆，Native兼容性与加速尚未验证。云端1505仍UNKNOWN，其他线程和正式条数保持原记录。 【本机±1cm最新结果1553】固定布局100条已交付，原训练入口不变；它不代表新增泛化完成，±1cm完整五步仍0/100，正式仍114/400。1548仅初始位置子检查已核实，XY最大残差约20微米；完整任务在第三步C撤手被原446容量门拒绝。1551的B左布局在第一步接近时因反向路径约10.3mm超过原2mm门失败。1553将C抓取位置调整5mm，保留原446容量及全部运动、物理门；实际前三步完成，第三步撤手通过，随后第四步tick7110接近规划发生FINETUNE_TRAJOPT_FAIL，任务失败，进程已关闭回收，新增验收0。下一步沿已保存的第四步规划失败排查。world1547持杯A/B/A已闭合，有限姿态手指可见，但worldEps调整未改善白块；全姿态、白块、颗粒及相机覆盖仍待验收。light1550只得到A1/B共18张原图，返回A2前被看门狗关闭，不能称完整对照或恢复已证明。已定位标签子集原PBR材质与当前玻璃绑定的差异，正准备独立原绑定对照，尚未证明白块原因或修复。云端1505仍UNKNOWN，固定100条、其他线程及正式条数均保留。 本机1cm试采1556已真实完成四步，第五步起始关节值被规划入口round5推出原float32上界1ULP；CPU因果已闭合，修复待Native。另一布局第一步同目标graph单独重放27.64秒通过，但不算完整验收。初始化前恢复A原PBR标签的1557首live材质严格匹配；本轮初始化耗尽原300秒门，tick120即关闭，0张持杯诊断图，不能称手指或全画质通过。正在以逐字节一致CuRobo Python私有缓存改善启动，保留原300秒/全部物理与平滑门。新增1cm完整验收仍0/100。 ±1cm试采1563已完成前四步，原round5起点越限已在Native修复验证；第五步改停于轨迹优化失败。保存状态的同目标GPU规划重放1564耗时41.24秒，碰撞/端点/关节和VAJ检查通过，尚待完整Native执行。1562同一持杯姿态已取得并逐张查看三视角9张原图，手指可见、原标签正常，45项物理值与时钟归档字节不变；USDRT姿态诊断仍UNKNOWN，不冒充总体通过。运动视频15张抽帧已生成，root看过14张，胸部视野裁切需修正，完整画质未验收。固定100条交付不变，新增±1cm完整验收仍0/100。"
 }
