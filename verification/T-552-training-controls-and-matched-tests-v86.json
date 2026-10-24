@@ -1,0 +1,329 @@
+{
+  "schema": "grasp.correct_training_and_original_matched_tests.v86",
+  "updated_utc": "2026-10-24T07:08:15.361927+00:00",
+  "formal_accepted_objects": 0,
+  "formal_accepted_methods": 0,
+  "paper_ssr": null,
+  "completed_training_artifacts": 116,
+  "diagnostics": [
+    {
+      "key": "main_dp_noaug",
+      "title": "A100 · 原评估关闭增强",
+      "method": "DP",
+      "candidate": "t552-brown24-main-dp-noaug-v86",
+      "trials": 4,
+      "successes": 1,
+      "independent_terminal20mm": 0,
+      "source_test_same_GPU_model": false,
+      "actual_exit_code": 0,
+      "checkpoint_SHA256": "5a5d539bdeaf2dfaab34e505bc4cdef365be385e816becb366ea5e9fc580b91f",
+      "actual_episode_controls": [
+        720,
+        719,
+        719,
+        719
+      ],
+      "actual_control_Hz": 30,
+      "action_queue": 8,
+      "all12original_videos_full_decode": true,
+      "all12original_videos_SHA_checked": true,
+      "original_sampled_frames_actually_reviewed": 96,
+      "reviewed_sheets": [
+        {
+          "episode": 1,
+          "url": "media/grasp-policy-v86/main_dp_noaug/DP_episode001_original24samples.jpg",
+          "SHA256": "0f8272d23e95dfe4ba5da6068a0080fb331a358a80dca825ce3b9cd5932b3ebc",
+          "actual_reviewed_frames": 24
+        },
+        {
+          "episode": 2,
+          "url": "media/grasp-policy-v86/main_dp_noaug/DP_episode002_original24samples.jpg",
+          "SHA256": "9f36a991fc9a71ccfb26d805d5ca204c88fe25a08bca0ecbaa49bedb2c9e5571",
+          "actual_reviewed_frames": 24
+        },
+        {
+          "episode": 3,
+          "url": "media/grasp-policy-v86/main_dp_noaug/DP_episode003_original24samples.jpg",
+          "SHA256": "12c9b093b53293cc4b8103187b99a4377baddd965178466865debe5eb8c0a768",
+          "actual_reviewed_frames": 24
+        },
+        {
+          "episode": 4,
+          "url": "media/grasp-policy-v86/main_dp_noaug/DP_episode004_original24samples.jpg",
+          "SHA256": "4ce9a9872b66493727911843a5ede758d49d28afbe62ea889bd0661413c28d64",
+          "actual_reviewed_frames": 24
+        }
+      ],
+      "visual_observations": [
+        "Ep1 lifts bottle well above table and beyond chest view at terminal; EEF goal still fails.",
+        "Ep2/3 hand stops above/right of bottle and never grasps; bottle stays on table. Ep4 bottle tips onto table after attempted closure.",
+        "Brown glass silhouette, body shading and neck markings remain visible in these samples; no whole-object opaque-white block seen.",
+        "Hand-contact regions are partially occluded; robot surface/lighting patchiness and full geometric penetration require separate checks."
+      ],
+      "full_visual_passed": false,
+      "paper_ssr": null,
+      "formal_accepted": false,
+      "original_early_failure_s": null
+    },
+    {
+      "key": "main_act",
+      "title": "A100 · 修正配对ACT",
+      "method": "ACT",
+      "candidate": "t552-brown24-main-act-v86",
+      "trials": 4,
+      "successes": 0,
+      "independent_terminal20mm": 0,
+      "source_test_same_GPU_model": false,
+      "actual_exit_code": 0,
+      "checkpoint_SHA256": "b0e2ec9b9af716472903838ff1b5ee9f6ca0aef74bc98204b9ab9a1fa7c1e7d9",
+      "actual_episode_controls": [
+        720,
+        719,
+        719,
+        719
+      ],
+      "actual_control_Hz": 30,
+      "action_queue": 4,
+      "all12original_videos_full_decode": true,
+      "all12original_videos_SHA_checked": true,
+      "original_sampled_frames_actually_reviewed": 96,
+      "reviewed_sheets": [
+        {
+          "episode": 1,
+          "url": "media/grasp-policy-v86/main_act/ACT_episode001_original24samples.jpg",
+          "SHA256": "29196ec8c81884be85c5b2513861979ffdf3093998ecea91a0d0673d6b43475a",
+          "actual_reviewed_frames": 24
+        },
+        {
+          "episode": 2,
+          "url": "media/grasp-policy-v86/main_act/ACT_episode002_original24samples.jpg",
+          "SHA256": "e1860cbd343e5659a55ad1d8af657b241bb72e1f622b54a877a6ad6bc0c6702c",
+          "actual_reviewed_frames": 24
+        },
+        {
+          "episode": 3,
+          "url": "media/grasp-policy-v86/main_act/ACT_episode003_original24samples.jpg",
+          "SHA256": "85e99875c120a4a06854a99f43c97fc34c7adb24a80c082a8ac546f5c4733af6",
+          "actual_reviewed_frames": 24
+        },
+        {
+          "episode": 4,
+          "url": "media/grasp-policy-v86/main_act/ACT_episode004_original24samples.jpg",
+          "SHA256": "259c30793882caaea41c89d4297c088a7a94eb14c81dbc72a2dc32326ef00a81",
+          "actual_reviewed_frames": 24
+        }
+      ],
+      "visual_observations": "All four sampled episodes show arms remaining near the initial raised pose and the brown flask standing on the table. Bottle outline, neck, stopper and markings are visible; no whole-object white opaque block appears in sampled frames. This is failed grasp behavior, not visual acceptance. Robot surface patchiness and unsampled/contact geometry remain unresolved.",
+      "full_visual_passed": false,
+      "paper_ssr": null,
+      "formal_accepted": false,
+      "original_early_failure_s": null
+    },
+    {
+      "key": "matched_dp",
+      "title": "5090同型号 · 原评估DP",
+      "method": "DP",
+      "candidate": "t552-brown24-matched-dp-v86",
+      "trials": 4,
+      "successes": 0,
+      "independent_terminal20mm": 0,
+      "source_test_same_GPU_model": true,
+      "actual_exit_code": 0,
+      "checkpoint_SHA256": "5a5d539bdeaf2dfaab34e505bc4cdef365be385e816becb366ea5e9fc580b91f",
+      "actual_episode_controls": [
+        489,
+        719,
+        719,
+        719
+      ],
+      "actual_control_Hz": 30,
+      "action_queue": 8,
+      "all12original_videos_full_decode": true,
+      "all12original_videos_SHA_checked": true,
+      "original_sampled_frames_actually_reviewed": 96,
+      "reviewed_sheets": [
+        {
+          "episode": 1,
+          "url": "media/grasp-policy-v86/matched_dp/DP_episode001_original24samples.jpg",
+          "SHA256": "d2721ff560709faf6dac1e7b1f3261c835af997547e5bb39f66a47c132ffce5c",
+          "actual_reviewed_frames": 24
+        },
+        {
+          "episode": 2,
+          "url": "media/grasp-policy-v86/matched_dp/DP_episode002_original24samples.jpg",
+          "SHA256": "18b770aa080cc6af796d53ba44363ee2b692615ea64ecfb6353e7b5577c2b8f1",
+          "actual_reviewed_frames": 24
+        },
+        {
+          "episode": 3,
+          "url": "media/grasp-policy-v86/matched_dp/DP_episode003_original24samples.jpg",
+          "SHA256": "4489eb30abe86798ba2a21b0dc91a819e8e090cf15937a8ef2fed9bff2c64f46",
+          "actual_reviewed_frames": 24
+        },
+        {
+          "episode": 4,
+          "url": "media/grasp-policy-v86/matched_dp/DP_episode004_original24samples.jpg",
+          "SHA256": "5e304ae62d3bc13c4b5046509677a3c96893175ea719d9649317c09d80375b9d",
+          "actual_reviewed_frames": 24
+        }
+      ],
+      "visual_observations": [
+        "Ep1 initial closure followed by bottle tilting/falling and original early-failure termination at16.3s.",
+        "Ep2/3 hand remains above/right of bottle without grasp. Ep4 bottle is pushed/tipped onto table.",
+        "Brown glass silhouette, body shading and neck markings remain visible in these samples; no whole-object opaque-white block seen.",
+        "Hand-contact regions are partially occluded; robot surface/lighting patchiness and full geometric penetration require separate checks."
+      ],
+      "full_visual_passed": false,
+      "paper_ssr": null,
+      "formal_accepted": false,
+      "original_early_failure_s": 16.3
+    },
+    {
+      "key": "matched_act",
+      "title": "5090同型号 · 修正配对ACT",
+      "method": "ACT",
+      "candidate": "t552-brown24-matched-act-v86",
+      "trials": 4,
+      "successes": 0,
+      "independent_terminal20mm": 0,
+      "source_test_same_GPU_model": true,
+      "actual_exit_code": 0,
+      "checkpoint_SHA256": "b0e2ec9b9af716472903838ff1b5ee9f6ca0aef74bc98204b9ab9a1fa7c1e7d9",
+      "actual_episode_controls": [
+        720,
+        719,
+        719,
+        719
+      ],
+      "actual_control_Hz": 30,
+      "action_queue": 4,
+      "all12original_videos_full_decode": true,
+      "all12original_videos_SHA_checked": true,
+      "original_sampled_frames_actually_reviewed": 96,
+      "reviewed_sheets": [
+        {
+          "episode": 1,
+          "url": "media/grasp-policy-v86/matched_act/ACT_episode001_original24samples.jpg",
+          "SHA256": "6ee441f39c35418355f8d6a160826a1b49a46f03d22200bb1ac88915dba358c2",
+          "actual_reviewed_frames": 24
+        },
+        {
+          "episode": 2,
+          "url": "media/grasp-policy-v86/matched_act/ACT_episode002_original24samples.jpg",
+          "SHA256": "3bf161a5a97844a0d85bfa5fa96abff635c6ab15aea67ded734d390f8f8d620f",
+          "actual_reviewed_frames": 24
+        },
+        {
+          "episode": 3,
+          "url": "media/grasp-policy-v86/matched_act/ACT_episode003_original24samples.jpg",
+          "SHA256": "da3a81636e0b59528977b8e116edce46ec25b658985c1e9450727c06c3b287ef",
+          "actual_reviewed_frames": 24
+        },
+        {
+          "episode": 4,
+          "url": "media/grasp-policy-v86/matched_act/ACT_episode004_original24samples.jpg",
+          "SHA256": "2a571365ff11657cadae60dbdf71e3d1e41c5ba7dcbf4a63f4042cf4608292fd",
+          "actual_reviewed_frames": 24
+        }
+      ],
+      "visual_observations": [
+        "Across all4episodes the arm remains near the initial pose with only small movement; the bottle stays unchanged on the table.",
+        "Brown glass silhouette, body shading and neck markings remain visible in these samples; no whole-object opaque-white block seen.",
+        "Hand-contact regions are partially occluded; robot surface/lighting patchiness and full geometric penetration require separate checks."
+      ],
+      "full_visual_passed": false,
+      "paper_ssr": null,
+      "formal_accepted": false,
+      "original_early_failure_s": null
+    }
+  ],
+  "paired_ACT_training": [
+    {
+      "sampler": "原全程均匀采样",
+      "GPU": 7,
+      "additional_updates": 5250,
+      "maximum_updates": 10000,
+      "parent_lineage_updates": 19662,
+      "seed": 26102121,
+      "sampled_utc": "2026-10-24T07:03:10.194474+00:00",
+      "state": "实际更新中；只测最终模型",
+      "new_logical_seeds": 0
+    },
+    {
+      "sampler": "前60帧50%＋全程均匀50%",
+      "GPU": 13,
+      "additional_updates": 5270,
+      "maximum_updates": 10000,
+      "parent_lineage_updates": 19662,
+      "seed": 26102121,
+      "sampled_utc": "2026-10-24T07:03:10.194518+00:00",
+      "state": "实际更新中；只测最终模型",
+      "new_logical_seeds": 0
+    }
+  ],
+  "paired_ACT_contract": "同一19662步parent及原AdamW、原95/5数据和normalizer、26状态/13动作/7层decoder/chunk4、lr1e-5、批64+31，各10000更新，只测final。唯一分组差异为时间采样。两组源码和依赖30个SHA已冻结，导入及提交前核对。",
+  "root_cause_note": "已排除当前标签误用实测关节位置，以及当前验证传入未来动作两种猜测。原始源起步12例的prior误差约0.0224rad，明显大于开始时的小步专家指令；起步拟合偏差是待验证机制，尚未证明是全部闭环失败原因。",
+  "Funnel_three_models": {
+    "completed_actual_updates_each": 10000,
+    "closed_original_epochs_each": 5000,
+    "all3_independent_CPU_passed": true,
+    "source_horizon_s": 7.5,
+    "evaluation_cap_s": 24,
+    "source_half_extent_cm": 3,
+    "source_visual_version_exact": true,
+    "actual_current_Native_submissions": 2,
+    "queued": 1,
+    "jobs": [
+      {
+        "training_seed": 26121921,
+        "GPU": 0,
+        "state": "已提交Native，等待实际策略结果"
+      },
+      {
+        "training_seed": 26121923,
+        "GPU": 1,
+        "state": "已提交Native，等待实际策略结果"
+      },
+      {
+        "training_seed": 26121925,
+        "GPU": 1,
+        "state": "排队，前一模型结束后执行"
+      }
+    ],
+    "formal_accepted": false,
+    "paper_ssr": null
+  },
+  "remaining_original_source_queue": {
+    "planned_objects": 19,
+    "closed_objects": [
+      {
+        "object": "funnel",
+        "expert_successes": 4,
+        "trials": 4,
+        "terminal20mm": 4
+      },
+      {
+        "object": "mortar",
+        "expert_successes": 0,
+        "trials": 4,
+        "terminal20mm": 4
+      },
+      {
+        "object": "glass_beaker_250ml",
+        "expert_successes": 0,
+        "trials": 4,
+        "terminal20mm": 4
+      }
+    ],
+    "current_object": "glass_beaker_500ml",
+    "sampled_utc": "2026-10-24T07:03:20.143706+00:00",
+    "production_source_admission": false,
+    "automatic_training": false,
+    "source_results_not_policy_results": true
+  },
+  "memory_fix": "原三路RGB在Ali已逐文件完整SHA回读验证；仅关闭Main自己拥有的重复归档器和封存cache keeper。释放后实测可用内存回升，原数据与其他进程保留。",
+  "visual_scope": "4组各96个原视频抽帧已实际查看。Brown玻璃轮廓与瓶颈标记在抽样中可见；未见整块不透明白化。接触遮挡、机器人表面斑块、全轨迹几何穿透仍需独立检查；完整视觉仍未通过。",
+  "all_previous_policy_runs_preserved": 217,
+  "additional_policy_runs": 4,
+  "additional_original_policy_videos": 48
+}
