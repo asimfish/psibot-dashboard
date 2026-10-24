@@ -1,31 +1,32 @@
 {
   "schema": "grasp.progress_snapshot.v1",
-  "updated_utc": "2026-10-23T20:25:32.107813+00:00",
-  "update_mode": "Each training row retains actual receipt time; all6 recovered DP have observed updates; 4 finalDP CPU/SSD gates and 3 new ACT full-state durable gates passed.",
+  "updated_utc": "2026-10-24T04:56:13.622131+00:00",
+  "update_mode": "已闭合结果与逐行实际快照；不可达任务标为未重新确认，不推测当前进度",
   "totals": {
-    "productive_training_runs": 117,
-    "DP": 51,
-    "ACT": 66,
+    "productive_training_runs": 119,
+    "DP": 52,
+    "ACT": 67,
     "formal_accepted_objects": 0,
     "paper_objects": 21,
-    "active_training_runs": 5,
-    "completed_training_runs": 110,
+    "active_training_runs": 3,
+    "completed_training_runs": 112,
     "queued_training_candidates": 2,
     "interrupted_training_runs": 2,
-    "completed_DP_training_runs": 45,
-    "completed_ACT_training_runs": 65,
+    "completed_DP_training_runs": 46,
+    "completed_ACT_training_runs": 66,
     "recovering_training_runs": 0,
     "formal_accepted_methods": 0,
-    "counts_scope": "110份已完成产物＝93份原预算＋17份额外对照；5路实际训练＝3路原Ali DP＋正确配对Brown DP＋新漏斗ACT。另2份漏斗ACT冻结种子排队。正式仍0/21。",
+    "counts_scope": "112份已完成产物＝93份原预算＋19份额外对照；本轮确认3路原Ali DP仍在训练。5090两项仅有旧快照，另2个冻结漏斗ACT种子仍保留排队。正式0/21。",
     "closed_training_pending_final_qualification": 0,
-    "actual_training_phase_runs": 5,
+    "actual_training_phase_runs": 3,
     "final_checkpoint_drain_runs": 0,
-    "clean_exit_completed_training_runs": 102,
+    "clean_exit_completed_training_runs": 104,
     "completed_with_exit_exception_runs": 5,
     "completed_with_exit_code_unrecorded_runs": 3,
     "original_budget_completed_ACT": 48,
     "original_budget_completed_DP": 45,
-    "completed_controlled_experiments": 17
+    "completed_controlled_experiments": 19,
+    "unverified_training_runs": 2
   },
   "training": [
     {
@@ -2430,65 +2431,80 @@
     {
       "host": "aliyun",
       "gpu_model": "PPU-ZW810E",
-      "gpu_uuid": "GPU-019e2226-0561-0824-0000-0000607bce45",
       "method": "DP",
       "object": "brown_volumetric_flask_250ml",
       "seed": 26102111,
       "dataset_version": "actual30Hz3cm_success100_v3036",
-      "state": "2PPU原3000轮预算续训",
-      "epoch": 796,
+      "state": "4PPU原3000轮预算续训，进程身份已核对",
+      "epoch": 985,
       "epochs_target": 3000,
-      "global_step": 425361,
-      "train_loss": 0.0011393281165510416,
-      "sampled_utc": "2026-10-23T20:21:56.462493+00:00",
+      "global_step": 526236,
+      "train_loss": 0.0005171385128051043,
+      "sampled_utc": "2026-10-24T04:02:48.743014+00:00",
       "formal_accepted": false,
       "status_note": "沿原种子和完整状态续训；未新增独立种子，尚未完成3000轮。",
       "raw_status": "running_finite_updates_actual30Hz_success100",
       "active_productive": true,
       "completed_training": false,
-      "lr": 0.0002649979706420608
+      "lr": 0.0002273080755474245,
+      "GPU_indices": [
+        1,
+        2,
+        3,
+        5
+      ]
     },
     {
       "host": "aliyun",
       "gpu_model": "PPU-ZW810E",
-      "gpu_uuid": "GPU-01deb21c-8881-010c-0000-000040147b34",
       "method": "DP",
       "object": "brown_volumetric_flask_250ml",
       "seed": 26102113,
       "dataset_version": "actual30Hz3cm_success100_v3036",
-      "state": "4PPU原3000轮预算续训",
-      "epoch": 839,
+      "state": "4PPU原3000轮预算续训，进程身份已核对",
+      "epoch": 1056,
       "epochs_target": 3000,
-      "global_step": 448080,
-      "train_loss": 0.0006280244560912251,
-      "sampled_utc": "2026-10-23T20:21:51.446580+00:00",
+      "global_step": 564142,
+      "train_loss": 0.0007564395782537758,
+      "sampled_utc": "2026-10-24T04:02:48.743014+00:00",
       "formal_accepted": false,
       "status_note": "沿原种子和完整状态续训；未新增独立种子，尚未完成3000轮。",
       "raw_status": "running_finite_updates_actual30Hz_success100",
       "active_productive": true,
       "completed_training": false,
-      "lr": 0.0002669604448087322
+      "lr": 0.00021753560110070844,
+      "GPU_indices": [
+        11,
+        12,
+        14,
+        15
+      ]
     },
     {
       "host": "aliyun",
       "gpu_model": "PPU-ZW810E",
-      "gpu_uuid": "GPU-01dec218-0142-0810-0000-000060d6763b",
       "method": "DP",
       "object": "brown_volumetric_flask_250ml",
       "seed": 26102115,
       "dataset_version": "actual30Hz3cm_success100_v3036",
-      "state": "4PPU原3000轮预算续训",
-      "epoch": 784,
+      "state": "4PPU原3000轮预算续训，进程身份已核对",
+      "epoch": 1002,
       "epochs_target": 3000,
-      "global_step": 419142,
-      "train_loss": 0.0008215719717554748,
-      "sampled_utc": "2026-10-23T20:21:52.017862+00:00",
+      "global_step": 535411,
+      "train_loss": 0.0007349615334533155,
+      "sampled_utc": "2026-10-24T04:02:48.743014+00:00",
       "formal_accepted": false,
       "status_note": "沿原种子和完整状态续训；未新增独立种子，尚未完成3000轮。",
       "raw_status": "running_finite_updates_actual30Hz_success100",
       "active_productive": true,
       "completed_training": false,
-      "lr": 0.0002689268190554061
+      "lr": 0.000224979933949923,
+      "GPU_indices": [
+        0,
+        4,
+        8,
+        10
+      ]
     },
     {
       "host": "aliyun",
@@ -2901,13 +2917,14 @@
       "epochs_target": null,
       "maximum_updates": 10000,
       "completed_training": false,
-      "active_productive": true,
+      "active_productive": false,
       "training_budget_extension": true,
       "logical_seed_count_increase": 0,
       "sampled_utc": "2026-10-23T20:25:32.107813+00:00",
-      "state": "实际正确配对数据训练",
-      "status_note": "原s115 epoch676 EMA暖启动，新全源归一化/新优化器；全局128噪声匹配后micro32；快照最近100次平均每次0.72秒，耗时随并行负载变化。固定10000更新后只测最终EMA。",
-      "formal_accepted": false
+      "state": "上次快照曾在训练；当前连接拒绝，进度未重新确认",
+      "status_note": "原s115 epoch676 EMA暖启动，新全源归一化/新优化器；全局128噪声匹配后micro32；快照最近100次平均每次0.72秒，耗时随并行负载变化。固定10000更新后只测最终EMA。 当前不计已确认活跃；未重复启动。",
+      "formal_accepted": false,
+      "activity_currently_unverified": true
     },
     {
       "host": "bjxy_5090",
@@ -2923,21 +2940,66 @@
       "epochs_target": 5000,
       "maximum_updates": 10000,
       "completed_training": false,
-      "active_productive": true,
+      "active_productive": false,
       "logical_seed_count_increase": 1,
       "sampled_utc": "2026-10-23T20:25:32.107813+00:00",
-      "state": "新漏斗ACT首种子实际训练",
-      "status_note": "全新原ImageNet骨干与7层解码器，95/5训练验证，原5000轮预算；另2个冻结种子排队。源100全部22425保存姿态在当前几何检查范围内0交叉，完整视觉与模型验收仍开放。",
-      "formal_accepted": false
+      "state": "上次快照曾在训练；当前连接拒绝，进度未重新确认",
+      "status_note": "全新原ImageNet骨干与7层解码器，95/5训练验证，原5000轮预算；另2个冻结种子排队。源100全部22425保存姿态在当前几何检查范围内0交叉，完整视觉与模型验收仍开放。 当前不计已确认活跃；未重复启动。",
+      "formal_accepted": false,
+      "activity_currently_unverified": true
+    },
+    {
+      "host": "aliyun",
+      "gpu_model": "PPU-ZW810E",
+      "method": "ACT",
+      "object": "brown_volumetric_flask_250ml",
+      "seed": 26102121,
+      "run_id": "Brown24-next-action-final10000-ACT-v85",
+      "dataset_version": "Brown24_original_next_action_fixed10000_v85",
+      "global_step": 10000,
+      "selected_lineage_step": 19662,
+      "maximum_updates": 10000,
+      "actual_additional_updates": 10000,
+      "completed_training": true,
+      "active_productive": false,
+      "training_budget_extension": true,
+      "logical_seed_count_increase": 0,
+      "actual_exit_code": 0,
+      "sampled_utc": "2026-10-24T04:05:15.252731+00:00",
+      "formal_accepted": false,
+      "state": "固定10000额外更新完成；独立CPU通过，策略验收待完成",
+      "status_note": "固定10000新增更新及独立CPU通过；实际SDK Python八例最大归一化动作差4.8e-7，待资源恢复后策略实测。"
+    },
+    {
+      "host": "mainskill",
+      "gpu_model": "NVIDIA A100-SXM4-80GB",
+      "method": "DP",
+      "object": "brown_volumetric_flask_250ml",
+      "seed": 26102115,
+      "run_id": "Brown24-next-action-final10000-DP-v85",
+      "dataset_version": "Brown24_original_next_action_fixed10000_v85",
+      "global_step": 10000,
+      "selected_lineage_step": 330934,
+      "maximum_updates": 10000,
+      "actual_additional_updates": 10000,
+      "completed_training": true,
+      "active_productive": false,
+      "training_budget_extension": true,
+      "logical_seed_count_increase": 0,
+      "actual_exit_code": 0,
+      "sampled_utc": "2026-10-24T04:05:15.252731+00:00",
+      "formal_accepted": false,
+      "state": "固定10000额外更新完成；独立CPU通过，策略验收待完成",
+      "status_note": "固定10000新增更新最终EMA已完成跨渲染四点诊断：2/4，独立终点20mm 0/4；实际30Hz和全部12段视频审计通过，非正式通过。"
     }
   ],
   "servers": [
     {
       "host": "aliyun",
-      "state": "新30Hz /3cm数据：6路实际训练中",
+      "state": "3路原DP实际续训；修正Brown24 ACT固定10000已完成",
       "role": "训练",
-      "note": "DP与ACT各3种子已产生有限更新；90份旧完整产物保留，新数据版本独立列示。",
-      "sampled_utc": "2026-10-21T10:43:03.789601+00:00"
+      "note": "三路分别985/1056/1002轮，目标仍为原3000轮；进程身份已核对。修正ACT独立CPU通过，待策略实测。",
+      "sampled_utc": "2026-10-24T04:02:48.743014+00:00"
     },
     {
       "host": "30109",
@@ -2955,17 +3017,17 @@
     },
     {
       "host": "5090",
-      "state": "SSH已恢复；两卡现有任务保留",
+      "state": "当前路由拒绝连接；任务当前状态未重新确认",
       "role": "采集 / 测试准备",
-      "note": "本轮只读核对两张5090均可达，未抢占已有任务或重复采集。",
-      "sampled_utc": "2026-10-21T10:38:15.150812+00:00"
+      "note": "保留正确配对Brown DP和漏斗ACT的上次训练快照；没有重启或重复提交。",
+      "sampled_utc": "2026-10-24T02:40:51Z"
     },
     {
       "host": "mainskill",
-      "state": "三ACT原始源数据CPU精度诊断完成",
+      "state": "DP四点2/4已闭合；ACT运行环境CPU通过；采集待内存恢复",
       "role": "训练 / 采集 / 测试准备",
-      "note": "150个固定源帧、三模型原权重和统计文件前后SHA相同，CPU诊断exit0。训练与留出末段误差接近；原13维关节目标标签已核对，无标签修改或新训练。",
-      "sampled_utc": "2026-10-20T23:59:06Z"
+      "note": "漏斗触发88GiB主机余量保护已中止，后续18对象未提交；旧三路RGB封存内存正完整归档核验，未提前释放。保持原物理及论文标准。",
+      "sampled_utc": "2026-10-24T04:56:13.622131+00:00"
     },
     {
       "host": "volc-pro6000",
@@ -8778,10 +8840,10 @@
       "collision_free_qualified": false
     }
   },
-  "sampled_utc": "2026-10-23T20:25:32.107813+00:00",
+  "sampled_utc": "2026-10-24T04:56:13.622131+00:00",
   "latest_frontier": {
     "schema": "grasp.frontier.independent16_defects.v84",
-    "updated_utc": "2026-10-23T20:25:32.107813+00:00",
+    "updated_utc": "2026-10-24T04:56:13.622131+00:00",
     "formal_accepted_objects": 0,
     "formal_accepted_methods": 0,
     "paper_ssr": null,
@@ -8789,26 +8851,24 @@
       {
         "title": "正式验收",
         "status": "DP和ACT同时通过：0/21",
-        "note": "逐物体SR、Spatial SSR、范围外泛化、完整视觉四项均须闭合；终点20mm和完成训练不替代正式验收。"
+        "note": "逐物体SR、Spatial SSR、范围外泛化、完整视觉四项都要通过；离线训练与专家源试采不计通过。"
       },
       {
-        "title": "100ml烧杯 · 最终DP和ACT",
-        "status": "DP三份3/4、2/4、3/4；ACT三份3/4、3/4、2/4",
-        "note": "两种方法各8/12（66.7%），终点20mm分量DP6/12、ACT0/12。论文SR目标DP78%/ACT66%；当前是四点开发测试，三种子与全部失败视频可切换。严格SSR及玻璃视觉仍未验收。"
+        "title": "修正动作配对 · Brown24 DP / ACT",
+        "status": "最终DP四点2/4；终点20mm分量0/4",
+        "note": "DP和ACT固定10000新增更新及独立CPU通过；两者在实际SDK Python的8例对齐均通过。新DP四点2/4、终点20mm0/4，仍未达标；ACT策略实测待资源恢复。",
+        "policy_run_candidate": "t552-brown24-dp-final-next-action-cross-render-v85"
       },
       {
-        "title": "玻璃视觉与采集修复",
-        "status": "100ml新100次采集：90成功 / 100次尝试",
-        "note": "固定远背景、原物理与原3cm支持范围；终点EEF20mm分量100/100，但有10次空抓，不能当100次成功或完整SSR。300视频全解码，完整视觉/几何仍未通过，尚未入训。",
-        "run_candidate": "t552-beaker100-dp-s26102251-terminal-empty-grasp-v76"
+        "title": "100ml原始源试采 · A100",
+        "status": "抓取3/4；独立终点20mm分量4/4",
+        "note": "2877个已保存状态在当前网格范围内0交叉；三路原RGB全帧一致，96个原视频抽帧已看。完整视觉和Spatial SSR仍待验收。",
+        "source_gallery_anchor": "source85"
       },
       {
-        "title": "并行采集与既有训练",
-        "status": "5路实际训练；ACT独立16点11/16，仍未验收",
-        "note": "Brown正确配对DP固定10000更新；新漏斗ACT原5000轮首种子启动，另2种子排队。+2/+3cm仍有失败与保存姿态表面交叉；50ml源数据有玻璃发白/交叉，继续修复。",
-        "collection_dataset_id": "brown250_true30Hz_source91",
-        "previous_collection_dataset_id": "brown250_source3cm_pilot4",
-        "supplement_collection_dataset_id": "brown250_true30Hz_supplement4"
+        "title": "当前计算与队列",
+        "status": "3路原DP续训；采集遇主机内存瓶颈",
+        "note": "棕色瓶3回合后监控超时，漏斗启动后内存余量保护中止，失败保留；后续18物体未提交。旧RGB内存先完整归档核验，再判断能否释放。"
       }
     ],
     "strict_spatial_scope": "论文Table11给出空间20mm门槛，Table12明确终止时检查位姿残差和碰撞；全程仍须满足适用约束。完整SSR待严格目标与碰撞事件绑定，终点20mm分量仍不能单独当SSR。奖励中的旋转残差不自动形成一个未经论文登记的额外验收阈值。",
@@ -30686,8 +30746,7 @@
                   "success_rate": 1.0,
                   "translation_component_rate": 0.0
                 }
-              },
-              "evidence": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/continued_acceptance_20261021_v2936/Beaker100_DP_s26102251_v2957"
+              }
             },
             {
               "seed": 26102253,
@@ -30739,8 +30798,7 @@
                   "success_rate": 1.0,
                   "translation_component_rate": 1.0
                 }
-              },
-              "evidence": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/continued_acceptance_20261021_v2936/Beaker100_DP_s26102253_v2987"
+              }
             },
             {
               "seed": 26102255,
@@ -30792,8 +30850,7 @@
                   "success_rate": 1.0,
                   "translation_component_rate": 0.0
                 }
-              },
-              "evidence": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/continued_acceptance_20261021_v2936/Beaker100_DP_s26102255_v2957"
+              }
             }
           ],
           "successes": 8,
@@ -30858,8 +30915,7 @@
                   "success_rate": 0.0,
                   "translation_component_rate": 0.0
                 }
-              },
-              "evidence": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/continued_acceptance_20261021_v2936/Beaker100_ACT_s26102241_v2965"
+              }
             },
             {
               "seed": 26102243,
@@ -30911,8 +30967,7 @@
                   "success_rate": 0.0,
                   "translation_component_rate": 0.0
                 }
-              },
-              "evidence": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/continued_acceptance_20261021_v2936/Beaker100_ACT_s26102243_v2965"
+              }
             },
             {
               "seed": 26102245,
@@ -30964,8 +31019,7 @@
                   "success_rate": 0.0,
                   "translation_component_rate": 0.0
                 }
-              },
-              "evidence": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/continued_acceptance_20261021_v2936/Beaker100_ACT_s26102245_v2965"
+              }
             }
           ],
           "successes": 8,
@@ -35561,6 +35615,529 @@
         "raw_and232_preaction_data_gate_passed": true,
         "full_visual_passed": false
       }
+    },
+    "repairs_v85": {
+      "schema": "grasp.source_and_corrected_models.v85",
+      "updated_utc": "2026-10-24T04:56:13.622131+00:00",
+      "formal_accepted_objects": 0,
+      "formal_accepted_methods": 0,
+      "paper_ssr": null,
+      "source": {
+        "object": "glass_beaker_100ml",
+        "kind": "expert_source_qualification_only",
+        "GPU_model": "NVIDIA A100-SXM4-80GB",
+        "episodes": 4,
+        "successes": 3,
+        "terminal20mm_independent": 4,
+        "actual_saved_frames": 2877,
+        "actual_Hz": 29.9999984,
+        "original_raw_RGB_and_FP32_all_frames_exact": true,
+        "all12_original_videos_full_decode": true,
+        "saved_mesh_crossing_pose_instants": 0,
+        "geometry_candidate_pairs": 66107,
+        "geometry_scope": "30Hz保存的手部、末端和物体原网格；不包含全部物理子步、碰撞体、自碰撞或全部机器人表面。",
+        "actual_sampled_original_frames_reviewed": 96,
+        "visual_note": "第1回合空抓，烧杯留在桌面；第2–4回合可见抬升。抽查可见透明杯壁、杯口和刻度，未见整块发白；接触区有遮挡，全程材质与穿模检查仍未完成。",
+        "source_collection_half_extent_cm": 3,
+        "actual_frozen_source_XY_corners_m": [
+          [
+            -0.025,
+            -0.025
+          ],
+          [
+            0.025,
+            -0.025
+          ],
+          [
+            -0.025,
+            0.025
+          ],
+          [
+            0.025,
+            0.025
+          ]
+        ],
+        "source_training_allowed": false,
+        "full_visual_passed": false,
+        "paper_ssr": null,
+        "formal_accepted": false,
+        "outcomes": [
+          {
+            "episode": 1,
+            "success": false,
+            "eef_translation_error_mm": 3.9220954175737477,
+            "terminal20mm": true,
+            "object_lift_m": -7.152557373046875e-07,
+            "videos": [
+              {
+                "camera": "chest_camera",
+                "url": "media/grasp-progress-v85/source_episode001_chest_camera_browser.mp4",
+                "original_bytes": false,
+                "original_url": "media/grasp-progress-v85/source_episode001_chest_camera.mp4",
+                "original_SHA256": "4728bbca31a41c88e3c066cc46c0d18c7ee635a701a824af4dbc05ae72c379fc",
+                "browser_SHA256": "e8783c814d9eafa4a53edf142a70eac0f231776052d0cd8c2e49f0b6007e9897",
+                "browser_codec": "h264",
+                "frames": 719,
+                "fps": 30,
+                "retimed": false,
+                "original_bytes_preserved": true
+              },
+              {
+                "camera": "head_camera",
+                "url": "media/grasp-progress-v85/source_episode001_head_camera_browser.mp4",
+                "original_bytes": false,
+                "original_url": "media/grasp-progress-v85/source_episode001_head_camera.mp4",
+                "original_SHA256": "9f5bd16eaee92643e1578a7c69d51d18a33560926e0b5fa0b4094518bb7c3d18",
+                "browser_SHA256": "511cc1b74b22936c35743cc6f8eca03804190d67138d090a641d4829979dc8d9",
+                "browser_codec": "h264",
+                "frames": 719,
+                "fps": 30,
+                "retimed": false,
+                "original_bytes_preserved": true
+              },
+              {
+                "camera": "third_camera",
+                "url": "media/grasp-progress-v85/source_episode001_third_camera_browser.mp4",
+                "original_bytes": false,
+                "original_url": "media/grasp-progress-v85/source_episode001_third_camera.mp4",
+                "original_SHA256": "a75dc76c64b1f1b5e7b104dca368cb6ea6b51a53300cb768cd7b89762a54ae3f",
+                "browser_SHA256": "921dbf9c10c95d1e9f7e60a84f4b2a7fc6954e00bc00f9659ab7f013a7a004c7",
+                "browser_codec": "h264",
+                "frames": 719,
+                "fps": 30,
+                "retimed": false,
+                "original_bytes_preserved": true
+              }
+            ],
+            "reviewed_sheet_url": "media/grasp-progress-v85/source_episode001.jpg"
+          },
+          {
+            "episode": 2,
+            "success": true,
+            "eef_translation_error_mm": 3.907969490338393,
+            "terminal20mm": true,
+            "object_lift_m": 0.10175198316574097,
+            "videos": [
+              {
+                "camera": "chest_camera",
+                "url": "media/grasp-progress-v85/source_episode002_chest_camera_browser.mp4",
+                "original_bytes": false,
+                "original_url": "media/grasp-progress-v85/source_episode002_chest_camera.mp4",
+                "original_SHA256": "c09e54592cc977067e0706ab5c8a673e929601d6682b96078a2faa37aa8c80e2",
+                "browser_SHA256": "0b79cf8f2af78a6a0d1342fa4365e666290438a49635589c7e2d3067dc6c3610",
+                "browser_codec": "h264",
+                "frames": 719,
+                "fps": 30,
+                "retimed": false,
+                "original_bytes_preserved": true
+              },
+              {
+                "camera": "head_camera",
+                "url": "media/grasp-progress-v85/source_episode002_head_camera_browser.mp4",
+                "original_bytes": false,
+                "original_url": "media/grasp-progress-v85/source_episode002_head_camera.mp4",
+                "original_SHA256": "c0b13d16a69c7ba1f1ad7e987378c1d8cab47360e68bda56dfb98629ccf70163",
+                "browser_SHA256": "be65451285cf7b3033126599f439edacae76a6d228ce5379914c1216f1fe4ac8",
+                "browser_codec": "h264",
+                "frames": 719,
+                "fps": 30,
+                "retimed": false,
+                "original_bytes_preserved": true
+              },
+              {
+                "camera": "third_camera",
+                "url": "media/grasp-progress-v85/source_episode002_third_camera_browser.mp4",
+                "original_bytes": false,
+                "original_url": "media/grasp-progress-v85/source_episode002_third_camera.mp4",
+                "original_SHA256": "e3414397e7a19a9cf409a3fcbb43453111adb614be9a4c3b6003599a60561d91",
+                "browser_SHA256": "f9ede43a02d4c487b68d8b3444832c07204a149df33729838c89f59f31c5dc3a",
+                "browser_codec": "h264",
+                "frames": 719,
+                "fps": 30,
+                "retimed": false,
+                "original_bytes_preserved": true
+              }
+            ],
+            "reviewed_sheet_url": "media/grasp-progress-v85/source_episode002.jpg"
+          },
+          {
+            "episode": 3,
+            "success": true,
+            "eef_translation_error_mm": 4.832854340241296,
+            "terminal20mm": true,
+            "object_lift_m": 0.10194951295852661,
+            "videos": [
+              {
+                "camera": "chest_camera",
+                "url": "media/grasp-progress-v85/source_episode003_chest_camera_browser.mp4",
+                "original_bytes": false,
+                "original_url": "media/grasp-progress-v85/source_episode003_chest_camera.mp4",
+                "original_SHA256": "f151ed8db54674517e88a8767caef37b13375d73909f8e224904922bc78718af",
+                "browser_SHA256": "d2a318c2834bffba641572ddd6cc96c8c0e3047dfb125abd622cbe7a609cc00e",
+                "browser_codec": "h264",
+                "frames": 719,
+                "fps": 30,
+                "retimed": false,
+                "original_bytes_preserved": true
+              },
+              {
+                "camera": "head_camera",
+                "url": "media/grasp-progress-v85/source_episode003_head_camera_browser.mp4",
+                "original_bytes": false,
+                "original_url": "media/grasp-progress-v85/source_episode003_head_camera.mp4",
+                "original_SHA256": "136aa20107891942979cf3dac3ebaf1ad244ce5c460c2ecf8a7c706803206331",
+                "browser_SHA256": "340640a1bb19f0d3a95d71b8e8996eedb44e3cd4aa80a19fc675b9154115d8ff",
+                "browser_codec": "h264",
+                "frames": 719,
+                "fps": 30,
+                "retimed": false,
+                "original_bytes_preserved": true
+              },
+              {
+                "camera": "third_camera",
+                "url": "media/grasp-progress-v85/source_episode003_third_camera_browser.mp4",
+                "original_bytes": false,
+                "original_url": "media/grasp-progress-v85/source_episode003_third_camera.mp4",
+                "original_SHA256": "f49395e28e84d5971ee004e80c0b7a7a931052780425cd145949da527ff1c29c",
+                "browser_SHA256": "b64facce96db82687915c895f50056daa12663f7d0cb0d48f5086a6b94d324a3",
+                "browser_codec": "h264",
+                "frames": 719,
+                "fps": 30,
+                "retimed": false,
+                "original_bytes_preserved": true
+              }
+            ],
+            "reviewed_sheet_url": "media/grasp-progress-v85/source_episode003.jpg"
+          },
+          {
+            "episode": 4,
+            "success": true,
+            "eef_translation_error_mm": 4.743473261095236,
+            "terminal20mm": true,
+            "object_lift_m": 0.10152143239974976,
+            "videos": [
+              {
+                "camera": "chest_camera",
+                "url": "media/grasp-progress-v85/source_episode004_chest_camera_browser.mp4",
+                "original_bytes": false,
+                "original_url": "media/grasp-progress-v85/source_episode004_chest_camera.mp4",
+                "original_SHA256": "7ef1da66cb44366b1668a641b0ab442eeee2a61d531e70ce875079b5b6ab0c26",
+                "browser_SHA256": "b1a07f5fa84cc18d7dcaa944f39dc814bffa4e5ee9c13bb685abeb65fbc042f6",
+                "browser_codec": "h264",
+                "frames": 720,
+                "fps": 30,
+                "retimed": false,
+                "original_bytes_preserved": true
+              },
+              {
+                "camera": "head_camera",
+                "url": "media/grasp-progress-v85/source_episode004_head_camera_browser.mp4",
+                "original_bytes": false,
+                "original_url": "media/grasp-progress-v85/source_episode004_head_camera.mp4",
+                "original_SHA256": "590abe2a562f842add9b06d0e094bf1c6aeb8b27edd3d4260cc8eeb5fa3bdc54",
+                "browser_SHA256": "809feffa40e40a8c0e83b8f500ff12b5512868f23687b55582ee6099db1001dd",
+                "browser_codec": "h264",
+                "frames": 720,
+                "fps": 30,
+                "retimed": false,
+                "original_bytes_preserved": true
+              },
+              {
+                "camera": "third_camera",
+                "url": "media/grasp-progress-v85/source_episode004_third_camera_browser.mp4",
+                "original_bytes": false,
+                "original_url": "media/grasp-progress-v85/source_episode004_third_camera.mp4",
+                "original_SHA256": "9501badbcf06363603c350b122e57cdbfabf9e5496194e5d6c8dd0f0dae66ff2",
+                "browser_SHA256": "21120da97f2baa8d8b4047d20001dd8c56fc00f0d00da6f4881382b33f0dc086",
+                "browser_codec": "h264",
+                "frames": 720,
+                "fps": 30,
+                "retimed": false,
+                "original_bytes_preserved": true
+              }
+            ],
+            "reviewed_sheet_url": "media/grasp-progress-v85/source_episode004.jpg"
+          }
+        ],
+        "original_clock_gate_SHA256": "f2dfdbde9317b494fbbecb16724f26c4c6714687c05c106a4ac9211a5c7ab014",
+        "original_RGB_gate_SHA256": "4616a425bafa89d21d68fc4ade6fae25f2cacdbf640bf9fff117fdcde9b01489",
+        "original_geometry_gate_SHA256": "ff317f127c0b3c3548ada13b38b0d14a2c4ac6530301fba83b0f5c26ada569e3",
+        "browser_h264_copies_12_full_decode_and_identical_frame_counts": true
+      },
+      "corrected_Brown24_models": [
+        {
+          "method": "ACT",
+          "training_seed": 26102121,
+          "additional_updates": 10000,
+          "selected_lineage_step": 19662,
+          "checkpoint_SHA256": "b0e2ec9b9af716472903838ff1b5ee9f6ca0aef74bc98204b9ab9a1fa7c1e7d9",
+          "model_tensors_strict_finite": 344,
+          "optimizer_tensors_finite": 783,
+          "original_normalizer_recomputed_exact": true,
+          "CPU_actual_forward_calls": 32,
+          "CPU_distinct_examples": 28,
+          "Native_test": "实际SDK Python八例CPU对齐通过；策略实测待资源恢复",
+          "policy_SR": null,
+          "actual_SDK_Python_CPU_parity_cases": 8,
+          "max_abs_normalized_action_error": 4.76837158203125e-07
+        },
+        {
+          "method": "DP",
+          "training_seed": 26102115,
+          "additional_updates": 10000,
+          "selected_lineage_step": 330934,
+          "checkpoint_SHA256": "5a5d539bdeaf2dfaab34e505bc4cdef365be385e816becb366ea5e9fc580b91f",
+          "model_tensors_strict_finite": 918,
+          "optimizer_tensors_finite": 2583,
+          "original_normalizer_recomputed_exact": true,
+          "CPU_actual_forward_calls": 8,
+          "CPU_distinct_examples": 8,
+          "Native_test": "跨渲染四点完整闭合：2/4；独立终点20mm 0/4，未验收",
+          "policy_SR": 0.5,
+          "actual_SDK_Python_CPU_parity_cases": 8,
+          "all8_runtime_predictions_bitwise_equal": true
+        }
+      ],
+      "source_queue": {
+        "planned_remaining_objects": 19,
+        "maximum_source_trials": 76,
+        "current_object": "funnel",
+        "state": "漏斗启动后触发88GiB主机余量保护而中止；其余18物体未提交，先处理旧RGB内存归档。",
+        "previous_Brown_source_completed_trials": 3,
+        "previous_Brown_source_successes": 3,
+        "previous_Brown_expected_trials": 4,
+        "previous_Brown_fourth_partial_preserved": true,
+        "previous_Brown_failure": "监控nvidia-smi15秒超时；当前已核实原进程组关闭，未重复前三回合。",
+        "GPU_telemetry_fix": "一个异步查询；30秒取消，90秒有效期；原GPU余量和进程内存检查保留。",
+        "host_admission_GiB": 112,
+        "live_host_reserve_GiB": 88,
+        "own_RSS_max_GiB": 24,
+        "formal_accepted": false,
+        "remaining_unsubmitted_objects": 18,
+        "funnel_actual_Native_submissions": 1,
+        "funnel_failure": "主机可用内存跌破保护线，未降低保护线继续运行。",
+        "funnel_complete_source_trials_not_yet_qualified": true
+      },
+      "DP_development": {
+        "actual_Native_submissions": 1,
+        "maximum_learned_trials": 4,
+        "frozen_seed": 26203729,
+        "predicted_horizon": 8,
+        "execution_horizon": 8,
+        "DDIM_steps": 16,
+        "source_half_extent_cm": 3,
+        "outside_only_cohorts_cm": [
+          1,
+          2,
+          3
+        ],
+        "cross_GPU_development_only": true,
+        "policy_SR": 0.5,
+        "paper_ssr": null,
+        "sampled_utc": "2026-10-24T04:02:48.593230+00:00",
+        "candidate": "t552-brown24-dp-final-next-action-cross-render-v85",
+        "actual_exit_code": 0,
+        "successes": 2,
+        "trials": 4,
+        "independent_terminal20mm": 0,
+        "actual_clock_chunk_and_all12media_CPU_passed": true,
+        "actual_control_steps": 2877,
+        "actual_neural_predictions": 360,
+        "actual_Hz": 30,
+        "all_controls_exact_original_model_output": true,
+        "reviewed_sheets": [
+          {
+            "episode": 1,
+            "url": "media/grasp-policy-v85/DP_episode001_original24samples.jpg",
+            "SHA256": "31f3a767641b15c0c2319e3a08b3472e1594784ed82ec712a2e74de0114ce0fa",
+            "actually_reviewed_unique_frames": 24
+          },
+          {
+            "episode": 2,
+            "url": "media/grasp-policy-v85/DP_episode002_original24samples.jpg",
+            "SHA256": "21f48eb7fb8be85e2b3a9e35fbf62c2997ff48b5493abe6a4f5e2453d80b3485",
+            "actually_reviewed_unique_frames": 24
+          },
+          {
+            "episode": 3,
+            "url": "media/grasp-policy-v85/DP_episode003_original24samples.jpg",
+            "SHA256": "a60b4fc967d662dba1f17728abe71ccc99831e08d38a6b19f55dfdd1994beaad",
+            "actually_reviewed_unique_frames": 24
+          },
+          {
+            "episode": 4,
+            "url": "media/grasp-policy-v85/DP_episode004_original24samples.jpg",
+            "SHA256": "5b3731563891374fa62573a9b7cc32f6cdcf67060c099ad96df6a0b406d8d983",
+            "actually_reviewed_unique_frames": 24
+          }
+        ],
+        "actual_visual_review": {
+          "utc": "2026-10-24T04:45:57.651895+00:00",
+          "actually_reviewed_all4_sheets": true,
+          "unique_original_video_frames_actually_reviewed": 96,
+          "observations": [
+            "Episodes1/3 visibly grasp and lift; terminal EEF position remains outside20mm goal.",
+            "Episode2: bottle tips sideways during approach/closure, remains on table. Episode4: late/incomplete closure followed by bottle tipping; both failures retained.",
+            "Brown glass body/neck/markings remain visible without whole-object opaque white block in these samples; contact region partly occluded.",
+            "Lift moves the bottle outside the chest camera field in successful terminal samples; other views retain object."
+          ],
+          "full_visual_passed": false,
+          "paper_ssr": null,
+          "formal_accepted": false
+        },
+        "cohorts": {
+          "uniform_box+0cm": {
+            "expected_episodes": 1,
+            "episodes_completed": 1,
+            "success_count": 1,
+            "translation_component_count": 0,
+            "actual_outside_count": 0,
+            "paper_ssr": null,
+            "formal_accepted": false,
+            "success_rate": 1.0,
+            "translation_component_rate": 0.0
+          },
+          "outside_only+1cm": {
+            "expected_episodes": 1,
+            "episodes_completed": 1,
+            "success_count": 0,
+            "translation_component_count": 0,
+            "actual_outside_count": 1,
+            "paper_ssr": null,
+            "formal_accepted": false,
+            "success_rate": 0.0,
+            "translation_component_rate": 0.0
+          },
+          "outside_only+2cm": {
+            "expected_episodes": 1,
+            "episodes_completed": 1,
+            "success_count": 1,
+            "translation_component_count": 0,
+            "actual_outside_count": 1,
+            "paper_ssr": null,
+            "formal_accepted": false,
+            "success_rate": 1.0,
+            "translation_component_rate": 0.0
+          },
+          "outside_only+3cm": {
+            "expected_episodes": 1,
+            "episodes_completed": 1,
+            "success_count": 0,
+            "translation_component_count": 0,
+            "actual_outside_count": 1,
+            "paper_ssr": null,
+            "formal_accepted": false,
+            "success_rate": 0.0,
+            "translation_component_rate": 0.0
+          }
+        }
+      },
+      "active_original_DP": [
+        {
+          "seed": 26102111,
+          "train_loss": 0.0005171385128051043,
+          "global_step": 526236,
+          "epoch": 985,
+          "lr": 0.0002273080755474245,
+          "sampled_utc": "2026-10-24T04:02:48.743014+00:00",
+          "original_epoch_budget": 3000
+        },
+        {
+          "seed": 26102113,
+          "train_loss": 0.0007564395782537758,
+          "global_step": 564142,
+          "epoch": 1056,
+          "lr": 0.00021753560110070844,
+          "sampled_utc": "2026-10-24T04:02:48.743014+00:00",
+          "original_epoch_budget": 3000
+        },
+        {
+          "seed": 26102115,
+          "train_loss": 0.0007349615334533155,
+          "global_step": 535411,
+          "epoch": 1002,
+          "lr": 0.000224979933949923,
+          "sampled_utc": "2026-10-24T04:02:48.743014+00:00",
+          "original_epoch_budget": 3000
+        }
+      ],
+      "unavailable_GPU5090": {
+        "state": "现有SSH路由拒绝连接；两项训练仅保留上次已核实快照，未重复提交。",
+        "last_route_check_utc": "2026-10-24T02:40:51Z",
+        "unverified_training_runs": 2
+      },
+      "note": "专家源试采、离线模型检查和策略测试分别报告；没有新增正式通过项。",
+      "ACT_runtime_CPU_parity": {
+        "passed": true,
+        "utc": "2026-10-24T04:55:32.152700+00:00",
+        "actual_cases": [
+          {
+            "split": "validation",
+            "episode": 66,
+            "timestep": 0,
+            "max_abs_normalized_action_error": 3.5762786865234375e-07,
+            "bitwise_equal": false
+          },
+          {
+            "split": "validation",
+            "episode": 66,
+            "timestep": 1,
+            "max_abs_normalized_action_error": 2.384185791015625e-07,
+            "bitwise_equal": false
+          },
+          {
+            "split": "validation",
+            "episode": 66,
+            "timestep": 8,
+            "max_abs_normalized_action_error": 4.76837158203125e-07,
+            "bitwise_equal": false
+          },
+          {
+            "split": "validation",
+            "episode": 66,
+            "timestep": 717,
+            "max_abs_normalized_action_error": 2.384185791015625e-07,
+            "bitwise_equal": false
+          },
+          {
+            "split": "train",
+            "episode": 59,
+            "timestep": 0,
+            "max_abs_normalized_action_error": 4.76837158203125e-07,
+            "bitwise_equal": false
+          },
+          {
+            "split": "train",
+            "episode": 59,
+            "timestep": 1,
+            "max_abs_normalized_action_error": 2.384185791015625e-07,
+            "bitwise_equal": false
+          },
+          {
+            "split": "train",
+            "episode": 59,
+            "timestep": 8,
+            "max_abs_normalized_action_error": 2.384185791015625e-07,
+            "bitwise_equal": false
+          },
+          {
+            "split": "train",
+            "episode": 59,
+            "timestep": 718,
+            "max_abs_normalized_action_error": 3.5762786865234375e-07,
+            "bitwise_equal": false
+          }
+        ],
+        "all344_model_tensors_strict": true,
+        "actual_torch": "2.7.0+cu126",
+        "CPU_match_tolerance": 1e-05,
+        "tolerance_is_runtime_portability_only_not_paper_SSR": true,
+        "Native_submissions": 0,
+        "policy_SR": null,
+        "paper_ssr": null,
+        "formal_accepted": false
+      },
+      "evidence_url": "verification/T-552-original-source-and-corrected-models-v85.json"
     }
   },
   "dashboard_browser_totals": {

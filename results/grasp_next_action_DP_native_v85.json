@@ -1,0 +1,156 @@
+{
+  "schema": "grasp.corrected_final_DP.cross_render.development.v85",
+  "runs": [
+    {
+      "candidate": "t552-brown24-dp-final-next-action-cross-render-v85",
+      "display_name": "Brown24修正配对最终DP · A100四点诊断",
+      "method": "dp",
+      "object": "brown_volumetric_flask_250ml",
+      "development": true,
+      "current_native": true,
+      "progress": {
+        "episode_num": 4,
+        "episode_success_num": 2,
+        "success_rate": 0.5
+      },
+      "paper_ssr_percent": null,
+      "formal_accepted": false,
+      "success_semantics": "original_ever_success_latch",
+      "terminal_hold_count": 2,
+      "terminal_hold_label": "终点物体抬升区域（原判据分量）",
+      "terminal20mm_component_count": 0,
+      "protocol": {
+        "method": "dp",
+        "seed": 26203729,
+        "checkpoint_sha256": "5a5d539bdeaf2dfaab34e505bc4cdef365be385e816becb366ea5e9fc580b91f",
+        "episode_length_s": 24,
+        "duration_label": "24s · 实际30Hz · 原动作8步队列",
+        "range_label": "固定四点：基线 / 仅范围外+1 / +2 / +3cm",
+        "note": "原5090源数据训练、A100测试；跨渲染开发诊断。100源轨迹真实前一帧观测配对下一教师动作，固定额外10000更新后的最终EMA。保持全部原模型和失败结果。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": 26102115
+        },
+        "last": {
+          "global_step": 330934,
+          "epoch": null
+        }
+      },
+      "metric_note": "5090采集 / A100测试的跨渲染开发诊断。2/4抓取，独立终点EEF≤20mm为0/4。12视频、2877控制动作、360次DDIM16预测及实际30Hz审计通过；未绑定完整Spatial SSR，视觉仅抽帧检查。不能据4点判定论文SR达标，也不计同卡正式结果。",
+      "cases": [
+        {
+          "episode": 1,
+          "camera": "chest_camera",
+          "url": "media/grasp-policy-v85/episode_001_chest_camera.mp4",
+          "success": true,
+          "caption": "固定四点开发检查；跨5090采集/A100测试，非正式验收。终点误差41.6mm。",
+          "frames": 720,
+          "SHA256": "765744e47094bb3f491d1dcfe0eaebb82ae3aeae7dc88ed61d8c44974c3f0de5"
+        },
+        {
+          "episode": 1,
+          "camera": "head_camera",
+          "url": "media/grasp-policy-v85/episode_001_head_camera.mp4",
+          "success": true,
+          "caption": "固定四点开发检查；跨5090采集/A100测试，非正式验收。终点误差41.6mm。",
+          "frames": 720,
+          "SHA256": "f733c1f00b27a41bfd6305ef07d178e338efb97f9f0566b066a20e6ce7b6c187"
+        },
+        {
+          "episode": 1,
+          "camera": "third_camera",
+          "url": "media/grasp-policy-v85/episode_001_third_camera.mp4",
+          "success": true,
+          "caption": "固定四点开发检查；跨5090采集/A100测试，非正式验收。终点误差41.6mm。",
+          "frames": 720,
+          "SHA256": "cc056b5bffe44f4e8b4638818fc35b9407f644d7ddb4c5e1741f968fa3764a98"
+        },
+        {
+          "episode": 2,
+          "camera": "chest_camera",
+          "url": "media/grasp-policy-v85/episode_002_chest_camera.mp4",
+          "success": false,
+          "caption": "固定四点开发检查；跨5090采集/A100测试，非正式验收。终点误差229.2mm。",
+          "frames": 719,
+          "SHA256": "12698f8604f7117046193eb76539c076850275e639b2a6400be9f9784c5a219d"
+        },
+        {
+          "episode": 2,
+          "camera": "head_camera",
+          "url": "media/grasp-policy-v85/episode_002_head_camera.mp4",
+          "success": false,
+          "caption": "固定四点开发检查；跨5090采集/A100测试，非正式验收。终点误差229.2mm。",
+          "frames": 719,
+          "SHA256": "c0daaad526d817ea313a1099764f903534117ac20ad2d95840c55d59185d5d0b"
+        },
+        {
+          "episode": 2,
+          "camera": "third_camera",
+          "url": "media/grasp-policy-v85/episode_002_third_camera.mp4",
+          "success": false,
+          "caption": "固定四点开发检查；跨5090采集/A100测试，非正式验收。终点误差229.2mm。",
+          "frames": 719,
+          "SHA256": "d3a36cc04de933efb4c065c7d8f23614f4e2a6f2b42e928ddbe0c76cb71c8aa0"
+        },
+        {
+          "episode": 3,
+          "camera": "chest_camera",
+          "url": "media/grasp-policy-v85/episode_003_chest_camera.mp4",
+          "success": true,
+          "caption": "固定四点开发检查；跨5090采集/A100测试，非正式验收。终点误差20.7mm。",
+          "frames": 719,
+          "SHA256": "79a1c4bc76f7c5b9e1c95cbcf476fbba0c29e6c0bdaf0093435492ba8febbcaf"
+        },
+        {
+          "episode": 3,
+          "camera": "head_camera",
+          "url": "media/grasp-policy-v85/episode_003_head_camera.mp4",
+          "success": true,
+          "caption": "固定四点开发检查；跨5090采集/A100测试，非正式验收。终点误差20.7mm。",
+          "frames": 719,
+          "SHA256": "c4d684b5b391f894bd1f1bf1042f51d09940c453b2497e56a29d9c2e40eadc67"
+        },
+        {
+          "episode": 3,
+          "camera": "third_camera",
+          "url": "media/grasp-policy-v85/episode_003_third_camera.mp4",
+          "success": true,
+          "caption": "固定四点开发检查；跨5090采集/A100测试，非正式验收。终点误差20.7mm。",
+          "frames": 719,
+          "SHA256": "3e3f80fcc5065be79feb6adbc347131d57748324b12321176f702783b03305b3"
+        },
+        {
+          "episode": 4,
+          "camera": "chest_camera",
+          "url": "media/grasp-policy-v85/episode_004_chest_camera.mp4",
+          "success": false,
+          "caption": "固定四点开发检查；跨5090采集/A100测试，非正式验收。终点误差330.7mm。",
+          "frames": 719,
+          "SHA256": "8210cf6e523e7b068d1b4512377b2f1303b77c99858022ca6ac7fee50c51c028"
+        },
+        {
+          "episode": 4,
+          "camera": "head_camera",
+          "url": "media/grasp-policy-v85/episode_004_head_camera.mp4",
+          "success": false,
+          "caption": "固定四点开发检查；跨5090采集/A100测试，非正式验收。终点误差330.7mm。",
+          "frames": 719,
+          "SHA256": "744094f3349cc02610a7b958ffe70a2b8058f0ac084f03855642a9d24aefdf8d"
+        },
+        {
+          "episode": 4,
+          "camera": "third_camera",
+          "url": "media/grasp-policy-v85/episode_004_third_camera.mp4",
+          "success": false,
+          "caption": "固定四点开发检查；跨5090采集/A100测试，非正式验收。终点误差330.7mm。",
+          "frames": 719,
+          "SHA256": "847885b1cb1a74481f8b22525e259bff44038f7c5955088cce7fba48a03d842a"
+        }
+      ]
+    }
+  ]
+}
