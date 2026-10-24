@@ -12,8 +12,8 @@
       "action_count": 5,
       "accepted_count": 0,
       "target_count": 100,
-      "state": "formal0_actual1536_closed_before_task_motion_trajectory_source_pin_rejected",
-      "note": "正式0/100。最新1536运行245.96秒后失败闭合，旧门弧查询器对轨迹质检源的整文件校验拒绝新版本，未尝试任务动作、未开门或完成五步。先前73个箱体碰撞形状、世界坐标和完整碰撞构造检查的进展保留；正在修复版本绑定，原物理门槛不变。初始头部、胸部视角可透门看到两器皿，第三视角仍被机器人外壳部分遮挡，画质未验收。",
+      "state": "formal0_actual1538_closed_before_arc_original_qualification_rejected",
+      "note": "正式0/100。1538实际完成两段预抓、把手接近和闭手，越过旧跟踪失败点；开门弧样条被原关节位置限位门拒绝，下游40秒检查尚未执行。899.57秒后失败闭合，尚未执行门弧。正排查样条限位并优化11.08秒的慢接近轨迹，完整五步和画质仍待验证。",
       "conditions": [
         {
           "id": "AB",
@@ -110,8 +110,8 @@
       "action_count": 8,
       "accepted_count": 11,
       "target_count": 100,
-      "state": "formal11_new_fourGPU1537_T7F_false_true_actual_launched_results_pending",
-      "note": "正式11/100：1234顺序3/50、4321顺序8/50。上一批两条视频188.73秒、180.87秒均超180秒，未计新增。新四卡任务中的四杯正序两路已实际启动，两种透明设置均已完成安装检查；固定顺序、种子和胸部构图进行完整动态对照，阶段结果及噪声修复仍待核。",
+      "state": "formal11_closed1537_two_full8_under180_machine_pending_visual_HOLD",
+      "note": "正式11/100：1234顺序3/50、4321顺序8/50。新两条正序均完整8阶段，录像178.33/176.87秒，实际生成27.47/27.06分钟；三视角原视频已全部完整解码并公开。正推进独立全量机审；胸部构图改善，但玻璃后的手指颗粒仍可见，不计新增。",
       "conditions": [
         {
           "id": "1234",
@@ -137,8 +137,8 @@
       "action_count": 10,
       "accepted_count": 3,
       "target_count": 100,
-      "state": "formal3_1509R_machine_unique_PASS_visual_HOLD_new1537_two_native_launched",
-      "note": "正式3/100：12345顺序3/50、54321顺序0/50。1509逆序样例完成十步，三视角各2406帧、160.4秒，实际生成28.6分钟；三个原视频已完整解码，完整120Hz物理、接触、轨迹、曝光及光学设置审查和去重通过。玻璃颗粒和胸部构图仍为HOLD，未增验收数量。新四卡任务中的两路逆序渲染对照已实际启动，其光学安装和动态结果尚待核。",
+      "state": "formal3_GPU1_single1543V2_actual_pregrasp_active_1509_machine_PASS_visual_HOLD",
+      "note": "正式3/100：12345顺序3/50、54321顺序0/50。1509逆序完整十步、120Hz机审和去重通过，160.4秒录像/28.6分钟生成，画质仍HOLD。新四卡1537两路在动作前因旧场景校验拒绝；最小修复后GPU1单路1543V2已实际开始预抓，完整结果待核。",
       "conditions": [
         {
           "id": "12345",
@@ -159,13 +159,13 @@
       "within_quota_candidate_count": 3
     }
   ],
-  "snapshot_id": 1596,
-  "updated_at": "2026-10-24T07:28:20.072070+00:00",
+  "snapshot_id": 1598,
+  "updated_at": "2026-10-24T08:05:38.270183+00:00",
   "training_eligible_count": 0,
   "acceptance_note": "正式114/400：六垫避障搬运100/100（两种左右布局各50），四杯称量11/100（正序3、逆序8），五杯称量3/100（正序3、逆序0），干燥箱0/100。114条已按raw/episodes、labels、lerobot_v21、lerobot_v30整理发布至 /project_a02012413/public/liyufeng/t5710_lerobot_delivery_20261023/。LeRobot 0.3.3/v2.1与0.4.3/v3.0实际全量加载均通过；整理不增加验收条数。 固定避障100条已传到训练目标目录；这是未包含1cm扰动的训练基线，透明遮挡后的手指画质尚未全面认证，1cm版另采。",
-  "diagnostic_note": "新四卡动态渲染对照 job-7afrr78noi8a 已实际启动四路：四杯正序与十子任务逆序分别比较两种透明设置，最新平台回读为RUNNING。目前仅四杯两路光学安装已有明确证据，阶段结果与新画质待核。1509十子任务逆序样例的完整120Hz物理、接触、轨迹、曝光与光学设置审查通过，并与114条正式数据去重通过；原视频160.4秒，实际生成1716.69秒。玻璃颗粒和胸部构图仍为HOLD，不能计入正式数据。干燥箱1536运行245.96秒后失败闭合：旧门弧查询器对轨迹质检源的整文件校验拒绝新版本，尚未尝试任务动作；正在修复版本绑定，原物理门槛保持。正式仍114/400，训练合格0。 1472旧十子任务的独立全量审查结果保留：正序20216行、65条计划通过且与114条正式数据不重复，但玻璃颗粒仍未合格；旧逆序在第六步提杯时未通过离垫后不得回入2毫米安全间隙的原门。此旧逆序失败与160.4秒的1509新逆序完整机审通过是不同样例。 六垫任务的独立进度：固定布局100条（左右布局各50条）的训练入口仍为 /home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/lerobot_v21_state13/：13维状态、203007帧、三视角原视频未转码。此固定版不覆盖1cm扰动，手指透过玻璃可见性仍未全面认证。新1cm先导 job-ydszsgujf8rj 四路原任务均已失败闭合，平台终态FAILED，完整任务验收0/100。两条A-left完成第1步后在phase2预抓被原路径质量门拒绝；swap seed0在phase2预抓发生FINETUNE_TRAJOPT_FAIL，swap seed1完成前2步后在phase3撤离被actual_to_command_original_constraints拒绝。四路原件的“仅初始位置子检查”通过：每路9刚体/41物理数组完整，物体与对应垫子同步±1cm、三个空垫固定、两种左右布局及两seed真实初态差异通过，XY与计划的最大残差约20.07µm（门限50µm）。四路光学生命周期均已闭合；这不等于手指透明遮挡、噪声或完整任务通过。绝对时钟起点未认证，全任务120Hz/曝光、三视角RGB及去重仍须独立验收。继续排查原规划拒绝，不降低物理或运动门限。 本线程更新：5090两种布局独立GPU预览1583已通过真实CUDA分配/矩阵自检并实际进入Native；RTX设备表与各自UUID/PCI对应。±1cm新版正式验收仍0/100，固定100条训练版已交付。本机1584仅添加原异常完整trace重现第三步错误，未放宽门槛；两项独立缓存复现未复现，因此未采用seed数修复。 最新终态：两路1583已关闭，均在动作前的P5代码身份校验失败（Original scalar planner body identity changed），0个动作；正在CPU定位。1584也已复现并取得Newton q.view的真实首异常栈，未计入验收。 本线程截至本次更新：固定位置100条训练版仍已交付，新±1cm完整验收仍0/100。5090两路1592真实完成第1步，随后第2步预抓分别被多余手腕旋转和原FINETUNE拒绝；原门限保留，正在用保存的实际状态独立测试同目标规划。fractional手指设置已在真实51动作期间保持True并闭合恢复，但尚无全动作像素认证。胸部黑楔已由原资产射线定位到相机外壳，CPU核算沿原光轴前移23mm可避开外壳，待实际对照。Pro6000的1595已真实通过CUDA矩阵自检并恢复RTX GPU1渲染、生成三路原始初始图，动作及完整验收仍待回读；图像不是持杯手指验收。 本次发布前补充实测终态：Pro1595已完成第一步后在第二步预抓tick3793被相同原路径质量门拒绝并关闭，Native运行323.983秒；不再标作正在运行。5090独立规划1594也已关闭：原模型/FK绑定通过，旋转约束方案FINETUNE失败，原图搜索的三条连接因中途旋转超原门拒绝；仍0条新增完整验收。",
+  "diagnostic_note": "四卡对照1537已失败闭合并完整取回2614份原件。其中两条四杯正序均完成8阶段，原视频178.33秒/176.87秒，实际生成1648.42秒/1623.54秒；六路原视频完整解码并公开，物理全量验收正在推进。胸部构图已有改善，但透玻璃手指颗粒仍可见，两种透明设置尚无合格赢家，新增验收0。两路十子任务在动作前被胸部相机声明与旧场景校验的不兼容拒绝，已做严格最小适配。双卡Pro6000已实际并行运行：干燥箱1538完成两段预抓、把手接近和闭手后，开门弧样条被原关节位置限位检查拒绝，899.57秒后失败闭合，尚未执行门弧；GPU1十子任务1543V2已越过旧场景校验并开始预抓。原40秒阶段、25mrad跟踪及碰撞门保持；不把运行中当作成功。正式114/400、训练合格0。 六垫任务的独立进度：固定布局100条（左右布局各50条）的训练入口仍为 /home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/lerobot_v21_state13/：13维状态、203007帧、三视角原视频未转码。此固定版不覆盖1cm扰动，手指透过玻璃可见性仍未全面认证。新1cm先导 job-ydszsgujf8rj 四路原任务均已失败闭合，平台终态FAILED，完整任务验收0/100。两条A-left完成第1步后在phase2预抓被原路径质量门拒绝；swap seed0在phase2预抓发生FINETUNE_TRAJOPT_FAIL，swap seed1完成前2步后在phase3撤离被actual_to_command_original_constraints拒绝。四路原件的“仅初始位置子检查”通过：每路9刚体/41物理数组完整，物体与对应垫子同步±1cm、三个空垫固定、两种左右布局及两seed真实初态差异通过，XY与计划的最大残差约20.07µm（门限50µm）。四路光学生命周期均已闭合；这不等于手指透明遮挡、噪声或完整任务通过。绝对时钟起点未认证，全任务120Hz/曝光、三视角RGB及去重仍须独立验收。继续排查原规划拒绝，不降低物理或运动门限。 本线程更新：5090两种布局独立GPU预览1583已通过真实CUDA分配/矩阵自检并实际进入Native；RTX设备表与各自UUID/PCI对应。±1cm新版正式验收仍0/100，固定100条训练版已交付。本机1584仅添加原异常完整trace重现第三步错误，未放宽门槛；两项独立缓存复现未复现，因此未采用seed数修复。 最新终态：两路1583已关闭，均在动作前的P5代码身份校验失败（Original scalar planner body identity changed），0个动作；正在CPU定位。1584也已复现并取得Newton q.view的真实首异常栈，未计入验收。 本线程截至本次更新：固定位置100条训练版仍已交付，新±1cm完整验收仍0/100。5090两路1592真实完成第1步，随后第2步预抓分别被多余手腕旋转和原FINETUNE拒绝；原门限保留，正在用保存的实际状态独立测试同目标规划。fractional手指设置已在真实51动作期间保持True并闭合恢复，但尚无全动作像素认证。胸部黑楔已由原资产射线定位到相机外壳，CPU核算沿原光轴前移23mm可避开外壳，待实际对照。Pro6000的1595已真实通过CUDA矩阵自检并恢复RTX GPU1渲染、生成三路原始初始图，动作及完整验收仍待回读；图像不是持杯手指验收。 本次发布前补充实测终态：Pro1595已完成第一步后在第二步预抓tick3793被相同原路径质量门拒绝并关闭，Native运行323.983秒；不再标作正在运行。5090独立规划1594也已关闭：原模型/FK绑定通过，旋转约束方案FINETUNE失败，原图搜索的三条连接因中途旋转超原门拒绝；仍0条新增完整验收。",
   "cloud_status": {
-    "state": "formal114_four1537_actual_Native4_RUNNING_T10R1509_machine_unique_PASS_visual_HOLD_oven1536_closed_pin_rejected",
+    "state": "formal114_closed1537_T7_full8_under180_machine_pending_visual_HOLD_oven1538_closed_arc_reject_T10_1543V2_active",
     "current": [
       {
         "host": "cloud16GPU32env",
@@ -1492,13 +1492,13 @@
       {
         "host": "cloud_d4g_fullmoving4_pairs1537",
         "job_id": "job-7afrr78noi8a",
-        "status": "RUNNING_FOUR_NATIVE_LAUNCHES_VERIFIED_RESULTS_PENDING",
-        "platform_job_status": "RUNNING",
-        "last_observed_platform_job_status_at": "2026-10-24T06:10:58Z",
+        "status": "CLOSED_FAILED_TWO_T7_FULL8_TWO_T10_PREMOTION_STATIC_PROFILE_REJECTED",
+        "platform_job_status": "FAILED",
+        "last_observed_platform_job_status_at": "2026-10-24T06:26:28.895160+00:00",
         "requested_GPU_count": 4,
         "requested_env_count": 4,
         "actual_launched_env_count": 4,
-        "actual_active_env_count": null,
+        "actual_active_env_count": 0,
         "current_process_liveness_not_inferred_from_launch_receipts": true,
         "Native_launch_verified": true,
         "roles": [
@@ -1561,12 +1561,35 @@
           "T7F1534_fractionalTrue"
         ],
         "T10_optical_INSTALL_currently_verified": false,
-        "full_task_results_verified": false,
+        "full_task_results_verified": true,
         "moving_visual_quality_approved": false,
         "noise_fix_claim": false,
         "formal_increment": 0,
         "training_started": false,
-        "state": "四GPU四路Native已实际启动，最新平台回读RUNNING；四杯正序两路与十子任务逆序两路分别进行透明设置对照。当前只有四杯两路光学安装有明确证据，不能把其余两路或完整动作、动态画质视为通过。"
+        "state": "已失败闭合，四杯两路完成8阶段且视频均小于180秒，物理全量验收待完成；十子任务两路在动作前被场景声明校验拒绝。全部2614原件已恢复，六路T7原视频已完整解码，玻璃颗粒仍HOLD。",
+        "all_owned_groups_closed": true,
+        "completed_phases_by_lane": [
+          8,
+          8,
+          0,
+          0
+        ],
+        "T7_full120_rows": [
+          21403,
+          21224
+        ],
+        "T7_video_seconds": [
+          178.33333333333334,
+          176.86666666666667
+        ],
+        "T7_generation_wall_seconds": [
+          1648.417353,
+          1623.540856
+        ],
+        "T7_independent_machine_audit_pending": true,
+        "T7_moving_visual_quality_approved": false,
+        "all2614_originals_recovered": true,
+        "latest_terminal_API_sha256": "7cff3dce7068c7bddb1e06a910e9687eba2f45328a234819b8cc38fc81e3669d"
       },
       {
         "host": "owned_DEV_oven1536_closed_trajectory_pin_rejected",
@@ -1588,9 +1611,53 @@
         "actual_first_blocker": "door_query1311 rejected trajectory_quality whole-file SHA against old parent1253 pin",
         "original_physical_gates_preserved": true,
         "state": "运行245.96秒后失败闭合；初始化/静止检查后，旧门弧查询器对轨迹质检源整文件校验拒绝新版本，未尝试抓握、开门或完整五步。正在修复版本绑定，不降低原门槛。"
+      },
+      {
+        "host": "owned_DEV_oven_C2_FF1538_PCI63_active",
+        "status": "CLOSED_FAILED_ORIGINAL_FULLARC_QUALIFICATION_REJECTED",
+        "actual_active_env_count": 0,
+        "actual_Native_started": true,
+        "actual_Native_PID": 1574491,
+        "actual_selected_PCI": "0000:63:00.0",
+        "original_tracking_limit_rad": 0.025,
+        "full5_passed": false,
+        "visual_approved": false,
+        "formal_increment": 0,
+        "training_started": false,
+        "last_observed_tick": 4204,
+        "actual_tracking_rad": 0.001097,
+        "original_C2_selected_seconds": [
+          11.85,
+          2.35
+        ],
+        "state": "两段预抓、11.08秒把手接近和闭手已完成；开门弧的两条样条被原关节位置限位门拒绝，下游40秒检查尚未执行。899.57秒后失败闭合，尚未执行门弧。继续修正样条过冲并压缩慢接近段，不放宽门限。",
+        "all_owned_groups_closed": true,
+        "actual_Runtime_seconds": 899.565,
+        "door_arc_executed": false,
+        "actual_pre_arc_phase_seconds": 27.8083333333,
+        "actual_first_blocker": "Original fullarc whole-q position_bounds=False for two generated C12 curves; downstream40s gate not executed",
+        "exact_arc_failure_sha256": "440aa40e850e3e778bb75abfa75eb63883e405d6ff440b64957ff4697e78cef6"
+      },
+      {
+        "host": "owned_DEV_root_single_T10_PCI64_1543V2_active",
+        "status": "ACTUAL_NATIVE_ACTIVE_PREGRASP",
+        "actual_active_env_count": 1,
+        "actual_Native_started": true,
+        "actual_Native_PID": 1586881,
+        "actual_selected_PCI": "0000:64:00.0",
+        "actual_Native_start_ticks": 318276054,
+        "actual_owner_identity_verified_at_epoch": 1792826608.2976084,
+        "actual_selected_PCI_CUDA_matmul_PASS": true,
+        "source_CPU_original_normal_hidden_static_profile_PASS": true,
+        "full10_passed": false,
+        "visual_approved": false,
+        "formal_increment": 0,
+        "training_started": false,
+        "preceding_root1543_failure": "原OOM监控基线遗漏初始化，已失败闭合；V2仅补初始化，独立9项CPU通过",
+        "state": "GPU1新的独立十子任务逆序已实际开始预抓；场景相机严格适配和启动初始化修复已生效。完整十步、物理及渲染验收待完成。"
       }
     ],
-    "note": "新四卡动态渲染对照 job-7afrr78noi8a 已实际启动四路：四杯正序与十子任务逆序分别比较两种透明设置，最新平台回读为RUNNING。目前仅四杯两路光学安装已有明确证据，阶段结果与新画质待核。1509十子任务逆序样例的完整120Hz物理、接触、轨迹、曝光与光学设置审查通过，并与114条正式数据去重通过；原视频160.4秒，实际生成1716.69秒。玻璃颗粒和胸部构图仍为HOLD，不能计入正式数据。干燥箱1536运行245.96秒后失败闭合：旧门弧查询器对轨迹质检源的整文件校验拒绝新版本，尚未尝试任务动作；正在修复版本绑定，原物理门槛保持。正式仍114/400，训练合格0。 1472旧十子任务的独立全量审查结果保留：正序20216行、65条计划通过且与114条正式数据不重复，但玻璃颗粒仍未合格；旧逆序在第六步提杯时未通过离垫后不得回入2毫米安全间隙的原门。此旧逆序失败与160.4秒的1509新逆序完整机审通过是不同样例。",
+    "note": "四卡对照1537已失败闭合并完整取回2614份原件。其中两条四杯正序均完成8阶段，原视频178.33秒/176.87秒，实际生成1648.42秒/1623.54秒；六路原视频完整解码并公开，物理全量验收正在推进。胸部构图已有改善，但透玻璃手指颗粒仍可见，两种透明设置尚无合格赢家，新增验收0。两路十子任务在动作前被胸部相机声明与旧场景校验的不兼容拒绝，已做严格最小适配。双卡Pro6000已实际并行运行：干燥箱1538完成两段预抓、把手接近和闭手后，开门弧样条被原关节位置限位检查拒绝，899.57秒后失败闭合，尚未执行门弧；GPU1十子任务1543V2已越过旧场景校验并开始预抓。原40秒阶段、25mrad跟踪及碰撞门保持；不把运行中当作成功。正式114/400、训练合格0。",
     "latest_new_credential_capability_and_admission": {
       "actual_capabilities_HTTP": 200,
       "actual_admission_status": "allowed",
@@ -2111,6 +2178,24 @@
       "three_minute_generation_target_met": false,
       "original_video_decode_pass": true,
       "formal_accepted": false
+    },
+    "actual_T7_1537": {
+      "video_seconds": [
+        178.33333333333334,
+        176.86666666666667
+      ],
+      "generation_wall_seconds": [
+        1648.417353,
+        1623.540856
+      ],
+      "generation_under180s": false,
+      "video_under180s": true,
+      "full8_runtime_completed": [
+        true,
+        true
+      ],
+      "independent_full_machine_pending": true,
+      "formal_accepted": false
     }
   },
   "evidence": {
@@ -2552,7 +2637,13 @@
     "T10R1509_complete_machine_unique1538": "revision_quality_20261021/T10R1509_machine1538_CPU_actual_weigh_agent/CLOSED_FULL_MACHINE_DELIVERY1538.json",
     "T10R1509_complete_machine_unique1538_sha256": "b560de9114e740b2d473a90b552d4c468564d4ae8e84ff4f11ce4ea56e3049b5",
     "oven1536_actual_closed_source_pin_failure": "revision_quality_20261021/oven1471_ACTUAL1486_agent/OVEN_ENDPOINT1536_GPU0_NATIVE_AUTHORIZED/ACTUAL_READ2_1792822027784877765/originals/oven_full5_debug1421_cohort1346_perf6_camera1368_world1378_camera1379_endpoint_retract1536_PCI63_1536/CANARY_RESULT1325.json",
-    "oven1536_actual_closed_source_pin_failure_sha256": "4a309fae577c1e9dcabce8e9dfee02591ac7639f4c7c467b3262c96315b260a6"
+    "oven1536_actual_closed_source_pin_failure_sha256": "4a309fae577c1e9dcabce8e9dfee02591ac7639f4c7c467b3262c96315b260a6",
+    "fullmoving1537_full_recovery1541_sha256": "e7e388b3daf51a4114e719a416626ecca22221cc1b125165f9726cc59a8e9767",
+    "fullmoving1537_six_original_videos1545": "assets/diagnostics/t573-T7-full1537-1545/EVIDENCE.json",
+    "single_T10_1543V2_actual_live_read_sha256": "d75b2e0c4df1864a9775786ba2dcb3b0c965c899db02922604530bb899508dc1",
+    "oven1538_actual_closed_transport_sha256": "91bffdff796aa7fa27222246cfa91171f1191b455133bb00e6d23ad314490af0",
+    "oven1538_actual_closed_CANARY_sha256": "9834bf56b957e1c75e20c89022a116bf332a2aaad54b3b6b1b89c2798b25174d",
+    "oven1538_original_fullarc_position_rejection_sha256": "440aa40e850e3e778bb75abfa75eb63883e405d6ff440b64957ff4697e78cef6"
   },
   "render_quality": {
     "required_views": [
@@ -2995,6 +3086,119 @@
       "root_visual_and_launch_closure_approval_pending": true,
       "formal_increment": 0,
       "training_eligible": 0
+    },
+    "recovered_actual_media1545": {
+      "evidence_url": "assets/diagnostics/t573-T7-full1537-1545/EVIDENCE.json",
+      "evidence_sha256": "b6ecabe5e6c90ecacf57fae3eebc3c254e792ad1942c5ecda3f5528fa5bde642",
+      "status": "ORIGINAL_SIX_T7_VIDEOS_AVAILABLE_MACHINE_PENDING_VISUAL_HOLD",
+      "media": [
+        {
+          "kind": "original_complete_video",
+          "lane": 0,
+          "fractional_bool": false,
+          "camera": "head",
+          "url": "assets/diagnostics/t573-T7-full1537-1545/T7F1537_fractionalFalse_head_camera_UNACCEPTED.mp4",
+          "bytes": 2189060,
+          "sha256": "386262df42a91afaf57bc2db17f26ddab2116ab3289ec99c86ec5a1f94fdf8f1",
+          "frames": 2675,
+          "fps": 15,
+          "duration_s": 178.33333333333334,
+          "generation_wall_s": 1648.417353,
+          "full_decode_pass": true,
+          "original_bytes_unchanged": true,
+          "transcoded": false,
+          "quality_status": "HOLD: physical full audit pending; visible glass/finger grain persists"
+        },
+        {
+          "kind": "original_complete_video",
+          "lane": 0,
+          "fractional_bool": false,
+          "camera": "chest",
+          "url": "assets/diagnostics/t573-T7-full1537-1545/T7F1537_fractionalFalse_chest_camera_UNACCEPTED.mp4",
+          "bytes": 2757023,
+          "sha256": "a88d4798053432cda181167ec31fe3d215ddadd9cf4ba5a7e991f3982639c474",
+          "frames": 2675,
+          "fps": 15,
+          "duration_s": 178.33333333333334,
+          "generation_wall_s": 1648.417353,
+          "full_decode_pass": true,
+          "original_bytes_unchanged": true,
+          "transcoded": false,
+          "quality_status": "HOLD: physical full audit pending; visible glass/finger grain persists"
+        },
+        {
+          "kind": "original_complete_video",
+          "lane": 0,
+          "fractional_bool": false,
+          "camera": "third",
+          "url": "assets/diagnostics/t573-T7-full1537-1545/T7F1537_fractionalFalse_third_camera_UNACCEPTED.mp4",
+          "bytes": 2004029,
+          "sha256": "6f2ad8d86238834897a1ed9338183d5e86db1cb88b90a38aafc0e6aefa74a79a",
+          "frames": 2675,
+          "fps": 15,
+          "duration_s": 178.33333333333334,
+          "generation_wall_s": 1648.417353,
+          "full_decode_pass": true,
+          "original_bytes_unchanged": true,
+          "transcoded": false,
+          "quality_status": "HOLD: physical full audit pending; visible glass/finger grain persists"
+        },
+        {
+          "kind": "original_complete_video",
+          "lane": 1,
+          "fractional_bool": true,
+          "camera": "head",
+          "url": "assets/diagnostics/t573-T7-full1537-1545/T7F1537_fractionalTrue_head_camera_UNACCEPTED.mp4",
+          "bytes": 2178213,
+          "sha256": "396aefb96a885a8fbae9d273c7f231f363501af2a805a5e34eaccedbd3d3151f",
+          "frames": 2653,
+          "fps": 15,
+          "duration_s": 176.86666666666667,
+          "generation_wall_s": 1623.540856,
+          "full_decode_pass": true,
+          "original_bytes_unchanged": true,
+          "transcoded": false,
+          "quality_status": "HOLD: physical full audit pending; visible glass/finger grain persists"
+        },
+        {
+          "kind": "original_complete_video",
+          "lane": 1,
+          "fractional_bool": true,
+          "camera": "chest",
+          "url": "assets/diagnostics/t573-T7-full1537-1545/T7F1537_fractionalTrue_chest_camera_UNACCEPTED.mp4",
+          "bytes": 2748145,
+          "sha256": "17c21b4ba47e4267364ff632e002f81e8de8388f88747a13c642b444579d83ed",
+          "frames": 2653,
+          "fps": 15,
+          "duration_s": 176.86666666666667,
+          "generation_wall_s": 1623.540856,
+          "full_decode_pass": true,
+          "original_bytes_unchanged": true,
+          "transcoded": false,
+          "quality_status": "HOLD: physical full audit pending; visible glass/finger grain persists"
+        },
+        {
+          "kind": "original_complete_video",
+          "lane": 1,
+          "fractional_bool": true,
+          "camera": "third",
+          "url": "assets/diagnostics/t573-T7-full1537-1545/T7F1537_fractionalTrue_third_camera_UNACCEPTED.mp4",
+          "bytes": 1987640,
+          "sha256": "bf931a3538ac0e93e133bd9d38027495f27cb976a5db54fff677464d1047f5c0",
+          "frames": 2653,
+          "fps": 15,
+          "duration_s": 176.86666666666667,
+          "generation_wall_s": 1623.540856,
+          "full_decode_pass": true,
+          "original_bytes_unchanged": true,
+          "transcoded": false,
+          "quality_status": "HOLD: physical full audit pending; visible glass/finger grain persists"
+        }
+      ],
+      "chest_composition_improved_in_sampled_frames": true,
+      "glass_finger_grain_visible_in_sampled_frames": true,
+      "full_moving_render_accepted": false,
+      "formal_increment": 0
     }
   },
   "exported_candidate_count": 114,
