@@ -1,6 +1,6 @@
 {
   "schema": "grasp.source_and_corrected_models.v85",
-  "updated_utc": "2026-10-24T04:45:57.652704+00:00",
+  "updated_utc": "2026-10-24T04:56:13.622131+00:00",
   "formal_accepted_objects": 0,
   "formal_accepted_methods": 0,
   "paper_ssr": null,
@@ -258,8 +258,10 @@
       "original_normalizer_recomputed_exact": true,
       "CPU_actual_forward_calls": 32,
       "CPU_distinct_examples": 28,
-      "Native_test": "待同渲染环境实测",
-      "policy_SR": null
+      "Native_test": "实际SDK Python八例CPU对齐通过；策略实测待资源恢复",
+      "policy_SR": null,
+      "actual_SDK_Python_CPU_parity_cases": 8,
+      "max_abs_normalized_action_error": 4.76837158203125e-07
     },
     {
       "method": "DP",
@@ -282,7 +284,7 @@
     "planned_remaining_objects": 19,
     "maximum_source_trials": 76,
     "current_object": "funnel",
-    "state": "新资源门槛队列已移交，按实际快照区分等待和采集",
+    "state": "漏斗启动后触发88GiB主机余量保护而中止；其余18物体未提交，先处理旧RGB内存归档。",
     "previous_Brown_source_completed_trials": 3,
     "previous_Brown_source_successes": 3,
     "previous_Brown_expected_trials": 4,
@@ -292,7 +294,11 @@
     "host_admission_GiB": 112,
     "live_host_reserve_GiB": 88,
     "own_RSS_max_GiB": 24,
-    "formal_accepted": false
+    "formal_accepted": false,
+    "remaining_unsubmitted_objects": 18,
+    "funnel_actual_Native_submissions": 1,
+    "funnel_failure": "主机可用内存跌破保护线，未降低保护线继续运行。",
+    "funnel_complete_source_trials_not_yet_qualified": true
   },
   "DP_development": {
     "actual_Native_submissions": 1,
@@ -442,5 +448,75 @@
     "last_route_check_utc": "2026-10-24T02:40:51Z",
     "unverified_training_runs": 2
   },
-  "note": "专家源试采、离线模型检查和策略测试分别报告；没有新增正式通过项。"
+  "note": "专家源试采、离线模型检查和策略测试分别报告；没有新增正式通过项。",
+  "ACT_runtime_CPU_parity": {
+    "passed": true,
+    "utc": "2026-10-24T04:55:32.152700+00:00",
+    "actual_cases": [
+      {
+        "split": "validation",
+        "episode": 66,
+        "timestep": 0,
+        "max_abs_normalized_action_error": 3.5762786865234375e-07,
+        "bitwise_equal": false
+      },
+      {
+        "split": "validation",
+        "episode": 66,
+        "timestep": 1,
+        "max_abs_normalized_action_error": 2.384185791015625e-07,
+        "bitwise_equal": false
+      },
+      {
+        "split": "validation",
+        "episode": 66,
+        "timestep": 8,
+        "max_abs_normalized_action_error": 4.76837158203125e-07,
+        "bitwise_equal": false
+      },
+      {
+        "split": "validation",
+        "episode": 66,
+        "timestep": 717,
+        "max_abs_normalized_action_error": 2.384185791015625e-07,
+        "bitwise_equal": false
+      },
+      {
+        "split": "train",
+        "episode": 59,
+        "timestep": 0,
+        "max_abs_normalized_action_error": 4.76837158203125e-07,
+        "bitwise_equal": false
+      },
+      {
+        "split": "train",
+        "episode": 59,
+        "timestep": 1,
+        "max_abs_normalized_action_error": 2.384185791015625e-07,
+        "bitwise_equal": false
+      },
+      {
+        "split": "train",
+        "episode": 59,
+        "timestep": 8,
+        "max_abs_normalized_action_error": 2.384185791015625e-07,
+        "bitwise_equal": false
+      },
+      {
+        "split": "train",
+        "episode": 59,
+        "timestep": 718,
+        "max_abs_normalized_action_error": 3.5762786865234375e-07,
+        "bitwise_equal": false
+      }
+    ],
+    "all344_model_tensors_strict": true,
+    "actual_torch": "2.7.0+cu126",
+    "CPU_match_tolerance": 1e-05,
+    "tolerance_is_runtime_portability_only_not_paper_SSR": true,
+    "Native_submissions": 0,
+    "policy_SR": null,
+    "paper_ssr": null,
+    "formal_accepted": false
+  }
 }

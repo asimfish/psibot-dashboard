@@ -1,6 +1,6 @@
 {
   "schema": "grasp.progress_snapshot.v1",
-  "updated_utc": "2026-10-24T04:45:57.652704+00:00",
+  "updated_utc": "2026-10-24T04:56:13.622131+00:00",
   "update_mode": "已闭合结果与逐行实际快照；不可达任务标为未重新确认，不推测当前进度",
   "totals": {
     "productive_training_runs": 119,
@@ -2968,7 +2968,7 @@
       "sampled_utc": "2026-10-24T04:05:15.252731+00:00",
       "formal_accepted": false,
       "state": "固定10000额外更新完成；独立CPU通过，策略验收待完成",
-      "status_note": "真实动作前一帧输入与下一原始教师动作配对；全部原图与标签保留，未新增独立种子。待同渲染环境实测"
+      "status_note": "固定10000新增更新及独立CPU通过；实际SDK Python八例最大归一化动作差4.8e-7，待资源恢复后策略实测。"
     },
     {
       "host": "mainskill",
@@ -3024,10 +3024,10 @@
     },
     {
       "host": "mainskill",
-      "state": "最终DP四点2/4闭合；其余19物体源队列",
+      "state": "DP四点2/4已闭合；ACT运行环境CPU通过；采集待内存恢复",
       "role": "训练 / 采集 / 测试准备",
-      "note": "修正DP实际30Hz、2877控制动作和12视频审计通过，但终点20mm0/4，仍未验收。源Brown3回合后监控超时；19物体新队列已移交，资源门槛112/88GiB，源物理及指标未修改。",
-      "sampled_utc": "2026-10-24T04:45:57.652704+00:00"
+      "note": "漏斗触发88GiB主机余量保护已中止，后续18对象未提交；旧三路RGB封存内存正完整归档核验，未提前释放。保持原物理及论文标准。",
+      "sampled_utc": "2026-10-24T04:56:13.622131+00:00"
     },
     {
       "host": "volc-pro6000",
@@ -8840,10 +8840,10 @@
       "collision_free_qualified": false
     }
   },
-  "sampled_utc": "2026-10-24T04:45:57.652704+00:00",
+  "sampled_utc": "2026-10-24T04:56:13.622131+00:00",
   "latest_frontier": {
     "schema": "grasp.frontier.independent16_defects.v84",
-    "updated_utc": "2026-10-24T04:45:57.652704+00:00",
+    "updated_utc": "2026-10-24T04:56:13.622131+00:00",
     "formal_accepted_objects": 0,
     "formal_accepted_methods": 0,
     "paper_ssr": null,
@@ -8856,7 +8856,7 @@
       {
         "title": "修正动作配对 · Brown24 DP / ACT",
         "status": "最终DP四点2/4；终点20mm分量0/4",
-        "note": "DP和ACT固定10000新增更新及独立CPU通过。新DP实际动作、时钟和12视频审计闭合，仍未达到标准；ACT运行环境核对进行中。",
+        "note": "DP和ACT固定10000新增更新及独立CPU通过；两者在实际SDK Python的8例对齐均通过。新DP四点2/4、终点20mm0/4，仍未达标；ACT策略实测待资源恢复。",
         "policy_run_candidate": "t552-brown24-dp-final-next-action-cross-render-v85"
       },
       {
@@ -8867,8 +8867,8 @@
       },
       {
         "title": "当前计算与队列",
-        "status": "3路原DP续训；其余19物体源队列",
-        "note": "棕色容量瓶源完成3回合后监控超时中断，失败保留；剩余19物体已用修复后的监控和实测内存门槛移交。5090两项旧训练当前无法重新确认。"
+        "status": "3路原DP续训；采集遇主机内存瓶颈",
+        "note": "棕色瓶3回合后监控超时，漏斗启动后内存余量保护中止，失败保留；后续18物体未提交。旧RGB内存先完整归档核验，再判断能否释放。"
       }
     ],
     "strict_spatial_scope": "论文Table11给出空间20mm门槛，Table12明确终止时检查位姿残差和碰撞；全程仍须满足适用约束。完整SSR待严格目标与碰撞事件绑定，终点20mm分量仍不能单独当SSR。奖励中的旋转残差不自动形成一个未经论文登记的额外验收阈值。",
@@ -35618,7 +35618,7 @@
     },
     "repairs_v85": {
       "schema": "grasp.source_and_corrected_models.v85",
-      "updated_utc": "2026-10-24T04:45:57.652704+00:00",
+      "updated_utc": "2026-10-24T04:56:13.622131+00:00",
       "formal_accepted_objects": 0,
       "formal_accepted_methods": 0,
       "paper_ssr": null,
@@ -35876,8 +35876,10 @@
           "original_normalizer_recomputed_exact": true,
           "CPU_actual_forward_calls": 32,
           "CPU_distinct_examples": 28,
-          "Native_test": "待同渲染环境实测",
-          "policy_SR": null
+          "Native_test": "实际SDK Python八例CPU对齐通过；策略实测待资源恢复",
+          "policy_SR": null,
+          "actual_SDK_Python_CPU_parity_cases": 8,
+          "max_abs_normalized_action_error": 4.76837158203125e-07
         },
         {
           "method": "DP",
@@ -35900,7 +35902,7 @@
         "planned_remaining_objects": 19,
         "maximum_source_trials": 76,
         "current_object": "funnel",
-        "state": "新资源门槛队列已移交，按实际快照区分等待和采集",
+        "state": "漏斗启动后触发88GiB主机余量保护而中止；其余18物体未提交，先处理旧RGB内存归档。",
         "previous_Brown_source_completed_trials": 3,
         "previous_Brown_source_successes": 3,
         "previous_Brown_expected_trials": 4,
@@ -35910,7 +35912,11 @@
         "host_admission_GiB": 112,
         "live_host_reserve_GiB": 88,
         "own_RSS_max_GiB": 24,
-        "formal_accepted": false
+        "formal_accepted": false,
+        "remaining_unsubmitted_objects": 18,
+        "funnel_actual_Native_submissions": 1,
+        "funnel_failure": "主机可用内存跌破保护线，未降低保护线继续运行。",
+        "funnel_complete_source_trials_not_yet_qualified": true
       },
       "DP_development": {
         "actual_Native_submissions": 1,
@@ -36061,6 +36067,76 @@
         "unverified_training_runs": 2
       },
       "note": "专家源试采、离线模型检查和策略测试分别报告；没有新增正式通过项。",
+      "ACT_runtime_CPU_parity": {
+        "passed": true,
+        "utc": "2026-10-24T04:55:32.152700+00:00",
+        "actual_cases": [
+          {
+            "split": "validation",
+            "episode": 66,
+            "timestep": 0,
+            "max_abs_normalized_action_error": 3.5762786865234375e-07,
+            "bitwise_equal": false
+          },
+          {
+            "split": "validation",
+            "episode": 66,
+            "timestep": 1,
+            "max_abs_normalized_action_error": 2.384185791015625e-07,
+            "bitwise_equal": false
+          },
+          {
+            "split": "validation",
+            "episode": 66,
+            "timestep": 8,
+            "max_abs_normalized_action_error": 4.76837158203125e-07,
+            "bitwise_equal": false
+          },
+          {
+            "split": "validation",
+            "episode": 66,
+            "timestep": 717,
+            "max_abs_normalized_action_error": 2.384185791015625e-07,
+            "bitwise_equal": false
+          },
+          {
+            "split": "train",
+            "episode": 59,
+            "timestep": 0,
+            "max_abs_normalized_action_error": 4.76837158203125e-07,
+            "bitwise_equal": false
+          },
+          {
+            "split": "train",
+            "episode": 59,
+            "timestep": 1,
+            "max_abs_normalized_action_error": 2.384185791015625e-07,
+            "bitwise_equal": false
+          },
+          {
+            "split": "train",
+            "episode": 59,
+            "timestep": 8,
+            "max_abs_normalized_action_error": 2.384185791015625e-07,
+            "bitwise_equal": false
+          },
+          {
+            "split": "train",
+            "episode": 59,
+            "timestep": 718,
+            "max_abs_normalized_action_error": 3.5762786865234375e-07,
+            "bitwise_equal": false
+          }
+        ],
+        "all344_model_tensors_strict": true,
+        "actual_torch": "2.7.0+cu126",
+        "CPU_match_tolerance": 1e-05,
+        "tolerance_is_runtime_portability_only_not_paper_SSR": true,
+        "Native_submissions": 0,
+        "policy_SR": null,
+        "paper_ssr": null,
+        "formal_accepted": false
+      },
       "evidence_url": "verification/T-552-original-source-and-corrected-models-v85.json"
     }
   },
