@@ -159,11 +159,11 @@
       "within_quota_candidate_count": 3
     }
   ],
-  "snapshot_id": 1529,
-  "updated_at": "2026-10-24T00:17:43Z",
+  "snapshot_id": 1535,
+  "updated_at": "2026-10-24T00:56:00Z",
   "training_eligible_count": 0,
   "acceptance_note": "正式114/400：六垫避障搬运100/100（两种左右布局各50），四杯称量11/100（正序3、逆序8），五杯称量3/100（正序3、逆序0），干燥箱0/100。114条已按raw/episodes、labels、lerobot_v21、lerobot_v30整理发布至 /project_a02012413/public/liyufeng/t5710_lerobot_delivery_20261023/。LeRobot 0.3.3/v2.1与0.4.3/v3.0实际全量加载均通过；整理不增加验收条数。 固定避障100条已传到训练目标目录；这是未包含1cm扰动的训练基线，透明遮挡后的手指画质尚未全面认证，1cm版另采。",
-  "diagnostic_note": "正式验收仍为114/400。已发布的114条提供原始三视角视频、标签及两版LeRobot，交付记录保留。上批1472四路均已结束：T7两路视频超时；T10两路完成十步但画质不合格。完整归档与12段原视频已恢复并校验。干燥箱的新抓姿已通过完整CPU轨迹检查，待新场景物理验证，相机和渲染仍待验收。 【独立1cm新先导】固定布局100条（左右布局各50条）的训练入口仍为 /home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/lerobot_v21_state13/：13维状态、203007帧、三视角原视频未转码。此固定版不覆盖1cm扰动，手指透过玻璃可见性仍未全面认证。新1cm先导 job-ydszsgujf8rj 四路原任务均已失败闭合，平台终态FAILED，完整任务验收0/100。两条A-left完成第1步后在phase2预抓被原路径质量门拒绝；swap seed0在phase2预抓发生FINETUNE_TRAJOPT_FAIL，swap seed1完成前2步后在phase3撤离被actual_to_command_original_constraints拒绝。四路原件的“仅初始位置子检查”通过：每路9刚体/41物理数组完整，物体与对应垫子同步±1cm、三个空垫固定、两种左右布局及两seed真实初态差异通过，XY与计划的最大残差约20.07µm（门限50µm）。四路光学生命周期均已闭合；这不等于手指透明遮挡、噪声或完整任务通过。绝对时钟起点未认证，全任务120Hz/曝光、三视角RGB及去重仍须独立验收。继续排查原规划拒绝，不降低物理或运动门限。 1497四卡诊断已全部闭合，新增验收0条。三路光学已完成基线与修改设置后的渲染，返回基线阶段超过诊断脚本120秒时限；状态和设置均已恢复。性能诊断在安装前被旧渲染准入的完整十步要求拒绝，尚无耗时数据。原始归档已完整恢复校验，正在按明确的诊断范围修复入口和时限。 新四卡诊断最后于2026-10-23 20:18:30 UTC确认运行，四路实际启动和两路光学安装的原证据保留。20:38 UTC起采集机与平台回读链路受阻，当前进程状态、阶段与终态未知，不重复创建任务。干燥箱最新运行373.53秒后失败闭合：已得到可用IK分支并开始第二段预抓，但被原25mrad手臂跟踪门拒绝，未开门、未抓牢；正沿实际跟踪与指令接缝排查，不放宽门限。正式仍114/400，玻璃与手部颗粒仍HOLD，尚未训练。 【本线程独立±1cm／持杯渲染复测】±1cm四路仅初始位置子检查通过，完整五步验收仍0；1496四路任务已失败闭合。1502四路持杯诊断在暂停读回处停止并全部关闭，新增A/B/A诊断RGB为0。暂停提交修复通过57项CPU检查，1505新源已完成实际CPU暂存，四卡作业 job-3l73sysvlcya 已确认启动。最后成功读回为作业164.82秒、四路第一阶段，尚无抬杯诊断报告；随后只读链路退出255，当前是否仍在运行及终态均未知，等待读回。手指透玻璃、噪声及画质修复仍未认证，正式条数不增加。 干燥箱新的预抓路径与速度参数仅通过CPU检查；36.82秒为部分动作预算估算，尚未新物理运行，完整五步仍待验证。本机虽有5.1环境，但当前源、资产与资源准入未通过，不能直接替代采集。 【独立本机4.5渲染诊断1514】本机4090已实际启动独立诊断，并在原任务tick1600抓持A、抬高约72.8mm。诊断在读取渲染更新计数时失败：SimulationApp没有get_update_number，A/B/A对照图为0，手指透玻璃与噪声修复均未认证。失败前、暂停后及失败恢复的45项物理数组归档字节一致，时间线暂停和恢复均为同一时间；这只是已观测原件事实，诊断总体仍失败。原任务三视角视频和Native进程均已关闭；外层退出码0不代表任务成功，任务自身结果为失败。Kit IApp最小适配已通过14项CPU检查，独立1517复测已完成并关闭：实际18次渲染得到27张三视角A/B/A原始PNG，45项物理值和时钟保持不变，设置、相机和材质均已恢复。在本机4.5同一持杯姿态的头部、胸部样图中，B=true时指尖重新可见，A2=false后再次消失，已得到局部可逆对照；这不等于固定100条、完整轨迹、噪声或全任务画质通过。此本机4.5诊断不替代云端5.1采集；云端job-3l73sysvlcya仍状态未知。固定100条训练入口不变，±1cm完整五步仍0条，正式验收仍114条。 干燥箱相机构图诊断已完成：调整机位后柜体完整、两物体画面尺寸更大；门面仍有暗反射，且未包含房间和桌面，完整场景与画质仍待验收，不增加正式数据。 【本机±1cm完整五步先导1528】上一条1525已失败闭合，前三步完成，第四步A抓紧后约2.63°，提起时增至约11°。释放后物体仍在运动，登记参考姿态时绝对倾角6.13°，随后回正到1.12°，相对参考却变化5.012°、位移4.81mm，触发原5°/5mm稳定性门；失败保留，门限未改。18张原视频帧抽查未再看到明确的手指擦除，但白块、颗粒及全轨迹画质仍未解决或认证。新1528已实际启动，最后观测为启动阶段：仅撤掉第四步提起、搬运、下放的三项时间压缩，头部和胸部焦距乘0.7，第三视角不改，保留原运动和物理门。该调整是否有效须看实际结果。固定100条训练数据入口不变，±1cm完整五步新增验收仍0条；云端1505仍为未知，5090拒绝连接、API和Pro6000超时的原状态保留，其他任务进度不变。\n10子任务验收复核：正反序两条均记录完整十步，录像168.47秒和165.40秒；实际生成仍约29.4和30.6分钟。89份原始元数据SHA校验通过；约10.56GB物理与接触原始记录已保存在5227成员的校验归档中，尚未恢复到当前验收环境。逐步物理、曝光和去重核验仍待完成，持杯颗粒画质继续待修。当前采集入口和内网API无法访问，云端新结果尚未取回；本轮新增0，正式仍114/400，可训练0。",
+  "diagnostic_note": "正式验收仍为114/400。已发布的114条提供原始三视角视频、标签及两版LeRobot，交付记录保留。上批1472四路均已结束：T7两路视频超时；T10两路完成十步但画质不合格。完整归档与12段原视频已恢复并校验。干燥箱的新抓姿已通过完整CPU轨迹检查，待新场景物理验证，相机和渲染仍待验收。 【独立1cm新先导】固定布局100条（左右布局各50条）的训练入口仍为 /home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/lerobot_v21_state13/：13维状态、203007帧、三视角原视频未转码。此固定版不覆盖1cm扰动，手指透过玻璃可见性仍未全面认证。新1cm先导 job-ydszsgujf8rj 四路原任务均已失败闭合，平台终态FAILED，完整任务验收0/100。两条A-left完成第1步后在phase2预抓被原路径质量门拒绝；swap seed0在phase2预抓发生FINETUNE_TRAJOPT_FAIL，swap seed1完成前2步后在phase3撤离被actual_to_command_original_constraints拒绝。四路原件的“仅初始位置子检查”通过：每路9刚体/41物理数组完整，物体与对应垫子同步±1cm、三个空垫固定、两种左右布局及两seed真实初态差异通过，XY与计划的最大残差约20.07µm（门限50µm）。四路光学生命周期均已闭合；这不等于手指透明遮挡、噪声或完整任务通过。绝对时钟起点未认证，全任务120Hz/曝光、三视角RGB及去重仍须独立验收。继续排查原规划拒绝，不降低物理或运动门限。 1497四卡诊断已全部闭合，新增验收0条。三路光学已完成基线与修改设置后的渲染，返回基线阶段超过诊断脚本120秒时限；状态和设置均已恢复。性能诊断在安装前被旧渲染准入的完整十步要求拒绝，尚无耗时数据。原始归档已完整恢复校验，正在按明确的诊断范围修复入口和时限。 新四卡诊断最后于2026-10-23 20:18:30 UTC确认运行，四路实际启动和两路光学安装的原证据保留。20:38 UTC起采集机与平台回读链路受阻，当前进程状态、阶段与终态未知，不重复创建任务。干燥箱最新运行373.53秒后失败闭合：已得到可用IK分支并开始第二段预抓，但被原25mrad手臂跟踪门拒绝，未开门、未抓牢；正沿实际跟踪与指令接缝排查，不放宽门限。正式仍114/400，玻璃与手部颗粒仍HOLD，尚未训练。 【本线程独立±1cm／持杯渲染复测】±1cm四路仅初始位置子检查通过，完整五步验收仍0；1496四路任务已失败闭合。1502四路持杯诊断在暂停读回处停止并全部关闭，新增A/B/A诊断RGB为0。暂停提交修复通过57项CPU检查，1505新源已完成实际CPU暂存，四卡作业 job-3l73sysvlcya 已确认启动。最后成功读回为作业164.82秒、四路第一阶段，尚无抬杯诊断报告；随后只读链路退出255，当前是否仍在运行及终态均未知，等待读回。手指透玻璃、噪声及画质修复仍未认证，正式条数不增加。 干燥箱新的预抓路径与速度参数仅通过CPU检查；36.82秒为部分动作预算估算，尚未新物理运行，完整五步仍待验证。本机虽有5.1环境，但当前源、资产与资源准入未通过，不能直接替代采集。 【独立本机4.5渲染诊断1514】本机4090已实际启动独立诊断，并在原任务tick1600抓持A、抬高约72.8mm。诊断在读取渲染更新计数时失败：SimulationApp没有get_update_number，A/B/A对照图为0，手指透玻璃与噪声修复均未认证。失败前、暂停后及失败恢复的45项物理数组归档字节一致，时间线暂停和恢复均为同一时间；这只是已观测原件事实，诊断总体仍失败。原任务三视角视频和Native进程均已关闭；外层退出码0不代表任务成功，任务自身结果为失败。Kit IApp最小适配已通过14项CPU检查，独立1517复测已完成并关闭：实际18次渲染得到27张三视角A/B/A原始PNG，45项物理值和时钟保持不变，设置、相机和材质均已恢复。在本机4.5同一持杯姿态的头部、胸部样图中，B=true时指尖重新可见，A2=false后再次消失，已得到局部可逆对照；这不等于固定100条、完整轨迹、噪声或全任务画质通过。此本机4.5诊断不替代云端5.1采集；云端job-3l73sysvlcya仍状态未知。固定100条训练入口不变，±1cm完整五步仍0条，正式验收仍114条。 干燥箱相机构图诊断已完成：调整机位后柜体完整、两物体画面尺寸更大；门面仍有暗反射，且未包含房间和桌面，完整场景与画质仍待验收，不增加正式数据。 【本机±1cm完整五步先导1528】上一条1525已失败闭合，前三步完成，第四步A抓紧后约2.63°，提起时增至约11°。释放后物体仍在运动，登记参考姿态时绝对倾角6.13°，随后回正到1.12°，相对参考却变化5.012°、位移4.81mm，触发原5°/5mm稳定性门；失败保留，门限未改。18张原视频帧抽查未再看到明确的手指擦除，但白块、颗粒及全轨迹画质仍未解决或认证。新1528已实际启动，最后观测为启动阶段：仅撤掉第四步提起、搬运、下放的三项时间压缩，头部和胸部焦距乘0.7，第三视角不改，保留原运动和物理门。该调整是否有效须看实际结果。固定100条训练数据入口不变，±1cm完整五步新增验收仍0条；云端1505仍为未知，5090拒绝连接、API和Pro6000超时的原状态保留，其他任务进度不变。\n10子任务验收复核：正反序两条均记录完整十步，录像168.47秒和165.40秒；实际生成仍约29.4和30.6分钟。89份原始元数据SHA校验通过；约10.56GB物理与接触原始记录已保存在5227成员的校验归档中，尚未恢复到当前验收环境。逐步物理、曝光和去重核验仍待完成，持杯颗粒画质继续待修。当前采集入口和内网API无法访问，云端新结果尚未取回；本轮新增0，正式仍114/400，可训练0。 【本机±1cm最新闭合1533】fixed100固定布局数据已交付至原目标路径，训练入口仍为 /home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/lerobot_v21_state13/；它不代表新增泛化完成，±1cm完整五步仍0/100，正式验收仍114/400。同一持杯姿态的fractionalTrue手指可见性已有A/B/A原图可逆实证，全姿态、白块和噪声仍待验证。1528与1533均已因原任务初始化墙钟超时失败闭合并回收，尚未到FOV安装或phase1；外层退出0不代表任务成功。1533的CUDA原检查3.3838秒通过，原SDK/SATA冷启动约26分钟后出现接触、桌面和报告初始化文件，但trace最终为0字节；并行只读DLL预热使耗时不能当隔离性能测试。全SDK复制已取消并回收，改用1074个实际复制文件、约1.26GB的混合工作集，现已HYBRID_READY并关闭复制进程；它保留原SDK符号链接回退，不是完整克隆，Native兼容性与加速尚未验证。云端1505仍UNKNOWN，其他线程和正式条数保持原记录。",
   "cloud_status": {
     "state": "formal114_cloud1509_last_observed_RUNNING_current_readback_blocked_unknown_oven1509_closed_failed_1512_CPU_only",
     "current": [
@@ -3334,7 +3334,7 @@
   },
   "independent_5b_local_render1514": {
     "scope": "Independent local IsaacSim4.5 single-worker held-pose render diagnostic only; no collection or prior certificate inheritance",
-    "observed_at": "2026-10-23T21:49:44Z",
+    "observed_at": "2026-10-24T00:56:00Z",
     "status": "DIAGNOSTIC_FAILED_BEFORE_ABA_RGB",
     "actual_Native_launched": true,
     "Native_process_closed": true,
@@ -3698,11 +3698,11 @@
       }
     },
     "follow_up_local1528": {
-      "status": "RUNNING_STARTUP_AT_LAST_OBSERVATION",
+      "status": "CLOSED_FAILED_INITIALIZATION",
       "observation_source": "Root agent actual Native launch/startup message; OWNER identity independently read",
-      "observed_at": "2026-10-23T23:05:29Z",
+      "observed_at": "2026-10-24T00:56:00Z",
       "actual_Native_launched": true,
-      "Native_process_closed": false,
+      "Native_process_closed": true,
       "owner_pid_observed": 702746,
       "owner_start_ticks_observed": "90129690",
       "owner_launch_epoch": 1792796399.9488277,
@@ -3735,9 +3735,121 @@
         "independent_CPU_source_review": {
           "path": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/independent1527_loader_RO_agent/INDEPENDENT_SOURCE1527_REVIEW.json",
           "sha256": "8dd9479f622efc0cdc510c5e11b28876bddd4bf674b16611ba2cd8c918e7843d"
+        },
+        "closed_exit": {
+          "path": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/local1528_full5_position_native_root/RUN1521_ONCE/ACTUAL_NATIVE_EXIT1521.json",
+          "sha256": "1a8f3acd6e456b4364705872b4b2dc590c0e38b1626966a9c957c0d621ad0702",
+          "bytes": 216
+        },
+        "task_result": {
+          "path": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/local1528_full5_position_native_root/RUN1521_ONCE/native/RESULT.json",
+          "sha256": "f55838f20547c139d877a3959a8f28a73e2f8eea732c470bb182c1a8895cc6a4",
+          "bytes": 382
+        }
+      },
+      "native_child_reaped": true,
+      "task_result_status": "failed",
+      "task_result_exit_code": 1,
+      "failure": "TimeoutError: Manual episode exceeded requested wall limit; inspect retained trace",
+      "FOV_install_reached": false,
+      "phase1_reached": false
+    },
+    "latest_progress_note1528": "【本机±1cm完整五步先导1528】上一条1525已失败闭合，前三步完成，第四步A抓紧后约2.63°，提起时增至约11°。释放后物体仍在运动，登记参考姿态时绝对倾角6.13°，随后回正到1.12°，相对参考却变化5.012°、位移4.81mm，触发原5°/5mm稳定性门；失败保留，门限未改。18张原视频帧抽查未再看到明确的手指擦除，但白块、颗粒及全轨迹画质仍未解决或认证。新1528已实际启动，最后观测为启动阶段：仅撤掉第四步提起、搬运、下放的三项时间压缩，头部和胸部焦距乘0.7，第三视角不改，保留原运动和物理门。该调整是否有效须看实际结果。固定100条训练数据入口不变，±1cm完整五步新增验收仍0条；云端1505仍为未知，5090拒绝连接、API和Pro6000超时的原状态保留，其他任务进度不变。",
+    "latest_local_status": "CLOSED_FAILED_INITIALIZATION",
+    "follow_up_local1533": {
+      "status": "CLOSED_FAILED_INITIALIZATION",
+      "observed_at": "2026-10-24T00:56:00Z",
+      "actual_Native_launched": true,
+      "Native_process_closed": true,
+      "native_child_reaped": true,
+      "owner_pid_historical": 882495,
+      "owner_start_ticks_historical": "90508741",
+      "session_historical": 84023,
+      "task_result_status": "failed",
+      "task_result_exit_code": 1,
+      "wrapper_exit_code": 0,
+      "wrapper_exit_does_not_imply_task_success": true,
+      "failure": "TimeoutError: Manual episode exceeded requested wall limit; inspect retained trace",
+      "source_namespace": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/local1527_full5_position45_CPU_stage/source",
+      "source_manifest_sha256": "f5b409751b669dbaa649e393904654fc5990be8516a8b456be0dc710663a2ee7",
+      "sdk_mode": "original_installed_sdk",
+      "Native_output": "/mnt/whalent-nvme/tmp/liyufeng_t573_nvme/collection1533/run/RUN1521_ONCE/native",
+      "CUDA_actual_preflight_passed": true,
+      "CUDA_preflight_seconds": 3.3838,
+      "trace_bytes": 0,
+      "phase1_reached": false,
+      "FOV_install_reached": false,
+      "complete_original_episode": false,
+      "new_full5_accepted": 0,
+      "formal_increment": 0,
+      "startup_observation": {
+        "approximately_26_minutes_until_initialization_reports": true,
+        "report_names_seen": [
+          "motion_contacts.jsonl",
+          "grounded_table.json",
+          "native_contact_reporting_setup.json"
+        ],
+        "timing_is_isolated": false,
+        "timing_limitation": "Root performed read-only prewarming of43 non-SDK DLLs concurrently; not a speed benchmark"
+      },
+      "evidence": {
+        "owner": {
+          "path": "/mnt/whalent-nvme/tmp/liyufeng_t573_nvme/collection1533/run/RUN1521_ONCE/OWNER1521.json",
+          "sha256": "e52af60e74a5119715e3fbe35e4e5ea29b39f84fc082a35fcb88426be55721eb",
+          "bytes": 123
+        },
+        "closed_exit": {
+          "path": "/mnt/whalent-nvme/tmp/liyufeng_t573_nvme/collection1533/run/RUN1521_ONCE/ACTUAL_NATIVE_EXIT1521.json",
+          "sha256": "23ed9340e70973813b5694f43e016b7cdae89f5f06dd26c47bf72fcefcfcd94e",
+          "bytes": 216
+        },
+        "task_result": {
+          "path": "/mnt/whalent-nvme/tmp/liyufeng_t573_nvme/collection1533/run/RUN1521_ONCE/native/RESULT.json",
+          "sha256": "2d4f8e9d9701a7e1aacc5886c28bd744c6b83cd7e097b50521439dd0a8b1b1ef",
+          "bytes": 328
+        },
+        "CUDA_preflight": {
+          "path": "/mnt/whalent-nvme/tmp/liyufeng_t573_nvme/collection1533/run/RUN1521_ONCE/preflight/local1521.json",
+          "sha256": "fa4b8611210faff64907f50dd8393b23540ffd39bd94f574b532f6f7edf1f497",
+          "bytes": 1376
         }
       }
     },
-    "latest_progress_note1528": "【本机±1cm完整五步先导1528】上一条1525已失败闭合，前三步完成，第四步A抓紧后约2.63°，提起时增至约11°。释放后物体仍在运动，登记参考姿态时绝对倾角6.13°，随后回正到1.12°，相对参考却变化5.012°、位移4.81mm，触发原5°/5mm稳定性门；失败保留，门限未改。18张原视频帧抽查未再看到明确的手指擦除，但白块、颗粒及全轨迹画质仍未解决或认证。新1528已实际启动，最后观测为启动阶段：仅撤掉第四步提起、搬运、下放的三项时间压缩，头部和胸部焦距乘0.7，第三视角不改，保留原运动和物理门。该调整是否有效须看实际结果。固定100条训练数据入口不变，±1cm完整五步新增验收仍0条；云端1505仍为未知，5090拒绝连接、API和Pro6000超时的原状态保留，其他任务进度不变。"
+    "environment_follow_up1535": {
+      "full_SDK_copy": "CANCELLED_REAPED_REPORTED_BY_ROOT",
+      "replacement_mode": "hybrid_runtime_view",
+      "status": "HYBRID_READY_CLOSED",
+      "complete_SDK_copy": false,
+      "actual_copied_files": 1074,
+      "actual_copied_bytes": 1262206676,
+      "fallback_symlink_files": 53715,
+      "fallback_content_verified": false,
+      "Native_speed_verified": false,
+      "Native_ABI_compatibility_verified": false,
+      "hybrid_root": "/mnt/whalent-nvme/tmp/liyufeng_t573_nvme/sdk_hybrid1534_fb7f4578150f414b9023490f9ec29f78",
+      "evidence": {
+        "state": {
+          "path": "/mnt/whalent-nvme/tmp/liyufeng_t573_nvme/sdk_hybrid1534_fb7f4578150f414b9023490f9ec29f78/STATE.json",
+          "sha256": "0ae2aa5dd2b9f1b9d607d551732632c7d65bec0dbc13660c8a05877fe8a60e6a",
+          "bytes": 710
+        },
+        "worker_closed": {
+          "path": "/mnt/whalent-nvme/tmp/liyufeng_t573_nvme/sdk_hybrid1534_fb7f4578150f414b9023490f9ec29f78/ROOT_WORKER_CLOSED1534.json",
+          "sha256": "e6d4945bd749f9e24a4c64e9a3ac242b82dc546b896d3af0094459e3970a9f9a",
+          "bytes": 154
+        },
+        "closed_index": {
+          "path": "/mnt/whalent-nvme/tmp/liyufeng_t573_nvme/sdk_hybrid1534_fb7f4578150f414b9023490f9ec29f78/ROOT_CLOSED_HYBRID_INDEX1535.json",
+          "sha256": "742ec99f022e23427cd2679d3db1888155e65c84a5694250b19bf0ee75ed0615",
+          "bytes": 976
+        }
+      },
+      "resource_observation_reported_by_root": {
+        "MemAvailable_GB": 2.608,
+        "IO_pressure_full_avg10_percent": 83.37,
+        "VRAM_alone_does_not_explain_initialization": true
+      }
+    },
+    "latest_progress_note1535": "【本机±1cm最新闭合1533】fixed100固定布局数据已交付至原目标路径，训练入口仍为 /home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/lerobot_v21_state13/；它不代表新增泛化完成，±1cm完整五步仍0/100，正式验收仍114/400。同一持杯姿态的fractionalTrue手指可见性已有A/B/A原图可逆实证，全姿态、白块和噪声仍待验证。1528与1533均已因原任务初始化墙钟超时失败闭合并回收，尚未到FOV安装或phase1；外层退出0不代表任务成功。1533的CUDA原检查3.3838秒通过，原SDK/SATA冷启动约26分钟后出现接触、桌面和报告初始化文件，但trace最终为0字节；并行只读DLL预热使耗时不能当隔离性能测试。全SDK复制已取消并回收，改用1074个实际复制文件、约1.26GB的混合工作集，现已HYBRID_READY并关闭复制进程；它保留原SDK符号链接回退，不是完整克隆，Native兼容性与加速尚未验证。云端1505仍UNKNOWN，其他线程和正式条数保持原记录。"
   }
 }
