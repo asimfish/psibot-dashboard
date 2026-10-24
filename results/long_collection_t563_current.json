@@ -159,11 +159,11 @@
       "within_quota_candidate_count": 3
     }
   ],
-  "snapshot_id": 1615,
-  "updated_at": "2026-10-24T09:24:26.948594+00:00",
+  "snapshot_id": 1616,
+  "updated_at": "2026-10-24T13:45:33.992164Z",
   "training_eligible_count": 0,
   "acceptance_note": "正式114/400：六垫避障搬运100/100（两种左右布局各50），四杯称量11/100（正序3、逆序8），五杯称量3/100（正序3、逆序0），干燥箱0/100。114条已按raw/episodes、labels、lerobot_v21、lerobot_v30整理发布至 /project_a02012413/public/liyufeng/t5710_lerobot_delivery_20261023/。LeRobot 0.3.3/v2.1与0.4.3/v3.0实际全量加载均通过；整理不增加验收条数。 固定避障100条已传到训练目标目录；这是未包含1cm扰动的训练基线，透明遮挡后的手指画质尚未全面认证，1cm版另采。",
-  "diagnostic_note": "【五步实跑最新终态】R2已完整完成前两步，第三步抬起后方烧杯时原cuRobo规划多次失败，tick8997停止，任务已关闭；该轮不是资源中断。原物理/碰撞/平滑性门保留，新±1cm完整验收仍0/100。正在提取失败点的实际状态做同目标GPU规划对照，避免参数搜索反复执行前两步。 【最新五步实跑】迁至大存储后，第一步已完成；第二步预抓采用新约束权重首次成功，已通过原路径质量与碰撞检查并继续抓起、搬运和放置动作。尚未完成全部五步，新增±1cm正式验收仍0/100。 【六垫任务本线程最新实测】固定位置100条训练版已交付；新±1cm完整验收仍0/100。Pro1600真实完成第一步并关闭，胸部相机沿原光轴前移23mm及关闭后精确恢复通过；所检查三视角持杯帧的胸部外壳黑楔已消失，手指可见，但完整五步画质仍未通过。5090同姿态降噪对照已完成并关闭：27张原图、三视角False/True/False，五份物理快照的45数组及元数据/时钟逐字相同，设置与相机恢复通过。逐图复查看到True下机器人表面较平滑，但杯沿和标签的白亮部分各档仍在，尚不宣称噪声全面解决。第二步规划接入修复已通过23项CPU检查和真实初始化后的10层原调用链校验；1603与1603R分别被整卡显存增量、磁盘预留的运行保护提前停止，均未执行到第二步，不是轨迹质量验收失败。已确认存在约254GiB可用的存储路径，下一轮完整五步输出迁至该处；保留所有运动/物理验收门。支撑面缓存仅纯CPU对照通过，整段提速未认证。 四卡对照1537已失败闭合并完整取回2614份原件。其中两条四杯正序均完成8阶段，原视频178.33秒/176.87秒，实际生成1648.42秒/1623.54秒；六路原视频完整解码并公开，物理全量验收正在推进。胸部构图已有改善，但透玻璃手指颗粒仍可见，两种透明设置尚无合格赢家，新增验收0。两路十子任务在动作前被胸部相机声明与旧场景校验的不兼容拒绝，已做严格最小适配。双卡Pro6000已实际并行运行：干燥箱1538完成两段预抓、把手接近和闭手后，开门弧样条被原关节位置限位检查拒绝，899.57秒后失败闭合，尚未执行门弧；GPU1十子任务1543V2已越过旧场景校验并开始预抓。原40秒阶段、25mrad跟踪及碰撞门保持；不把运行中当作成功。正式114/400、训练合格0。 六垫任务的独立进度：固定布局100条（左右布局各50条）的训练入口仍为 /home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/lerobot_v21_state13/：13维状态、203007帧、三视角原视频未转码。此固定版不覆盖1cm扰动，手指透过玻璃可见性仍未全面认证。新1cm先导 job-ydszsgujf8rj 四路原任务均已失败闭合，平台终态FAILED，完整任务验收0/100。两条A-left完成第1步后在phase2预抓被原路径质量门拒绝；swap seed0在phase2预抓发生FINETUNE_TRAJOPT_FAIL，swap seed1完成前2步后在phase3撤离被actual_to_command_original_constraints拒绝。四路原件的“仅初始位置子检查”通过：每路9刚体/41物理数组完整，物体与对应垫子同步±1cm、三个空垫固定、两种左右布局及两seed真实初态差异通过，XY与计划的最大残差约20.07µm（门限50µm）。四路光学生命周期均已闭合；这不等于手指透明遮挡、噪声或完整任务通过。绝对时钟起点未认证，全任务120Hz/曝光、三视角RGB及去重仍须独立验收。继续排查原规划拒绝，不降低物理或运动门限。 本线程更新：5090两种布局独立GPU预览1583已通过真实CUDA分配/矩阵自检并实际进入Native；RTX设备表与各自UUID/PCI对应。±1cm新版正式验收仍0/100，固定100条训练版已交付。本机1584仅添加原异常完整trace重现第三步错误，未放宽门槛；两项独立缓存复现未复现，因此未采用seed数修复。 最新终态：两路1583已关闭，均在动作前的P5代码身份校验失败（Original scalar planner body identity changed），0个动作；正在CPU定位。1584也已复现并取得Newton q.view的真实首异常栈，未计入验收。 本线程截至本次更新：固定位置100条训练版仍已交付，新±1cm完整验收仍0/100。5090两路1592真实完成第1步，随后第2步预抓分别被多余手腕旋转和原FINETUNE拒绝；原门限保留，正在用保存的实际状态独立测试同目标规划。fractional手指设置已在真实51动作期间保持True并闭合恢复，但尚无全动作像素认证。胸部黑楔已由原资产射线定位到相机外壳，CPU核算沿原光轴前移23mm可避开外壳，待实际对照。Pro6000的1595已真实通过CUDA矩阵自检并恢复RTX GPU1渲染、生成三路原始初始图，动作及完整验收仍待回读；图像不是持杯手指验收。 本次发布前补充实测终态：Pro1595已完成第一步后在第二步预抓tick3793被相同原路径质量门拒绝并关闭，Native运行323.983秒；不再标作正在运行。5090独立规划1594也已关闭：原模型/FK绑定通过，旋转约束方案FINETUNE失败，原图搜索的三条连接因中途旋转超原门拒绝；仍0条新增完整验收。",
+  "diagnostic_note": "【修复后双卡已启动】1619两种左右布局的独立控制器已真实启动；本轮取消whole121性能包装，并仅修复DLD原合法关闭链识别。仿真probe与完整五步、全程画质仍待实际验收，新增±1cm正式验收仍0/100。上一轮1616两路均在第一步撤手阶段关闭（240.44秒、275.92秒），释放生产者查找与DLD关闭链回归保留为失败证据。原设置、45项物理状态与相机光学恢复通过；已检查12张局部原帧，透明物体后手指可见且未见明显颗粒噪声，尚非全程画质认证。 【五步实跑最新终态】R2已完整完成前两步，第三步抬起后方烧杯时原cuRobo规划多次失败，tick8997停止，任务已关闭；该轮不是资源中断。原物理/碰撞/平滑性门保留，新±1cm完整验收仍0/100。正在提取失败点的实际状态做同目标GPU规划对照，避免参数搜索反复执行前两步。 【最新五步实跑】迁至大存储后，第一步已完成；第二步预抓采用新约束权重首次成功，已通过原路径质量与碰撞检查并继续抓起、搬运和放置动作。尚未完成全部五步，新增±1cm正式验收仍0/100。 【六垫任务本线程最新实测】固定位置100条训练版已交付；新±1cm完整验收仍0/100。Pro1600真实完成第一步并关闭，胸部相机沿原光轴前移23mm及关闭后精确恢复通过；所检查三视角持杯帧的胸部外壳黑楔已消失，手指可见，但完整五步画质仍未通过。5090同姿态降噪对照已完成并关闭：27张原图、三视角False/True/False，五份物理快照的45数组及元数据/时钟逐字相同，设置与相机恢复通过。逐图复查看到True下机器人表面较平滑，但杯沿和标签的白亮部分各档仍在，尚不宣称噪声全面解决。第二步规划接入修复已通过23项CPU检查和真实初始化后的10层原调用链校验；1603与1603R分别被整卡显存增量、磁盘预留的运行保护提前停止，均未执行到第二步，不是轨迹质量验收失败。已确认存在约254GiB可用的存储路径，下一轮完整五步输出迁至该处；保留所有运动/物理验收门。支撑面缓存仅纯CPU对照通过，整段提速未认证。 四卡对照1537已失败闭合并完整取回2614份原件。其中两条四杯正序均完成8阶段，原视频178.33秒/176.87秒，实际生成1648.42秒/1623.54秒；六路原视频完整解码并公开，物理全量验收正在推进。胸部构图已有改善，但透玻璃手指颗粒仍可见，两种透明设置尚无合格赢家，新增验收0。两路十子任务在动作前被胸部相机声明与旧场景校验的不兼容拒绝，已做严格最小适配。双卡Pro6000已实际并行运行：干燥箱1538完成两段预抓、把手接近和闭手后，开门弧样条被原关节位置限位检查拒绝，899.57秒后失败闭合，尚未执行门弧；GPU1十子任务1543V2已越过旧场景校验并开始预抓。原40秒阶段、25mrad跟踪及碰撞门保持；不把运行中当作成功。正式114/400、训练合格0。 六垫任务的独立进度：固定布局100条（左右布局各50条）的训练入口仍为 /home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_fixed_v1_20261023/lerobot_v21_state13/：13维状态、203007帧、三视角原视频未转码。此固定版不覆盖1cm扰动，手指透过玻璃可见性仍未全面认证。新1cm先导 job-ydszsgujf8rj 四路原任务均已失败闭合，平台终态FAILED，完整任务验收0/100。两条A-left完成第1步后在phase2预抓被原路径质量门拒绝；swap seed0在phase2预抓发生FINETUNE_TRAJOPT_FAIL，swap seed1完成前2步后在phase3撤离被actual_to_command_original_constraints拒绝。四路原件的“仅初始位置子检查”通过：每路9刚体/41物理数组完整，物体与对应垫子同步±1cm、三个空垫固定、两种左右布局及两seed真实初态差异通过，XY与计划的最大残差约20.07µm（门限50µm）。四路光学生命周期均已闭合；这不等于手指透明遮挡、噪声或完整任务通过。绝对时钟起点未认证，全任务120Hz/曝光、三视角RGB及去重仍须独立验收。继续排查原规划拒绝，不降低物理或运动门限。 本线程更新：5090两种布局独立GPU预览1583已通过真实CUDA分配/矩阵自检并实际进入Native；RTX设备表与各自UUID/PCI对应。±1cm新版正式验收仍0/100，固定100条训练版已交付。本机1584仅添加原异常完整trace重现第三步错误，未放宽门槛；两项独立缓存复现未复现，因此未采用seed数修复。 最新终态：两路1583已关闭，均在动作前的P5代码身份校验失败（Original scalar planner body identity changed），0个动作；正在CPU定位。1584也已复现并取得Newton q.view的真实首异常栈，未计入验收。 本线程截至本次更新：固定位置100条训练版仍已交付，新±1cm完整验收仍0/100。5090两路1592真实完成第1步，随后第2步预抓分别被多余手腕旋转和原FINETUNE拒绝；原门限保留，正在用保存的实际状态独立测试同目标规划。fractional手指设置已在真实51动作期间保持True并闭合恢复，但尚无全动作像素认证。胸部黑楔已由原资产射线定位到相机外壳，CPU核算沿原光轴前移23mm可避开外壳，待实际对照。Pro6000的1595已真实通过CUDA矩阵自检并恢复RTX GPU1渲染、生成三路原始初始图，动作及完整验收仍待回读；图像不是持杯手指验收。 本次发布前补充实测终态：Pro1595已完成第一步后在第二步预抓tick3793被相同原路径质量门拒绝并关闭，Native运行323.983秒；不再标作正在运行。5090独立规划1594也已关闭：原模型/FK绑定通过，旋转约束方案FINETUNE失败，原图搜索的三条连接因中途旋转超原门拒绝；仍0条新增完整验收。",
   "cloud_status": {
     "state": "formal114_closed1537_T7_full8_under180_machine_pending_visual_HOLD_oven1538_closed_arc_reject_T10_1543V2_active",
     "current": [
@@ -3992,6 +3992,85 @@
       "controller_and_watchdog_absent": true,
       "three_video_and_optics_close_require_independent_final_readback": true,
       "actual_receipt_sha256": "4b0afe4fff9843f32f4ed6dfdeb65e5def34b73182afc8bcb53c6329f14a60c9"
+    },
+    "terminal_1616_chainfix1620": {
+      "scope": "Owned1616 two-lane closed outcomes and1619 chain-repair preparation; no full5 acceptance",
+      "status": "BOTH_1616_CLOSED_FAILED_CHAIN_REGRESSION_1619_DUAL_CONTROLLERS_STARTED",
+      "current_active_workers": 0,
+      "closed_workers": 2,
+      "formal_increment": 0,
+      "new_1cm_formal_accepted": 0,
+      "lanes": [
+        {
+          "GPU": 0,
+          "layout": "beaker1L_flask1R",
+          "seed": 0,
+          "wall_seconds": 240.44,
+          "status": "CLOSED_FAILED",
+          "phase": 1,
+          "operation": "withdraw",
+          "failure": "release_motion237.find_producer returned None; whole121 tick wrapper hid original callable closure"
+        },
+        {
+          "GPU": 1,
+          "layout": "flask1L_beaker1R",
+          "seed": 0,
+          "wall_seconds": 275.923,
+          "status": "CLOSED_FAILED",
+          "phase": 1,
+          "operation": "withdraw",
+          "failure": "release_motion237.find_producer returned None; whole121 tick wrapper hid original callable closure"
+        }
+      ],
+      "additional_close_failure": "DLD late torso close-chain identity gate rejected legitimate original wrapper; cleanup restoration still passed",
+      "cleanup": {
+        "original_settings_restored": true,
+        "all45_physics_unchanged": true,
+        "camera_optics_restored": true
+      },
+      "render_review": {
+        "original_MP4_count": 6,
+        "extracted_frames": 18,
+        "root_reviewed_frames": 12,
+        "review_scope": "12 local held/return frames reviewed: fingers visible through transparent objects, no obvious grain in inspected frames; no claim for whole trajectories or all episodes",
+        "whole_full5_render_certified": false,
+        "noise_full_fix_certified": false
+      },
+      "next1619": {
+        "status": "DUAL_CONTROLLERS_STARTED_NATIVE_PROBE_AND_FULL5_PENDING",
+        "whole121_not_installed": true,
+        "whole_original_module_retained_not_called": true,
+        "DLD_exact_legal_close_chain_only_fix": true,
+        "profiles_and_motion_physics_quality_gates_unchanged": true,
+        "Native_start_verified": false,
+        "controllers": [
+          {
+            "GPU": 0,
+            "layout": "beaker1L_flask1R",
+            "seed": 0,
+            "pid": 1772935,
+            "start_ticks": 320553438
+          },
+          {
+            "GPU": 1,
+            "layout": "flask1L_beaker1R",
+            "seed": 0,
+            "pid": 1772936,
+            "start_ticks": 320553438
+          }
+        ],
+        "controller_start_verified": true,
+        "full5_success_claim": false,
+        "formal_increment": 0,
+        "source_manifest_sha256": "5dc9e0db6a0418759303179e50071c8fc255a1d7a62062b149627a6b2989e9ea",
+        "actual_start_transport": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/ROOT_CHAINFIX1619_DUAL_FULL5_AUTHORIZATION/ACTUAL_DUAL_START1619_ONCE/ACTUAL_TRANSPORT.json",
+        "actual_start_transport_sha256": "5a0e78e28254e9a54c1b988c44fb57d41f4c66a0d4e5183d9ccb68393c02d37c"
+      },
+      "evidence": {
+        "actual_current_status": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/ROOT_C3_GRAPH1616_DUAL_FULL5_AUTHORIZATION/ACTUAL_CURRENT_STATUS_1792848227164204308/ACTUAL_TRANSPORT.json",
+        "whole_tick_CPU_tool": "/home/liyufeng/ops/long_tasks_5710_20261018_resume/revision_quality_20261021/whole_tick_profile1617_CPU_HOLD/FROZEN_WHOLE_TOOL1617_CPU.json",
+        "whole_tick_CPU_tool_sha256": "1ecb06bf0fddf998c26d11f07b866d64385bb2479769cf6ab39a23e0892be035"
+      }
     }
   },
   "independent_5b_local_render1514": {
