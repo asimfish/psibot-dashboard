@@ -34,15 +34,16 @@ function renderPro6000(snapshot) {
     add(item, 'strong', value);
   }
   add(root, 'p', snapshot.pipeline.progress_note || snapshot.pipeline.state_note, 'note');
-  if (snapshot.pipeline.jobs?.length) {
+  const activeJobs = (snapshot.pipeline.jobs || []).filter(job => ['RUNNING', 'PENDING'].includes(job.status));
+  if (activeJobs.length) {
     const jobs = add(root, 'details');
     jobs.open = true;
-    add(jobs, 'summary', '本轮已提交任务与实际进度（核验快照）');
+    add(jobs, 'summary', '当前运行与平台排队（核验快照）');
     const jobTable = add(add(jobs, 'div', undefined, 'table-wrap'), 'table');
     const jobHeader = add(add(jobTable, 'thead'), 'tr');
     ['任务', '平台状态', '已核验进度'].forEach(t => add(jobHeader, 'th', t));
     const jobBody = add(jobTable, 'tbody');
-    for (const job of snapshot.pipeline.jobs) {
+    for (const job of activeJobs) {
       const row = add(jobBody, 'tr');
       add(row, 'td', job.name);
       add(row, 'td', job.status);

@@ -38,7 +38,8 @@ test('all 21 objects and all five Pro6000 aggregates remain unaccepted', () => {
   assert.match(container.textContent, /4个四卡low_priority任务运行中/);
   assert.match(container.textContent, /约6–9mm初始XY偏移/);
   assert.doesNotMatch(container.textContent, /原端尚未确认停止|尚未执行/);
-  assert.equal(created.filter(n => n.tag === 'tr').length, 34); // three headers, five jobs, five measured rows, 21 objects
+  const activeJobs = snapshot.pipeline.jobs.filter(j => ['RUNNING', 'PENDING'].includes(j.status));
+  assert.equal(created.filter(n => n.tag === 'tr').length, 3 + activeJobs.length + snapshot.runs.length + 21);
   const links = created.filter(n => n.tag === 'a' && n.href.startsWith('#'));
   assert.equal(links.length, 5);
   for (const link of links) {
