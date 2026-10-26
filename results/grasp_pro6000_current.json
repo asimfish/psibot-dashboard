@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-26T18:09:18.212300+00:00",
+  "updated_utc": "2026-10-26T20:18:19.937660+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -25,9 +25,9 @@
         "episodes": 5,
         "strict_crossing_poses": 0
       },
-      "next": "Recovery source100 in100single-episode cells RUNNING; full source lift/geometry admission pending.",
+      "next": "Source100normallyclosed:99native,100terminal20mm; assetoriginal10.5cmliftandstrictgeometrybeforetraining.",
       "name": "100ml 玻璃烧杯",
-      "status_note": "c0.6、16秒恢复采集已RUNNING：100个单条单元，最多16个同时运行，逐单元写BOS。首次任务中断记录保留，尚未完成全量源准入。"
+      "status_note": "c0.6、16秒新源100条均采满并保存：99原生成功、100终点位置分量≤20mm。按物体原始10.5cm抬升规格核验，完整几何通过后训练；源准入不等于论文验收。"
     },
     {
       "object": "brown_volumetric_flask_250ml",
@@ -96,9 +96,9 @@
         "development_training_allowed": true,
         "sampled_review_sheets_manually_inspected": 2
       },
-      "next": "Three ACT runs10000updates closed, CPU audited and BOS manifests verified. Prospective ACT150 queued independently of continuing3DP50000runs.",
+      "next": "ACT150fixedtrial recovery queued after confirmed interruption; onlyunfinishedcases.3DP22600–22700/50000.",
       "name": "250ml 棕色容量瓶",
-      "status_note": "源100/100实际抬升、全100条保存姿态严格交叉0。三个ACT种子均完成1万步、通过CPU审计并存入BOS；冻结150位置正式测试排队。三个正式DP种子约5800/50000步；完整视觉仍待审。"
+      "status_note": "源100/100真实抬升，全100条保存姿态严格交叉0。3个ACT模型完成，首次正式150次测试中断，按原位置/种子仅补缺失。3DP约2.27万/5万步；完整视觉与正式SR/SSR仍待审。"
     },
     {
       "object": "glass_beaker_250ml",
@@ -225,16 +225,21 @@
         "episodes": 10,
         "strict_crossing_poses": 0
       },
-      "next": "Closed source100native100. Runtime full100 actual lift>=.21m and strict saved-pose crossing0 required before any gradient. Guarded development training queued.",
+      "next": "Full100native/lift/strictsavedgeometrygate passed.3DP50k+3ACT10k nowtraining; fullvisualandformaltestpending.",
       "name": "大棕色试剂瓶",
-      "status_note": "c0.6、10秒新源已采满并正常收尾：100/100原生成功、100/100终点位置分量≤20mm。实际抬升与全量严格几何检查排队，门槛全部通过后才启动训练；未计验收。",
+      "status_note": "c0.6、10秒新源100/100原生成功，最小终点抬升28.49cm、全100条保存姿态严格交叉0；DP/ACT开发训练已启动、四卡98–99%。完整视频仍待审，不计正式验收。",
       "source": {
         "episodes": 100,
         "native_successes": 100,
         "terminal20mm": 100,
-        "full_geometry_audit": null,
-        "actual_terminal_lift_audit_complete": false,
-        "development_training_allowed": false
+        "full_geometry_audit": {
+          "strict_crossing_poses": 0,
+          "summary_SHA256": "91aec4c603d3ce4b32804ce83f41d7e7b2c591da3082999dd6297213bd055719"
+        },
+        "actual_terminal_lift_audit_complete": true,
+        "development_training_allowed": true,
+        "actual_terminal_lift_min_m": 0.28491830825805664,
+        "full_visual_passed": false
       }
     },
     {
@@ -265,9 +270,9 @@
         "lift_components_full100_verified": true,
         "terminal_lift_min_m": -0.026144325733184814
       },
-      "next": "Recovery16settingsx10originalpositions in160single-episode cells RUNNING. No old72/100source admission.",
+      "next": "R2interrupted111/160lastprogress. R3onlymissing fixedcasesqueued; allclosednativefailuresretained.",
       "name": "小棕色试剂瓶",
-      "status_note": "旧源仅72/100真实抬升，已拒绝训练。恢复扫描RUNNING：原16设置×10位置、160个单条单元，逐单元持久化，等完整设置抬升与几何结果。"
+      "status_note": "旧72/100源已拒绝。16设置×10位置扫描在最后111/160正常关闭后中断；恢复仅补缺失，原设置、位置、种子不变，所有成功和失败均保留，完整10/10设置审计后才扩采。"
     },
     {
       "object": "clear_reagent_bottle_large",
@@ -547,9 +552,9 @@
         "lifted": 100,
         "strict_crossings": 0
       },
-      "next": "Three signed-RGB DP seeds18650–18700/50000. Fixed15k EMA native5 development smoke queued; no closed-loop gain established.",
+      "next": "Signed-RGB 3DP35400–35500/50000.15kclosed-loop0/5. FixedEMA20trial4conditiondiagnostic running; no formalcredit.",
       "name": "漏斗",
-      "status_note": "ACT报告SR77.3%、后处理SSR35.3%，完整视觉与范围复核未完成。旧DP0/150；RGB修复3种子约1.87万/5万步。15k真EMA离线诊断完成，原生5次小测排队，不能据离线误差计通过。"
+      "status_note": "ACT报告SR77.3%、SSR35.3%，范围与完整视觉仍待复核。RGB修复后DP15k闭环0/5，3种子约3.55万/5万步；20次固定模型对照诊断正在查明不闭合、不抬升原因，未计通过。"
     },
     {
       "object": "alcohol_lamp",
@@ -583,29 +588,27 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 63,
+    "registered_jobs": 70,
     "active_registered_jobs": 4,
     "BOS_mount_count": 2,
     "state": "running_after_user_authorized_direct_takeover",
     "state_note": "已按用户明确指令直接接管；4个四卡low_priority任务运行中，空位自动补位。此处为核验快照。",
     "prepared_not_submitted": [
-      "漏斗DP：固定15k真EMA的5次原生仿真小测优先排队，仅开发诊断",
-      "250ml棕色容量瓶ACT：三个模型已完成，冻结150位置正式测试排队",
-      "大棕瓶：100条真实抬升与全量严格几何门槛通过后，才进入DP/ACT训练",
-      "50ml烧杯：2mm与5mm生成高度裕量小测排队，保留原XY、2mm和静置门槛",
-      "50ml烧杯：10mm与15mm候选保持挂起，仅当前两种裕量都不通过才放行",
-      "50ml烧杯DP正式测试：reset验收前继续挂起",
-      "250ml烧杯：16秒、100条采集排队",
-      "500ml玻璃量筒：5/5合格、严格交叉0的设置扩至完整100条采集"
+      "棕色容量瓶ACT：冻结150试次正式续跑排在下一空位，仅补缺失并保留成功与失败",
+      "小棕瓶：原16设置×10位置，只补缺失试次；全组抬升与严格几何通过后才扩采",
+      "100ml烧杯：原始10.5cm规格与全100严格几何核验后才训练，保留全部失败",
+      "500ml玻璃量筒：合格5/5设置扩至完整100条，再核验实际抬升/严格几何",
+      "50ml烧杯：正式DP继续挂起；2/5mm裕量均未通过reset，10/15mm未放行",
+      "其他对象继续按完整源审计、训练、冻结计划、两方法测试、SSR和视觉的顺序推进"
     ],
-    "checked_utc": "2026-10-26T18:09:18.212300+00:00",
+    "checked_utc": "2026-10-26T20:18:19.937660+00:00",
     "jobs": [
       {
         "tag": "train-m6rgb-funnel-20261026cc",
         "job_id": "job-xhn2g35zo5cb",
         "status": "RUNNING",
-        "name": "漏斗 DP · 修复后3种子重训",
-        "progress_note": "三个种子18,650–18,700 / 50,000步，三张训练卡利用率96–99%。15k真EMA离线诊断完成；5次原生仿真小测排队，闭环改善未确认。"
+        "name": "漏斗 DP · RGB修复后3种子重训",
+        "progress_note": "三个种子35,400–35,500 / 50,000步，三张训练卡93–99%。15k真EMA有效小测0/5，未恢复抓起；固定模型的20次对照诊断已运行，不能据离线误差宣称改善。"
       },
       {
         "tag": "dev-b50-rest-reset-20261026cc",
@@ -618,8 +621,8 @@
         "tag": "src100m10-brownLc06-20261026cc",
         "job_id": "job-qorh5urgwt2y",
         "status": "SUCCEEDED",
-        "name": "大棕色试剂瓶 · 100条重采",
-        "progress_note": "SUCCEEDED：100/100原生成功、100/100终点位置分量≤20mm。实际抬升和全量严格穿模检查排队，通过后才开始开发训练。"
+        "name": "大棕色试剂瓶 · 合格100条新源",
+        "progress_note": "100/100原生成功、100终点≤20mm、最小终点抬升28.49cm，全100条保存姿态严格交叉0；已进入开发训练，完整视觉仍待审。"
       },
       {
         "tag": "src100m16-b100c06-20261026cc",
@@ -647,21 +650,21 @@
         "job_id": "job-3rw0rrezeyhg",
         "status": "RUNNING",
         "name": "250ml 棕色容量瓶 · DP / ACT训练",
-        "progress_note": "三个ACT种子10,000步均正常收尾，CPU审计及BOS持久化通过；ACT正式150次测试排队。三个正式DP种子约5,800–5,850 / 50,000步，第四卡探索种子不计正式结果。"
+        "progress_note": "3个ACT种子10,000步已正常收尾并通过CPU/BOS核验；正式150次测试仅补中断试次。3个正式DP种子22,600–22,700 / 50,000步，第四卡探索种子不计正式结果。"
       },
       {
         "tag": "src100m16-b100c06-20261026cc-r2",
         "job_id": "job-7sbv34x61myl",
-        "status": "RUNNING",
-        "name": "100ml 烧杯 · 恢复采集",
-        "progress_note": "平台RUNNING：100个单条采集单元，最多16个同时运行，逐单元持久化到BOS；尚无完整100条收尾。"
+        "status": "SUCCEEDED",
+        "name": "100ml 烧杯 · 完整新源已采满",
+        "progress_note": "SUCCEEDED：100条均保存，99/100原生成功、100/100终点位置分量≤20mm。按该物体原始10.5cm抬升规格核验，完整严格几何检查通过后才训练；不使用统一21cm门槛。"
       },
       {
         "tag": "q-brownS-m6-12c50-65-20261026cc-r2",
         "job_id": "job-c0uq5jj1q659",
-        "status": "RUNNING",
-        "name": "小棕色试剂瓶 · 恢复扫描",
-        "progress_note": "平台RUNNING：原16设置×10位置，共160个单条单元，最多16个同时运行；按完整设置汇总后鉴定。"
+        "status": "FAILED",
+        "name": "小棕色试剂瓶 · 扫描中断记录",
+        "progress_note": "FAILED：最后进度111/160正常关闭、71原生成功，未完成全16组几何鉴定。保留全部关闭成功与失败；恢复任务仅补未完成固定试次。"
       },
       {
         "tag": "openm6-20261026cc-r2",
@@ -679,24 +682,24 @@
       },
       {
         "tag": "dev-dp-funnel-s15k-signed-20261026cc",
-        "job_id": null,
-        "status": "NOT_SUBMITTED",
-        "name": "漏斗 DP · 15k真EMA仿真小测",
-        "progress_note": "5个固定源位置，开发诊断；检查是否恢复闭合、抬升，非正式验收。"
+        "job_id": "job-6futmabkk835",
+        "status": "FAILED",
+        "name": "漏斗 DP · 15k真EMA首次闭环诊断",
+        "progress_note": "5/5试次原生正常关闭且CPU审计通过，抓取0/5、成功且终点≤20mm为0/5；物体终点只抬升2.2–5.5mm。父作业错误判型导致FAILED，已在后续作业修复；该记账错误不能解释策略失败。"
       },
       {
         "tag": "eval-m6-act-bvf-20261026cc",
-        "job_id": null,
-        "status": "NOT_SUBMITTED",
-        "name": "250ml 棕色容量瓶 · ACT正式测试",
-        "progress_note": "3种子×50冻结位置，+0/1/2/3cm；独立模型收尾与CPU门槛已过，不等DP训练结束。"
+        "job_id": "job-9amlmh1z7yc6",
+        "status": "FAILED",
+        "name": "250ml 棕色容量瓶 · 正式测试中断记录",
+        "progress_note": "FAILED：150个冻结试次未全部正常关闭，无完整SR/SSR。与小棕瓶扫描在约3.8秒内相继终止，平台未给原因，尚不能确定OOM或回收。"
       },
       {
         "tag": "gate-train-m10-brownL-20261026cc",
-        "job_id": null,
-        "status": "NOT_SUBMITTED",
-        "name": "大棕色试剂瓶 · 准入检查和训练",
-        "progress_note": "先核对100条真实抬升和严格交叉0，再启动3DP+3ACT；TF32在作业提交前预声明。"
+        "job_id": "job-xfq1ipz6ryif",
+        "status": "RUNNING",
+        "name": "大棕色试剂瓶 · 合格新源DP / ACT训练",
+        "progress_note": "全100条严格准入已过：100原生成功、100终点≤20mm、最小终点抬升28.49cm、保存姿态严格交叉0。3DP+3ACT与1个开发DP已启动；四卡利用率98–99%，完整视觉未通过。"
       },
       {
         "tag": "src100m6-ggrad-x135z08-20261026cc",
@@ -704,11 +707,46 @@
         "status": "NOT_SUBMITTED",
         "name": "500ml 玻璃量筒 · 100条采集",
         "progress_note": "固定5/5合格设置扩到完整100条3cm源位置；全量抬升和几何仍待核验。"
+      },
+      {
+        "tag": "dev-dp-funnel-constquat-ablation-20261026cc",
+        "job_id": "job-r3jjgt34ivcp",
+        "status": "RUNNING",
+        "name": "漏斗 DP · 固定模型20次对照诊断",
+        "progress_note": "同一15k EMA、同5位置和种子，4条件×5次：原始、固定常量手通道、姿态归一化范围、两者组合；原始/实际动作同时保留，开发诊断不计验收。"
+      },
+      {
+        "tag": "q-brownS-m6-12c50-65-20261026cc-r3",
+        "job_id": null,
+        "status": "NOT_SUBMITTED",
+        "name": "小棕色试剂瓶 · 仅补缺失扫描",
+        "progress_note": "已演练并排队：复用全部CPU正常关闭的成功和失败，只补原160个固定试次中的缺失；每卡最多2个单元，原设置、XY、种子不变。"
+      },
+      {
+        "tag": "eval-m6-act-bvf-20261026cc-r2",
+        "job_id": null,
+        "status": "NOT_SUBMITTED",
+        "name": "250ml 棕色容量瓶 · ACT正式150次续跑",
+        "progress_note": "恢复任务已演练并排队：三个固定ACT模型、原150位置/+0/1/2/3cm和种子不变，保留正常关闭成功与失败，仅补缺失；全150收齐再审计SSR与视觉。"
+      },
+      {
+        "tag": "dev-b50-spawnm2-20261026cc",
+        "job_id": "job-r9xjwjiwi5cz",
+        "status": "FAILED",
+        "name": "50ml 烧杯 · 2mm高度裕量诊断",
+        "progress_note": "FAILED：原生错误证据确认，模型首次动作前物体初始XY已超2mm，0个有效测试trial；部分物体弹飞。保留失败，不报成0/5策略成功率。"
+      },
+      {
+        "tag": "dev-b50-spawnm5-20261026cc",
+        "job_id": "job-pi8qznn4b0nm",
+        "status": "FAILED",
+        "name": "50ml 烧杯 · 5mm高度裕量诊断",
+        "progress_note": "FAILED：原生错误证据确认，模型首次动作前物体初始XY已超2mm，0个有效测试trial；部分物体弹飞。保留失败，不报成0/5策略成功率。"
       }
     ],
-    "progress_note": "完整通过仍为0/21。4个四卡任务运行：漏斗DP约1.87万/5万步，棕色容量瓶DP训练、100ml烧杯采集、小棕瓶参数扫描。棕色容量瓶3个ACT模型已完成并通过CPU审计，150次正式测试排队；大棕瓶新源100/100原生成功，完整抬升/几何检查待做；500ml玻璃量筒合格设置进入完整采集队列。",
-    "DP_repair_note": "有符号RGB修复后的15k真EMA通过918个张量恢复和原始12张图像哈希检查。在1个episode的4帧上，原始输入动作MAE为0.02869rad；同一快照输入旧错误色域时为0.08118rad。旧模型此前为0.04559rad，但训练步数不同，不能直接推断成功率改善。固定15k快照已独立存入BOS，5次原生仿真小测排队；全50k三种子训练继续。",
-    "b50_reset_note": "首次高度修复后仍有约6–9mm初始XY偏移，第二版关闭自动高度校准也失败；两次均0个有效测试trial，不能报成0/5策略成功率。生成裕量2/5mm小测排队；保留原5个XY、初始XY≤2mm、静止Z≤2mm、倾角<5°和首次运动晚于1s，按物理重置是否合格选择最小裕量，不按策略成功率选择。"
+    "progress_note": "完整通过仍为0/21。4个四卡任务运行：漏斗DP约3.55万/5万步、棕色容量瓶DP约2.27万/5万步、大棕瓶新源已过100条严格准入并启动DP/ACT、漏斗DP20次对照诊断。棕色容量瓶ACT正式150次和小棕瓶扫描中断后按原计划补缺失，保留成功和失败。",
+    "DP_repair_note": "RGB色域错误已修复，但15k真EMA闭环仍0/5，不能宣称修复完成。已确认源手通道index7恒为1.52，模型有约1.15–1.78偏移；另有物体四元数窄范围归一化放大风险，因果尚未确认。20次固定模型对照已启动，4条件共享5个位置/种子并保留全部原始与实际动作。后续节点判型已修复；判型错误不能解释闭环抓起失败。",
+    "b50_reset_note": "约6–9mm初始XY偏移的旧错误仍保留。2mm与5mm裕量原生失败证据已读取：模型首次动作前XY偏离冻结计划超过2mm，5mm个例还明显弹飞；两作业均0个有效测试trial。继续定位重置放置/静置差异，10/15mm候选未放行，正式DP继续挂起，原位置和门槛不变。"
   },
   "evidence_note": "Pro6000采集和测试单独报告；不混入5090历史结果。源数据小样本的保存姿态审计不能代替全量几何或完整视频审阅。",
   "offline_DP_probe": {
