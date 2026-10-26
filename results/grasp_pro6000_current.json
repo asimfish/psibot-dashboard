@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-26T16:40:25.541579+00:00",
+  "updated_utc": "2026-10-26T18:09:18.212300+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -25,9 +25,9 @@
         "episodes": 5,
         "strict_crossing_poses": 0
       },
-      "next": "First source100 job FAILED after20 native successes, no normalclose. Single-episode-cell recovery queued; full lift/geometry/visual audits still required.",
+      "next": "Recovery source100 in100single-episode cells RUNNING; full source lift/geometry admission pending.",
       "name": "100ml 玻璃烧杯",
-      "status_note": "首次c0.6、16秒重采在20条原生成功后变为FAILED，未正常收尾。保留记录；100个单条单元、逐单元持久化的恢复采集已演练并排队。"
+      "status_note": "c0.6、16秒恢复采集已RUNNING：100个单条单元，最多16个同时运行，逐单元写BOS。首次任务中断记录保留，尚未完成全量源准入。"
     },
     {
       "object": "brown_volumetric_flask_250ml",
@@ -43,7 +43,13 @@
         "formal_accepted": false
       },
       "ACT": {
-        "formal_accepted": false
+        "formal_accepted": false,
+        "training_closed_seeds": [
+          26121921,
+          26121923,
+          26121925
+        ],
+        "formal_evaluation_queued": true
       },
       "object_accepted": false,
       "full_visual_passed": false,
@@ -90,9 +96,9 @@
         "development_training_allowed": true,
         "sampled_review_sheets_manually_inspected": 2
       },
-      "next": "Full100 lift and strict saved-pose geometry verified; fresh3DP+3ACT development training queued. Full visual and formal evaluations remain pending.",
+      "next": "Three ACT runs10000updates closed, CPU audited and BOS manifests verified. Prospective ACT150 queued independently of continuing3DP50000runs.",
       "name": "250ml 棕色容量瓶",
-      "status_note": "100/100终点实际抬升≥20cm，最小286.6mm；全100条保存姿态严格表面交叉为0。人工抽查2张三视角审阅图未见明显异常，非完整视觉通过；3种子DP与ACT开发训练已排队。"
+      "status_note": "源100/100实际抬升、全100条保存姿态严格交叉0。三个ACT种子均完成1万步、通过CPU审计并存入BOS；冻结150位置正式测试排队。三个正式DP种子约5800/50000步；完整视觉仍待审。"
     },
     {
       "object": "glass_beaker_250ml",
@@ -219,9 +225,17 @@
         "episodes": 10,
         "strict_crossing_poses": 0
       },
-      "next": "Source100 collection RUNNING; first78 native successes78. Full lift, geometry and visual audits required after close.",
+      "next": "Closed source100native100. Runtime full100 actual lift>=.21m and strict saved-pose crossing0 required before any gradient. Guarded development training queued.",
       "name": "大棕色试剂瓶",
-      "status_note": "c0.6、10秒重采运行中，目前78/78原生成功；仍需采满100条后核验实际抬升、全量几何和视觉。"
+      "status_note": "c0.6、10秒新源已采满并正常收尾：100/100原生成功、100/100终点位置分量≤20mm。实际抬升与全量严格几何检查排队，门槛全部通过后才启动训练；未计验收。",
+      "source": {
+        "episodes": 100,
+        "native_successes": 100,
+        "terminal20mm": 100,
+        "full_geometry_audit": null,
+        "actual_terminal_lift_audit_complete": false,
+        "development_training_allowed": false
+      }
     },
     {
       "object": "brown_reagent_bottle_small",
@@ -251,9 +265,9 @@
         "lift_components_full100_verified": true,
         "terminal_lift_min_m": -0.026144325733184814
       },
-      "next": "First16-setting job FAILED without normalclose. Recovery16settingsx10 originalpositions in160 single-episode cells queued; previous source100 rejected.",
+      "next": "Recovery16settingsx10originalpositions in160single-episode cells RUNNING. No old72/100source admission.",
       "name": "小棕色试剂瓶",
-      "status_note": "旧源100条中仅72条终点抬升≥20cm，不准入训练。首次16设置扫描中断；保留原16设置×10位置，恢复扫描改为160个单条单元并已排队。"
+      "status_note": "旧源仅72/100真实抬升，已拒绝训练。恢复扫描RUNNING：原16设置×10位置、160个单条单元，逐单元持久化，等完整设置抬升与几何结果。"
     },
     {
       "object": "clear_reagent_bottle_large",
@@ -274,7 +288,14 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "大透明试剂瓶",
-      "status_note": "c0.5修复设置采集运行中：目前20/36原生成功，源数据质量仍不达标，不准入训练。"
+      "status_note": "c0.5采集已结束：100条中仅59条原生成功。100/100终点位置≤20mm不能替代抓取成功，拒绝进入训练。",
+      "source": {
+        "episodes": 100,
+        "native_successes": 59,
+        "terminal20mm": 100,
+        "development_training_allowed": false
+      },
+      "next": "Reject59/100native source; terminal EEF precision is not successful grasp."
     },
     {
       "object": "clear_reagent_bottle_small",
@@ -316,7 +337,7 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "100ml 塑料量筒",
-      "status_note": "采集候选扫描仍在队列；尚无合格源、双方法训练和完整验收的闭环证据。"
+      "status_note": "本轮4组设置均0/5实际抬升并存在表面交叉，全部拒绝准入；终点位置分量不能替代抓起。"
     },
     {
       "object": "glass_cylinder_100ml",
@@ -337,7 +358,7 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "100ml 玻璃量筒",
-      "status_note": "采集候选扫描仍在队列；尚无合格源、双方法训练和完整验收的闭环证据。"
+      "status_note": "本轮4组设置均未达到原生成功标准，且存在明显表面交叉；保留全部结果，继续修正专家抓取，未准入训练。"
     },
     {
       "object": "plastic_graduated_cylinder_500ml",
@@ -358,7 +379,7 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "500ml 塑料量筒",
-      "status_note": "采集候选扫描仍在队列；尚无合格源、双方法训练和完整验收的闭环证据。"
+      "status_note": "本轮候选3/5原生成功但审计单元以AssertionError未正常关闭，失败记录保留，未准入训练。"
     },
     {
       "object": "glass_graduated_cylinder_500ml",
@@ -379,7 +400,15 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "500ml 玻璃量筒",
-      "status_note": "采集候选扫描仍在队列；尚无合格源、双方法训练和完整验收的闭环证据。"
+      "status_note": "新设置x=-.135、z=.08、6秒动作：5/5原生成功、5/5抬升，保存姿态严格交叉0。完整100条3cm源采集已演练并排队，尚无模型验收结果。",
+      "qualification": {
+        "setting": "grasp_offset[-.135,-.035,.08],motion_steps180",
+        "episodes": 5,
+        "native_successes": 5,
+        "lifted_over_5cm": 5,
+        "strict_crossing_poses": 0
+      },
+      "next": "Expand qualified setting to full100original3cm source positions; collection queued, source admission still pending."
     },
     {
       "object": "clear_volumetric_flask_250ml",
@@ -463,7 +492,7 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "锥形瓶",
-      "status_note": "采集候选扫描仍在队列；尚无合格源、双方法训练和完整验收的闭环证据。"
+      "status_note": "本轮多个抓取姿态仍0/5实际抬升；部分终点位置分量虽达标，不能当成成功抓取。继续修正专家设置。"
     },
     {
       "object": "erlenmeyer_flask_with_stopper",
@@ -518,9 +547,9 @@
         "lifted": 100,
         "strict_crossings": 0
       },
-      "next": "Signed-RGB DP repair RUNNING, three seeds ~6450/50000. Native replay, full visual review and acceptance remain pending.",
+      "next": "Three signed-RGB DP seeds18650–18700/50000. Fixed15k EMA native5 development smoke queued; no closed-loop gain established.",
       "name": "漏斗",
-      "status_note": "ACT报告SR77.3%、后处理SSR35.3%，完整视觉与偏高SR的范围复核未完成。旧DP为0/150；RGB修复版3种子已运行约6450/50000步。"
+      "status_note": "ACT报告SR77.3%、后处理SSR35.3%，完整视觉与范围复核未完成。旧DP0/150；RGB修复3种子约1.87万/5万步。15k真EMA离线诊断完成，原生5次小测排队，不能据离线误差计通过。"
     },
     {
       "object": "alcohol_lamp",
@@ -554,27 +583,29 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 59,
+    "registered_jobs": 63,
     "active_registered_jobs": 4,
     "BOS_mount_count": 2,
     "state": "running_after_user_authorized_direct_takeover",
     "state_note": "已按用户明确指令直接接管；4个四卡low_priority任务运行中，空位自动补位。此处为核验快照。",
     "prepared_not_submitted": [
-      "50ml烧杯：第二版5-trial reset诊断排队，保留2mm校验",
-      "250ml棕色容量瓶：合格源的3种子DP和ACT训练排队",
-      "100ml烧杯：单条单元恢复采集排队",
-      "小棕色试剂瓶：单条单元恢复16设置扫描排队",
+      "漏斗DP：固定15k真EMA的5次原生仿真小测优先排队，仅开发诊断",
+      "250ml棕色容量瓶ACT：三个模型已完成，冻结150位置正式测试排队",
+      "大棕瓶：100条真实抬升与全量严格几何门槛通过后，才进入DP/ACT训练",
+      "50ml烧杯：2mm与5mm生成高度裕量小测排队，保留原XY、2mm和静置门槛",
+      "50ml烧杯：10mm与15mm候选保持挂起，仅当前两种裕量都不通过才放行",
+      "50ml烧杯DP正式测试：reset验收前继续挂起",
       "250ml烧杯：16秒、100条采集排队",
-      "50ml烧杯DP正式测试：reset验收前继续挂起"
+      "500ml玻璃量筒：5/5合格、严格交叉0的设置扩至完整100条采集"
     ],
-    "checked_utc": "2026-10-26T16:40:25.541579+00:00",
+    "checked_utc": "2026-10-26T18:09:18.212300+00:00",
     "jobs": [
       {
         "tag": "train-m6rgb-funnel-20261026cc",
         "job_id": "job-xhn2g35zo5cb",
         "status": "RUNNING",
         "name": "漏斗 DP · 修复后3种子重训",
-        "progress_note": "各种子约6,450 / 50,000步，三张训练卡利用率96–99%；闭环改善待复测。"
+        "progress_note": "三个种子18,650–18,700 / 50,000步，三张训练卡利用率96–99%。15k真EMA离线诊断完成；5次原生仿真小测排队，闭环改善未确认。"
       },
       {
         "tag": "dev-b50-rest-reset-20261026cc",
@@ -586,9 +617,9 @@
       {
         "tag": "src100m10-brownLc06-20261026cc",
         "job_id": "job-qorh5urgwt2y",
-        "status": "RUNNING",
+        "status": "SUCCEEDED",
         "name": "大棕色试剂瓶 · 100条重采",
-        "progress_note": "目前完成78条、原生成功78条；采满后核验实际抬升、全量几何与视觉。"
+        "progress_note": "SUCCEEDED：100/100原生成功、100/100终点位置分量≤20mm。实际抬升和全量严格穿模检查排队，通过后才开始开发训练。"
       },
       {
         "tag": "src100m16-b100c06-20261026cc",
@@ -606,50 +637,78 @@
       },
       {
         "tag": "dev-b50-rest-reset-20261026cc-r2",
-        "job_id": null,
-        "status": "NOT_SUBMITTED",
+        "job_id": "job-q2ljki3rzl1m",
+        "status": "FAILED",
         "name": "50ml 烧杯 · 第二版reset诊断",
-        "progress_note": "本地排队：已有静止高度下关闭自动高度校准，原5个XY与2mm门槛保留。"
+        "progress_note": "FAILED：关闭自动高度校准后仍未通过2mm初始XY校验，0个有效测试trial。原生重置高度裕量小测已排队，正式DP继续挂起。"
       },
       {
         "tag": "train-m6rgb-bvf-20261026cc",
-        "job_id": null,
-        "status": "NOT_SUBMITTED",
+        "job_id": "job-3rw0rrezeyhg",
+        "status": "RUNNING",
         "name": "250ml 棕色容量瓶 · DP / ACT训练",
-        "progress_note": "本地排队：源100/100抬升、保存姿态严格交叉0；3个DP与3个ACT种子，另有第四卡性能探针。"
+        "progress_note": "三个ACT种子10,000步均正常收尾，CPU审计及BOS持久化通过；ACT正式150次测试排队。三个正式DP种子约5,800–5,850 / 50,000步，第四卡探索种子不计正式结果。"
       },
       {
         "tag": "src100m16-b100c06-20261026cc-r2",
-        "job_id": null,
-        "status": "NOT_SUBMITTED",
+        "job_id": "job-7sbv34x61myl",
+        "status": "RUNNING",
         "name": "100ml 烧杯 · 恢复采集",
-        "progress_note": "本地排队：100个单条采集单元，最多16个同时运行，逐单元写入BOS。"
+        "progress_note": "平台RUNNING：100个单条采集单元，最多16个同时运行，逐单元持久化到BOS；尚无完整100条收尾。"
       },
       {
         "tag": "q-brownS-m6-12c50-65-20261026cc-r2",
-        "job_id": null,
-        "status": "NOT_SUBMITTED",
+        "job_id": "job-c0uq5jj1q659",
+        "status": "RUNNING",
         "name": "小棕色试剂瓶 · 恢复扫描",
-        "progress_note": "本地排队：原16设置×10位置，共160个单条单元，最多16个同时运行。"
+        "progress_note": "平台RUNNING：原16设置×10位置，共160个单条单元，最多16个同时运行；按完整设置汇总后鉴定。"
       },
       {
         "tag": "openm6-20261026cc-r2",
         "job_id": "job-nangir1a20iy",
-        "status": "RUNNING",
+        "status": "SUCCEEDED",
         "name": "量筒与锥形瓶 · 参数扫描",
-        "progress_note": "16组设置扫描运行中；目前35条原生成功4条。须按设置核对抬升和几何。"
+        "progress_note": "SUCCEEDED：500ml玻璃量筒x=-.135,z=.08为5/5原生成功并抬升、保存姿态严格交叉0，完整100条采集排队；其余失败设置保留。"
       },
       {
         "tag": "src100m6-clearLAc05-20261025cc",
         "job_id": "job-wlv85jd8ddfu",
-        "status": "RUNNING",
+        "status": "SUCCEEDED",
         "name": "大透明试剂瓶 · 100条采集",
-        "progress_note": "目前完成36条、原生成功20条；数据质量尚未达标，不准入训练。"
+        "progress_note": "SUCCEEDED：采满100条，仅59条原生成功；100条终点位置≤20mm不能代替抓取成功，不准入训练。"
+      },
+      {
+        "tag": "dev-dp-funnel-s15k-signed-20261026cc",
+        "job_id": null,
+        "status": "NOT_SUBMITTED",
+        "name": "漏斗 DP · 15k真EMA仿真小测",
+        "progress_note": "5个固定源位置，开发诊断；检查是否恢复闭合、抬升，非正式验收。"
+      },
+      {
+        "tag": "eval-m6-act-bvf-20261026cc",
+        "job_id": null,
+        "status": "NOT_SUBMITTED",
+        "name": "250ml 棕色容量瓶 · ACT正式测试",
+        "progress_note": "3种子×50冻结位置，+0/1/2/3cm；独立模型收尾与CPU门槛已过，不等DP训练结束。"
+      },
+      {
+        "tag": "gate-train-m10-brownL-20261026cc",
+        "job_id": null,
+        "status": "NOT_SUBMITTED",
+        "name": "大棕色试剂瓶 · 准入检查和训练",
+        "progress_note": "先核对100条真实抬升和严格交叉0，再启动3DP+3ACT；TF32在作业提交前预声明。"
+      },
+      {
+        "tag": "src100m6-ggrad-x135z08-20261026cc",
+        "job_id": null,
+        "status": "NOT_SUBMITTED",
+        "name": "500ml 玻璃量筒 · 100条采集",
+        "progress_note": "固定5/5合格设置扩到完整100条3cm源位置；全量抬升和几何仍待核验。"
       }
     ],
-    "progress_note": "完整通过仍为0/21。漏斗DP已运行约6450/50000步；brownL采集78/78原生成功。新增250ml棕色容量瓶源100/100实际抬升、保存姿态严格交叉0，开发训练已排队。100ml烧杯和小棕瓶的首次任务中断，恢复任务改为逐单元持久化；完整验收仍需模型SR、Spatial SSR、泛化和视频证据。",
-    "DP_repair_note": "有符号RGB处理修复已通过回归检查，3个DP种子已进入梯度训练。真实EMA离线对比来自1个episode的4帧，仅支持输入差异诊断，不能作为闭环成功率改善。",
-    "b50_reset_note": "5-trial reset诊断已执行并失败：只改生成高度后仍有约6–9mm初始XY偏移，超过2mm门槛。没有有效trial，不报成0/5成功率。保留原XY、严格校验，继续对比采集与测试的静置流程。 第二版诊断已通过部署演练并排队，是否修复仍待原生小测。"
+    "progress_note": "完整通过仍为0/21。4个四卡任务运行：漏斗DP约1.87万/5万步，棕色容量瓶DP训练、100ml烧杯采集、小棕瓶参数扫描。棕色容量瓶3个ACT模型已完成并通过CPU审计，150次正式测试排队；大棕瓶新源100/100原生成功，完整抬升/几何检查待做；500ml玻璃量筒合格设置进入完整采集队列。",
+    "DP_repair_note": "有符号RGB修复后的15k真EMA通过918个张量恢复和原始12张图像哈希检查。在1个episode的4帧上，原始输入动作MAE为0.02869rad；同一快照输入旧错误色域时为0.08118rad。旧模型此前为0.04559rad，但训练步数不同，不能直接推断成功率改善。固定15k快照已独立存入BOS，5次原生仿真小测排队；全50k三种子训练继续。",
+    "b50_reset_note": "首次高度修复后仍有约6–9mm初始XY偏移，第二版关闭自动高度校准也失败；两次均0个有效测试trial，不能报成0/5策略成功率。生成裕量2/5mm小测排队；保留原5个XY、初始XY≤2mm、静止Z≤2mm、倾角<5°和首次运动晚于1s，按物理重置是否合格选择最小裕量，不按策略成功率选择。"
   },
   "evidence_note": "Pro6000采集和测试单独报告；不混入5090历史结果。源数据小样本的保存姿态审计不能代替全量几何或完整视频审阅。",
   "offline_DP_probe": {
@@ -658,7 +717,314 @@
     "input_RGB_hashes_verified": 12,
     "normal_eval_action_MAE_rad": 0.04559082165,
     "training_matched_action_MAE_rad": 0.01322118565,
-    "native_improvement_established": false
+    "native_improvement_established": false,
+    "signed_RGB_snapshot": {
+      "CUDA_initialized": false,
+      "checkpoint_SHA256": "51ababe1062acb94fc604febd731e5aba242fb782fc3cb28727a6696cb8f97c5",
+      "snapshot_step": 15000,
+      "old_and_new_training_budgets_differ": true,
+      "native_success_improvement_claimed": false,
+      "source_indices": [
+        30,
+        90,
+        120,
+        180
+      ],
+      "source_frame_hashes": {
+        "chest_camera": [
+          "a6f4e1b3dd630d5f78dfccad271596891f748e5b126af2d75660e690c3f283bd",
+          "d51221e1f5d95300ffcdb60ebf7a75064ed1320f1e8452194db2a32ea6adf745",
+          "b6c7ee5381a47c9cc0f555851124884fbe6211322f09156e01eaa8614a2e536c",
+          "05cb15b2f41f6eb34ab2d70b36efc3aac869c93dc3ee327cb544717850e4672b"
+        ],
+        "head_camera": [
+          "124d89737ede4db4693403358d6b9c670237ff6bbb1d787411c4011fda30020a",
+          "645d116b2ef0b685584f2adb754764fdfd45c8660c390a4da0581c1a47a7d53f",
+          "cb58c8f86494c803fc76a26f54c6df5d707ea975df494c4cf2f36f394257329e",
+          "e53316e3e43f4069264cba1630e733f265a8e47715e94c8f974fa87c8dfdd39f"
+        ],
+        "third_camera": [
+          "4fa793c9a41b68915ee0cb2c44391e4a70553750099765418e0ed7bac8a22d24",
+          "7a9529ea4c995152673228c46a35ee5587fef3f34d385393894c957566f98fe2",
+          "477413df3e1be2c5fd0344c3f00ed87a3d137df1380a7287480e3fc399b0d3f0",
+          "f3d1b6ecaab4af168b523be93c8fb58a952b9a13393d7b33938baf97b69f7cee"
+        ]
+      },
+      "results": {
+        "eval_original": {
+          "MAE_all": 0.02868569828569889,
+          "MAE_arm": 0.0369955338537693,
+          "MAE_hand": 0.01899089105427265,
+          "per_frame_MAE": [
+            0.05736339092254639,
+            0.030874503776431084,
+            0.014767307788133621,
+            0.011737584136426449
+          ],
+          "predicted_first_action": [
+            [
+              0.4827938377857208,
+              -0.6325713992118835,
+              1.0826412439346313,
+              -2.3154654502868652,
+              0.02065805159509182,
+              1.0394014120101929,
+              0.27500224113464355,
+              1.5144641399383545,
+              2.9910061359405518,
+              2.9477758407592773,
+              2.9589595794677734,
+              2.9344418048858643,
+              0.5630285143852234
+            ],
+            [
+              0.9396283030509949,
+              -1.7036216259002686,
+              0.8157485723495483,
+              -1.8002822399139404,
+              -0.509725034236908,
+              1.4271721839904785,
+              0.16628223657608032,
+              1.5213561058044434,
+              2.03208327293396,
+              1.9833712577819824,
+              2.0405654907226562,
+              1.9994587898254395,
+              0.1789187639951706
+            ],
+            [
+              0.9069766998291016,
+              -1.7068562507629395,
+              0.818873405456543,
+              -1.8352011442184448,
+              -0.5198428630828857,
+              1.4242504835128784,
+              0.15963700413703918,
+              1.5234932899475098,
+              1.8048769235610962,
+              1.7646751403808594,
+              1.8273249864578247,
+              1.785233736038208,
+              0.0926080122590065
+            ],
+            [
+              1.175242304801941,
+              -1.3323707580566406,
+              1.2648533582687378,
+              -2.0032095909118652,
+              0.09328928589820862,
+              1.5534613132476807,
+              -0.14986509084701538,
+              1.5176935195922852,
+              1.802310585975647,
+              1.7608792781829834,
+              1.8236035108566284,
+              1.779999852180481,
+              0.09116404503583908
+            ]
+          ],
+          "expected_first_action": [
+            [
+              0.40015077590942383,
+              -0.5590465068817139,
+              1.1206754446029663,
+              -2.355999708175659,
+              0.032349780201911926,
+              0.9852334260940552,
+              0.2817051410675049,
+              1.5199999809265137,
+              3.059999942779541,
+              3.0199995040893555,
+              3.0299999713897705,
+              3.0,
+              0.5915999412536621
+            ],
+            [
+              0.880169153213501,
+              -1.747070550918579,
+              0.7638081312179565,
+              -1.8032833337783813,
+              -0.5953071117401123,
+              1.410335659980774,
+              0.19654403626918793,
+              1.5199999809265137,
+              2.040062665939331,
+              2.0000627040863037,
+              2.0505363941192627,
+              2.012441635131836,
+              0.18556788563728333
+            ],
+            [
+              0.8900465369224548,
+              -1.7307683229446411,
+              0.7859465479850769,
+              -1.8274166584014893,
+              -0.5689509510993958,
+              1.4184954166412354,
+              0.17329038679599762,
+              1.5199999809265137,
+              1.799999713897705,
+              1.7599998712539673,
+              1.8199996948242188,
+              1.779999852180481,
+              0.08999999612569809
+            ],
+            [
+              1.144256591796875,
+              -1.3299025297164917,
+              1.2945408821105957,
+              -2.0477607250213623,
+              0.09611879289150238,
+              1.5658963918685913,
+              -0.17025867104530334,
+              1.5199999809265137,
+              1.799999713897705,
+              1.7599998712539673,
+              1.8199996948242188,
+              1.779999852180481,
+              0.08999999612569809
+            ]
+          ]
+        },
+        "old_train_hue_zero": {
+          "MAE_all": 0.08117818832397461,
+          "MAE_arm": 0.09779194742441177,
+          "MAE_hand": 0.061795491725206375,
+          "per_frame_MAE": [
+            0.09390139579772949,
+            0.12581299245357513,
+            0.08938741683959961,
+            0.015610950067639351
+          ],
+          "predicted_first_action": [
+            [
+              0.5470553636550903,
+              -0.6648264527320862,
+              1.104310154914856,
+              -2.254796028137207,
+              0.029774589464068413,
+              1.0273302793502808,
+              0.23057129979133606,
+              1.5127856731414795,
+              2.923053026199341,
+              2.8787941932678223,
+              2.8883211612701416,
+              2.869938373565674,
+              0.5363438129425049
+            ],
+            [
+              1.0697907209396362,
+              -1.6284338235855103,
+              0.9021826982498169,
+              -1.8323382139205933,
+              -0.3466273546218872,
+              1.5322983264923096,
+              0.10562955588102341,
+              1.5196884870529175,
+              2.2463905811309814,
+              2.1593785285949707,
+              2.2270307540893555,
+              2.186645269393921,
+              0.2489844560623169
+            ],
+            [
+              1.0033272504806519,
+              -1.5936888456344604,
+              0.9608550667762756,
+              -1.8986393213272095,
+              -0.32365965843200684,
+              1.483646035194397,
+              0.06853176653385162,
+              1.5270196199417114,
+              1.8579826354980469,
+              1.8110584020614624,
+              1.8741744756698608,
+              1.8349720239639282,
+              0.11166318506002426
+            ],
+            [
+              1.1806672811508179,
+              -1.3323631286621094,
+              1.2544126510620117,
+              -1.988355278968811,
+              0.08754992485046387,
+              1.544113039970398,
+              -0.14196054637432098,
+              1.5184025764465332,
+              1.8041067123413086,
+              1.7628228664398193,
+              1.8249415159225464,
+              1.7820857763290405,
+              0.0919121727347374
+            ]
+          ],
+          "expected_first_action": [
+            [
+              0.40015077590942383,
+              -0.5590465068817139,
+              1.1206754446029663,
+              -2.355999708175659,
+              0.032349780201911926,
+              0.9852334260940552,
+              0.2817051410675049,
+              1.5199999809265137,
+              3.059999942779541,
+              3.0199995040893555,
+              3.0299999713897705,
+              3.0,
+              0.5915999412536621
+            ],
+            [
+              0.880169153213501,
+              -1.747070550918579,
+              0.7638081312179565,
+              -1.8032833337783813,
+              -0.5953071117401123,
+              1.410335659980774,
+              0.19654403626918793,
+              1.5199999809265137,
+              2.040062665939331,
+              2.0000627040863037,
+              2.0505363941192627,
+              2.012441635131836,
+              0.18556788563728333
+            ],
+            [
+              0.8900465369224548,
+              -1.7307683229446411,
+              0.7859465479850769,
+              -1.8274166584014893,
+              -0.5689509510993958,
+              1.4184954166412354,
+              0.17329038679599762,
+              1.5199999809265137,
+              1.799999713897705,
+              1.7599998712539673,
+              1.8199996948242188,
+              1.779999852180481,
+              0.08999999612569809
+            ],
+            [
+              1.144256591796875,
+              -1.3299025297164917,
+              1.2945408821105957,
+              -2.0477607250213623,
+              0.09611879289150238,
+              1.5658963918685913,
+              -0.17025867104530334,
+              1.5199999809265137,
+              1.799999713897705,
+              1.7599998712539673,
+              1.8199996948242188,
+              1.779999852180481,
+              0.08999999612569809
+            ]
+          ]
+        }
+      },
+      "formal_accepted": false,
+      "elapsed_s": 60.84022744401591
+    }
   },
   "runs": [
     {
