@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-26T08:56:03.794963+00:00",
+  "updated_utc": "2026-10-26T16:06:02.858014+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -25,9 +25,9 @@
         "episodes": 5,
         "strict_crossing_poses": 0
       },
-      "next": "100 episode collection draft with pre_new2.py tested; not submitted",
+      "next": "Source100 collection RUNNING; first20 native successes20; full lift, geometry and visual audits required",
       "name": "100ml 玻璃烧杯",
-      "status_note": "c0.6、16秒小样本5/5抬起且无保存姿态交叉；100条重采规格已演练，尚未提交。"
+      "status_note": "c0.6、16秒重采已运行：目前20/20原生成功。小样本5/5抬起且无保存姿态交叉；等待100条全量审计。"
     },
     {
       "object": "brown_volumetric_flask_250ml",
@@ -154,9 +154,9 @@
         "lifted": 100,
         "strict_crossings": 0
       },
-      "next": "Test reset spawns at 1.2 m; MP first observed stable z=0.9700685143470764, IL tilts after drop; candidate Z-only placement needs five-trial smoke; DP formal remains held",
+      "next": "Z-only reset diagnostic FAILED strict 2mm initial XY gate; zero valid trials; compare exact source/eval reset behavior before new diagnostic; formal DP remains held",
       "name": "50ml 玻璃烧杯",
-      "status_note": "源100/100抬起、无保存姿态交叉；测试reset下落约227mm后倾倒。仅修改生成高度的5-trial小测已演练，正式DP测试仍挂起。"
+      "status_note": "源100/100抬起且无保存姿态交叉。仅改生成高度的小测已失败：部分初始XY仍偏6–9mm，超过2mm门槛；0有效trial，继续修复，正式DP保持挂起。"
     },
     {
       "object": "mortar",
@@ -211,9 +211,9 @@
         "episodes": 10,
         "strict_crossing_poses": 0
       },
-      "next": "100 episode collection draft staged and inline fixture tested; not submitted",
+      "next": "Source100 collection RUNNING; first20 native successes20; full lift, geometry and visual audits required",
       "name": "大棕色试剂瓶",
-      "status_note": "c0.6、10秒小样本10/10抬起且无保存姿态交叉；100条重采规格已演练。旧c0.5源仅54/100抬起，已排除。"
+      "status_note": "c0.6、10秒重采已运行：目前20/20原生成功。小样本10/10抬起且无保存姿态交叉；旧c0.5源已排除，等待100条全量审计。"
     },
     {
       "object": "brown_reagent_bottle_small",
@@ -236,12 +236,16 @@
       "source": {
         "episodes": 100,
         "native_successes": 72,
-        "lift_count": null,
-        "full_geometry_audit": null
+        "lift_count": 72,
+        "full_geometry_audit": null,
+        "diagnostic_lift_threshold_m": 0.2,
+        "diagnostic_threshold_is_not_acceptance": true,
+        "lift_components_full100_verified": true,
+        "terminal_lift_min_m": -0.026144325733184814
       },
-      "next": "Inspect failures before training admission",
+      "next": "16-setting closure/motion qualification scan RUNNING; previous source100 rejected for 28 terminal lift failures",
       "name": "小棕色试剂瓶",
-      "status_note": "100条采集原生成功72/100；实际抬升和全量几何尚待审计。"
+      "status_note": "旧100条源已全量核对：原生成功72/100，终点抬升≥20cm也为72/100，不准入训练。16组闭合力度/动作时长扫描已经启动。"
     },
     {
       "object": "clear_reagent_bottle_large",
@@ -506,9 +510,9 @@
         "lifted": 100,
         "strict_crossings": 0
       },
-      "next": "Fresh DP training with signed RGB hue fix; full visual review pending; expanded range decision pending",
+      "next": "Signed-RGB DP repair retraining is RUNNING, three seeds ~1850/50000; native replay and full visual review remain pending",
       "name": "漏斗",
-      "status_note": "ACT报告SR 77.3%、几何后处理SSR 35.3%，完整视觉与偏高SR的范围复核未完成。DP为0/150；新RGB修复版重训规格已演练。"
+      "status_note": "ACT报告SR77.3%、后处理SSR35.3%，完整视觉与偏高SR的范围复核未完成。旧DP为0/150；RGB修复版3种子重训已启动，约1850/50000步。"
     },
     {
       "object": "alcohol_lamp",
@@ -542,18 +546,58 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 52,
-    "active_registered_jobs": 0,
+    "registered_jobs": 57,
+    "active_registered_jobs": 4,
     "BOS_mount_count": 2,
-    "state": "waiting_for_explicit_vultr_stop",
-    "state_note": "交接停止确认尚未到达；未启动第二个runner、未修改原队列。此处为核验快照，非实时调度状态。",
+    "state": "running_after_user_authorized_direct_takeover",
+    "state_note": "已按用户明确指令直接接管；4个四卡low_priority任务运行中，空位自动补位。此处为核验快照。",
     "prepared_not_submitted": [
-      "漏斗DP：修复训练图像处理后3种子50k重训",
-      "brownL：c0.6、10秒、100条重采",
-      "100ml烧杯：c0.6、16秒、100条重采",
-      "50ml烧杯：原XY、仅改生成Z的5-trial reset小测"
+      "大透明试剂瓶：100条采集排队",
+      "其余物体默认闭合设置：鉴定扫描排队",
+      "250ml烧杯：16秒、100条采集排队",
+      "50ml烧杯DP正式测试：等待reset修复，继续挂起"
     ],
-    "checked_utc": "2026-10-26T08:55:38.849182+00:00"
+    "checked_utc": "2026-10-26T16:05:56.526782+00:00",
+    "jobs": [
+      {
+        "tag": "train-m6rgb-funnel-20261026cc",
+        "job_id": "job-xhn2g35zo5cb",
+        "status": "RUNNING",
+        "name": "漏斗 DP · 修复后3种子重训",
+        "progress_note": "各种子约1,850 / 50,000步；三张训练卡利用率95–99%。闭环改善尚待复测。"
+      },
+      {
+        "tag": "dev-b50-rest-reset-20261026cc",
+        "job_id": "job-p1rzf8wl15t6",
+        "status": "FAILED",
+        "name": "50ml 烧杯 · reset诊断",
+        "progress_note": "仅改生成高度未通过2mm初始XY校验；0个有效测试trial，保留失败，继续排查。"
+      },
+      {
+        "tag": "src100m10-brownLc06-20261026cc",
+        "job_id": "job-qorh5urgwt2y",
+        "status": "RUNNING",
+        "name": "大棕色试剂瓶 · 100条重采",
+        "progress_note": "目前完成20条、原生成功20条；10秒动作。采满后核验抬升、几何和视觉。"
+      },
+      {
+        "tag": "src100m16-b100c06-20261026cc",
+        "job_id": "job-xme9zi3cvcbl",
+        "status": "RUNNING",
+        "name": "100ml 烧杯 · 100条重采",
+        "progress_note": "目前完成20条、原生成功20条；16秒动作。采满后核验抬升、几何和视觉。"
+      },
+      {
+        "tag": "q-brownS-m6-12c50-65-20261026cc",
+        "job_id": "job-dsox2vwk3qud",
+        "status": "RUNNING",
+        "name": "小棕色试剂瓶 · 参数扫描",
+        "progress_note": "16组设置已经构建，运行中；旧100条源只有72条达到20cm终点抬升，不准入训练。"
+      }
+    ],
+    "progress_note": "已启动实际训练与采集。完整通过仍为0/21：新模型尚在训练，b50 reset小测被严格位置校验拦住；采集成功不等于论文SR、SSR和视觉验收通过。",
+    "DP_repair_note": "有符号RGB处理修复已通过回归检查，3个DP种子已进入梯度训练。真实EMA离线对比来自1个episode的4帧，仅支持输入差异诊断，不能作为闭环成功率改善。",
+    "b50_reset_note": "5-trial reset诊断已执行并失败：只改生成高度后仍有约6–9mm初始XY偏移，超过2mm门槛。没有有效trial，不报成0/5成功率。保留原XY、严格校验，继续对比采集与测试的静置流程。"
   },
   "evidence_note": "Pro6000采集和测试单独报告；不混入5090历史结果。源数据小样本的保存姿态审计不能代替全量几何或完整视频审阅。",
   "offline_DP_probe": {
@@ -587,7 +631,7 @@
         "range_label": "±3 / 4 / 5 / 6cm",
         "duration_label": "24s",
         "seed": "3个训练种子的汇总",
-        "note": "Pro6000采集与测试；+0/+1/+2/+3cm冻结位置，全部150试次保留。ACT报告SR 77.3%、几何后处理SSR 35.3%，完整视觉与偏高SR的范围复核未完成。DP为0/150；新RGB修复版重训规格已演练。"
+        "note": "Pro6000采集与测试；+0/+1/+2/+3cm冻结位置，全部150试次保留。ACT报告SR77.3%、后处理SSR35.3%，完整视觉与偏高SR的范围复核未完成。旧DP为0/150；RGB修复版3种子重训已启动，约1850/50000步。"
       },
       "train": {
         "dataset": {
@@ -597,7 +641,7 @@
           "seed": "26121921 / 26121923 / 26121925"
         }
       },
-      "metric_note": "ACT报告SR 77.3%、几何后处理SSR 35.3%，完整视觉与偏高SR的范围复核未完成。DP为0/150；新RGB修复版重训规格已演练。 此版本无已发布完整视频，不计完整验收；历史版本及其视频继续保留。",
+      "metric_note": "ACT报告SR77.3%、后处理SSR35.3%，完整视觉与偏高SR的范围复核未完成。旧DP为0/150；RGB修复版3种子重训已启动，约1850/50000步。 此版本无已发布完整视频，不计完整验收；历史版本及其视频继续保留。",
       "cases": []
     },
     {
@@ -622,7 +666,7 @@
         "range_label": "±3 / 4 / 5 / 6cm",
         "duration_label": "24s",
         "seed": "3个训练种子的汇总",
-        "note": "Pro6000采集与测试；+0/+1/+2/+3cm冻结位置，全部150试次保留。ACT报告SR 77.3%、几何后处理SSR 35.3%，完整视觉与偏高SR的范围复核未完成。DP为0/150；新RGB修复版重训规格已演练。"
+        "note": "Pro6000采集与测试；+0/+1/+2/+3cm冻结位置，全部150试次保留。ACT报告SR77.3%、后处理SSR35.3%，完整视觉与偏高SR的范围复核未完成。旧DP为0/150；RGB修复版3种子重训已启动，约1850/50000步。"
       },
       "train": {
         "dataset": {
@@ -632,7 +676,7 @@
           "seed": "26121921 / 26121923 / 26121925"
         }
       },
-      "metric_note": "ACT报告SR 77.3%、几何后处理SSR 35.3%，完整视觉与偏高SR的范围复核未完成。DP为0/150；新RGB修复版重训规格已演练。 此版本无已发布完整视频，不计完整验收；历史版本及其视频继续保留。",
+      "metric_note": "ACT报告SR77.3%、后处理SSR35.3%，完整视觉与偏高SR的范围复核未完成。旧DP为0/150；RGB修复版3种子重训已启动，约1850/50000步。 此版本无已发布完整视频，不计完整验收；历史版本及其视频继续保留。",
       "cases": []
     },
     {
@@ -727,7 +771,7 @@
         "range_label": "±3 / 4 / 5 / 6cm",
         "duration_label": "24s",
         "seed": "3个训练种子的汇总",
-        "note": "Pro6000采集与测试；+0/+1/+2/+3cm冻结位置，全部150试次保留。源100/100抬起、无保存姿态交叉；测试reset下落约227mm后倾倒。仅修改生成高度的5-trial小测已演练，正式DP测试仍挂起。"
+        "note": "Pro6000采集与测试；+0/+1/+2/+3cm冻结位置，全部150试次保留。源100/100抬起且无保存姿态交叉。仅改生成高度的小测已失败：部分初始XY仍偏6–9mm，超过2mm门槛；0有效trial，继续修复，正式DP保持挂起。"
       },
       "train": {
         "dataset": {
@@ -737,7 +781,7 @@
           "seed": "26121921 / 26121923 / 26121925"
         }
       },
-      "metric_note": "源100/100抬起、无保存姿态交叉；测试reset下落约227mm后倾倒。仅修改生成高度的5-trial小测已演练，正式DP测试仍挂起。 此版本无已发布完整视频，不计完整验收；历史版本及其视频继续保留。",
+      "metric_note": "源100/100抬起且无保存姿态交叉。仅改生成高度的小测已失败：部分初始XY仍偏6–9mm，超过2mm门槛；0有效trial，继续修复，正式DP保持挂起。 此版本无已发布完整视频，不计完整验收；历史版本及其视频继续保留。",
       "cases": []
     }
   ]
