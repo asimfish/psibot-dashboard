@@ -26,14 +26,29 @@ function renderPro6000(snapshot) {
   for (const [title, value] of [
     ['DP + ACT 完整通过', snapshot.objects_both_methods_formally_accepted + ' / 21'],
     ['已登记活跃作业（快照）', String(snapshot.pipeline.active_registered_jobs)],
-    ['规格就绪、尚未提交', String(snapshot.pipeline.prepared_not_submitted.length)],
+    ['排队或挂起', String(snapshot.pipeline.prepared_not_submitted.length)],
     ['采集与测试主线', 'Zenith Pro6000']
   ]) {
     const item = add(metrics, 'div');
     add(item, 'span', title);
     add(item, 'strong', value);
   }
-  add(root, 'p', '当前阻塞：原端尚未确认停止。接管后先跑 DP 修复版重训、合格源重采和 b50 reset 小测；不重复提交旧任务。', 'note');
+  add(root, 'p', snapshot.pipeline.progress_note || snapshot.pipeline.state_note, 'note');
+  if (snapshot.pipeline.jobs?.length) {
+    const jobs = add(root, 'details');
+    jobs.open = true;
+    add(jobs, 'summary', '本轮已提交任务与实际进度（核验快照）');
+    const jobTable = add(add(jobs, 'div', undefined, 'table-wrap'), 'table');
+    const jobHeader = add(add(jobTable, 'thead'), 'tr');
+    ['任务', '平台状态', '已核验进度'].forEach(t => add(jobHeader, 'th', t));
+    const jobBody = add(jobTable, 'tbody');
+    for (const job of snapshot.pipeline.jobs) {
+      const row = add(jobBody, 'tr');
+      add(row, 'td', job.name);
+      add(row, 'td', job.status);
+      add(row, 'td', job.progress_note, 'pro6000-object-note');
+    }
+  }
   const measured = add(root, 'details');
   add(measured, 'summary', '已出测试结果：漏斗、研钵和 50ml 烧杯（均未完整验收）');
   const wrap = add(measured, 'div', undefined, 'table-wrap');
@@ -72,11 +87,11 @@ function renderPro6000(snapshot) {
     add(row, 'td', object.object_accepted ? '通过' : '待验收');
   }
   const next = add(root, 'details');
-  add(next, 'summary', '接管后已准备的四份规格与修复证据');
+  add(next, 'summary', '后续队列与修复证据');
   const list = add(next, 'ul');
   snapshot.pipeline.prepared_not_submitted.forEach(text => add(list, 'li', text));
-  add(next, 'p', 'DP 使用真实 EMA 和原始源观测的离线对比已复现图像输入差异；4帧来自1个episode，不能当作闭环成功率改善。修复已通过有符号RGB回归检查，仍需重新训练及原生小测。');
-  add(next, 'p', 'b50 候选只改变生成高度，保留既有XY位置并恢复2mm校验；5-trial原生小测尚未执行。节点汇总对DP关闭状态的误报另行修复，不改变原生SR。');
+  add(next, 'p', snapshot.pipeline.DP_repair_note || 'DP 使用真实 EMA 和原始源观测的离线对比已复现图像输入差异；离线差异不能当作闭环成功率改善。');
+  add(next, 'p', snapshot.pipeline.b50_reset_note || 'b50 必须通过原XY位置、2mm校验和静置检查后，才能重跑正式测试。');
   add(root, 'p', snapshot.evidence_note, 'muted');
   const source = add(root, 'a', '查看当前 Pro6000 数据快照');
   source.href = 'results/grasp_pro6000_current.json';

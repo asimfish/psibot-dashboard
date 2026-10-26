@@ -35,9 +35,10 @@ const render = data => {
 test('all 21 objects and all five Pro6000 aggregates remain unaccepted', () => {
   const {container, created} = render(copy());
   assert.match(container.textContent, /0 \/ 21/);
-  assert.match(container.textContent, /原端尚未确认停止/);
-  assert.match(container.textContent, /尚未执行/);
-  assert.equal(created.filter(n => n.tag === 'tr').length, 28); // two headers, five measured rows, 21 objects
+  assert.match(container.textContent, /4个四卡low_priority任务运行中/);
+  assert.match(container.textContent, /约6–9mm初始XY偏移/);
+  assert.doesNotMatch(container.textContent, /原端尚未确认停止|尚未执行/);
+  assert.equal(created.filter(n => n.tag === 'tr').length, 34); // three headers, five jobs, five measured rows, 21 objects
   const links = created.filter(n => n.tag === 'a' && n.href.startsWith('#'));
   assert.equal(links.length, 5);
   for (const link of links) {
@@ -46,6 +47,18 @@ test('all 21 objects and all five Pro6000 aggregates remain unaccepted', () => {
     assert.equal(selected.get('method'), run.method);
     assert.equal(selected.get('object'), snapshot.objects.find(o => o.object === run.object).paper_id);
   }
+});
+
+test('job states and diagnostic failures never increase acceptance or erase historical results', () => {
+  const data = copy();
+  assert.equal(data.pipeline.active_registered_jobs, 4);
+  assert.equal(data.pipeline.jobs.filter(j => j.status === 'RUNNING').length, 4);
+  assert.equal(data.pipeline.jobs.find(j => j.tag.startsWith('dev-b50-')).status, 'FAILED');
+  const {container} = render(data);
+  assert.match(container.textContent, /0个有效测试trial/);
+  assert.match(container.textContent, /0 \/ 21/);
+  assert.match(container.textContent, /77\.3%/);
+  assert.match(container.textContent, /继续挂起/);
 });
 
 test('mixed GPU results and unsupported acceptance counts fail visibly', () => {
