@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-26T08:08:06.200649+00:00",
+  "updated_utc": "2026-10-26T08:56:03.794963+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -50,12 +50,41 @@
       "source": {
         "episodes": 100,
         "native_successes": 100,
-        "lift_count": null,
-        "full_geometry_audit": null
+        "lift_count": 100,
+        "full_geometry_audit": null,
+        "diagnostic_lift_threshold_m": 0.2,
+        "diagnostic_threshold_is_not_acceptance": true,
+        "terminal_lift_min_m": 0.28662168979644775,
+        "desired_lift_height_m": 0.3,
+        "lift_components_full100_verified": true,
+        "lift_evidence": {
+          "verified_utc": "2026-10-26T08:50:09.607247+00:00",
+          "cells": 16,
+          "source_GPU": "Zenith Pro6000",
+          "CPU_only": true,
+          "cell_saved_pose_SHA256": {
+            "cell00_gpu0": "caeb1458e9bc791747082ce7426ad2c1c6fe8c6fb013fff440e5cdcb2202ed7a",
+            "cell01_gpu1": "c56d42a6a6e1196bce179ac30c2bfbafddda138ac8cb78cb946a1e56b43c81dc",
+            "cell02_gpu2": "c064f1255f2c61dd08cc74aeddefdd0eb6d983343aab1fc0517ec27ff737f2bf",
+            "cell03_gpu3": "67e9bbf253f602a59ced30489b7a6b0763fb94f742b328acc6cbba7e8f5e3e8c",
+            "cell04_gpu0": "1ef0907c653f42e169a41d977ba13dcff7d7529feed35395e255a034f8125f30",
+            "cell05_gpu1": "7b541a27cfffd0aad051b10d5c200f2f2a0cdff1bd45f795172775df2b3caf86",
+            "cell06_gpu2": "9e4db05823965becfa69bfd3d47b5528f3a7451596f94f09114ed9cfbfb2d4f8",
+            "cell07_gpu3": "b7e53969f005179b1edf5714164d330fa9d1bab1a515e88a0a9da086b200abe8",
+            "cell08_gpu0": "8c11ca58513eb0a74552393056d8ba425e813ecb974813203728e73645290bb3",
+            "cell09_gpu1": "ff0923559bd9e89ef88913c4cb5d9a728cded38fbcf4709e89a61395ccf4e607",
+            "cell10_gpu2": "8edaa3554f53f1c3fbe169fc53700c1e0324ccd52d9493b50458ddb88fa83797",
+            "cell11_gpu3": "08345a120fe412952a78789d3fea387c8fd2f48bdaafe93ff1faf2cf64724ed0",
+            "cell12_gpu0": "0649608568251f63a8314114ef4cae871907c7cf5419bd0a9f8318e12e538ee6",
+            "cell13_gpu1": "55d553f133b2ad08bbe7c47c9a8d34d1d52ebbf7bbe2dc1cb4944a98b173ce77",
+            "cell14_gpu2": "ab2d337fcc19dc0a97d58e4f051b1578665e900928f80fc69bed2c3ba7d59abb",
+            "cell15_gpu3": "b4e961909ddf9e7e9beab8c8a1f0d937d44fdd3a32fa2bcf038a57c3b5000d0d"
+          }
+        }
       },
-      "next": "Lift/geometry/visual audits required before training admission; geometry queued as signed-RGB DP training side task",
+      "next": "Full100 lift components verified; full geometry and visual audits still required before training admission",
       "name": "250ml 棕色容量瓶",
-      "status_note": "新100条采集原生成功100/100；实际抬升、全量几何和视觉仍待审计，暂不准入训练。"
+      "status_note": "100条源数据已核对实际抬升：100/100终点抬升≥20cm，最小286.6mm（期望300mm）；全量几何和完整视觉仍待审计，暂不准入训练。"
     },
     {
       "object": "glass_beaker_250ml",
@@ -523,7 +552,8 @@
       "brownL：c0.6、10秒、100条重采",
       "100ml烧杯：c0.6、16秒、100条重采",
       "50ml烧杯：原XY、仅改生成Z的5-trial reset小测"
-    ]
+    ],
+    "checked_utc": "2026-10-26T08:55:38.849182+00:00"
   },
   "evidence_note": "Pro6000采集和测试单独报告；不混入5090历史结果。源数据小样本的保存姿态审计不能代替全量几何或完整视频审阅。",
   "offline_DP_probe": {
