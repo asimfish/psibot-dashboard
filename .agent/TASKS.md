@@ -2,6 +2,7 @@
 
 | Task | Status | Owner | Scope | Document | Outcome |
 |---|---|---|---|---|---|
+| T-941 | review | codex-v13-panel-deploy | `index.html`, `v13_comparison/` | [T-941](tasks/T-941.md) | Verified V13 comparison publication candidate; public deployment tracked in the release receipt. |
 | T-888 | review | safelab_astra_dashboard144 | `astra.html` current-report entry and verification | [T-888](tasks/T-888.md) | Refresh the reader route to the verified144 snapshot; preserve all historical report sections. |
 | T-865 | done | codex-grasp-ssr-ood | `/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/site, /home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/continued_acceptance_20261021_v2936/v83_artifact` | [.agent/tasks/T-865.md](tasks/T-865.md) | Prepare verified Grasp V83 ACT progress artifact |
 | T-552 | in_progress | codex-grasp-ssr-ood | Grasp evidence and dashboard | [T-552](tasks/T-552.md) | Parent scientific acceptance remains open0/21 objects and0/42 methods. |

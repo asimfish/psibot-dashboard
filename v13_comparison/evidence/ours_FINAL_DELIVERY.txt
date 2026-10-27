@@ -1,0 +1,75 @@
+# SafeLab v13 三子任务：ours 方法交付清单（2026-10-25）
+
+**本轮 10k＋20k 训练已于 2026-10-25 11:36:46 正常完成。10k、20k、30k 完整 checkpoint 均保留；20k/30k 已导出为共享盘推理权重。**
+
+对应数据是 `psibot_3_pour_restore_pads_v13_smooth`，第三人称 `observation.images.third_person`，全部100条示教参与执行器训练。本交付到输出 action chunk 为止，由合作者负责控制器接入和闭环成功率测试。它与上一份官方 Mem-0 baseline 交付分别保留，不能混用配置、归一化统计或执行器权重。
+
+## 给合作者的路径
+
+| 内容 | 绝对路径 |
+| --- | --- |
+| 本交接清单 | `/home/dataset-assist-0/wangpeishuo/experiments/safelab_ours_v13_full_handoff_20261025/FINAL_DELIVERY.md` |
+| 详细启动命令、实时 Python API、输入输出说明 | `/home/dataset-assist-0/wangpeishuo/experiments/safelab_ours_v13_full_handoff_20261025/package/START_HERE.md` |
+| 完整推理代码、配置、两套 LoRA、Gen2.1-311 和 MiniLM | `/home/dataset-assist-0/wangpeishuo/experiments/safelab_ours_v13_full_handoff_20261025/package` |
+| 30k 推理权重，5,006,373,370 bytes | `/home/dataset-assist-0/wangpeishuo/experiments/safelab_ours_v13_full_handoff_20261025/weights/executor_step30000.pt` |
+| 20k 推理权重，5,006,373,370 bytes | `/home/dataset-assist-0/wangpeishuo/experiments/safelab_ours_v13_full_handoff_20261025/weights/executor_step20000.pt` |
+| 本轮归一化统计 | `/home/dataset-assist-0/wangpeishuo/experiments/safelab_ours_v13_full_handoff_20261025/package/norm_stats_all100.json` |
+| 执行器基座完整目录 | `/home/dataset-assist-0/wangpeishuo/RMBench/policy/Mem-0/checkpoints/Qwen3-VL-2B-Instruct` |
+| Planner 基座完整目录 | `/home/dataset-assist-0/wangpeishuo/artifacts/model_snapshots/Qwen3-VL-8B-Instruct_0c351dd01ed87e9c1b53cbc748cba10e6187ff3b` |
+| 验证报告目录 | `/home/dataset-assist-0/wangpeishuo/experiments/safelab_ours_v13_full_handoff_20261025/validation` |
+
+以上交付资产均在共享盘。相同共享挂载的机器可直接使用；其他机器复制整个 `package`、需要测试的执行器权重和两个基座完整目录。已有相同基座不必重复复制。当前加载器仍使用基座目录中的模型结构、tokenizer、processor 和初始化文件，不应只传一个训练 checkpoint。
+
+不需要复制训练数据、训练标签、离线 cluster 特征缓存或训练 DAG。训练来源路径在配置和权重中仅作身份记录，在线接口不读取训练答案。模型专用导出保留 `checkpoint_provenance`，与普通 baseline 导出的格式不同，请使用本包入口。
+
+## 本次方法与 baseline 的区别
+
+| 模块 | 本次 ours 配置 |
+| --- | --- |
+| 执行器训练 | 从官方2B基座初始化；前10k读取全部历史KF，后20k使用DAG；一个30k学习率计划，完整续接优化器和scheduler |
+| 记忆 token | 首帧独立1个融合token，每个被读取的前序子任务独立1个融合token；不是M(1)的首帧8-token方案 |
+| 关键帧选择 | Gen2.1-311 State私有128维特征；原BIC聚类，λ=100、K≤4、每簇至少3个候选帧 |
+| 完成判断 | 外部Gen2.1-311 Completion头，当前子任务S128历史；原生执行器classifier禁用，训练仅动作loss |
+| 两头共享 | Completion与State共享底层，四份阶段权重保持同一训练依赖链 |
+| 子任务Planner | 三任务v13第三人称LoRA，输出实际当前子任务文本 |
+| DAG Planner | 独立三任务v13 LoRA，根据真实历史和当前实际指令预测记忆依赖 |
+| 额外历史读取 | `temporal_predecessor_keyframes: latest`，补充紧邻上一子任务最新KF；这是独立读帧规则，不是新增DAG边 |
+| 子任务切换 | 清空阶段短期记忆和旧动作余量，保留首帧与已归档历史KF |
+
+当前完成阈值为 **0.975、累计两次阳性**，没有额外N30；分类器开始需要3个真实观测，前2帧为窗口warmup。它是尚未通过SafeLab闭环效果校准的初始配置，不是RMBench其他任务的最佳阈值。
+
+训练DAG使用零基 `[] / [] / [0]`，表示第三个子任务依赖第一个。首帧独立、不占子任务ID。**在线读取以DAG Planner预测为准，不与训练DAG比对。** Gen2.1-311接受实际Planner文本，不查询训练指令白名单；没有预设最后子任务编号或末阶段跳过规则。
+
+Planner输出 `Done/Finished/End the task` 时，在已有可执行指令的情况下保留当前指令和记忆继续执行，不直接判成功。环境报告成功或结束时，在任何模型调用前退出。由合作者的环境成功检查决定任务是否成功。
+
+## 输入输出与控制
+
+输入为原始第三人称RGB `uint8[H,W,3]` 和13维实测关节角（rad），不能提前归一化或改成其他相机。输出 `actions_rad[30,13]` 是**绝对关节目标角**，不是增量、速度或120Hz中间轨迹。
+
+本轮图像15Hz，动作标签沿用三任务 `interval_end`，每个目标对应图像区间末尾。30个预测目标约覆盖2秒，120Hz控制下每个目标间隔约8个控制步；控制器、物理子步及插值由合作者验证。每个真实观测都要调用policy，默认每30个观测生成新chunk；子任务切换可提前丢弃旧chunk并立即重算。完整关节顺序、reset和实际调用方式见START_HERE。
+
+冻结ours接口的图片参数历史名称仍为 `chest_rgb`，本轮实际配置与输入均为第三人称。请按START_HERE用位置参数调用 `policy.step(third_person_rgb, measured_qpos, ...)`，不要因为参数旧名称改用chest图像。
+
+归一化文件SHA256：`b94c7663d3122c6f1e8df865eaaecfb7987f7edf57b4c54281a9aeb3c22ee861`。本轮执行器使用逐帧RGB/时间戳已验证的FFV1缓存，统计身份绑定该缓存；不能替换成baseline交付中的统计或在测试集重算。
+
+## 验证状态
+
+- 训练监督器退出码0；10k、20k、30k完整checkpoint均有校验回执。
+- 20k/30k各895个张量与完整训练checkpoint逐位一致且数值有限，导出不含optimizer/scheduler，保留原训练身份。见 `validation/weights_all.json`。
+- 模型核心及线上policy的26个文件与本轮训练冻结快照逐字节一致，见 `validation/source_audit.json`。包内代码采用本轮冻结版本，不混入后续五任务适配。
+- 包内Gen四权重、共享底层契约、实际新文本MiniLM编码和路径重定位已通过CPU检查；CPU检查禁止读取原训练数据、标签及本地Gen训练目录。
+- 20k、30k均已通过真实GPU联调：分别读取4个原始固定观测，实际调用两套Planner LoRA和Gen2.1-311，输出数值有限的 `actions_rad[1,30,13]`（1个chunk）。两套Planner服务和验证进程已正常释放，见 `VALIDATION_RESULT.json`、`validation/gpu_window/RESULT.json` 及两个 `step*.json`。本次覆盖初始阶段，未验证实际完成后的KF归档和后续阶段切换。
+
+以上验证不是闭环成功率；本机没有执行仿真控制。两套沿用的三任务Planner在此前离线留出验证中各30/30匹配，也不能代替本轮闭环评测。推荐合作者用相同环境、seed和控制设置分别测试20k、30k，并记录实际Planner文本、完成分数、切换时间、DAG选择和失败阶段。
+
+## 原始训练记录与保留点
+
+运行记录：`/home/dataset-assist-0/wangpeishuo/experiments/safelab_ours_v13_third_person_base10k_dag20k_lambda100_bs448_20261024_123753`。
+
+完整训练checkpoint仍在本地盘，没有因本次导出而删除：
+
+- 10k：`/home/dataset-local/wangpeishuo/experiments/safelab_ours_v13_third_person_base10k_dag20k_lambda100_bs448_20261024_123753/all_history/checkpoints/step10000.pt`
+- 20k：`/home/dataset-local/wangpeishuo/experiments/safelab_ours_v13_third_person_base10k_dag20k_lambda100_bs448_20261024_123753/dag/checkpoints/step20000.pt`
+- 30k：`/home/dataset-local/wangpeishuo/experiments/safelab_ours_v13_third_person_base10k_dag20k_lambda100_bs448_20261024_123753/dag/checkpoints/step30000.pt`
+
+10k是未启用DAG的中间模型，不包含在本次20k/30k DAG推理对照中。当前五任务的两套Planner、Gen及后续cluster生成属于另一训练run，不应替换本交付中的三任务资产。
