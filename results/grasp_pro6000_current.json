@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-27T15:11:30.865189+00:00",
+  "updated_utc": "2026-10-27T15:25:31.734364+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -664,7 +664,7 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 86,
+    "registered_jobs": 87,
     "active_registered_jobs": 2,
     "BOS_mount_count": 2,
     "state": "running_after_user_authorized_direct_takeover",
@@ -674,7 +674,7 @@
       "100ml烧杯/大棕瓶32k ACT模型已训练完，先查阶段预测与专家配对回放结果，再决定新闭环测试。",
       "小棕瓶/量筒/250ml烧杯等源数据未达到成功比例或零交叉要求，不因终点接近目标而追加训练。"
     ],
-    "checked_utc": "2026-10-27T15:11:30.865189+00:00",
+    "checked_utc": "2026-10-27T15:25:31.734364+00:00",
     "jobs": [
       {
         "tag": "train-m6rgb-funnel-20261026cc",
@@ -902,7 +902,7 @@
         "job_id": "job-wskg1pgraeso",
         "status": "SUCCEEDED",
         "name": "100ml烧杯/大棕瓶 ACT · 固定32k预算实验",
-        "progress_note": "6个ACT模型固定32k更新已完成并正常收尾；烧杯三种子的离线手臂误差约减半。更长预算实验，旧10k模型保留；尚未证明闭环SR/SSR改善，不自动提150次正式测试。"
+        "progress_note": "6个32k ACT模型已完成；同一固定源验证集上，烧杯与大棕瓶三种子平均手臂误差分别下降50.0%/50.5%。这仍是源拟合证据，未计闭环SR/SSR；旧10k模型及全部失败保留。"
       },
       {
         "tag": "train-D100-brownL-b100-20261027cc",
@@ -914,9 +914,16 @@
       {
         "tag": "dev-causal-expert-act-b100-brownL-20261027cc",
         "job_id": "job-t34w7r2ldyyz",
-        "status": "PENDING",
+        "status": "FAILED",
         "name": "烧杯/大棕瓶 · 专家动作与旧ACT配对诊断",
-        "progress_note": "四卡短诊断，每卡一例：两物体各一个固定源位置，原专家动作/旧ACT共4次；配对XY和仿真种子一致，零训练，另记实际关节驱动目标，不计正式验收。"
+        "progress_note": "诊断基础设施失败：多物体NODE缺少object日志字段导致父进程退出，4个子进程被收尾，0个完整计分试次；原记录保留。已补节点身份、方法专属闭合状态与3项真实调度器CPU回归，用新tag补诊断。"
+      },
+      {
+        "tag": "dev-causal-expert-act-b100-brownL-20261027cc-r2",
+        "job_id": "job-ieord67329oi",
+        "status": "PENDING",
+        "name": "烧杯/大棕瓶 · 专家/旧ACT配对诊断 R2",
+        "progress_note": "首轮基础设施错误已修复并保留，R2四卡已提交；两固定源位置分别执行原专家与旧ACT，配对seed/XY一致，一卡一例，零训练，独立实际驱动记录和专家审计。"
       }
     ],
     "progress_note": "100ml烧杯DP已达SpatialSSR40%，但SR64.7%低于78%；漏斗DP完整150次为52.0%/14.7%，低于68%/30%。这两项已完成几何后处理，当前瓶颈是实测指标，不是等待任务结束。",
