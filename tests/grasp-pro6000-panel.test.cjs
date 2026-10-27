@@ -121,7 +121,14 @@ test('only the new snapshot adds browser versions; every existing dataset remain
   assert.ok(files.includes('grasp_matched_and_original_eval_native_v86.json'));
   assert.ok(files.includes('grasp_pro6000_current.json'));
   for (const file of files) assert.ok(fs.existsSync(path.join(root, 'results', file)), file);
-  assert.ok(snapshot.runs.every(r => r.current_native === false && r.cases.length === 0));
+  assert.ok(snapshot.runs.every(r => r.current_native === false));
+  const media=snapshot.runs.flatMap(r => r.cases);
+  assert.equal(media.length, 6);
+  for (const clip of media) {
+    assert.match(clip.url, /^assets\/grasp\/pro6000_fresh_B100_20261027\/trial(?:02|06)_s\d+_(?:chest|head|third)_camera\.mp4$/);
+    const bytes=fs.readFileSync(path.join(root,clip.url));
+    assert.equal(require('node:crypto').createHash('sha256').update(bytes).digest('hex'), clip.SHA256);
+  }
 });
 
 test('historical progress stays unloaded until opened, and repeated opens share one request', async () => {
@@ -153,4 +160,32 @@ test('historical anchors load and reveal the old section while model links keep 
     assert.equal(panel.open, Boolean(expected), hash);
     assert.equal(scrolls, expected, hash);
   }
+});
+
+
+test('Pro6000 development stays labeled development while original success/failure videos switch', () => {
+  const script=fs.readFileSync(path.join(root,'grasp.js'),'utf8');
+  const current=JSON.parse(fs.readFileSync(path.join(root,'results/grasp_acceptance_current.json'),'utf8'));
+  const nodes=new Map();let scrolls=0;
+  const element=()=>({innerHTML:'',textContent:'',value:'',hidden:false,
+    classList:{toggle(){}},setAttribute(){},querySelectorAll(){return [];},scrollIntoView(){scrolls++;}});
+  const node=id=>{if(!nodes.has(id))nodes.set(id,element());return nodes.get(id);};
+  const candidate='pro6000-dev-A32-freshtrial-b100-val5-20261027cc';
+  const run=snapshot.runs.find(r=>r.candidate===candidate);assert.ok(run);
+  const context={URL,URLSearchParams,fixtureCurrent:current,fixtureRuns:[run],
+    location:{href:'https://asimfish.github.io/psibot-dashboard/grasp.html'},
+    window:{addEventListener(){}},document:{getElementById:node}};
+  vm.runInNewContext(script.slice(0,script.indexOf('async function start()'))+
+    `;current=fixtureCurrent;allObjects=current.objects;allRuns=fixtureRuns;objectId='glass_beaker_100ml';method='ACT';runId='${candidate}';render();`,context);
+  assert.match(node('runDetails').innerHTML,/15 集开发试跑/);
+  assert.doesNotMatch(node('runDetails').innerHTML,/3种子正式测试|SR 达到该物体论文目标/);
+  assert.match(node('videos').innerHTML,/trial06_s26121923_chest_camera\.mp4/);
+  assert.match(node('videos').innerHTML,/720帧/);
+  node('episode').value='3';node('episode').onchange();
+  assert.match(node('videos').innerHTML,/trial02_s26121921_chest_camera\.mp4/);
+  assert.match(node('videos').innerHTML,/失败/);
+  node('episode').value='1';node('episode').onchange();
+  assert.match(node('videos').innerHTML,/trial06_s26121923_head_camera\.mp4/);
+  context.location.hash='#object=glass_beaker_100ml&method=ACT&run='+candidate;context.applyHashSelection();
+  assert.equal(scrolls,1,'Matching version link reveals the actual video browser');
 });
