@@ -46,3 +46,5 @@ Primary workflow: Pipeline (diagnose → execute → audit → report). Isolated
 Primary workflow: Pipeline (audited reader → deduplicated media → publication gate → independent root review → GitHub publication). Publish a precise53/472 snapshot; keep47 history and the incomplete50 n20 cohorts/46 paired contrasts explicit. No changes to root T-006 execution ownership or scope.
 
 T-007 publication result: exact53/472 fixed snapshot deployed at https://asimfish.github.io/psibot-astra-experiments/ (main b261effe2d7eb67cb41542be6090b950a0203fbc,91.52MB;350originals reused/54neworiginals,zero reencoding). Actual public bytes and36PNG/18MP4browser acceptance passed;dashboard entry PR next. This publication preserves47history and does not finish or change rootT006/scientific cohorts.
+
+- 2026-10-27 T-942: Review-ready extension adds old chest full400 benchmark,8 original videos,four loss histories and native threshold calibration. Formal V13 outcomes unchanged; threshold candidates not promoted. Public release verification pending.

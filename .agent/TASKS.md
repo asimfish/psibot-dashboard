@@ -10,3 +10,5 @@
 | T-837 | done | codex-grasp-ssr-ood | V82 local publication artifact | [T-837](tasks/T-837.md) | Independent review, all36 media and local browser/seed gates PASS; public rollout and scientific acceptance remain T-552. |
 | T-885 | done | codex-grasp-ssr-ood | `/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/site, /home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/continued_acceptance_20261021_v2936/v84_artifact` | [.agent/tasks/T-885.md](tasks/T-885.md) | Prepare verified Grasp V84 independent16 and defect evidence artifact |
 | T-887 | review | codex-t552-v81-review | `.agent/tasks/T-887.md` | [.agent/tasks/T-887.md](tasks/T-887.md) | Independent review of T885 Grasp V84 local artifact |
+
+| T-942 | review | codex-v13-loss-threshold | `v13_comparison/` | [.agent/tasks/T-942.md](tasks/T-942.md) | Add old chest baseline, four training losses and native completion threshold calibration |
