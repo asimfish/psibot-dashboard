@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-27T10:03:54.171336+00:00",
+  "updated_utc": "2026-10-27T15:11:30.865189+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -18,8 +18,15 @@
           26121923,
           26121925
         ],
-        "formal_evaluation_status": "RUNNING",
-        "formal_evaluation_expected_trials": 150
+        "formal_evaluation_status": "COMPLETED_METRICS_BELOW_PAPER",
+        "formal_evaluation_expected_trials": 150,
+        "SR": 64.7,
+        "SpatialSSR_reported": 40.0,
+        "trials": 150,
+        "completed_trials": 150,
+        "completed_native_successes": 97,
+        "completed_success_terminal20mm": 60,
+        "saved_pose_crossing_trials": 0
       },
       "ACT": {
         "formal_accepted": false,
@@ -42,9 +49,9 @@
         "episodes": 5,
         "strict_crossing_poses": 0
       },
-      "next": "ACT interrupted17/150 allpolicyfailures,2technicalcells-11/-9; diagnosebeforeadditionalformalrollouts. DPformal150stillRUNNING.",
+      "next": "Paired recorded-expert versus old ACT replay at fixed source position before assigning failure to model or runtime.",
       "name": "100ml 玻璃烧杯",
-      "status_note": "100条新源通过准入，DP/ACT三种子已训练完。ACT测试17/150正常关闭但0成功，另2技术单元退出-11/-9后中断；已查试次初始直立、首秒稳定，主要需查抓取/抬升。DP正式150次继续运行。"
+      "status_note": "DP完整150次：SR64.7%、SpatialSSR40.0%，SSR达到论文40%，SR未达78%（还差20次成功）。ACT旧版17次0成功后技术中断；32k三种子已训练完，专家/旧ACT配对诊断已提交。"
     },
     {
       "object": "brown_volumetric_flask_250ml",
@@ -57,7 +64,12 @@
       },
       "collection_and_eval_GPU_line": "Zenith Pro6000",
       "DP": {
-        "formal_accepted": false
+        "formal_accepted": false,
+        "formal_evaluation_status": "INTERRUPTED",
+        "completed_trials": 142,
+        "completed_native_successes": 26,
+        "completed_success_terminal20mm": 2,
+        "partial_is_not_formal_result": true
       },
       "ACT": {
         "formal_accepted": false,
@@ -118,9 +130,9 @@
         "development_training_allowed": true,
         "sampled_review_sheets_manually_inspected": 2
       },
-      "next": "3DP50k+3ACT10kclosed;ACTformal interrupted62/150:47successes,7success+t20;retainall,diagnosethenmissingonly.",
+      "next": "Old DP upper bound34/150 below paper77%, do not spend GPU completing a hopeless acceptance candidate before diagnosis.",
       "name": "250ml 棕色容量瓶",
-      "status_note": "源100条实际抬升与保存姿态严格零交叉准入通过，3DP×50k、3ACT×10k均训练完。ACT正式测试中断在62/150，已完成子集47原生成功、7成功且终点≤20mm；不当作完整成绩。"
+      "status_note": "ACT中断62/150：47次成功、7次成功且终点≤20mm；DP中断142/150：26次成功、2次终点合格。即使余8次全成功，旧DP也达不到77%论文SR，先查模型与执行链路，保留全部记录。"
     },
     {
       "object": "glass_beaker_250ml",
@@ -240,8 +252,12 @@
           26121923,
           26121925
         ],
-        "formal_evaluation_status": "RUNNING",
-        "formal_evaluation_expected_trials": 150
+        "formal_evaluation_status": "INTERRUPTED",
+        "formal_evaluation_expected_trials": 150,
+        "completed_trials": 27,
+        "completed_native_successes": 15,
+        "completed_success_terminal20mm": 1,
+        "partial_is_not_formal_result": true
       },
       "ACT": {
         "formal_accepted": false,
@@ -250,8 +266,12 @@
           26121923,
           26121925
         ],
-        "formal_evaluation_status": "RUNNING",
-        "formal_evaluation_expected_trials": 150
+        "formal_evaluation_status": "INTERRUPTED",
+        "formal_evaluation_expected_trials": 150,
+        "completed_trials": 74,
+        "completed_native_successes": 65,
+        "completed_success_terminal20mm": 8,
+        "partial_is_not_formal_result": true
       },
       "object_accepted": false,
       "full_visual_passed": false,
@@ -263,7 +283,7 @@
       },
       "next": "DP andACT formal150running; earlyACT4/4successbut0terminal20mm,DP2/8success/0t20. Noformalcredit.",
       "name": "大棕色试剂瓶",
-      "status_note": "合格源与三种子训练已完成，DP和ACT正式150次同时运行。ACT首4次均抓起但终点误差24–54mm；DP首8次2成功、终点20mm分量0。均是早期子集，不计SR/SSR正式成绩。",
+      "status_note": "ACT中断在74/150：65次抓起，只有8次成功且终点≤20mm；DP中断在27/150：15次抓起、1次终点合格。终点精度是主要已见瓶颈；32k ACT三种子已训练完，100k DP训练和专家回放诊断继续。",
       "source": {
         "episodes": 100,
         "native_successes": 100,
@@ -567,8 +587,8 @@
       },
       "collection_and_eval_GPU_line": "Zenith Pro6000",
       "DP": {
-        "SR": 0.0,
-        "SpatialSSR_reported": 0.0,
+        "SR": 52.0,
+        "SpatialSSR_reported": 14.7,
         "trials": 150,
         "formal_accepted": false,
         "development_smoke": {
@@ -585,14 +605,12 @@
           26121923,
           26121925
         ],
-        "formal_evaluation_status": "RUNNING",
+        "formal_evaluation_status": "COMPLETED_METRICS_BELOW_PAPER",
         "formal_evaluation_expected_trials": 150,
-        "early_formal_subset": {
-          "trials": 4,
-          "native_successes": 3,
-          "success_and_terminal20mm": 2,
-          "not_formal_result": true
-        }
+        "completed_trials": 150,
+        "completed_native_successes": 78,
+        "completed_success_terminal20mm": 22,
+        "saved_pose_crossing_trials": 0
       },
       "ACT": {
         "SR": 77.3,
@@ -610,9 +628,9 @@
         "lifted": 100,
         "strict_crossings": 0
       },
-      "next": "Full50k signedRGB DP developer smoke5/5 native,2/5 terminal20mm; formal150/3seeds RUNNING.",
+      "next": "Diagnose complete DP failure, not a stall; preserve all three seed groups and 150 outcomes. No blind formal rerun.",
       "name": "漏斗",
-      "status_note": "完整50k DP开发5/5抓起；正式泛化测试首4次3成功、2次成功且终点≤20mm，完整150次与几何/视觉仍在推进。旧ACT报告77.3%/35.3%，完整视觉与范围复核待完成。"
+      "status_note": "DP完整150次：SR52.0%、SpatialSSR14.7%，低于论文68%/30%；保存轨迹交叉0。ACT旧版77.3%/35.3%，完整视觉与SR偏高的范围复核仍未闭环。先查抓取可靠性、终点精度和种子组差异。"
     },
     {
       "object": "alcohol_lamp",
@@ -646,20 +664,17 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 82,
-    "active_registered_jobs": 4,
+    "registered_jobs": 86,
+    "active_registered_jobs": 2,
     "BOS_mount_count": 2,
     "state": "running_after_user_authorized_direct_takeover",
-    "state_note": "4个四卡low_priority任务运行中：漏斗DP、100ml烧杯DP、大棕瓶DP与ACT。仍0/21双方法完整验收。",
+    "state_note": "1个四卡DP训练运行、1个四卡因果诊断平台排队（核验快照）；仍0/21双方法完整验收。",
     "prepared_not_submitted": [
-      "棕色容量瓶DP：完整50k三种子与冻结150位置已准入，下一空位自动运行",
-      "100ml烧杯/大棕瓶ACT：同三种子32k固定预算实验已入队，保留原10k版本；更长训练能否解决抓取/终点误差仍待闭环验证",
-      "100ml烧杯ACT：17次0成功且测试技术中断；保留全部关闭试次，先排查动作/模型与-11/-9故障，避免盲目重复测试",
-      "50ml烧杯：初始XY已修正但0.117秒后倾倒，正式DP继续挂起；10/15mm裕量未放行",
-      "棕色容量瓶ACT：62/150中断，47成功/7成功且终点20mm；补缺失前先处理Vulkan启动故障与终点误差",
-      "小棕瓶/玻璃量筒/250ml烧杯继续修源质量；未过完整源准入的模型不启动训练或计验收"
+      "50ml烧杯正式DP继续挂起：先做无策略被动静置对照，区分物理不稳和早期手指碰撞；旧DP图像处理版本也需替换。",
+      "100ml烧杯/大棕瓶32k ACT模型已训练完，先查阶段预测与专家配对回放结果，再决定新闭环测试。",
+      "小棕瓶/量筒/250ml烧杯等源数据未达到成功比例或零交叉要求，不因终点接近目标而追加训练。"
     ],
-    "checked_utc": "2026-10-27T10:03:10.583765+00:00",
+    "checked_utc": "2026-10-27T15:11:30.865189+00:00",
     "jobs": [
       {
         "tag": "train-m6rgb-funnel-20261026cc",
@@ -839,9 +854,9 @@
       {
         "tag": "eval-m10-act-brownL-20261027cc",
         "job_id": "job-i869ag5da525",
-        "status": "RUNNING",
+        "status": "FAILED",
         "name": "大棕瓶ACT · 三种子正式150次",
-        "progress_note": "三份完整预算模型已核验SHA；预先冻结三种子150位置，+0/+1/+2/+3cm。每次独立冷启动，按内存最多8单元、每卡2单元滚动执行；150试次身份/CPU闭合齐全后自动几何审计与审阅图。",
+        "progress_note": "正常CPU关闭74/150：65次原生成功、8次成功且终点≤20mm；技术中断与策略失败分开保留，不能当完整SR/SSR。",
         "formal_plan_SHA256": "f0b2e918f335e565eaa301a386ce5f794656d00d4f843aaf25e2549876f715fa"
       },
       {
@@ -855,46 +870,66 @@
       {
         "tag": "eval-m16-dp-b100-20261027cc",
         "job_id": "job-cljpfw8284ak",
-        "status": "RUNNING",
+        "status": "SUCCEEDED",
         "name": "100ml烧杯DP · 三种子正式150次",
-        "progress_note": "三份完整预算模型已核验SHA；预先冻结三种子150位置，+0/+1/+2/+3cm。每次独立冷启动，按内存最多8单元、每卡2单元滚动执行；150试次身份/CPU闭合齐全后自动几何审计与审阅图。",
+        "progress_note": "完整150次、三训练种子、+0/1/2/3cm。SR 64.7% / SpatialSSR 40.0%；保存轨迹几何审计未检出交叉，完整视觉未通过最终复核。论文目标78% / 40%，本版本未完整验收。",
         "formal_plan_SHA256": "38db0f6b01712897ab02a80d94353594dd2e82b2d091200c1cd11e2fb2f85cd0"
       },
       {
         "tag": "eval-m6rgb-dp-funnel-20261027cc",
         "job_id": "job-mmn2dup9j423",
-        "status": "RUNNING",
+        "status": "SUCCEEDED",
         "name": "漏斗DP · 三种子正式150次",
-        "progress_note": "三份完整预算模型已核验SHA；预先冻结三种子150位置，+0/+1/+2/+3cm。每次独立冷启动，按内存最多8单元、每卡2单元滚动执行；150试次身份/CPU闭合齐全后自动几何审计与审阅图。",
+        "progress_note": "完整150次、三训练种子、+0/1/2/3cm。SR 52.0% / SpatialSSR 14.7%；保存轨迹几何审计未检出交叉，完整视觉未通过最终复核。论文目标68% / 30%，本版本未完整验收。",
         "formal_plan_SHA256": "bcb0fd4ce0ced405fa41b63f7247f44641ee1d91ce56876464bb5fad3d21f13b"
       },
       {
         "tag": "eval-m10-dp-brownL-20261027cc",
         "name": "大棕瓶DP · 三种子正式150次",
         "job_id": "job-0x4yqt4tl4c4",
-        "status": "RUNNING",
-        "progress_note": "已自动补位并运行；首8次正常关闭2次成功，独立终点20mm分量0。这是一个种子的早期子集，未代表正式150次或SSR。哈希缓存与滚动进度已启用。"
+        "status": "FAILED",
+        "progress_note": "正常CPU关闭27/150：15次原生成功、1次成功且终点≤20mm；技术中断与策略失败分开保留，不能当完整SR/SSR。"
       },
       {
         "tag": "eval-m6rgb-dp-bvf-20261027cc",
         "name": "棕色容量瓶DP · 三种子正式150次",
         "job_id": null,
-        "status": "NOT_SUBMITTED",
-        "progress_note": "三种子完整50k EMA已核验，原冻结150位置与+0/1/2/3cm，等待下一空位。"
+        "status": "FAILED",
+        "progress_note": "正常CPU关闭142/150：26次原生成功、2次成功且终点≤20mm；技术中断与策略失败分开保留，不能当完整SR/SSR。"
       },
       {
         "tag": "train-A32-b100-brownL-20261027cc",
-        "job_id": null,
-        "status": "NOT_SUBMITTED",
+        "job_id": "job-wskg1pgraeso",
+        "status": "SUCCEEDED",
         "name": "100ml烧杯/大棕瓶 ACT · 固定32k预算实验",
-        "progress_note": "10:03已入队：同三种子、每物体100条合格源，6个ACT模型固定32k步。架构/损失/chunk4/学习率1e-5不变；这是更长预算实验，不是相同论文训练预算，不增加独立种子数；保留旧10k模型，改善须闭环验证。"
+        "progress_note": "6个ACT模型固定32k更新已完成并正常收尾；烧杯三种子的离线手臂误差约减半。更长预算实验，旧10k模型保留；尚未证明闭环SR/SSR改善，不自动提150次正式测试。"
+      },
+      {
+        "tag": "train-D100-brownL-b100-20261027cc",
+        "job_id": "job-ozoknm2o2nbg",
+        "status": "RUNNING",
+        "name": "大棕瓶/100ml烧杯 DP · 固定100k预算实验",
+        "progress_note": "一张卡一个DP：大棕瓶原三种子与100ml烧杯种子21。与旧50k模型分开记录，不增加独立种子数，不混合不同预算组成正式三种子成绩。"
+      },
+      {
+        "tag": "dev-causal-expert-act-b100-brownL-20261027cc",
+        "job_id": "job-t34w7r2ldyyz",
+        "status": "PENDING",
+        "name": "烧杯/大棕瓶 · 专家动作与旧ACT配对诊断",
+        "progress_note": "四卡短诊断，每卡一例：两物体各一个固定源位置，原专家动作/旧ACT共4次；配对XY和仿真种子一致，零训练，另记实际关节驱动目标，不计正式验收。"
       }
     ],
-    "progress_note": "漏斗DP正式测试首4次3成功、2次成功且终点≤20mm，正在继续150次；不把早期子集当SSR。100ml烧杯ACT在17次均未成功后因2个技术失败单元中断，大棕瓶DP已自动补位。四个四卡作业持续运行，完整通过仍0/21。",
-    "DP_repair_note": "Signed-RGB修正后的完整50k真EMA开发闭环从15k的0/5提升到5/5，成功且终点20mm为2/5；这是采集范围内5位置、1种子的开发证据，不是SSR或泛化通过。漏斗DP三种子正式150次已运行，保留全部成功和失败；50k模型来自固定预算，未按rollout挑选。",
-    "b50_reset_note": "约6–9mm初始XY偏移的旧错误仍保留；2/5mm裕量诊断均0个有效测试trial。新诊断初始XY已准确至0.149mm，但放置后0.117秒开始倾倒，首秒约68°，重置验收仍失败。继续排查物理稳定性，正式DP继续挂起，测试位置与门槛不变。"
+    "progress_note": "100ml烧杯DP已达SpatialSSR40%，但SR64.7%低于78%；漏斗DP完整150次为52.0%/14.7%，低于68%/30%。这两项已完成几何后处理，当前瓶颈是实测指标，不是等待任务结束。",
+    "DP_repair_note": "原专家动作被拉长24秒和signed-RGB色相处理两处错误已修复。完整三种子正式测试已证明修复并不等于验收通过；保留旧版0%与新版52%独立结果，继续定位抓取与终点误差。",
+    "b50_reset_note": "约6–9mm初始XY偏移的旧错误已保留。最新初始XY准确至0.149mm、初始直立，但主动策略开始后0.117秒倾倒；仅此不足以证明被动重置不稳，EEF距离也不能排除长手指碰撞。正式DP继续挂起。",
+    "failure_diagnosis": [
+      "源质量：250ml烧杯80/100、500ml玻璃量筒74/100、小棕瓶72/100原生成功；终点位置合格不能代替真的抓起，未合格源先修控制器。",
+      "策略与终点：100ml烧杯DP还差20/150次成功才能达到78%；大棕瓶ACT已完成74次中的65次抓起，只有8次同时满足终点20mm，须查终点预测和执行误差。",
+      "执行链路尚有证据缺口：固定源位置做原始专家动作/旧ACT配对回放，并独立记录实际关节驱动；先区分模型误差与采集/测试差异。",
+      "运行故障：已确认过未计分的Vulkan启动崩溃；部分正式测试未跑齐，全部已关闭成功和失败保留。完整跑完的漏斗/烧杯DP本身也未达SR要求，不能只归因于平台。"
+    ]
   },
-  "evidence_note": "Pro6000采集和测试单独报告；不混入5090历史结果。源数据小样本的保存姿态审计不能代替全量几何或完整视频审阅。",
+  "evidence_note": "论文指标为Grasp SpatialSSR；20mm终点位置与保存轨迹零交叉已分别核验。最新两项150次结果仍未通过完整视觉复核及全部数值标准。中断子集、专家回放和开发小测均不计完整验收；所有历史模型版本和视频保留。",
   "offline_DP_probe": {
     "observations": 4,
     "source_episodes": 1,
@@ -1215,7 +1250,7 @@
       "candidate": "pro6000-eval-m6-dp-funnel-20261025cc",
       "object": "funnel",
       "method": "DP",
-      "display_name": "Pro6000 · DP · 3种子×50集",
+      "display_name": "旧图像处理版本 · 150次",
       "current_native": false,
       "development": false,
       "formal_accepted": false,
@@ -1233,7 +1268,7 @@
         "range_label": "±3 / 4 / 5 / 6cm",
         "duration_label": "24s",
         "seed": "3个训练种子的汇总",
-        "note": "Pro6000同型号采集/测试，+0/+1/+2/+3cm。此汇总保留旧模型150次成绩；修复后完整50k DP开发5/5抓起，新的三种子150次正式泛化测试正在运行。旧ACT报告SR77.3%、后处理SSR35.3%，完整视觉仍待复核。此版本无已发布完整视频，历史版本及其视频继续保留。"
+        "note": "旧图像处理模型的150次失败结果，独立保留；不能被后续50k模型成绩覆盖。"
       },
       "train": {
         "dataset": {
@@ -1243,8 +1278,36 @@
           "seed": "26121921 / 26121923 / 26121925"
         }
       },
-      "metric_note": "此汇总保留旧模型150次成绩；修复后完整50k DP开发5/5抓起，新的三种子150次正式泛化测试正在运行。旧ACT报告SR77.3%、后处理SSR35.3%，完整视觉仍待复核。此版本无已发布完整视频，历史版本及其视频继续保留。",
-      "cases": []
+      "metric_note": "旧图像处理模型的150次失败结果，独立保留；不能被后续50k模型成绩覆盖。",
+      "cases": [],
+      "result": {
+        "SR": 0.0,
+        "SpatialSSR_reported": 0.0,
+        "trials": 150,
+        "formal_accepted": false,
+        "development_smoke": {
+          "trials": 5,
+          "successes": 5,
+          "success_and_terminal20mm": 2,
+          "training_seeds": 1,
+          "updates": 50000,
+          "formal_credit": false,
+          "within_collection_range": true
+        },
+        "training_closed_seeds": [
+          26121921,
+          26121923,
+          26121925
+        ],
+        "formal_evaluation_status": "RUNNING",
+        "formal_evaluation_expected_trials": 150,
+        "early_formal_subset": {
+          "trials": 4,
+          "native_successes": 3,
+          "success_and_terminal20mm": 2,
+          "not_formal_result": true
+        }
+      }
     },
     {
       "candidate": "pro6000-eval-m6-act-funnel-20261025cc",
@@ -1279,7 +1342,15 @@
         }
       },
       "metric_note": "此汇总保留旧模型150次成绩；修复后完整50k DP开发5/5抓起，新的三种子150次正式泛化测试正在运行。旧ACT报告SR77.3%、后处理SSR35.3%，完整视觉仍待复核。此版本无已发布完整视频，历史版本及其视频继续保留。",
-      "cases": []
+      "cases": [],
+      "result": {
+        "SR": 77.3,
+        "SpatialSSR_reported": 35.3,
+        "trials": 150,
+        "penetration_trials": 1,
+        "penetration_in_failure_only": true,
+        "formal_accepted": false
+      }
     },
     {
       "candidate": "pro6000-eval-m6-dp-mortar-20261025cc",
@@ -1314,7 +1385,13 @@
         }
       },
       "metric_note": "论文Crucible按用户确认映射到mortar；ACT有145/150穿模，终点位置分量也未达标。c0.5/c0.7候选仍存在小于1mm交叉，不能按零穿模准入。 此版本无已发布完整视频，不计完整验收；历史版本及其视频继续保留。",
-      "cases": []
+      "cases": [],
+      "result": {
+        "SR": 16.0,
+        "success_and_terminal_dP20": 0.0,
+        "trials": 150,
+        "formal_accepted": false
+      }
     },
     {
       "candidate": "pro6000-eval-m6-act-mortar-20261025cc",
@@ -1349,7 +1426,14 @@
         }
       },
       "metric_note": "论文Crucible按用户确认映射到mortar；ACT有145/150穿模，终点位置分量也未达标。c0.5/c0.7候选仍存在小于1mm交叉，不能按零穿模准入。 此版本无已发布完整视频，不计完整验收；历史版本及其视频继续保留。",
-      "cases": []
+      "cases": [],
+      "result": {
+        "SR": 91.3,
+        "success_and_terminal_dP20": 7.3,
+        "penetration_trials": 145,
+        "trials": 150,
+        "formal_accepted": false
+      }
     },
     {
       "candidate": "pro6000-eval-m6-act-b50-20261025cc-r2",
@@ -1384,7 +1468,128 @@
         }
       },
       "metric_note": "源100/100抬起且无保存姿态交叉。仅改生成高度的小测失败：部分初始XY偏6–9mm，超过2mm门槛，0个有效测试trial。关闭自动高度校准的第二版诊断排队，正式DP继续挂起。 此版本无已发布完整视频，不计完整验收；历史版本及其视频继续保留。",
-      "cases": []
+      "cases": [],
+      "result": {
+        "SR": 2.7,
+        "SpatialSSR_reported": 0.0,
+        "trials": 150,
+        "formal_accepted": false
+      }
+    },
+    {
+      "candidate": "pro6000-eval-m6rgb-dp-funnel-20261027cc",
+      "object": "funnel",
+      "method": "DP",
+      "display_name": "修正图像处理 · 50k · 3种子×50次",
+      "current_native": false,
+      "development": false,
+      "formal_accepted": false,
+      "paper_ssr_percent": null,
+      "reported_SpatialSSR_percent": 14.7,
+      "progress": {
+        "episode_num": 150,
+        "episode_success_num": 78,
+        "success_rate": 0.52
+      },
+      "protocol": {
+        "method": "dp",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "±3 / 4 / 5 / 6cm",
+        "duration_label": "24s",
+        "seed": "3个训练种子的汇总",
+        "note": "完整150次、三训练种子、+0/1/2/3cm。SR 52.0% / SpatialSSR 14.7%；保存轨迹几何审计未检出交叉，完整视觉未通过最终复核。论文目标68% / 30%，本版本未完整验收。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": "26121921 / 26121923 / 26121925",
+          "updates": 50000
+        }
+      },
+      "metric_note": "完整150次、三训练种子、+0/1/2/3cm。SR 52.0% / SpatialSSR 14.7%；保存轨迹几何审计未检出交叉，完整视觉未通过最终复核。论文目标68% / 30%，本版本未完整验收。",
+      "cases": [],
+      "result": {
+        "SR": 52.0,
+        "SpatialSSR_reported": 14.7,
+        "trials": 150,
+        "formal_accepted": false,
+        "development_smoke": {
+          "trials": 5,
+          "successes": 5,
+          "success_and_terminal20mm": 2,
+          "training_seeds": 1,
+          "updates": 50000,
+          "formal_credit": false,
+          "within_collection_range": true
+        },
+        "training_closed_seeds": [
+          26121921,
+          26121923,
+          26121925
+        ],
+        "formal_evaluation_status": "COMPLETED_METRICS_BELOW_PAPER",
+        "formal_evaluation_expected_trials": 150,
+        "completed_trials": 150,
+        "completed_native_successes": 78,
+        "completed_success_terminal20mm": 22,
+        "saved_pose_crossing_trials": 0
+      }
+    },
+    {
+      "candidate": "pro6000-eval-m16-dp-b100-20261027cc",
+      "object": "glass_beaker_100ml",
+      "method": "DP",
+      "display_name": "修正图像处理 · 50k · 3种子×50次",
+      "current_native": false,
+      "development": false,
+      "formal_accepted": false,
+      "paper_ssr_percent": null,
+      "reported_SpatialSSR_percent": 40.0,
+      "progress": {
+        "episode_num": 150,
+        "episode_success_num": 97,
+        "success_rate": 0.6466666666666666
+      },
+      "protocol": {
+        "method": "dp",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "±3 / 4 / 5 / 6cm",
+        "duration_label": "24s",
+        "seed": "3个训练种子的汇总",
+        "note": "完整150次、三训练种子、+0/1/2/3cm。SR 64.7% / SpatialSSR 40.0%；保存轨迹几何审计未检出交叉，完整视觉未通过最终复核。论文目标78% / 40%，本版本未完整验收。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": "26121921 / 26121923 / 26121925",
+          "updates": 50000
+        }
+      },
+      "metric_note": "完整150次、三训练种子、+0/1/2/3cm。SR 64.7% / SpatialSSR 40.0%；保存轨迹几何审计未检出交叉，完整视觉未通过最终复核。论文目标78% / 40%，本版本未完整验收。",
+      "cases": [],
+      "result": {
+        "formal_accepted": false,
+        "training_closed_seeds": [
+          26121921,
+          26121923,
+          26121925
+        ],
+        "formal_evaluation_status": "COMPLETED_METRICS_BELOW_PAPER",
+        "formal_evaluation_expected_trials": 150,
+        "SR": 64.7,
+        "SpatialSSR_reported": 40.0,
+        "trials": 150,
+        "completed_trials": 150,
+        "completed_native_successes": 97,
+        "completed_success_terminal20mm": 60,
+        "saved_pose_crossing_trials": 0
+      }
     }
   ]
 }

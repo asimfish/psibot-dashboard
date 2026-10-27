@@ -50,8 +50,16 @@ function renderPro6000(snapshot) {
       add(row, 'td', job.progress_note, 'pro6000-object-note');
     }
   }
+  if (snapshot.pipeline.failure_diagnosis?.length) {
+    const diagnosis = add(root, 'details');
+    diagnosis.open = true;
+    add(diagnosis, 'summary', '为什么还没有完整通过：失败证据与下一项验证');
+    const entries = add(diagnosis, 'ul');
+    for (const item of snapshot.pipeline.failure_diagnosis) add(entries, 'li', item);
+  }
   const measured = add(root, 'details');
-  add(measured, 'summary', '已出测试结果：漏斗、研钵和 50ml 烧杯（均未完整验收）');
+  measured.open = true;
+  add(measured, 'summary', '各版本实测结果（完整验收状态另列）');
   const wrap = add(measured, 'div', undefined, 'table-wrap');
   const table = add(wrap, 'table');
   const header = add(add(table, 'thead'), 'tr');
@@ -59,20 +67,24 @@ function renderPro6000(snapshot) {
   const body = add(table, 'tbody');
   for (const run of snapshot.runs) {
     const object = snapshot.objects.find(o => o.object === run.object);
-    const result = object[run.method];
+    // Historical versions retain their own scores when the object's latest run changes.
+    const result = run.result || {};
+    const trials = run.progress.episode_num;
+    const sr = typeof result.SR === 'number' ? result.SR : run.progress.success_rate * 100;
+    const ssr = run.reported_SpatialSSR_percent;
     const row = add(body, 'tr');
-    add(row, 'td', object.name + ' · ' + run.method);
+    add(row, 'td', object.name + ' · ' + run.method + ' · ' + run.display_name);
     add(row, 'td', object.paper[run.method + '_SR'] + '% / ' + object.paper[run.method + '_SpatialSSR'] + '%');
-    add(row, 'td', percent(result.SR) + '（' + run.progress.episode_success_num + '/150）');
-    add(row, 'td', typeof result.SpatialSSR_reported === 'number' ?
-      percent(result.SpatialSSR_reported) + '（后处理报告，完整视觉待审）' :
+    add(row, 'td', percent(sr) + '（' + run.progress.episode_success_num + '/' + trials + '）');
+    add(row, 'td', typeof ssr === 'number' ?
+      percent(ssr) + '（轨迹后处理，完整视觉待审）' :
       percent(result.success_and_terminal_dP20) + '（仅成功且终点≤20mm，非完整SSR）');
     const link = add(add(row, 'td'), 'a', '在选择器中查看');
     link.href = '#' + new URLSearchParams({object: object.paper_id, method: run.method, run: run.candidate});
     link.addEventListener('click', () => document.getElementById('browser').scrollIntoView());
   }
   add(measured, 'p', '漏斗 ACT：+0 / +1 / +2 / +3cm 分组 SR 为 100 / 89.7 / 69.4 / 47.2%。SR 偏高的范围复核待确认；不能据此把物体记为通过。', 'muted');
-  add(measured, 'p', '研钵 ACT 有 145/150 试次表面交叉；b50 测试 reset 倾倒导致结果失效。失败试次全部保留，修复后使用新版本复测。', 'muted');
+  add(measured, 'p', '研钵 ACT 有 145/150 试次表面交叉。b50 旧测试存在重置异常；最新诊断虽初始直立，策略动作后仍迅速倾倒，尚需被动静置对照区分物理不稳与策略碰撞。失败试次全部保留。', 'muted');
   const all = add(root, 'details');
   add(all, 'summary', '21 个物体的当前源数据、论文目标和下一步');
   const allTable = add(add(all, 'div', undefined, 'table-wrap'), 'table');
