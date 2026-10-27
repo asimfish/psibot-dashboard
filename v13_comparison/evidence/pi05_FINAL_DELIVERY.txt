@@ -1,0 +1,83 @@
+# SafeLab v13 π0.5：最终推理交付
+
+**正式20k、30k权重的 Python 与官方 WebSocket 推理接口均已通过 Zenith A100 验收，30k独立 CLI 也已通过。可以交给合作者接入环境并开始评测。** 交付到模型输出 action chunk 为止；没有在仿真器或真实机器人中执行动作，尚无闭环任务成功率。
+
+## 给合作者的入口
+
+详细安装、模型启动、Python调用、远程客户端和环境执行约定见：
+
+```text
+/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/pi05-safelab/delivery/START_HERE.md
+```
+
+项目根目录：
+
+```text
+/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/pi05-safelab
+```
+
+这是 **Zenith 的 TOS 对象存储挂载**，对应 `tos://zenith-a02012413/wangpeishuo/pi05-safelab/`。本轮代码、交付文档和验证结果均写入这里；没有修改 Lotus 上的代码或交付物。计算环境与缓存可位于 `/public_fast_storage/wangpeishuo/pi05-safelab`，但该快速盘不是唯一交付来源。合作方运行不依赖 Lotus/Pub-2 或完整训练数据集。
+
+## 两份权重
+
+默认30k：
+
+```text
+/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/pi05-safelab/runs/pi05-h10-all100-b256-30k-fast-r1-20261023/checkpoints/30000
+```
+
+20k对照：
+
+```text
+/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/pi05-safelab/runs/pi05-h10-all100-b256-30k-fast-r1-20261023/checkpoints/20000
+```
+
+两份均为完整模型，每份 `model.safetensors` 约7.47GB，不需要原始π0.5基座权重或optimizer。必须一起带上该checkpoint的 `checkpoint_manifest.json`、`CHECKPOINT_COMPLETE.json`、`assets/safelab/norm_stats.json`、`assets/safelab/provenance.json`，以及项目的 `delivery/contract.json`、固定代码、tokenizer和运行环境。`metadata.pt` 可选，推理不读取。完整可移植目录清单和离线安装命令见 `START_HERE.md`。
+
+| checkpoint | 完整模型SHA256 |
+| --- | --- |
+| 20k | `8f41c90d6ffa2bdc4ca6cb1b0bcce5009be8fc87af0bebeac9a27657bc6ec9ef` |
+| 30k | `4e2ec482adf8847dedd3d3a2b09d185868ea7de6b66bf87e85f3f0bb3ef4a673` |
+
+## 接口与训练约定
+
+本次训练为 v13_smooth 全部100条示教、第三人称单视角、完整高层任务文本、H10；不接入Mem-0 planner、Gen2.1-311、DAG或子任务标签。
+
+- 输入：第三人称原始 RGB `uint8[H,W,3]`、13维实测关节角（弧度）、完整高层任务文本。
+- 输出：`actions_rad[10,13]`，绝对目标关节角（弧度）；`actions` 是相同物理数组的官方接口兼容字段。不是delta或速度，不能再加当前qpos或再次反归一化。
+- 时间：每目标1/15秒，10步约2/3秒，动作标签为 `interval_end`。合作者决定执行前K步后重新查询（K≤10），控制器处理实际120Hz细分、保持/插值和动力学。
+- 状态：模型无跨帧Mem-0记忆，episode重置时由环境清空动作队列；任务完成由环境评测器判断。
+- 统计：使用原H10/all100 quantile统计，SHA256为 `5a7e390c35b2a08f2e8de77e5d3c713710401f4873e7249ad97abe2967bf35ac`。不混用Mem-0 minmax或H50/train90统计。
+
+关节顺序、完整调用示例、服务地址配置、执行窗口与采样步数的区分均见 `START_HERE.md`。
+
+## 实际验证结果
+
+验证日期为2026-10-25，Zenith任务为 `t-20261025150619-26f62`，使用 NVIDIA A100-SXM4-80GB。GPU接口验收、独立CLI和测试脚本均已完成；Zenith API核实任务终态为 `SUCCEEDED`，原始证据为 `delivery/validation/job_latest.json`。综合状态文件 `delivery/validation/r1/STATUS.json` 实际记录 `phase=completed`、`passed=true`。
+
+| 项目 | 实证结果 | 相对项目根目录的证据 |
+| --- | --- | --- |
+| 原有SafeLab适配测试 | 6 passed | `delivery/validation/r1/pytest.log` |
+| 20k权重严格加载与完整hash校验 | 通过 | `delivery/validation/r1/step20000.json` |
+| 30k权重严格加载与完整hash校验 | 通过 | `delivery/validation/r1/step30000.json` |
+| 每份权重5个原始观测推理 | 全部为有限值 `[10,13]` | 同上两份JSON及对应NPZ |
+| 新封装与此前直接sample_actions路径 | 同图像/状态/文本/固定noise下最大绝对差0 | 同上两份JSON |
+| 官方WebSocket与Python直调 | 固定noise下最大绝对差0 | 同上两份JSON |
+| 推理时训练数据依赖/外部下载 | 两份检查均为0次训练数据读取、0次非本地网络尝试 | 同上两份JSON |
+| 独立30k CLI | 1个原始观测输出有限 `[1,10,13]` | `delivery/validation/r1/cli30k.json`、`cli30k.npz`、`cli.log` |
+
+模型加载包含全量权重hash校验：本次两份初始化约107–112秒。每份首个调用较慢，其余4个样本每次约0.24–0.25秒，默认10个denoising steps。该耗时只反映本次A100 fixture测量，不保证实际网络、其他硬件或环境的端到端实时性；模型应加载一次后常驻。
+
+输入检查覆盖错误图像dtype、错误qpos维数、NaN状态、空任务文本和额外GT子任务字段。报告中历史标签 `BGR_like_wrong_dtype` 实际验证的是**浮点图像dtype拒绝**，不能自动识别任意uint8图像是否为BGR；RGB通道顺序必须由合作者保证。
+
+fixture原字节复用Mem-0 v13交付，来自episode0前4帧及episode56首帧的原始相机采集，不是推理录像。这些episode参与过训练，只用于接口和数值验证，不能作为任务成功率或泛化能力的证据。
+
+## 复用与交付边界
+
+- 官方OpenPI模型、Policy、WebSocket服务和客户端继续复用。
+- SafeLab训练中已有的相机映射、图像变换、tokenizer、quantile归一化与反归一化共用同一路径。
+- 严格模型加载沿用已有smoke实现；Mem-0原始fixture、物理动作约定和交付文档继续复用。
+- 新增部分限于无数据集的在线推理输入、推理所需checkpoint校验、13维物理输出、CLI与服务入口。具体见 `delivery/REUSE_MANIFEST.json`。
+- 参考文档原字节保存于 `delivery/provenance/reference_mem0_START_HERE.md`、`reference_mem0_FINAL_DELIVERY.md`，来源/hash见同目录 `reference_manifest.json`。
+
+合作者下一步按 `START_HERE.md` 先运行接口检查，再连接自己的环境；固定相同seed、相机、控制器、执行窗口和采样设置比较20k/30k完整任务成功率。此处不提供尚未发生的环境评测结论。

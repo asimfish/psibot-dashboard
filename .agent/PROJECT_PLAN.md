@@ -25,6 +25,7 @@ As of2026-10-12:47 accepted formal outcomes (FR3 36, Psi grasp6, Psi100ml A→B3
 - [ ] Publish paired success/retry/time analysis and per-condition evidence.
 
 ## Task Board
+- [ ] T-941 - Publish V13 Mem-0/pi0.5/ours comparison subpanel with verified original videos (owner: codex-v13-panel-deploy; candidate ready for publication, public rollout pending).
 - [ ] T-888 - Refresh Astra dashboard current-report entry to verified144 (owner: safelab_astra_dashboard144; local candidate for review, not published).
 - [ ] T-887 - Independent review of T885 Grasp V84 local artifact (owner: codex-t552-v81-review)
 - [x] T-885 - Prepare verified Grasp V84 independent16 and defect evidence artifact (owner: codex-grasp-ssr-ood)
