@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-27T15:25:31.734364+00:00",
+  "updated_utc": "2026-10-27T17:27:50.905980+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -39,7 +39,20 @@
         "formal_evaluation_expected_trials": 150,
         "completed_trials": 17,
         "completed_native_successes": 0,
-        "partial_is_not_formal_result": true
+        "partial_is_not_formal_result": true,
+        "development32k": {
+          "trials": 15,
+          "native_successes": 2,
+          "success_terminal20mm": 2,
+          "same_five_source_validation_positions": true,
+          "training_seeds": [
+            26121921,
+            26121923,
+            26121925
+          ],
+          "formal_accepted": false,
+          "full_geometry_SSR_evaluated": false
+        }
       },
       "object_accepted": false,
       "full_visual_passed": false,
@@ -49,9 +62,9 @@
         "episodes": 5,
         "strict_crossing_poses": 0
       },
-      "next": "Paired recorded-expert versus old ACT replay at fixed source position before assigning failure to model or runtime.",
+      "next": "同32k预算起步帧采样对照已启动；原95/5与全部标签保持，先核验源数据/阶段拟合再测固定5个开发位置；完整泛化与视觉仍待验收。",
       "name": "100ml 玻璃烧杯",
-      "status_note": "DP完整150次：SR64.7%、SpatialSSR40.0%，SSR达到论文40%，SR未达78%（还差20次成功）。ACT旧版17次0成功后技术中断；32k三种子已训练完，专家/旧ACT配对诊断已提交。"
+      "status_note": "DP完整150次64.7%/40.0%，SSR数值达论文40%，SR未达78%。同位姿专家抬升10.28cm/末端4.3mm，旧ACT只抬升3.9mm/误差126.4mm。32k ACT源验证15次仅2次抓起；先查输入与策略，未计验收。 输入对照已完成，现用同32k采样对照验证起步误差假设。"
     },
     {
       "object": "brown_volumetric_flask_250ml",
@@ -271,7 +284,20 @@
         "completed_trials": 74,
         "completed_native_successes": 65,
         "completed_success_terminal20mm": 8,
-        "partial_is_not_formal_result": true
+        "partial_is_not_formal_result": true,
+        "development32k": {
+          "trials": 15,
+          "native_successes": 8,
+          "success_terminal20mm": 1,
+          "same_five_source_validation_positions": true,
+          "training_seeds": [
+            26121921,
+            26121923,
+            26121925
+          ],
+          "formal_accepted": false,
+          "full_geometry_SSR_evaluated": false
+        }
       },
       "object_accepted": false,
       "full_visual_passed": false,
@@ -281,9 +307,9 @@
         "episodes": 10,
         "strict_crossing_poses": 0
       },
-      "next": "DP andACT formal150running; earlyACT4/4successbut0terminal20mm,DP2/8success/0t20. Noformalcredit.",
+      "next": "同32k预算起步帧采样对照已启动；原95/5与全部标签保持，先核验源数据/阶段拟合再测固定5个开发位置；完整泛化与视觉仍待验收。",
       "name": "大棕色试剂瓶",
-      "status_note": "ACT中断在74/150：65次抓起，只有8次成功且终点≤20mm；DP中断在27/150：15次抓起、1次终点合格。终点精度是主要已见瓶颈；32k ACT三种子已训练完，100k DP训练和专家回放诊断继续。",
+      "status_note": "旧ACT74次中65次抓起、仅8次终点合格；同位置专家末端5.7mm、旧ACT57.2mm。32k ACT源验证15次仅8次抓起、1次终点合格，更多训练尚未解决闭环问题。100k DP训练继续运行。 输入对照已完成，现用同32k采样对照验证起步误差假设。",
       "source": {
         "episodes": 100,
         "native_successes": 100,
@@ -664,17 +690,17 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 87,
+    "registered_jobs": 94,
     "active_registered_jobs": 2,
     "BOS_mount_count": 2,
     "state": "running_after_user_authorized_direct_takeover",
-    "state_note": "1个四卡DP训练运行、1个四卡因果诊断平台排队（核验快照）；仍0/21双方法完整验收。",
+    "state_note": "2个四卡low_priority作业运行：DP100k预算实验、ACT起步帧采样对照；真实输入及DP同源诊断已完成，仍0/21双方法完整验收。",
     "prepared_not_submitted": [
       "50ml烧杯正式DP继续挂起：先做无策略被动静置对照，区分物理不稳和早期手指碰撞；旧DP图像处理版本也需替换。",
-      "100ml烧杯/大棕瓶32k ACT模型已训练完，先查阶段预测与专家配对回放结果，再决定新闭环测试。",
+      "ACT新采样对照训练中：固定预算32k，仅改变起步帧采样概率；先检查18组源数据逐位等价和固定源验证，再做相同开发位置闭环，不自动启动150次正式测试。",
       "小棕瓶/量筒/250ml烧杯等源数据未达到成功比例或零交叉要求，不因终点接近目标而追加训练。"
     ],
-    "checked_utc": "2026-10-27T15:25:31.734364+00:00",
+    "checked_utc": "2026-10-27T17:27:50.905980+00:00",
     "jobs": [
       {
         "tag": "train-m6rgb-funnel-20261026cc",
@@ -893,7 +919,7 @@
       {
         "tag": "eval-m6rgb-dp-bvf-20261027cc",
         "name": "棕色容量瓶DP · 三种子正式150次",
-        "job_id": null,
+        "job_id": "job-y4lqui4rakea",
         "status": "FAILED",
         "progress_note": "正常CPU关闭142/150：26次原生成功、2次成功且终点≤20mm；技术中断与策略失败分开保留，不能当完整SR/SSR。"
       },
@@ -909,7 +935,7 @@
         "job_id": "job-ozoknm2o2nbg",
         "status": "RUNNING",
         "name": "大棕瓶/100ml烧杯 DP · 固定100k预算实验",
-        "progress_note": "一张卡一个DP：大棕瓶原三种子与100ml烧杯种子21。与旧50k模型分开记录，不增加独立种子数，不混合不同预算组成正式三种子成绩。"
+        "progress_note": "4个DP模型一张卡一个：大棕瓶原3种子、B100种子21。最近约54.3k/100k步，GPU约96–99%；旧50k结果保留，不混合预算计三种子正式验收。"
       },
       {
         "tag": "dev-causal-expert-act-b100-brownL-20261027cc",
@@ -921,20 +947,108 @@
       {
         "tag": "dev-causal-expert-act-b100-brownL-20261027cc-r2",
         "job_id": "job-ieord67329oi",
-        "status": "PENDING",
+        "status": "FAILED",
         "name": "烧杯/大棕瓶 · 专家/旧ACT配对诊断 R2",
-        "progress_note": "首轮基础设施错误已修复并保留，R2四卡已提交；两固定源位置分别执行原专家与旧ACT，配对seed/XY一致，一卡一例，零训练，独立实际驱动记录和专家审计。"
+        "progress_note": "旧ACT两个对照正常CPU关闭；专家分支未正常闭合。已核验共同前23.97s：烧杯专家抬升10.28cm/末端4.3mm，旧ACT抬升3.9mm/末端126.4mm；大棕瓶专家末端5.7mm、旧ACT57.2mm。仅两固定位置轨迹诊断，不计正式验收。"
+      },
+      {
+        "tag": "dev-A32-b100-val5-20261027cc",
+        "job_id": "job-ijc268cpeccd",
+        "status": "SUCCEEDED",
+        "name": "100ml烧杯 ACT32k · 三种子固定源验证15次",
+        "progress_note": "15/15正常CPU关闭，2次原生成功、2次成功且终点≤20mm。每个三种子模型执行相同5个固定源验证位置。开发域测试，未计算完整几何SSR、未做OOD正式泛化，仍未通过。"
+      },
+      {
+        "tag": "dev-A32-brownL-val5-20261027cc",
+        "job_id": "job-a7ag01nz9qqc",
+        "status": "SUCCEEDED",
+        "name": "大棕瓶 ACT32k · 三种子固定源验证15次",
+        "progress_note": "15/15正常CPU关闭，8次原生成功、1次成功且终点≤20mm。每个三种子模型执行相同5个固定源验证位置。开发域测试，未计算完整几何SSR、未做OOD正式泛化，仍未通过。"
+      },
+      {
+        "tag": "diag-ACT-input-factorial-20261027cc",
+        "job_id": "job-4pvow4zdiew3",
+        "status": "FAILED",
+        "name": "ACT · 归档图像×状态输入对照",
+        "progress_note": "冻结旧10k/新32k模型，用采集/测试端真实图像与状态交叉输入并复现旧首预测；0训练、0新增Native。 首轮诊断工具错误：只读权重校验跨CPU/CUDA比较。0个新Native试次；失败保留，已修复并用独立r2规格提交。"
+      },
+      {
+        "tag": "diag-DP50-common-source-20261027cc",
+        "job_id": "job-p3rhzppytcd3",
+        "status": "FAILED",
+        "name": "DP · 同源观测与相同采样噪声对照",
+        "progress_note": "漏斗原3个50k模型使用相同16源窗口及相同DDIM噪声，烧杯种子21作校准；0训练、0新增Native，不计SR/SSR。 首轮诊断工具错误：未指定节点ffmpeg路径。0个新Native试次；失败保留，已修复并用独立r2规格提交。"
+      },
+      {
+        "tag": "diag-ACT-input-factorial-20261027cc-r2",
+        "job_id": "job-pp39z11qjb1r",
+        "status": "SUCCEEDED",
+        "name": "ACT · 真实输入对照 R2",
+        "progress_note": "已完成4个冻结模型输入对照：旧模型首预测复现最大误差≤2.4e-6，26维初始状态完全相同。换回源原图后起步误差仍存在；仅两个固定位置首时刻，不推广为全阶段链路证明，0训练/0新增Native。"
+      },
+      {
+        "tag": "diag-DP50-common-source-20261027cc-r2",
+        "job_id": "job-dhqys2mi36ql",
+        "status": "SUCCEEDED",
+        "name": "DP · 同源同噪声对照 R2",
+        "progress_note": "4模型同源/同噪声对照已完成。漏斗三个50k模型同16窗口的关节动作MAE约0.0159/0.0173/0.0177rad，早段第15控制窗口约0.0803/0.0681/0.0662rad。DP前7维是手臂关节、后6维是手指；已用烧杯16窗口标签与原专家关节指令逐位相等核验，不换算为末端毫米或角度。仅源拟合，不计SR/SSR。"
+      },
+      {
+        "tag": "train-A32-initialmix-b100-brownL-20261027cc",
+        "name": "ACT · 起步帧采样对照（同32k预算）",
+        "progress_note": "B100原3种子及大棕瓶种子21，一卡一个模型。25%选前8帧、75%保留原均匀时间采样；95/5划分、源标签/归一化/模型/固定验证/推理不变。真实源18组四张量须逐位一致后才能开始梯度；效果未验证，不自动正式测试。",
+        "job_id": "job-9gy76qs57sxv",
+        "status": "RUNNING"
       }
     ],
-    "progress_note": "100ml烧杯DP已达SpatialSSR40%，但SR64.7%低于78%；漏斗DP完整150次为52.0%/14.7%，低于68%/30%。这两项已完成几何后处理，当前瓶颈是实测指标，不是等待任务结束。",
+    "progress_note": "两项完整DP仍未达全部论文指标。相同位姿专家能有效抓取，旧ACT差距已复现；更多训练与换回源图均未自动解决。已完成首预测复现、同输入DP对照，现用同32k预算验证起步帧采样假设；尚无新增正式通过。",
     "DP_repair_note": "原专家动作被拉长24秒和signed-RGB色相处理两处错误已修复。完整三种子正式测试已证明修复并不等于验收通过；保留旧版0%与新版52%独立结果，继续定位抓取与终点误差。",
     "b50_reset_note": "约6–9mm初始XY偏移的旧错误已保留。最新初始XY准确至0.149mm、初始直立，但主动策略开始后0.117秒倾倒；仅此不足以证明被动重置不稳，EEF距离也不能排除长手指碰撞。正式DP继续挂起。",
     "failure_diagnosis": [
       "源质量：250ml烧杯80/100、500ml玻璃量筒74/100、小棕瓶72/100原生成功；终点位置合格不能代替真的抓起，未合格源先修控制器。",
       "策略与终点：100ml烧杯DP还差20/150次成功才能达到78%；大棕瓶ACT已完成74次中的65次抓起，只有8次同时满足终点20mm，须查终点预测和执行误差。",
-      "执行链路尚有证据缺口：固定源位置做原始专家动作/旧ACT配对回放，并独立记录实际关节驱动；先区分模型误差与采集/测试差异。",
+      "同位置对照已缩小范围：共同前23.97s，烧杯专家抬升10.28cm/末端4.3mm，旧ACT只抬升3.9mm/末端126.4mm；大棕瓶专家末端5.7mm，旧ACT57.2mm。两对初始记录位姿完全一致。该范围内执行链路可复现有效专家动作，下一步重点查策略预测及输入处理；专家终止接口未闭合，不算正式成功。",
+      "更多训练并未自动修好：32k ACT的源验证手臂误差约减半，但15次开发闭环中烧杯仅2次抓起，大棕瓶8次抓起、1次终点合格。下一步用归档真实输入区分图像/状态差异和策略精度，暂不追加原样正式测试。",
+      "真实输入核对：两个固定位置的26维初始状态相同，旧模型首预测可复现至2.4e-6。源原图下的起步误差仍在，DP运动早段误差也高于全程；正在同32k预算下验证起步帧采样，不先宣称这是已修好的根因。",
       "运行故障：已确认过未计分的Vulkan启动崩溃；部分正式测试未跑齐，全部已关闭成功和失败保留。完整跑完的漏斗/烧杯DP本身也未达SR要求，不能只归因于平台。"
-    ]
+    ],
+    "expert_replay_prefix": {
+      "prefix_seconds": 23.966666666666665,
+      "prefix_physics_steps": 2876,
+      "manifest_SHA_verified": true,
+      "formal_accepted": false,
+      "teacher_native_normal_closure": false,
+      "initial_pose_pair_distance_mm": 0.0,
+      "cases": [
+        {
+          "object": "glass_beaker_100ml",
+          "expert_lift_cm": 10.278123617172241,
+          "ACT_lift_cm": 0.38751959800720215,
+          "expert_EEF_mm": 4.324322846186518,
+          "ACT_EEF_mm": 126.37348671687838
+        },
+        {
+          "object": "brown_reagent_bottle_large",
+          "expert_lift_cm": 28.972160816192627,
+          "ACT_lift_cm": 30.25221824645996,
+          "expert_EEF_mm": 5.728214025376783,
+          "ACT_EEF_mm": 57.21120740048367
+        }
+      ],
+      "all_719_expert_commands_and_2876_drive_targets_exactly_equal": true,
+      "maximum_drive_error_rad": 0.0
+    },
+    "actual_input_replay": {
+      "models": 4,
+      "Native_trials": 0,
+      "optimizer_updates": 0,
+      "old_model_max_normalized_prediction_error": 2.384185791015625e-06,
+      "source_and_native_initial_state_identical": true,
+      "source_vs_native_camera_position_distance_m": 0.0,
+      "scope": "仅两个对象首时刻/源episode0，不覆盖全部阶段。",
+      "formal_credit": false
+    },
+    "DP_action_error_units_note": "DP动作是7维手臂关节角+6维手指关节角，MAE单位rad。真实末端20mm只从物理轨迹计算。此前草稿将动作前7维错按EEF位姿换算的mm/deg数值已撤回。"
   },
   "evidence_note": "论文指标为Grasp SpatialSSR；20mm终点位置与保存轨迹零交叉已分别核验。最新两项150次结果仍未通过完整视觉复核及全部数值标准。中断子集、专家回放和开发小测均不计完整验收；所有历史模型版本和视频保留。",
   "offline_DP_probe": {
@@ -1596,6 +1710,98 @@
         "completed_native_successes": 97,
         "completed_success_terminal20mm": 60,
         "saved_pose_crossing_trials": 0
+      }
+    },
+    {
+      "candidate": "pro6000-dev-A32-b100-val5-20261027cc",
+      "object": "glass_beaker_100ml",
+      "method": "ACT",
+      "display_name": "32k · 3种子×5次源验证（开发）",
+      "current_native": false,
+      "development": true,
+      "formal_accepted": false,
+      "paper_ssr_percent": null,
+      "reported_SpatialSSR_percent": null,
+      "progress": {
+        "episode_num": 15,
+        "episode_success_num": 2,
+        "success_rate": 0.13333333333333333
+      },
+      "protocol": {
+        "method": "act",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "源验证 ±3cm（开发域）",
+        "duration_label": "24s",
+        "seed": "3个训练种子，相同5个验证位置",
+        "note": "开发测试，原推理/动作/重置/24s保持不变；未计正式泛化与完整SSR。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": "26121921 / 26121923 / 26121925",
+          "updates": 32000
+        }
+      },
+      "metric_note": "正常关闭15/15，抓起2/15、成功且终点≤20mm为2/15；仅开发域位置分量，不是完整SpatialSSR。",
+      "cases": [],
+      "result": {
+        "SR": 13.333333333333334,
+        "success_and_terminal_dP20": 13.333333333333334,
+        "trials": 15,
+        "successes": 2,
+        "success_terminal20mm": 2,
+        "formal_accepted": false,
+        "development": true,
+        "full_geometry_SSR_evaluated": false
+      }
+    },
+    {
+      "candidate": "pro6000-dev-A32-brownL-val5-20261027cc",
+      "object": "brown_reagent_bottle_large",
+      "method": "ACT",
+      "display_name": "32k · 3种子×5次源验证（开发）",
+      "current_native": false,
+      "development": true,
+      "formal_accepted": false,
+      "paper_ssr_percent": null,
+      "reported_SpatialSSR_percent": null,
+      "progress": {
+        "episode_num": 15,
+        "episode_success_num": 8,
+        "success_rate": 0.5333333333333333
+      },
+      "protocol": {
+        "method": "act",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "源验证 ±3cm（开发域）",
+        "duration_label": "24s",
+        "seed": "3个训练种子，相同5个验证位置",
+        "note": "开发测试，原推理/动作/重置/24s保持不变；未计正式泛化与完整SSR。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": "26121921 / 26121923 / 26121925",
+          "updates": 32000
+        }
+      },
+      "metric_note": "正常关闭15/15，抓起8/15、成功且终点≤20mm为1/15；仅开发域位置分量，不是完整SpatialSSR。",
+      "cases": [],
+      "result": {
+        "SR": 53.333333333333336,
+        "success_and_terminal_dP20": 6.666666666666667,
+        "trials": 15,
+        "successes": 8,
+        "success_terminal20mm": 1,
+        "formal_accepted": false,
+        "development": true,
+        "full_geometry_SSR_evaluated": false
       }
     }
   ]

@@ -34,7 +34,7 @@ function renderPro6000(snapshot) {
     add(item, 'strong', value);
   }
   add(root, 'p', snapshot.pipeline.progress_note || snapshot.pipeline.state_note, 'note');
-  const activeJobs = (snapshot.pipeline.jobs || []).filter(job => ['RUNNING', 'PENDING'].includes(job.status));
+  const activeJobs = (snapshot.pipeline.jobs || []).filter(job => ['RUNNING', 'PENDING', 'PROVISIONING'].includes(job.status));
   if (activeJobs.length) {
     const jobs = add(root, 'details');
     jobs.open = true;

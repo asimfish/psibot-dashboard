@@ -38,7 +38,7 @@ test('all 21 objects and retained Pro6000 versions remain unaccepted', () => {
   assert.match(container.textContent, /为什么还没有完整通过/);
   assert.match(container.textContent, /约6–9mm初始XY偏移/);
   assert.doesNotMatch(container.textContent, /原端尚未确认停止|尚未执行/);
-  const activeJobs = snapshot.pipeline.jobs.filter(j => ['RUNNING', 'PENDING'].includes(j.status));
+  const activeJobs = snapshot.pipeline.jobs.filter(j => ['RUNNING', 'PENDING', 'PROVISIONING'].includes(j.status));
   assert.equal(created.filter(n => n.tag === 'tr').length, 3 + activeJobs.length + snapshot.runs.length + 21);
   const links = created.filter(n => n.tag === 'a' && n.href.startsWith('#'));
   assert.equal(links.length, snapshot.runs.length);
@@ -52,13 +52,24 @@ test('all 21 objects and retained Pro6000 versions remain unaccepted', () => {
 
 test('job states and diagnostic failures never increase acceptance or erase historical results', () => {
   const data = copy();
-  assert.equal(data.pipeline.active_registered_jobs, data.pipeline.jobs.filter(j => ['RUNNING', 'PENDING'].includes(j.status)).length);
+  assert.equal(data.pipeline.active_registered_jobs, data.pipeline.jobs.filter(j => ['RUNNING', 'PENDING', 'PROVISIONING'].includes(j.status)).length);
   assert.equal(data.pipeline.jobs.find(j => j.tag.startsWith('dev-b50-')).status, 'FAILED');
   const {container} = render(data);
   assert.match(data.pipeline.jobs.find(j => j.tag === 'dev-b50-rest-reset-20261026cc').progress_note, /0个有效测试trial/);
   assert.match(container.textContent, /0 \/ 21/);
   assert.match(container.textContent, /77\.3%/);
   assert.match(container.textContent, /继续挂起/);
+});
+
+test('provisioning jobs remain visible in the active work table', () => {
+  const data = copy();
+  const job = {...data.pipeline.jobs[0], tag: 'test-only-provisioning',
+    name: '测试中的资源准备', status: 'PROVISIONING'};
+  data.pipeline.jobs.push(job);
+  data.pipeline.active_registered_jobs++;
+  const {created} = render(data);
+  assert.ok(created.some(n => n.tag === 'tr' && n.children[0]?.textContent === job.name &&
+    n.children[1]?.textContent === 'PROVISIONING'));
 });
 
 test('historical and new model rows retain independent scores and denominators', () => {
