@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-27T20:06:31.509058+00:00",
+  "updated_utc": "2026-10-27T21:47:03.569113+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -65,6 +65,32 @@
           "same_five_source_validation_positions": true,
           "formal_accepted": false,
           "full_geometry_SSR_evaluated": false
+        },
+        "development_resetbuffer32k": {
+          "trials": 15,
+          "native_successes": 4,
+          "success_terminal20mm": 2,
+          "training_seeds": [
+            26121921,
+            26121923,
+            26121925
+          ],
+          "all_native_cells_CPU_passed": true,
+          "formal_accepted": false,
+          "full_geometry_SSR_evaluated": false
+        },
+        "development_resetboundary32k": {
+          "trials": 15,
+          "native_successes": 3,
+          "success_terminal20mm": 1,
+          "training_seeds": [
+            26121921,
+            26121923,
+            26121925
+          ],
+          "all_native_cells_CPU_passed": true,
+          "formal_accepted": false,
+          "full_geometry_SSR_evaluated": false
         }
       },
       "object_accepted": false,
@@ -75,9 +101,9 @@
         "episodes": 5,
         "strict_crossing_poses": 0
       },
-      "next": "原模型/5位置/原Native种子，验证仅修复重置动作缓冲后的闭环；完成后再决定正式150次测试，不改变XY泛化范围、成功与SSR标准。",
+      "next": "固定同一位置集合轮换顺序；同时等100k DP开发验证。保持论文目标、±3cm采集、+0/1/2/3cm正式测试与严格视觉几何标准。",
       "name": "100ml 玻璃烧杯",
-      "status_note": "DP完整150次64.7%/40.0%，SR未达论文78%。ACT均匀32k源验证2/15，起步采样32k为3/15、仅1次终点合格。已定位重置后3步旧动作污染，修复受控测试已提交；仍未验收。"
+      "status_note": "DP完整150次64.7%/40.0%，SR未达78%。ACT原采样版3/15、清缓冲4/15、周期修复3/15抓起；后者首输入状态已完全一致，终点仅1/15合格。继续查位置/策略，未计验收。"
     },
     {
       "object": "brown_volumetric_flask_250ml",
@@ -321,6 +347,28 @@
           "same_five_source_validation_positions": true,
           "formal_accepted": false,
           "full_geometry_SSR_evaluated": false
+        },
+        "development_resetbuffer32k": {
+          "trials": 5,
+          "native_successes": 5,
+          "success_terminal20mm": 0,
+          "training_seeds": [
+            26121921
+          ],
+          "all_native_cells_CPU_passed": true,
+          "formal_accepted": false,
+          "full_geometry_SSR_evaluated": false
+        },
+        "development_resetboundary32k": {
+          "trials": 5,
+          "native_successes": 5,
+          "success_terminal20mm": 0,
+          "training_seeds": [
+            26121921
+          ],
+          "all_native_cells_CPU_passed": true,
+          "formal_accepted": false,
+          "full_geometry_SSR_evaluated": false
         }
       },
       "object_accepted": false,
@@ -331,9 +379,9 @@
         "episodes": 10,
         "strict_crossing_poses": 0
       },
-      "next": "原模型/5位置/原Native种子，验证仅修复重置动作缓冲后的闭环；完成后再决定正式150次测试，不改变XY泛化范围、成功与SSR标准。",
+      "next": "DP100k完训后先做原3种子×5次开发测试；ACT继续定位终点误差，不因5/5抓起而放行。",
       "name": "大棕色试剂瓶",
-      "status_note": "ACT均匀32k三种子15次抓起8次、终点合格1次；起步采样种子21五次全部抓起但0次终点合格。须修终点误差；重置缓冲对照已提交，DP100k训练继续。",
+      "status_note": "ACT单种子五次均能抓起，清缓冲与周期修复后终点≤20mm仍0/5；必须解决终点误差。DP100k训练继续，尚无完整验收。",
       "source": {
         "episodes": 100,
         "native_successes": 100,
@@ -714,17 +762,18 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 94,
-    "active_registered_jobs": 3,
+    "registered_jobs": 105,
+    "active_registered_jobs": 1,
     "BOS_mount_count": 2,
     "state": "running_after_user_authorized_direct_takeover",
-    "state_note": "3个四卡作业运行或平台排队；已定位重置后沿用上一轮动作的故障，正用同模型同位置验证修复。仍0/21双方法完整验收。",
+    "state_note": "DP100训练继续；换序15次已完成并校验，独立进程15次已获平台job_id，等待运行状态核对。",
     "prepared_not_submitted": [
-      "DP100k完训后20次开发测试自动接续已部署：B100仅已训种子21共5次，大棕瓶原3种子共15次；模型闭合/SHA/预声明位置/CPU门槛均需通过。该对照保留原重置方式，不与重置修复后的结果混算。",
-      "50ml烧杯正式DP继续挂起：先做无策略被动静置对照，区分物理不稳和早期手指碰撞；旧DP图像处理版本也需替换。",
-      "小棕瓶/量筒/250ml烧杯等源数据未达到成功比例或严格零交叉要求，先修源控制器。"
+      "独立进程对照已由平台建单（尚未查询运行状态）：3个冻结ACT32k模型×原5位置，每次一个新Native进程，共15次；同种子、24秒和重置修复。无新增训练或坐标，不计正式验收。",
+      "DP100k四个模型完训后，BOS全量模型/步数/种子/SHA门槛通过才接续20次开发测试：B100种子21共5次、大棕瓶3种子共15次。新计划已在首个DP100试次前登记，原位置和种子不变，包含重置与存储修复。",
+      "若DP父作业也仅因汇总配额报错，备用监控仍须确认4个模型各自完整100k并通过BOS校验，才能接续原20次意图；其他失败原因不自动放行。",
+      "50ml烧杯正式DP继续挂起：须做无策略被动静置对照。其余对象先修源质量和严格几何问题。"
     ],
-    "checked_utc": "2026-10-27T20:06:31.509058+00:00",
+    "checked_utc": "2026-10-27T21:47:03.569113+00:00",
     "jobs": [
       {
         "tag": "train-m6rgb-funnel-20261026cc",
@@ -959,7 +1008,7 @@
         "job_id": "job-ozoknm2o2nbg",
         "status": "RUNNING",
         "name": "大棕瓶/100ml烧杯 DP · 固定100k预算实验",
-        "progress_note": "4个DP模型约80.8k/100k步，一卡一个，GPU约92–99%。完训且BOS模型SHA核验后，接续B100种子21×5与大棕瓶3种子×5开发测试；不自动正式测试。"
+        "progress_note": "最近约96k/100k，四卡各一个模型、GPU约91–99%。四个BOS完整模型校验后才接续20次重置修复后的开发测试；不会自动正式测试。固定预算与论文完整训练分开标明。"
       },
       {
         "tag": "dev-causal-expert-act-b100-brownL-20261027cc",
@@ -1048,16 +1097,16 @@
       {
         "tag": "dev-A32-resetbuffer-b100-val5-20261027cc",
         "job_id": "job-7mkn8li3b77v",
-        "status": "PENDING",
-        "name": "100ml烧杯 ACT · 重置动作缓冲修复对照",
-        "progress_note": "三种子15次，与起步采样版相同模型、相同5个位置及原Native种子，仅在重置时同步动作缓冲为实际默认关节位置。0额外物理步，闭环效果待验证。"
+        "status": "SUCCEEDED",
+        "name": "100ml 玻璃烧杯 ACT · 重置缓冲修复",
+        "progress_note": "全部15次Native正常关闭并有CPU/BOS校验证据，抓起4/15、成功且终点≤20mm为2/15。"
       },
       {
         "tag": "dev-A32-resetbuffer-brownL-val5-20261027cc",
         "job_id": "job-791592u4x280",
-        "status": "PENDING",
-        "name": "大棕瓶 ACT · 重置动作缓冲修复对照",
-        "progress_note": "种子21共5次，与起步采样版相同模型、相同5个位置及原Native种子，仅在重置时同步动作缓冲为实际默认关节位置。0额外物理步，闭环效果待验证。"
+        "status": "SUCCEEDED",
+        "name": "大棕色试剂瓶 ACT · 重置缓冲修复",
+        "progress_note": "全部5次Native正常关闭并有CPU/BOS校验证据，抓起5/5、成功且终点≤20mm为0/5。"
       },
       {
         "tag": "dev-A32-initialmix-brownL-val5-20261027cc",
@@ -1065,18 +1114,53 @@
         "status": "FAILED",
         "name": "大棕瓶 ACT起步采样版 · 首次启动失败记录",
         "progress_note": "构建器把单种子5位置分成2/2/1，触发每单元5次约束；0有效Native试次，记录保留。后续r3已正常闭合。"
+      },
+      {
+        "tag": "dev-A32-resetboundary-b100-val5-20261027cc",
+        "job_id": "job-xujglz6z1p3y",
+        "status": "FAILED",
+        "name": "100ml 玻璃烧杯 ACT · 控制周期边界修复",
+        "progress_note": "全部15次Native正常关闭并有CPU/BOS校验证据，抓起3/15、成功且终点≤20mm为1/15。父作业写项目盘汇总时配额超限；全部15次由BOS原始单元恢复，无重跑、未删失败。"
+      },
+      {
+        "tag": "dev-A32-resetboundary-brownL-val5-20261027cc",
+        "job_id": "job-nxum11wzlf73",
+        "status": "SUCCEEDED",
+        "name": "大棕色试剂瓶 ACT · 控制周期边界修复",
+        "progress_note": "全部5次Native正常关闭并有CPU/BOS校验证据，抓起5/5、成功且终点≤20mm为0/5。"
+      },
+      {
+        "tag": "dev-A32-resetorder-b100-val5-20261027cc",
+        "job_id": "job-suq7vaepmnss",
+        "status": "FAILED",
+        "name": "烧杯 · 换序对照首次启动记录",
+        "progress_note": "计划预声明字段的范围标记不符，在构建阶段被拒绝，0次Native。真实构建器已复现RED/GREEN；原记录保留，新r2声明仅对本次开发计划生效，历史试次明确披露。"
+      },
+      {
+        "tag": "diag-storage-admission-20261027cc",
+        "job_id": "job-uuqrps91du17",
+        "status": "SUCCEEDED",
+        "name": "存储诊断 · 已完成",
+        "progress_note": "项目盘显示100%使用、约12GB余量，曾发生Errno122；一次47字节探针可写，不能保证后续容量。BOS小文件写入/读回SHA通过，未修改已有文件或作业。"
+      },
+      {
+        "tag": "dev-A32-resetorder-b100-val5-20261027cc-r2",
+        "job_id": "job-g7endix5uz5j",
+        "status": "SUCCEEDED",
+        "name": "100ml烧杯 ACT · 原5位置换序对照 R2",
+        "progress_note": "全部15次Native正常关闭，3个CPU门槛及BOS SHA通过。2/15抓起、2/15成功且终点≤20mm，均在第一轮；原可成功位置移至最后后0/3。非完整SpatialSSR或正式验收。"
       }
     ],
-    "progress_note": "新增完整开发结果：B100起步采样版3/15抓起、1/15终点合格；大棕瓶单种子5/5抓起、0/5终点合格。已查出重置完成后、首次预测前的3个物理步仍执行旧动作；修复已过真实控制循环CPU回归，Native受控对照已提交，尚不计验收。",
+    "progress_note": "新增40次开发试验已校验：缓冲修复版烧杯4/15抓起、2/15终点合格；周期边界修复版3/15抓起、1/15终点合格；两版大棕瓶均5/5抓起、0/5终点合格。已确认全部20次周期修复试验首输入26维状态一致，但完整验收仍0/21。 换序版15次CPU/BOS证据现已校验，2/15抓起且终点合格，仍仅第一轮成功。",
     "DP_repair_note": "原专家动作被拉长24秒和signed-RGB色相处理两处错误已修复。完整三种子正式测试已证明修复并不等于验收通过；保留旧版0%与新版52%独立结果，继续定位抓取与终点误差。",
     "b50_reset_note": "约6–9mm初始XY偏移的旧错误已保留。最新初始XY准确至0.149mm、初始直立，但主动策略开始后0.117秒倾倒；仅此不足以证明被动重置不稳，EEF距离也不能排除长手指碰撞。正式DP继续挂起。",
     "failure_diagnosis": [
-      "已定位重置动作残留：B100种子21的均匀32k与起步采样32k两条轨迹中，首次试验从默认状态/零速度开始；第2–5次重置后、首次预测前多走3个物理步，关节偏移约0.078rad、速度达3.14rad/s。与运行时SHA相同的源代码确认旧动作缓冲未清除；真实step调度CPU回归旧版RED/修复GREEN，Native修复效果待测，不能推广为全部失败均已解释。",
-      "源拟合改善仍未解决闭环：B100起步误差约降79%，但固定15次仅3次抓起、1次终点合格；大棕瓶种子21虽5/5抓起，0/5终点合格。源验证误差和小样本成功率均不是正式验收。",
-      "现有完整DP：B100 SR64.7%/SpatialSSR40.0%，尚差20/150次成功达到论文78%；漏斗52.0%/14.7%，低于68%/30%。旧结果全部保留，新修复需用独立版本重测。",
-      "源质量：250ml烧杯80/100、500ml玻璃量筒74/100、小棕瓶72/100原生成功；终点位置合格不能代替抓起，未合格源先修控制器。",
-      "同位姿专家与旧ACT已核验共同前23.97s：烧杯专家抬升10.28cm/末端4.3mm，旧ACT只抬升3.9mm/末端126.4mm。仅两固定位置前缀，专家终止接口未闭合，未计正式成绩。",
-      "技术故障独立保留：单种子构建两次失败均在Native计分前，r3已正常5/5收尾；曾有创建操作超时后后台才建好作业，现用原Idempotency-Key只读找回，避免重复建作业。"
+      "重置故障已分步实证：先清理上一轮动作，起步手臂偏移/速度从约0.078rad/3.14rad/s降到0.00082rad/0.019rad/s；再在重置时结束旧控制周期，20次首输入的26维状态完全一致、额外物理步归零。这些机械修复没有自动解决抓取和终点误差。",
+      "烧杯策略仍弱：同32k起步采样模型，原版3/15、缓冲修复4/15、边界修复3/15抓起；成功且终点20mm分别1/15、2/15、1/15。开发结果不外推为正式150次SR/SSR；正在同一位置集合上轮换顺序，区分位置难度和连续运行影响。 换序后日志仍显示只在第一轮成功，进一步检查首输入26维状态以外的连续运行残留，尚未宣称找到该项根因。",
+      "大棕瓶尚未解决终点：单种子5/5抓起在两版重置修复后都保持，但0/5终点≤20mm。抓起成功不能替代完整SpatialSSR。",
+      "存储故障独立保留：烧杯15次均已正常CPU关闭并存BOS，父进程写汇总时项目配额Errno122；已从3个原单元校验恢复全部成功与失败，没有重跑或筛选。新模式改用节点临时目录和BOS摘要SHA校验；原模式回归通过。",
+      "源质量仍挡住其他对象：250ml烧杯80/100、500ml玻璃量筒74/100、小棕瓶72/100原生成功；不因终点位置合格而训练。穿模与完整视觉标准保持。",
+      "现有完整DP仍低于目标：B10064.7%/40.0%，论文78%/40%；漏斗52.0%/14.7%，论文68%/30%。固定100k实验继续，未将模型训练完成等同于验收。"
     ],
     "expert_replay_prefix": {
       "prefix_seconds": 23.966666666666665,
@@ -1127,8 +1211,21 @@
       "max_observed_arm_difference_rad": 0.07826,
       "max_observed_arm_velocity_rad_s": 3.14003,
       "real_pinned_step_CPU_regression_passed": true,
-      "Native_intervention_verified": false,
-      "formal_credit": false
+      "Native_intervention_verified": true,
+      "formal_credit": false,
+      "full_reset_boundary_verified_on20trials": true,
+      "all26_first_state_max_difference": 0,
+      "postreset_physics_steps_before_prediction": 0,
+      "grasp_acceptance_fixed": false
+    },
+    "storage_metadata_repair": {
+      "parent_failed_job": "job-xujglz6z1p3y",
+      "all15_native_trials_closed": true,
+      "all3_CPU_gates_passed": true,
+      "BOS_result_hashes_verified": true,
+      "existing_trials_rerun": false,
+      "all_old_cloud_jobs_untouched": true,
+      "new_and_legacy_staged_inline_checks_passed": true
     }
   },
   "evidence_note": "论文指标为Grasp SpatialSSR；20mm终点位置与保存轨迹零交叉已分别核验。最新两项150次结果仍未通过完整视觉复核及全部数值标准。中断子集、专家回放和开发小测均不计完整验收；所有历史模型版本和视频保留。",
@@ -1975,6 +2072,247 @@
         "formal_accepted": false,
         "development": true,
         "full_geometry_SSR_evaluated": false
+      }
+    },
+    {
+      "candidate": "pro6000-dev-A32-resetbuffer-b100-val5-20261027cc",
+      "object": "glass_beaker_100ml",
+      "method": "ACT",
+      "display_name": "32k · 重置缓冲修复 · 3种子×5次（开发）",
+      "current_native": false,
+      "development": true,
+      "formal_accepted": false,
+      "paper_ssr_percent": null,
+      "reported_SpatialSSR_percent": null,
+      "progress": {
+        "episode_num": 15,
+        "episode_success_num": 4,
+        "success_rate": 0.26666666666666666
+      },
+      "protocol": {
+        "method": "act",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "源验证 ±3cm（开发域）",
+        "duration_label": "24s",
+        "seed": "26121921 / 26121923 / 26121925",
+        "note": "原起步采样模型、同5个源验证位置/原Native种子；重置缓冲修复。非OOD正式测试，未计完整SSR。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": "26121921 / 26121923 / 26121925",
+          "updates": 32000
+        }
+      },
+      "metric_note": "全部15次Native正常关闭并有CPU/BOS校验证据，抓起4/15、成功且终点≤20mm为2/15。",
+      "cases": [],
+      "result": {
+        "SR": 26.666666666666668,
+        "success_and_terminal_dP20": 13.333333333333334,
+        "trials": 15,
+        "successes": 4,
+        "success_terminal20mm": 2,
+        "formal_accepted": false,
+        "development": true,
+        "full_geometry_SSR_evaluated": false,
+        "all_native_cells_CPU_passed": true,
+        "parent_platform_status": "SUCCEEDED"
+      }
+    },
+    {
+      "candidate": "pro6000-dev-A32-resetbuffer-brownL-val5-20261027cc",
+      "object": "brown_reagent_bottle_large",
+      "method": "ACT",
+      "display_name": "32k · 重置缓冲修复 · 种子21×5次（开发）",
+      "current_native": false,
+      "development": true,
+      "formal_accepted": false,
+      "paper_ssr_percent": null,
+      "reported_SpatialSSR_percent": null,
+      "progress": {
+        "episode_num": 5,
+        "episode_success_num": 5,
+        "success_rate": 1.0
+      },
+      "protocol": {
+        "method": "act",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "源验证 ±3cm（开发域）",
+        "duration_label": "24s",
+        "seed": "26121921",
+        "note": "原起步采样模型、同5个源验证位置/原Native种子；重置缓冲修复。非OOD正式测试，未计完整SSR。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": "26121921",
+          "updates": 32000
+        }
+      },
+      "metric_note": "全部5次Native正常关闭并有CPU/BOS校验证据，抓起5/5、成功且终点≤20mm为0/5。",
+      "cases": [],
+      "result": {
+        "SR": 100.0,
+        "success_and_terminal_dP20": 0.0,
+        "trials": 5,
+        "successes": 5,
+        "success_terminal20mm": 0,
+        "formal_accepted": false,
+        "development": true,
+        "full_geometry_SSR_evaluated": false,
+        "all_native_cells_CPU_passed": true,
+        "parent_platform_status": "SUCCEEDED"
+      }
+    },
+    {
+      "candidate": "pro6000-dev-A32-resetboundary-b100-val5-20261027cc",
+      "object": "glass_beaker_100ml",
+      "method": "ACT",
+      "display_name": "32k · 控制周期边界修复 · 3种子×5次（开发）",
+      "current_native": false,
+      "development": true,
+      "formal_accepted": false,
+      "paper_ssr_percent": null,
+      "reported_SpatialSSR_percent": null,
+      "progress": {
+        "episode_num": 15,
+        "episode_success_num": 3,
+        "success_rate": 0.2
+      },
+      "protocol": {
+        "method": "act",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "源验证 ±3cm（开发域）",
+        "duration_label": "24s",
+        "seed": "26121921 / 26121923 / 26121925",
+        "note": "原起步采样模型、同5个源验证位置/原Native种子；控制周期边界修复。非OOD正式测试，未计完整SSR。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": "26121921 / 26121923 / 26121925",
+          "updates": 32000
+        }
+      },
+      "metric_note": "全部15次Native正常关闭并有CPU/BOS校验证据，抓起3/15、成功且终点≤20mm为1/15。父作业写项目盘汇总时配额超限；全部15次由BOS原始单元恢复，无重跑、未删失败。",
+      "cases": [],
+      "result": {
+        "SR": 20.0,
+        "success_and_terminal_dP20": 6.666666666666667,
+        "trials": 15,
+        "successes": 3,
+        "success_terminal20mm": 1,
+        "formal_accepted": false,
+        "development": true,
+        "full_geometry_SSR_evaluated": false,
+        "all_native_cells_CPU_passed": true,
+        "parent_platform_status": "FAILED",
+        "parent_summary_recovered_from_BOS": true
+      }
+    },
+    {
+      "candidate": "pro6000-dev-A32-resetboundary-brownL-val5-20261027cc",
+      "object": "brown_reagent_bottle_large",
+      "method": "ACT",
+      "display_name": "32k · 控制周期边界修复 · 种子21×5次（开发）",
+      "current_native": false,
+      "development": true,
+      "formal_accepted": false,
+      "paper_ssr_percent": null,
+      "reported_SpatialSSR_percent": null,
+      "progress": {
+        "episode_num": 5,
+        "episode_success_num": 5,
+        "success_rate": 1.0
+      },
+      "protocol": {
+        "method": "act",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "源验证 ±3cm（开发域）",
+        "duration_label": "24s",
+        "seed": "26121921",
+        "note": "原起步采样模型、同5个源验证位置/原Native种子；控制周期边界修复。非OOD正式测试，未计完整SSR。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": "26121921",
+          "updates": 32000
+        }
+      },
+      "metric_note": "全部5次Native正常关闭并有CPU/BOS校验证据，抓起5/5、成功且终点≤20mm为0/5。",
+      "cases": [],
+      "result": {
+        "SR": 100.0,
+        "success_and_terminal_dP20": 0.0,
+        "trials": 5,
+        "successes": 5,
+        "success_terminal20mm": 0,
+        "formal_accepted": false,
+        "development": true,
+        "full_geometry_SSR_evaluated": false,
+        "all_native_cells_CPU_passed": true,
+        "parent_platform_status": "SUCCEEDED"
+      }
+    },
+    {
+      "candidate": "pro6000-dev-A32-resetorder-b100-val5-20261027cc-r2",
+      "object": "glass_beaker_100ml",
+      "method": "ACT",
+      "display_name": "32k · 原5位置换序 · 3种子×5次（开发）",
+      "current_native": false,
+      "development": true,
+      "formal_accepted": false,
+      "paper_ssr_percent": null,
+      "reported_SpatialSSR_percent": null,
+      "progress": {
+        "episode_num": 15,
+        "episode_success_num": 2,
+        "success_rate": 0.13333333333333333
+      },
+      "protocol": {
+        "method": "act",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "源验证 ±3cm（开发域）",
+        "duration_label": "24s",
+        "seed": "26121921 / 26121923 / 26121925",
+        "note": "同模型/原5位置/Native种子，仅顺序改为36/65/77/8/66；26维首输入完全一致、额外物理步0。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": "26121921 / 26121923 / 26121925",
+          "updates": 32000
+        }
+      },
+      "metric_note": "全部15次Native正常关闭，3个CPU门槛及BOS SHA通过。2/15抓起、2/15成功且终点≤20mm，均在第一轮；原可成功位置移至最后后0/3。非完整SpatialSSR或正式验收。",
+      "cases": [],
+      "result": {
+        "SR": 13.333333333333334,
+        "success_and_terminal_dP20": 13.333333333333334,
+        "trials": 15,
+        "successes": 2,
+        "success_terminal20mm": 2,
+        "formal_accepted": false,
+        "development": true,
+        "full_geometry_SSR_evaluated": false,
+        "all_native_cells_CPU_passed": true,
+        "parent_platform_status": "SUCCEEDED"
       }
     }
   ]
