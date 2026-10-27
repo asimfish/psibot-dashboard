@@ -1,0 +1,116 @@
+{
+  "task": "T-931",
+  "epoch": 1793035133.7734964,
+  "complete": true,
+  "source_held_motion": {
+    "v13": {
+      "max_relative_rotation_before_peak_deg": {
+        "n": 100,
+        "min": 1.451640976048921,
+        "median": 2.324996316622563,
+        "max": 5.262178500312557
+      },
+      "max_relative_translation_before_peak_mm": {
+        "n": 100,
+        "min": 1.1527078907070638,
+        "median": 1.608139933646475,
+        "max": 3.021685643756276
+      },
+      "n": 100
+    },
+    "old": {
+      "max_relative_rotation_before_peak_deg": {
+        "n": 100,
+        "min": 2.0617608877785463,
+        "median": 5.54950032965505,
+        "max": 15.797342591838378
+      },
+      "max_relative_translation_before_peak_mm": {
+        "n": 100,
+        "min": 1.5010002028598572,
+        "median": 3.609743348806372,
+        "max": 10.64764558478919
+      },
+      "n": 100
+    }
+  },
+  "pi05_post_grasp": {
+    "n": 18,
+    "all_diagnostic_cases": 32,
+    "whole_success": 0,
+    "relative_rotation_above20deg_any_held_time": 5,
+    "rotation_before_peak_above_observed_V13_source_max": 7,
+    "wrist_rotation_at_max_cup_tilt_below15deg": 8
+  },
+  "mem0_post_grasp": {
+    "n": 18,
+    "all_diagnostic_cases": 32,
+    "whole_success": 2,
+    "rotation_before_peak_above_observed_V13_source_max": 3,
+    "success_anchor_distance_counterexamples_mm": [
+      12.708159567877393,
+      9.76449383301149
+    ]
+  },
+  "mem0_after_physical_pour": {
+    "n": 9,
+    "success": 2,
+    "failure": 7,
+    "original_released_AST_parity_rows": 34763,
+    "failure_mechanisms": {
+      "still_learned_pour_stage_at_timeout": 4,
+      "returned_while_still_tilted_outside_envelope": 1,
+      "return_placement_and_hand_origin_clearance": 1,
+      "angular_speed_resets_3second_stability": 1
+    }
+  },
+  "observed_V13_source_max_rotation_before_peak_deg": 5.262178500312557,
+  "claim_boundary": "Observed held mechanics and stage outcomes in bounded paired diagnostics. No new formal success benchmark. Source max is an empirical comparison, never a new threshold. Grasp-anchor distance does not classify success: both Mem0 successes are outside source support. Noise intervention reduces jitter without overall success gains; camera-only causality and the overall corrective change remain unresolved. No policy training or original outcome/physics mutation.",
+  "mem0_native_completion_positive_control": {
+    "task": "T-931",
+    "complete": true,
+    "epoch": 1793035783.2159328,
+    "checkpoint": 30000,
+    "native_cumulative_positive_count": 2,
+    "preprocess_max_abs": 0,
+    "preprocess_parity_cases": 10,
+    "episodes": [
+      {
+        "episode": 0,
+        "source_phase_boundaries": [
+          244,
+          362
+        ],
+        "source_last_frame": 716,
+        "native_switch_frames": [
+          237,
+          355,
+          708
+        ],
+        "final_native_position": 3
+      },
+      {
+        "episode": 50,
+        "source_phase_boundaries": [
+          221,
+          337
+        ],
+        "source_last_frame": 636,
+        "native_switch_frames": [
+          214,
+          331,
+          629
+        ],
+        "final_native_position": 3
+      }
+    ],
+    "peak_allocated_gpu_bytes": 5186428928,
+    "actions_predicted": 0,
+    "claim_boundary": "Two actual training demonstrations, full consecutive RGB and measured13 states; native cumulative-two completion logic. Source instruction order is exposed only after a native completion commit. No forced switch, action, simulator, threshold change, training or held-out classification/task accuracy claim. SDPA is a private diagnostic backend. The inputs contain1354 frames; native final completion occurs before each video ends, so1339 unique source frames and4 same-frame refreshes are actually observed.",
+    "prepared_source_frames": 1354,
+    "observed_unique_source_frames": 1339,
+    "same_frame_transition_refresh_calls": 4,
+    "native_observe_calls": 1343,
+    "stopped_when_native_final_completion_committed": true
+  }
+}

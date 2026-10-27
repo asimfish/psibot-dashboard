@@ -1,0 +1,426 @@
+{
+  "task": "T-942",
+  "default_rule": {
+    "threshold": 0.975,
+    "stable_observations": 2,
+    "fsm_mode": "cumulative"
+  },
+  "global_calibration_selection": {
+    "default_threshold": 0.975,
+    "candidate_grid": [
+      0.975,
+      0.95,
+      0.925,
+      0.9
+    ],
+    "selected": 0.925,
+    "selection_rule": "highest threshold completing all3 transitions within +/-15 source frames on calibration episodes0,50; no validation score used",
+    "calibration_episodes": [
+      0,
+      50
+    ],
+    "validation_episodes": [
+      2,
+      52
+    ],
+    "validation_scope": "unseen for threshold selection; included in classifier training; not held-out model accuracy",
+    "stable_observations": 2,
+    "fsm_mode": "cumulative",
+    "scored_policy_rollouts": 0
+  },
+  "global_runs": [
+    {
+      "role": "calibration",
+      "episode": 0,
+      "threshold": 0.975,
+      "switches": [
+        241,
+        363
+      ],
+      "source_boundaries": [
+        244,
+        362,
+        716
+      ],
+      "deltas_frames": [
+        -3,
+        1
+      ],
+      "complete": false,
+      "within_1s_boundary_window": false,
+      "frames_source": 717
+    },
+    {
+      "role": "calibration",
+      "episode": 50,
+      "threshold": 0.975,
+      "switches": [
+        219,
+        337
+      ],
+      "source_boundaries": [
+        221,
+        337,
+        636
+      ],
+      "deltas_frames": [
+        -2,
+        0
+      ],
+      "complete": false,
+      "within_1s_boundary_window": false,
+      "frames_source": 637
+    },
+    {
+      "role": "calibration",
+      "episode": 0,
+      "threshold": 0.95,
+      "switches": [
+        241,
+        362
+      ],
+      "source_boundaries": [
+        244,
+        362,
+        716
+      ],
+      "deltas_frames": [
+        -3,
+        0
+      ],
+      "complete": false,
+      "within_1s_boundary_window": false,
+      "frames_source": 717
+    },
+    {
+      "role": "calibration",
+      "episode": 50,
+      "threshold": 0.95,
+      "switches": [
+        218,
+        336
+      ],
+      "source_boundaries": [
+        221,
+        337,
+        636
+      ],
+      "deltas_frames": [
+        -3,
+        -1
+      ],
+      "complete": false,
+      "within_1s_boundary_window": false,
+      "frames_source": 637
+    },
+    {
+      "role": "calibration",
+      "episode": 0,
+      "threshold": 0.925,
+      "switches": [
+        240,
+        362,
+        713
+      ],
+      "source_boundaries": [
+        244,
+        362,
+        716
+      ],
+      "deltas_frames": [
+        -4,
+        0,
+        -3
+      ],
+      "complete": true,
+      "within_1s_boundary_window": true,
+      "frames_source": 717
+    },
+    {
+      "role": "calibration",
+      "episode": 50,
+      "threshold": 0.925,
+      "switches": [
+        218,
+        336,
+        633
+      ],
+      "source_boundaries": [
+        221,
+        337,
+        636
+      ],
+      "deltas_frames": [
+        -3,
+        -1,
+        -3
+      ],
+      "complete": true,
+      "within_1s_boundary_window": true,
+      "frames_source": 637
+    },
+    {
+      "role": "calibration",
+      "episode": 0,
+      "threshold": 0.9,
+      "switches": [
+        240,
+        362,
+        710
+      ],
+      "source_boundaries": [
+        244,
+        362,
+        716
+      ],
+      "deltas_frames": [
+        -4,
+        0,
+        -6
+      ],
+      "complete": true,
+      "within_1s_boundary_window": true,
+      "frames_source": 717
+    },
+    {
+      "role": "calibration",
+      "episode": 50,
+      "threshold": 0.9,
+      "switches": [
+        218,
+        335,
+        628
+      ],
+      "source_boundaries": [
+        221,
+        337,
+        636
+      ],
+      "deltas_frames": [
+        -3,
+        -2,
+        -8
+      ],
+      "complete": true,
+      "within_1s_boundary_window": true,
+      "frames_source": 637
+    },
+    {
+      "role": "validation_default",
+      "episode": 2,
+      "threshold": 0.975,
+      "switches": [
+        244,
+        368
+      ],
+      "source_boundaries": [
+        248,
+        376,
+        692
+      ],
+      "deltas_frames": [
+        -4,
+        -8
+      ],
+      "complete": false,
+      "within_1s_boundary_window": false,
+      "frames_source": 693
+    },
+    {
+      "role": "validation_default",
+      "episode": 52,
+      "threshold": 0.975,
+      "switches": [
+        263,
+        385
+      ],
+      "source_boundaries": [
+        273,
+        385,
+        687
+      ],
+      "deltas_frames": [
+        -10,
+        0
+      ],
+      "complete": false,
+      "within_1s_boundary_window": false,
+      "frames_source": 688
+    },
+    {
+      "role": "validation_selected",
+      "episode": 2,
+      "threshold": 0.925,
+      "switches": [
+        244,
+        367
+      ],
+      "source_boundaries": [
+        248,
+        376,
+        692
+      ],
+      "deltas_frames": [
+        -4,
+        -9
+      ],
+      "complete": false,
+      "within_1s_boundary_window": false,
+      "frames_source": 693
+    },
+    {
+      "role": "validation_selected",
+      "episode": 52,
+      "threshold": 0.925,
+      "switches": [
+        263,
+        383,
+        670
+      ],
+      "source_boundaries": [
+        273,
+        385,
+        687
+      ],
+      "deltas_frames": [
+        -10,
+        -2,
+        -17
+      ],
+      "complete": true,
+      "within_1s_boundary_window": false,
+      "frames_source": 688
+    }
+  ],
+  "global_candidate_verdict": "0.925 selected only on0,50; rejected on2,52: one final miss and one trigger17 frames before source last frame; neither meets predeclared all3 within15 source frames criterion",
+  "experimental_phase_rule": {
+    "default_threshold": 0.975,
+    "terminal_position_2_threshold": 0.9,
+    "stable_observations": 2,
+    "fsm_mode": "cumulative",
+    "scope": "fixed three-subtask task only; isolated experimental runtime",
+    "production_default_replaced": false
+  },
+  "phase_runs": [
+    {
+      "role": "phase_specific_exploratory",
+      "episode": 0,
+      "threshold": 0.9,
+      "switches": [
+        241,
+        363,
+        710
+      ],
+      "source_boundaries": [
+        244,
+        362,
+        716
+      ],
+      "deltas_frames": [
+        -3,
+        1,
+        -6
+      ],
+      "complete": true,
+      "within_1s_boundary_window": true,
+      "frames_source": 717
+    },
+    {
+      "role": "phase_specific_exploratory",
+      "episode": 50,
+      "threshold": 0.9,
+      "switches": [
+        219,
+        337,
+        628
+      ],
+      "source_boundaries": [
+        221,
+        337,
+        636
+      ],
+      "deltas_frames": [
+        -2,
+        0,
+        -8
+      ],
+      "complete": true,
+      "within_1s_boundary_window": true,
+      "frames_source": 637
+    },
+    {
+      "role": "phase_specific_exploratory",
+      "episode": 2,
+      "threshold": 0.9,
+      "switches": [
+        244,
+        368,
+        673
+      ],
+      "source_boundaries": [
+        248,
+        376,
+        692
+      ],
+      "deltas_frames": [
+        -4,
+        -8,
+        -19
+      ],
+      "complete": true,
+      "within_1s_boundary_window": false,
+      "frames_source": 693
+    },
+    {
+      "role": "phase_specific_exploratory",
+      "episode": 52,
+      "threshold": 0.9,
+      "switches": [
+        263,
+        385,
+        669
+      ],
+      "source_boundaries": [
+        273,
+        385,
+        687
+      ],
+      "deltas_frames": [
+        -10,
+        0,
+        -18
+      ],
+      "complete": true,
+      "within_1s_boundary_window": false,
+      "frames_source": 688
+    }
+  ],
+  "prefix_checks": [
+    {
+      "episode": 0,
+      "first_two_stages_bit_exact": true,
+      "terminal_delta_frames": -6
+    },
+    {
+      "episode": 50,
+      "first_two_stages_bit_exact": true,
+      "terminal_delta_frames": -8
+    },
+    {
+      "episode": 2,
+      "first_two_stages_bit_exact": true,
+      "terminal_delta_frames": -19
+    },
+    {
+      "episode": 52,
+      "first_two_stages_bit_exact": true,
+      "terminal_delta_frames": -18
+    }
+  ],
+  "phase_verdict": "Terminal events fire4/4 versus default0/4; two examples19/18 frames before source last frame exceed predeclared15-frame window. Candidate is not validated for production or physical task success.",
+  "physical_rollouts": 0,
+  "formal_success_rates_modified": false,
+  "limitation": "All4 demonstrations were in classifier training. Two calibration-only held-out-for-threshold examples are not held-out model tests. Video end is a timing reference, not independent physical completion truth. Physical oracle0/32 bypassed native threshold; threshold cannot explain those failures.",
+  "source_report_sha256": "191aaf927706d250393ca00e4ffbd42dd3f8af91f27279ce27ceb744710b18dd",
+  "phase_report_sha256": "9755c460c88e5a9982b64ae36df3c34541d7c6a8f27114570035e48fa6acff4a"
+}
