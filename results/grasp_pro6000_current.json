@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-27T09:17:22.273153+00:00",
+  "updated_utc": "2026-10-27T10:03:54.171336+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -28,8 +28,11 @@
           26121923,
           26121925
         ],
-        "formal_evaluation_status": "RUNNING",
-        "formal_evaluation_expected_trials": 150
+        "formal_evaluation_status": "INTERRUPTED",
+        "formal_evaluation_expected_trials": 150,
+        "completed_trials": 17,
+        "completed_native_successes": 0,
+        "partial_is_not_formal_result": true
       },
       "object_accepted": false,
       "full_visual_passed": false,
@@ -39,9 +42,9 @@
         "episodes": 5,
         "strict_crossing_poses": 0
       },
-      "next": "Fullsourcegate passed;3DP50k+3ACT10k closed. Bothmethodformal150RUNNING.",
+      "next": "ACT interrupted17/150 allpolicyfailures,2technicalcells-11/-9; diagnosebeforeadditionalformalrollouts. DPformal150stillRUNNING.",
       "name": "100ml 玻璃烧杯",
-      "status_note": "100条新源99原生成功、100终点位置分量≤20mm，按原始10.5cm抬升规格通过完整严格源准入；3DP×50k、3ACT×10k均训练完，DP和ACT两组正式150次同时运行。"
+      "status_note": "100条新源通过准入，DP/ACT三种子已训练完。ACT测试17/150正常关闭但0成功，另2技术单元退出-11/-9后中断；已查试次初始直立、首秒稳定，主要需查抓取/抬升。DP正式150次继续运行。"
     },
     {
       "object": "brown_volumetric_flask_250ml",
@@ -231,7 +234,14 @@
       },
       "collection_and_eval_GPU_line": "Zenith Pro6000",
       "DP": {
-        "formal_accepted": false
+        "formal_accepted": false,
+        "training_closed_seeds": [
+          26121921,
+          26121923,
+          26121925
+        ],
+        "formal_evaluation_status": "RUNNING",
+        "formal_evaluation_expected_trials": 150
       },
       "ACT": {
         "formal_accepted": false,
@@ -251,9 +261,9 @@
         "episodes": 10,
         "strict_crossing_poses": 0
       },
-      "next": "Source100 strictgatepassed,3DP50k+3ACT10k closed;ACTformal150RUNNING.",
+      "next": "DP andACT formal150running; earlyACT4/4successbut0terminal20mm,DP2/8success/0t20. Noformalcredit.",
       "name": "大棕色试剂瓶",
-      "status_note": "100/100原生成功，最小终点抬升28.49cm、全100保存姿态严格交叉0；3DP×50k、3ACT×10k均完成，ACT正式150次运行。完整SR/SSR和视觉待测。",
+      "status_note": "合格源与三种子训练已完成，DP和ACT正式150次同时运行。ACT首4次均抓起但终点误差24–54mm；DP首8次2成功、终点20mm分量0。均是早期子集，不计SR/SSR正式成绩。",
       "source": {
         "episodes": 100,
         "native_successes": 100,
@@ -576,7 +586,13 @@
           26121925
         ],
         "formal_evaluation_status": "RUNNING",
-        "formal_evaluation_expected_trials": 150
+        "formal_evaluation_expected_trials": 150,
+        "early_formal_subset": {
+          "trials": 4,
+          "native_successes": 3,
+          "success_and_terminal20mm": 2,
+          "not_formal_result": true
+        }
       },
       "ACT": {
         "SR": 77.3,
@@ -596,7 +612,7 @@
       },
       "next": "Full50k signedRGB DP developer smoke5/5 native,2/5 terminal20mm; formal150/3seeds RUNNING.",
       "name": "漏斗",
-      "status_note": "完整50k DP开发小测5/5原生成功、2/5成功且终点≤20mm；仅采集范围内5位置，不计泛化/SSR通过。DP三种子正式150次已运行。旧ACT报告77.3%/35.3%，严格几何和完整视觉仍待复核。"
+      "status_note": "完整50k DP开发5/5抓起；正式泛化测试首4次3成功、2次成功且终点≤20mm，完整150次与几何/视觉仍在推进。旧ACT报告77.3%/35.3%，完整视觉与范围复核待完成。"
     },
     {
       "object": "alcohol_lamp",
@@ -630,19 +646,20 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 81,
+    "registered_jobs": 82,
     "active_registered_jobs": 4,
     "BOS_mount_count": 2,
     "state": "running_after_user_authorized_direct_takeover",
-    "state_note": "4个四卡low_priority任务运行中：完整训练后的正式150次测试。当前仍为0/21双方法完整验收。",
+    "state_note": "4个四卡low_priority任务运行中：漏斗DP、100ml烧杯DP、大棕瓶DP与ACT。仍0/21双方法完整验收。",
     "prepared_not_submitted": [
-      "50ml烧杯：初始XY修正后仍早期倾倒，正式DP继续挂起；10/15mm高度裕量未放行",
-      "250ml棕色容量瓶ACT：62/150中断，保留47成功与15失败；修复技术问题后仅补原计划缺失试次",
-      "小棕瓶：完整160次扫描已结束，按全组成功率与严格零交叉选设置，未确认合格源",
-      "500ml玻璃量筒：完整源74/100原生成功，质量门已拦截训练，继续修专家设置",
-      "其他对象继续推进完整源质量、训练、冻结测试、对应SSR和视觉；不同GPU线路分别记账"
+      "棕色容量瓶DP：完整50k三种子与冻结150位置已准入，下一空位自动运行",
+      "100ml烧杯/大棕瓶ACT：同三种子32k固定预算实验已入队，保留原10k版本；更长训练能否解决抓取/终点误差仍待闭环验证",
+      "100ml烧杯ACT：17次0成功且测试技术中断；保留全部关闭试次，先排查动作/模型与-11/-9故障，避免盲目重复测试",
+      "50ml烧杯：初始XY已修正但0.117秒后倾倒，正式DP继续挂起；10/15mm裕量未放行",
+      "棕色容量瓶ACT：62/150中断，47成功/7成功且终点20mm；补缺失前先处理Vulkan启动故障与终点误差",
+      "小棕瓶/玻璃量筒/250ml烧杯继续修源质量；未过完整源准入的模型不启动训练或计验收"
     ],
-    "checked_utc": "2026-10-27T09:17:22.273153+00:00",
+    "checked_utc": "2026-10-27T10:03:10.583765+00:00",
     "jobs": [
       {
         "tag": "train-m6rgb-funnel-20261026cc",
@@ -830,9 +847,9 @@
       {
         "tag": "eval-m16-act-b100-20261027cc",
         "job_id": "job-gwf3aif3ixt5",
-        "status": "RUNNING",
+        "status": "FAILED",
         "name": "100ml烧杯ACT · 三种子正式150次",
-        "progress_note": "三份完整预算模型已核验SHA；预先冻结三种子150位置，+0/+1/+2/+3cm。每次独立冷启动，按内存最多8单元、每卡2单元滚动执行；150试次身份/CPU闭合齐全后自动几何审计与审阅图。",
+        "progress_note": "FAILED：17/150正常关闭、0原生成功；另2单元实际退出-11/-9，中断原因与策略失败分开保留。已查试次初始直立、首秒位移<0.04mm，后续抓取/抬升仍失败；先排查模型，不盲目重跑150次。",
         "formal_plan_SHA256": "38db0f6b01712897ab02a80d94353594dd2e82b2d091200c1cd11e2fb2f85cd0"
       },
       {
@@ -850,9 +867,30 @@
         "name": "漏斗DP · 三种子正式150次",
         "progress_note": "三份完整预算模型已核验SHA；预先冻结三种子150位置，+0/+1/+2/+3cm。每次独立冷启动，按内存最多8单元、每卡2单元滚动执行；150试次身份/CPU闭合齐全后自动几何审计与审阅图。",
         "formal_plan_SHA256": "bcb0fd4ce0ced405fa41b63f7247f44641ee1d91ce56876464bb5fad3d21f13b"
+      },
+      {
+        "tag": "eval-m10-dp-brownL-20261027cc",
+        "name": "大棕瓶DP · 三种子正式150次",
+        "job_id": "job-0x4yqt4tl4c4",
+        "status": "RUNNING",
+        "progress_note": "已自动补位并运行；首8次正常关闭2次成功，独立终点20mm分量0。这是一个种子的早期子集，未代表正式150次或SSR。哈希缓存与滚动进度已启用。"
+      },
+      {
+        "tag": "eval-m6rgb-dp-bvf-20261027cc",
+        "name": "棕色容量瓶DP · 三种子正式150次",
+        "job_id": null,
+        "status": "NOT_SUBMITTED",
+        "progress_note": "三种子完整50k EMA已核验，原冻结150位置与+0/1/2/3cm，等待下一空位。"
+      },
+      {
+        "tag": "train-A32-b100-brownL-20261027cc",
+        "job_id": null,
+        "status": "NOT_SUBMITTED",
+        "name": "100ml烧杯/大棕瓶 ACT · 固定32k预算实验",
+        "progress_note": "10:03已入队：同三种子、每物体100条合格源，6个ACT模型固定32k步。架构/损失/chunk4/学习率1e-5不变；这是更长预算实验，不是相同论文训练预算，不增加独立种子数；保留旧10k模型，改善须闭环验证。"
       }
     ],
-    "progress_note": "漏斗DP完整50k模型在开发位置5/5抓起、2/5满足终点20mm分量；已转正式泛化测试。4个四卡作业运行：漏斗DP、100ml烧杯DP与ACT、大棕瓶ACT，每组3种子×50次。完整150次、对应SpatialSSR、严格几何与视觉齐备后才计通过，当前仍0/21。",
+    "progress_note": "漏斗DP正式测试首4次3成功、2次成功且终点≤20mm，正在继续150次；不把早期子集当SSR。100ml烧杯ACT在17次均未成功后因2个技术失败单元中断，大棕瓶DP已自动补位。四个四卡作业持续运行，完整通过仍0/21。",
     "DP_repair_note": "Signed-RGB修正后的完整50k真EMA开发闭环从15k的0/5提升到5/5，成功且终点20mm为2/5；这是采集范围内5位置、1种子的开发证据，不是SSR或泛化通过。漏斗DP三种子正式150次已运行，保留全部成功和失败；50k模型来自固定预算，未按rollout挑选。",
     "b50_reset_note": "约6–9mm初始XY偏移的旧错误仍保留；2/5mm裕量诊断均0个有效测试trial。新诊断初始XY已准确至0.149mm，但放置后0.117秒开始倾倒，首秒约68°，重置验收仍失败。继续排查物理稳定性，正式DP继续挂起，测试位置与门槛不变。"
   },
@@ -1195,7 +1233,7 @@
         "range_label": "±3 / 4 / 5 / 6cm",
         "duration_label": "24s",
         "seed": "3个训练种子的汇总",
-        "note": "Pro6000采集与测试；+0/+1/+2/+3cm冻结位置，全部150试次保留。ACT报告SR77.3%、后处理SSR35.3%，完整视觉与偏高SR的范围复核未完成。旧DP为0/150；RGB修复版3种子已运行约6450/50000步。"
+        "note": "Pro6000同型号采集/测试，+0/+1/+2/+3cm。此汇总保留旧模型150次成绩；修复后完整50k DP开发5/5抓起，新的三种子150次正式泛化测试正在运行。旧ACT报告SR77.3%、后处理SSR35.3%，完整视觉仍待复核。此版本无已发布完整视频，历史版本及其视频继续保留。"
       },
       "train": {
         "dataset": {
@@ -1205,7 +1243,7 @@
           "seed": "26121921 / 26121923 / 26121925"
         }
       },
-      "metric_note": "ACT报告SR77.3%、后处理SSR35.3%，完整视觉与偏高SR的范围复核未完成。旧DP为0/150；RGB修复版3种子已运行约6450/50000步。 此版本无已发布完整视频，不计完整验收；历史版本及其视频继续保留。",
+      "metric_note": "此汇总保留旧模型150次成绩；修复后完整50k DP开发5/5抓起，新的三种子150次正式泛化测试正在运行。旧ACT报告SR77.3%、后处理SSR35.3%，完整视觉仍待复核。此版本无已发布完整视频，历史版本及其视频继续保留。",
       "cases": []
     },
     {
@@ -1230,7 +1268,7 @@
         "range_label": "±3 / 4 / 5 / 6cm",
         "duration_label": "24s",
         "seed": "3个训练种子的汇总",
-        "note": "Pro6000采集与测试；+0/+1/+2/+3cm冻结位置，全部150试次保留。ACT报告SR77.3%、后处理SSR35.3%，完整视觉与偏高SR的范围复核未完成。旧DP为0/150；RGB修复版3种子已运行约6450/50000步。"
+        "note": "Pro6000同型号采集/测试，+0/+1/+2/+3cm。此汇总保留旧模型150次成绩；修复后完整50k DP开发5/5抓起，新的三种子150次正式泛化测试正在运行。旧ACT报告SR77.3%、后处理SSR35.3%，完整视觉仍待复核。此版本无已发布完整视频，历史版本及其视频继续保留。"
       },
       "train": {
         "dataset": {
@@ -1240,7 +1278,7 @@
           "seed": "26121921 / 26121923 / 26121925"
         }
       },
-      "metric_note": "ACT报告SR77.3%、后处理SSR35.3%，完整视觉与偏高SR的范围复核未完成。旧DP为0/150；RGB修复版3种子已运行约6450/50000步。 此版本无已发布完整视频，不计完整验收；历史版本及其视频继续保留。",
+      "metric_note": "此汇总保留旧模型150次成绩；修复后完整50k DP开发5/5抓起，新的三种子150次正式泛化测试正在运行。旧ACT报告SR77.3%、后处理SSR35.3%，完整视觉仍待复核。此版本无已发布完整视频，历史版本及其视频继续保留。",
       "cases": []
     },
     {
