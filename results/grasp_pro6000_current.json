@@ -991,7 +991,7 @@
         "job_id": "job-dhqys2mi36ql",
         "status": "SUCCEEDED",
         "name": "DP · 同源同噪声对照 R2",
-        "progress_note": "4模型同源/同噪声对照已完成。漏斗三个模型在同一源episode第15控制窗口的首个预测，EEF位置误差约28–60mm、姿态误差26–32°；16窗口首预测平均位置误差23–35mm。DP动作混合位置/四元数/手指，整体MAE不能标为关节弧度。仅源拟合诊断，不计SR/SSR。"
+        "progress_note": "4模型同源/同噪声对照已完成。漏斗三个50k模型同16窗口的关节动作MAE约0.0159/0.0173/0.0177rad，早段第15控制窗口约0.0803/0.0681/0.0662rad。DP前7维是手臂关节、后6维是手指；已用烧杯16窗口标签与原专家关节指令逐位相等核验，不换算为末端毫米或角度。仅源拟合，不计SR/SSR。"
       },
       {
         "tag": "train-A32-initialmix-b100-brownL-20261027cc",
@@ -1048,7 +1048,7 @@
       "scope": "仅两个对象首时刻/源episode0，不覆盖全部阶段。",
       "formal_credit": false
     },
-    "DP_action_error_units_note": "DP前7维为EEF xyz+四元数，后6维为手指关节；使用xyz距离mm、四元数夹角deg、手指MAErad分别报告。旧mixedMAE数值保留为计算记录，不赋单一rad单位。"
+    "DP_action_error_units_note": "DP动作是7维手臂关节角+6维手指关节角，MAE单位rad。真实末端20mm只从物理轨迹计算。此前草稿将动作前7维错按EEF位姿换算的mm/deg数值已撤回。"
   },
   "evidence_note": "论文指标为Grasp SpatialSSR；20mm终点位置与保存轨迹零交叉已分别核验。最新两项150次结果仍未通过完整视觉复核及全部数值标准。中断子集、专家回放和开发小测均不计完整验收；所有历史模型版本和视频保留。",
   "offline_DP_probe": {
