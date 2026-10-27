@@ -32,16 +32,16 @@ const render = data => {
   return {container, created};
 };
 
-test('all 21 objects and all five Pro6000 aggregates remain unaccepted', () => {
+test('all 21 objects and retained Pro6000 versions remain unaccepted', () => {
   const {container, created} = render(copy());
   assert.match(container.textContent, /0 \/ 21/);
-  assert.match(container.textContent, /4个四卡low_priority任务运行中/);
+  assert.match(container.textContent, /为什么还没有完整通过/);
   assert.match(container.textContent, /约6–9mm初始XY偏移/);
   assert.doesNotMatch(container.textContent, /原端尚未确认停止|尚未执行/);
   const activeJobs = snapshot.pipeline.jobs.filter(j => ['RUNNING', 'PENDING'].includes(j.status));
   assert.equal(created.filter(n => n.tag === 'tr').length, 3 + activeJobs.length + snapshot.runs.length + 21);
   const links = created.filter(n => n.tag === 'a' && n.href.startsWith('#'));
-  assert.equal(links.length, 5);
+  assert.equal(links.length, snapshot.runs.length);
   for (const link of links) {
     const selected = new URLSearchParams(link.href.slice(1));
     const run = snapshot.runs.find(r => r.candidate === selected.get('run'));
@@ -52,14 +52,31 @@ test('all 21 objects and all five Pro6000 aggregates remain unaccepted', () => {
 
 test('job states and diagnostic failures never increase acceptance or erase historical results', () => {
   const data = copy();
-  assert.equal(data.pipeline.active_registered_jobs, 4);
-  assert.equal(data.pipeline.jobs.filter(j => j.status === 'RUNNING').length, 4);
+  assert.equal(data.pipeline.active_registered_jobs, data.pipeline.jobs.filter(j => ['RUNNING', 'PENDING'].includes(j.status)).length);
   assert.equal(data.pipeline.jobs.find(j => j.tag.startsWith('dev-b50-')).status, 'FAILED');
   const {container} = render(data);
-  assert.match(container.textContent, /0个有效测试trial/);
+  assert.match(data.pipeline.jobs.find(j => j.tag === 'dev-b50-rest-reset-20261026cc').progress_note, /0个有效测试trial/);
   assert.match(container.textContent, /0 \/ 21/);
   assert.match(container.textContent, /77\.3%/);
   assert.match(container.textContent, /继续挂起/);
+});
+
+test('historical and new model rows retain independent scores and denominators', () => {
+  const data = copy();
+  data.objects.find(o => o.object === 'funnel').DP.SR = 99;
+  const old = data.runs.find(r => r.candidate === 'pro6000-eval-m6-dp-funnel-20261025cc');
+  const latest = data.runs.find(r => r.candidate === 'pro6000-eval-m6rgb-dp-funnel-20261027cc');
+  assert.ok(latest);
+  const smoke = JSON.parse(JSON.stringify(latest));
+  smoke.candidate = 'test-only-five-trial-diagnostic';
+  smoke.progress = {episode_num: 5, episode_success_num: 3, success_rate: .6};
+  smoke.result.SR = 60;
+  data.runs.push(smoke);
+  const {created} = render(data);
+  const row = run => created.find(n => n.tag === 'tr' && n.children[4]?.children[0]?.href?.includes(run.candidate));
+  assert.equal(row(old).children[2].textContent, '0.0%（0/150）');
+  assert.equal(row(latest).children[2].textContent, '52.0%（78/150）');
+  assert.equal(row(smoke).children[2].textContent, '60.0%（3/5）');
 });
 
 test('mixed GPU results and unsupported acceptance counts fail visibly', () => {
