@@ -98,13 +98,32 @@ function renderPro6000(snapshot) {
     add(row, 'td', object.name);
     add(row, 'td', object.paper.DP_SR + '% / ' + object.paper.DP_SpatialSSR + '%');
     add(row, 'td', object.paper.ACT_SR + '% / ' + object.paper.ACT_SpatialSSR + '%');
-    add(row, 'td', object.status_note, 'pro6000-object-note');
+    const evidence = add(row, 'td', undefined, 'pro6000-object-note');
+    add(evidence, 'p', object.status_note);
+    const sourceVideos = (object.source_review_videos || []).filter(video =>
+      /^assets\/grasp\/[A-Za-z0-9_./-]+\.mp4$/.test(video.url) &&
+      !video.url.split('/').includes('..'));
+    if (sourceVideos.length) {
+      const review = add(evidence, 'details');
+      add(review, 'summary', '源示范三视角（抽查记录，非策略测试）');
+      for (const video of sourceVideos) {
+        const link = add(add(review, 'p'), 'a', video.label);
+        link.href = video.url;
+      }
+    }
     add(row, 'td', object.object_accepted ? '通过' : '待验收');
   }
   const next = add(root, 'details');
   add(next, 'summary', '后续队列与修复证据');
   const list = add(next, 'ul');
-  snapshot.pipeline.prepared_not_submitted.forEach(text => add(list, 'li', text));
+  for (const queued of snapshot.pipeline.prepared_not_submitted) {
+    const item = add(list, 'li');
+    if (typeof queued === 'string') item.textContent = queued;
+    else {
+      add(item, 'strong', queued.name || queued.tag);
+      add(item, 'p', queued.progress_note);
+    }
+  }
   add(next, 'p', snapshot.pipeline.DP_repair_note || 'DP 使用真实 EMA 和原始源观测的离线对比已复现图像输入差异；离线差异不能当作闭环成功率改善。');
   add(next, 'p', snapshot.pipeline.b50_reset_note || 'b50 必须通过原XY位置、2mm校验和静置检查后，才能重跑正式测试。');
   add(root, 'p', snapshot.evidence_note, 'muted');
