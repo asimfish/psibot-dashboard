@@ -12,8 +12,62 @@
   "head_video": "cases/t700_cal_c30000_h8_left_s947100000/head_camera.mp4",
   "trace": "cases/t700_cal_c30000_h8_left_s947100000/trace.json",
   "audit": "cases/t700_cal_c30000_h8_left_s947100000/audit.json",
-  "images": [],
-  "annotations": [],
+  "images": [
+    {
+      "path": "cases/t700_cal_c30000_h8_left_s947100000/f246.png",
+      "caption": "原始视频帧 246"
+    },
+    {
+      "path": "cases/t700_cal_c30000_h8_left_s947100000/f270.png",
+      "caption": "原始视频帧 270"
+    },
+    {
+      "path": "cases/t700_cal_c30000_h8_left_s947100000/f374.png",
+      "caption": "原始视频帧 374"
+    },
+    {
+      "path": "cases/t700_cal_c30000_h8_left_s947100000/f398.png",
+      "caption": "原始视频帧 398"
+    },
+    {
+      "path": "cases/t700_cal_c30000_h8_left_s947100000/f659.png",
+      "caption": "原始视频帧 659"
+    },
+    {
+      "path": "cases/t700_cal_c30000_h8_left_s947100000/f683.png",
+      "caption": "原始视频帧 683"
+    },
+    {
+      "path": "cases/t700_cal_c30000_h8_left_s947100000/f712.png",
+      "caption": "原始视频帧 712"
+    }
+  ],
+  "annotations": [
+    {
+      "stage": 1,
+      "interval": null,
+      "completed_by_frame": 398,
+      "confidence": "中（视觉上界，非精确完成帧）",
+      "reason": "在原始帧398中手中杯看起来已基本倒空、B内可见蓝色液体；更早的精确完成时点未从抽样画面确定，不据此判定切换是否提前。",
+      "source": "Codex直接检查原始第三人称帧398；不注入策略",
+      "actual_switch_frames": [
+        386
+      ],
+      "early": false
+    },
+    {
+      "stage": 2,
+      "interval": null,
+      "completed_by_frame": 683,
+      "confidence": "中（仅视觉放置，不替代物理容差验收）",
+      "reason": "帧683可见A位于原垫附近且手已松开、移离。精确完成时点与毫米级位置容差无法由这张图确定；最终结果仍按独立物理验收。",
+      "source": "Codex直接检查原始第三人称帧683；不注入策略",
+      "actual_switch_frames": [
+        671
+      ],
+      "early": false
+    }
+  ],
   "video_offset_s": 0,
   "video_note": "同一轨迹的原始15Hz录像：第三人称为策略输入，头部仅供旁观。帧0对应模拟tick0，初始物理settle已结束。 末尾另有一次分类器更新触发Planner格式拒绝，未返回策略、未执行动作；仅在下载日志的unreturned_classifier_events中保留。",
   "validation": {

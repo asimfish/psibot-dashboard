@@ -12,8 +12,65 @@
   "head_video": "cases/t800_cal_c30000_h8_left_s947100000/head_camera.mp4",
   "trace": "cases/t800_cal_c30000_h8_left_s947100000/trace.json",
   "audit": "cases/t800_cal_c30000_h8_left_s947100000/audit.json",
-  "images": [],
-  "annotations": [],
+  "images": [
+    {
+      "path": "cases/t800_cal_c30000_h8_left_s947100000/f1124.png",
+      "caption": "原始视频帧 1124"
+    },
+    {
+      "path": "cases/t800_cal_c30000_h8_left_s947100000/f240.png",
+      "caption": "原始视频帧 240"
+    },
+    {
+      "path": "cases/t800_cal_c30000_h8_left_s947100000/f264.png",
+      "caption": "原始视频帧 264"
+    },
+    {
+      "path": "cases/t800_cal_c30000_h8_left_s947100000/f360.png",
+      "caption": "原始视频帧 360"
+    },
+    {
+      "path": "cases/t800_cal_c30000_h8_left_s947100000/f372.png",
+      "caption": "原始视频帧 372"
+    },
+    {
+      "path": "cases/t800_cal_c30000_h8_left_s947100000/f384.png",
+      "caption": "原始视频帧 384"
+    },
+    {
+      "path": "cases/t800_cal_c30000_h8_left_s947100000/f844.png",
+      "caption": "原始视频帧 844"
+    },
+    {
+      "path": "cases/t800_cal_c30000_h8_left_s947100000/f868.png",
+      "caption": "原始视频帧 868"
+    }
+  ],
+  "annotations": [
+    {
+      "stage": 1,
+      "interval": null,
+      "not_completed_at_frame": 372,
+      "confidence": "高（同帧物理否定证据）",
+      "reason": "372帧切换结束倾倒时A仍有674/1290粒子，B616/1290，仅47.8%进入B。384帧原始图仍可见A内蓝色液体。未找到正确倒空完成帧，标为提前切换。",
+      "source": "Codex检查原始帧384＋SHA绑定frame372/tick2976物理记录；不注入策略",
+      "actual_switch_frames": [
+        372
+      ],
+      "early": true
+    },
+    {
+      "stage": 2,
+      "interval": null,
+      "confidence": "高（末帧未完成）",
+      "reason": "原始末帧1124仍夹持烧杯，未释放，且倾倒阶段未通过原物理验收。不能将多次重复生成放回指令当作任务完成。",
+      "source": "Codex直接检查原始第三人称末帧1124；不注入策略",
+      "actual_switch_frames": [
+        856
+      ],
+      "early": false
+    }
+  ],
   "video_offset_s": 0,
   "video_note": "同一轨迹的原始15Hz录像：第三人称为策略输入，头部仅供旁观。帧0对应模拟tick0，初始物理settle已结束。",
   "validation": {
