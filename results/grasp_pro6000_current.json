@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-27T22:46:40.832321+00:00",
+  "updated_utc": "2026-10-28T00:23:54.347468+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -122,7 +122,7 @@
       },
       "next": "ACT32k原冻结150次正在执行，核验严格几何和完整视觉。DP100k开发3/5抓起、1/5终点合格已CPU/BOS校验；先诊断终点，不自动正式测试。",
       "name": "100ml 玻璃烧杯",
-      "status_note": "DP50k完整150次64.7%/40.0%，SR未达78%。ACT32k独立进程开发测试11/15抓起、3/15终点合格；正式冻结150次已在运行，尚未验收。"
+      "status_note": "DP50k完整150次97成功、报告位置/几何分量40%，SR仍低于论文78%。新ACT32k首轮正常关闭99/150（63成功、33终点20mm），原99条均已保留，正补51次；新DP100k其余两种子训练中。"
     },
     {
       "object": "brown_volumetric_flask_250ml",
@@ -302,9 +302,9 @@
       },
       "object_accepted": false,
       "full_visual_passed": false,
-      "next": "Source geometry remains the blocker; c05/c07 max depth under proposed 1 mm but strict crossings remain; user threshold decision pending",
+      "next": "完成c0.490完整100条采集及物理、严格几何、视觉核验，再重训重测DP和ACT。",
       "name": "研钵（论文 Crucible）",
-      "status_note": "论文Crucible按用户确认映射到mortar；ACT有145/150穿模，终点位置分量也未达标。c0.5/c0.7候选仍存在小于1mm交叉，不能按零穿模准入。"
+      "status_note": "旧ACT 145/150穿模结果保留。新专家c0.490同5个位置5/5成功，实际抬升279–281mm，保存位姿严格交叉0；完整100条采集中，尚无新策略验收结果。"
     },
     {
       "object": "brown_reagent_bottle_large",
@@ -781,7 +781,7 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "酒精灯",
-      "status_note": "8秒候选5/5抬起，但最大交叉约4.9–6.4mm；继续修复源数据。"
+      "status_note": "原8秒动作可抓起，但已有抓取设置存在表面交叉。当前16组（两种偏移×8档闭合）各5次鉴定运行中；要求实际抬升与严格零交叉，再扩采完整100条。"
     }
   ],
   "objects_both_methods_formally_accepted": 0,
@@ -794,17 +794,19 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 111,
-    "active_registered_jobs": 1,
+    "registered_jobs": 115,
+    "active_registered_jobs": 4,
     "BOS_mount_count": 2,
     "state": "running_after_user_authorized_direct_takeover",
-    "state_note": "烧杯ACT32k原冻结150次正式测试继续。20次DP100k开发及15次ACT开发120Hz几何审计均已完成；完整验收仍0/21。",
+    "state_note": "4个四卡作业运行：烧杯ACT补齐51次、DP100k四路训练、研钵新源100条采集和酒精灯16组鉴定。完整验收仍0/21。",
     "prepared_not_submitted": [
-      "尚未放行DP100k正式测试：开发终点指标仍不足，先完成CPU/BOS核验并比较源终点、预测指令和实际执行。",
-      "ACT150次正常关闭后仍须逐物体SR、严格SpatialSSR、全程几何及视觉复核。",
-      "50ml烧杯正式DP继续挂起，须无策略被动静置对照。"
+      "研钵新源100条采集完成后，逐条核验实际抬升、严格几何和视觉，再准入新数据的DP/ACT训练。",
+      "烧杯ACT补测保持原冻结位置、Native种子及三份32k模型；150次全部正常关闭后进行120Hz保存位姿几何与完整视觉核验。",
+      "DP100k训练完成后先做开发闭环与证据核验；烧杯原100k种子21保留，新种子23/25使用相同预算。",
+      "漏斗本轮训练100k种子21/23，第三个固定种子25仍待补齐；正式三种子结果不得混入旧50k模型。",
+      "50ml烧杯正式DP继续挂起，先完成无策略被动静置对照。"
     ],
-    "checked_utc": "2026-10-27T22:34:57.289567+00:00",
+    "checked_utc": "2026-10-28T00:23:54.347468+00:00",
     "jobs": [
       {
         "tag": "train-m6rgb-funnel-20261026cc",
@@ -1211,10 +1213,10 @@
       },
       {
         "tag": "eval-A32-initialmix-b100-150-20261027cc",
-        "status": "RUNNING",
+        "status": "FAILED",
         "job_id": "job-90fas8sy7urw",
-        "name": "烧杯 ACT32k · 原冻结150次正式测试",
-        "progress_note": "3个32k模型；原150个位置/+0/1/2/3cm及Native种子保持，每进程1个试次、并发内存受限。原生单试次控制沿用原方案，完整SR/SpatialSSR/严格几何/视觉全部通过才计验收。"
+        "name": "100ml烧杯 ACT32k · 正式测试中断记录",
+        "progress_note": "99/150正常CPU关闭：63成功、33成功且终点≤20mm；第97号技术失败后其余编号未启动。完整150次成绩未形成，全部成功与失败保留。"
       },
       {
         "tag": "post-dev-A32-fresh-b100-120Hz-20261027cc",
@@ -1222,18 +1224,59 @@
         "status": "SUCCEEDED",
         "name": "烧杯开发轨迹 · 全120Hz姿态几何审计",
         "progress_note": "全部15次开发轨迹完成120Hz保存姿态审计，手部/目标网格交叉0；成功且终点20mm并无该交叉为3/15。全程碰撞事件绑定、正式泛化和完整视觉仍须各自复核，不计正式验收。"
+      },
+      {
+        "tag": "train-D100-b100rest-funnel12-20261027cc",
+        "name": "烧杯与漏斗 DP · 100k四卡训练",
+        "progress_note": "烧杯固定种子23/25、漏斗21/23各一张卡；已约5250–5300/100000步，GPU利用率96%–99%。源数据、归一化、horizon8、DDIM16保持对应配方。",
+        "job_id": "job-9s8lt03h8ef6",
+        "status": "RUNNING"
+      },
+      {
+        "tag": "eval-A32-initialmix-b100-150-20261027cc-r3",
+        "name": "100ml烧杯 ACT32k · 原150次缺失51次恢复",
+        "progress_note": "云端已核验复用99条，构建51个缺失单元。原位置、原Native种子、原三份32k模型保持；完整150次后做120Hz保存位姿几何及视觉核验。",
+        "job_id": "job-rrv3yxrgbcwf",
+        "status": "RUNNING"
+      },
+      {
+        "tag": "qual-lamp-fineclose-m8-20261027cc",
+        "name": "酒精灯 · 16组抓取参数鉴定",
+        "progress_note": "两种抓取偏移×8档闭合，每组同5个源位置与共同Native种子，原8秒动作后保持至24秒。源索引已在Native前写入BOS；实际抬升与严格零交叉通过后才扩采100条。",
+        "job_id": "job-2tt6b3d42ykz",
+        "status": "RUNNING"
+      },
+      {
+        "tag": "src100-mortar-c0490-m6-20261028cc",
+        "name": "研钵 · c0.490新源完整100条采集",
+        "progress_note": "5次鉴定均成功、终点实际抬升279–281mm、保存位姿严格交叉0；现采原±3cm全部100个位置，16单元各6–7次，原6秒动作后保持至24秒。源质量核验完成前不训练。",
+        "job_id": "job-uc20v3b7vlml",
+        "status": "RUNNING"
+      },
+      {
+        "tag": "qual-mortar-fineclose-20261027cc",
+        "name": "研钵 · 16档闭合鉴定已结束",
+        "progress_note": "80次原生成功；c0.490为5/5实际抬升且保存位姿严格交叉0。其余15档仍有严格交叉，最深0.83mm，未按未获确认的1mm阈值放行。",
+        "job_id": "job-a3komf4div75",
+        "status": "SUCCEEDED"
+      },
+      {
+        "tag": "eval-A32-initialmix-b100-150-20261027cc-r2",
+        "job_id": "job-jio6iie52k46",
+        "status": "FAILED",
+        "name": "烧杯ACT恢复r2 · 启动路径错误记录",
+        "progress_note": "Native启动前BOS路径缓存错误，0个有效新试次；r3已用真实缓存路径回归验证并启动。"
       }
     ],
-    "progress_note": "19个Pro6000版本分别保留：独立进程ACT开发11/15抓起、3/15终点合格，附成功/失败三相机原视频；DP100k的20次开发已全部CPU/BOS校验，烧杯3/5及1/5终点、大棕瓶13/15及0/15终点。ACT原冻结150次正式测试进行中，完整验收仍0/21。",
+    "progress_note": "研钵c0.490在5个原位置上5/5原生成功，实际抬升279–281mm，保存位姿严格交叉0，完整100条已开始采集。烧杯ACT原99次正常关闭记录全部保留，补测后再核验完整150次；小样本、训练与中断子集均不计完整验收。",
     "DP_repair_note": "原专家动作被拉长24秒和signed-RGB色相处理两处错误已修复。完整三种子正式测试已证明修复并不等于验收通过；保留旧版0%与新版52%独立结果，继续定位抓取与终点误差。",
     "b50_reset_note": "约6–9mm初始XY偏移的旧错误已保留。最新初始XY准确至0.149mm、初始直立，但主动策略开始后0.117秒倾倒；仅此不足以证明被动重置不稳，EEF距离也不能排除长手指碰撞。正式DP继续挂起。",
     "failure_diagnosis": [
-      "重置故障已分步实证：先清理上一轮动作，起步手臂偏移/速度从约0.078rad/3.14rad/s降到0.00082rad/0.019rad/s；再在重置时结束旧控制周期，20次首输入的26维状态完全一致、额外物理步归零。这些机械修复没有自动解决抓取和终点误差。",
-      "烧杯连续运行差异已定位到模型视觉输入：相同26维状态时，第三视角原始RGB替换导致主要首动作差异，原预测可精确回放。独立进程11/15比连续版3/15改善，但GPU分配/并发也变化，不能据此宣称渲染根因或完整成功率已被单变量证实。",
-      "终点精度仍挡住完整验收：大棕瓶ACT开发5/5抓起但0/5终点合格；DP100k开发日志13/15抓起仍0/15终点合格。先核查指令误差与执行误差，不把抓起当作SpatialSSR。",
-      "存储故障独立保留：烧杯15次均已正常CPU关闭并存BOS，父进程写汇总时项目配额Errno122；已从3个原单元校验恢复全部成功与失败，没有重跑或筛选。新模式改用节点临时目录和BOS摘要SHA校验；原模式回归通过。",
-      "源质量仍挡住其他对象：250ml烧杯80/100、500ml玻璃量筒74/100、小棕瓶72/100原生成功；不因终点位置合格而训练。穿模与完整视觉标准保持。",
-      "现有完整DP仍低于目标：B10064.7%/40.0%，论文78%/40%；漏斗52.0%/14.7%，论文68%/30%。固定100k实验继续，未将模型训练完成等同于验收。"
+      "烧杯ACT首轮因第97号Native技术失败停止后续启动；99次正常关闭中63次成功、33次同时满足终点20mm，仅为中断子集。恢复作业已逐条校验并保留全部99次成功与失败，补齐51个缺失编号。",
+      "恢复r2在Native启动前因BOS路径模块缓存错误失败，0个新试次；r3已通过原模块缓存故障复现、修复回归，并在云端完成99条BOS复用校验与51单元构建。",
+      "大棕瓶DP100k开发测试抓起13/15，但终点20mm为0/15；完整SHA核验的轨迹显示，多数成功样本仍有约3–5cm水平终点偏差。",
+      "研钵旧ACT仍有145/150穿模；新专家c0.490仅完成5次鉴定，当前完整100条新数据采集不能视为策略训练或验收通过。",
+      "正式验收仍需逐物体同时满足DP和ACT的论文SR、SpatialSSR、泛化范围及视觉要求；终点20mm与手/目标几何审计不自动覆盖全部碰撞和视觉条件。"
     ],
     "expert_replay_prefix": {
       "prefix_seconds": 23.966666666666665,
@@ -1299,9 +1342,10 @@
       "existing_trials_rerun": false,
       "all_old_cloud_jobs_untouched": true,
       "new_and_legacy_staged_inline_checks_passed": true
-    }
+    },
+    "source_recovery_evidence": "verification/grasp_source_recovery_20261028.json"
   },
-  "evidence_note": "论文指标为Grasp SpatialSSR；20mm终点位置与保存轨迹零交叉已分别核验。最新两项150次结果仍未通过完整视觉复核及全部数值标准。中断子集、专家回放和开发小测均不计完整验收；所有历史模型版本和视频保留。",
+  "evidence_note": "论文指标为Grasp SpatialSSR。19个历史/开发实测版本、21物体论文目标及原始视频全部保留；新研钵5次合格鉴定、100条采集、DP训练和ACT中断子集均不增加完整通过数。全部0/21；完整SR/SSR、泛化、全程几何与视觉核验继续。",
   "offline_DP_probe": {
     "observations": 4,
     "source_episodes": 1,
