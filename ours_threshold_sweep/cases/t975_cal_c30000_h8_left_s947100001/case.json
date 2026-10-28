@@ -1,0 +1,109 @@
+{
+  "id": "t975_cal_c30000_h8_left_s947100001",
+  "arm": "t975",
+  "split": "calibration",
+  "threshold": 0.975,
+  "horizon": 8,
+  "side": "left",
+  "outcome": "failure",
+  "verified": true,
+  "video": "cases/t975_cal_c30000_h8_left_s947100001/third_camera.mp4",
+  "head_video": "cases/t975_cal_c30000_h8_left_s947100001/head_camera.mp4",
+  "trace": "cases/t975_cal_c30000_h8_left_s947100001/trace.json",
+  "audit": "cases/t975_cal_c30000_h8_left_s947100001/audit.json",
+  "images": [
+    {
+      "path": "cases/t975_cal_c30000_h8_left_s947100001/f200.png",
+      "caption": "原始视频帧 200"
+    },
+    {
+      "path": "cases/t975_cal_c30000_h8_left_s947100001/f220.png",
+      "caption": "原始视频帧 220"
+    },
+    {
+      "path": "cases/t975_cal_c30000_h8_left_s947100001/f230.png",
+      "caption": "原始视频帧 230"
+    },
+    {
+      "path": "cases/t975_cal_c30000_h8_left_s947100001/f240.png",
+      "caption": "原始视频帧 240"
+    },
+    {
+      "path": "cases/t975_cal_c30000_h8_left_s947100001/f250.png",
+      "caption": "原始视频帧 250"
+    },
+    {
+      "path": "cases/t975_cal_c30000_h8_left_s947100001/f262.png",
+      "caption": "原始视频帧 262"
+    },
+    {
+      "path": "cases/t975_cal_c30000_h8_left_s947100001/f350.png",
+      "caption": "原始视频帧 350"
+    },
+    {
+      "path": "cases/t975_cal_c30000_h8_left_s947100001/f376.png",
+      "caption": "原始视频帧 376"
+    }
+  ],
+  "annotations": [
+    {
+      "stage": 0,
+      "interval": [
+        230,
+        262
+      ],
+      "reason": "200、220帧仍在横向搬运；230至262帧逐渐对准接收杯上方，262帧已经是可转入倾倒的姿态。该区间保留第三人称二维视图无法精确判断深度及最早完成帧的不确定性。",
+      "confidence": "中；32帧不确定区间",
+      "source": "Codex 原始250/262帧视觉检查（区间标注）",
+      "actual_switch_frames": [
+        262
+      ],
+      "early": false
+    },
+    {
+      "stage": 1,
+      "interval": null,
+      "reason": "350帧A仍被持握但未见接收杯中有明显液体；376帧A已脱离手指并向下掉落。未看到倾倒完成，不建议在此片段切换为放回。物理审计另报告液体尚在A中与姿态安全失败，未把审计阶段号当作AI标注。",
+      "confidence": "高（失败可见）；完成帧不可给定",
+      "source": "Codex 原始350/376帧视觉检查",
+      "actual_switch_frames": [],
+      "early": false
+    }
+  ],
+  "video_offset_s": 0,
+  "video_note": "同一轨迹的原始15Hz录像：第三人称为策略输入，头部仅供旁观。帧0对应模拟tick0，初始物理settle已结束。",
+  "validation": {
+    "full_decode": true,
+    "ffprobe": {
+      "third_camera.mp4": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 640,
+            "height": 480,
+            "avg_frame_rate": "15/1",
+            "nb_frames": "377"
+          }
+        ],
+        "format": {
+          "duration": "25.134000"
+        }
+      },
+      "head_camera.mp4": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 640,
+            "height": 480,
+            "avg_frame_rate": "15/1",
+            "nb_frames": "377"
+          }
+        ],
+        "format": {
+          "duration": "25.134000"
+        }
+      }
+    },
+    "frame_count_matches_original_manifest": true
+  }
+}

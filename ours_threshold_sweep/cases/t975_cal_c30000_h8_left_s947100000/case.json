@@ -1,0 +1,138 @@
+{
+  "id": "t975_cal_c30000_h8_left_s947100000",
+  "arm": "t975",
+  "split": "calibration",
+  "threshold": 0.975,
+  "horizon": 8,
+  "side": "left",
+  "outcome": "success",
+  "verified": true,
+  "video": "cases/t975_cal_c30000_h8_left_s947100000/third_camera.mp4",
+  "head_video": "cases/t975_cal_c30000_h8_left_s947100000/head_camera.mp4",
+  "trace": "cases/t975_cal_c30000_h8_left_s947100000/trace.json",
+  "audit": "cases/t975_cal_c30000_h8_left_s947100000/audit.json",
+  "images": [
+    {
+      "path": "cases/t975_cal_c30000_h8_left_s947100000/f240.png",
+      "caption": "原始视频帧 240"
+    },
+    {
+      "path": "cases/t975_cal_c30000_h8_left_s947100000/f253.png",
+      "caption": "原始视频帧 253"
+    },
+    {
+      "path": "cases/t975_cal_c30000_h8_left_s947100000/f258.png",
+      "caption": "原始视频帧 258"
+    },
+    {
+      "path": "cases/t975_cal_c30000_h8_left_s947100000/f365.png",
+      "caption": "原始视频帧 365"
+    },
+    {
+      "path": "cases/t975_cal_c30000_h8_left_s947100000/f378.png",
+      "caption": "原始视频帧 378"
+    },
+    {
+      "path": "cases/t975_cal_c30000_h8_left_s947100000/f387.png",
+      "caption": "原始视频帧 387"
+    },
+    {
+      "path": "cases/t975_cal_c30000_h8_left_s947100000/f600.png",
+      "caption": "原始视频帧 600"
+    },
+    {
+      "path": "cases/t975_cal_c30000_h8_left_s947100000/f620.png",
+      "caption": "原始视频帧 620"
+    },
+    {
+      "path": "cases/t975_cal_c30000_h8_left_s947100000/f640.png",
+      "caption": "原始视频帧 640"
+    },
+    {
+      "path": "cases/t975_cal_c30000_h8_left_s947100000/f668.png",
+      "caption": "原始视频帧 668"
+    },
+    {
+      "path": "cases/t975_cal_c30000_h8_left_s947100000/f707.png",
+      "caption": "原始视频帧 707"
+    }
+  ],
+  "annotations": [
+    {
+      "stage": 0,
+      "interval": [
+        240,
+        258
+      ],
+      "reason": "240至258帧从搬运末段进入接收杯上方；第三人称视图不能精确确定深度方向的最早对准帧，给出区间。",
+      "confidence": "中",
+      "source": "Codex 原始240/253/258帧视觉检查",
+      "actual_switch_frames": [
+        258
+      ],
+      "early": false
+    },
+    {
+      "stage": 1,
+      "interval": [
+        365,
+        387
+      ],
+      "reason": "365至387帧附近可见源杯倾斜，接收杯底已有明显蓝色液体；387帧源杯接近空杯。区间包含对剩余液体可见性的判断不确定性。",
+      "confidence": "中",
+      "source": "Codex 原始365/378/387帧视觉检查",
+      "actual_switch_frames": [
+        378
+      ],
+      "early": false
+    },
+    {
+      "stage": 2,
+      "interval": [
+        640,
+        668
+      ],
+      "reason": "600帧烧杯已回垫子但仍被手握持；后续采样中手指逐渐张开并离杯，给出手释放完成的视觉区间。该区间与物理验收的稳定等待时间分别记录。",
+      "confidence": "中至高",
+      "source": "Codex 原始600/620/640及末段RGB视觉检查",
+      "actual_switch_frames": [],
+      "early": false
+    }
+  ],
+  "video_offset_s": 0,
+  "video_note": "同一轨迹的原始15Hz录像：第三人称为策略输入，头部仅供旁观。帧0对应模拟tick0，初始物理settle已结束。",
+  "validation": {
+    "full_decode": true,
+    "ffprobe": {
+      "third_camera.mp4": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 640,
+            "height": 480,
+            "avg_frame_rate": "15/1",
+            "nb_frames": "708"
+          }
+        ],
+        "format": {
+          "duration": "47.200000"
+        }
+      },
+      "head_camera.mp4": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 640,
+            "height": 480,
+            "avg_frame_rate": "15/1",
+            "nb_frames": "708"
+          }
+        ],
+        "format": {
+          "duration": "47.200000"
+        }
+      }
+    },
+    "frame_count_matches_original_manifest": true
+  }
+}
