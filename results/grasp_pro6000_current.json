@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-28T00:23:54.347468+00:00",
+  "updated_utc": "2026-10-28T03:41:01.461480+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -46,11 +46,11 @@
           26121923,
           26121925
         ],
-        "formal_evaluation_status": "INTERRUPTED",
+        "formal_evaluation_status": "COMPLETED_SR_BELOW_PAPER",
         "formal_evaluation_expected_trials": 150,
-        "completed_trials": 17,
-        "completed_native_successes": 0,
-        "partial_is_not_formal_result": true,
+        "completed_trials": 150,
+        "completed_native_successes": 82,
+        "partial_is_not_formal_result": false,
         "development32k": {
           "trials": 15,
           "native_successes": 2,
@@ -110,7 +110,89 @@
           "all15_CPU_and_BOS_SHA_verified": true,
           "formal_accepted": false,
           "full_geometry_SSR_evaluated": false
-        }
+        },
+        "previous_formal_snapshot_before_full150": {
+          "formal_accepted": false,
+          "training_closed_seeds": [
+            26121921,
+            26121923,
+            26121925
+          ],
+          "formal_evaluation_status": "INTERRUPTED",
+          "formal_evaluation_expected_trials": 150,
+          "completed_trials": 17,
+          "completed_native_successes": 0,
+          "partial_is_not_formal_result": true,
+          "development32k": {
+            "trials": 15,
+            "native_successes": 2,
+            "success_terminal20mm": 2,
+            "same_five_source_validation_positions": true,
+            "training_seeds": [
+              26121921,
+              26121923,
+              26121925
+            ],
+            "formal_accepted": false,
+            "full_geometry_SSR_evaluated": false
+          },
+          "development_initialmix32k": {
+            "trials": 15,
+            "native_successes": 3,
+            "success_terminal20mm": 1,
+            "training_seeds": [
+              26121921,
+              26121923,
+              26121925
+            ],
+            "same_five_source_validation_positions": true,
+            "formal_accepted": false,
+            "full_geometry_SSR_evaluated": false
+          },
+          "development_resetbuffer32k": {
+            "trials": 15,
+            "native_successes": 4,
+            "success_terminal20mm": 2,
+            "training_seeds": [
+              26121921,
+              26121923,
+              26121925
+            ],
+            "all_native_cells_CPU_passed": true,
+            "formal_accepted": false,
+            "full_geometry_SSR_evaluated": false
+          },
+          "development_resetboundary32k": {
+            "trials": 15,
+            "native_successes": 3,
+            "success_terminal20mm": 1,
+            "training_seeds": [
+              26121921,
+              26121923,
+              26121925
+            ],
+            "all_native_cells_CPU_passed": true,
+            "formal_accepted": false,
+            "full_geometry_SSR_evaluated": false
+          },
+          "development_fresh32k": {
+            "trials": 15,
+            "native_successes": 11,
+            "success_terminal20mm": 3,
+            "all15_CPU_and_BOS_SHA_verified": true,
+            "formal_accepted": false,
+            "full_geometry_SSR_evaluated": false
+          }
+        },
+        "trials": 150,
+        "completed_success_terminal20mm": 41,
+        "SR": 54.7,
+        "SpatialSSR_reported": null,
+        "reported_24s_terminal20_and_hand_target_proxy": 27.3,
+        "at_first_success20mm_component": 0.0,
+        "strict_hand_target_crossing_trials": 0,
+        "saved_pose_geometry_120Hz_completed": true,
+        "full_paper_SSR_evidence_complete": false
       },
       "object_accepted": false,
       "full_visual_passed": false,
@@ -120,9 +202,9 @@
         "episodes": 5,
         "strict_crossing_poses": 0
       },
-      "next": "ACT32k原冻结150次正在执行，核验严格几何和完整视觉。DP100k开发3/5抓起、1/5终点合格已CPU/BOS校验；先诊断终点，不自动正式测试。",
+      "next": "新ACT训练对照已启动：三个原种子各32k，仅训练RGB加≤4/255偏移，验证/测试原图不变；三模型关闭后自动跑原固定15次源验证。DP其余两个100k种子继续训练。",
       "name": "100ml 玻璃烧杯",
-      "status_note": "DP50k完整150次97成功、报告位置/几何分量40%，SR仍低于论文78%。新ACT32k首轮正常关闭99/150（63成功、33终点20mm），原99条均已保留，正补51次；新DP100k其余两种子训练中。"
+      "status_note": "完整冻结150次已正常关闭：82次成功（54.7%，低于论文66%），41次成功且24s终点≤20mm。全部150次120Hz保存姿态的手部/目标网格零交叉。27.3%是24s终点+手/目标几何分量；原生首次success时20mm分量为0%，计分时点、其他碰撞域和完整视觉尚未绑定，因此论文SSR留空。原99条成功与失败均保留，仅补51次。"
     },
     {
       "object": "brown_volumetric_flask_250ml",
@@ -302,9 +384,22 @@
       },
       "object_accepted": false,
       "full_visual_passed": false,
-      "next": "完成c0.490完整100条采集及物理、严格几何、视觉核验，再重训重测DP和ACT。",
+      "next": "已启动困难源位置46的四组慢闭合/轻微姿态对照，并新增120Hz原始物理步采样与30Hz逐位姿一致性验证；再覆盖全部14个困难位置，不放宽穿模阈值。",
       "name": "研钵（论文 Crucible）",
-      "status_note": "旧ACT 145/150穿模结果保留。新专家c0.490同5个位置5/5成功，实际抬升279–281mm，保存位姿严格交叉0；完整100条采集中，尚无新策略验收结果。"
+      "status_note": "c0.49新采完整100条：100/100抓起且终点≤20mm，实际抬升最低27.92cm（原目标要求24cm）；但14/100在30Hz保存姿态有单帧浅穿模，最深0.453mm，不能放行训练。5条鉴定零穿模未覆盖全量。",
+      "source100_c0490": {
+        "episodes": 100,
+        "native_successes": 100,
+        "terminal20mm": 100,
+        "physical_own_goal_lifts": 100,
+        "min_lift_m": 0.27922916412353516,
+        "required_lift_m": 0.24,
+        "saved_pose_crossing_episodes": 14,
+        "max_crossing_depth_mm": 0.45253877131861614,
+        "geometry_sampling_Hz": 30,
+        "source_training_allowed": false,
+        "formal_accepted": false
+      }
     },
     {
       "object": "brown_reagent_bottle_large",
@@ -781,7 +876,8 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "酒精灯",
-      "status_note": "原8秒动作可抓起，但已有抓取设置存在表面交叉。当前16组（两种偏移×8档闭合）各5次鉴定运行中；要求实际抬升与严格零交叉，再扩采完整100条。"
+      "status_note": "遥测刷新修复后的四组设置20/20采集正常关闭，20/20原生抓起且终点≤20mm；几何审计20/20都有穿模，最大7.11mm，四组均不能放行训练。",
+      "next": "按接触网格与时段继续修正抓取姿态；不把平台完成或原生抓起当作无穿模合格。"
     }
   ],
   "objects_both_methods_formally_accepted": 0,
@@ -794,26 +890,246 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 115,
-    "active_registered_jobs": 4,
+    "registered_jobs": 122,
+    "active_registered_jobs": 3,
     "BOS_mount_count": 2,
-    "state": "running_after_user_authorized_direct_takeover",
-    "state_note": "4个四卡作业运行：烧杯ACT补齐51次、DP100k四路训练、研钵新源100条采集和酒精灯16组鉴定。完整验收仍0/21。",
+    "state": "RUNNING",
+    "state_note": "新ACT三个32k模型训练及CPU审核已完成，启动前元数据错误修复版将跑原固定15次源验证。五个DP模型继续训练；研钵120Hz启动reset修复正验证。",
     "prepared_not_submitted": [
-      "研钵新源100条采集完成后，逐条核验实际抬升、严格几何和视觉，再准入新数据的DP/ACT训练。",
-      "烧杯ACT补测保持原冻结位置、Native种子及三份32k模型；150次全部正常关闭后进行120Hz保存位姿几何与完整视觉核验。",
-      "DP100k训练完成后先做开发闭环与证据核验；烧杯原100k种子21保留，新种子23/25使用相同预算。",
-      "漏斗本轮训练100k种子21/23，第三个固定种子25仍待补齐；正式三种子结果不得混入旧50k模型。",
-      "50ml烧杯正式DP继续挂起，先完成无策略被动静置对照。"
+      {
+        "tag": "dev-A32rgb4-fresh-b100-fixed15-20261028cc-r2",
+        "state": "TECHNICAL_REPAIR_READY",
+        "progress_note": "三个新ACT模型均已完成；修复启动前元数据时间函数，原固定15次源验证，0次历史Native需要重复。"
+      },
+      {
+        "tag": "eval-m6-dp-b50-20261025cc",
+        "state": "HOLD_B50_RESET_FIX",
+        "progress_note": "重置/初始动作问题尚未关闭，正式测试继续挂起。"
+      }
     ],
-    "checked_utc": "2026-10-28T00:23:54.347468+00:00",
+    "checked_utc": "2026-10-28T03:41:01.461480+00:00",
     "jobs": [
       {
-        "tag": "train-m6rgb-funnel-20261026cc",
-        "job_id": "job-xhn2g35zo5cb",
+        "tag": "qual-mortar-p120-smoke4-20261028cc",
+        "job_id": "job-wlb32zh59hnw",
+        "status": "FAILED",
+        "name": "研钵120Hz记录验证 · 启动reset计数缺陷",
+        "Native_progress": {
+          "eps": 0,
+          "succ": 0,
+          "t20": 0
+        },
+        "progress_note": "4条Native正常关闭，2条抬起；新增120Hz通道仅记1帧，几何覆盖断言拒绝。原30Hz数据和结果保留；已按采集器回合编号修复并加入重复启动reset回归。"
+      },
+      {
+        "tag": "qual-reagents-duration-close80-20261028cc",
+        "job_id": "job-kmy8s44sk8ji",
+        "status": "FAILED",
+        "name": "试剂瓶80次专家验证 · 两组大透明瓶待满100验证",
+        "Native_progress": {
+          "eps": 41,
+          "succ": 36,
+          "t20": 41
+        },
+        "progress_note": "部分候选失败导致父任务失败。大透明瓶12s的c0.45/c0.50各10/10抓起、保存帧零穿模；小棕瓶仍穿模，不能合并计为合格。"
+      },
+      {
+        "tag": "train-A32rgb4-b1003-D100-funnel25-20261028cc",
+        "job_id": "job-iero02ktpkwb",
+        "status": "RUNNING",
+        "name": "烧杯新ACT三种子、漏斗DP第三种子 · 训练",
+        "training_progress": [
+          {
+            "method": "dp",
+            "object": "funnel",
+            "seed": 26121925,
+            "GPU": 0,
+            "updates": 15500
+          },
+          {
+            "method": "act",
+            "object": "glass_beaker",
+            "seed": 26121921,
+            "GPU": 1,
+            "updates": 32000
+          },
+          {
+            "method": "act",
+            "object": "glass_beaker",
+            "seed": 26121923,
+            "GPU": 2,
+            "updates": 32000
+          },
+          {
+            "method": "act",
+            "object": "glass_beaker",
+            "seed": 26121925,
+            "GPU": 3,
+            "updates": 32000
+          }
+        ],
+        "progress_note": "DP seed26121925：15500步；ACT seed26121921：32000步；ACT seed26121923：32000步；ACT seed26121925：32000步",
+        "GPU_utilization_percent": [
+          94,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "tag": "train-D100-b100rest-funnel12-20261027cc",
+        "job_id": "job-9s8lt03h8ef6",
+        "status": "RUNNING",
+        "name": "烧杯其余2种子、漏斗前2种子 · DP 100k训练",
+        "training_progress": [
+          {
+            "method": "dp",
+            "object": "glass_beaker",
+            "seed": 26121923,
+            "GPU": 0,
+            "updates": 37800
+          },
+          {
+            "method": "dp",
+            "object": "glass_beaker",
+            "seed": 26121925,
+            "GPU": 1,
+            "updates": 37900
+          },
+          {
+            "method": "dp",
+            "object": "funnel",
+            "seed": 26121921,
+            "GPU": 2,
+            "updates": 37950
+          },
+          {
+            "method": "dp",
+            "object": "funnel",
+            "seed": 26121923,
+            "GPU": 3,
+            "updates": 37950
+          }
+        ],
+        "progress_note": "DP seed26121923：37800步；DP seed26121925：37900步；DP seed26121921：37950步；DP seed26121923：37950步",
+        "GPU_utilization_percent": [
+          92,
+          96,
+          95,
+          93
+        ]
+      },
+      {
+        "tag": "dev-A32-b100-val5-20261027cc",
+        "job_id": "job-ijc268cpeccd",
         "status": "SUCCEEDED",
-        "name": "漏斗 DP · 完整50k三种子已训练完",
-        "progress_note": "三种子DP完成固定50,000步；已有ACT线完成10,000步。模型正常收尾不等于正式SR、SSR或视觉验收。"
+        "name": "100ml烧杯 ACT32k · 三种子固定源验证15次",
+        "progress_note": "15/15正常CPU关闭，2次原生成功、2次成功且终点≤20mm。每个三种子模型执行相同5个固定源验证位置。开发域测试，未计算完整几何SSR、未做OOD正式泛化，仍未通过。"
+      },
+      {
+        "tag": "dev-A32-brownL-val5-20261027cc",
+        "job_id": "job-a7ag01nz9qqc",
+        "status": "SUCCEEDED",
+        "name": "大棕瓶 ACT32k · 三种子固定源验证15次",
+        "progress_note": "15/15正常CPU关闭，8次原生成功、1次成功且终点≤20mm。每个三种子模型执行相同5个固定源验证位置。开发域测试，未计算完整几何SSR、未做OOD正式泛化，仍未通过。"
+      },
+      {
+        "tag": "dev-A32-freshtrial-b100-val5-20261027cc",
+        "status": "SUCCEEDED",
+        "job_id": "job-7bqvm6hxsp63",
+        "name": "烧杯 ACT32k · 每次独立启动（开发）",
+        "progress_note": "15/15原Native正常关闭并通过CPU/BOS SHA；11/15抓起，3/15成功且终点≤20mm。仅原±3cm的5个源验证位置，非正式OOD测试；完整SpatialSSR与视觉待验收。各次独立进程且分配到4张同型号GPU，并发/卡号也与连续版不同。"
+      },
+      {
+        "tag": "dev-A32-initialmix-b100-val5-20261027cc",
+        "job_id": "job-fje3cr1oii6q",
+        "status": "SUCCEEDED",
+        "name": "100ml烧杯 ACT起步采样版 · 三种子固定源验证15次",
+        "progress_note": "15/15正常CPU关闭：抓起3/15、成功且终点≤20mm仅1/15；三个模型都只在第一个位置成功。源起步误差下降约79%仍不能证明SR/SSR改善。后续已定位重置动作残留，单独受控验证。"
+      },
+      {
+        "tag": "dev-A32-initialmix-brownL-val5-20261027cc",
+        "job_id": "job-k7sjjqo52u1b",
+        "status": "FAILED",
+        "name": "大棕瓶 ACT起步采样版 · 首次启动失败记录",
+        "progress_note": "构建器把单种子5位置分成2/2/1，触发每单元5次约束；0有效Native试次，记录保留。后续r3已正常闭合。"
+      },
+      {
+        "tag": "dev-A32-initialmix-brownL-val5-20261027cc-r2",
+        "job_id": "job-116smlcczk96",
+        "status": "FAILED",
+        "name": "大棕瓶 ACT起步采样版 · 第二次启动失败记录",
+        "progress_note": "构建阶段失败，0个有效Native试次：父脚本未传递单GPU限定。已用真实父构建路径CPU复现、修复；r3正常关闭5/5。保留技术失败，不作为策略0/5。"
+      },
+      {
+        "tag": "dev-A32-initialmix-brownL-val5-20261027cc-r3",
+        "job_id": "job-yzrtpub3p6i8",
+        "status": "SUCCEEDED",
+        "name": "大棕瓶 ACT起步采样版 · 单种子固定源验证5次",
+        "progress_note": "修复构建传参后5/5正常CPU关闭，5/5抓起，但0/5终点≤20mm。仅种子21与相同5个源验证位置，完整几何SSR、泛化和视觉待审；与旧3种子15次保持独立。"
+      },
+      {
+        "tag": "dev-A32-resetboundary-b100-val5-20261027cc",
+        "job_id": "job-xujglz6z1p3y",
+        "status": "FAILED",
+        "name": "100ml 玻璃烧杯 ACT · 控制周期边界修复",
+        "progress_note": "全部15次Native正常关闭并有CPU/BOS校验证据，抓起3/15、成功且终点≤20mm为1/15。父作业写项目盘汇总时配额超限；全部15次由BOS原始单元恢复，无重跑、未删失败。"
+      },
+      {
+        "tag": "dev-A32-resetboundary-brownL-val5-20261027cc",
+        "job_id": "job-nxum11wzlf73",
+        "status": "SUCCEEDED",
+        "name": "大棕色试剂瓶 ACT · 控制周期边界修复",
+        "progress_note": "全部5次Native正常关闭并有CPU/BOS校验证据，抓起5/5、成功且终点≤20mm为0/5。"
+      },
+      {
+        "tag": "dev-A32-resetbuffer-b100-val5-20261027cc",
+        "job_id": "job-7mkn8li3b77v",
+        "status": "SUCCEEDED",
+        "name": "100ml 玻璃烧杯 ACT · 重置缓冲修复",
+        "progress_note": "全部15次Native正常关闭并有CPU/BOS校验证据，抓起4/15、成功且终点≤20mm为2/15。"
+      },
+      {
+        "tag": "dev-A32-resetbuffer-brownL-val5-20261027cc",
+        "job_id": "job-791592u4x280",
+        "status": "SUCCEEDED",
+        "name": "大棕色试剂瓶 ACT · 重置缓冲修复",
+        "progress_note": "全部5次Native正常关闭并有CPU/BOS校验证据，抓起5/5、成功且终点≤20mm为0/5。"
+      },
+      {
+        "tag": "dev-A32-resetorder-b100-val5-20261027cc",
+        "job_id": "job-suq7vaepmnss",
+        "status": "FAILED",
+        "name": "烧杯 · 换序对照首次启动记录",
+        "progress_note": "计划预声明字段的范围标记不符，在构建阶段被拒绝，0次Native。真实构建器已复现RED/GREEN；原记录保留，新r2声明仅对本次开发计划生效，历史试次明确披露。"
+      },
+      {
+        "tag": "dev-A32-resetorder-b100-val5-20261027cc-r2",
+        "job_id": "job-g7endix5uz5j",
+        "status": "SUCCEEDED",
+        "name": "100ml烧杯 ACT · 原5位置换序对照 R2",
+        "progress_note": "全部15次Native正常关闭，3个CPU门槛及BOS SHA通过。2/15抓起、2/15成功且终点≤20mm，均在第一轮；原可成功位置移至最后后0/3。非完整SpatialSSR或正式验收。"
+      },
+      {
+        "tag": "dev-D100-b100-fixed5-20261027cc",
+        "status": "SUCCEEDED",
+        "job_id": "job-mmygk0s8rd3v",
+        "name": "烧杯 DP100k · 5次开发测试",
+        "progress_note": "全部5次Native正常关闭，原CPU门槛及BOS SHA通过；3/5抓起、1/5成功且终点≤20mm。固定100k预算、同5个源验证位置，含重置修复；不是完整SpatialSSR或正式泛化验收。"
+      },
+      {
+        "tag": "dev-D100-brownL-fixed5-20261027cc",
+        "status": "SUCCEEDED",
+        "job_id": "job-td80dhduw59o",
+        "name": "大棕瓶 DP100k · 3种子×5次开发",
+        "progress_note": "全部15次Native正常关闭，原CPU门槛及BOS SHA通过；13/15抓起、0/15成功且终点≤20mm。固定100k预算、同5个源验证位置，含重置修复；不是完整SpatialSSR或正式泛化验收。"
+      },
+      {
+        "tag": "dev-b50-postsettle-target-20261026cc",
+        "job_id": "job-ybb87k5q116x",
+        "status": "SUCCEEDED",
+        "name": "50ml烧杯 · 重置诊断仍未通过",
+        "progress_note": "5次均原生正常关闭但0次抓起；初始XY误差已降至0.149mm、初始倾角0.33°，随后0.117秒即开始倾倒，首秒约68°/39mm。平台SUCCEEDED不代表重置通过，正式DP继续挂起。"
       },
       {
         "tag": "dev-b50-rest-reset-20261026cc",
@@ -823,116 +1139,11 @@
         "progress_note": "FAILED：2mm初始XY校验未通过，0个有效测试trial；失败记录保留。"
       },
       {
-        "tag": "src100m10-brownLc06-20261026cc",
-        "job_id": "job-qorh5urgwt2y",
-        "status": "SUCCEEDED",
-        "name": "大棕色试剂瓶 · 合格100条新源",
-        "progress_note": "100/100原生成功、100终点≤20mm、最小终点抬升28.49cm，全100条保存姿态严格交叉0；已进入开发训练，完整视觉仍待审。"
-      },
-      {
-        "tag": "src100m16-b100c06-20261026cc",
-        "job_id": "job-xme9zi3cvcbl",
-        "status": "FAILED",
-        "name": "100ml 烧杯 · 首次重采",
-        "progress_note": "FAILED：终止前20条原生成功，未正常收尾；完整100条源未完成。"
-      },
-      {
-        "tag": "q-brownS-m6-12c50-65-20261026cc",
-        "job_id": "job-dsox2vwk3qud",
-        "status": "FAILED",
-        "name": "小棕色试剂瓶 · 首次参数扫描",
-        "progress_note": "FAILED：构建16个单元后中断，未正常收尾。"
-      },
-      {
         "tag": "dev-b50-rest-reset-20261026cc-r2",
         "job_id": "job-q2ljki3rzl1m",
         "status": "FAILED",
         "name": "50ml 烧杯 · 第二版reset诊断",
         "progress_note": "FAILED：关闭自动高度校准后仍未通过2mm初始XY校验，0个有效测试trial。原生重置高度裕量小测已排队，正式DP继续挂起。"
-      },
-      {
-        "tag": "train-m6rgb-bvf-20261026cc",
-        "job_id": "job-3rw0rrezeyhg",
-        "status": "SUCCEEDED",
-        "name": "250ml棕色容量瓶 · DP/ACT三种子已训练完",
-        "progress_note": "三种子DP完成固定50,000步；已有ACT线完成10,000步。模型正常收尾不等于正式SR、SSR或视觉验收。"
-      },
-      {
-        "tag": "src100m16-b100c06-20261026cc-r2",
-        "job_id": "job-7sbv34x61myl",
-        "status": "SUCCEEDED",
-        "name": "100ml 烧杯 · 完整新源已采满",
-        "progress_note": "SUCCEEDED：100条均保存，99/100原生成功、100/100终点位置分量≤20mm。按该物体原始10.5cm抬升规格核验，完整严格几何检查通过后才训练；不使用统一21cm门槛。"
-      },
-      {
-        "tag": "q-brownS-m6-12c50-65-20261026cc-r2",
-        "job_id": "job-c0uq5jj1q659",
-        "status": "FAILED",
-        "name": "小棕色试剂瓶 · 扫描中断记录",
-        "progress_note": "FAILED：最后进度111/160正常关闭、71原生成功，未完成全16组几何鉴定。保留全部关闭成功与失败；恢复任务仅补未完成固定试次。"
-      },
-      {
-        "tag": "openm6-20261026cc-r2",
-        "job_id": "job-nangir1a20iy",
-        "status": "SUCCEEDED",
-        "name": "量筒与锥形瓶 · 参数扫描",
-        "progress_note": "SUCCEEDED：500ml玻璃量筒x=-.135,z=.08为5/5原生成功并抬升、保存姿态严格交叉0，完整100条采集排队；其余失败设置保留。"
-      },
-      {
-        "tag": "src100m6-clearLAc05-20261025cc",
-        "job_id": "job-wlv85jd8ddfu",
-        "status": "SUCCEEDED",
-        "name": "大透明试剂瓶 · 100条采集",
-        "progress_note": "SUCCEEDED：采满100条，仅59条原生成功；100条终点位置≤20mm不能代替抓取成功，不准入训练。"
-      },
-      {
-        "tag": "dev-dp-funnel-s15k-signed-20261026cc",
-        "job_id": "job-6futmabkk835",
-        "status": "FAILED",
-        "name": "漏斗 DP · 15k真EMA首次闭环诊断",
-        "progress_note": "5/5试次原生正常关闭且CPU审计通过，抓取0/5、成功且终点≤20mm为0/5；物体终点只抬升2.2–5.5mm。父作业错误判型导致FAILED，已在后续作业修复；该记账错误不能解释策略失败。"
-      },
-      {
-        "tag": "eval-m6-act-bvf-20261026cc",
-        "job_id": "job-9amlmh1z7yc6",
-        "status": "FAILED",
-        "name": "250ml 棕色容量瓶 · 正式测试中断记录",
-        "progress_note": "FAILED：150个冻结试次未全部正常关闭，无完整SR/SSR。与小棕瓶扫描在约3.8秒内相继终止，平台未给原因，尚不能确定OOM或回收。"
-      },
-      {
-        "tag": "gate-train-m10-brownL-20261026cc",
-        "job_id": "job-xfq1ipz6ryif",
-        "status": "SUCCEEDED",
-        "name": "大棕瓶 · DP/ACT三种子已训练完",
-        "progress_note": "三种子DP完成固定50,000步；已有ACT线完成10,000步。模型正常收尾不等于正式SR、SSR或视觉验收。"
-      },
-      {
-        "tag": "src100m6-ggrad-x135z08-20261026cc",
-        "job_id": "job-06hoaals803u",
-        "status": "SUCCEEDED",
-        "name": "500ml玻璃量筒 · 扩采100条后74次原生成功",
-        "progress_note": "小样本5/5未推广到完整100条：原生74/100，终点位置分量100/100。所有失败保留，未通过训练准入。"
-      },
-      {
-        "tag": "dev-dp-funnel-constquat-ablation-20261026cc",
-        "job_id": "job-r3jjgt34ivcp",
-        "status": "SUCCEEDED",
-        "name": "漏斗DP · 15k模型20次对照已结束",
-        "progress_note": "4条件×5次均未抓起；固定常量手通道或裁剪姿态范围均未独立解决旧模型失败。不计正式成绩。"
-      },
-      {
-        "tag": "q-brownS-m6-12c50-65-20261026cc-r3",
-        "job_id": "job-zv4njr3y66ox",
-        "status": "SUCCEEDED",
-        "name": "小棕瓶 · 全160次参数扫描已收尾",
-        "progress_note": "完整几何审计已出；10–12秒多组仍有约15–21mm交叉，c0.65/6秒也有0.64mm交叉。未确认满足全组成功与严格零交叉的可采设置，未计验收。"
-      },
-      {
-        "tag": "eval-m6-act-bvf-20261026cc-r2",
-        "job_id": "job-qiqg02ykv3uk",
-        "status": "FAILED",
-        "name": "250ml棕色容量瓶 · ACT中断的正式测试",
-        "progress_note": "FAILED：正常关闭62/150，47原生成功、7成功且终点≤20mm（已完成子集75.8%/11.3%，不是正式150次成绩）。保留全部关闭成功与失败，余88次待补；需排查技术中断及终点误差。"
       },
       {
         "tag": "dev-b50-spawnm2-20261026cc",
@@ -949,11 +1160,25 @@
         "progress_note": "FAILED：原生错误证据确认，模型首次动作前物体初始XY已超2mm，0个有效测试trial；部分物体弹飞。保留失败，不报成0/5策略成功率。"
       },
       {
-        "tag": "gate-train-m16-b100-20261026cc",
-        "job_id": "job-lbcabv92f5gh",
+        "tag": "dev-causal-expert-act-b100-brownL-20261027cc",
+        "job_id": "job-t34w7r2ldyyz",
+        "status": "FAILED",
+        "name": "烧杯/大棕瓶 · 专家动作与旧ACT配对诊断",
+        "progress_note": "诊断基础设施失败：多物体NODE缺少object日志字段导致父进程退出，4个子进程被收尾，0个完整计分试次；原记录保留。已补节点身份、方法专属闭合状态与3项真实调度器CPU回归，用新tag补诊断。"
+      },
+      {
+        "tag": "dev-causal-expert-act-b100-brownL-20261027cc-r2",
+        "job_id": "job-ieord67329oi",
+        "status": "FAILED",
+        "name": "烧杯/大棕瓶 · 专家/旧ACT配对诊断 R2",
+        "progress_note": "旧ACT两个对照正常CPU关闭；专家分支未正常闭合。已核验共同前23.97s：烧杯专家抬升10.28cm/末端4.3mm，旧ACT抬升3.9mm/末端126.4mm；大棕瓶专家末端5.7mm、旧ACT57.2mm。仅两固定位置轨迹诊断，不计正式验收。"
+      },
+      {
+        "tag": "dev-dp-funnel-constquat-ablation-20261026cc",
+        "job_id": "job-r3jjgt34ivcp",
         "status": "SUCCEEDED",
-        "name": "100ml烧杯 · DP/ACT三种子已训练完",
-        "progress_note": "三种子DP完成固定50,000步；已有ACT线完成10,000步。模型正常收尾不等于正式SR、SSR或视觉验收。"
+        "name": "漏斗DP · 15k模型20次对照已结束",
+        "progress_note": "4条件×5次均未抓起；固定常量手通道或裁剪姿态范围均未独立解决旧模型失败。不计正式成绩。"
       },
       {
         "tag": "dev-dp-funnel-full50k-20261026cc",
@@ -963,25 +1188,74 @@
         "progress_note": "同5个采集范围内位置，新50k EMA正常关闭5/5、原生成功5/5、成功且终点≤20mm为2/5。仅1训练种子、开发测试，尚非完整SpatialSSR或泛化验收。"
       },
       {
-        "tag": "dev-b50-postsettle-target-20261026cc",
-        "job_id": "job-ybb87k5q116x",
-        "status": "SUCCEEDED",
-        "name": "50ml烧杯 · 重置诊断仍未通过",
-        "progress_note": "5次均原生正常关闭但0次抓起；初始XY误差已降至0.149mm、初始倾角0.33°，随后0.117秒即开始倾倒，首秒约68°/39mm。平台SUCCEEDED不代表重置通过，正式DP继续挂起。"
-      },
-      {
-        "tag": "src100m16-glass_beaker_250ml-20261025cc",
-        "job_id": "job-5h3er5s3hg0e",
-        "status": "SUCCEEDED",
-        "name": "250ml玻璃烧杯 · 完整100条已采集",
-        "progress_note": "100条保留、80原生成功、100终点位置分量≤20mm；实际抬升/几何与合格源比例仍需核验，不因终点位置分量高而训练或验收。"
-      },
-      {
-        "tag": "gate-train-m6-ggrad-20261026cc",
-        "job_id": "job-v3cmjgr8ru3m",
+        "tag": "dev-dp-funnel-s15k-signed-20261026cc",
+        "job_id": "job-6futmabkk835",
         "status": "FAILED",
-        "name": "500ml玻璃量筒 · 源质量拦截",
-        "progress_note": "FAILED：合格专家轨迹不足95条，训练开始前自动停止，未产生可正式验收模型。"
+        "name": "漏斗 DP · 15k真EMA首次闭环诊断",
+        "progress_note": "5/5试次原生正常关闭且CPU审计通过，抓取0/5、成功且终点≤20mm为0/5；物体终点只抬升2.2–5.5mm。父作业错误判型导致FAILED，已在后续作业修复；该记账错误不能解释策略失败。"
+      },
+      {
+        "tag": "diag-ACT-input-factorial-20261027cc",
+        "job_id": "job-4pvow4zdiew3",
+        "status": "FAILED",
+        "name": "ACT · 归档图像×状态输入对照",
+        "progress_note": "冻结旧10k/新32k模型，用采集/测试端真实图像与状态交叉输入并复现旧首预测；0训练、0新增Native。 首轮诊断工具错误：只读权重校验跨CPU/CUDA比较。0个新Native试次；失败保留，已修复并用独立r2规格提交。"
+      },
+      {
+        "tag": "diag-ACT-input-factorial-20261027cc-r2",
+        "job_id": "job-pp39z11qjb1r",
+        "status": "SUCCEEDED",
+        "name": "ACT · 真实输入对照 R2",
+        "progress_note": "已完成4个冻结模型输入对照：旧模型首预测复现最大误差≤2.4e-6，26维初始状态完全相同。换回源原图后起步误差仍存在；仅两个固定位置首时刻，不推广为全阶段链路证明，0训练/0新增Native。"
+      },
+      {
+        "tag": "diag-ACT-warmcold-RGB-20261027cc",
+        "status": "SUCCEEDED",
+        "job_id": "job-endt3ih12e49",
+        "name": "第三视角敏感性 · 归档输入回放",
+        "progress_note": "4组离线输入对照、24次神经前向，0仿真/0训练。相同模型和26维状态时，仅第三视角替换就复现主要首动作差异；原预测回放误差<1e-6。渲染差异的具体成因仍待定位，不声称完整闭环根因已证实。"
+      },
+      {
+        "tag": "diag-DP50-common-source-20261027cc",
+        "job_id": "job-p3rhzppytcd3",
+        "status": "FAILED",
+        "name": "DP · 同源观测与相同采样噪声对照",
+        "progress_note": "漏斗原3个50k模型使用相同16源窗口及相同DDIM噪声，烧杯种子21作校准；0训练、0新增Native，不计SR/SSR。 首轮诊断工具错误：未指定节点ffmpeg路径。0个新Native试次；失败保留，已修复并用独立r2规格提交。"
+      },
+      {
+        "tag": "diag-DP50-common-source-20261027cc-r2",
+        "job_id": "job-dhqys2mi36ql",
+        "status": "SUCCEEDED",
+        "name": "DP · 同源同噪声对照 R2",
+        "progress_note": "4模型同源/同噪声对照已完成。漏斗三个50k模型同16窗口的关节动作MAE约0.0159/0.0173/0.0177rad，早段第15控制窗口约0.0803/0.0681/0.0662rad。DP前7维是手臂关节、后6维是手指；已用烧杯16窗口标签与原专家关节指令逐位相等核验，不换算为末端毫米或角度。仅源拟合，不计SR/SSR。"
+      },
+      {
+        "tag": "diag-storage-admission-20261027cc",
+        "job_id": "job-uuqrps91du17",
+        "status": "SUCCEEDED",
+        "name": "存储诊断 · 已完成",
+        "progress_note": "项目盘显示100%使用、约12GB余量，曾发生Errno122；一次47字节探针可写，不能保证后续容量。BOS小文件写入/读回SHA通过，未修改已有文件或作业。"
+      },
+      {
+        "tag": "eval-A32-initialmix-b100-150-20261027cc",
+        "status": "FAILED",
+        "job_id": "job-90fas8sy7urw",
+        "name": "100ml烧杯 ACT32k · 正式测试中断记录",
+        "progress_note": "99/150正常CPU关闭：63成功、33成功且终点≤20mm；第97号技术失败后其余编号未启动。完整150次成绩未形成，全部成功与失败保留。"
+      },
+      {
+        "tag": "eval-A32-initialmix-b100-150-20261027cc-r2",
+        "job_id": "job-jio6iie52k46",
+        "status": "FAILED",
+        "name": "烧杯ACT恢复r2 · 启动路径错误记录",
+        "progress_note": "Native启动前BOS路径缓存错误，0个有效新试次；r3已用真实缓存路径回归验证并启动。"
+      },
+      {
+        "tag": "eval-A32-initialmix-b100-150-20261027cc-r3",
+        "job_id": "job-rrv3yxrgbcwf",
+        "status": "SUCCEEDED",
+        "name": "100ml烧杯 ACT完整150次 · SR未达标",
+        "progress_note": "82/150（54.7%）成功，低于论文66%；120Hz保存姿态手/目标零交叉。27.3%终点/几何分量与完整SSR分开。"
       },
       {
         "tag": "eval-m10-act-brownL-20261027cc",
@@ -990,6 +1264,13 @@
         "name": "大棕瓶ACT · 三种子正式150次",
         "progress_note": "正常CPU关闭74/150：65次原生成功、8次成功且终点≤20mm；技术中断与策略失败分开保留，不能当完整SR/SSR。",
         "formal_plan_SHA256": "f0b2e918f335e565eaa301a386ce5f794656d00d4f843aaf25e2549876f715fa"
+      },
+      {
+        "tag": "eval-m10-dp-brownL-20261027cc",
+        "name": "大棕瓶DP · 三种子正式150次",
+        "job_id": "job-0x4yqt4tl4c4",
+        "status": "FAILED",
+        "progress_note": "正常CPU关闭27/150：15次原生成功、1次成功且终点≤20mm；技术中断与策略失败分开保留，不能当完整SR/SSR。"
       },
       {
         "tag": "eval-m16-act-b100-20261027cc",
@@ -1008,19 +1289,18 @@
         "formal_plan_SHA256": "38db0f6b01712897ab02a80d94353594dd2e82b2d091200c1cd11e2fb2f85cd0"
       },
       {
-        "tag": "eval-m6rgb-dp-funnel-20261027cc",
-        "job_id": "job-mmn2dup9j423",
-        "status": "SUCCEEDED",
-        "name": "漏斗DP · 三种子正式150次",
-        "progress_note": "完整150次、三训练种子、+0/1/2/3cm。SR 52.0% / SpatialSSR 14.7%；保存轨迹几何审计未检出交叉，完整视觉未通过最终复核。论文目标68% / 30%，本版本未完整验收。",
-        "formal_plan_SHA256": "bcb0fd4ce0ced405fa41b63f7247f44641ee1d91ce56876464bb5fad3d21f13b"
+        "tag": "eval-m6-act-bvf-20261026cc",
+        "job_id": "job-9amlmh1z7yc6",
+        "status": "FAILED",
+        "name": "250ml 棕色容量瓶 · 正式测试中断记录",
+        "progress_note": "FAILED：150个冻结试次未全部正常关闭，无完整SR/SSR。与小棕瓶扫描在约3.8秒内相继终止，平台未给原因，尚不能确定OOM或回收。"
       },
       {
-        "tag": "eval-m10-dp-brownL-20261027cc",
-        "name": "大棕瓶DP · 三种子正式150次",
-        "job_id": "job-0x4yqt4tl4c4",
+        "tag": "eval-m6-act-bvf-20261026cc-r2",
+        "job_id": "job-qiqg02ykv3uk",
         "status": "FAILED",
-        "progress_note": "正常CPU关闭27/150：15次原生成功、1次成功且终点≤20mm；技术中断与策略失败分开保留，不能当完整SR/SSR。"
+        "name": "250ml棕色容量瓶 · ACT中断的正式测试",
+        "progress_note": "FAILED：正常关闭62/150，47原生成功、7成功且终点≤20mm（已完成子集75.8%/11.3%，不是正式150次成绩）。保留全部关闭成功与失败，余88次待补；需排查技术中断及终点误差。"
       },
       {
         "tag": "eval-m6rgb-dp-bvf-20261027cc",
@@ -1030,193 +1310,40 @@
         "progress_note": "正常CPU关闭142/150：26次原生成功、2次成功且终点≤20mm；技术中断与策略失败分开保留，不能当完整SR/SSR。"
       },
       {
-        "tag": "train-A32-b100-brownL-20261027cc",
-        "job_id": "job-wskg1pgraeso",
+        "tag": "eval-m6rgb-dp-funnel-20261027cc",
+        "job_id": "job-mmn2dup9j423",
         "status": "SUCCEEDED",
-        "name": "100ml烧杯/大棕瓶 ACT · 固定32k预算实验",
-        "progress_note": "6个32k ACT模型已完成；同一固定源验证集上，烧杯与大棕瓶三种子平均手臂误差分别下降50.0%/50.5%。这仍是源拟合证据，未计闭环SR/SSR；旧10k模型及全部失败保留。"
+        "name": "漏斗DP · 三种子正式150次",
+        "progress_note": "完整150次、三训练种子、+0/1/2/3cm。SR 52.0% / SpatialSSR 14.7%；保存轨迹几何审计未检出交叉，完整视觉未通过最终复核。论文目标68% / 30%，本版本未完整验收。",
+        "formal_plan_SHA256": "bcb0fd4ce0ced405fa41b63f7247f44641ee1d91ce56876464bb5fad3d21f13b"
       },
       {
-        "tag": "train-D100-brownL-b100-20261027cc",
-        "job_id": "job-ozoknm2o2nbg",
+        "tag": "gate-train-m10-brownL-20261026cc",
+        "job_id": "job-xfq1ipz6ryif",
         "status": "SUCCEEDED",
-        "name": "大棕瓶/烧杯 DP · 100k训练已完成",
-        "progress_note": "4个完整100k模型及BOS权重/统计/配置SHA通过；20次开发测试已接续，无自动正式验收。"
+        "name": "大棕瓶 · DP/ACT三种子已训练完",
+        "progress_note": "三种子DP完成固定50,000步；已有ACT线完成10,000步。模型正常收尾不等于正式SR、SSR或视觉验收。"
       },
       {
-        "tag": "dev-causal-expert-act-b100-brownL-20261027cc",
-        "job_id": "job-t34w7r2ldyyz",
+        "tag": "gate-train-m16-b100-20261026cc",
+        "job_id": "job-lbcabv92f5gh",
+        "status": "SUCCEEDED",
+        "name": "100ml烧杯 · DP/ACT三种子已训练完",
+        "progress_note": "三种子DP完成固定50,000步；已有ACT线完成10,000步。模型正常收尾不等于正式SR、SSR或视觉验收。"
+      },
+      {
+        "tag": "gate-train-m6-ggrad-20261026cc",
+        "job_id": "job-v3cmjgr8ru3m",
         "status": "FAILED",
-        "name": "烧杯/大棕瓶 · 专家动作与旧ACT配对诊断",
-        "progress_note": "诊断基础设施失败：多物体NODE缺少object日志字段导致父进程退出，4个子进程被收尾，0个完整计分试次；原记录保留。已补节点身份、方法专属闭合状态与3项真实调度器CPU回归，用新tag补诊断。"
+        "name": "500ml玻璃量筒 · 源质量拦截",
+        "progress_note": "FAILED：合格专家轨迹不足95条，训练开始前自动停止，未产生可正式验收模型。"
       },
       {
-        "tag": "dev-causal-expert-act-b100-brownL-20261027cc-r2",
-        "job_id": "job-ieord67329oi",
-        "status": "FAILED",
-        "name": "烧杯/大棕瓶 · 专家/旧ACT配对诊断 R2",
-        "progress_note": "旧ACT两个对照正常CPU关闭；专家分支未正常闭合。已核验共同前23.97s：烧杯专家抬升10.28cm/末端4.3mm，旧ACT抬升3.9mm/末端126.4mm；大棕瓶专家末端5.7mm、旧ACT57.2mm。仅两固定位置轨迹诊断，不计正式验收。"
-      },
-      {
-        "tag": "dev-A32-b100-val5-20261027cc",
-        "job_id": "job-ijc268cpeccd",
+        "tag": "openm6-20261026cc-r2",
+        "job_id": "job-nangir1a20iy",
         "status": "SUCCEEDED",
-        "name": "100ml烧杯 ACT32k · 三种子固定源验证15次",
-        "progress_note": "15/15正常CPU关闭，2次原生成功、2次成功且终点≤20mm。每个三种子模型执行相同5个固定源验证位置。开发域测试，未计算完整几何SSR、未做OOD正式泛化，仍未通过。"
-      },
-      {
-        "tag": "dev-A32-brownL-val5-20261027cc",
-        "job_id": "job-a7ag01nz9qqc",
-        "status": "SUCCEEDED",
-        "name": "大棕瓶 ACT32k · 三种子固定源验证15次",
-        "progress_note": "15/15正常CPU关闭，8次原生成功、1次成功且终点≤20mm。每个三种子模型执行相同5个固定源验证位置。开发域测试，未计算完整几何SSR、未做OOD正式泛化，仍未通过。"
-      },
-      {
-        "tag": "diag-ACT-input-factorial-20261027cc",
-        "job_id": "job-4pvow4zdiew3",
-        "status": "FAILED",
-        "name": "ACT · 归档图像×状态输入对照",
-        "progress_note": "冻结旧10k/新32k模型，用采集/测试端真实图像与状态交叉输入并复现旧首预测；0训练、0新增Native。 首轮诊断工具错误：只读权重校验跨CPU/CUDA比较。0个新Native试次；失败保留，已修复并用独立r2规格提交。"
-      },
-      {
-        "tag": "diag-DP50-common-source-20261027cc",
-        "job_id": "job-p3rhzppytcd3",
-        "status": "FAILED",
-        "name": "DP · 同源观测与相同采样噪声对照",
-        "progress_note": "漏斗原3个50k模型使用相同16源窗口及相同DDIM噪声，烧杯种子21作校准；0训练、0新增Native，不计SR/SSR。 首轮诊断工具错误：未指定节点ffmpeg路径。0个新Native试次；失败保留，已修复并用独立r2规格提交。"
-      },
-      {
-        "tag": "diag-ACT-input-factorial-20261027cc-r2",
-        "job_id": "job-pp39z11qjb1r",
-        "status": "SUCCEEDED",
-        "name": "ACT · 真实输入对照 R2",
-        "progress_note": "已完成4个冻结模型输入对照：旧模型首预测复现最大误差≤2.4e-6，26维初始状态完全相同。换回源原图后起步误差仍存在；仅两个固定位置首时刻，不推广为全阶段链路证明，0训练/0新增Native。"
-      },
-      {
-        "tag": "diag-DP50-common-source-20261027cc-r2",
-        "job_id": "job-dhqys2mi36ql",
-        "status": "SUCCEEDED",
-        "name": "DP · 同源同噪声对照 R2",
-        "progress_note": "4模型同源/同噪声对照已完成。漏斗三个50k模型同16窗口的关节动作MAE约0.0159/0.0173/0.0177rad，早段第15控制窗口约0.0803/0.0681/0.0662rad。DP前7维是手臂关节、后6维是手指；已用烧杯16窗口标签与原专家关节指令逐位相等核验，不换算为末端毫米或角度。仅源拟合，不计SR/SSR。"
-      },
-      {
-        "tag": "train-A32-initialmix-b100-brownL-20261027cc",
-        "name": "ACT · 起步帧采样对照（同32k预算）",
-        "progress_note": "4个32k模型完整收尾；18组真实源四张量逐位等价门槛全部通过。B100三种子平均起步手臂MAE约降79%，大棕瓶种子21约降73%；该源拟合证据不代替闭环验收。开发结果另列。",
-        "job_id": "job-9gy76qs57sxv",
-        "status": "SUCCEEDED"
-      },
-      {
-        "tag": "dev-A32-initialmix-b100-val5-20261027cc",
-        "job_id": "job-fje3cr1oii6q",
-        "status": "SUCCEEDED",
-        "name": "100ml烧杯 ACT起步采样版 · 三种子固定源验证15次",
-        "progress_note": "15/15正常CPU关闭：抓起3/15、成功且终点≤20mm仅1/15；三个模型都只在第一个位置成功。源起步误差下降约79%仍不能证明SR/SSR改善。后续已定位重置动作残留，单独受控验证。"
-      },
-      {
-        "tag": "dev-A32-initialmix-brownL-val5-20261027cc-r2",
-        "job_id": "job-116smlcczk96",
-        "status": "FAILED",
-        "name": "大棕瓶 ACT起步采样版 · 第二次启动失败记录",
-        "progress_note": "构建阶段失败，0个有效Native试次：父脚本未传递单GPU限定。已用真实父构建路径CPU复现、修复；r3正常关闭5/5。保留技术失败，不作为策略0/5。"
-      },
-      {
-        "tag": "dev-A32-initialmix-brownL-val5-20261027cc-r3",
-        "job_id": "job-yzrtpub3p6i8",
-        "status": "SUCCEEDED",
-        "name": "大棕瓶 ACT起步采样版 · 单种子固定源验证5次",
-        "progress_note": "修复构建传参后5/5正常CPU关闭，5/5抓起，但0/5终点≤20mm。仅种子21与相同5个源验证位置，完整几何SSR、泛化和视觉待审；与旧3种子15次保持独立。"
-      },
-      {
-        "tag": "dev-A32-resetbuffer-b100-val5-20261027cc",
-        "job_id": "job-7mkn8li3b77v",
-        "status": "SUCCEEDED",
-        "name": "100ml 玻璃烧杯 ACT · 重置缓冲修复",
-        "progress_note": "全部15次Native正常关闭并有CPU/BOS校验证据，抓起4/15、成功且终点≤20mm为2/15。"
-      },
-      {
-        "tag": "dev-A32-resetbuffer-brownL-val5-20261027cc",
-        "job_id": "job-791592u4x280",
-        "status": "SUCCEEDED",
-        "name": "大棕色试剂瓶 ACT · 重置缓冲修复",
-        "progress_note": "全部5次Native正常关闭并有CPU/BOS校验证据，抓起5/5、成功且终点≤20mm为0/5。"
-      },
-      {
-        "tag": "dev-A32-initialmix-brownL-val5-20261027cc",
-        "job_id": "job-k7sjjqo52u1b",
-        "status": "FAILED",
-        "name": "大棕瓶 ACT起步采样版 · 首次启动失败记录",
-        "progress_note": "构建器把单种子5位置分成2/2/1，触发每单元5次约束；0有效Native试次，记录保留。后续r3已正常闭合。"
-      },
-      {
-        "tag": "dev-A32-resetboundary-b100-val5-20261027cc",
-        "job_id": "job-xujglz6z1p3y",
-        "status": "FAILED",
-        "name": "100ml 玻璃烧杯 ACT · 控制周期边界修复",
-        "progress_note": "全部15次Native正常关闭并有CPU/BOS校验证据，抓起3/15、成功且终点≤20mm为1/15。父作业写项目盘汇总时配额超限；全部15次由BOS原始单元恢复，无重跑、未删失败。"
-      },
-      {
-        "tag": "dev-A32-resetboundary-brownL-val5-20261027cc",
-        "job_id": "job-nxum11wzlf73",
-        "status": "SUCCEEDED",
-        "name": "大棕色试剂瓶 ACT · 控制周期边界修复",
-        "progress_note": "全部5次Native正常关闭并有CPU/BOS校验证据，抓起5/5、成功且终点≤20mm为0/5。"
-      },
-      {
-        "tag": "dev-A32-resetorder-b100-val5-20261027cc",
-        "job_id": "job-suq7vaepmnss",
-        "status": "FAILED",
-        "name": "烧杯 · 换序对照首次启动记录",
-        "progress_note": "计划预声明字段的范围标记不符，在构建阶段被拒绝，0次Native。真实构建器已复现RED/GREEN；原记录保留，新r2声明仅对本次开发计划生效，历史试次明确披露。"
-      },
-      {
-        "tag": "diag-storage-admission-20261027cc",
-        "job_id": "job-uuqrps91du17",
-        "status": "SUCCEEDED",
-        "name": "存储诊断 · 已完成",
-        "progress_note": "项目盘显示100%使用、约12GB余量，曾发生Errno122；一次47字节探针可写，不能保证后续容量。BOS小文件写入/读回SHA通过，未修改已有文件或作业。"
-      },
-      {
-        "tag": "dev-A32-resetorder-b100-val5-20261027cc-r2",
-        "job_id": "job-g7endix5uz5j",
-        "status": "SUCCEEDED",
-        "name": "100ml烧杯 ACT · 原5位置换序对照 R2",
-        "progress_note": "全部15次Native正常关闭，3个CPU门槛及BOS SHA通过。2/15抓起、2/15成功且终点≤20mm，均在第一轮；原可成功位置移至最后后0/3。非完整SpatialSSR或正式验收。"
-      },
-      {
-        "tag": "dev-A32-freshtrial-b100-val5-20261027cc",
-        "status": "SUCCEEDED",
-        "job_id": "job-7bqvm6hxsp63",
-        "name": "烧杯 ACT32k · 每次独立启动（开发）",
-        "progress_note": "15/15原Native正常关闭并通过CPU/BOS SHA；11/15抓起，3/15成功且终点≤20mm。仅原±3cm的5个源验证位置，非正式OOD测试；完整SpatialSSR与视觉待验收。各次独立进程且分配到4张同型号GPU，并发/卡号也与连续版不同。"
-      },
-      {
-        "tag": "dev-D100-b100-fixed5-20261027cc",
-        "status": "SUCCEEDED",
-        "job_id": "job-mmygk0s8rd3v",
-        "name": "烧杯 DP100k · 5次开发测试",
-        "progress_note": "全部5次Native正常关闭，原CPU门槛及BOS SHA通过；3/5抓起、1/5成功且终点≤20mm。固定100k预算、同5个源验证位置，含重置修复；不是完整SpatialSSR或正式泛化验收。"
-      },
-      {
-        "tag": "dev-D100-brownL-fixed5-20261027cc",
-        "status": "SUCCEEDED",
-        "job_id": "job-td80dhduw59o",
-        "name": "大棕瓶 DP100k · 3种子×5次开发",
-        "progress_note": "全部15次Native正常关闭，原CPU门槛及BOS SHA通过；13/15抓起、0/15成功且终点≤20mm。固定100k预算、同5个源验证位置，含重置修复；不是完整SpatialSSR或正式泛化验收。"
-      },
-      {
-        "tag": "diag-ACT-warmcold-RGB-20261027cc",
-        "status": "SUCCEEDED",
-        "job_id": "job-endt3ih12e49",
-        "name": "第三视角敏感性 · 归档输入回放",
-        "progress_note": "4组离线输入对照、24次神经前向，0仿真/0训练。相同模型和26维状态时，仅第三视角替换就复现主要首动作差异；原预测回放误差<1e-6。渲染差异的具体成因仍待定位，不声称完整闭环根因已证实。"
-      },
-      {
-        "tag": "eval-A32-initialmix-b100-150-20261027cc",
-        "status": "FAILED",
-        "job_id": "job-90fas8sy7urw",
-        "name": "100ml烧杯 ACT32k · 正式测试中断记录",
-        "progress_note": "99/150正常CPU关闭：63成功、33成功且终点≤20mm；第97号技术失败后其余编号未启动。完整150次成绩未形成，全部成功与失败保留。"
+        "name": "量筒与锥形瓶 · 参数扫描",
+        "progress_note": "SUCCEEDED：500ml玻璃量筒x=-.135,z=.08为5/5原生成功并抬升、保存姿态严格交叉0，完整100条采集排队；其余失败设置保留。"
       },
       {
         "tag": "post-dev-A32-fresh-b100-120Hz-20261027cc",
@@ -1226,32 +1353,46 @@
         "progress_note": "全部15次开发轨迹完成120Hz保存姿态审计，手部/目标网格交叉0；成功且终点20mm并无该交叉为3/15。全程碰撞事件绑定、正式泛化和完整视觉仍须各自复核，不计正式验收。"
       },
       {
-        "tag": "train-D100-b100rest-funnel12-20261027cc",
-        "name": "烧杯与漏斗 DP · 100k四卡训练",
-        "progress_note": "烧杯固定种子23/25、漏斗21/23各一张卡；已约5250–5300/100000步，GPU利用率96%–99%。源数据、归一化、horizon8、DDIM16保持对应配方。",
-        "job_id": "job-9s8lt03h8ef6",
-        "status": "RUNNING"
+        "tag": "post-src100-mortar-c0490-20261028cc",
+        "job_id": "job-ekn24dmgs4tr",
+        "status": "SUCCEEDED",
+        "name": "研钵100条数据审计 · 14条浅穿模",
+        "progress_note": "100/100抓起且终点合格，最低抬升27.92cm；14条单帧浅穿模，最深0.453mm。禁止训练，继续修复。"
       },
       {
-        "tag": "eval-A32-initialmix-b100-150-20261027cc-r3",
-        "name": "100ml烧杯 ACT32k · 原150次缺失51次恢复",
-        "progress_note": "云端已核验复用99条，构建51个缺失单元。原位置、原Native种子、原三份32k模型保持；完整150次后做120Hz保存位姿几何及视觉核验。",
-        "job_id": "job-rrv3yxrgbcwf",
-        "status": "RUNNING"
+        "tag": "q-brownS-m6-12c50-65-20261026cc",
+        "job_id": "job-dsox2vwk3qud",
+        "status": "FAILED",
+        "name": "小棕色试剂瓶 · 首次参数扫描",
+        "progress_note": "FAILED：构建16个单元后中断，未正常收尾。"
+      },
+      {
+        "tag": "q-brownS-m6-12c50-65-20261026cc-r2",
+        "job_id": "job-c0uq5jj1q659",
+        "status": "FAILED",
+        "name": "小棕色试剂瓶 · 扫描中断记录",
+        "progress_note": "FAILED：最后进度111/160正常关闭、71原生成功，未完成全16组几何鉴定。保留全部关闭成功与失败；恢复任务仅补未完成固定试次。"
+      },
+      {
+        "tag": "q-brownS-m6-12c50-65-20261026cc-r3",
+        "job_id": "job-zv4njr3y66ox",
+        "status": "SUCCEEDED",
+        "name": "小棕瓶 · 全160次参数扫描已收尾",
+        "progress_note": "完整几何审计已出；10–12秒多组仍有约15–21mm交叉，c0.65/6秒也有0.64mm交叉。未确认满足全组成功与严格零交叉的可采设置，未计验收。"
       },
       {
         "tag": "qual-lamp-fineclose-m8-20261027cc",
         "name": "酒精灯 · 16组抓取参数鉴定",
-        "progress_note": "两种抓取偏移×8档闭合，每组同5个源位置与共同Native种子，原8秒动作后保持至24秒。源索引已在Native前写入BOS；实际抬升与严格零交叉通过后才扩采100条。",
+        "progress_note": "平台完成，但16个Native单元均因遥测超时失败；原部分记录保留，不作为合格数据。",
         "job_id": "job-2tt6b3d42ykz",
-        "status": "RUNNING"
+        "status": "SUCCEEDED"
       },
       {
-        "tag": "src100-mortar-c0490-m6-20261028cc",
-        "name": "研钵 · c0.490新源完整100条采集",
-        "progress_note": "5次鉴定均成功、终点实际抬升279–281mm、保存位姿严格交叉0；现采原±3cm全部100个位置，16单元各6–7次，原6秒动作后保持至24秒。源质量核验完成前不训练。",
-        "job_id": "job-uc20v3b7vlml",
-        "status": "RUNNING"
+        "tag": "qual-lamp-refresh4-m8-20261028cc",
+        "job_id": "job-1noyjje5u5cu",
+        "status": "SUCCEEDED",
+        "name": "酒精灯20次原生采集完成 · 四组均穿模",
+        "progress_note": "20/20原生成功且终点合格，但20/20穿模（最大7.11mm），四组均未合格。"
       },
       {
         "tag": "qual-mortar-fineclose-20261027cc",
@@ -1261,14 +1402,105 @@
         "status": "SUCCEEDED"
       },
       {
-        "tag": "eval-A32-initialmix-b100-150-20261027cc-r2",
-        "job_id": "job-jio6iie52k46",
+        "tag": "src100-mortar-c0490-m6-20261028cc",
+        "name": "研钵 · c0.490新源完整100条采集",
+        "progress_note": "100/100抓起，14/100浅穿模，未放行训练。",
+        "job_id": "job-uc20v3b7vlml",
+        "status": "SUCCEEDED"
+      },
+      {
+        "tag": "src100m10-brownLc06-20261026cc",
+        "job_id": "job-qorh5urgwt2y",
+        "status": "SUCCEEDED",
+        "name": "大棕色试剂瓶 · 合格100条新源",
+        "progress_note": "100/100原生成功、100终点≤20mm、最小终点抬升28.49cm，全100条保存姿态严格交叉0；已进入开发训练，完整视觉仍待审。"
+      },
+      {
+        "tag": "src100m16-b100c06-20261026cc",
+        "job_id": "job-xme9zi3cvcbl",
         "status": "FAILED",
-        "name": "烧杯ACT恢复r2 · 启动路径错误记录",
-        "progress_note": "Native启动前BOS路径缓存错误，0个有效新试次；r3已用真实缓存路径回归验证并启动。"
+        "name": "100ml 烧杯 · 首次重采",
+        "progress_note": "FAILED：终止前20条原生成功，未正常收尾；完整100条源未完成。"
+      },
+      {
+        "tag": "src100m16-b100c06-20261026cc-r2",
+        "job_id": "job-7sbv34x61myl",
+        "status": "SUCCEEDED",
+        "name": "100ml 烧杯 · 完整新源已采满",
+        "progress_note": "SUCCEEDED：100条均保存，99/100原生成功、100/100终点位置分量≤20mm。按该物体原始10.5cm抬升规格核验，完整严格几何检查通过后才训练；不使用统一21cm门槛。"
+      },
+      {
+        "tag": "src100m16-glass_beaker_250ml-20261025cc",
+        "job_id": "job-5h3er5s3hg0e",
+        "status": "SUCCEEDED",
+        "name": "250ml玻璃烧杯 · 完整100条已采集",
+        "progress_note": "100条保留、80原生成功、100终点位置分量≤20mm；实际抬升/几何与合格源比例仍需核验，不因终点位置分量高而训练或验收。"
+      },
+      {
+        "tag": "src100m6-clearLAc05-20261025cc",
+        "job_id": "job-wlv85jd8ddfu",
+        "status": "SUCCEEDED",
+        "name": "大透明试剂瓶 · 100条采集",
+        "progress_note": "SUCCEEDED：采满100条，仅59条原生成功；100条终点位置≤20mm不能代替抓取成功，不准入训练。"
+      },
+      {
+        "tag": "src100m6-ggrad-x135z08-20261026cc",
+        "job_id": "job-06hoaals803u",
+        "status": "SUCCEEDED",
+        "name": "500ml玻璃量筒 · 扩采100条后74次原生成功",
+        "progress_note": "小样本5/5未推广到完整100条：原生74/100，终点位置分量100/100。所有失败保留，未通过训练准入。"
+      },
+      {
+        "tag": "train-A32-b100-brownL-20261027cc",
+        "job_id": "job-wskg1pgraeso",
+        "status": "SUCCEEDED",
+        "name": "100ml烧杯/大棕瓶 ACT · 固定32k预算实验",
+        "progress_note": "6个32k ACT模型已完成；同一固定源验证集上，烧杯与大棕瓶三种子平均手臂误差分别下降50.0%/50.5%。这仍是源拟合证据，未计闭环SR/SSR；旧10k模型及全部失败保留。"
+      },
+      {
+        "tag": "train-A32-initialmix-b100-brownL-20261027cc",
+        "name": "ACT · 起步帧采样对照（同32k预算）",
+        "progress_note": "4个32k模型完整收尾；18组真实源四张量逐位等价门槛全部通过。B100三种子平均起步手臂MAE约降79%，大棕瓶种子21约降73%；该源拟合证据不代替闭环验收。开发结果另列。",
+        "job_id": "job-9gy76qs57sxv",
+        "status": "SUCCEEDED"
+      },
+      {
+        "tag": "train-D100-brownL-b100-20261027cc",
+        "job_id": "job-ozoknm2o2nbg",
+        "status": "SUCCEEDED",
+        "name": "大棕瓶/烧杯 DP · 100k训练已完成",
+        "progress_note": "4个完整100k模型及BOS权重/统计/配置SHA通过；20次开发测试已接续，无自动正式验收。"
+      },
+      {
+        "tag": "train-m6rgb-bvf-20261026cc",
+        "job_id": "job-3rw0rrezeyhg",
+        "status": "SUCCEEDED",
+        "name": "250ml棕色容量瓶 · DP/ACT三种子已训练完",
+        "progress_note": "三种子DP完成固定50,000步；已有ACT线完成10,000步。模型正常收尾不等于正式SR、SSR或视觉验收。"
+      },
+      {
+        "tag": "train-m6rgb-funnel-20261026cc",
+        "job_id": "job-xhn2g35zo5cb",
+        "status": "SUCCEEDED",
+        "name": "漏斗 DP · 完整50k三种子已训练完",
+        "progress_note": "三种子DP完成固定50,000步；已有ACT线完成10,000步。模型正常收尾不等于正式SR、SSR或视觉验收。"
+      },
+      {
+        "tag": "qual-mortar-p120-startupfix4-20261028cc",
+        "job_id": "job-l3rg9166wnm4",
+        "name": "研钵120Hz记录修复 · 四组困难位置验证",
+        "status": "RUNNING",
+        "progress_note": "按实际采集器回合编号绑定，重复启动reset回归已通过；四次Native及密集姿态审计仍待结果。"
+      },
+      {
+        "tag": "dev-A32rgb4-fresh-b100-fixed15-20261028cc",
+        "job_id": "job-ljqyft6xrpo0",
+        "name": "新ACT源验证 · 启动前元数据错误",
+        "status": "FAILED",
+        "progress_note": "三个32k模型已关闭并审核；源验证在Native启动前因未定义时间函数失败（0次Native）。修复版保留模型、位置、种子和15次上限。"
       }
     ],
-    "progress_note": "研钵c0.490在5个原位置上5/5原生成功，实际抬升279–281mm，保存位姿严格交叉0，完整100条已开始采集。烧杯ACT原99次正常关闭记录全部保留，补测后再核验完整150次；小样本、训练与中断子集均不计完整验收。",
+    "progress_note": "原DP四路约3.8万/10万步，漏斗第三种子约1.55万/10万步。三个新ACT均已32000步。试剂瓶80次结果中大透明瓶12s两设置保存帧零穿模，仍需完整100条与更密集几何。",
     "DP_repair_note": "原专家动作被拉长24秒和signed-RGB色相处理两处错误已修复。完整三种子正式测试已证明修复并不等于验收通过；保留旧版0%与新版52%独立结果，继续定位抓取与终点误差。",
     "b50_reset_note": "约6–9mm初始XY偏移的旧错误已保留。最新初始XY准确至0.149mm、初始直立，但主动策略开始后0.117秒倾倒；仅此不足以证明被动重置不稳，EEF距离也不能排除长手指碰撞。正式DP继续挂起。",
     "failure_diagnosis": [
@@ -1343,9 +1575,10 @@
       "all_old_cloud_jobs_untouched": true,
       "new_and_legacy_staged_inline_checks_passed": true
     },
-    "source_recovery_evidence": "verification/grasp_source_recovery_20261028.json"
+    "source_recovery_evidence": "verification/grasp_source_recovery_20261028.json",
+    "latest_audit_evidence": "verification/grasp_full150_source_audit_20261028.json"
   },
-  "evidence_note": "论文指标为Grasp SpatialSSR。19个历史/开发实测版本、21物体论文目标及原始视频全部保留；新研钵5次合格鉴定、100条采集、DP训练和ACT中断子集均不增加完整通过数。全部0/21；完整SR/SSR、泛化、全程几何与视觉核验继续。",
+  "evidence_note": "保留原19个历史/开发实测版本及其视频，新增完整150次ACT版本和成功/失败三相机原视频，共20个Pro6000版本。烧杯ACT SR54.7%低于论文66%；研钵源100/100抓起但14条浅穿模未放行。完整通过仍0/21，论文SSR、泛化与视觉标准继续核验。",
   "offline_DP_probe": {
     "observations": 4,
     "source_episodes": 1,
@@ -2632,6 +2865,216 @@
         "full_geometry_SSR_evaluated": false,
         "all_native_cells_CPU_passed": true,
         "parent_platform_status": "SUCCEEDED"
+      }
+    },
+    {
+      "candidate": "pro6000-eval-A32-initialmix-b100-150-20261027cc-r3",
+      "object": "glass_beaker_100ml",
+      "method": "ACT",
+      "display_name": "32k · 完整150次 · SR未达标",
+      "current_native": false,
+      "development": false,
+      "formal_accepted": false,
+      "paper_ssr_percent": null,
+      "reported_SpatialSSR_percent": null,
+      "progress": {
+        "episode_num": 150,
+        "episode_success_num": 82,
+        "success_rate": 0.5466666666666666
+      },
+      "protocol": {
+        "method": "act",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "±3 / 4 / 5 / 6cm",
+        "duration_label": "24s",
+        "seed": "26121921 / 26121923 / 26121925",
+        "note": "完整冻结150次已正常关闭：82次成功（54.7%，低于论文66%），41次成功且24s终点≤20mm。全部150次120Hz保存姿态的手部/目标网格零交叉。27.3%是24s终点+手/目标几何分量；原生首次success时20mm分量为0%，计分时点、其他碰撞域和完整视觉尚未绑定，因此论文SSR留空。原99条成功与失败均保留，仅补51次。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": "26121921 / 26121923 / 26121925",
+          "updates": 32000
+        }
+      },
+      "metric_note": "完整冻结150次已正常关闭：82次成功（54.7%，低于论文66%），41次成功且24s终点≤20mm。全部150次120Hz保存姿态的手部/目标网格零交叉。27.3%是24s终点+手/目标几何分量；原生首次success时20mm分量为0%，计分时点、其他碰撞域和完整视觉尚未绑定，因此论文SSR留空。原99条成功与失败均保留，仅补51次。",
+      "cases": [
+        {
+          "episode": 1,
+          "native_episode": 1,
+          "camera": "head_camera",
+          "success": true,
+          "url": "assets/grasp/pro6000_formal_B100_20261028/formal150_trial000_s26121921_success_head.mp4",
+          "SHA256": "348a3d14649ef937e3e0b4c75f324569113e769ffbf34410d1db86c7bf9d6163",
+          "caption": "完整150次中的原Native试次1 · seed 26121921 · head_camera。720帧/30fps/24秒，保留原字节；终点误差22.88mm。本回合抓起，但终点超过20mm。仅成功/失败各一例，完整视觉及论文SSR仍待验收。"
+        },
+        {
+          "episode": 1,
+          "native_episode": 1,
+          "camera": "third_camera",
+          "success": true,
+          "url": "assets/grasp/pro6000_formal_B100_20261028/formal150_trial000_s26121921_success_third.mp4",
+          "SHA256": "5386ffb3210548146543e38d4d96ae20d5320e66faf442b3258b4091bdfd2cba",
+          "caption": "完整150次中的原Native试次1 · seed 26121921 · third_camera。720帧/30fps/24秒，保留原字节；终点误差22.88mm。本回合抓起，但终点超过20mm。仅成功/失败各一例，完整视觉及论文SSR仍待验收。"
+        },
+        {
+          "episode": 1,
+          "native_episode": 1,
+          "camera": "chest_camera",
+          "success": true,
+          "url": "assets/grasp/pro6000_formal_B100_20261028/formal150_trial000_s26121921_success_chest.mp4",
+          "SHA256": "9afb8fbc65493280fe7920e97604fe7ade830d254a475e4e250847e64d659cda",
+          "caption": "完整150次中的原Native试次1 · seed 26121921 · chest_camera。720帧/30fps/24秒，保留原字节；终点误差22.88mm。本回合抓起，但终点超过20mm。仅成功/失败各一例，完整视觉及论文SSR仍待验收。"
+        },
+        {
+          "episode": 2,
+          "native_episode": 1,
+          "camera": "head_camera",
+          "success": false,
+          "url": "assets/grasp/pro6000_formal_B100_20261028/formal150_trial001_s26121921_failure_head.mp4",
+          "SHA256": "0b596df51e6af5aeacdfc4f16421b340df6915822dfcab7e90beb5902e43b62a",
+          "caption": "完整150次中的原Native试次2 · seed 26121921 · head_camera。720帧/30fps/24秒，保留原字节；终点误差113.78mm。本回合未抓起。仅成功/失败各一例，完整视觉及论文SSR仍待验收。"
+        },
+        {
+          "episode": 2,
+          "native_episode": 1,
+          "camera": "third_camera",
+          "success": false,
+          "url": "assets/grasp/pro6000_formal_B100_20261028/formal150_trial001_s26121921_failure_third.mp4",
+          "SHA256": "7ea63acda34a77ba2ff3f04c77e3b526cc5cbb6476be24828256e5a83d7894e2",
+          "caption": "完整150次中的原Native试次2 · seed 26121921 · third_camera。720帧/30fps/24秒，保留原字节；终点误差113.78mm。本回合未抓起。仅成功/失败各一例，完整视觉及论文SSR仍待验收。"
+        },
+        {
+          "episode": 2,
+          "native_episode": 1,
+          "camera": "chest_camera",
+          "success": false,
+          "url": "assets/grasp/pro6000_formal_B100_20261028/formal150_trial001_s26121921_failure_chest.mp4",
+          "SHA256": "b9ae3e192059a3435df7aff46bc3b6336def257107ba318dd7e0ff7e925d4aa0",
+          "caption": "完整150次中的原Native试次2 · seed 26121921 · chest_camera。720帧/30fps/24秒，保留原字节；终点误差113.78mm。本回合未抓起。仅成功/失败各一例，完整视觉及论文SSR仍待验收。"
+        }
+      ],
+      "result": {
+        "SR": 54.7,
+        "SpatialSSR_reported": null,
+        "success_and_terminal_dP20": 27.3,
+        "success_terminal20_and_no_hand_target_crossing": 41,
+        "success_and_first_success_dP20": 0,
+        "trials": 150,
+        "successes": 82,
+        "success_terminal20mm": 41,
+        "training_closed_seeds": [
+          26121921,
+          26121923,
+          26121925
+        ],
+        "all_native_cells_CPU_passed": true,
+        "parent_platform_status": "SUCCEEDED",
+        "formal_evaluation_status": "COMPLETED_SR_BELOW_PAPER",
+        "saved_pose_geometry_120Hz_completed": true,
+        "hand_target_crossing_trials": 0,
+        "full_paper_SSR_evidence_complete": false,
+        "metric_time_binding_pending": true,
+        "formal_accepted": false,
+        "full_visual_passed": false,
+        "by_seed": {
+          "26121921": {
+            "n": 50,
+            "SR": 50.0,
+            "success_and_dP20": 20.0,
+            "SSR_any": 20.0,
+            "SSR_1mm": 20.0,
+            "trials_with_crossing": 0,
+            "max_depth_mm": 0.0,
+            "success_and_dP20_at_success": 0.0,
+            "SSR_at_success_any": 0.0,
+            "SSR_at_success_1mm": 0.0,
+            "SSR_at_success_any_and_hold_safe": 0.0
+          },
+          "26121923": {
+            "n": 50,
+            "SR": 78.0,
+            "success_and_dP20": 48.0,
+            "SSR_any": 48.0,
+            "SSR_1mm": 48.0,
+            "trials_with_crossing": 0,
+            "max_depth_mm": 0.0,
+            "success_and_dP20_at_success": 0.0,
+            "SSR_at_success_any": 0.0,
+            "SSR_at_success_1mm": 0.0,
+            "SSR_at_success_any_and_hold_safe": 0.0
+          },
+          "26121925": {
+            "n": 50,
+            "SR": 36.0,
+            "success_and_dP20": 14.0,
+            "SSR_any": 14.0,
+            "SSR_1mm": 14.0,
+            "trials_with_crossing": 0,
+            "max_depth_mm": 0.0,
+            "success_and_dP20_at_success": 0.0,
+            "SSR_at_success_any": 0.0,
+            "SSR_at_success_1mm": 0.0,
+            "SSR_at_success_any_and_hold_safe": 0.0
+          }
+        },
+        "by_cohort": {
+          "uniform_box+0cm": {
+            "n": 39,
+            "SR": 79.5,
+            "success_and_dP20": 35.9,
+            "SSR_any": 35.9,
+            "SSR_1mm": 35.9,
+            "trials_with_crossing": 0,
+            "max_depth_mm": 0.0,
+            "success_and_dP20_at_success": 0.0,
+            "SSR_at_success_any": 0.0,
+            "SSR_at_success_1mm": 0.0,
+            "SSR_at_success_any_and_hold_safe": 0.0
+          },
+          "uniform_box+1cm": {
+            "n": 39,
+            "SR": 53.8,
+            "success_and_dP20": 38.5,
+            "SSR_any": 38.5,
+            "SSR_1mm": 38.5,
+            "trials_with_crossing": 0,
+            "max_depth_mm": 0.0,
+            "success_and_dP20_at_success": 0.0,
+            "SSR_at_success_any": 0.0,
+            "SSR_at_success_1mm": 0.0,
+            "SSR_at_success_any_and_hold_safe": 0.0
+          },
+          "uniform_box+2cm": {
+            "n": 36,
+            "SR": 38.9,
+            "success_and_dP20": 16.7,
+            "SSR_any": 16.7,
+            "SSR_1mm": 16.7,
+            "trials_with_crossing": 0,
+            "max_depth_mm": 0.0,
+            "success_and_dP20_at_success": 0.0,
+            "SSR_at_success_any": 0.0,
+            "SSR_at_success_1mm": 0.0,
+            "SSR_at_success_any_and_hold_safe": 0.0
+          },
+          "uniform_box+3cm": {
+            "n": 36,
+            "SR": 44.4,
+            "success_and_dP20": 16.7,
+            "SSR_any": 16.7,
+            "SSR_1mm": 16.7,
+            "trials_with_crossing": 0,
+            "max_depth_mm": 0.0,
+            "success_and_dP20_at_success": 0.0,
+            "SSR_at_success_any": 0.0,
+            "SSR_at_success_1mm": 0.0,
+            "SSR_at_success_any_and_hold_safe": 0.0
+          }
+        }
       }
     }
   ]
