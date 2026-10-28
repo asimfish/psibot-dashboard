@@ -1,0 +1,132 @@
+{
+  "id": "t600_cal_c30000_h8_left_s947100000",
+  "arm": "t600",
+  "split": "calibration",
+  "threshold": 0.6,
+  "horizon": 8,
+  "side": "left",
+  "outcome": "failure",
+  "verified": true,
+  "video": "cases/t600_cal_c30000_h8_left_s947100000/third_camera.mp4",
+  "head_video": "cases/t600_cal_c30000_h8_left_s947100000/head_camera.mp4",
+  "trace": "cases/t600_cal_c30000_h8_left_s947100000/trace.json",
+  "audit": "cases/t600_cal_c30000_h8_left_s947100000/audit.json",
+  "images": [
+    {
+      "path": "cases/t600_cal_c30000_h8_left_s947100000/f250.png",
+      "caption": "原始视频帧 250"
+    },
+    {
+      "path": "cases/t600_cal_c30000_h8_left_s947100000/f258.png",
+      "caption": "原始视频帧 258"
+    },
+    {
+      "path": "cases/t600_cal_c30000_h8_left_s947100000/f380.png",
+      "caption": "原始视频帧 380"
+    },
+    {
+      "path": "cases/t600_cal_c30000_h8_left_s947100000/f393.png",
+      "caption": "原始视频帧 393"
+    },
+    {
+      "path": "cases/t600_cal_c30000_h8_left_s947100000/f640.png",
+      "caption": "原始视频帧 640"
+    },
+    {
+      "path": "cases/t600_cal_c30000_h8_left_s947100000/f660.png",
+      "caption": "原始视频帧 660"
+    },
+    {
+      "path": "cases/t600_cal_c30000_h8_left_s947100000/f675.png",
+      "caption": "原始视频帧 675"
+    },
+    {
+      "path": "cases/t600_cal_c30000_h8_left_s947100000/f690.png",
+      "caption": "原始视频帧 690"
+    },
+    {
+      "path": "cases/t600_cal_c30000_h8_left_s947100000/f707.png",
+      "caption": "原始视频帧 707"
+    }
+  ],
+  "annotations": [
+    {
+      "stage": 0,
+      "interval": [
+        240,
+        258
+      ],
+      "confidence": "中",
+      "reason": "240–258帧烧杯已抬起并移到接收杯上方；单视角的深度对齐有不确定性。",
+      "source": "Codex视觉检查原始第三人称帧240、250、258；不注入策略",
+      "actual_switch_frames": [
+        252
+      ],
+      "early": false
+    },
+    {
+      "stage": 1,
+      "interval": [
+        380,
+        393
+      ],
+      "confidence": "中",
+      "reason": "380–393帧接收杯中可见蓝色液体，手中杯大部分倒空。精确余量不能只靠RGB确认。",
+      "source": "Codex视觉检查原始第三人称帧380、393；不注入策略",
+      "actual_switch_frames": [
+        393
+      ],
+      "early": false
+    },
+    {
+      "stage": 2,
+      "interval": [
+        640,
+        660
+      ],
+      "confidence": "中",
+      "reason": "640帧杯位于原垫附近且手正在张开，660帧手已离开。画面支持视觉完成区间，但原始物理验收仍未达到阶段3。675帧之后反复生成相同末段，最终Planner格式拒绝；不能把视觉完成当作物理成功。",
+      "source": "Codex视觉检查原始第三人称帧640、660、675、707；不注入策略",
+      "actual_switch_frames": [
+        675
+      ],
+      "early": false
+    }
+  ],
+  "video_offset_s": 0,
+  "video_note": "同一轨迹的原始15Hz录像：第三人称为策略输入，头部仅供旁观。帧0对应模拟tick0，初始物理settle已结束。 末尾另有一次分类器更新触发Planner格式拒绝，未返回策略、未执行动作；仅在下载日志的unreturned_classifier_events中保留。",
+  "validation": {
+    "full_decode": true,
+    "ffprobe": {
+      "third_camera.mp4": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 640,
+            "height": 480,
+            "avg_frame_rate": "15/1",
+            "nb_frames": "708"
+          }
+        ],
+        "format": {
+          "duration": "47.200000"
+        }
+      },
+      "head_camera.mp4": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 640,
+            "height": 480,
+            "avg_frame_rate": "15/1",
+            "nb_frames": "708"
+          }
+        ],
+        "format": {
+          "duration": "47.200000"
+        }
+      }
+    },
+    "frame_count_matches_original_manifest": true
+  }
+}

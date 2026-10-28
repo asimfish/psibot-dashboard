@@ -1,0 +1,106 @@
+{
+  "id": "t500_cal_c30000_h8_right_s947101000",
+  "arm": "t500",
+  "partition": "t500",
+  "split": "calibration",
+  "threshold": 0.5,
+  "horizon": 8,
+  "side": "right",
+  "outcome": "failure",
+  "verified": true,
+  "video": "cases/t500_cal_c30000_h8_right_s947101000/third_camera.mp4",
+  "head_video": "cases/t500_cal_c30000_h8_right_s947101000/head_camera.mp4",
+  "trace": "cases/t500_cal_c30000_h8_right_s947101000/trace.json",
+  "audit": "cases/t500_cal_c30000_h8_right_s947101000/audit.json",
+  "images": [
+    {
+      "path": "cases/t500_cal_c30000_h8_right_s947101000/f200.png",
+      "caption": "原始视频帧 200"
+    },
+    {
+      "path": "cases/t500_cal_c30000_h8_right_s947101000/f400.png",
+      "caption": "原始视频帧 400"
+    },
+    {
+      "path": "cases/t500_cal_c30000_h8_right_s947101000/f425.png",
+      "caption": "原始视频帧 425"
+    },
+    {
+      "path": "cases/t500_cal_c30000_h8_right_s947101000/f480.png",
+      "caption": "原始视频帧 480"
+    },
+    {
+      "path": "cases/t500_cal_c30000_h8_right_s947101000/f500.png",
+      "caption": "原始视频帧 500"
+    },
+    {
+      "path": "cases/t500_cal_c30000_h8_right_s947101000/f600.png",
+      "caption": "原始视频帧 600"
+    },
+    {
+      "path": "cases/t500_cal_c30000_h8_right_s947101000/f699.png",
+      "caption": "原始视频帧 699"
+    }
+  ],
+  "annotations": [
+    {
+      "stage": 0,
+      "interval": null,
+      "confidence": "低至中",
+      "reason": "200帧已拿起烧杯并接近B上方，但单视角无法可靠判断精确深度对齐，保留正确切换帧未知。",
+      "source": "Codex视觉检查原始帧200、400、425；不注入策略",
+      "actual_switch_frames": [
+        425
+      ],
+      "early": false
+    },
+    {
+      "stage": 1,
+      "interval": null,
+      "not_completed_at_frame": 500,
+      "confidence": "高（未完成的否定证据）",
+      "reason": "500帧发生切换时尚未倒完。原始视频仍见杯A内蓝色液体；同帧模拟tick4000的独立物理记录为A924/B366/共1290，即仅28.4%进入B。正确的完成帧在这次失败轨迹中没有出现；标为提前切换，不猜一个完成时间。",
+      "source": "Codex原始帧480、500视觉检查＋SHA绑定独立物理记录；不注入策略",
+      "actual_switch_frames": [
+        500
+      ],
+      "early": true
+    }
+  ],
+  "video_offset_s": 0,
+  "video_note": "同一轨迹的原始15Hz录像：第三人称为策略输入，头部仅供旁观。帧0对应模拟tick0，初始物理settle已结束。",
+  "validation": {
+    "full_decode": true,
+    "ffprobe": {
+      "third_camera.mp4": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 640,
+            "height": 480,
+            "avg_frame_rate": "15/1",
+            "nb_frames": "700"
+          }
+        ],
+        "format": {
+          "duration": "46.667000"
+        }
+      },
+      "head_camera.mp4": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 640,
+            "height": 480,
+            "avg_frame_rate": "15/1",
+            "nb_frames": "700"
+          }
+        ],
+        "format": {
+          "duration": "46.667000"
+        }
+      }
+    },
+    "frame_count_matches_original_manifest": true
+  }
+}
