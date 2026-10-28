@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-28T10:03:49.727990+00:00",
+  "updated_utc": "2026-10-28T10:18:47.227643+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -890,34 +890,39 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 131,
-    "active_registered_jobs": 3,
+    "registered_jobs": 133,
+    "active_registered_jobs": 4,
     "BOS_mount_count": 2,
     "state": "RUNNING",
-    "state_note": "大透明瓶完整100条密集审计已通过并恢复BOS写回；研钵14个困难位置、500ml容量瓶8秒设置已合格，分别推进100条新采集。四个DP100k模型已完成，ACT新训练已提交。",
+    "state_note": "四个作业在运行：漏斗DP继续100k、研钵与500ml容量瓶各100条新采集、大透明瓶三种子DP训练准备。ACT修复版和已完成DP模型的固定验证按空闲名额接续。",
     "prepared_not_submitted": [
       {
-        "tag": "src100-f500B-m8-p120-20261028cc",
-        "state": "READY_QUEUE",
-        "progress_note": "保持原资产、默认闭合、8秒动作，固定原100个±3cm源位置。完整源审计和视觉检查通过后才允许训练。"
+        "tag": "dev-D100-b100rest-fixed10-20261028cc",
+        "state": "MODEL_VERIFIED_READY_QUEUE",
+        "progress_note": "已绑定两个100k EMA、归一化与配置SHA，下一空闲名额先做10条固定源验证；不重跑旧种子21的5条。"
       },
       {
-        "tag": "train-D100-clearL3-brownV21-20261028cc",
-        "state": "SOURCE_QUALIFIED_TRAINING_QUEUE",
-        "progress_note": "大透明瓶三DP种子加棕色容量瓶种子21，统一100k预算，等待空闲名额。"
+        "tag": "train-A32-initialmix-brownV3-b50-20261028cc-r2",
+        "state": "TERMINAL_FAILURE_RECOVERY_READY_QUEUE",
+        "progress_note": "原作业在优化器前失败。元数据必填错误复现和修复检查通过，同4个种子/源100/32k配方接续。"
       },
       {
         "tag": "train-A32-clearL3-b50s23-20261028cc",
-        "state": "SOURCE_QUALIFIED_TRAINING_QUEUE",
-        "progress_note": "大透明瓶三ACT种子加50ml烧杯种子23，统一32k预算，等待空闲名额。"
+        "state": "SOURCE_QUALIFIED_READY_QUEUE",
+        "progress_note": "大透明瓶3个ACT种子与50ml烧杯种子23，每卡一个32k模型；BOS源审计、原始抽查视频与运行入口演练通过。"
+      },
+      {
+        "tag": "dev-D100-funnel-fixed15-20261028cc",
+        "state": "WAIT_FULL_100K_MODEL_CLOSURE",
+        "progress_note": "两个100k种子已关闭，第三种子完成100k和模型SHA审核后自动放行原固定15条源验证。"
       },
       {
         "tag": "eval-m6-dp-b50-20261025cc",
         "state": "HOLD_B50_RESET_FIX",
-        "progress_note": "重置/初始动作问题尚未关闭，正式测试继续挂起。"
+        "progress_note": "重置/初始动作诊断未关闭，正式测试继续挂起。"
       }
     ],
-    "checked_utc": "2026-10-28T10:00:52.344556+00:00",
+    "checked_utc": "2026-10-28T10:15:04.502747+00:00",
     "jobs": [
       {
         "tag": "qual-mortar-p120-smoke4-20261028cc",
@@ -954,7 +959,7 @@
             "object": "funnel",
             "seed": 26121925,
             "GPU": 0,
-            "updates": 77800
+            "updates": 80750
           },
           {
             "method": "act",
@@ -978,7 +983,7 @@
             "updates": 32000
           }
         ],
-        "progress_note": "三个RGB4 ACT模型已32000步，开发验证14/15正常关闭、10次成功、3次满足终点20mm；不能计完整正式结果。漏斗第三DP种子仍继续训练。"
+        "progress_note": "漏斗第三种子80750/100000步；三个RGB4 ACT已完成。新RGB4 CPU重放通过原仿真一致性校验，首步图像敏感度中位数下降24.6%，未达预设30%改善门槛，未放行正式测试。"
       },
       {
         "tag": "train-D100-b100rest-funnel12-20261027cc",
@@ -1521,16 +1526,16 @@
       {
         "tag": "train-A32-initialmix-brownV3-b50-20261028cc",
         "job_id": "job-nh88infe85w3",
-        "status": "RUNNING",
+        "status": "FAILED",
         "name": "棕色容量瓶三种子/50ml烧杯 · ACT32k开发训练",
-        "progress_note": "四个等32k预算ACT候选已提交，源数据和抽查视频凭据已在BOS封存。开发训练；50ml烧杯reset诊断及正式测试仍挂起。"
+        "progress_note": "原模板必填prior_training_jobs元数据缺失，优化器启动前失败。保留原作业；同种子/同数据/同32k配方修复版r2在确认FAILED后放行，未重采数据。"
       },
       {
         "tag": "src100-mortar-c049-zplus2-m8-p120-20261028cc",
         "job_id": "job-ddj1mrvr0vmy",
-        "status": "PENDING",
+        "status": "RUNNING",
         "name": "研钵 · 改进设置完整100条新采集",
-        "progress_note": "c0.49、抓取Z+2mm、8秒动作；固定原100个±3cm源位置。完整采集后独立CPU做120Hz几何和自身抬升目标审计，通过后才允许重训。"
+        "progress_note": "最新8/8条已关闭且抓起，完整100条继续；14个困难源位置的先导120Hz零穿模不代替完整源审计。"
       },
       {
         "tag": "dev-A32rgb4-fresh-b100-fixed15-20261028cc-r2",
@@ -1545,6 +1550,20 @@
         "status": "FAILED",
         "name": "新RGB4 ACT验证 · 14条关闭/1条技术中断",
         "progress_note": "保留14条正常关闭：10成功、3终点20mm；第10号reset/camera CUDA非法内存访问导致缺1条，平台FAILED。不是15条完整结果，也不是正式验收。"
+      },
+      {
+        "tag": "src100-f500B-m8-p120-20261028cc",
+        "job_id": "job-kvcip3edxivt",
+        "status": "RUNNING",
+        "name": "500ml容量瓶 · 8秒动作完整100条新采集",
+        "progress_note": "最新4/4条已关闭且抓起，完整100条继续；独立CPU将检查所有原始120Hz位姿、固定源编号和自身抬升目标。"
+      },
+      {
+        "tag": "train-D100-clearL3-brownV21-20261028cc",
+        "job_id": "job-t5a3q9ywu57w",
+        "status": "RUNNING",
+        "name": "大透明瓶三种子/棕色容量瓶 · DP100k训练准备",
+        "progress_note": "大透明瓶3种子加棕色容量瓶种子21，100k预算；已通过两个完整100条数据入口，32个源单元解码完成，准备优化器训练。"
       }
     ],
     "progress_note": "数据准入已有实质进展：大透明瓶100/100抬起且逐120Hz手/目标零穿模；棕色容量瓶100/100抬起且保存30Hz位姿零穿模。两个结论只用于开发训练准入，均不计策略验收通过。",
