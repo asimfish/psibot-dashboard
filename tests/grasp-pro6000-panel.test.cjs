@@ -123,11 +123,12 @@ test('only the new snapshot adds browser versions; every existing dataset remain
   for (const file of files) assert.ok(fs.existsSync(path.join(root, 'results', file)), file);
   assert.ok(snapshot.runs.every(r => r.current_native === false));
   const media=snapshot.runs.flatMap(r => r.cases);
-  assert.equal(media.length, 12);
+  assert.equal(media.length, 18);
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_fresh_B100_20261027/')).length, 6);
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_formal_B100_20261028/')).length, 6);
+  assert.equal(media.filter(clip => clip.url.includes('/pro6000_ClearL_source15_20261028/')).length, 6);
   for (const clip of media) {
-    assert.match(clip.url, /^assets\/grasp\/(?:pro6000_fresh_B100_20261027\/trial(?:02|06)_s\d+_(?:chest|head|third)_camera|pro6000_formal_B100_20261028\/formal150_trial(?:000|001)_s26121921_(?:success|failure)_(?:chest|head|third))\.mp4$/);
+    assert.match(clip.url, /^assets\/grasp\/(?:pro6000_fresh_B100_20261027\/trial(?:02|06)_s\d+_(?:chest|head|third)_camera|pro6000_formal_B100_20261028\/formal150_trial(?:000|001)_s26121921_(?:success|failure)_(?:chest|head|third)|pro6000_ClearL_source15_20261028\/clearL_ACT_source15_s26121921_ep(?:001|003)_(?:chest|head|third)_camera)\.mp4$/);
     const bytes=fs.readFileSync(path.join(root,clip.url));
     assert.equal(require('node:crypto').createHash('sha256').update(bytes).digest('hex'), clip.SHA256);
   }
