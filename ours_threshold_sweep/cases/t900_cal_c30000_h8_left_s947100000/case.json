@@ -12,8 +12,58 @@
   "head_video": "cases/t900_cal_c30000_h8_left_s947100000/head_camera.mp4",
   "trace": "cases/t900_cal_c30000_h8_left_s947100000/trace.json",
   "audit": "cases/t900_cal_c30000_h8_left_s947100000/audit.json",
-  "images": [],
-  "annotations": [],
+  "images": [
+    {
+      "path": "cases/t900_cal_c30000_h8_left_s947100000/f243.png",
+      "caption": "原始视频帧 243"
+    },
+    {
+      "path": "cases/t900_cal_c30000_h8_left_s947100000/f267.png",
+      "caption": "原始视频帧 267"
+    },
+    {
+      "path": "cases/t900_cal_c30000_h8_left_s947100000/f369.png",
+      "caption": "原始视频帧 369"
+    },
+    {
+      "path": "cases/t900_cal_c30000_h8_left_s947100000/f393.png",
+      "caption": "原始视频帧 393"
+    },
+    {
+      "path": "cases/t900_cal_c30000_h8_left_s947100000/f667.png",
+      "caption": "原始视频帧 667"
+    },
+    {
+      "path": "cases/t900_cal_c30000_h8_left_s947100000/f691.png",
+      "caption": "原始视频帧 691"
+    }
+  ],
+  "annotations": [
+    {
+      "stage": 1,
+      "interval": null,
+      "completed_by_frame": 393,
+      "confidence": "中（视觉上界，非精确完成帧）",
+      "reason": "在原始帧393中手中杯看起来已基本倒空、B内可见蓝色液体；更早的精确完成时点未从抽样画面确定，不据此判定切换是否提前。",
+      "source": "Codex直接检查原始第三人称帧393；不注入策略",
+      "actual_switch_frames": [
+        381
+      ],
+      "early": false
+    },
+    {
+      "stage": 2,
+      "interval": null,
+      "completed_by_frame": 691,
+      "confidence": "中（仅视觉放置，不替代物理容差验收）",
+      "reason": "帧691可见A位于原垫附近且手已松开、移离。精确完成时点与毫米级位置容差无法由这张图确定；最终结果仍按独立物理验收。",
+      "source": "Codex直接检查原始第三人称帧691；不注入策略",
+      "actual_switch_frames": [
+        679
+      ],
+      "early": false
+    }
+  ],
   "video_offset_s": 0,
   "video_note": "同一轨迹的原始15Hz录像：第三人称为策略输入，头部仅供旁观。帧0对应模拟tick0，初始物理settle已结束。",
   "validation": {

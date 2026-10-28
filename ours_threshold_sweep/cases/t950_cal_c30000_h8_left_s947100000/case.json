@@ -12,8 +12,51 @@
   "head_video": "cases/t950_cal_c30000_h8_left_s947100000/head_camera.mp4",
   "trace": "cases/t950_cal_c30000_h8_left_s947100000/trace.json",
   "audit": "cases/t950_cal_c30000_h8_left_s947100000/audit.json",
-  "images": [],
-  "annotations": [],
+  "images": [
+    {
+      "path": "cases/t950_cal_c30000_h8_left_s947100000/f246.png",
+      "caption": "原始视频帧 246"
+    },
+    {
+      "path": "cases/t950_cal_c30000_h8_left_s947100000/f270.png",
+      "caption": "原始视频帧 270"
+    },
+    {
+      "path": "cases/t950_cal_c30000_h8_left_s947100000/f370.png",
+      "caption": "原始视频帧 370"
+    },
+    {
+      "path": "cases/t950_cal_c30000_h8_left_s947100000/f394.png",
+      "caption": "原始视频帧 394"
+    },
+    {
+      "path": "cases/t950_cal_c30000_h8_left_s947100000/f575.png",
+      "caption": "原始视频帧 575"
+    }
+  ],
+  "annotations": [
+    {
+      "stage": 1,
+      "interval": null,
+      "completed_by_frame": 394,
+      "confidence": "中（视觉上界，非精确完成帧）",
+      "reason": "在原始帧394中手中杯看起来已基本倒空、B内可见蓝色液体；更早的精确完成时点未从抽样画面确定，不据此判定切换是否提前。",
+      "source": "Codex直接检查原始第三人称帧394；不注入策略",
+      "actual_switch_frames": [
+        382
+      ],
+      "early": false
+    },
+    {
+      "stage": 2,
+      "interval": null,
+      "confidence": "高（末帧未完成）",
+      "reason": "末帧575仍夹持倾斜烧杯，尚未放稳并释放。独立原始验收因A倾角15.077度超出非倾倒区域限制而失败；不是分类器没有切换到放回阶段。",
+      "source": "Codex检查原始帧575＋原始物理审计；不注入策略",
+      "actual_switch_frames": [],
+      "early": false
+    }
+  ],
   "video_offset_s": 0,
   "video_note": "同一轨迹的原始15Hz录像：第三人称为策略输入，头部仅供旁观。帧0对应模拟tick0，初始物理settle已结束。",
   "validation": {
