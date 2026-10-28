@@ -1,0 +1,75 @@
+{
+  "id": "t975_cal_c30000_h4_left_s947100001",
+  "arm": "t975",
+  "split": "calibration",
+  "threshold": 0.975,
+  "horizon": 4,
+  "side": "left",
+  "outcome": "failure",
+  "verified": true,
+  "video": "cases/t975_cal_c30000_h4_left_s947100001/third_camera.mp4",
+  "head_video": "cases/t975_cal_c30000_h4_left_s947100001/head_camera.mp4",
+  "trace": "cases/t975_cal_c30000_h4_left_s947100001/trace.json",
+  "audit": "cases/t975_cal_c30000_h4_left_s947100001/audit.json",
+  "images": [
+    {
+      "path": "cases/t975_cal_c30000_h4_left_s947100001/f0.png",
+      "caption": "原始视频帧 0"
+    },
+    {
+      "path": "cases/t975_cal_c30000_h4_left_s947100001/f60.png",
+      "caption": "原始视频帧 60"
+    },
+    {
+      "path": "cases/t975_cal_c30000_h4_left_s947100001/f86.png",
+      "caption": "原始视频帧 86"
+    }
+  ],
+  "annotations": [
+    {
+      "stage": 0,
+      "interval": null,
+      "reason": "已检查原始0、60、86帧：末帧右手仍在垫子附近抓持烧杯，尚未把A移到B上方。本段没有视觉上合理的第一阶段完成帧；无切换不应标成漏切换。",
+      "confidence": "高",
+      "source": "Codex 原始RGB视觉检查（非策略输入）",
+      "actual_switch_frames": [],
+      "early": false
+    }
+  ],
+  "video_offset_s": 0,
+  "video_note": "同一轨迹的原始15Hz录像：第三人称为策略输入，头部仅供旁观。帧0对应模拟tick0，初始物理settle已结束。",
+  "validation": {
+    "full_decode": true,
+    "ffprobe": {
+      "third_camera.mp4": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 640,
+            "height": 480,
+            "avg_frame_rate": "15/1",
+            "nb_frames": "87"
+          }
+        ],
+        "format": {
+          "duration": "5.800000"
+        }
+      },
+      "head_camera.mp4": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 640,
+            "height": 480,
+            "avg_frame_rate": "15/1",
+            "nb_frames": "87"
+          }
+        ],
+        "format": {
+          "duration": "5.800000"
+        }
+      }
+    },
+    "frame_count_matches_original_manifest": true
+  }
+}
