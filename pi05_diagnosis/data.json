@@ -1,0 +1,269 @@
+{
+  "schema": "pi05_diagnosis_public_v1",
+  "task": "T-954",
+  "diagnosis_task": "T-951",
+  "date": "2026-10-28",
+  "fps": 15,
+  "checkpoint": 30000,
+  "prediction_horizon": 10,
+  "execution_horizon": 8,
+  "denoising_steps": 10,
+  "camera": "第三人称 RGB 640×480",
+  "dataset": "psibot_3_pour_restore_pads_v13_smooth",
+  "global_task": "Pick up the beaker of blue liquid with the right hand, pour the liquid into the other beaker, and put the empty beaker back on its coaster.",
+  "global_task_zh": "右手拿起装有蓝色液体的烧杯，将液体倒入另一个烧杯，再把空烧杯放回原垫子。",
+  "formal_conditions": "每步数100条；左右各50；A的XY独立均匀±1cm，垫子和B固定。每个Isaac App只有1个环境。",
+  "diagnostic_conditions": "训练源场景E0、E56，左右各一。原模型、原生高斯噪声、同一Native控制配置和原物理验收。干预组只观察12秒抓取前缀；原实时反馈组保留75秒。",
+  "unique_all_failure_root_proven": false,
+  "full_task_fix_verified": false,
+  "configurations": {
+    "live": {
+      "name": "实时图像＋实时关节",
+      "rgb": "实时图像",
+      "q": "实时实测关节",
+      "oracle": false,
+      "description": "原始模型闭环执行，保留实时反馈。"
+    },
+    "rgb_only": {
+      "name": "训练图像＋实时关节",
+      "rgb": "训练记录图像",
+      "q": "实时实测关节",
+      "oracle": true,
+      "description": "每次预测只替换为对应训练帧图像，关节仍由当前仿真实测。"
+    },
+    "q_only": {
+      "name": "实时图像＋训练关节",
+      "rgb": "实时图像",
+      "q": "训练记录关节",
+      "oracle": true,
+      "description": "每次预测只替换为对应训练帧关节状态；它同时提供正确轨迹进度。"
+    },
+    "both": {
+      "name": "训练图像＋训练关节",
+      "rgb": "训练记录图像",
+      "q": "训练记录关节",
+      "oracle": true,
+      "description": "使用记录训练观测得到模型预测，再通过相同Native控制路径执行。"
+    }
+  },
+  "scenes": [
+    {
+      "id": "left",
+      "label": "左侧",
+      "training_episode": 0,
+      "model_seed": 93100000,
+      "initial_measured_qpos_equal": true,
+      "live_and_oracle_controller_equal": true,
+      "cases": {
+        "live": {
+          "stable_pickup_passed": false,
+          "phase_seconds": [],
+          "simulation_seconds": 75,
+          "physical_phase": 0,
+          "audit_sha256": "b02c1681d2de0512b3ad35ecb480c1f017c1e492e4f72b8e62dc33bfd1ce6771",
+          "video": "media/left_live.mp4",
+          "video_sha256": "acfdff8da54d26ece3152f5870d3a4ac274bba08ac2e70ead8a27a76c3211986",
+          "video_bytes": 4138594,
+          "video_frames": 1126,
+          "container_duration_s": 75.067,
+          "complete_task_success_claimed": false,
+          "native_policy_score_claimed": false,
+          "prefix_only": false
+        },
+        "rgb_only": {
+          "stable_pickup_passed": false,
+          "phase_seconds": [],
+          "simulation_seconds": 12,
+          "physical_phase": 0,
+          "audit_sha256": "eba2622874132a64dcf10e91438c2499e6581b62cc839db70a2997688813a002",
+          "video": "media/left_rgb_only.mp4",
+          "video_sha256": "7ef7aa6a16262ce2c8741cf5c8943c92ad9152761f8d03bfa8f685bfc2b63ce0",
+          "video_bytes": 702980,
+          "video_frames": 181,
+          "container_duration_s": 12.067,
+          "complete_task_success_claimed": false,
+          "native_policy_score_claimed": false,
+          "prefix_only": true
+        },
+        "q_only": {
+          "stable_pickup_passed": true,
+          "phase_seconds": [
+            9.583333333333334
+          ],
+          "simulation_seconds": 12,
+          "physical_phase": 1,
+          "audit_sha256": "b5f57499d1d455e984ccc9222832b0af5e980bf7c33a0696a573820edbcf8ce8",
+          "video": "media/left_q_only.mp4",
+          "video_sha256": "aa039a5025f54f9e45fb44d6c8cb6eed8e48ca9073ec37769c30d78065209d7a",
+          "video_bytes": 725268,
+          "video_frames": 181,
+          "container_duration_s": 12.067,
+          "complete_task_success_claimed": false,
+          "native_policy_score_claimed": false,
+          "prefix_only": true
+        },
+        "both": {
+          "stable_pickup_passed": true,
+          "phase_seconds": [
+            9.591666666666667
+          ],
+          "simulation_seconds": 12,
+          "physical_phase": 1,
+          "audit_sha256": "afe20dd84368ffc188031e9676dc6c2a3a7de645f36415b774797f6a4da27b4d",
+          "video": "media/left_oracle.mp4",
+          "video_sha256": "e8bfd603862cc075b6d2d049aa6054a0dc4b4a25213384180e3037dfdb680330",
+          "video_bytes": 727294,
+          "video_frames": 181,
+          "container_duration_s": 12.067,
+          "complete_task_success_claimed": false,
+          "native_policy_score_claimed": false,
+          "prefix_only": true
+        }
+      }
+    },
+    {
+      "id": "right",
+      "label": "右侧",
+      "training_episode": 56,
+      "model_seed": 93100056,
+      "initial_measured_qpos_equal": true,
+      "live_and_oracle_controller_equal": true,
+      "cases": {
+        "live": {
+          "stable_pickup_passed": false,
+          "phase_seconds": [],
+          "simulation_seconds": 75,
+          "physical_phase": 0,
+          "audit_sha256": "d5bedbb00ec59cd1c095398e5e2630f41c3e134b383657185281d726319a08a3",
+          "video": "media/right_live.mp4",
+          "video_sha256": "22cec60dac79b34b601e9836769ad86551ce0f9d707144dc0ef0dbe8f61c9c85",
+          "video_bytes": 3939577,
+          "video_frames": 1126,
+          "container_duration_s": 75.067,
+          "complete_task_success_claimed": false,
+          "native_policy_score_claimed": false,
+          "prefix_only": false
+        },
+        "rgb_only": {
+          "stable_pickup_passed": false,
+          "phase_seconds": [],
+          "simulation_seconds": 12,
+          "physical_phase": 0,
+          "audit_sha256": "093474c7f9142f34766c8468711834c9170da24194bb6e7437214c4a4ce0f064",
+          "video": "media/right_rgb_only.mp4",
+          "video_sha256": "8c5c5cfceef5dfc4aad75c039375129349db3a709df6dae2a75169794c37830d",
+          "video_bytes": 690947,
+          "video_frames": 181,
+          "container_duration_s": 12.067,
+          "complete_task_success_claimed": false,
+          "native_policy_score_claimed": false,
+          "prefix_only": true
+        },
+        "q_only": {
+          "stable_pickup_passed": true,
+          "phase_seconds": [
+            9.891666666666667
+          ],
+          "simulation_seconds": 12,
+          "physical_phase": 1,
+          "audit_sha256": "5f2376c8fc6299a2bd47e839dfdb5c39803458ae9998536b6d79c37d09b675cd",
+          "video": "media/right_q_only.mp4",
+          "video_sha256": "3d84441def848d4f7409ac28b688bdf9e60e0ee3f805419a4d144f6e90630a3f",
+          "video_bytes": 710108,
+          "video_frames": 181,
+          "container_duration_s": 12.067,
+          "complete_task_success_claimed": false,
+          "native_policy_score_claimed": false,
+          "prefix_only": true
+        },
+        "both": {
+          "stable_pickup_passed": true,
+          "phase_seconds": [
+            9.916666666666666
+          ],
+          "simulation_seconds": 12,
+          "physical_phase": 1,
+          "audit_sha256": "afe20dd84368ffc188031e9676dc6c2a3a7de645f36415b774797f6a4da27b4d",
+          "video": "media/right_oracle.mp4",
+          "video_sha256": "f709e75a13518519c2a716be230ebb5a73f3336fcbcecb0a54903c043f4ba5c3",
+          "video_bytes": 706486,
+          "video_frames": 181,
+          "container_duration_s": 12.067,
+          "complete_task_success_claimed": false,
+          "native_policy_score_claimed": false,
+          "prefix_only": true
+        }
+      }
+    }
+  ],
+  "formal": [
+    {
+      "execution_horizon": 4,
+      "total": 100,
+      "confirmed_success": 0,
+      "confirmed_failure": 100,
+      "unadjudicated": 0,
+      "phase0": 94,
+      "phase1": 6
+    },
+    {
+      "execution_horizon": 8,
+      "total": 100,
+      "confirmed_success": 0,
+      "confirmed_failure": 99,
+      "unadjudicated": 1,
+      "phase0": 70,
+      "phase1": 30
+    }
+  ],
+  "controller": "V13_position_linear8_curoboFF_ramp_v1",
+  "controller_sha256": "d3b23b409f6b9818d8f6033f952cf7b5dc2a629be446c56704a93ec132a2ee87",
+  "model_sha256": "4e2ec482adf8847dedd3d3a2b09d185868ea7de6b66bf87e85f3f0bb3ef4a673",
+  "source_evidence_sha256": {
+    "FORMAL200_FAILURE_TAXONOMY.json": "722e908d3c0676f935d4d97863ae53998b5f174ffa64a428c4eeb062c741febe",
+    "FORMAL8_FIRST_CONTACT.json": "78222fc38a59e58256461460d8b10a133a58ad6f5fd6b1bd69ff6e64d3d01bbf",
+    "FORMAL8_HOLD_AND_POUR_GEOMETRY.json": "d3a1c11ed56182d5dfc98f734238e596fa46e0a8ef61f9d3a508a30583647b86",
+    "CONTACT_POLICY_REPORT.json": "f0c8bd74570738ca41028dc6c45cafa71035339324aa52089c18152ab263edc7",
+    "PADDING_FLOW_REPORT.json": "cd162a9b8b8a3c5eb8b16ecf9197f5e979dc337e8d2f611ef73afe26fd9e5317",
+    "PADDING_PAIRED_METRICS.json": "39e9d10d01f6cfe6b9da033eaae22a45aade7b22c81665732d8bba396a20a5bc",
+    "PADDING_TRAINING_CONTRACT_CPU.json": "95ab0c48ef87d51209316a4328b30a43f3ddfe042c102a8597a3690abd1f96b3",
+    "CLOSEDLOOP_COMPARISON.json": "c5340a302d1e346112664a0c02817b408c38d31fb36a1c3e576e75e7acc4f553",
+    "DATASET_GLOBAL_PROMPT_PARITY.json": "89f6751ee9f8583544ccbd5a6b4b591c570d7dc93f63fe30ea5423d54195c67b",
+    "ALL100_TRAINING_NUMERIC_FINGERPRINT.json": "98ed7692e031df9fcfd1d7f4c6ab0425dacbd4bf3a7a2bdadc3f56e735652945",
+    "ACTUAL_TRAINING_LOADER_CONTRACT.json": "0b4985f1c8f680ce0ea9f7e957aa8d44bf71824ff56d0a602d7cab7aaa535c0f",
+    "SOURCE_RGB_MEDIATION.json": "a3491d7a64c46fa99fcd1ca082fd0a0f876f3fa33c59afa7ae1f8104377cb726",
+    "SOURCE_CODEC_PIXEL_AUDIT.json": "20865a62e5710b451194d02f0c2977a9ebbe2120fd40e732246d047737355e3a",
+    "SOURCE_SCENE_COMPARISON.json": "b6c9bddb851cd385d0af83011eea7bd15bf40ba7d758e28d70b4a8582704d579",
+    "SOURCE_Q_TRAJECTORY_COUNTERFACTUAL.json": "75141156c9e7bb27308e1ecaa04c1b90ade1eb2416395eacec35f7521347f9aa",
+    "JOINT_INPUT_MEDIATION.json": "3f31eb23a7b838208eae5bdd8fe68d4ec8afba484ae9cab1b5ddec37240f0d19",
+    "TEACHER_INPUT_MODEL_ACTIONS.json": "c014c35429b761623f956546d477b2c4226daa6775bd07f5d867b0fe9f69c486",
+    "TEACHER_INPUT_REPLAY_AUDIT.json": "b236d00581782a461471b490268b9b4fe256cde9910975fd768b824b0101af69",
+    "TEACHER_INPUT_NORMAL_AUDIT_STATE.json": "afe20dd84368ffc188031e9676dc6c2a3a7de645f36415b774797f6a4da27b4d",
+    "MODALITY_COMPARISON.json": "8dbf942ae789aed130633757ab28151a89cad854e84cd23c892d06711352c500",
+    "SOURCE_REPLAY_FAILURE_FUNNEL.json": "e0e3b5f71758f5fda229dbd1d2cc5b0167a96acbf55de262d8002f92716db706",
+    "RESOURCE_CLOSURE.json": "317a7df1a1aaf62d0ddfe22c0b8b9f09fbcfac021a9956b13c53f7a26b48a4c8"
+  },
+  "padding": [
+    {
+      "key": "arm_rmse8",
+      "native": 0.007193614615787582,
+      "constrained": 0.005948983717543722,
+      "improved_pairs": 24,
+      "total_pairs": 24
+    },
+    {
+      "key": "hand_rmse8",
+      "native": 0.0018201006674648705,
+      "constrained": 0.0010308437093278762,
+      "improved_pairs": 18,
+      "total_pairs": 24
+    },
+    {
+      "key": "arm_acceleration",
+      "native": 1.2480178721440782,
+      "constrained": 0.6785085323408618,
+      "improved_pairs": 24,
+      "total_pairs": 24
+    }
+  ]
+}
