@@ -70,12 +70,14 @@ function renderPro6000(snapshot) {
     // Historical versions retain their own scores when the object's latest run changes.
     const result = run.result || {};
     const trials = run.progress.episode_num;
+    const partial = Number.isInteger(run.expected_trials) && trials < run.expected_trials;
     const sr = typeof result.SR === 'number' ? result.SR : run.progress.success_rate * 100;
     const ssr = run.reported_SpatialSSR_percent;
     const row = add(body, 'tr');
     add(row, 'td', object.name + ' · ' + run.method + ' · ' + run.display_name);
     add(row, 'td', object.paper[run.method + '_SR'] + '% / ' + object.paper[run.method + '_SpatialSSR'] + '%');
-    add(row, 'td', percent(sr) + '（' + run.progress.episode_success_num + '/' + trials + '）');
+    add(row, 'td', partial ? (run.current_native ? '进行中' : '未完成') + '（已核验' + trials + '/' + run.expected_trials + '，成功' + run.progress.episode_success_num + '）' :
+      percent(sr) + '（' + run.progress.episode_success_num + '/' + trials + '）');
     add(row, 'td', typeof ssr === 'number' ?
       percent(ssr) + '（轨迹后处理，完整视觉待审）' :
       percent(result.success_and_terminal_dP20) + '（仅成功且终点≤20mm，非完整SSR）');

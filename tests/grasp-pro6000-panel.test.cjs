@@ -80,6 +80,8 @@ test('historical and new model rows retain independent scores and denominators',
   assert.ok(latest);
   const smoke = JSON.parse(JSON.stringify(latest));
   smoke.candidate = 'test-only-five-trial-diagnostic';
+  smoke.development = true;
+  smoke.expected_trials = 5;
   smoke.progress = {episode_num: 5, episode_success_num: 3, success_rate: .6};
   smoke.result.SR = 60;
   data.runs.push(smoke);
@@ -122,13 +124,18 @@ test('only the new snapshot adds browser versions; every existing dataset remain
   assert.ok(files.includes('grasp_pro6000_current.json'));
   for (const file of files) assert.ok(fs.existsSync(path.join(root, 'results', file)), file);
   assert.ok(snapshot.runs.every(r => r.current_native === false));
+  const incomplete=snapshot.runs.find(r => r.job_id === 'job-2jpayc841pti');
+  assert.equal(incomplete.expected_trials, 150);
+  assert.equal(incomplete.result.formal_evaluation_status, 'FAILED_INCOMPLETE');
+  assert.equal(incomplete.progress.episode_num, 23);
   const media=snapshot.runs.flatMap(r => r.cases);
-  assert.equal(media.length, 18);
+  assert.equal(media.length, 21);
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_fresh_B100_20261027/')).length, 6);
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_formal_B100_20261028/')).length, 6);
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_ClearL_source15_20261028/')).length, 6);
+  assert.equal(media.filter(clip => clip.url.includes('/pro6000_BrownV_formal150_20261028/')).length, 3);
   for (const clip of media) {
-    assert.match(clip.url, /^assets\/grasp\/(?:pro6000_fresh_B100_20261027\/trial(?:02|06)_s\d+_(?:chest|head|third)_camera|pro6000_formal_B100_20261028\/formal150_trial(?:000|001)_s26121921_(?:success|failure)_(?:chest|head|third)|pro6000_ClearL_source15_20261028\/clearL_ACT_source15_s26121921_ep(?:001|003)_(?:chest|head|third)_camera)\.mp4$/);
+    assert.match(clip.url, /^assets\/grasp\/(?:pro6000_fresh_B100_20261027\/trial(?:02|06)_s\d+_(?:chest|head|third)_camera|pro6000_formal_B100_20261028\/formal150_trial(?:000|001)_s26121921_(?:success|failure)_(?:chest|head|third)|pro6000_ClearL_source15_20261028\/clearL_ACT_source15_s26121921_ep(?:001|003)_(?:chest|head|third)_camera|pro6000_BrownV_formal150_20261028\/formal150_trial001_s26121921_(?:chest|head|third)_camera)\.mp4$/);
     const bytes=fs.readFileSync(path.join(root,clip.url));
     assert.equal(require('node:crypto').createHash('sha256').update(bytes).digest('hex'), clip.SHA256);
   }
@@ -191,4 +198,27 @@ test('Pro6000 development stays labeled development while original success/failu
   assert.match(node('videos').innerHTML,/trial06_s26121923_head_camera\.mp4/);
   context.location.hash='#object=glass_beaker_100ml&method=ACT&run='+candidate;context.applyHashSelection();
   assert.equal(scrolls,1,'Matching version link reveals the actual video browser');
+});
+
+
+test('unfinished formal150 keeps partial counts without a completed SR or pass label', () => {
+  const data=copy();const run=data.runs.find(r=>r.job_id==='job-2jpayc841pti');run.current_native=true;
+  run.progress={episode_num:75,episode_success_num:75,success_rate:1};
+  const {created}=render(data);
+  const row=created.find(n=>n.tag==='tr'&&n.children[4]?.children[0]?.href?.includes(run.candidate));
+  assert.equal(row.children[2].textContent,'进行中（已核验75/150，成功75）');
+  assert.equal(run.formal_accepted,false);
+  const script=fs.readFileSync(path.join(root,'grasp.js'),'utf8');
+  const current=JSON.parse(fs.readFileSync(path.join(root,'results/grasp_acceptance_current.json'),'utf8'));
+  const nodes=new Map();const element=()=>({innerHTML:'',textContent:'',value:'',hidden:false,
+    classList:{toggle(){}},setAttribute(){},querySelectorAll(){return [];},scrollIntoView(){}});
+  const node=id=>{if(!nodes.has(id))nodes.set(id,element());return nodes.get(id);};
+  const context={URL,URLSearchParams,fixtureCurrent:current,fixtureRuns:[run],
+    location:{href:'https://asimfish.github.io/psibot-dashboard/grasp.html'},
+    window:{addEventListener(){}},document:{getElementById:node}};
+  vm.runInNewContext(script.slice(0,script.indexOf('async function start()'))+
+    `;current=fixtureCurrent;allObjects=current.objects;allRuns=fixtureRuns;objectId='brown_volumetric_flask_250ml';method='ACT';runId='${run.candidate}';render();`,context);
+  assert.match(node('runDetails').innerHTML,/未完成/);
+  assert.doesNotMatch(node('runDetails').innerHTML,/SR 达到该物体论文目标|<strong>100\.0%<\/strong>/);
+  assert.match(node('modelHistory').innerHTML,/已核验75\/150/);
 });
