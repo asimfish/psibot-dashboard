@@ -12,3 +12,5 @@
 | T-887 | review | codex-t552-v81-review | `.agent/tasks/T-887.md` | [.agent/tasks/T-887.md](tasks/T-887.md) | Independent review of T885 Grasp V84 local artifact |
 
 | T-942 | review | codex-v13-loss-threshold | `v13_comparison/` | [.agent/tasks/T-942.md](tasks/T-942.md) | Add old chest baseline, four training losses and native completion threshold calibration |
+
+| T-947 | review | codex-ours-threshold-sweep | `ours_threshold_sweep/`, one index link | [.agent/tasks/T-947.md](tasks/T-947.md) | Eight-arm threshold tuning progress and frame-level switching evidence |
