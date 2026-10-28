@@ -1,0 +1,157 @@
+{
+  "id": "t960_refinement_r_t960_c30000_h4_left_s947100000",
+  "arm": "t960",
+  "partition": "refinement_r_t960",
+  "split": "calibration",
+  "threshold": 0.96,
+  "horizon": 4,
+  "side": "left",
+  "outcome": "success",
+  "verified": true,
+  "video": "cases/t960_refinement_r_t960_c30000_h4_left_s947100000/third_camera.mp4",
+  "head_video": "cases/t960_refinement_r_t960_c30000_h4_left_s947100000/head_camera.mp4",
+  "trace": "cases/t960_refinement_r_t960_c30000_h4_left_s947100000/trace.json",
+  "audit": "cases/t960_refinement_r_t960_c30000_h4_left_s947100000/audit.json",
+  "images": [
+    {
+      "path": "cases/t960_refinement_r_t960_c30000_h4_left_s947100000/f0.png",
+      "caption": "原始视频帧 0"
+    },
+    {
+      "path": "cases/t960_refinement_r_t960_c30000_h4_left_s947100000/f245.png",
+      "caption": "原始视频帧 245"
+    },
+    {
+      "path": "cases/t960_refinement_r_t960_c30000_h4_left_s947100000/f257.png",
+      "caption": "原始视频帧 257"
+    },
+    {
+      "path": "cases/t960_refinement_r_t960_c30000_h4_left_s947100000/f269.png",
+      "caption": "原始视频帧 269"
+    },
+    {
+      "path": "cases/t960_refinement_r_t960_c30000_h4_left_s947100000/f366.png",
+      "caption": "原始视频帧 366"
+    },
+    {
+      "path": "cases/t960_refinement_r_t960_c30000_h4_left_s947100000/f378.png",
+      "caption": "原始视频帧 378"
+    },
+    {
+      "path": "cases/t960_refinement_r_t960_c30000_h4_left_s947100000/f390.png",
+      "caption": "原始视频帧 390"
+    },
+    {
+      "path": "cases/t960_refinement_r_t960_c30000_h4_left_s947100000/f600.png",
+      "caption": "原始视频帧 600"
+    },
+    {
+      "path": "cases/t960_refinement_r_t960_c30000_h4_left_s947100000/f620.png",
+      "caption": "原始视频帧 620"
+    },
+    {
+      "path": "cases/t960_refinement_r_t960_c30000_h4_left_s947100000/f640.png",
+      "caption": "原始视频帧 640"
+    },
+    {
+      "path": "cases/t960_refinement_r_t960_c30000_h4_left_s947100000/f660.png",
+      "caption": "原始视频帧 660"
+    },
+    {
+      "path": "cases/t960_refinement_r_t960_c30000_h4_left_s947100000/f666.png",
+      "caption": "原始视频帧 666"
+    },
+    {
+      "path": "cases/t960_refinement_r_t960_c30000_h4_left_s947100000/f678.png",
+      "caption": "原始视频帧 678"
+    },
+    {
+      "path": "cases/t960_refinement_r_t960_c30000_h4_left_s947100000/f680.png",
+      "caption": "原始视频帧 680"
+    },
+    {
+      "path": "cases/t960_refinement_r_t960_c30000_h4_left_s947100000/f690.png",
+      "caption": "原始视频帧 690"
+    },
+    {
+      "path": "cases/t960_refinement_r_t960_c30000_h4_left_s947100000/f691.png",
+      "caption": "原始视频帧 691"
+    }
+  ],
+  "annotations": [
+    {
+      "stage": 0,
+      "interval": null,
+      "completed_by_frame": 269,
+      "reason": "245、257和269帧源杯已被平握并搬到接收杯上方，269帧视觉上已处在倾倒准备位。第三人称不能精确确定深度方向的最早对齐时刻，只记录完成上界，不能据此证明257帧是否提前。",
+      "confidence": "中",
+      "source": "Codex直接检查原始245/257/269帧",
+      "actual_switch_frames": [
+        257
+      ],
+      "early": false
+    },
+    {
+      "stage": 1,
+      "interval": null,
+      "completed_by_frame": 390,
+      "reason": "366至390帧可见源杯横向倾斜、接收杯内有明显蓝色液体，390帧源杯视觉上接近空杯。少量残留粒子无法由这一视角可靠计数，只记录视觉完成上界，不把378帧自动判为恰好完成或没有提前。",
+      "confidence": "中",
+      "source": "Codex直接检查原始366/378/390帧",
+      "actual_switch_frames": [
+        378
+      ],
+      "early": false
+    },
+    {
+      "stage": 2,
+      "interval": [
+        620,
+        640
+      ],
+      "reason": "600帧烧杯已回原垫但手仍握杯；620帧手指逐渐张开，640帧手已撤离且杯站在垫上，660至691帧仍保持放回状态。释放与撤离的视觉参考区间为620至640帧，具体接触结束时刻未知；678帧后连续切换另行记录。",
+      "confidence": "中至高",
+      "source": "Codex直接检查原始600/620/640/660/678/691帧",
+      "actual_switch_frames": [
+        678
+      ],
+      "early": false
+    }
+  ],
+  "video_offset_s": 0,
+  "video_note": "同一轨迹的原始15Hz录像：第三人称为策略输入，头部仅供旁观。帧0对应模拟tick0，初始物理settle已结束。",
+  "validation": {
+    "full_decode": true,
+    "ffprobe": {
+      "third_camera.mp4": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 640,
+            "height": 480,
+            "avg_frame_rate": "15/1",
+            "nb_frames": "693"
+          }
+        ],
+        "format": {
+          "duration": "46.200000"
+        }
+      },
+      "head_camera.mp4": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 640,
+            "height": 480,
+            "avg_frame_rate": "15/1",
+            "nb_frames": "693"
+          }
+        ],
+        "format": {
+          "duration": "46.200000"
+        }
+      }
+    },
+    "frame_count_matches_original_manifest": true
+  }
+}
