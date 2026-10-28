@@ -1,0 +1,5548 @@
+{
+  "owner_task": "T-947",
+  "source_task": "T-945",
+  "created_epoch": 1793196836.8276446,
+  "cohort": "Historical V13 N1 baseline,2026-10-27; ours original0.975, not T947 tuned heldout results.",
+  "conditions": {
+    "checkpoint": 30000,
+    "prediction_horizon": 30,
+    "envs_per_App": 1,
+    "A_xy_jitter_m": 0.01,
+    "left_right_each_horizon": [
+      50,
+      50
+    ],
+    "camera": "third_person",
+    "observation_hz": 15
+  },
+  "rates": [
+    {
+      "method": "mem0",
+      "horizon": 4,
+      "checkpoint": 30000,
+      "prediction_horizon": 30,
+      "threshold": null,
+      "completed": 100,
+      "target": 100,
+      "success": 21,
+      "failure": 73,
+      "unknown": 6,
+      "confirmed_success_rate": 0.21
+    },
+    {
+      "method": "mem0",
+      "horizon": 8,
+      "checkpoint": 30000,
+      "prediction_horizon": 30,
+      "threshold": null,
+      "completed": 100,
+      "target": 100,
+      "success": 22,
+      "failure": 71,
+      "unknown": 7,
+      "confirmed_success_rate": 0.22
+    },
+    {
+      "method": "ours",
+      "horizon": 4,
+      "checkpoint": 30000,
+      "prediction_horizon": 30,
+      "threshold": 0.975,
+      "completed": 100,
+      "target": 100,
+      "success": 10,
+      "failure": 90,
+      "unknown": 0,
+      "confirmed_success_rate": 0.1
+    },
+    {
+      "method": "ours",
+      "horizon": 8,
+      "checkpoint": 30000,
+      "prediction_horizon": 30,
+      "threshold": 0.975,
+      "completed": 100,
+      "target": 100,
+      "success": 11,
+      "failure": 88,
+      "unknown": 1,
+      "confirmed_success_rate": 0.11
+    }
+  ],
+  "pairs": [
+    {
+      "id": "h4_ep001",
+      "episode_number": 1,
+      "source_roster_index": 0,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200001,
+      "model_seed": 60800001,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200001",
+          "outcome": "unknown",
+          "source_result_sha256": "fadbba41d28bdb3f9d5e74fbb9a76919a9a716c0e716809587b8d9a71c7a4224",
+          "policy_observations": 787,
+          "media": {
+            "annotated": "media/h4_ep001/mem0/ep001_h4_mem0_UNKNOWN_subtasks.mp4",
+            "original": "media/h4_ep001/mem0/ep001_h4_mem0_UNKNOWN_original.mp4",
+            "timeline": "media/h4_ep001/mem0/timeline.json",
+            "filename": "ep001_h4_mem0_UNKNOWN_subtasks.mp4",
+            "source_video_sha256": "0db7493e3344d0130b5235317f07e17e0eb0c7cb7e5f84a132c7e0a0ec7ec4e7",
+            "annotated_sha256": "66f505b678600dc6ebcb7219a0edb817abf66cc10e6a69b49d892febde236b9b",
+            "video_frames": 787,
+            "policy_frames": 787,
+            "selection_events": 0
+          }
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200001",
+          "outcome": "failure",
+          "source_result_sha256": "b75d00fbe9770d277df77c5f7ba8fdd3fbfb13fb98cad8202b9ae3099dc6e73c",
+          "policy_observations": 529,
+          "media": {
+            "annotated": "media/h4_ep001/ours/ep001_h4_ours_FAILURE_subtasks.mp4",
+            "original": "media/h4_ep001/ours/ep001_h4_ours_FAILURE_original.mp4",
+            "timeline": "media/h4_ep001/ours/timeline.json",
+            "filename": "ep001_h4_ours_FAILURE_subtasks.mp4",
+            "source_video_sha256": "99fb6f1f98626e0d1f3840c1043e84600ac1df341f86504cda96ea8b1b98b622",
+            "annotated_sha256": "89f33661ef11fced6fcc9a7d0b07059129b74e15c0ea92902206733dbe026888",
+            "video_frames": 529,
+            "policy_frames": 529,
+            "selection_events": 2
+          }
+        }
+      },
+      "pattern": "unknown__failure"
+    },
+    {
+      "id": "h4_ep002",
+      "episode_number": 2,
+      "source_roster_index": 1,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200002,
+      "model_seed": 60800002,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200002",
+          "outcome": "failure",
+          "source_result_sha256": "f7ada7dac4a8e98f95443906573a16435c931973b42d05e5519f5107ba02fab5",
+          "policy_observations": 1125,
+          "media": {
+            "annotated": "media/h4_ep002/mem0/ep002_h4_mem0_FAILURE_subtasks.mp4",
+            "original": "media/h4_ep002/mem0/ep002_h4_mem0_FAILURE_original.mp4",
+            "timeline": "media/h4_ep002/mem0/timeline.json",
+            "filename": "ep002_h4_mem0_FAILURE_subtasks.mp4",
+            "source_video_sha256": "5b15e34c6762bafc2cecc524d63dee969018afb1aee93a1de48b138507a352e3",
+            "annotated_sha256": "aae4e2690e05a8e4c46c93529e89601c5d59ec858db92957cf3b2bfc4451c809",
+            "video_frames": 1126,
+            "policy_frames": 1125,
+            "selection_events": 0
+          }
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200002",
+          "outcome": "failure",
+          "source_result_sha256": "3de9f3a11b3920bca490dbeabd5019f41c7ae4793275c47944d136fe30d52f03",
+          "policy_observations": 1125,
+          "media": {
+            "annotated": "media/h4_ep002/ours/ep002_h4_ours_FAILURE_subtasks.mp4",
+            "original": "media/h4_ep002/ours/ep002_h4_ours_FAILURE_original.mp4",
+            "timeline": "media/h4_ep002/ours/timeline.json",
+            "filename": "ep002_h4_ours_FAILURE_subtasks.mp4",
+            "source_video_sha256": "5c6f56736596bcd21a0fc5dfd313e963c0e60ce421f6dc433b660873607284a5",
+            "annotated_sha256": "aaf2dc62162746b4d80bf8f25b5482d8122c150a52963a33b83bdb59c0abdd30",
+            "video_frames": 1126,
+            "policy_frames": 1125,
+            "selection_events": 2
+          }
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep003",
+      "episode_number": 3,
+      "source_roster_index": 2,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200003,
+      "model_seed": 60800003,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200003",
+          "outcome": "failure",
+          "source_result_sha256": "4f4b111b4447c2a6588bbcb0ff3ad5ed72bd8330d71f35e57e86ffe318a30cc9",
+          "policy_observations": 360,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200003",
+          "outcome": "failure",
+          "source_result_sha256": "a202f933fa2dbf4d35171f6985c44ee6b611ccfc826f14697a0cbf50fa1273ab",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep004",
+      "episode_number": 4,
+      "source_roster_index": 3,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200004,
+      "model_seed": 60800004,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200004",
+          "outcome": "failure",
+          "source_result_sha256": "56fd391eec840de08f081dbad7eb9000546dc7e2cbb9238b5645e2b1aff6c5a1",
+          "policy_observations": 1125,
+          "media": {
+            "annotated": "media/h4_ep004/mem0/ep004_h4_mem0_FAILURE_subtasks.mp4",
+            "original": "media/h4_ep004/mem0/ep004_h4_mem0_FAILURE_original.mp4",
+            "timeline": "media/h4_ep004/mem0/timeline.json",
+            "filename": "ep004_h4_mem0_FAILURE_subtasks.mp4",
+            "source_video_sha256": "ae2269ee6406a8759baba58fd1e9bd07abd8291b62a3d29cac2dcce30fa9b09e",
+            "annotated_sha256": "27bf7ceae684fc21c83af870423b32409ee42234e335881d9ba182d16a5f3ecd",
+            "video_frames": 1126,
+            "policy_frames": 1125,
+            "selection_events": 0
+          }
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200004",
+          "outcome": "success",
+          "source_result_sha256": "71d2339766bc0d488881aa8e2d5b96f44b98fae557112732e40aea94fe3aa4c3",
+          "policy_observations": 1083,
+          "media": {
+            "annotated": "media/h4_ep004/ours/ep004_h4_ours_SUCCESS_subtasks.mp4",
+            "original": "media/h4_ep004/ours/ep004_h4_ours_SUCCESS_original.mp4",
+            "timeline": "media/h4_ep004/ours/timeline.json",
+            "filename": "ep004_h4_ours_SUCCESS_subtasks.mp4",
+            "source_video_sha256": "0eb0b25f830438a94b6490ff35235d167de256c69203ded203bec0d66928ffe2",
+            "annotated_sha256": "6869dc3de148c50ef92f49fbaf7a6b572d41a5037e9a5f795da5b9a7b8b5da36",
+            "video_frames": 1084,
+            "policy_frames": 1083,
+            "selection_events": 15
+          }
+        }
+      },
+      "pattern": "failure__success"
+    },
+    {
+      "id": "h4_ep005",
+      "episode_number": 5,
+      "source_roster_index": 4,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200005,
+      "model_seed": 60800005,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200005",
+          "outcome": "failure",
+          "source_result_sha256": "212ec4d9aa7ab42cd659596e7a25f94cfe2b290767bd9671d3e13d6ce86fd334",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200005",
+          "outcome": "failure",
+          "source_result_sha256": "e6708266227a0fac6da0cba73594ed8eef921d59f5472034e65f5282d9e4f8aa",
+          "policy_observations": 89,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep006",
+      "episode_number": 6,
+      "source_roster_index": 5,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200006,
+      "model_seed": 60800006,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200006",
+          "outcome": "failure",
+          "source_result_sha256": "3c520f8acd4f8772a91482a61587d1d10ef332658744fb9b33e56c78b3d237e7",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200006",
+          "outcome": "failure",
+          "source_result_sha256": "9612ff3e2c3c59ea28210a7d609313ac6c55daf755891b3fa58c4de13000b3fc",
+          "policy_observations": 458,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep007",
+      "episode_number": 7,
+      "source_roster_index": 6,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200007,
+      "model_seed": 60800007,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200007",
+          "outcome": "failure",
+          "source_result_sha256": "e1a3ea91c6d6e281f7f387b408a284d4c51b028d5e60faa213517f20c96b3dc6",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200007",
+          "outcome": "failure",
+          "source_result_sha256": "5ded29f12e9f843f15398755415552ef2766f2d4e0ece70fbe4960418c8737a9",
+          "policy_observations": 447,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep008",
+      "episode_number": 8,
+      "source_roster_index": 7,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200008,
+      "model_seed": 60800008,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200008",
+          "outcome": "failure",
+          "source_result_sha256": "de1b19d4653a8764321109666d493c7abebac65533a1491ec256d107a7060954",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200008",
+          "outcome": "failure",
+          "source_result_sha256": "afa6f5cb33f8cc3b79a6bbfc6b9380999d0a16630e0efba0ac552ae0e55dfc60",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep009",
+      "episode_number": 9,
+      "source_roster_index": 8,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200009,
+      "model_seed": 60800009,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200009",
+          "outcome": "failure",
+          "source_result_sha256": "ffbd6e27b10e1aaabdc67e50a735137deff18ba57313e0304e5cba0ee62053cf",
+          "policy_observations": 569,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200009",
+          "outcome": "failure",
+          "source_result_sha256": "b55f67954f0399882096ad7cc465c71373f4455a749ccef01000cdf6bbb983d5",
+          "policy_observations": 90,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep010",
+      "episode_number": 10,
+      "source_roster_index": 9,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200010,
+      "model_seed": 60800010,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200010",
+          "outcome": "failure",
+          "source_result_sha256": "86eab638ebd97d403d2416338431155b1963e9841aba901ba00124ec95831867",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200010",
+          "outcome": "success",
+          "source_result_sha256": "198010fbd5ee7b9765f35b3883528f36033c0aefbdf7fffe9143278a032e0adc",
+          "policy_observations": 702,
+          "media": null
+        }
+      },
+      "pattern": "failure__success"
+    },
+    {
+      "id": "h4_ep011",
+      "episode_number": 11,
+      "source_roster_index": 10,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200101,
+      "model_seed": 60800001,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200101",
+          "outcome": "success",
+          "source_result_sha256": "63e3d967b6688f6b7de835865727620b9a426e53e47128aeed6dae6338e2ca57",
+          "policy_observations": 667,
+          "media": {
+            "annotated": "media/h4_ep011/mem0/ep011_h4_mem0_SUCCESS_subtasks.mp4",
+            "original": "media/h4_ep011/mem0/ep011_h4_mem0_SUCCESS_original.mp4",
+            "timeline": "media/h4_ep011/mem0/timeline.json",
+            "filename": "ep011_h4_mem0_SUCCESS_subtasks.mp4",
+            "source_video_sha256": "8ea2e11e181256f520915a0ae801262dc52e70c967b107e44d0cc36f5b2ca71a",
+            "annotated_sha256": "405fb453a8b0440946f89f4a91ba8bdfa4c850fde5846af5a9b628db4433d9e9",
+            "video_frames": 668,
+            "policy_frames": 667,
+            "selection_events": 0
+          }
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200101",
+          "outcome": "failure",
+          "source_result_sha256": "2bc2e16487e97fddcffea779006e41ea8b6d7345884c807bd756146570ebdbfc",
+          "policy_observations": 523,
+          "media": {
+            "annotated": "media/h4_ep011/ours/ep011_h4_ours_FAILURE_subtasks.mp4",
+            "original": "media/h4_ep011/ours/ep011_h4_ours_FAILURE_original.mp4",
+            "timeline": "media/h4_ep011/ours/timeline.json",
+            "filename": "ep011_h4_ours_FAILURE_subtasks.mp4",
+            "source_video_sha256": "3c1f17cc058b618f72bb8519860a5e8f7578ff7886fe1991bc079794e5cad7aa",
+            "annotated_sha256": "e82efae1e8366883d9681dd5a450200f2eb858f1213f9b7cde54e681c97d89bb",
+            "video_frames": 523,
+            "policy_frames": 523,
+            "selection_events": 2
+          }
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h4_ep012",
+      "episode_number": 12,
+      "source_roster_index": 11,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200102,
+      "model_seed": 60800002,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200102",
+          "outcome": "failure",
+          "source_result_sha256": "b57fef4ab89270d014d89e9aa58255e662f258db56a24a481ace2a5ed8d6d56c",
+          "policy_observations": 822,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200102",
+          "outcome": "failure",
+          "source_result_sha256": "0e13a13b46743e58f0eb1a39322115ec8f52e9b206886fbe8d6f7797f21bfdb0",
+          "policy_observations": 369,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep013",
+      "episode_number": 13,
+      "source_roster_index": 12,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200103,
+      "model_seed": 60800003,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200103",
+          "outcome": "failure",
+          "source_result_sha256": "ddd56b159643577e187dc588d250477a8fc07383772ddf87c67256a216194a59",
+          "policy_observations": 723,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200103",
+          "outcome": "failure",
+          "source_result_sha256": "796dc59e788de80dc3ef3d47d18c6edf631d463778da227e3761b8a8bcc09148",
+          "policy_observations": 534,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep014",
+      "episode_number": 14,
+      "source_roster_index": 13,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200104,
+      "model_seed": 60800004,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200104",
+          "outcome": "failure",
+          "source_result_sha256": "6e16c750fb777d55326e388954384ed2216e3768f4beed1c46ba50bb2ca4fa92",
+          "policy_observations": 694,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200104",
+          "outcome": "failure",
+          "source_result_sha256": "632d3c4d50ac6b2706c70d513a4c86072a66bee3469aca1f8aecdb5ec7bfbed4",
+          "policy_observations": 447,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep015",
+      "episode_number": 15,
+      "source_roster_index": 14,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200105,
+      "model_seed": 60800005,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200105",
+          "outcome": "failure",
+          "source_result_sha256": "8ac7c59f8f8100e8419774c08a451dee42a375325a9210f0351317f59c02fc5c",
+          "policy_observations": 676,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200105",
+          "outcome": "failure",
+          "source_result_sha256": "e1e11b81a8871c0fcc2fc872e1e3e2a3e1d9f20fd3e8ba8e93bded25dcf752ea",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep016",
+      "episode_number": 16,
+      "source_roster_index": 15,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200106,
+      "model_seed": 60800006,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200106",
+          "outcome": "failure",
+          "source_result_sha256": "9102765ef4a0e8bd7f4d7d6eda8dac3877aaaa3910997dc8a3cc0fc183e05c8d",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200106",
+          "outcome": "failure",
+          "source_result_sha256": "bfba39107e407287e842bd1d7fea2d19e33d496c4cd7d12d0c0d2480dfcdd056",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep017",
+      "episode_number": 17,
+      "source_roster_index": 16,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200107,
+      "model_seed": 60800007,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200107",
+          "outcome": "failure",
+          "source_result_sha256": "c01966fedac00331d82d459d46e13b62dc713cd66d517b9f1d3b6857445c46ef",
+          "policy_observations": 742,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200107",
+          "outcome": "failure",
+          "source_result_sha256": "6da6199a739fbb7bfd441b2a6d305b680e61ebf81f7c7bb6937773458b2567fd",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep018",
+      "episode_number": 18,
+      "source_roster_index": 17,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200108,
+      "model_seed": 60800008,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200108",
+          "outcome": "success",
+          "source_result_sha256": "bb3eaba5481b080a5c5bf35667938ddcfc8a3e143ec4e4531f47e5fa70c6e219",
+          "policy_observations": 668,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200108",
+          "outcome": "failure",
+          "source_result_sha256": "ee2973c407d6670fbb166d6e9d51dc52d2853d6263b500c4dd4cc4ead12790b4",
+          "policy_observations": 620,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h4_ep019",
+      "episode_number": 19,
+      "source_roster_index": 18,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200109,
+      "model_seed": 60800009,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200109",
+          "outcome": "failure",
+          "source_result_sha256": "b9572d99c6752a970352266d8bdd075964345f987d75d8a0c2294e7bc9ca01bd",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200109",
+          "outcome": "failure",
+          "source_result_sha256": "50c380786cbaa03aafe389ca00f66b13af101b2fb0038293f1eff75566c220ca",
+          "policy_observations": 613,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep020",
+      "episode_number": 20,
+      "source_roster_index": 19,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200110,
+      "model_seed": 60800010,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200110",
+          "outcome": "success",
+          "source_result_sha256": "753188dcfeadb152e570cdd435b3d63443f0ab2683004eb7842d73cd41cee16c",
+          "policy_observations": 652,
+          "media": {
+            "annotated": "media/h4_ep020/mem0/ep020_h4_mem0_SUCCESS_subtasks.mp4",
+            "original": "media/h4_ep020/mem0/ep020_h4_mem0_SUCCESS_original.mp4",
+            "timeline": "media/h4_ep020/mem0/timeline.json",
+            "filename": "ep020_h4_mem0_SUCCESS_subtasks.mp4",
+            "source_video_sha256": "9e04b7a90e9c5e3c9f7ef8c0aa43e602949d6e7fe45b2bb42da6a5391bc621a0",
+            "annotated_sha256": "5257298689af430c6713dfed4cefe0d41964e2444ac203034930f8bf77aae6ae",
+            "video_frames": 653,
+            "policy_frames": 652,
+            "selection_events": 0
+          }
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200110",
+          "outcome": "success",
+          "source_result_sha256": "7afe1be44d6ae7c9084ed8ba372670a771e2400475fe139f6945ae66e4154852",
+          "policy_observations": 673,
+          "media": {
+            "annotated": "media/h4_ep020/ours/ep020_h4_ours_SUCCESS_subtasks.mp4",
+            "original": "media/h4_ep020/ours/ep020_h4_ours_SUCCESS_original.mp4",
+            "timeline": "media/h4_ep020/ours/timeline.json",
+            "filename": "ep020_h4_ours_SUCCESS_subtasks.mp4",
+            "source_video_sha256": "0a01693054c1af8ec1ae5702aa68fa99838dac31ee590baf7820a778f6e8c620",
+            "annotated_sha256": "338b90a0b6bfed1a4e8f9975575e7aad71d408981ac3bc1313871b56681b4808",
+            "video_frames": 674,
+            "policy_frames": 673,
+            "selection_events": 2
+          }
+        }
+      },
+      "pattern": "success__success"
+    },
+    {
+      "id": "h4_ep021",
+      "episode_number": 21,
+      "source_roster_index": 20,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200011,
+      "model_seed": 60800011,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200011",
+          "outcome": "failure",
+          "source_result_sha256": "d408d99c593573d479bfda721943827766c91f08ee6b0772500a95714c510639",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200011",
+          "outcome": "failure",
+          "source_result_sha256": "8066bd330ea6219dc365c20cfb1b1ea5fee77320d02b9d834ac9f05e94ef9ac0",
+          "policy_observations": 91,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep022",
+      "episode_number": 22,
+      "source_roster_index": 21,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200012,
+      "model_seed": 60800012,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200012",
+          "outcome": "failure",
+          "source_result_sha256": "6449f2c83cdb6760c0836cb5a15e24183122b0d3f06c20e9bbc7dfcf9c29aa3c",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200012",
+          "outcome": "success",
+          "source_result_sha256": "11c7bad1310ad20c9d97a13199d6a6d681aa0a87d51a8656aba72ebd02362047",
+          "policy_observations": 716,
+          "media": null
+        }
+      },
+      "pattern": "failure__success"
+    },
+    {
+      "id": "h4_ep023",
+      "episode_number": 23,
+      "source_roster_index": 22,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200013,
+      "model_seed": 60800013,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200013",
+          "outcome": "failure",
+          "source_result_sha256": "aa0fc72be66e582d42e4c7db6babb3be2d4bcf396b508324f5e75d9e8aa2ff4e",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200013",
+          "outcome": "failure",
+          "source_result_sha256": "70ad5caf990a3d32a062c37ed2113b5c4f0f24647d3092eb9209db1bc0269099",
+          "policy_observations": 383,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep024",
+      "episode_number": 24,
+      "source_roster_index": 23,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200014,
+      "model_seed": 60800014,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200014",
+          "outcome": "failure",
+          "source_result_sha256": "060ae4bb6bdc795e8ce152b2cd01a37de5b399f269331e22732459f4bc05dff5",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200014",
+          "outcome": "failure",
+          "source_result_sha256": "fe4d8ca4f980cb521a4bbde1ece2119b4a6da5898e90642e0a62dc513109a840",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep025",
+      "episode_number": 25,
+      "source_roster_index": 24,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200015,
+      "model_seed": 60800015,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200015",
+          "outcome": "failure",
+          "source_result_sha256": "b9a71e294d2334f47d11b9e5c551427ce853131a6bec78a36f18dd8abf854b12",
+          "policy_observations": 500,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200015",
+          "outcome": "failure",
+          "source_result_sha256": "d83c4aa28ee29d8957dd141d2b5d7baeea26dd7a22e525fe6c3e1118452af791",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep026",
+      "episode_number": 26,
+      "source_roster_index": 25,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200016,
+      "model_seed": 60800016,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200016",
+          "outcome": "failure",
+          "source_result_sha256": "d6293081e313c005db672ac9c06448dc7e9a9ac6040192020dc53469d68eeaaf",
+          "policy_observations": 473,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200016",
+          "outcome": "failure",
+          "source_result_sha256": "1c0ae0a85d441b4588cfb73b19f99f4de35e2e585b27dac5b3c757cd9bbad354",
+          "policy_observations": 314,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep027",
+      "episode_number": 27,
+      "source_roster_index": 26,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200017,
+      "model_seed": 60800017,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200017",
+          "outcome": "failure",
+          "source_result_sha256": "8c7bbd6602bb5d7340f7b927f9cc826a90f96f9775c8027d818d2e67a74abdc2",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200017",
+          "outcome": "failure",
+          "source_result_sha256": "566a533362c7198df710ff4877e564bf0e937f5d4371517bfb1a809c1c9ba537",
+          "policy_observations": 485,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep028",
+      "episode_number": 28,
+      "source_roster_index": 27,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200018,
+      "model_seed": 60800018,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200018",
+          "outcome": "failure",
+          "source_result_sha256": "13474850660b1f7acd2766685dd59b1e2a880acfdf4b3d83c6ca530b802c8ec5",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200018",
+          "outcome": "failure",
+          "source_result_sha256": "95977542202b936d9c9fb886fb4348b2b43b8deb6bba579caf51e5034cb9f1df",
+          "policy_observations": 584,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep029",
+      "episode_number": 29,
+      "source_roster_index": 28,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200019,
+      "model_seed": 60800019,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200019",
+          "outcome": "failure",
+          "source_result_sha256": "d63ca57dd5d2c62cdaaf73c138eaf54862cab2bfe95c90ef3e33a694b91025e1",
+          "policy_observations": 232,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200019",
+          "outcome": "success",
+          "source_result_sha256": "0fb67e248fb045152621829c02c9630e381fa43a170a0a1265d3116b645b412c",
+          "policy_observations": 702,
+          "media": null
+        }
+      },
+      "pattern": "failure__success"
+    },
+    {
+      "id": "h4_ep030",
+      "episode_number": 30,
+      "source_roster_index": 29,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200020,
+      "model_seed": 60800020,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200020",
+          "outcome": "failure",
+          "source_result_sha256": "0174f2d964d4eb3c00bad53ac21941054f077ee352c67fcfd1c2ce121287ea84",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200020",
+          "outcome": "success",
+          "source_result_sha256": "57013bdf378baa0e81fb264142122c9a38677be28a3602770e5416ff617c54c9",
+          "policy_observations": 699,
+          "media": null
+        }
+      },
+      "pattern": "failure__success"
+    },
+    {
+      "id": "h4_ep031",
+      "episode_number": 31,
+      "source_roster_index": 30,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200021,
+      "model_seed": 60800021,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200021",
+          "outcome": "failure",
+          "source_result_sha256": "f84a54cf2a028826a21517dfabebdca13b24c4b2ba283dda3b2dede0b49a8d99",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200021",
+          "outcome": "success",
+          "source_result_sha256": "f4636679234d8fcafc8b956f578d4519230bc6c5aef5b9b645fc98e8a9d81e06",
+          "policy_observations": 747,
+          "media": null
+        }
+      },
+      "pattern": "failure__success"
+    },
+    {
+      "id": "h4_ep032",
+      "episode_number": 32,
+      "source_roster_index": 31,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200022,
+      "model_seed": 60800022,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200022",
+          "outcome": "failure",
+          "source_result_sha256": "52001c018c53c9dfcdad5059eb5a9fe1d8238a4103c837d67dfe56843d4b6836",
+          "policy_observations": 597,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200022",
+          "outcome": "success",
+          "source_result_sha256": "5be13933a73d985df4d5a1c0cbebb613d3b74a0e50146494e0918638fd97e555",
+          "policy_observations": 796,
+          "media": null
+        }
+      },
+      "pattern": "failure__success"
+    },
+    {
+      "id": "h4_ep033",
+      "episode_number": 33,
+      "source_roster_index": 32,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200023,
+      "model_seed": 60800023,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200023",
+          "outcome": "failure",
+          "source_result_sha256": "baed832455ea33a59e9764167afc6d056aff47a2d60532c919569e7ef0d27125",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200023",
+          "outcome": "failure",
+          "source_result_sha256": "3cda7dae4460fdcdfb71abfb42c8f5e5b26ddd1659d46e72ecf7e36ef97a62bf",
+          "policy_observations": 318,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep034",
+      "episode_number": 34,
+      "source_roster_index": 33,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200024,
+      "model_seed": 60800024,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200024",
+          "outcome": "failure",
+          "source_result_sha256": "2e886419dcd445800901a6a2323257656b09a94af54ce3a76e0a514d742ec25e",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200024",
+          "outcome": "success",
+          "source_result_sha256": "ddd8e07b9d7e1224f2d86c777ff126b4dd6f70df9bee2a77707a188c4d472a27",
+          "policy_observations": 709,
+          "media": null
+        }
+      },
+      "pattern": "failure__success"
+    },
+    {
+      "id": "h4_ep035",
+      "episode_number": 35,
+      "source_roster_index": 34,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200025,
+      "model_seed": 60800025,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200025",
+          "outcome": "failure",
+          "source_result_sha256": "30416e2b0cdff909218fff6478ebb67f1f025f987827615dcd079058b9c1adae",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200025",
+          "outcome": "failure",
+          "source_result_sha256": "da4aeb852dd7007299d1c3dce08816f141a7329e2cd4ba24fa60ade98bc976ec",
+          "policy_observations": 700,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep036",
+      "episode_number": 36,
+      "source_roster_index": 35,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200026,
+      "model_seed": 60800026,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200026",
+          "outcome": "failure",
+          "source_result_sha256": "286f8f7603521bc852f6a64710f5c130cfda55d2f442cd3e8d04552dffa6d7c6",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200026",
+          "outcome": "failure",
+          "source_result_sha256": "2b95ed91b4cb4243a8081e42702f8f49d804efceff9a275bb6afb895cbec44e8",
+          "policy_observations": 87,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep037",
+      "episode_number": 37,
+      "source_roster_index": 36,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200027,
+      "model_seed": 60800027,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200027",
+          "outcome": "failure",
+          "source_result_sha256": "99abcd83bd1d0e00c40d4f06fd8ed03c5b0dcd8e4125dcaf2bab8d475cb0e234",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200027",
+          "outcome": "failure",
+          "source_result_sha256": "9d7f58ff9b8adb3856668dbbe84de4181d6160926c3f1e4b12f5a338b1f9e093",
+          "policy_observations": 491,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep038",
+      "episode_number": 38,
+      "source_roster_index": 37,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200028,
+      "model_seed": 60800028,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200028",
+          "outcome": "unknown",
+          "source_result_sha256": "5a67758a22fa20505f473a5020ef31f9a0e7bda6da1cb6ffda126910586b5981",
+          "policy_observations": 423,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200028",
+          "outcome": "success",
+          "source_result_sha256": "4ea70bf51b969c77483c15086d7ca9280b8757a57e198e5264c9a1564e7c10f7",
+          "policy_observations": 699,
+          "media": null
+        }
+      },
+      "pattern": "unknown__success"
+    },
+    {
+      "id": "h4_ep039",
+      "episode_number": 39,
+      "source_roster_index": 38,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200029,
+      "model_seed": 60800029,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200029",
+          "outcome": "failure",
+          "source_result_sha256": "3a5bbdad8163c057e64be9e7fc547cc0d9893ecb9422b2cc775788a3d71f0c74",
+          "policy_observations": 367,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200029",
+          "outcome": "failure",
+          "source_result_sha256": "b22819bb427147207b934c33170a9a9a85ed0314392779677d0765ae359d4e29",
+          "policy_observations": 366,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep040",
+      "episode_number": 40,
+      "source_roster_index": 39,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200030,
+      "model_seed": 60800030,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200030",
+          "outcome": "failure",
+          "source_result_sha256": "ec1d365fe62c4b660b24806e9cccde0a654ef8e044da9cee212b5f2ff1184b52",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200030",
+          "outcome": "failure",
+          "source_result_sha256": "4eb37f567fd7cec69a9158f3dc3b105493f4461e2e77b473b610b6cafdaf62b6",
+          "policy_observations": 908,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep041",
+      "episode_number": 41,
+      "source_roster_index": 40,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200031,
+      "model_seed": 60800031,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200031",
+          "outcome": "unknown",
+          "source_result_sha256": "233f9c8648530b212f99154805a897c4e3aa57fe685ce2f364de36ddf1ddc099",
+          "policy_observations": 406,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200031",
+          "outcome": "failure",
+          "source_result_sha256": "29e7d5fc43c19d6e128e860aef4e8d500106be295da37c9de44878571f8a4c6a",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "unknown__failure"
+    },
+    {
+      "id": "h4_ep042",
+      "episode_number": 42,
+      "source_roster_index": 41,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200032,
+      "model_seed": 60800032,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200032",
+          "outcome": "failure",
+          "source_result_sha256": "ac56d24c6c2544d6794ac7784dc5b2b59b78375bfbe62b55e582318aa27e0203",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200032",
+          "outcome": "failure",
+          "source_result_sha256": "cce3f67269a0a5280d0e8408ce6bb8d889f1d80bfd6ca93097eef460c249a943",
+          "policy_observations": 1084,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep043",
+      "episode_number": 43,
+      "source_roster_index": 42,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200033,
+      "model_seed": 60800033,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200033",
+          "outcome": "unknown",
+          "source_result_sha256": "7b7bf2ad76f516a68d25d17af5f806fbb6c149ac0ff0e94f64f5282e3f09198d",
+          "policy_observations": 394,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200033",
+          "outcome": "failure",
+          "source_result_sha256": "c9d26cde022ed9a24c3476fcfa5d823f3e2ed406902f4b9776f397c96aefcf63",
+          "policy_observations": 460,
+          "media": null
+        }
+      },
+      "pattern": "unknown__failure"
+    },
+    {
+      "id": "h4_ep044",
+      "episode_number": 44,
+      "source_roster_index": 43,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200034,
+      "model_seed": 60800034,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200034",
+          "outcome": "unknown",
+          "source_result_sha256": "fbc846f659974603ee740fcc1550d4b4e9b785e2e5c6e9ee4676edec8f6d0acf",
+          "policy_observations": 607,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200034",
+          "outcome": "failure",
+          "source_result_sha256": "832bfa8e6fd85a7ca50bd3265bba46448a5425108ec7899a710c9f3ef5b7a4c6",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "unknown__failure"
+    },
+    {
+      "id": "h4_ep045",
+      "episode_number": 45,
+      "source_roster_index": 44,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200035,
+      "model_seed": 60800035,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200035",
+          "outcome": "failure",
+          "source_result_sha256": "5a95a7e0d5a52cbbe35d94316c387af608198c35d9996433aef6cef92aeda478",
+          "policy_observations": 879,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200035",
+          "outcome": "failure",
+          "source_result_sha256": "8cbdd02080f2551db47fc0c05b6936478f1fdb341307a9eda135caf086ad818e",
+          "policy_observations": 603,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep046",
+      "episode_number": 46,
+      "source_roster_index": 45,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200036,
+      "model_seed": 60800036,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200036",
+          "outcome": "failure",
+          "source_result_sha256": "c3875c0290fc96001e4fb1df294737f9b28d47e2227cbb193a26b291da90888f",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200036",
+          "outcome": "failure",
+          "source_result_sha256": "c66d956f66efe86fc0fd01d1f84122ae77b895cfc1a1505cbccd0870322a56f0",
+          "policy_observations": 90,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep047",
+      "episode_number": 47,
+      "source_roster_index": 46,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200037,
+      "model_seed": 60800037,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200037",
+          "outcome": "failure",
+          "source_result_sha256": "836047826da8737634fa88fc685ade0cdf737d5c65955ded3f32c412f95e52ac",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200037",
+          "outcome": "failure",
+          "source_result_sha256": "bb6168d4f87e677f7b10b127e80bf674c81af47519b871b319e621ed79564f23",
+          "policy_observations": 328,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep048",
+      "episode_number": 48,
+      "source_roster_index": 47,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200038,
+      "model_seed": 60800038,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200038",
+          "outcome": "failure",
+          "source_result_sha256": "a247d5c4464f87cae6ef207dd1b2bc844b11c71c2f733042531e782b2e7efa90",
+          "policy_observations": 385,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200038",
+          "outcome": "failure",
+          "source_result_sha256": "ddcdc65377a087cb98dbf00f907d54ad4c544d9538cf62ef9231499fc2a2607b",
+          "policy_observations": 92,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep049",
+      "episode_number": 49,
+      "source_roster_index": 48,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200039,
+      "model_seed": 60800039,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200039",
+          "outcome": "failure",
+          "source_result_sha256": "42e73d0ebd672cb286c83e366a303a923684d0ae8bde46957dd7d6d86e8bd727",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200039",
+          "outcome": "failure",
+          "source_result_sha256": "3f98e277c12ec2583298f54c9c41b72996c07ad62efa88db97ddd8b7708ef794",
+          "policy_observations": 420,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep050",
+      "episode_number": 50,
+      "source_roster_index": 49,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200040,
+      "model_seed": 60800040,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200040",
+          "outcome": "failure",
+          "source_result_sha256": "07703cfd4764d54c5124fd496270b99e34a031623423fc8cda3d48e3404db0e9",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200040",
+          "outcome": "failure",
+          "source_result_sha256": "2a9580c3b61db459438826f42582797a7a6a417f268f744d2f15d8cc94100b4b",
+          "policy_observations": 798,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep051",
+      "episode_number": 51,
+      "source_roster_index": 50,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200041,
+      "model_seed": 60800041,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200041",
+          "outcome": "failure",
+          "source_result_sha256": "2a98fdd694dfdd87f3e27a6079c4f2e751d3f1dc89308d585de0f76c2d3fc2c2",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200041",
+          "outcome": "failure",
+          "source_result_sha256": "807c17ff79a1ee84b6e4c823d01b1e927a1ab5894e6156d3a3feccd5212eba71",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep052",
+      "episode_number": 52,
+      "source_roster_index": 51,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200042,
+      "model_seed": 60800042,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200042",
+          "outcome": "failure",
+          "source_result_sha256": "60d9f744c99c64239543fd2dd6dfa65eeb94f883fd8102e3bd7eb586e9b87320",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200042",
+          "outcome": "failure",
+          "source_result_sha256": "4ba054be2fd2ffb61316c7472e521ca62a58d4da9fdd999ebb1ae50ff172a291",
+          "policy_observations": 532,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep053",
+      "episode_number": 53,
+      "source_roster_index": 52,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200043,
+      "model_seed": 60800043,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200043",
+          "outcome": "failure",
+          "source_result_sha256": "992fae2d1b3f1a2e9d9db57651e2c90585896a18a8fe9c156954b8986a9cabdf",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200043",
+          "outcome": "failure",
+          "source_result_sha256": "e6419d2bc33b5a648cebb2cf649cae55440e494143128733c9387457cec16711",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep054",
+      "episode_number": 54,
+      "source_roster_index": 53,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200044,
+      "model_seed": 60800044,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200044",
+          "outcome": "failure",
+          "source_result_sha256": "583c1136adfcea94937906ff52b8de7f2e7bab321e805a4ad48a3119a138d2c3",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200044",
+          "outcome": "failure",
+          "source_result_sha256": "d4e5b9ccfa3f2bc1314e721cefad7452e4c83184435beb8c0786c0e5064fd34b",
+          "policy_observations": 455,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep055",
+      "episode_number": 55,
+      "source_roster_index": 54,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200045,
+      "model_seed": 60800045,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200045",
+          "outcome": "failure",
+          "source_result_sha256": "1a263d29bcbf2f9d950f9e2ce1ad6e9f9b78e6367c3e4998719da6886071c623",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200045",
+          "outcome": "failure",
+          "source_result_sha256": "f5bc971792b622cea967c5f375f1f07a78c0c9c96056da22874688e79c1d6ef2",
+          "policy_observations": 490,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep056",
+      "episode_number": 56,
+      "source_roster_index": 55,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200046,
+      "model_seed": 60800046,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200046",
+          "outcome": "failure",
+          "source_result_sha256": "e8bafc5d1e9ce29bfb1b228f949daea5f44a8cd05214c00fc8173ad49e5ec258",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200046",
+          "outcome": "failure",
+          "source_result_sha256": "2be56668f113a3982fc254640d9b4f7ac8964e919ff0dc21045d368cdfaa3031",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep057",
+      "episode_number": 57,
+      "source_roster_index": 56,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200047,
+      "model_seed": 60800047,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200047",
+          "outcome": "failure",
+          "source_result_sha256": "02618768a4bce08044eca7aa9e8cba6b40732f67d91b4e8d59346f7b83d4be74",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200047",
+          "outcome": "failure",
+          "source_result_sha256": "75e412390d03386b7cfc87fd2f91913e718419c8c8cf4a7ee5426fe0cbd4c8e7",
+          "policy_observations": 90,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep058",
+      "episode_number": 58,
+      "source_roster_index": 57,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200048,
+      "model_seed": 60800048,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200048",
+          "outcome": "unknown",
+          "source_result_sha256": "a544958260ed1691f7ef7d12424a289224cd2563935e7608c6c37a82a7299431",
+          "policy_observations": 783,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200048",
+          "outcome": "failure",
+          "source_result_sha256": "8a657a61143648902d8ff2aab4daf7990d72044859e0c1f456c060bd52fbeaa2",
+          "policy_observations": 442,
+          "media": null
+        }
+      },
+      "pattern": "unknown__failure"
+    },
+    {
+      "id": "h4_ep059",
+      "episode_number": 59,
+      "source_roster_index": 58,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200049,
+      "model_seed": 60800049,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200049",
+          "outcome": "failure",
+          "source_result_sha256": "db0337a4dfe872c1388325b3fed6ec15f5645088ddfebdce1d362d2e9a9f782d",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200049",
+          "outcome": "failure",
+          "source_result_sha256": "e0439ad0d089e9dc18522e23d3dd02e8e413f5767321448cbba229b4409fb42d",
+          "policy_observations": 91,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep060",
+      "episode_number": 60,
+      "source_roster_index": 59,
+      "horizon": 4,
+      "side": "left",
+      "scene_seed": 262200050,
+      "model_seed": 60800050,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_left_s262200050",
+          "outcome": "failure",
+          "source_result_sha256": "8d437ec31d3b03e20c25b48b9c5a125d2aa03b5e965f1be1aa7ead53fa475b40",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_left_s262200050",
+          "outcome": "failure",
+          "source_result_sha256": "b47b50585d15da48b6316797d184d26487e8a5904b3e231a51a65360674aae69",
+          "policy_observations": 498,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep061",
+      "episode_number": 61,
+      "source_roster_index": 60,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200111,
+      "model_seed": 60800011,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200111",
+          "outcome": "success",
+          "source_result_sha256": "918d1d2b2987d61129026614339434a33acd29e979e59698502d047c4e47d994",
+          "policy_observations": 836,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200111",
+          "outcome": "failure",
+          "source_result_sha256": "d4c7d4b341a23a4e4a23343ebbf1895460a26130d279ac75029900fd6b58e80f",
+          "policy_observations": 142,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h4_ep062",
+      "episode_number": 62,
+      "source_roster_index": 61,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200112,
+      "model_seed": 60800012,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200112",
+          "outcome": "failure",
+          "source_result_sha256": "ad398b48f27840f7b14d580e42d86153d7340111297397956a5d473af54b4ecd",
+          "policy_observations": 749,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200112",
+          "outcome": "failure",
+          "source_result_sha256": "14c7da3a1efc833d081ee0239bd76ebaa0d38ef4a0e4c299550210d58e109c12",
+          "policy_observations": 451,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep063",
+      "episode_number": 63,
+      "source_roster_index": 62,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200113,
+      "model_seed": 60800013,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200113",
+          "outcome": "success",
+          "source_result_sha256": "6b6d9ac2782d5fd215435da7ae1451b03d7b58787625d5b96929fb5115e97b44",
+          "policy_observations": 645,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200113",
+          "outcome": "failure",
+          "source_result_sha256": "b69ee0efb964bdadc1403456de347c0534f8d5141c2f2377594596a640182e8e",
+          "policy_observations": 472,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h4_ep064",
+      "episode_number": 64,
+      "source_roster_index": 63,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200114,
+      "model_seed": 60800014,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200114",
+          "outcome": "failure",
+          "source_result_sha256": "f52e1f5dfb8dd9e6240f0a79215913cbea647e4a377f8323a09cec907ed1bd78",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200114",
+          "outcome": "failure",
+          "source_result_sha256": "b779c89343e42733b7daf61c74187c9a5e42a0bd53d3353e0f5571c56570ce72",
+          "policy_observations": 454,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep065",
+      "episode_number": 65,
+      "source_roster_index": 64,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200115,
+      "model_seed": 60800015,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200115",
+          "outcome": "failure",
+          "source_result_sha256": "a718c998144944668453efabab0843bb01f2302da39732e4e28fb1b9feb53046",
+          "policy_observations": 677,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200115",
+          "outcome": "failure",
+          "source_result_sha256": "e4d85157fb8cba3cbbfbb47e40b049df9081b97937e77e4bd7c0984e8cde8cfd",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep066",
+      "episode_number": 66,
+      "source_roster_index": 65,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200116,
+      "model_seed": 60800016,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200116",
+          "outcome": "success",
+          "source_result_sha256": "b53c871872a470d3f6dd3add9be38e043620f4bf3a40477dd9c3fcedbac2b2ac",
+          "policy_observations": 704,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200116",
+          "outcome": "failure",
+          "source_result_sha256": "018db0fbb517d20125a9d634b2e3b151eeb60ddc7dffa42feb2c91b27bddc295",
+          "policy_observations": 1000,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h4_ep067",
+      "episode_number": 67,
+      "source_roster_index": 66,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200117,
+      "model_seed": 60800017,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200117",
+          "outcome": "success",
+          "source_result_sha256": "b57df9d4aeccb8ebdc54d49fed5de853d1eaad81d0aec41cf4e9caf11fe4b681",
+          "policy_observations": 660,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200117",
+          "outcome": "failure",
+          "source_result_sha256": "e7817c561d573231409fd50cd6d8bcc91f5a5f699467ade61a362efdcff5a976",
+          "policy_observations": 380,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h4_ep068",
+      "episode_number": 68,
+      "source_roster_index": 67,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200118,
+      "model_seed": 60800018,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200118",
+          "outcome": "success",
+          "source_result_sha256": "559ad5b6e246d90e6cbd0753280768b47826fc1622b7c353df9479eb710d618c",
+          "policy_observations": 651,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200118",
+          "outcome": "failure",
+          "source_result_sha256": "4dcf2f740d164b813b2a3fcd4769b2c6da1e366373a8e914a9a08a9c02aafc31",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h4_ep069",
+      "episode_number": 69,
+      "source_roster_index": 68,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200119,
+      "model_seed": 60800019,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200119",
+          "outcome": "failure",
+          "source_result_sha256": "4b56ee47b47f0bbd5ba563fec359c084256dd516eb5bfc06fced6c9199184b3c",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200119",
+          "outcome": "failure",
+          "source_result_sha256": "b387b94d85a3e8c04515e588ce7269d36d6f064404079e10e678db644682573b",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep070",
+      "episode_number": 70,
+      "source_roster_index": 69,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200120,
+      "model_seed": 60800020,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200120",
+          "outcome": "failure",
+          "source_result_sha256": "4355bb417543f8324f38d90e5baa6bb40df291804e0b70a98761b7029744a2fa",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200120",
+          "outcome": "failure",
+          "source_result_sha256": "0ea7a98531cc3b64b40bedbb2f5da7584c5bfe98d6d626ad640b9ca5c81814da",
+          "policy_observations": 586,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep071",
+      "episode_number": 71,
+      "source_roster_index": 70,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200121,
+      "model_seed": 60800021,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200121",
+          "outcome": "failure",
+          "source_result_sha256": "a0e38f73445b27c39194e5bb77fe9b586e6c9034dd70288c96c03bc15f0ed0fe",
+          "policy_observations": 739,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200121",
+          "outcome": "failure",
+          "source_result_sha256": "3baa02ea04a1fd5b833c3dac0767d23f1e5ba5c75a7ffc952df40a1bbbdf16c2",
+          "policy_observations": 550,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep072",
+      "episode_number": 72,
+      "source_roster_index": 71,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200122,
+      "model_seed": 60800022,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200122",
+          "outcome": "failure",
+          "source_result_sha256": "e658af3a7890f9fd4e5231d6314ea74da27c5dda693a44b23eb51733f81b4855",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200122",
+          "outcome": "failure",
+          "source_result_sha256": "e78eef57c488004113c093f90b1c245d4d620775cec3cbbed059040471636aa4",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep073",
+      "episode_number": 73,
+      "source_roster_index": 72,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200123,
+      "model_seed": 60800023,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200123",
+          "outcome": "failure",
+          "source_result_sha256": "b3c743b6879c0c3690a4b768f38928a99160df142c340371d863e3d26d748306",
+          "policy_observations": 693,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200123",
+          "outcome": "failure",
+          "source_result_sha256": "3923a5a45363226809e58feb6d046b21e4b8239cce7701b5e5cecc80e26488fe",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep074",
+      "episode_number": 74,
+      "source_roster_index": 73,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200124,
+      "model_seed": 60800024,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200124",
+          "outcome": "failure",
+          "source_result_sha256": "f3ba30792754c2681eaa6f88857d46f983f281efbb8e411778b6b38930cf03de",
+          "policy_observations": 728,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200124",
+          "outcome": "failure",
+          "source_result_sha256": "aa144e0f05696c076f75653cf8a4567b79303cdd01f07c2f61a802aa4e96850c",
+          "policy_observations": 772,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep075",
+      "episode_number": 75,
+      "source_roster_index": 74,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200125,
+      "model_seed": 60800025,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200125",
+          "outcome": "failure",
+          "source_result_sha256": "cdc62c8555205eabfbc1fce4019cc3b1c5c71b4dc93ecb8a5489f84844df1045",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200125",
+          "outcome": "failure",
+          "source_result_sha256": "9b43fbc87ca04a60b36d256975795a29b0911643bc0338be8ce784befb339c7e",
+          "policy_observations": 482,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep076",
+      "episode_number": 76,
+      "source_roster_index": 75,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200126,
+      "model_seed": 60800026,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200126",
+          "outcome": "failure",
+          "source_result_sha256": "c3cabd3bf39c8c5a8680b94a05968235870de2d697fedf3b17266084de6126c5",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200126",
+          "outcome": "failure",
+          "source_result_sha256": "2ac4f963e7547d374a84c756486cfb5f52b07fe4a533492c42f200c1e5fc23d6",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep077",
+      "episode_number": 77,
+      "source_roster_index": 76,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200127,
+      "model_seed": 60800027,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200127",
+          "outcome": "success",
+          "source_result_sha256": "67b89640a5b882fcb7ea3f31bf6901157858acf2b9ee042ac14f336818aa1ffa",
+          "policy_observations": 650,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200127",
+          "outcome": "failure",
+          "source_result_sha256": "a285343aa99eaabb07b14621dd7b496c31fab93f4c68700a1b2c0634578cfab0",
+          "policy_observations": 381,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h4_ep078",
+      "episode_number": 78,
+      "source_roster_index": 77,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200128,
+      "model_seed": 60800028,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200128",
+          "outcome": "failure",
+          "source_result_sha256": "81b5b650cb8785052fee72da2eef98b60f123048b629ce32a11f8762369ea2d9",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200128",
+          "outcome": "failure",
+          "source_result_sha256": "7bd11b824082c478ec8c4ae1ab20f9ad32d238c94ca7deb17e5e59b3de89e9ca",
+          "policy_observations": 886,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep079",
+      "episode_number": 79,
+      "source_roster_index": 78,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200129,
+      "model_seed": 60800029,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200129",
+          "outcome": "success",
+          "source_result_sha256": "c9f6e0e9727c05502ba719185e644325889b7b119ea55fd826ce34e87179c13b",
+          "policy_observations": 664,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200129",
+          "outcome": "failure",
+          "source_result_sha256": "004e8c87d08473fae5279da6e1924520b8a167ff15a7d0487fe96fb00e952c59",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h4_ep080",
+      "episode_number": 80,
+      "source_roster_index": 79,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200130,
+      "model_seed": 60800030,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200130",
+          "outcome": "failure",
+          "source_result_sha256": "6e90f52cdc01f95115a6beeeef7b1264908638e1e0ac0de7049f850795d21dbf",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200130",
+          "outcome": "failure",
+          "source_result_sha256": "d2da81c78704eece7e4668f81dc8017e06f33cb8e6f09b39fbc2673c296bc59b",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep081",
+      "episode_number": 81,
+      "source_roster_index": 80,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200131,
+      "model_seed": 60800031,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200131",
+          "outcome": "failure",
+          "source_result_sha256": "64cb3986c619326910c0717ef3405e49f763df0644e43aa3391367b92e41126f",
+          "policy_observations": 706,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200131",
+          "outcome": "failure",
+          "source_result_sha256": "83f601b54aba689ce845f4c1f072c72741b287118b6a04fb6ea94b0ba0d47a1b",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep082",
+      "episode_number": 82,
+      "source_roster_index": 81,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200132,
+      "model_seed": 60800032,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200132",
+          "outcome": "failure",
+          "source_result_sha256": "c8c0c6ddc26b146f112d2e4314f6ad820274ef945461d241b83e8b58206d4b63",
+          "policy_observations": 709,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200132",
+          "outcome": "failure",
+          "source_result_sha256": "f398dd0e02a8ebb2ecfcd5881437b119eb651abd837da8362393fa8a816fb875",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep083",
+      "episode_number": 83,
+      "source_roster_index": 82,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200133,
+      "model_seed": 60800033,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200133",
+          "outcome": "failure",
+          "source_result_sha256": "dc9da6324aab0bc98647c21e5cfcda377adaa49dfd13c62556559930c98c6744",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200133",
+          "outcome": "failure",
+          "source_result_sha256": "a53a6b3e767c20d06cf721997d0c44a4749c5d8b8d5453bf331ec3b266071245",
+          "policy_observations": 919,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep084",
+      "episode_number": 84,
+      "source_roster_index": 83,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200134,
+      "model_seed": 60800034,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200134",
+          "outcome": "failure",
+          "source_result_sha256": "6706e13cbf596e36e4a553c39f20e56342a8d3e53528c4fcca7a3890eb507760",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200134",
+          "outcome": "failure",
+          "source_result_sha256": "89f5dbd34704d53545af2d982b9bbbd258cd800e1458beabd803f63cbf8acde4",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep085",
+      "episode_number": 85,
+      "source_roster_index": 84,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200135,
+      "model_seed": 60800035,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200135",
+          "outcome": "failure",
+          "source_result_sha256": "a5eb4d8f286f32c1c03a0c82f7ad35f843611be46c7c897f04c159b054b26a66",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200135",
+          "outcome": "failure",
+          "source_result_sha256": "6621eff47b56616656ea24a44b30ce8b70d97edd632d2793445c16c027b4ceae",
+          "policy_observations": 616,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep086",
+      "episode_number": 86,
+      "source_roster_index": 85,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200136,
+      "model_seed": 60800036,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200136",
+          "outcome": "success",
+          "source_result_sha256": "655dbb391b8f2760d728695f8a1ce7243fe2331fad77c935f0a60aaccaa07251",
+          "policy_observations": 674,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200136",
+          "outcome": "failure",
+          "source_result_sha256": "65bee08795f34783a4f980b11c920bc48aaaa5aa4869e25d07958f0421f5722c",
+          "policy_observations": 95,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h4_ep087",
+      "episode_number": 87,
+      "source_roster_index": 86,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200137,
+      "model_seed": 60800037,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200137",
+          "outcome": "failure",
+          "source_result_sha256": "724e7fbdb00917cec12d77820775aba45380e6df4ab60157bdece2ae54cb661a",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200137",
+          "outcome": "failure",
+          "source_result_sha256": "316ee6453f0a1b3ec029bc305f2146021c9856aa4c882fbcafa88d1a66f9910d",
+          "policy_observations": 344,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep088",
+      "episode_number": 88,
+      "source_roster_index": 87,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200138,
+      "model_seed": 60800038,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200138",
+          "outcome": "success",
+          "source_result_sha256": "6e614ffc13c4c744efd2077ecd6d31247ab8117dfd9f15c4d0c9b8cfd1bcb931",
+          "policy_observations": 666,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200138",
+          "outcome": "failure",
+          "source_result_sha256": "9a2b0e5c9e97c4ebb4fcf9fde26b88fb3567512e35fb7fd8782105a406f90336",
+          "policy_observations": 1051,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h4_ep089",
+      "episode_number": 89,
+      "source_roster_index": 88,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200139,
+      "model_seed": 60800039,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200139",
+          "outcome": "failure",
+          "source_result_sha256": "d0af926dcc7d977c03e407466d08c4e237cd552afcf9a6d5e556e09f788af839",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200139",
+          "outcome": "failure",
+          "source_result_sha256": "da3eb5d17817f9a66efbd2f113c210a39468f204a914786d1182f14ea95fb782",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep090",
+      "episode_number": 90,
+      "source_roster_index": 89,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200140,
+      "model_seed": 60800040,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200140",
+          "outcome": "success",
+          "source_result_sha256": "5fc1dafab617117bc2a8a878cf48168ab3590d4afa9e5ec3e7619bdce41362f1",
+          "policy_observations": 656,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200140",
+          "outcome": "failure",
+          "source_result_sha256": "d328122bd778d30863473d70aa5d9e8e29d9b20581b44811d62b18959912354f",
+          "policy_observations": 92,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h4_ep091",
+      "episode_number": 91,
+      "source_roster_index": 90,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200141,
+      "model_seed": 60800041,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200141",
+          "outcome": "success",
+          "source_result_sha256": "31083ec96178b38473451380e59b9d10217fcc1cbfbc1c14f4a8ad2b6b4ad6e3",
+          "policy_observations": 627,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200141",
+          "outcome": "failure",
+          "source_result_sha256": "8348a04a73dee8a0d81c41731ec4356477c117acf37a5aaa0ffff2c160f9ebdc",
+          "policy_observations": 1086,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h4_ep092",
+      "episode_number": 92,
+      "source_roster_index": 91,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200142,
+      "model_seed": 60800042,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200142",
+          "outcome": "success",
+          "source_result_sha256": "a7a46a026c1cd9bcfeff0994cfc9073acf09bf44354cab643be46f3c052e48c5",
+          "policy_observations": 654,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200142",
+          "outcome": "failure",
+          "source_result_sha256": "60cc41054cf943e83c19feb4eb13b2d88f553c7e5ccdd52b04d9d4a51c3d8787",
+          "policy_observations": 444,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h4_ep093",
+      "episode_number": 93,
+      "source_roster_index": 92,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200143,
+      "model_seed": 60800043,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200143",
+          "outcome": "success",
+          "source_result_sha256": "29a91232529e5a2fc50eb0b6b3c06dd757c47ab0430a1be7fabb199208a6f273",
+          "policy_observations": 654,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200143",
+          "outcome": "failure",
+          "source_result_sha256": "eac3b5a4cf1435813020535b9d7e5628a5152e44904955f05e92fd56f03544b7",
+          "policy_observations": 769,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h4_ep094",
+      "episode_number": 94,
+      "source_roster_index": 93,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200144,
+      "model_seed": 60800044,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200144",
+          "outcome": "failure",
+          "source_result_sha256": "228c4c2feaf2e4954d66a561bdbc0b3acde58dc9fcef0a39ea8b20e1e385a54c",
+          "policy_observations": 719,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200144",
+          "outcome": "failure",
+          "source_result_sha256": "d4d630d534c2d33d454a555576bd76aa0b784d4f535ec635769133761b24b0d7",
+          "policy_observations": 483,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep095",
+      "episode_number": 95,
+      "source_roster_index": 94,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200145,
+      "model_seed": 60800045,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200145",
+          "outcome": "success",
+          "source_result_sha256": "d997efdd6d8f7471063a2b7c9e8bb7125d3a4ba20eaf32b84f94f1f4a064985a",
+          "policy_observations": 652,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200145",
+          "outcome": "failure",
+          "source_result_sha256": "2973f6d232c7bea5c96bec6655710d6898c65c59448777b0050ce532b24088e5",
+          "policy_observations": 491,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h4_ep096",
+      "episode_number": 96,
+      "source_roster_index": 95,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200146,
+      "model_seed": 60800046,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200146",
+          "outcome": "failure",
+          "source_result_sha256": "cc2d186e8ad348a2dd480bc0725eac7a970702ec0a0d5c011808728c72c388b4",
+          "policy_observations": 704,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200146",
+          "outcome": "failure",
+          "source_result_sha256": "57432289025bfa51fdfdbac29f86228eec14b3e104a774610dca1a4124109e6c",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h4_ep097",
+      "episode_number": 97,
+      "source_roster_index": 96,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200147,
+      "model_seed": 60800047,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200147",
+          "outcome": "success",
+          "source_result_sha256": "bcaf0ed3e20de5407be03a7292cd9a1b09a983913c76f58b31dec03638fb2e53",
+          "policy_observations": 703,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200147",
+          "outcome": "failure",
+          "source_result_sha256": "953206cb5c0f6eefff0d344eca2157c55eb12e53b5beae672240ac2544fdbac3",
+          "policy_observations": 1024,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h4_ep098",
+      "episode_number": 98,
+      "source_roster_index": 97,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200148,
+      "model_seed": 60800048,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200148",
+          "outcome": "success",
+          "source_result_sha256": "f7dbba718831f0057bb307ce0da5537af4e1a188ea3851db046f59250887ed03",
+          "policy_observations": 667,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200148",
+          "outcome": "failure",
+          "source_result_sha256": "fe6247d1157c427864d2e2749ef590675d03dd2d2770bf5a2e38a5c1785768e1",
+          "policy_observations": 402,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h4_ep099",
+      "episode_number": 99,
+      "source_roster_index": 98,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200149,
+      "model_seed": 60800049,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200149",
+          "outcome": "success",
+          "source_result_sha256": "e9a506c78499ece516ae34d28628bce52d4f77a17d1d502abad379aefb489ee3",
+          "policy_observations": 663,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200149",
+          "outcome": "failure",
+          "source_result_sha256": "123dca15df32faf7effde15d2652544344f999f6e903ca1f6dafdba2ed47d6b0",
+          "policy_observations": 539,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h4_ep100",
+      "episode_number": 100,
+      "source_roster_index": 99,
+      "horizon": 4,
+      "side": "right",
+      "scene_seed": 262200150,
+      "model_seed": 60800050,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h4_right_s262200150",
+          "outcome": "success",
+          "source_result_sha256": "7058380e6bfcd34a28a11afc97a9252a746fe09fe71179df3ac4f270a4a034df",
+          "policy_observations": 664,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h4_right_s262200150",
+          "outcome": "failure",
+          "source_result_sha256": "a3748efa68f70fd9d17aaa861c072c9e91125f08ddede4bf106cc614879fabb4",
+          "policy_observations": 355,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h8_ep001",
+      "episode_number": 1,
+      "source_roster_index": 0,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200001,
+      "model_seed": 60800001,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200001",
+          "outcome": "failure",
+          "source_result_sha256": "dc86d05d14656d3fdbe4620914ad0eb90d5f2f7796c92590077b797df3fc95c5",
+          "policy_observations": 1125,
+          "media": {
+            "annotated": "media/h8_ep001/mem0/ep001_h8_mem0_FAILURE_subtasks.mp4",
+            "original": "media/h8_ep001/mem0/ep001_h8_mem0_FAILURE_original.mp4",
+            "timeline": "media/h8_ep001/mem0/timeline.json",
+            "filename": "ep001_h8_mem0_FAILURE_subtasks.mp4",
+            "source_video_sha256": "e483191233e0ca7d8c55add12ffce0a1411880b976ec615ca6b60f65ca816edb",
+            "annotated_sha256": "3f9269f700966e19733708e57a9736f7047740f4e3988bd8d9b53764b0ae7e8b",
+            "video_frames": 1126,
+            "policy_frames": 1125,
+            "selection_events": 0
+          }
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200001",
+          "outcome": "failure",
+          "source_result_sha256": "7b16a7690bf3d933b44c956efe8a7587dc5ccab5eb14a86683606a4ea5812c92",
+          "policy_observations": 1125,
+          "media": {
+            "annotated": "media/h8_ep001/ours/ep001_h8_ours_FAILURE_subtasks.mp4",
+            "original": "media/h8_ep001/ours/ep001_h8_ours_FAILURE_original.mp4",
+            "timeline": "media/h8_ep001/ours/timeline.json",
+            "filename": "ep001_h8_ours_FAILURE_subtasks.mp4",
+            "source_video_sha256": "d81c9ce584a0aa841b81532a0d577b7dc2a4bebffc69f3742bf14c9519e97692",
+            "annotated_sha256": "99770877a8ca205d55c298cba2396737364bab79e8a3afb6f7be25989aa2df3f",
+            "video_frames": 1126,
+            "policy_frames": 1125,
+            "selection_events": 1
+          }
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep002",
+      "episode_number": 2,
+      "source_roster_index": 1,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200002,
+      "model_seed": 60800002,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200002",
+          "outcome": "failure",
+          "source_result_sha256": "e9bc9c6cb5c4a41ff84300299027efa5fbfd0362b8acbe58654f4aadf5a21a4e",
+          "policy_observations": 1125,
+          "media": {
+            "annotated": "media/h8_ep002/mem0/ep002_h8_mem0_FAILURE_subtasks.mp4",
+            "original": "media/h8_ep002/mem0/ep002_h8_mem0_FAILURE_original.mp4",
+            "timeline": "media/h8_ep002/mem0/timeline.json",
+            "filename": "ep002_h8_mem0_FAILURE_subtasks.mp4",
+            "source_video_sha256": "e50b6d586f4b35d3767bea7e3344581a4c1c6a98683fb698c1b76fbc887c56bb",
+            "annotated_sha256": "0b9f0c27703f16486a962503971d56cb04c80a9d9ab72e2bde29de57d0f7352e",
+            "video_frames": 1126,
+            "policy_frames": 1125,
+            "selection_events": 0
+          }
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200002",
+          "outcome": "success",
+          "source_result_sha256": "d8ce1b8eed98b80e2c47501cd9484ab5b6d18f00e22ef6e3688cd660c98368a7",
+          "policy_observations": 707,
+          "media": {
+            "annotated": "media/h8_ep002/ours/ep002_h8_ours_SUCCESS_subtasks.mp4",
+            "original": "media/h8_ep002/ours/ep002_h8_ours_SUCCESS_original.mp4",
+            "timeline": "media/h8_ep002/ours/timeline.json",
+            "filename": "ep002_h8_ours_SUCCESS_subtasks.mp4",
+            "source_video_sha256": "35b85a92fba4c4f713df37cb10d34e317930eb6b727dcb097a6da6f39e533be4",
+            "annotated_sha256": "8cdd529ff312e1c317030a3a9f2cbd23be08ccca875d5799c0790782ba2da73c",
+            "video_frames": 708,
+            "policy_frames": 707,
+            "selection_events": 2
+          }
+        }
+      },
+      "pattern": "failure__success"
+    },
+    {
+      "id": "h8_ep003",
+      "episode_number": 3,
+      "source_roster_index": 2,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200003,
+      "model_seed": 60800003,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200003",
+          "outcome": "failure",
+          "source_result_sha256": "bfffe8f23120252bd4d0596aa381eb3268b10eb612a881ebad47e71a39467160",
+          "policy_observations": 358,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200003",
+          "outcome": "failure",
+          "source_result_sha256": "f491d8ce030e8af411b0ad10dab8f115f34afa297658044bc234e3621a64b3e5",
+          "policy_observations": 803,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep004",
+      "episode_number": 4,
+      "source_roster_index": 3,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200004,
+      "model_seed": 60800004,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200004",
+          "outcome": "failure",
+          "source_result_sha256": "4ba5d1b9121aa9f2e06f5d150d21d9febddccfdd41d55fa42bae53d5b1332a0f",
+          "policy_observations": 934,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200004",
+          "outcome": "failure",
+          "source_result_sha256": "1c11e5032bbff06551d0d6ed0a7fbd016713f26296e27ea8e3ea5bba66139576",
+          "policy_observations": 414,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep005",
+      "episode_number": 5,
+      "source_roster_index": 4,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200005,
+      "model_seed": 60800005,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200005",
+          "outcome": "failure",
+          "source_result_sha256": "acb71821f49c9fcb491c4636038ed52d3fb39dcf1b6d9c786fd075088e002fff",
+          "policy_observations": 99,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200005",
+          "outcome": "failure",
+          "source_result_sha256": "8196f43fbef6ed60225345fde2d95a0702c02c79408affad195dc7923e02f705",
+          "policy_observations": 89,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep006",
+      "episode_number": 6,
+      "source_roster_index": 5,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200006,
+      "model_seed": 60800006,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200006",
+          "outcome": "failure",
+          "source_result_sha256": "6f88d5fe565bb307add7bb324a1c324f550289ce6531e102319b7facc5e024c9",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200006",
+          "outcome": "failure",
+          "source_result_sha256": "28e98f4da98cd353e2428230f6db898efad4f884c3fc2a0818b7a7511b23df2f",
+          "policy_observations": 470,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep007",
+      "episode_number": 7,
+      "source_roster_index": 6,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200007,
+      "model_seed": 60800007,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200007",
+          "outcome": "unknown",
+          "source_result_sha256": "e15ce1a21a80d6ec257f137c2aecaa584485ffba9d0ff9b1b13e58a1af1a95c7",
+          "policy_observations": 377,
+          "media": {
+            "annotated": "media/h8_ep007/mem0/ep007_h8_mem0_UNKNOWN_subtasks.mp4",
+            "original": "media/h8_ep007/mem0/ep007_h8_mem0_UNKNOWN_original.mp4",
+            "timeline": "media/h8_ep007/mem0/timeline.json",
+            "filename": "ep007_h8_mem0_UNKNOWN_subtasks.mp4",
+            "source_video_sha256": "4c264d7a22e86089416f05a47b941e86bcacd86c97a35df4158dbf8d25fc617e",
+            "annotated_sha256": "0a8cf84ea35342fd4db46a8e9c7fe66873d2269ab231abbe8875b9aadc934008",
+            "video_frames": 377,
+            "policy_frames": 377,
+            "selection_events": 0
+          }
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200007",
+          "outcome": "failure",
+          "source_result_sha256": "bdc16f1d5e618641bf3d485cc27a27f3f815c15682a71da02d0f620581559a87",
+          "policy_observations": 342,
+          "media": {
+            "annotated": "media/h8_ep007/ours/ep007_h8_ours_FAILURE_subtasks.mp4",
+            "original": "media/h8_ep007/ours/ep007_h8_ours_FAILURE_original.mp4",
+            "timeline": "media/h8_ep007/ours/timeline.json",
+            "filename": "ep007_h8_ours_FAILURE_subtasks.mp4",
+            "source_video_sha256": "ec8875dc9dbf5346b3e007dd3293a76be97194ff94e42f37a4074078fb202747",
+            "annotated_sha256": "073a8c0604b112f1b03b8617cc90edb202bd24865f8c0859f223a402611c5f10",
+            "video_frames": 342,
+            "policy_frames": 342,
+            "selection_events": 1
+          }
+        }
+      },
+      "pattern": "unknown__failure"
+    },
+    {
+      "id": "h8_ep008",
+      "episode_number": 8,
+      "source_roster_index": 7,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200008,
+      "model_seed": 60800008,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200008",
+          "outcome": "failure",
+          "source_result_sha256": "aa5b3e9a7ebb4b54b3162c79832651a6841e85819f71f860b909b726a37ed2b3",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200008",
+          "outcome": "failure",
+          "source_result_sha256": "bee9abfbfff3a4cc3e8786154fa89ca698f2e176f86ab79e8760c4f732b52ea2",
+          "policy_observations": 492,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep009",
+      "episode_number": 9,
+      "source_roster_index": 8,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200009,
+      "model_seed": 60800009,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200009",
+          "outcome": "failure",
+          "source_result_sha256": "5e09383d9b72fe845dcdf6396f8c68e6a07cd670dc6ff9164e029cf25750c16a",
+          "policy_observations": 470,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200009",
+          "outcome": "failure",
+          "source_result_sha256": "357a0c46587dd8d30211fccc283bf961714d0ad602351c32e4efabba1184d318",
+          "policy_observations": 421,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep010",
+      "episode_number": 10,
+      "source_roster_index": 9,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200010,
+      "model_seed": 60800010,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200010",
+          "outcome": "success",
+          "source_result_sha256": "5bda54c623637bcdbebd8667e1b6b79f0b3d405467ae82e6e0cfb0d1d5be33ee",
+          "policy_observations": 682,
+          "media": {
+            "annotated": "media/h8_ep010/mem0/ep010_h8_mem0_SUCCESS_subtasks.mp4",
+            "original": "media/h8_ep010/mem0/ep010_h8_mem0_SUCCESS_original.mp4",
+            "timeline": "media/h8_ep010/mem0/timeline.json",
+            "filename": "ep010_h8_mem0_SUCCESS_subtasks.mp4",
+            "source_video_sha256": "b50e10ef729b47c6b99ff233f6607990e9214af7d757b97b9b0c69616ff3fa33",
+            "annotated_sha256": "36e80bae88e4d3c3e5b21d983bf39b5a62304c67271e9194c0deb986d45ab071",
+            "video_frames": 683,
+            "policy_frames": 682,
+            "selection_events": 0
+          }
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200010",
+          "outcome": "failure",
+          "source_result_sha256": "dad2b7ee10dac993b40502500f289a5d11ea06ed038d3d3571dcfd9e4f7f420b",
+          "policy_observations": 510,
+          "media": {
+            "annotated": "media/h8_ep010/ours/ep010_h8_ours_FAILURE_subtasks.mp4",
+            "original": "media/h8_ep010/ours/ep010_h8_ours_FAILURE_original.mp4",
+            "timeline": "media/h8_ep010/ours/timeline.json",
+            "filename": "ep010_h8_ours_FAILURE_subtasks.mp4",
+            "source_video_sha256": "3b4349d6582cbd918a2f9ae7b4cdd642ea2de9b3386eb3db03a80178beb00982",
+            "annotated_sha256": "f8328fa48ca95ba766a4b052117fed4fa1c9cb7b420bb11b246a06620c7ccd06",
+            "video_frames": 510,
+            "policy_frames": 510,
+            "selection_events": 2
+          }
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h8_ep011",
+      "episode_number": 11,
+      "source_roster_index": 10,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200101,
+      "model_seed": 60800001,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200101",
+          "outcome": "failure",
+          "source_result_sha256": "a156c51bbb0a88386eabe10ad4d815d09ee43cac534bc07b8fe89d7e67e1aed2",
+          "policy_observations": 715,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200101",
+          "outcome": "failure",
+          "source_result_sha256": "2d6cda4f80a6479b3c04eb665a8fce9e02d0d6497056aa231d2b61e18a8ecd10",
+          "policy_observations": 137,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep012",
+      "episode_number": 12,
+      "source_roster_index": 11,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200102,
+      "model_seed": 60800002,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200102",
+          "outcome": "failure",
+          "source_result_sha256": "7d20c3105c31e655c97c7b049f3468c35cf7f4f69b265fbbf093110d51d4d957",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200102",
+          "outcome": "failure",
+          "source_result_sha256": "e1a5ab7e1f1544f56f24db38335a1692591565fc01981aaaaa1b87849627691b",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep013",
+      "episode_number": 13,
+      "source_roster_index": 12,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200103,
+      "model_seed": 60800003,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200103",
+          "outcome": "success",
+          "source_result_sha256": "f5e95aa1f29848cb6597d3d178dd5bf2775afecb2c3e287b5d8080ed3b46275e",
+          "policy_observations": 662,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200103",
+          "outcome": "failure",
+          "source_result_sha256": "8d2ca965d55501ce6f2480566738752298b3f8e93132149773de4bf4498326af",
+          "policy_observations": 369,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h8_ep014",
+      "episode_number": 14,
+      "source_roster_index": 13,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200104,
+      "model_seed": 60800004,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200104",
+          "outcome": "failure",
+          "source_result_sha256": "678776df244930ae84de8e9e1149957a13e3e98e2bafbae05d6f67a77f71e431",
+          "policy_observations": 826,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200104",
+          "outcome": "failure",
+          "source_result_sha256": "7d11065702442b1f60bd53665624e99b4fcc643b2a1732a913ea642b04361e42",
+          "policy_observations": 492,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep015",
+      "episode_number": 15,
+      "source_roster_index": 14,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200105,
+      "model_seed": 60800005,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200105",
+          "outcome": "success",
+          "source_result_sha256": "24be4ff0415cc0d899a6303caa43cee352d327c5267dfebda606c3702475b8f0",
+          "policy_observations": 680,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200105",
+          "outcome": "failure",
+          "source_result_sha256": "c3a2f5196ec96aee19a321cae6d2c4db05f0cc6da7874bd3c32494ab7c994781",
+          "policy_observations": 362,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h8_ep016",
+      "episode_number": 16,
+      "source_roster_index": 15,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200106,
+      "model_seed": 60800006,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200106",
+          "outcome": "success",
+          "source_result_sha256": "88aa56647b11ae880c5a126b2cfc107ea0077d625088ab81db545be2c3f8b26f",
+          "policy_observations": 655,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200106",
+          "outcome": "failure",
+          "source_result_sha256": "5fb90fc2e9dc2911b7ebf04b07144c2e86f25a827d169e47f414182125d66452",
+          "policy_observations": 376,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h8_ep017",
+      "episode_number": 17,
+      "source_roster_index": 16,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200107,
+      "model_seed": 60800007,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200107",
+          "outcome": "success",
+          "source_result_sha256": "82d6d54c4212a3935e44d419766ac702dad751150e82f023783ca7e4d958793e",
+          "policy_observations": 630,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200107",
+          "outcome": "failure",
+          "source_result_sha256": "4612d2ac28542eb29f581e5c45adf4e69b9baf873062a96e31f1ef7a9efbdc33",
+          "policy_observations": 634,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h8_ep018",
+      "episode_number": 18,
+      "source_roster_index": 17,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200108,
+      "model_seed": 60800008,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200108",
+          "outcome": "failure",
+          "source_result_sha256": "e25f5f82d34413bd57e6c3b349179a8d82c59773767d9add90465b895095b424",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200108",
+          "outcome": "failure",
+          "source_result_sha256": "e66118e0c4133b699fa65d70e05b2a0c7675d4a4a28b73852880a225554c20d9",
+          "policy_observations": 679,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep019",
+      "episode_number": 19,
+      "source_roster_index": 18,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200109,
+      "model_seed": 60800009,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200109",
+          "outcome": "failure",
+          "source_result_sha256": "4410cb1fcf54333fadc3c86b0225236e600c83ea70a25192b4f33b04bb9b8290",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200109",
+          "outcome": "failure",
+          "source_result_sha256": "60686e7b659b3ecce196dcc5f208599e699b64207cc0bcbb2b29f4b4502e2ae6",
+          "policy_observations": 615,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep020",
+      "episode_number": 20,
+      "source_roster_index": 19,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200110,
+      "model_seed": 60800010,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200110",
+          "outcome": "failure",
+          "source_result_sha256": "2c95afc6aa07508f3dfab7dcd4ace0cc2dc2fe2c7dba910bbc182497d414a665",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200110",
+          "outcome": "success",
+          "source_result_sha256": "58f12c79d58efd5000ca6e581e1550f4b25563ffc0141d0f7b5f4ccdcb44d22c",
+          "policy_observations": 645,
+          "media": null
+        }
+      },
+      "pattern": "failure__success"
+    },
+    {
+      "id": "h8_ep021",
+      "episode_number": 21,
+      "source_roster_index": 20,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200011,
+      "model_seed": 60800011,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200011",
+          "outcome": "failure",
+          "source_result_sha256": "8fb3a5bb226e61739b5d6801f20b0d154c2aefbcd05730f63cf08fd4fa4cb0ee",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200011",
+          "outcome": "failure",
+          "source_result_sha256": "242823420974a70091f4c94b2c60385ffb31bca71921dd6bfafe5919bb94cd48",
+          "policy_observations": 94,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep022",
+      "episode_number": 22,
+      "source_roster_index": 21,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200012,
+      "model_seed": 60800012,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200012",
+          "outcome": "success",
+          "source_result_sha256": "562df4395e18c451c4799c4582c97df049e73df3cc891a9791ae8c54cb40e4c5",
+          "policy_observations": 719,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200012",
+          "outcome": "failure",
+          "source_result_sha256": "33d5fa9ee89947f2a785eb12370f31fb4d0bd2dbb9d582fd23cbebcfb6d77676",
+          "policy_observations": 327,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h8_ep023",
+      "episode_number": 23,
+      "source_roster_index": 22,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200013,
+      "model_seed": 60800013,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200013",
+          "outcome": "failure",
+          "source_result_sha256": "0178cfb2c72b1b8523417ffdb44ea861ddf00e30cc2c515c14848ead5867a447",
+          "policy_observations": 109,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200013",
+          "outcome": "failure",
+          "source_result_sha256": "7064014c612c4f9793bb0406188b5efc52f87b0df85589d484514601a9848f1c",
+          "policy_observations": 614,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep024",
+      "episode_number": 24,
+      "source_roster_index": 23,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200014,
+      "model_seed": 60800014,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200014",
+          "outcome": "failure",
+          "source_result_sha256": "3b35aeea5653807c90e5711426b9b2c1dae4a395355be5c91e9f93b34a1263b3",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200014",
+          "outcome": "failure",
+          "source_result_sha256": "b084fc49b0412ff24ea45aebdd3bac4d78bd974ce9d227e9f75f139f65e6a02e",
+          "policy_observations": 611,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep025",
+      "episode_number": 25,
+      "source_roster_index": 24,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200015,
+      "model_seed": 60800015,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200015",
+          "outcome": "failure",
+          "source_result_sha256": "b52882cf60d4b015a8babb926531d916cff831b6ad19ea8fa631a69734b29e05",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200015",
+          "outcome": "success",
+          "source_result_sha256": "9ba742faf5725a34e76ee3fafbc18d58c6be5b9415f7ef47c4ca339c701a106b",
+          "policy_observations": 697,
+          "media": null
+        }
+      },
+      "pattern": "failure__success"
+    },
+    {
+      "id": "h8_ep026",
+      "episode_number": 26,
+      "source_roster_index": 25,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200016,
+      "model_seed": 60800016,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200016",
+          "outcome": "failure",
+          "source_result_sha256": "990fc52bcb6595437c5472ff36e2d2b0ec5388607c7aa2ede65f6be6fdce32e1",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200016",
+          "outcome": "failure",
+          "source_result_sha256": "f5007c2c5453d7abefb1c65cc286da8696ba9e13be8d738bc3fc34ce18d9888d",
+          "policy_observations": 398,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep027",
+      "episode_number": 27,
+      "source_roster_index": 26,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200017,
+      "model_seed": 60800017,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200017",
+          "outcome": "failure",
+          "source_result_sha256": "6c4475e0db826c7c18fef95ca7a3f64f82cf829bf5641247d62c31fc53bb2d1e",
+          "policy_observations": 430,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200017",
+          "outcome": "failure",
+          "source_result_sha256": "3f68ace972630c1f661287f7d24cf55d1bfd3919e27e7e070355b3bad0cbcf59",
+          "policy_observations": 333,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep028",
+      "episode_number": 28,
+      "source_roster_index": 27,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200018,
+      "model_seed": 60800018,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200018",
+          "outcome": "unknown",
+          "source_result_sha256": "533ac498e9d89e7cd745d853539172273b58d7e285c3cb88b7a80317917f0cf0",
+          "policy_observations": 422,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200018",
+          "outcome": "failure",
+          "source_result_sha256": "5ffda2f1093a3cce3202354cdddf3dc20778a596da91d1f0df5bdb1fc3084112",
+          "policy_observations": 93,
+          "media": null
+        }
+      },
+      "pattern": "unknown__failure"
+    },
+    {
+      "id": "h8_ep029",
+      "episode_number": 29,
+      "source_roster_index": 28,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200019,
+      "model_seed": 60800019,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200019",
+          "outcome": "failure",
+          "source_result_sha256": "ce9f087d519a7f6f5203ca52cd51d0cc4ed7be28c4456f32ae042007727f30e0",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200019",
+          "outcome": "success",
+          "source_result_sha256": "702fdcc5131f2fe1db7e75cb1b19578c1e221fa8c1bf2ec6e30d4eb5c79f7c5f",
+          "policy_observations": 666,
+          "media": null
+        }
+      },
+      "pattern": "failure__success"
+    },
+    {
+      "id": "h8_ep030",
+      "episode_number": 30,
+      "source_roster_index": 29,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200020,
+      "model_seed": 60800020,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200020",
+          "outcome": "failure",
+          "source_result_sha256": "423105e861c7439392ae0f654557b7cc6ef1e76f5d8c10e3414bf96d6dd4cc84",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200020",
+          "outcome": "success",
+          "source_result_sha256": "f48dc485214244c8a0a022d1b75bf0456a45fc4f18de3d226c02089181b21271",
+          "policy_observations": 711,
+          "media": null
+        }
+      },
+      "pattern": "failure__success"
+    },
+    {
+      "id": "h8_ep031",
+      "episode_number": 31,
+      "source_roster_index": 30,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200021,
+      "model_seed": 60800021,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200021",
+          "outcome": "failure",
+          "source_result_sha256": "a1ec6fc26c003973f0a88919e5ff9b7f337928b20224e07fa69e11d2654eb44d",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200021",
+          "outcome": "failure",
+          "source_result_sha256": "50e4e2ad739f4ad6b5f155aec24c17cf7443b69fba5676caf6048a5f510bccf0",
+          "policy_observations": 1016,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep032",
+      "episode_number": 32,
+      "source_roster_index": 31,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200022,
+      "model_seed": 60800022,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200022",
+          "outcome": "failure",
+          "source_result_sha256": "38e677291f39573506ab512cf7036188abedf5048d0fc2fd229cab37d32a204e",
+          "policy_observations": 732,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200022",
+          "outcome": "success",
+          "source_result_sha256": "6dd5e31538ba67271df62c6959187be62b7cf41029d32beec40e5cb86625638c",
+          "policy_observations": 706,
+          "media": null
+        }
+      },
+      "pattern": "failure__success"
+    },
+    {
+      "id": "h8_ep033",
+      "episode_number": 33,
+      "source_roster_index": 32,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200023,
+      "model_seed": 60800023,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200023",
+          "outcome": "failure",
+          "source_result_sha256": "8130fd8524c9659761f03491cb13272ee6f2739577ac2f649cccaa0ea74f3332",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200023",
+          "outcome": "failure",
+          "source_result_sha256": "43408ca5340ed67e132819fed7f6d7ba5113e7fef5b13e49cad014654bb67bd8",
+          "policy_observations": 395,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep034",
+      "episode_number": 34,
+      "source_roster_index": 33,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200024,
+      "model_seed": 60800024,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200024",
+          "outcome": "failure",
+          "source_result_sha256": "3e70b248625c3eb3803dde739ae27d488158c3b3ab354692c3724acdb20379c9",
+          "policy_observations": 1113,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200024",
+          "outcome": "failure",
+          "source_result_sha256": "9453d4f0d0ded9ecc10b645b05ef4ebc2c367cd4f262b4c09407e6ec0a349907",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep035",
+      "episode_number": 35,
+      "source_roster_index": 34,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200025,
+      "model_seed": 60800025,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200025",
+          "outcome": "failure",
+          "source_result_sha256": "123f9db1ed081c4b2ff9455955c75472e3a3accc0130e52ea44250626b70d4c9",
+          "policy_observations": 682,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200025",
+          "outcome": "failure",
+          "source_result_sha256": "f5fac0ed58ee294dae591c0ca67741d718ea520a8c67b2e98eb5edb223060165",
+          "policy_observations": 323,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep036",
+      "episode_number": 36,
+      "source_roster_index": 35,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200026,
+      "model_seed": 60800026,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200026",
+          "outcome": "unknown",
+          "source_result_sha256": "e0bbe05d11935420104414703fcf3f65ba39ec47e27e23e507c6540d6228b9ce",
+          "policy_observations": 306,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200026",
+          "outcome": "failure",
+          "source_result_sha256": "b5f2967aac93ae16e5c58e4b91a901603f355c4ae7b2143a1a0bce5673f6c5b5",
+          "policy_observations": 412,
+          "media": null
+        }
+      },
+      "pattern": "unknown__failure"
+    },
+    {
+      "id": "h8_ep037",
+      "episode_number": 37,
+      "source_roster_index": 36,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200027,
+      "model_seed": 60800027,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200027",
+          "outcome": "failure",
+          "source_result_sha256": "20a3960db88ca13eba3b6cca1ae718cebec999cf7a644d74131b04dd17526c72",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200027",
+          "outcome": "failure",
+          "source_result_sha256": "918c8da787fd4c08d696f10e04ff4f0c6b2e99320273d837a595494000b6fa8b",
+          "policy_observations": 321,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep038",
+      "episode_number": 38,
+      "source_roster_index": 37,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200028,
+      "model_seed": 60800028,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200028",
+          "outcome": "failure",
+          "source_result_sha256": "a26a5f105c298cfeb7f978cc1d61702485d0c12602e8d5de821cf2dd4b0acee4",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200028",
+          "outcome": "success",
+          "source_result_sha256": "046e0c13102db011e3e4c58fee255658ead37c51ac1e754fa03d28ab60a61849",
+          "policy_observations": 944,
+          "media": null
+        }
+      },
+      "pattern": "failure__success"
+    },
+    {
+      "id": "h8_ep039",
+      "episode_number": 39,
+      "source_roster_index": 38,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200029,
+      "model_seed": 60800029,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200029",
+          "outcome": "failure",
+          "source_result_sha256": "6d42c7d40e369ce96ba26987c685fb6c3f5a6213479869ceaf43a864dc8fbb40",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200029",
+          "outcome": "failure",
+          "source_result_sha256": "6402fd23a9032850e37f840a49c230b4a91c3b47f66843e19fcf415061ca8b9f",
+          "policy_observations": 330,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep040",
+      "episode_number": 40,
+      "source_roster_index": 39,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200030,
+      "model_seed": 60800030,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200030",
+          "outcome": "failure",
+          "source_result_sha256": "0426ebdc942215bec3c8336402450894bd98e9a6022404c8035340b359dab511",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200030",
+          "outcome": "failure",
+          "source_result_sha256": "18d2dfb9f6f30dd0546f3adeb69d695352d8b28e2098544d49fa5fd6711b1863",
+          "policy_observations": 829,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep041",
+      "episode_number": 41,
+      "source_roster_index": 40,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200031,
+      "model_seed": 60800031,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200031",
+          "outcome": "failure",
+          "source_result_sha256": "04d1a18cccaf25a59a0d9d867e00af4473d92f40de4f0c8bcd66aee1336ad797",
+          "policy_observations": 744,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200031",
+          "outcome": "failure",
+          "source_result_sha256": "8998b74ac4986cc8bad91c6fb6572cd2fa75631647e54727d695710bef416478",
+          "policy_observations": 549,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep042",
+      "episode_number": 42,
+      "source_roster_index": 41,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200032,
+      "model_seed": 60800032,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200032",
+          "outcome": "failure",
+          "source_result_sha256": "c1b99dff22b90773f72097c01958a3f8652999b037bb6e8580b92741eefab5d6",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200032",
+          "outcome": "failure",
+          "source_result_sha256": "b76e1d56615367aa5d1a0fc57583d9b21a97c7370445887e3f93e6fbfbd3c30f",
+          "policy_observations": 305,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep043",
+      "episode_number": 43,
+      "source_roster_index": 42,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200033,
+      "model_seed": 60800033,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200033",
+          "outcome": "failure",
+          "source_result_sha256": "caf8bd9ddf1e3912d87af1d68dd92c1eac9c485a9c97ad25101732083c32ebb0",
+          "policy_observations": 690,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200033",
+          "outcome": "failure",
+          "source_result_sha256": "92a2c5db0b137898a7a9f81aa4174077a99120c707fb75b75e829423a4163064",
+          "policy_observations": 566,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep044",
+      "episode_number": 44,
+      "source_roster_index": 43,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200034,
+      "model_seed": 60800034,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200034",
+          "outcome": "failure",
+          "source_result_sha256": "05f490a35395e16d1c34d2a80310d3b72a4d3dedec2f3a3993575ca3390a4428",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200034",
+          "outcome": "failure",
+          "source_result_sha256": "1277045110dc19dbd065d0f9916722474586e63c91e42adf934bc9bc248e0906",
+          "policy_observations": 486,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep045",
+      "episode_number": 45,
+      "source_roster_index": 44,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200035,
+      "model_seed": 60800035,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200035",
+          "outcome": "failure",
+          "source_result_sha256": "b623759f4b8cac60a60f20befa00fa2a408f1109d8dd21525a19bc8adbb9d04c",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200035",
+          "outcome": "failure",
+          "source_result_sha256": "18d933de95f6a120c1c9aaef976ec804b94baf017059126a294e8ecc4a86e0eb",
+          "policy_observations": 657,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep046",
+      "episode_number": 46,
+      "source_roster_index": 45,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200036,
+      "model_seed": 60800036,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200036",
+          "outcome": "unknown",
+          "source_result_sha256": "cfc3cb136cb6fa9fb3071d631bba3f592c9cbaf7042c6bfdb29e952e7241594f",
+          "policy_observations": 605,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200036",
+          "outcome": "failure",
+          "source_result_sha256": "c43cd68a31ab3e723c5c99a0fdc131032c58204893856990dad9c615eecb6dab",
+          "policy_observations": 90,
+          "media": null
+        }
+      },
+      "pattern": "unknown__failure"
+    },
+    {
+      "id": "h8_ep047",
+      "episode_number": 47,
+      "source_roster_index": 46,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200037,
+      "model_seed": 60800037,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200037",
+          "outcome": "failure",
+          "source_result_sha256": "b777b13c56d7ae758091429a78578521ee1be774c06d791505c142423991fcf0",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200037",
+          "outcome": "success",
+          "source_result_sha256": "0428e44d77f8ced8151335075b232fa8fbbe88788550b68fd00b46b2b7f0dd8a",
+          "policy_observations": 721,
+          "media": null
+        }
+      },
+      "pattern": "failure__success"
+    },
+    {
+      "id": "h8_ep048",
+      "episode_number": 48,
+      "source_roster_index": 47,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200038,
+      "model_seed": 60800038,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200038",
+          "outcome": "failure",
+          "source_result_sha256": "c7ba707579cf88f581d5612ed1444136cabae2de7faeacc10c2c8324dce906c6",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200038",
+          "outcome": "success",
+          "source_result_sha256": "0e01c08a00172c66afc38a60a6ac206d33a7af5ada467b97c93700e5b1aae159",
+          "policy_observations": 777,
+          "media": null
+        }
+      },
+      "pattern": "failure__success"
+    },
+    {
+      "id": "h8_ep049",
+      "episode_number": 49,
+      "source_roster_index": 48,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200039,
+      "model_seed": 60800039,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200039",
+          "outcome": "failure",
+          "source_result_sha256": "e355675dd97e914f300059ae766b3c90334eb96bd49bfc3e76725bdee0bd3637",
+          "policy_observations": 825,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200039",
+          "outcome": "failure",
+          "source_result_sha256": "515c51c2128c971380142c22b74127c0680943d868d5fcdf3c0ded1d1de22379",
+          "policy_observations": 92,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep050",
+      "episode_number": 50,
+      "source_roster_index": 49,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200040,
+      "model_seed": 60800040,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200040",
+          "outcome": "failure",
+          "source_result_sha256": "2db5ce6c39c9a4c2ecf3ee96819f5a90fd0e7ff2e1ae82c7516f48832f023050",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200040",
+          "outcome": "failure",
+          "source_result_sha256": "861e4b97c4f172e860c0008389f68fafc81685c703a7b5f06f2694c37ec7beff",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep051",
+      "episode_number": 51,
+      "source_roster_index": 50,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200041,
+      "model_seed": 60800041,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200041",
+          "outcome": "failure",
+          "source_result_sha256": "f2f8de3ade58750b5e061ac6be30a515268e53c2414fbff4122fd3b57c51416a",
+          "policy_observations": 520,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200041",
+          "outcome": "failure",
+          "source_result_sha256": "268202d4aff01ddead2da27214cb253e385a4d9bb855c717164f760e47ce7b18",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep052",
+      "episode_number": 52,
+      "source_roster_index": 51,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200042,
+      "model_seed": 60800042,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200042",
+          "outcome": "failure",
+          "source_result_sha256": "aa300b741e598a987977aa570bd9b75901e84a4bfb58eb3c746e1bc11c59a186",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200042",
+          "outcome": "failure",
+          "source_result_sha256": "e2b82306c2ea8ae2ee2b639e18c4cc827726a42bcdc6d5ae107fde50cfc2cf9b",
+          "policy_observations": 328,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep053",
+      "episode_number": 53,
+      "source_roster_index": 52,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200043,
+      "model_seed": 60800043,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200043",
+          "outcome": "unknown",
+          "source_result_sha256": "6a7bfbef9e45c41a553dcb3b0e92c7ef2579fcbad8301558261f7d40a6a210f1",
+          "policy_observations": 381,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200043",
+          "outcome": "failure",
+          "source_result_sha256": "8e554f32986a6b92ef5a56798e404ed5ad8698928aed4c1e5916b0086281f3ec",
+          "policy_observations": 326,
+          "media": null
+        }
+      },
+      "pattern": "unknown__failure"
+    },
+    {
+      "id": "h8_ep054",
+      "episode_number": 54,
+      "source_roster_index": 53,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200044,
+      "model_seed": 60800044,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200044",
+          "outcome": "failure",
+          "source_result_sha256": "be2e28f5979963718c1d9874dd12a4fcef572aa8502e5463a33d7a3bf2437ab9",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200044",
+          "outcome": "failure",
+          "source_result_sha256": "96d572baf1a204a1bd4db6d405c2f76daf5dc415f123bfc27ff1b9f980176486",
+          "policy_observations": 1021,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep055",
+      "episode_number": 55,
+      "source_roster_index": 54,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200045,
+      "model_seed": 60800045,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200045",
+          "outcome": "failure",
+          "source_result_sha256": "e0a28532de35d7e6188d9d29a14c71cea1c092192466b4d2d85ac5c75c98c9af",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200045",
+          "outcome": "success",
+          "source_result_sha256": "b30555684b08847ebfb3e8e939e7f68e43ebf09ca9d5dd37254401ba0bf3843f",
+          "policy_observations": 732,
+          "media": null
+        }
+      },
+      "pattern": "failure__success"
+    },
+    {
+      "id": "h8_ep056",
+      "episode_number": 56,
+      "source_roster_index": 55,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200046,
+      "model_seed": 60800046,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200046",
+          "outcome": "unknown",
+          "source_result_sha256": "1f65a3e44649a0a429de6025fcb8b621153a3410c06822a6a3cd778e6be2c1a0",
+          "policy_observations": 291,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200046",
+          "outcome": "failure",
+          "source_result_sha256": "1ef5dfec6163388a59825c6463e4d6433a1cc9f21cf9d57d0e18fcda77ad21bd",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "unknown__failure"
+    },
+    {
+      "id": "h8_ep057",
+      "episode_number": 57,
+      "source_roster_index": 56,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200047,
+      "model_seed": 60800047,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200047",
+          "outcome": "failure",
+          "source_result_sha256": "a69dcddb406017669bd53162b5f5435fb8c4541fd6b8f6b9cc2712ed79d1f680",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200047",
+          "outcome": "failure",
+          "source_result_sha256": "5abe303230076e4156b0213df901048e6b3c14a2e51a702425622621b5346b8d",
+          "policy_observations": 284,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep058",
+      "episode_number": 58,
+      "source_roster_index": 57,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200048,
+      "model_seed": 60800048,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200048",
+          "outcome": "failure",
+          "source_result_sha256": "addb3966340cb4fdd7081b2826039e1cb61e1b5f2690561a40a6454053d6c130",
+          "policy_observations": 326,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200048",
+          "outcome": "failure",
+          "source_result_sha256": "f09bb0c23b0b7491bfe57419c07199e418f5da8e4afead91f06982a38d2d7091",
+          "policy_observations": 89,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep059",
+      "episode_number": 59,
+      "source_roster_index": 58,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200049,
+      "model_seed": 60800049,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200049",
+          "outcome": "failure",
+          "source_result_sha256": "27dd531495b0fd7455ce740ff719fb2b3d8de40029fc10ad2d4a0c1cc01f9508",
+          "policy_observations": 836,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200049",
+          "outcome": "failure",
+          "source_result_sha256": "0e66679c5bbc27b6cab148b3afeec95270c5db9605b38b7d8c0a98f844bb95c5",
+          "policy_observations": 378,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep060",
+      "episode_number": 60,
+      "source_roster_index": 59,
+      "horizon": 8,
+      "side": "left",
+      "scene_seed": 262200050,
+      "model_seed": 60800050,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_left_s262200050",
+          "outcome": "failure",
+          "source_result_sha256": "b89e272b5b5f1e762efacc0301986d887f8d2bea5bdd17ba0041c15fe83dd928",
+          "policy_observations": 499,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_left_s262200050",
+          "outcome": "failure",
+          "source_result_sha256": "f8202e8d78b5c1572969e1fadf1aa572b99e19bffeaa42222d201f310a804d67",
+          "policy_observations": 558,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep061",
+      "episode_number": 61,
+      "source_roster_index": 60,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200111,
+      "model_seed": 60800011,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200111",
+          "outcome": "success",
+          "source_result_sha256": "b255b8d6ffc4dda03d1b25d63edbaf463f4d6157ccd851fc54f35c6ffd6bf458",
+          "policy_observations": 1003,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200111",
+          "outcome": "failure",
+          "source_result_sha256": "dc52ad1ee8275ca0c8f5d3425ad69d5c8cce63944c1c63afc2ce9764739a5cf9",
+          "policy_observations": 131,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h8_ep062",
+      "episode_number": 62,
+      "source_roster_index": 61,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200112,
+      "model_seed": 60800012,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200112",
+          "outcome": "success",
+          "source_result_sha256": "3b81e1187b88b6ccd06aedf732fccf4fdbd484963c0bc55aefcf8978531eb43b",
+          "policy_observations": 674,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200112",
+          "outcome": "failure",
+          "source_result_sha256": "22a42506be857a11b068ca81639ee76776e9388ab96db8622d776b73f0edfa24",
+          "policy_observations": 434,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h8_ep063",
+      "episode_number": 63,
+      "source_roster_index": 62,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200113,
+      "model_seed": 60800013,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200113",
+          "outcome": "failure",
+          "source_result_sha256": "9c624f2eb45dbe0ab711f3365b1bc4d0c0abfe54844fc93767f82c6dcc05db6a",
+          "policy_observations": 1077,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200113",
+          "outcome": "failure",
+          "source_result_sha256": "5d181eaa62b9b8e082911a7cef1fbf23728481283aa00a2749be88deaac1601f",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep064",
+      "episode_number": 64,
+      "source_roster_index": 63,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200114,
+      "model_seed": 60800014,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200114",
+          "outcome": "failure",
+          "source_result_sha256": "821707f0c6b7d87eeeb162f62fca32405b607c1fc5aae2364decf3d6c02b0ca2",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200114",
+          "outcome": "failure",
+          "source_result_sha256": "126b40b2932ffb0883a2c0e7b2c61f794b0ed6d5b5e56af05e8ce39aab411f6d",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep065",
+      "episode_number": 65,
+      "source_roster_index": 64,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200115,
+      "model_seed": 60800015,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200115",
+          "outcome": "success",
+          "source_result_sha256": "5f94670dc7904a594440c58bf921cba68905143e717308eb5a149d4bfaad95a6",
+          "policy_observations": 635,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200115",
+          "outcome": "unknown",
+          "source_result_sha256": "4a45e7d5ce585901cb8d35d9437c8808379ea837616aeafda4711bd84fcf8edb",
+          "policy_observations": 302,
+          "media": null
+        }
+      },
+      "pattern": "success__unknown"
+    },
+    {
+      "id": "h8_ep066",
+      "episode_number": 66,
+      "source_roster_index": 65,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200116,
+      "model_seed": 60800016,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200116",
+          "outcome": "failure",
+          "source_result_sha256": "02197973afd45921885bf5e1b7e73914be56779135958cf617c2934bf6b37ed1",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200116",
+          "outcome": "failure",
+          "source_result_sha256": "42bad8295efc32ccd98a5b268f7407cab1dd6dc4eb0adb7d92f235b26bf23919",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep067",
+      "episode_number": 67,
+      "source_roster_index": 66,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200117,
+      "model_seed": 60800017,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200117",
+          "outcome": "failure",
+          "source_result_sha256": "52781bb2305d0f0707e608b76235717a3fabe94333554e6245c98339c625e5ca",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200117",
+          "outcome": "failure",
+          "source_result_sha256": "b2b48e4df9556b5fd618d62429e4d3dbf6bc9650fbd5cdf8d743b9e67ff1b367",
+          "policy_observations": 494,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep068",
+      "episode_number": 68,
+      "source_roster_index": 67,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200118,
+      "model_seed": 60800018,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200118",
+          "outcome": "success",
+          "source_result_sha256": "267aaedb1ebe0d72c503e67cb3bd7e0baae18704601090ac7c150cd3a345cd3b",
+          "policy_observations": 658,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200118",
+          "outcome": "failure",
+          "source_result_sha256": "400c199052aea8ba9f3d5ffbad1fffd4089395a117ecd17373babec99a32e55e",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h8_ep069",
+      "episode_number": 69,
+      "source_roster_index": 68,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200119,
+      "model_seed": 60800019,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200119",
+          "outcome": "failure",
+          "source_result_sha256": "530bee1833b31909d628cebba1c86c27c85fcfaae86bbe1fccaf5ceb8755254f",
+          "policy_observations": 295,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200119",
+          "outcome": "failure",
+          "source_result_sha256": "ebba270b857f1d61e6443fb9a87f3423711db451f0a33d159bd89d2d2d5e560d",
+          "policy_observations": 438,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep070",
+      "episode_number": 70,
+      "source_roster_index": 69,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200120,
+      "model_seed": 60800020,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200120",
+          "outcome": "failure",
+          "source_result_sha256": "f2b369c44c20cdab0f86acabe0b2585aec137ba263c17929f917ec31cb754d1c",
+          "policy_observations": 1020,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200120",
+          "outcome": "failure",
+          "source_result_sha256": "01b458a8e0f2aaae53fdbf138dbfb556f51bfe8d39ca4aac5e562d889b3bf8b6",
+          "policy_observations": 1077,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep071",
+      "episode_number": 71,
+      "source_roster_index": 70,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200121,
+      "model_seed": 60800021,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200121",
+          "outcome": "failure",
+          "source_result_sha256": "f400541c1eb9e71bed59a243ae0ba4032e5335fefa06b3813ca219af3fc48f22",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200121",
+          "outcome": "failure",
+          "source_result_sha256": "77da06d5bb35355af0aaa499486cd94551d02daf1fc78221821ebe5da0914212",
+          "policy_observations": 463,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep072",
+      "episode_number": 72,
+      "source_roster_index": 71,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200122,
+      "model_seed": 60800022,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200122",
+          "outcome": "failure",
+          "source_result_sha256": "9890498dedfa66e076a342ecc39fafbe9a9c43a1595c07f6f5e54c69e7fe785e",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200122",
+          "outcome": "failure",
+          "source_result_sha256": "72744c2e7a2a0380a785e12d8553adb22fc449ac3db5c35495c176434af07dca",
+          "policy_observations": 660,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep073",
+      "episode_number": 73,
+      "source_roster_index": 72,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200123,
+      "model_seed": 60800023,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200123",
+          "outcome": "success",
+          "source_result_sha256": "986e4915fa28e4987573cea054c029dba243d2dcb4af9b696e2150f46fc5c4d5",
+          "policy_observations": 674,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200123",
+          "outcome": "failure",
+          "source_result_sha256": "20a03265bfe7d8aefe178869eaf281ed8a1ba9103553f126287c363459da1f7f",
+          "policy_observations": 466,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h8_ep074",
+      "episode_number": 74,
+      "source_roster_index": 73,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200124,
+      "model_seed": 60800024,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200124",
+          "outcome": "failure",
+          "source_result_sha256": "e6246b3eb6ac3a2b52f99dfadbd138371682ebcd29fdce790dfe5f91e04c848f",
+          "policy_observations": 679,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200124",
+          "outcome": "failure",
+          "source_result_sha256": "fa3cd10a38ff2485f4e96d4a1b917fb07e451363702cac56cea3e8965dc3e2f3",
+          "policy_observations": 440,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep075",
+      "episode_number": 75,
+      "source_roster_index": 74,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200125,
+      "model_seed": 60800025,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200125",
+          "outcome": "failure",
+          "source_result_sha256": "5b726ac8e269b2e2ca141ce3d85e2366db23db8730494051c7f408fff7773637",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200125",
+          "outcome": "failure",
+          "source_result_sha256": "54c7b2b71d327ca8803c0c8c3e41c2e85c90fea29b94dac580a6336cb8eba56f",
+          "policy_observations": 730,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep076",
+      "episode_number": 76,
+      "source_roster_index": 75,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200126,
+      "model_seed": 60800026,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200126",
+          "outcome": "failure",
+          "source_result_sha256": "455dfdac3ec9bfdfd66197023438c772d1f916f80f1c8011a9208f5d602d5264",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200126",
+          "outcome": "failure",
+          "source_result_sha256": "094cee90f3478c33dca54b4dc4b640d3d830a0a00f92249b40ae217792b47d89",
+          "policy_observations": 791,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep077",
+      "episode_number": 77,
+      "source_roster_index": 76,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200127,
+      "model_seed": 60800027,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200127",
+          "outcome": "success",
+          "source_result_sha256": "55dfbff457a4695e34ac1d7e045572b9c4da6e284634df1c96ed619dbe8f3905",
+          "policy_observations": 649,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200127",
+          "outcome": "failure",
+          "source_result_sha256": "6fe2bd3b8a5ccf5e2a5daf4d1b1c3387835f2892a05b1cf32e4738e0de265779",
+          "policy_observations": 360,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h8_ep078",
+      "episode_number": 78,
+      "source_roster_index": 77,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200128,
+      "model_seed": 60800028,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200128",
+          "outcome": "failure",
+          "source_result_sha256": "77ec18b84af7641ada18de66989d573a5aa435c19c126c541a0c46251847d685",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200128",
+          "outcome": "failure",
+          "source_result_sha256": "4c357c35e280eb1b76f3765c750e739967f829d30e91151a14c910d371c035e7",
+          "policy_observations": 780,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep079",
+      "episode_number": 79,
+      "source_roster_index": 78,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200129,
+      "model_seed": 60800029,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200129",
+          "outcome": "success",
+          "source_result_sha256": "85403de0621a5b9f7ca30b0b4b458c273b54e4ad67e51c2d9861a68ae29b5a9e",
+          "policy_observations": 628,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200129",
+          "outcome": "failure",
+          "source_result_sha256": "0a8f06cf738f7dc495fc580453c7bb2e1154e00215310c19bf668f5915d7df36",
+          "policy_observations": 374,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h8_ep080",
+      "episode_number": 80,
+      "source_roster_index": 79,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200130,
+      "model_seed": 60800030,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200130",
+          "outcome": "failure",
+          "source_result_sha256": "7a5532c9a7162eb65949ea2b097b5c251bd79ef1c0ab3172139ce71263522d64",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200130",
+          "outcome": "failure",
+          "source_result_sha256": "736e540abe40df33339ffce73f53ca9c61ea133ec24f7e88ff5ccb95edcb95a3",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep081",
+      "episode_number": 81,
+      "source_roster_index": 80,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200131,
+      "model_seed": 60800031,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200131",
+          "outcome": "unknown",
+          "source_result_sha256": "648e60157e1995c81c17779733fa536f2cae1986efaa2e7735ae42e705c564de",
+          "policy_observations": 747,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200131",
+          "outcome": "failure",
+          "source_result_sha256": "6ad60024cd7ede560caf2dc930272daf6ab2f64b0e404e5850b591a21b6c49c6",
+          "policy_observations": 583,
+          "media": null
+        }
+      },
+      "pattern": "unknown__failure"
+    },
+    {
+      "id": "h8_ep082",
+      "episode_number": 82,
+      "source_roster_index": 81,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200132,
+      "model_seed": 60800032,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200132",
+          "outcome": "failure",
+          "source_result_sha256": "7a2dac20968f7839f982b727e871de16dc45600b117b5b58009e92192679855d",
+          "policy_observations": 727,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200132",
+          "outcome": "failure",
+          "source_result_sha256": "fccbe7400b353f4733870e326f252ed420cfdfac999581cfc7752b6815495b08",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep083",
+      "episode_number": 83,
+      "source_roster_index": 82,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200133,
+      "model_seed": 60800033,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200133",
+          "outcome": "success",
+          "source_result_sha256": "9b952ab73ad12629f90d5982b924266e4278c9eb86792f8682a565b8f058e474",
+          "policy_observations": 768,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200133",
+          "outcome": "failure",
+          "source_result_sha256": "8ef2e8ebfd41ce099f94ee3d85cdfd0fd91d445304339181577f42609cf15576",
+          "policy_observations": 717,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h8_ep084",
+      "episode_number": 84,
+      "source_roster_index": 83,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200134,
+      "model_seed": 60800034,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200134",
+          "outcome": "success",
+          "source_result_sha256": "687d5ed7612663ffe3f4119072dc7c0ae5120763fdafa5f419087e5b573de496",
+          "policy_observations": 751,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200134",
+          "outcome": "failure",
+          "source_result_sha256": "14ec6656833b1808142d506c5aca77c5f8befae43ae33bd019354e2b213e14bb",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h8_ep085",
+      "episode_number": 85,
+      "source_roster_index": 84,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200135,
+      "model_seed": 60800035,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200135",
+          "outcome": "success",
+          "source_result_sha256": "faa80f884cd0cccb77bc992af7a9639f008e6e99770a45d624302e6120e7fbc2",
+          "policy_observations": 679,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200135",
+          "outcome": "failure",
+          "source_result_sha256": "55c41e81617128912a83ddfbee0e656f3e9936631a3e27947c116b4c604ccd91",
+          "policy_observations": 808,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h8_ep086",
+      "episode_number": 86,
+      "source_roster_index": 85,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200136,
+      "model_seed": 60800036,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200136",
+          "outcome": "failure",
+          "source_result_sha256": "cd96d8249be4f00eac923d0d7aad93864d6ac36cb97ec71738718b82ee72d633",
+          "policy_observations": 714,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200136",
+          "outcome": "failure",
+          "source_result_sha256": "c0ec0e64e98b59dd12c464a63817166ce1523beacc74a9671f9e4f2d5582e1bf",
+          "policy_observations": 336,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep087",
+      "episode_number": 87,
+      "source_roster_index": 86,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200137,
+      "model_seed": 60800037,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200137",
+          "outcome": "failure",
+          "source_result_sha256": "a7991b7a809b59879c64326c62d304e8a953f1ce86613d25f26e51f74ec89c85",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200137",
+          "outcome": "failure",
+          "source_result_sha256": "d618a528a4dda16e3a5d0ec18206b1a3e41c93f0e0c16e1c4226b741a9f1a62d",
+          "policy_observations": 430,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep088",
+      "episode_number": 88,
+      "source_roster_index": 87,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200138,
+      "model_seed": 60800038,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200138",
+          "outcome": "failure",
+          "source_result_sha256": "9017035a1dd0bd2fd7bc296c5b8c504b8c1a18d8140036ea4012d5fbe78b1501",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200138",
+          "outcome": "failure",
+          "source_result_sha256": "bea73a3558a5c4ca58a89d0fd5a8b282afa689bbf03b3309de9b0a96d613875a",
+          "policy_observations": 597,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep089",
+      "episode_number": 89,
+      "source_roster_index": 88,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200139,
+      "model_seed": 60800039,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200139",
+          "outcome": "failure",
+          "source_result_sha256": "4bfa5274c22c61f1786485ff7736df0ebb51db0ad0b1e12e63f8921782be8ee0",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200139",
+          "outcome": "failure",
+          "source_result_sha256": "5f41caae857181a6a0a269ceef01320835e29089516b7f613b2e6a831562e931",
+          "policy_observations": 1125,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep090",
+      "episode_number": 90,
+      "source_roster_index": 89,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200140,
+      "model_seed": 60800040,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200140",
+          "outcome": "success",
+          "source_result_sha256": "08873bcfefd7600f588951f447e9949e1ad1edf4f025e9e531921838df698d48",
+          "policy_observations": 669,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200140",
+          "outcome": "failure",
+          "source_result_sha256": "f6830e96fe71a9dcb50a12ee30faa97261315551282091e9aa50f8f21c09c2e1",
+          "policy_observations": 91,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h8_ep091",
+      "episode_number": 91,
+      "source_roster_index": 90,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200141,
+      "model_seed": 60800041,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200141",
+          "outcome": "failure",
+          "source_result_sha256": "a7b9e10779d04c4a8a1ca343f8b4b208db7560b2360fb4e88224b97bd63cdfae",
+          "policy_observations": 697,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200141",
+          "outcome": "failure",
+          "source_result_sha256": "cb483db0bff9fdddb33747c8cc34e9acc95bf483281c38e5877c5401cd4e986e",
+          "policy_observations": 369,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep092",
+      "episode_number": 92,
+      "source_roster_index": 91,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200142,
+      "model_seed": 60800042,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200142",
+          "outcome": "success",
+          "source_result_sha256": "deae1a74a2040c3b2268b500f382c8922c1aa3f11b7735fa6dfb8174eb2e21c4",
+          "policy_observations": 734,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200142",
+          "outcome": "failure",
+          "source_result_sha256": "9af713a8049318485f6ba691863192bca0f8c1baf25ff3ad0e96911e45afb332",
+          "policy_observations": 461,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h8_ep093",
+      "episode_number": 93,
+      "source_roster_index": 92,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200143,
+      "model_seed": 60800043,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200143",
+          "outcome": "failure",
+          "source_result_sha256": "55790bb67c0f693df0041408e2a1721ffb9ed4d2149365275fab90e064f89a64",
+          "policy_observations": 1125,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200143",
+          "outcome": "failure",
+          "source_result_sha256": "a5c7d50b4ce45143e290e2f2d750bc123df464873f9ad7c3b359647ee8696b2c",
+          "policy_observations": 584,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep094",
+      "episode_number": 94,
+      "source_roster_index": 93,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200144,
+      "model_seed": 60800044,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200144",
+          "outcome": "failure",
+          "source_result_sha256": "aa03c8f541ee977babffb143975ecab2a6cb01a7c14b905f732d0533225c588b",
+          "policy_observations": 725,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200144",
+          "outcome": "failure",
+          "source_result_sha256": "e276f1534ab1ff15d6f6aaa187a2bbdf8945b197c23c4aadb66e601dbff69645",
+          "policy_observations": 353,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep095",
+      "episode_number": 95,
+      "source_roster_index": 94,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200145,
+      "model_seed": 60800045,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200145",
+          "outcome": "failure",
+          "source_result_sha256": "7bb511b539710f28a250f89e4f184824c8a0c2310e4718c7dbbf7cd0ec974ec9",
+          "policy_observations": 1071,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200145",
+          "outcome": "failure",
+          "source_result_sha256": "51b06059c7718b9c527e8fdb87871d68648584bbd8304907c32525391df788e2",
+          "policy_observations": 650,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep096",
+      "episode_number": 96,
+      "source_roster_index": 95,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200146,
+      "model_seed": 60800046,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200146",
+          "outcome": "success",
+          "source_result_sha256": "9721fd1bc733e511e5bc0ad7a7061cc40f0341240de8b6cfadbc178b7a708aba",
+          "policy_observations": 672,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200146",
+          "outcome": "failure",
+          "source_result_sha256": "e3f21d97259a924862fd1748fb69aa5100620ba3ea8d01448cf3933c5129c554",
+          "policy_observations": 436,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h8_ep097",
+      "episode_number": 97,
+      "source_roster_index": 96,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200147,
+      "model_seed": 60800047,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200147",
+          "outcome": "success",
+          "source_result_sha256": "c8f28bd8bc2b519dbd019e39e5d0e0caee1a6be32c0257fc4a0bbdd2e9f13a6b",
+          "policy_observations": 644,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200147",
+          "outcome": "failure",
+          "source_result_sha256": "58953de0bd587fd76369a264f5075c46466aa91866a36e232c098233ebf54151",
+          "policy_observations": 856,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    },
+    {
+      "id": "h8_ep098",
+      "episode_number": 98,
+      "source_roster_index": 97,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200148,
+      "model_seed": 60800048,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200148",
+          "outcome": "failure",
+          "source_result_sha256": "5923c7aa3ac635963efdb197fb487addfe4de334b24e76ef62f6fb454ed81eca",
+          "policy_observations": 744,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200148",
+          "outcome": "failure",
+          "source_result_sha256": "fe803cf566cc3d16aafc77119f279ac83a592f124a81f7a1ffc1219db8e3e7c5",
+          "policy_observations": 504,
+          "media": null
+        }
+      },
+      "pattern": "failure__failure"
+    },
+    {
+      "id": "h8_ep099",
+      "episode_number": 99,
+      "source_roster_index": 98,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200149,
+      "model_seed": 60800049,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200149",
+          "outcome": "success",
+          "source_result_sha256": "a515a264ea1a0ee8ee5d5a91d824bcef16e8a77f39db029a44ba6a68a7a8963e",
+          "policy_observations": 1003,
+          "media": {
+            "annotated": "media/h8_ep099/mem0/ep099_h8_mem0_SUCCESS_subtasks.mp4",
+            "original": "media/h8_ep099/mem0/ep099_h8_mem0_SUCCESS_original.mp4",
+            "timeline": "media/h8_ep099/mem0/timeline.json",
+            "filename": "ep099_h8_mem0_SUCCESS_subtasks.mp4",
+            "source_video_sha256": "22daad04e18e46ee83d0c64d6ab6fb6706e5b8b01f1ded3c6ed1ef976a8c62eb",
+            "annotated_sha256": "e3c547a20df7572f958ee67de2104b75543c78bed8740eba89a7a8c547409fcb",
+            "video_frames": 1004,
+            "policy_frames": 1003,
+            "selection_events": 0
+          }
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200149",
+          "outcome": "success",
+          "source_result_sha256": "cc7e9f64efa01a15b01c4d99ab27bd9a64a0d4f49f6e08b443f4f73caba5de86",
+          "policy_observations": 788,
+          "media": {
+            "annotated": "media/h8_ep099/ours/ep099_h8_ours_SUCCESS_subtasks.mp4",
+            "original": "media/h8_ep099/ours/ep099_h8_ours_SUCCESS_original.mp4",
+            "timeline": "media/h8_ep099/ours/timeline.json",
+            "filename": "ep099_h8_ours_SUCCESS_subtasks.mp4",
+            "source_video_sha256": "ccafb81b5fb5e091556159688b4dd8a1186820800e5a9defff66971cabb7c0b2",
+            "annotated_sha256": "49948581f3e9d1aaf4235a318f01f6b835f740abe94deaba9a51fa4d28b47218",
+            "video_frames": 789,
+            "policy_frames": 788,
+            "selection_events": 2
+          }
+        }
+      },
+      "pattern": "success__success"
+    },
+    {
+      "id": "h8_ep100",
+      "episode_number": 100,
+      "source_roster_index": 99,
+      "horizon": 8,
+      "side": "right",
+      "scene_seed": 262200150,
+      "model_seed": 60800050,
+      "methods": {
+        "mem0": {
+          "episode_id": "mem0_c30000_h8_right_s262200150",
+          "outcome": "success",
+          "source_result_sha256": "d953e49c1a9bfbfc0a0c70a3ce4ada6044befc17319fb05d046b8a3d37b9fbee",
+          "policy_observations": 662,
+          "media": null
+        },
+        "ours": {
+          "episode_id": "ours_c30000_h8_right_s262200150",
+          "outcome": "failure",
+          "source_result_sha256": "c6063b8802887e32f77fca1b8bdcb17ed6cb966d6de51cad582ef89bbc6c039e",
+          "policy_observations": 631,
+          "media": null
+        }
+      },
+      "pattern": "success__failure"
+    }
+  ],
+  "media_priority": [
+    "h4_ep011",
+    "h4_ep004",
+    "h4_ep020",
+    "h4_ep002",
+    "h4_ep001",
+    "h8_ep010",
+    "h8_ep002",
+    "h8_ep099",
+    "h8_ep001",
+    "h8_ep007",
+    "h4_ep010",
+    "h4_ep018",
+    "h4_ep022",
+    "h4_ep029",
+    "h4_ep030",
+    "h4_ep031",
+    "h4_ep032",
+    "h4_ep034",
+    "h4_ep061",
+    "h4_ep063",
+    "h4_ep066",
+    "h4_ep067",
+    "h4_ep068",
+    "h4_ep077",
+    "h4_ep079",
+    "h4_ep086",
+    "h4_ep088",
+    "h4_ep090",
+    "h4_ep091",
+    "h4_ep092",
+    "h4_ep093",
+    "h4_ep095",
+    "h4_ep097",
+    "h4_ep098",
+    "h4_ep099",
+    "h4_ep100",
+    "h8_ep013",
+    "h8_ep015",
+    "h8_ep016",
+    "h8_ep017",
+    "h8_ep020",
+    "h8_ep022",
+    "h8_ep025",
+    "h8_ep029",
+    "h8_ep030",
+    "h8_ep032",
+    "h8_ep038",
+    "h8_ep047",
+    "h8_ep048",
+    "h8_ep055",
+    "h8_ep061",
+    "h8_ep062",
+    "h8_ep068",
+    "h8_ep073",
+    "h8_ep077",
+    "h8_ep079",
+    "h8_ep083",
+    "h8_ep084",
+    "h8_ep085",
+    "h8_ep090",
+    "h8_ep092",
+    "h8_ep096",
+    "h8_ep097",
+    "h8_ep100"
+  ],
+  "source": {
+    "snapshot_sha256": "400d3162c301aab63b10960aa645e469b6cedc7db0c234c1073e174b9a25a7fb",
+    "contract_sha256": "5e8bcc4ea111629c1beca67ad393eaa9af2c7c2bb1511adf21fcd97f63e050fb",
+    "plan_sha256": {
+      "mem0": "1e198c5a7873ae5546fc18b56b25d3aa7520e52c861e223741a89e2febc92a7c",
+      "ours": "54a1dce0b1e9ed8ebb79fbc735b4e0420fec0b640d9167341fa73eab7a1b7484"
+    }
+  }
+}
