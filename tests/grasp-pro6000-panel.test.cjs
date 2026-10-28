@@ -37,7 +37,7 @@ test('all 21 objects and retained Pro6000 versions remain unaccepted', () => {
   assert.match(container.textContent, /0 \/ 21/);
   assert.match(container.textContent, /为什么还没有完整通过/);
   assert.match(container.textContent, /约6–9mm初始XY偏移/);
-  assert.doesNotMatch(container.textContent, /原端尚未确认停止|尚未执行/);
+  assert.doesNotMatch(container.textContent, /原端尚未确认停止/);
   const activeJobs = snapshot.pipeline.jobs.filter(j => ['RUNNING', 'PENDING', 'PROVISIONING'].includes(j.status));
   assert.equal(created.filter(n => n.tag === 'tr').length, 3 + activeJobs.length + snapshot.runs.length + 21);
   const links = created.filter(n => n.tag === 'a' && n.href.startsWith('#'));
@@ -59,6 +59,10 @@ test('job states and diagnostic failures never increase acceptance or erase hist
   assert.match(container.textContent, /0 \/ 21/);
   assert.match(container.textContent, /77\.3%/);
   assert.match(container.textContent, /继续挂起/);
+  assert.doesNotMatch(container.textContent, /\[object Object\]/);
+  for (const queued of data.pipeline.prepared_not_submitted) {
+    if (typeof queued === 'object') assert.ok(container.textContent.includes(queued.progress_note));
+  }
 });
 
 test('provisioning jobs remain visible in the active work table', () => {
@@ -114,6 +118,27 @@ test('names and notes are rendered as text', () => {
   const {container, created} = render(data);
   assert.match(container.textContent, /<img src=x onerror=alert\(1\)>/);
   assert.equal(created.some(n => n.tag === 'img' || n.tag === 'script'), false);
+});
+
+test('qualified source100 stays separate from policy acceptance and retains original source video links', () => {
+  const data = copy();
+  const mortar = data.objects.find(o => o.object === 'mortar');
+  assert.equal(mortar.source_reference100.clean_qualified_positions, 100);
+  assert.equal(mortar.source_reference100.selected_original_frames, 71918);
+  assert.equal(mortar.source_reference100.source_training_allowed, false);
+  assert.equal(mortar.source_review_videos.length, 3);
+  const {container, created} = render(data);
+  assert.match(container.textContent, /0 \/ 21/);
+  assert.match(container.textContent, /源示范三视角（抽查记录，非策略测试）/);
+  for (const video of mortar.source_review_videos) {
+    assert.ok(created.some(n => n.tag === 'a' && n.href === video.url));
+    assert.ok(fs.existsSync(path.join(root, video.url)));
+  }
+  mortar.source_review_videos.push({label:'invalid scheme', url:'javascript:alert(1)'},
+    {label:'invalid path', url:'assets/grasp/../../outside.mp4'});
+  const rendered = render(data);
+  assert.equal(rendered.created.some(n => n.tag === 'a' &&
+    ['javascript:alert(1)', 'assets/grasp/../../outside.mp4'].includes(n.href)), false);
 });
 
 test('only the new snapshot adds browser versions; every existing dataset remains wired', () => {
