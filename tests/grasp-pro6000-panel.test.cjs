@@ -157,7 +157,7 @@ test('only the new snapshot adds browser versions; every existing dataset remain
   assert.equal(incomplete.result.formal_evaluation_status, 'FAILED_INCOMPLETE');
   assert.equal(incomplete.progress.episode_num, 23);
   const media=snapshot.runs.flatMap(r => r.cases);
-  assert.equal(media.length, 30);
+  assert.equal(media.length, 36);
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_Mortar_paired_source5_20261029/')).length, 6);
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_Mortar_source5_20261029/')).length, 3);
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_fresh_B100_20261027/')).length, 6);
@@ -165,7 +165,7 @@ test('only the new snapshot adds browser versions; every existing dataset remain
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_ClearL_source15_20261028/')).length, 6);
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_BrownV_formal150_20261028/')).length, 3);
   for (const clip of media) {
-    assert.match(clip.url, /^assets\/grasp\/(?:pro6000_fresh_B100_20261027\/trial(?:02|06)_s\d+_(?:chest|head|third)_camera|pro6000_formal_B100_20261028\/formal150_trial(?:000|001)_s26121921_(?:success|failure)_(?:chest|head|third)|pro6000_ClearL_source15_20261028\/clearL_ACT_source15_s26121921_ep(?:001|003)_(?:chest|head|third)_camera|pro6000_BrownV_formal150_20261028\/formal150_trial001_s26121921_(?:chest|head|third)_camera|pro6000_Mortar_source5_20261029\/source42_s26121921_failure_(?:chest|head|third)|pro6000_Mortar_paired_source5_20261029\/(?:state_noise|clean_control)_source42_s26121921_failure_(?:chest|head|third))\.mp4$/);
+    assert.match(clip.url, /^assets\/grasp\/(?:pro6000_fresh_B100_20261027\/trial(?:02|06)_s\d+_(?:chest|head|third)_camera|pro6000_formal_B100_20261028\/formal150_trial(?:000|001)_s26121921_(?:success|failure)_(?:chest|head|third)|pro6000_ClearL_source15_20261028\/clearL_ACT_source15_s26121921_ep(?:001|003)_(?:chest|head|third)_camera|pro6000_BrownV_formal150_20261028\/formal150_trial001_s26121921_(?:chest|head|third)_camera|pro6000_Mortar_source5_20261029\/source42_s26121921_failure_(?:chest|head|third)|pro6000_Mortar_paired_source5_20261029\/(?:state_noise|clean_control)_source42_s26121921_failure_(?:chest|head|third)|pro6000_F500_source15_20261029\/(?:terminal_failure_s26121921_ep005|terminal_pass_s26121925_ep002)_(?:chest|head|third))\.mp4$/);
     const bytes=fs.readFileSync(path.join(root,clip.url));
     assert.equal(require('node:crypto').createHash('sha256').update(bytes).digest('hex'), clip.SHA256);
   }
@@ -267,4 +267,15 @@ test('paired Mortar continuations keep seed21 and five failures each without for
     assert.equal(run.cases.length, 3);
     assert.ok(run.cases.every(c => c.success === false && c.frames === 720));
   }
+});
+
+
+test('F500 source lift success stays separate from terminal error and formal acceptance', () => {
+ const r=snapshot.runs.find(r => r.candidate==='pro6000-dev-A32-f500B-source15-20261029cc');
+ assert.equal(r.development,true);assert.equal(r.result.successes,15);
+ assert.equal(r.result.success_terminal20mm,3);assert.equal(r.result.SpatialSSR,null);
+ assert.equal(r.formal_accepted,false);assert.equal(r.cases.length,6);
+ assert.ok(r.cases.every(c => c.frames===719 && c.full_original_decode_passed && !c.full_trajectory_visual_acceptance));
+ assert.equal(r.cases.filter(c => c.terminal_translation_passed).length,3);
+ assert.equal(snapshot.objects_both_methods_formally_accepted,0);
 });
