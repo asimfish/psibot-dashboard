@@ -125,7 +125,10 @@ test('qualified source100 stays separate from policy acceptance and retains orig
   const mortar = data.objects.find(o => o.object === 'mortar');
   assert.equal(mortar.source_reference100.clean_qualified_positions, 100);
   assert.equal(mortar.source_reference100.selected_original_frames, 71918);
-  assert.equal(mortar.source_reference100.source_training_allowed, false);
+  assert.equal(mortar.source_reference100.source_training_allowed, true);
+  assert.equal(mortar.source_reference100.development_training_allowed, true);
+  assert.equal(mortar.source_reference100.production_source_admission, false);
+  assert.equal(mortar.object_accepted, false);
   assert.equal(mortar.source_review_videos.length, 3);
   const {container, created} = render(data);
   assert.match(container.textContent, /0 \/ 21/);
