@@ -12,8 +12,77 @@
   "head_video": "cases/t990_refinement_r_t990_c30000_h8_left_s947100000/head_camera.mp4",
   "trace": "cases/t990_refinement_r_t990_c30000_h8_left_s947100000/trace.json",
   "audit": "cases/t990_refinement_r_t990_c30000_h8_left_s947100000/audit.json",
-  "images": [],
-  "annotations": [],
+  "images": [
+    {
+      "path": "cases/t990_refinement_r_t990_c30000_h8_left_s947100000/f240.png",
+      "caption": "原始视频帧 240"
+    },
+    {
+      "path": "cases/t990_refinement_r_t990_c30000_h8_left_s947100000/f256.png",
+      "caption": "原始视频帧 256"
+    },
+    {
+      "path": "cases/t990_refinement_r_t990_c30000_h8_left_s947100000/f270.png",
+      "caption": "原始视频帧 270"
+    },
+    {
+      "path": "cases/t990_refinement_r_t990_c30000_h8_left_s947100000/f390.png",
+      "caption": "原始视频帧 390"
+    },
+    {
+      "path": "cases/t990_refinement_r_t990_c30000_h8_left_s947100000/f480.png",
+      "caption": "原始视频帧 480"
+    },
+    {
+      "path": "cases/t990_refinement_r_t990_c30000_h8_left_s947100000/f640.png",
+      "caption": "原始视频帧 640"
+    },
+    {
+      "path": "cases/t990_refinement_r_t990_c30000_h8_left_s947100000/f840.png",
+      "caption": "原始视频帧 840"
+    },
+    {
+      "path": "cases/t990_refinement_r_t990_c30000_h8_left_s947100000/f1000.png",
+      "caption": "原始视频帧 1000"
+    },
+    {
+      "path": "cases/t990_refinement_r_t990_c30000_h8_left_s947100000/f1124.png",
+      "caption": "原始视频帧 1124"
+    }
+  ],
+  "annotations": [
+    {
+      "stage": 0,
+      "interval": null,
+      "completed_by_frame": 270,
+      "confidence": "中",
+      "source": "Codex直接检查原始240/256/270帧",
+      "reason": "270帧源杯位于接收杯上方，已达到可见倾倒准备位。最早的深度对齐时刻无法由这一视角确定；不能据此判断256帧是否提前。",
+      "actual_switch_frames": [
+        256
+      ],
+      "early": false
+    },
+    {
+      "stage": 1,
+      "interval": null,
+      "completed_by_frame": 480,
+      "confidence": "中",
+      "source": "Codex直接检查原始390/480/640/840/1000/1124帧",
+      "reason": "390至480帧接收杯有明显蓝色液体，源杯看似已空；480帧为保守视觉完成上界。末段直到1124帧仍持杯倾倒，准确的粒子通过时刻不能从RGB确定。",
+      "actual_switch_frames": [],
+      "early": false
+    },
+    {
+      "stage": 2,
+      "interval": null,
+      "confidence": "高（未见放回）",
+      "source": "Codex直接检查原始640/840/1000/1124帧及原生返回指令日志",
+      "reason": "这些末段帧中源杯始终被持握在接收杯上方，原垫空着；原生指令位置也停在倾倒。没有观察到放回完成，无法给出完成帧。",
+      "actual_switch_frames": [],
+      "early": false
+    }
+  ],
   "video_offset_s": 0,
   "video_note": "同一轨迹的原始15Hz录像：第三人称为策略输入，头部仅供旁观。帧0对应模拟tick0，初始物理settle已结束。",
   "validation": {
