@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>任务 SR 重测 · Mem-0 / Ours</title>
+<style>:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#111820;color:#edf3fa;font:16px/1.65 system-ui,sans-serif}main{max-width:1400px;margin:auto;padding:24px}a{color:#94cfff}h1{font-size:28px}h2{font-size:21px}.panel{padding:20px;background:#1a2531;border:1px solid #405063;border-radius:12px;margin:18px 0}.notice{border-left:4px solid #f4cf80;padding:12px 18px;background:#302c21}.muted{color:#afbdcd}.scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}td,th{text-align:left;padding:9px 12px;border-bottom:1px solid #405063;white-space:nowrap}select,button{font:inherit;color:inherit;background:#283b4e;border:1px solid #617b94;border-radius:6px;padding:6px 12px}label{display:inline-block;margin:8px 20px 8px 0}.success{color:#96e7b9}.failure{color:#ffabb4}.unknown{color:#f4cf80}.pending{color:#afbdcd}details{overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px}progress{width:100%;accent-color:#96e7b9}#error{color:#ffabb4}@media(max-width:650px){main{padding:12px}.panel{padding:12px}h1{font-size:23px}}</style></head>
+<body><main><nav><a href="../">← 阈值面板</a> · <a href="../paired/">历史严格判定与400段原视频</a></nav>
+<h1>任务 SR 重测：Mem-0 与 Ours</h1>
+<p>同一原始100条场景，各测4步和8步；把任务完成与额外安全约束分开记录。</p>
+<div class="notice" id="state">正在载入源审计结果…</div>
+<section class="panel"><h2>重测结果</h2><p id="updated" class="muted"></p><progress id="progress" max="400" value="0"></progress><p id="coverage"></p>
+<div class="scroll"><table><thead><tr><th>方法</th><th>执行步数</th><th>任务成功 S</th><th>任务失败 F</th><th>未裁定 U</th><th>待完成</th><th>任务 SR</th><th>未裁定敏感范围</th><th>历史严格判定</th><th>SR成功且旧规则会拒绝</th></tr></thead><tbody id="rates"></tbody></table></div>
+<p class="muted">每格固定100条分母。未完成时只显示成功数，不公布最终成功率。未裁定是观察器或基础设施错误，不能改记成失败或丢出分母。“旧规则会拒绝”只统计已记录前缀中的拒绝；SR完成后未必观察到旧规则要求的3秒稳持，因此它不是新的SSR成功率。</p>
+<p class="muted">未裁定敏感范围为[S/100,(S+U)/100]：分别把全部未裁定视为不成功或成功的极端情况，不是统计置信区间。本轮48条未裁定均来自原始杯腔分类观察器错误，未当作失败计入F。</p>
+</section>
+<section class="panel"><h2>本轮 SR 成功与失败视频</h2><p>每种方法、每种步数各一条成功和失败，共8条。全部400条结束后，按每类别最小原roster index固定选择；它们用于诊断，成功率仍使用全部100条。</p>
+<label>本轮案例 <select id="example"></select></label><p id="exampleMeta"></p><p id="exampleInstruction" style="border-left:3px solid #94cfff;padding:12px;background:#111820"></p>
+<video id="exampleVideo" controls playsinline preload="metadata" style="width:100%;max-height:720px;background:black"></video><p id="exampleDownloads"></p><div id="exampleFrames"></div><p class="muted">字幕附在原640×480视野下方，保留全部15Hz原帧；字幕版为H264 CRF23有损衍生。原始录像另可下载，录像本身也不是无损模型输入。Planner指令位置与物理任务完成阶段分别记录。关键帧仅在本次原生日志释放后显示；Mem-0不套用Ours离散选帧。</p></section>
+<section class="panel"><h2>这次成功判定保留什么？</h2>
+<ol><li>烧杯A与手有物理接触、无支撑接触，并真实抬升至少1cm。</li><li>随后烧杯B接收到至少95%的初始液体。</li><li>A放回原垫，真实接触该垫、与机器人无接触；平面位置误差≤2cm、杯底高度误差≤8mm、倾角≤10°；B最终仍保有至少95%液体。</li></ol>
+<p>不因离开倾倒区后倾角超过15°、额外稳持时长、退手距离、速度或洒漏安全门而提前终止。原生粒子守恒、接触记录、场景初始化、控制映射及独立审计继续核验。没有篡改原始安全标志。</p>
+<p class="muted">原 Episode 1 在仍有155个手杯接触点时，以15.55°超过包络外15°而终止；不是观测到掉杯。这能解释该条旧提前终止，但不能证明全部低成功率都来自这一个门。新版移除了多项额外安全和稳持要求，不能将总提升单独归因于15°。</p>
+<p><strong>同场景重跑的两条案例：</strong>Ours 4步 Episode 001本轮仍失败：75秒时处于任务阶段2，B中1273/1290粒子，A仍有145个手接触点；直到策略frame1025（68.33秒）才切到放回指令。本轮记录前缀没有旧安全规则拒绝。Episode 002本轮在原生tick4801（40.008秒）完成任务SR，末次A无手接触，B中1290/1290粒子。</p>
+<p class="muted">新旧两条的抬杯、倾倒事件tick已有差异。这是相同场景/模型种子下的重新运行，不是把原轨迹直接放行；尤其旧Episode 002没有安全拒绝，不能把本次成功归因于删除15°门。新版多项验收改变与随机轨迹差异都需要保留在解释中。</p>
+</section>
+<section class="panel"><h2>控制条件与资源</h2><p>两方法30k权重；预测30步，每次执行4或8步。Ours保持阈值0.975、累计2次阳性。第三人称640×480原始RGB，15Hz观测，120Hz物理；相机、预处理、插值、控制器和时间平均保持原样。</p><p>待抓取杯A的XY独立均匀±1cm，左右各50条，垫子和B固定。3个四卡低优Pro6000任务，共12卡；每卡两个独立Isaac单环境进程，最多24个实例并行。每个进程只有1环境。</p>
+<p class="muted">沿用历史场景和模型随机种子。随机渲染与物理运行不保证逐像素、逐轨迹相同；新旧规则与截断时间也不同。历史结果保留，不将旧截断轨迹事后改成成功。</p></section>
+<section class="panel"><h2>资源闭环</h2><p id="resourceState">正在读取云任务终态…</p><div class="scroll"><table><thead><tr><th>四卡任务</th><th>终态</th><th>GPU采样平均利用率</th><th>GPU采样中位利用率</th><th>单卡峰值显存</th></tr></thead><tbody id="resources"></tbody></table></div><p class="muted">利用率来自整个任务每15秒nvidia-smi离散采样，含启动和清理，不是按墙钟加权的吞吐指标；显存占用本身不代表有效计算。原始遥测与平台终态SHA保留在<a href="resources.json" download>资源证据摘要</a>。</p></section>
+<section class="panel"><h2>全部400条记录</h2><label>方法 <select id="method"><option value="all">全部</option><option value="mem0">Mem-0</option><option value="ours">Ours</option></select></label><label>执行步数 <select id="horizon"><option value="all">全部</option><option value="4">4步</option><option value="8">8步</option></select></label><label>结果 <select id="outcome"><option value="all">全部</option><option value="success">成功</option><option value="failure">失败</option><option value="unknown">未裁定</option><option value="pending">待完成</option></select></label>
+<p><a href="results.csv" download>下载400条CSV</a> · <a href="data.json" download>任务事件、安全拒绝与原始结果哈希JSON</a></p>
+<div class="scroll"><table><thead><tr><th>方法 / 步数</th><th>Episode / roster index</th><th>左右 / 场景种子</th><th>任务结果</th><th>事件与旧安全拒绝</th></tr></thead><tbody id="cases"></tbody></table></div></section>
+<details><summary>协议与证据哈希</summary><p><a href="protocol.json" download>冻结协议与完整100条场景清单</a></p><pre id="source"></pre></details><p id="error" role="alert"></p>
+</main><script src="app.js"></script></body></html>
