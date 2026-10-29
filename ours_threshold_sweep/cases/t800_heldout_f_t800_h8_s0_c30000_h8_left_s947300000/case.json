@@ -1,0 +1,121 @@
+{
+  "id": "t800_heldout_f_t800_h8_s0_c30000_h8_left_s947300000",
+  "arm": "t800",
+  "partition": "heldout_f_t800_h8_s0",
+  "split": "heldout",
+  "threshold": 0.8,
+  "horizon": 8,
+  "side": "left",
+  "roster_index": 0,
+  "outcome": "success",
+  "verified": true,
+  "video": "cases/t800_heldout_f_t800_h8_s0_c30000_h8_left_s947300000/third_camera.mp4",
+  "head_video": "cases/t800_heldout_f_t800_h8_s0_c30000_h8_left_s947300000/head_camera.mp4",
+  "trace": "cases/t800_heldout_f_t800_h8_s0_c30000_h8_left_s947300000/trace.json",
+  "audit": "cases/t800_heldout_f_t800_h8_s0_c30000_h8_left_s947300000/audit.json",
+  "images": [
+    {
+      "path": "cases/t800_heldout_f_t800_h8_s0_c30000_h8_left_s947300000/f0.png",
+      "caption": "原始视频帧 0"
+    },
+    {
+      "path": "cases/t800_heldout_f_t800_h8_s0_c30000_h8_left_s947300000/f150.png",
+      "caption": "原始视频帧 150"
+    },
+    {
+      "path": "cases/t800_heldout_f_t800_h8_s0_c30000_h8_left_s947300000/f250.png",
+      "caption": "原始视频帧 250"
+    },
+    {
+      "path": "cases/t800_heldout_f_t800_h8_s0_c30000_h8_left_s947300000/f350.png",
+      "caption": "原始视频帧 350"
+    },
+    {
+      "path": "cases/t800_heldout_f_t800_h8_s0_c30000_h8_left_s947300000/f450.png",
+      "caption": "原始视频帧 450"
+    },
+    {
+      "path": "cases/t800_heldout_f_t800_h8_s0_c30000_h8_left_s947300000/f550.png",
+      "caption": "原始视频帧 550"
+    },
+    {
+      "path": "cases/t800_heldout_f_t800_h8_s0_c30000_h8_left_s947300000/f650.png",
+      "caption": "原始视频帧 650"
+    },
+    {
+      "path": "cases/t800_heldout_f_t800_h8_s0_c30000_h8_left_s947300000/f700.png",
+      "caption": "原始视频帧 700"
+    }
+  ],
+  "annotations": [
+    {
+      "stage": 0,
+      "completed_by_frame": 250,
+      "confidence": "中：仅稀疏原始画面的视觉上界",
+      "source": "Codex 直接检查原始第三人称帧0/150/250",
+      "reason": "帧250可见烧杯已提起并移到接收杯上方附近；无法从稀疏画面确定最早就绪帧，不把该上界当作提前切换的下界。",
+      "actual_switch_frames": [
+        252
+      ],
+      "early": false
+    },
+    {
+      "stage": 1,
+      "completed_by_frame": 350,
+      "confidence": "中：仅视觉上界，液体精确比例不可从画面定量",
+      "source": "Codex 直接检查原始帧250/350/450",
+      "reason": "帧350可见源杯处于倾倒姿态且接收杯内已有明显蓝色液体，源杯蓝色液体已不明显；更晚450显示源杯已回转。精确完成时点和粒子比例不能由这些画面确定。",
+      "actual_switch_frames": [
+        387
+      ],
+      "early": false
+    },
+    {
+      "stage": 2,
+      "completed_by_frame": 700,
+      "confidence": "中：仅视觉上界，不作精确接触判定",
+      "source": "Codex 直接检查原始帧550/650/700",
+      "reason": "帧700可见源杯竖直放在原垫子上，手指张开且手已抬离；精确释放和撤手完成帧未知。此例678后多次切换仍返回相同放回指令，不能把位置编号增大当作新语义子任务。",
+      "actual_switch_frames": [
+        678
+      ],
+      "early": false
+    }
+  ],
+  "video_offset_s": 0,
+  "video_note": "同一轨迹的原始15Hz录像：第三人称为策略输入，头部仅供旁观。帧0对应模拟tick0，初始物理settle已结束。",
+  "validation": {
+    "full_decode": true,
+    "ffprobe": {
+      "third_camera.mp4": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 640,
+            "height": 480,
+            "avg_frame_rate": "15/1",
+            "nb_frames": "704"
+          }
+        ],
+        "format": {
+          "duration": "46.934000"
+        }
+      },
+      "head_camera.mp4": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 640,
+            "height": 480,
+            "avg_frame_rate": "15/1",
+            "nb_frames": "704"
+          }
+        ],
+        "format": {
+          "duration": "46.934000"
+        }
+      }
+    },
+    "frame_count_matches_original_manifest": true
+  }
+}
