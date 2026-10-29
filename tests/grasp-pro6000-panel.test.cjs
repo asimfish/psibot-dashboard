@@ -157,14 +157,15 @@ test('only the new snapshot adds browser versions; every existing dataset remain
   assert.equal(incomplete.result.formal_evaluation_status, 'FAILED_INCOMPLETE');
   assert.equal(incomplete.progress.episode_num, 23);
   const media=snapshot.runs.flatMap(r => r.cases);
-  assert.equal(media.length, 24);
+  assert.equal(media.length, 30);
+  assert.equal(media.filter(clip => clip.url.includes('/pro6000_Mortar_paired_source5_20261029/')).length, 6);
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_Mortar_source5_20261029/')).length, 3);
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_fresh_B100_20261027/')).length, 6);
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_formal_B100_20261028/')).length, 6);
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_ClearL_source15_20261028/')).length, 6);
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_BrownV_formal150_20261028/')).length, 3);
   for (const clip of media) {
-    assert.match(clip.url, /^assets\/grasp\/(?:pro6000_fresh_B100_20261027\/trial(?:02|06)_s\d+_(?:chest|head|third)_camera|pro6000_formal_B100_20261028\/formal150_trial(?:000|001)_s26121921_(?:success|failure)_(?:chest|head|third)|pro6000_ClearL_source15_20261028\/clearL_ACT_source15_s26121921_ep(?:001|003)_(?:chest|head|third)_camera|pro6000_BrownV_formal150_20261028\/formal150_trial001_s26121921_(?:chest|head|third)_camera|pro6000_Mortar_source5_20261029\/source42_s26121921_failure_(?:chest|head|third))\.mp4$/);
+    assert.match(clip.url, /^assets\/grasp\/(?:pro6000_fresh_B100_20261027\/trial(?:02|06)_s\d+_(?:chest|head|third)_camera|pro6000_formal_B100_20261028\/formal150_trial(?:000|001)_s26121921_(?:success|failure)_(?:chest|head|third)|pro6000_ClearL_source15_20261028\/clearL_ACT_source15_s26121921_ep(?:001|003)_(?:chest|head|third)_camera|pro6000_BrownV_formal150_20261028\/formal150_trial001_s26121921_(?:chest|head|third)_camera|pro6000_Mortar_source5_20261029\/source42_s26121921_failure_(?:chest|head|third)|pro6000_Mortar_paired_source5_20261029\/(?:state_noise|clean_control)_source42_s26121921_failure_(?:chest|head|third))\.mp4$/);
     const bytes=fs.readFileSync(path.join(root,clip.url));
     assert.equal(require('node:crypto').createHash('sha256').update(bytes).digest('hex'), clip.SHA256);
   }
@@ -250,4 +251,20 @@ test('unfinished formal150 keeps partial counts without a completed SR or pass l
   assert.match(node('runDetails').innerHTML,/未完成/);
   assert.doesNotMatch(node('runDetails').innerHTML,/SR 达到该物体论文目标|<strong>100\.0%<\/strong>/);
   assert.match(node('modelHistory').innerHTML,/已核验75\/150/);
+});
+
+test('paired Mortar continuations keep seed21 and five failures each without formal credit', () => {
+  const runs=snapshot.runs.filter(r => r.candidate.startsWith('pro6000-dev-A10warm-'));
+  assert.equal(runs.length, 2);
+  for (const run of runs) {
+    assert.equal(run.development, true);
+    assert.equal(run.formal_accepted, false);
+    assert.equal(run.protocol.seed, 26121921);
+    assert.equal(run.expected_trials, 5);
+    assert.equal(run.progress.episode_num, 5);
+    assert.equal(run.progress.episode_success_num, 0);
+    assert.equal(run.result.success_terminal20mm, 0);
+    assert.equal(run.cases.length, 3);
+    assert.ok(run.cases.every(c => c.success === false && c.frames === 720));
+  }
 });
