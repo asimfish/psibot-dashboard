@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-28T21:47:38.015522+00:00",
+  "updated_utc": "2026-10-29T00:03:11.983236+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -291,9 +291,9 @@
         "development_training_allowed": true,
         "sampled_review_sheets_manually_inspected": 2
       },
-      "next": "沿4条交叉的源动作范围、真实命令及执行状态排查，并验证启动故障修复；新候选须独立冻结完整150次。",
+      "next": "先完成10次配对的几何与三视角检查，判断动作投影是否有证据支持；正式失败版本和所有原身份保持独立。",
       "name": "250ml 棕色容量瓶",
-      "status_note": "当前32k ACT正式测试因Vulkan启动崩溃止于23/150；23条有效原试次均已完成120Hz CPU核验：20次抓起，9次成功且终点20mm并手/目标零交叉，4条试次存在交叉。剩余127条尚未执行；保留全部失败，不合并旧62/142条版本。",
+      "status_note": "当前32k ACT正式测试因Vulkan启动崩溃止于23/150；23条有效原试次均已完成120Hz CPU核验：20次抓起，9次成功且终点20mm并手/目标零交叉，4条试次存在交叉。剩余127条尚未执行；保留全部失败，不合并旧62/142条版本。 另10次固定源位置的手部动作范围配对开发实验已关闭：10/10抓起、1/10终点20mm；严格120Hz几何后处理尚未闭合，未替换或合并正式150。",
       "latest_source_development": {
         "method": "ACT",
         "trials": 15,
@@ -314,6 +314,16 @@
         "completed_native_successes": 47,
         "completed_success_terminal20mm": 7,
         "partial_is_not_formal_result": true
+      },
+      "source5_paired_hand6_diagnostic": {
+        "original_trial_budget": 10,
+        "completed_trials": 10,
+        "Native_successes": 10,
+        "success_terminal20": 1,
+        "strict120Hz_geometry": "CPU_POST_IN_PROGRESS",
+        "original_failed_baseline_retained_without_repeat": true,
+        "formal_accepted": false,
+        "full_paper_SSR": null
       }
     },
     {
@@ -423,9 +433,9 @@
       },
       "object_accepted": false,
       "full_visual_passed": false,
-      "next": "将实际输入校验过的新源接入DP/ACT三种子训练计划，按8卡额度接续；训练后保持原冻结150次泛化、完整SSR和视觉标准。",
+      "next": "ACT模型单独关闭后先提前验证，保持DP100k训练继续；完整几何、原冻结150与视觉检查仍需闭合。",
       "name": "研钵（论文 Crucible）",
-      "status_note": "原100个训练XY均已有合格示范：80条原m8、4条修复、15条补齐及sourceID0的新设置；100/100原生、抬升、终点20mm及287800个120Hz姿态手/目标零交叉。ACT、DP各232个真实输入检查均已通过，证明从BOS回读SHA一致。保持原ID、全局顺序及两种方法各自原95/5划分，下一步接续六模型训练；尚非策略验收通过。",
+      "status_note": "100个原训练位置均有干净示范，287800个120Hz手/目标姿态零交叉，ACT/DP各232个实际输入检查通过。新源已进入DP100k及ACT32k、各三种子训练；旧145/150交叉的ACT结果独立保留。",
       "source100_c0490": {
         "episodes": 100,
         "native_successes": 100,
@@ -452,16 +462,15 @@
         "formal_accepted": false
       },
       "source_curated_coverage": {
-        "clean_fixed_source_positions": 99,
+        "clean_fixed_source_positions": 100,
         "total_fixed_source_positions": 100,
-        "missing_source_ids": [
-          0
-        ],
+        "missing_source_ids": [],
         "last_crossing_depth_mm": 0.2705249140491732,
-        "source_training_allowed": false
+        "source_training_allowed": true,
+        "scope": "development training only; older99/100 attempt remains in source history"
       },
       "source_reference100": {
-        "candidate_selection_SHA256": "bcaec7fcf7ab78c73b52e77d1ec76a18eae77e9aef51800f913e596b9d80b198",
+        "candidate_selection_SHA256": "89acd4c4a8924c74c502db735b7447e05d3ab0e24512451bec61e62d8c1cc792",
         "original_source_positions": 100,
         "clean_qualified_positions": 100,
         "selected_original_frames": 71918,
@@ -473,11 +482,15 @@
         "parent_failed_attempts_retained": true,
         "actual_RGB_ACT232_passed": true,
         "actual_RGB_DP232_passed": true,
-        "source_training_allowed": false,
+        "source_training_allowed": true,
         "formal_accepted": false,
         "real_input_CPU_job": "job-phmro7s4gl53",
         "real_input_CPU_status": "SUCCEEDED",
-        "ACT_stats_SHA256": "a6a403719b96e35b61cbd9100334d60d54ee0e99fd1ae08f27f2ab586aa26ce8"
+        "ACT_stats_SHA256": "a6a403719b96e35b61cbd9100334d60d54ee0e99fd1ae08f27f2ab586aa26ce8",
+        "prior_candidate_selection_SHA256": "bcaec7fcf7ab78c73b52e77d1ec76a18eae77e9aef51800f913e596b9d80b198",
+        "development_training_allowed": true,
+        "production_source_admission": false,
+        "admission_SHA256": "9cc19784f8528fd6ef8aaab366642bcd53e2b2b5ecef9b577c5fa035e853a921"
       },
       "source_review_videos": [
         {
@@ -504,7 +517,30 @@
           "duration_s": 23.966666666666665,
           "scope": "原sourceID0补采示范；非策略测试，三视角12帧抽查"
         }
-      ]
+      ],
+      "training_current": {
+        "tag": "train-ref100-mortar-D100-A32-20261028cc",
+        "job_id": "job-4folyfg8efog",
+        "status": "RUNNING",
+        "methods": {
+          "DP": {
+            "updates": 100000,
+            "seeds": [
+              26121921,
+              26121923,
+              26121925
+            ]
+          },
+          "ACT": {
+            "updates": 32000,
+            "seeds": [
+              26121921,
+              26121923,
+              26121925
+            ]
+          }
+        }
+      }
     },
     {
       "object": "brown_reagent_bottle_large",
@@ -671,7 +707,12 @@
       },
       "collection_and_eval_GPU_line": "Zenith Pro6000",
       "DP": {
-        "formal_accepted": false
+        "formal_accepted": false,
+        "final_training_closed_seeds": [
+          26121921,
+          26121923,
+          26121925
+        ]
       },
       "ACT": {
         "formal_accepted": false
@@ -679,7 +720,7 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "大透明试剂瓶",
-      "status_note": "新源100/100抓起及物理目标、全120Hz手/目标零交叉，抽样三视角已检查。ACT32k源验证14/15抓起、终点20mm1/15；DP50000步提前验证14/15抓起、终点20mm4/15。两者仍未达标。",
+      "status_note": "新源100/100合格。ACT32k源验证14/15抓起、1/15终点20mm；DP50k为14/15和4/15。最终DP100k三种子已测试：14/15抓起、0/15终点20mm，其中3次抓起后又掉落。终点精度仍不达标。",
       "source": {
         "tag": "src100-clearLA-c045-m12-p120-20261028cc",
         "episodes": 100,
@@ -690,7 +731,7 @@
         "full_visual_passed": false,
         "formal_accepted": false
       },
-      "next": "专家100条终点误差约5–6mm，目标对齐差<0.34mm；继续定位模型闭环水平误差。DP100k训练继续，验证成功前不扩大正式测试。",
+      "next": "已启动同模型、同5个源位置的实际策略输入记录，定位闭环误差；专家目标对齐与动作队列已核对，不能靠更改评分目标补差。",
       "source_versions": [
         {
           "episodes": 100,
@@ -711,7 +752,15 @@
           "terminal20_component": 4
         },
         "full_paper_SSR": null,
-        "formal_accepted": false
+        "formal_accepted": false,
+        "DP_final100000": {
+          "trials": 15,
+          "successes": 14,
+          "terminal20_component": 0,
+          "terminal_object_losses_after_latched_success": 3,
+          "job_id": "job-714yglp6j8k2",
+          "training_positions_not_heldout": true
+        }
       }
     },
     {
@@ -846,7 +895,7 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "250ml 透明容量瓶",
-      "status_note": "减小闭合力度的候选未抬起，且有交叉；继续检查默认设置。"
+      "status_note": "默认闭合/偏移的8秒与10秒动作筛选正在运行，每组7个固定源位置；须先通过真实抬升及120Hz严格零交叉，才能采完整100条。"
     },
     {
       "object": "clear_volumetric_flask_500ml",
@@ -867,8 +916,8 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "500ml 透明容量瓶",
-      "status_note": "m8源100/100原生与独立物理目标通过；16/16分块、287800个实际120Hz手/目标姿态零交叉，时钟及原30Hz子集对齐、CPU/Pro6000参考一致；两原位置三相机48帧抽查正常。开发训练源已获准，ACT/DP包演练后等待8卡额度。",
-      "next": "8张训练卡空出4张时自动接续一个4卡训练包；三个固定F500种子以及50ml烧杯缺少的25号种子均已准备。正式与完整场景视觉验收另行闭合。",
+      "status_note": "m8源100/100抬升、287800个120Hz手/目标姿态零交叉。首个ACT训练包在优化开始前因数据根目录后缀错误失败；已核实全部16块、100个原ID/XY并修正新规格，ACT新tag及DP包等待8卡额度接续。",
+      "next": "修正后的ACT-r2优先于DP接续，已占用的训练卡保持运行；旧失败包保留，不计为完成训练。",
       "source120_closed": {
         "episodes": 100,
         "Native_successes": 100,
@@ -878,6 +927,16 @@
         "strict_hand_target_crossing_poses": 0,
         "development_training_allowed": true,
         "full_scene_and_policy_visual_accepted": false
+      },
+      "training_root_repair": {
+        "failed_job": "job-6feeeunz8mn5",
+        "failed_before_optimizer": true,
+        "correct_object_suffix": "clear_volumetric_flask_500ml",
+        "correct_NODE_SHA256": "e1ad7ef484b6e014403179da44132ff23f537c0862858f9ae72c084613ec3c8f",
+        "verified_source_cells": 16,
+        "verified_original_source_ids": 100,
+        "new_ACT_tag": "train-A32-f500B3-b50s25-20261028cc-r2",
+        "held_until_eight_training_GPU_cap": true
       }
     },
     {
@@ -899,7 +958,7 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "1000ml 透明容量瓶",
-      "status_note": "默认设置小样本可抬起；c0.8/c0.65未通过，尚无完整验收。"
+      "status_note": "前20次XYZ设置筛选正常结束，四种设置均有严格表面交叉，未入训。已启动默认闭合/偏移的10秒与12秒动作筛选；按7个固定源位置逐组核验。"
     },
     {
       "object": "erlenmeyer_flask",
@@ -1039,11 +1098,11 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 148,
-    "active_registered_jobs": 2,
+    "registered_jobs": 160,
+    "active_registered_jobs": 4,
     "BOS_mount_count": 2,
-    "state": "FORMAL_TECHNICAL_FAILURE_DIAGNOSIS_EIGHT_GPU_TRAINING",
-    "state_note": "8卡训练持续，研钵100源的真实ACT/DP输入校验已通过；BrownV失败动作链核对完成，继续受控修复。",
+    "state": "EIGHT_GPU_TRAINING_TERMINAL_ERROR_DIAGNOSIS",
+    "state_note": "8张训练卡继续：棕容量瓶/50ml烧杯DP，加研钵DP/ACT。两个开发/源筛选包并行；完整通过仍0/21。",
     "prepared_not_submitted": [
       {
         "tag": "eval-m6-dp-b50-20261025cc",
@@ -1052,9 +1111,9 @@
         "name": "50ml烧杯正式DP测试"
       },
       {
-        "tag": "train-A32-f500B3-b50s25-20261028cc",
-        "state": "SOURCE100_ADMITTED_CPU_STAGED_WAIT_EIGHT_GPU_CAP",
-        "progress_note": "100条全120Hz手/目标严格零穿模、物理目标、时钟及抽样视觉门槛已闭合。两训练包均完成隔离及共享启动演练，受8张训练卡总额度控制接续；尚未创建，不计运行卡。",
+        "tag": "train-A32-f500B3-b50s25-20261028cc-r2",
+        "state": "ROOT_REPAIRED_HELD_EIGHT_GPU_CAP",
+        "progress_note": "首包优化前失败，已修正实际容量瓶数据根目录并完成启动演练；新tag-r2等待训练额度，不取消在跑任务。",
         "name": "500ml容量瓶与50ml烧杯 · ACT训练包"
       },
       {
@@ -1064,7 +1123,7 @@
         "name": "500ml容量瓶与50ml烧杯 · DP训练包"
       }
     ],
-    "checked_utc": "2026-10-28T21:23:43.060568+00:00",
+    "checked_utc": "2026-10-28T23:48:56.593889+00:00",
     "jobs": [
       {
         "tag": "qual-mortar-p120-smoke4-20261028cc",
@@ -1703,10 +1762,10 @@
       {
         "tag": "train-D100-clearL3-brownV21-20261028cc",
         "job_id": "job-t5a3q9ywu57w",
-        "status": "RUNNING",
-        "name": "四卡DP · 大透明瓶三种子、棕容量瓶21",
-        "progress_note": "四张训练卡实际约89.2k–89.6k/100k，GPU利用率96%–99%；三种子ClearL最终100k闭合后自动跑原固定15次源验证。",
-        "observed_utc": "2026-10-28T19:39:00+00:00",
+        "status": "SUCCEEDED",
+        "name": "大透明瓶三种子与棕容量瓶21种子 · DP100k训练",
+        "progress_note": "四模型实际100k更新均关闭；大透明瓶最终源15验证结果见对象栏。",
+        "observed_utc": "2026-10-28T23:48:56.593889+00:00",
         "execution_class": "low_priority",
         "training_GPUs": 4,
         "training_progress": [
@@ -1844,7 +1903,7 @@
         "tag": "train-D100-brownV23-25-b50s21-23-20261028cc",
         "job_id": "job-sxmjm87txkj5",
         "status": "RUNNING",
-        "observed_utc": "2026-10-28T19:39:00+00:00",
+        "observed_utc": "2026-10-28T23:48:56.593889+00:00",
         "execution_class": "low_priority",
         "training_GPUs": 4,
         "training_progress": [
@@ -1877,8 +1936,12 @@
             "updates": 40850
           }
         ],
-        "name": "四卡DP · 棕容量瓶23/25、50ml烧杯21/23",
-        "progress_note": "四张训练卡实际40.8k–40.85k/100k，GPU利用率95%–99%；BrownV23/25与50ml烧杯21/23持续训练。"
+        "name": "棕容量瓶与50ml烧杯 · 四模型DP100k训练",
+        "progress_note": "四张训练卡实际40.8k–40.85k/100k，GPU利用率95%–99%；BrownV23/25与50ml烧杯21/23持续训练。",
+        "last_observed_progress": [
+          "2026-10-29T07:45:18.402372418+08:00 stdout F GRASP_CC_TRAIN_PROGRESS [[\"dp\", \"brown_volume\", 26121923, 0, 60300, null], [\"dp\", \"brown_volume\", 26121925, 1, 60350, null], [\"dp\", \"glass_beaker\", 26121921, 2, 60400, null], [\"dp\", \"glass_beaker\", 26121923, 3, 60400, null]] 0, 40304 MiB, 95 % | 1, 40696 MiB, 96 % | 2, 40210 MiB, 98 % | 3, 40304 MiB, 99 %",
+          "2026-10-29T07:47:19.386336191+08:00 stdout F GRASP_CC_TRAIN_PROGRESS [[\"dp\", \"brown_volume\", 26121923, 0, 60600, null], [\"dp\", \"brown_volume\", 26121925, 1, 60600, null], [\"dp\", \"glass_beaker\", 26121921, 2, 60700, null], [\"dp\", \"glass_beaker\", 26121923, 3, 60650, null]] 0, 40304 MiB, 92 % | 1, 40696 MiB, 97 % | 2, 40210 MiB, 99 % | 3, 40304 MiB, 99 %"
+        ]
       },
       {
         "tag": "dev-A32-initialmix-clearL-fixed15-20261028cc-r2",
@@ -1962,12 +2025,95 @@
         "name": "研钵100条原始引用 · ACT/DP真实输入校验",
         "status": "SUCCEEDED",
         "progress_note": "ACT、DP各232个真实输入检查通过，100条原ID/XY、71918帧、不同95/5划分及各自normalizer保留；BOS证明回读SHA一致。云端总耗时541秒，0 Native、0训练更新。"
+      },
+      {
+        "tag": "dev-D100-clearL-final-fixed15-20261028cc",
+        "job_id": "job-714yglp6j8k2",
+        "status": "SUCCEEDED",
+        "name": "大透明瓶 · 最终DP100k固定源15验证",
+        "progress_note": "14/15抓起、0/15成功且终点20mm；3条抓起后掉落。不计正式验收。",
+        "observed_utc": "2026-10-28T23:48:56.593889+00:00"
+      },
+      {
+        "tag": "train-A32-f500B3-b50s25-20261028cc",
+        "job_id": "job-6feeeunz8mn5",
+        "status": "FAILED",
+        "name": "500ml容量瓶与50ml烧杯 · ACT首次训练",
+        "progress_note": "优化开始前数据根目录错误，已保留失败并准备修正后的新tag-r2。",
+        "observed_utc": "2026-10-28T23:48:56.593889+00:00"
+      },
+      {
+        "tag": "dev-A32-brownV-source5-hand6pair10-20261028cc",
+        "job_id": "job-f0vbapaigahq",
+        "status": "FAILED",
+        "name": "棕容量瓶 · 手部配对原10次",
+        "progress_note": "1条Native原回合已执行并保留，原CPU时钟审计失败；独立时钟证明关闭后用于配对，不重跑该回合。",
+        "observed_utc": "2026-10-28T23:48:56.593889+00:00"
+      },
+      {
+        "tag": "dev-A32-brownV-source5-hand6pair9-20261028cc-r2",
+        "job_id": "job-jr8isdb6qxv3",
+        "status": "FAILED",
+        "name": "棕容量瓶 · 余9次首次接续",
+        "progress_note": "原protocol时间戳SHA变更导致启动前门禁失败，0新Native；原协议字节另存不可变路径后使用新tag。",
+        "observed_utc": "2026-10-28T23:48:56.593889+00:00"
+      },
+      {
+        "tag": "dev-A32-brownV-source5-hand6pair9-20261028cc-r3",
+        "job_id": "job-hg746qfwjn5o",
+        "status": "SUCCEEDED",
+        "name": "棕容量瓶 · 余9次配对已关闭",
+        "progress_note": "9/9抓起、1/9终点20mm；与保留的原回合组成10次，几何后处理进行中。",
+        "observed_utc": "2026-10-28T23:48:56.593889+00:00"
+      },
+      {
+        "tag": "qual-f1000B-lidXYZ4-m8-p120-20261028cc",
+        "job_id": "job-yt6a2r4kzhq9",
+        "status": "SUCCEEDED",
+        "name": "1000ml容量瓶 · 20次XYZ源设置筛选",
+        "progress_note": "19/20原判据抓起；四组均有严格表面交叉，全部保留且未入训。",
+        "observed_utc": "2026-10-28T23:48:56.593889+00:00"
+      },
+      {
+        "tag": "train-ref100-mortar-D100-A32-20261028cc",
+        "job_id": "job-4folyfg8efog",
+        "status": "RUNNING",
+        "observed_utc": "2026-10-28T23:48:56.593889+00:00",
+        "last_observed_progress": [
+          "2026-10-29T07:46:15.668558638+08:00 stdout F GRASP_CC_TRAIN_PROGRESS [[\"dp\", \"mortar\", 26121921, 0, 4100, null], [\"dp\", \"mortar\", 26121923, 1, 4100, null], [\"dp\", \"mortar\", 26121925, 2, 6450, null], [\"act\", \"mortar\", 26121921, 3, 17030, null], [\"act\", \"mortar\", 26121923, 0, 10630, null], [\"act\", \"mortar\", 26121925, 1, 10700, null]] 0, 50030 MiB, 95 % | 1, 49638 MiB, 98 % | 2, 42672 MiB, 99 % | 3, 7362 MiB, 38 %",
+          "2026-10-29T07:48:16.006230125+08:00 stdout F GRASP_CC_TRAIN_PROGRESS [[\"dp\", \"mortar\", 26121921, 0, 4300, null], [\"dp\", \"mortar\", 26121923, 1, 4250, null], [\"dp\", \"mortar\", 26121925, 2, 6750, null], [\"act\", \"mortar\", 26121921, 3, 17750, null], [\"act\", \"mortar\", 26121923, 0, 11060, null], [\"act\", \"mortar\", 26121925, 1, 11140, null]] 0, 50030 MiB, 98 % | 1, 49638 MiB, 99 % | 2, 42672 MiB, 96 % | 3, 7362 MiB, 4 %"
+        ],
+        "name": "研钵新源 · DP100k/ACT32k六模型训练"
+      },
+      {
+        "tag": "qual-flasks-default-m8to12-p120-20261028cc",
+        "job_id": "job-vjvl3q9kbotd",
+        "status": "RUNNING",
+        "observed_utc": "2026-10-28T23:48:56.593889+00:00",
+        "last_observed_progress": [
+          "2026-10-29T07:47:19.856598415+08:00 stdout F PRO_GRASP_NODE_PROGRESS qualification {\"eps\": 3, \"succ\": 2, \"t20\": 3} [[\"ll00_gpu0\", \"running_Pro6000_original24s_\", 1], [\"ll00_gpu1\", \"running_Pro6000_original24s_\", 1], [\"ll00_gpu2\", \"running_Pro6000_original24s_\", 1], [\"ll00_gpu3\", \"running_Pro6000_original24s_\", 0]]",
+          "2026-10-29T07:48:19.859039715+08:00 stdout F PRO_GRASP_NODE_PROGRESS qualification {\"eps\": 4, \"succ\": 3, \"t20\": 4} [[\"ll00_gpu0\", \"running_Pro6000_original24s_\", 1], [\"ll00_gpu1\", \"running_Pro6000_original24s_\", 1], [\"ll00_gpu2\", \"running_Pro6000_original24s_\", 1], [\"ll00_gpu3\", \"running_Pro6000_original24s_\", 1]]"
+        ],
+        "name": "容量瓶 · 28次默认动作时长筛选"
+      },
+      {
+        "tag": "dev-D100-clearL-inputs-fixed5-20261028cc",
+        "job_id": "job-s25d2zkbx9ww",
+        "status": "RUNNING",
+        "observed_utc": "2026-10-28T23:48:56.593889+00:00",
+        "last_observed_progress": [
+          "2026-10-29T07:48:35.86146539+08:00 stdout F PRO_GRASP_NODE_PROGRESS clear_reagent_bottle_large {\"eps\": 0, \"succ\": 0, \"t20\": 0} [[\"1921_gpu0\", \"running_Pro6000_DP_eval\", 0]]"
+        ],
+        "name": "大透明瓶 · DP100k实际策略输入配对记录"
       }
     ],
-    "progress_note": "研钵100/100干净源已闭合ACT/DP各232真实输入检查及BOS回读，六模型训练准备中。BrownV正式23/150技术终止，23条CPU后处理全部完成：20抓起、9终点20mm且手/目标零交叉、4条交叉。8卡训练继续，完整双方法验收仍0/21。",
-    "DP_repair_note": "已实际验证提前50000更新EMA，保持100k训练继续。大透明瓶源验证14/15抓起、4/15终点20mm，仍未达源验证门槛。漏斗初始XY对照2/15劣于原9/15，保留失败并否决。",
+    "progress_note": "大透明瓶DP100k最终验证14/15抓起但0/15终点20mm，已启动实际策略输入诊断；棕容量瓶10次配对Native已结束，严格几何后处理进行中。研钵新100源六模型正在训练。",
+    "DP_repair_note": "DP100k结果未改善终点精度：同源专家拟合误差较小、动作队列逐项一致，真实闭环终点偏差较大。配对CPU裁剪实验未见稳定收益，未部署；正在核对实际视觉/低维输入。",
     "b50_reset_note": "约6–9mm初始XY偏移的旧错误已保留。最新初始XY准确至0.149mm、初始直立，但主动策略开始后0.117秒倾倒；仅此不足以证明被动重置不稳，EEF距离也不能排除长手指碰撞。正式DP继续挂起。",
     "failure_diagnosis": [
+      "大透明瓶最终DP100k三种子15次源开发验证已关闭：14抓起、0终点20mm，3条抓起后掉落。不能把训练完成或93.3%抓起率写成通过。",
+      "棕容量瓶手部范围配对10次均抓起，仅1次终点20mm；几何结果未闭合前，不认定投影修复有效。",
+      "500ml容量瓶ACT首包在优化前因collection_root后缀指向大透明瓶而失败。实际100源及16块映射已核实，修正的新ACT-r2及DP规格等待8卡额度。",
       "当前32k棕容量瓶正式150已实际启动，但技术错误导致23/150终止；同时CPU后处理已发现范围外抓取的真实手/目标交叉。未通过原因已有具体有效证据，不能把23条20次抓起/9终点分量写成完整SR/SSR；已完成与失败身份均保留。",
       "棕容量瓶原源15内部开发门槛要求终点6/15=40%，高于该物体论文ACT SSR25%；旧门槛失败记录保留。当前32k三个固定种子已单独进入原冻结正式150，不能将源4/15位置分量或首个成功样本当作完整SSR。",
       "论文Grasp SpatialSSR的数值位移标准是终点EEF20mm，未给独立旋转数值阈值；旋转继续记录诊断，不能凭空增加角度门槛。已有全部机器人连杆120Hz位姿，但现有几何审计主要覆盖手/EEF与目标；本轮已导出完整场景USD以补全手臂、桌面、自碰撞域，完整覆盖前不签署SSR。",
@@ -2047,7 +2193,7 @@
       "new_and_legacy_staged_inline_checks_passed": true
     },
     "source_recovery_evidence": "verification/grasp_source_recovery_20261028.json",
-    "latest_audit_evidence": "verification/grasp_formal150_source99_20261028.json",
+    "latest_audit_evidence": "verification/grasp_closed_model_results_20261029.json",
     "pick_place_comparison_evidence": "verification/grasp_pickplace_comparison_20261028.json",
     "training_GPU_target": 8,
     "training_GPUs_provisioned": 8,
