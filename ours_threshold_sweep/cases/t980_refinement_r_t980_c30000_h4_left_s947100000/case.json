@@ -12,8 +12,92 @@
   "head_video": "cases/t980_refinement_r_t980_c30000_h4_left_s947100000/head_camera.mp4",
   "trace": "cases/t980_refinement_r_t980_c30000_h4_left_s947100000/trace.json",
   "audit": "cases/t980_refinement_r_t980_c30000_h4_left_s947100000/audit.json",
-  "images": [],
-  "annotations": [],
+  "images": [
+    {
+      "path": "cases/t980_refinement_r_t980_c30000_h4_left_s947100000/f240.png",
+      "caption": "原始视频帧 240"
+    },
+    {
+      "path": "cases/t980_refinement_r_t980_c30000_h4_left_s947100000/f255.png",
+      "caption": "原始视频帧 255"
+    },
+    {
+      "path": "cases/t980_refinement_r_t980_c30000_h4_left_s947100000/f270.png",
+      "caption": "原始视频帧 270"
+    },
+    {
+      "path": "cases/t980_refinement_r_t980_c30000_h4_left_s947100000/f361.png",
+      "caption": "原始视频帧 361"
+    },
+    {
+      "path": "cases/t980_refinement_r_t980_c30000_h4_left_s947100000/f373.png",
+      "caption": "原始视频帧 373"
+    },
+    {
+      "path": "cases/t980_refinement_r_t980_c30000_h4_left_s947100000/f390.png",
+      "caption": "原始视频帧 390"
+    },
+    {
+      "path": "cases/t980_refinement_r_t980_c30000_h4_left_s947100000/f600.png",
+      "caption": "原始视频帧 600"
+    },
+    {
+      "path": "cases/t980_refinement_r_t980_c30000_h4_left_s947100000/f620.png",
+      "caption": "原始视频帧 620"
+    },
+    {
+      "path": "cases/t980_refinement_r_t980_c30000_h4_left_s947100000/f640.png",
+      "caption": "原始视频帧 640"
+    },
+    {
+      "path": "cases/t980_refinement_r_t980_c30000_h4_left_s947100000/f660.png",
+      "caption": "原始视频帧 660"
+    },
+    {
+      "path": "cases/t980_refinement_r_t980_c30000_h4_left_s947100000/f680.png",
+      "caption": "原始视频帧 680"
+    },
+    {
+      "path": "cases/t980_refinement_r_t980_c30000_h4_left_s947100000/f712.png",
+      "caption": "原始视频帧 712"
+    }
+  ],
+  "annotations": [
+    {
+      "stage": 0,
+      "interval": null,
+      "completed_by_frame": 270,
+      "confidence": "中",
+      "source": "Codex直接检查原始240/255/270帧",
+      "reason": "270帧源杯已被平握并位于接收杯上方，视觉上已到倾倒准备位。第三人称不能精确确定深度对齐的最早时刻；这是完成上界，不能证明255帧切换是否提前。",
+      "actual_switch_frames": [
+        255
+      ],
+      "early": false
+    },
+    {
+      "stage": 1,
+      "interval": null,
+      "completed_by_frame": 390,
+      "confidence": "中",
+      "source": "Codex直接检查原始361/373/390帧",
+      "reason": "361至390帧可见源杯倾斜、接收杯底部有蓝色液体；390帧源杯视觉上接近空杯。记录视觉完成上界，不能由RGB可靠数清残余粒子或断言373帧就是精确完成时刻。",
+      "actual_switch_frames": [
+        373
+      ],
+      "early": false
+    },
+    {
+      "stage": 2,
+      "interval": null,
+      "completed_by_frame": 680,
+      "confidence": "中至高",
+      "source": "Codex直接检查原始600/620/640/660/680/712帧",
+      "reason": "600至640帧杯已回原垫，手仍紧邻杯；660至680帧手张开并撤离，680帧源杯独立站在原垫上。记录释放与撤离的视觉上界，不代替物理稳定等待的验收时刻。",
+      "actual_switch_frames": [],
+      "early": false
+    }
+  ],
   "video_offset_s": 0,
   "video_note": "同一轨迹的原始15Hz录像：第三人称为策略输入，头部仅供旁观。帧0对应模拟tick0，初始物理settle已结束。",
   "validation": {

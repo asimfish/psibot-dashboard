@@ -12,8 +12,80 @@
   "head_video": "cases/t980_refinement_r_t980_c30000_h8_left_s947100000/head_camera.mp4",
   "trace": "cases/t980_refinement_r_t980_c30000_h8_left_s947100000/trace.json",
   "audit": "cases/t980_refinement_r_t980_c30000_h8_left_s947100000/audit.json",
-  "images": [],
-  "annotations": [],
+  "images": [
+    {
+      "path": "cases/t980_refinement_r_t980_c30000_h8_left_s947100000/f240.png",
+      "caption": "原始视频帧 240"
+    },
+    {
+      "path": "cases/t980_refinement_r_t980_c30000_h8_left_s947100000/f254.png",
+      "caption": "原始视频帧 254"
+    },
+    {
+      "path": "cases/t980_refinement_r_t980_c30000_h8_left_s947100000/f270.png",
+      "caption": "原始视频帧 270"
+    },
+    {
+      "path": "cases/t980_refinement_r_t980_c30000_h8_left_s947100000/f390.png",
+      "caption": "原始视频帧 390"
+    },
+    {
+      "path": "cases/t980_refinement_r_t980_c30000_h8_left_s947100000/f402.png",
+      "caption": "原始视频帧 402"
+    },
+    {
+      "path": "cases/t980_refinement_r_t980_c30000_h8_left_s947100000/f420.png",
+      "caption": "原始视频帧 420"
+    },
+    {
+      "path": "cases/t980_refinement_r_t980_c30000_h8_left_s947100000/f620.png",
+      "caption": "原始视频帧 620"
+    },
+    {
+      "path": "cases/t980_refinement_r_t980_c30000_h8_left_s947100000/f680.png",
+      "caption": "原始视频帧 680"
+    },
+    {
+      "path": "cases/t980_refinement_r_t980_c30000_h8_left_s947100000/f724.png",
+      "caption": "原始视频帧 724"
+    }
+  ],
+  "annotations": [
+    {
+      "stage": 0,
+      "interval": null,
+      "completed_by_frame": 270,
+      "confidence": "中",
+      "source": "Codex直接检查原始240/254/270帧",
+      "reason": "270帧源杯被平握并位于接收杯上方，视觉上已到倾倒准备位。深度方向最早对齐时刻未知；270帧仅是视觉上界，不能证明254帧是否提前。",
+      "actual_switch_frames": [
+        254
+      ],
+      "early": false
+    },
+    {
+      "stage": 1,
+      "interval": null,
+      "completed_by_frame": 420,
+      "confidence": "中",
+      "source": "Codex直接检查原始390/402/420帧",
+      "reason": "390至420帧源杯倾斜、接收杯有蓝色液体；420帧源杯视觉上接近空杯。记录保守完成上界，不能仅凭RGB准确计数余液或确定402帧是否恰好完成。",
+      "actual_switch_frames": [
+        402
+      ],
+      "early": false
+    },
+    {
+      "stage": 2,
+      "interval": null,
+      "completed_by_frame": 680,
+      "confidence": "中至高",
+      "source": "Codex直接检查原始620/680/724帧",
+      "reason": "620帧杯已回原垫但手仍紧邻杯；680帧手已撤离且源杯独立站立，724帧仍保持。680帧为可见释放与撤离的完成上界，精确接触结束和稳定验收时刻另计。",
+      "actual_switch_frames": [],
+      "early": false
+    }
+  ],
   "video_offset_s": 0,
   "video_note": "同一轨迹的原始15Hz录像：第三人称为策略输入，头部仅供旁观。帧0对应模拟tick0，初始物理settle已结束。",
   "validation": {

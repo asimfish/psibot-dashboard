@@ -12,8 +12,81 @@
   "head_video": "cases/t990_refinement_r_t990_c30000_h4_left_s947100000/head_camera.mp4",
   "trace": "cases/t990_refinement_r_t990_c30000_h4_left_s947100000/trace.json",
   "audit": "cases/t990_refinement_r_t990_c30000_h4_left_s947100000/audit.json",
-  "images": [],
-  "annotations": [],
+  "images": [
+    {
+      "path": "cases/t990_refinement_r_t990_c30000_h4_left_s947100000/f240.png",
+      "caption": "原始视频帧 240"
+    },
+    {
+      "path": "cases/t990_refinement_r_t990_c30000_h4_left_s947100000/f256.png",
+      "caption": "原始视频帧 256"
+    },
+    {
+      "path": "cases/t990_refinement_r_t990_c30000_h4_left_s947100000/f270.png",
+      "caption": "原始视频帧 270"
+    },
+    {
+      "path": "cases/t990_refinement_r_t990_c30000_h4_left_s947100000/f300.png",
+      "caption": "原始视频帧 300"
+    },
+    {
+      "path": "cases/t990_refinement_r_t990_c30000_h4_left_s947100000/f380.png",
+      "caption": "原始视频帧 380"
+    },
+    {
+      "path": "cases/t990_refinement_r_t990_c30000_h4_left_s947100000/f480.png",
+      "caption": "原始视频帧 480"
+    },
+    {
+      "path": "cases/t990_refinement_r_t990_c30000_h4_left_s947100000/f640.png",
+      "caption": "原始视频帧 640"
+    },
+    {
+      "path": "cases/t990_refinement_r_t990_c30000_h4_left_s947100000/f840.png",
+      "caption": "原始视频帧 840"
+    },
+    {
+      "path": "cases/t990_refinement_r_t990_c30000_h4_left_s947100000/f1000.png",
+      "caption": "原始视频帧 1000"
+    },
+    {
+      "path": "cases/t990_refinement_r_t990_c30000_h4_left_s947100000/f1124.png",
+      "caption": "原始视频帧 1124"
+    }
+  ],
+  "annotations": [
+    {
+      "stage": 0,
+      "interval": null,
+      "completed_by_frame": 270,
+      "confidence": "中",
+      "source": "Codex直接检查原始240/256/270/300帧",
+      "reason": "270帧源杯位于接收杯上方，300帧已开始倾斜。视觉上到270帧已进入倾倒准备位；不能据此判断256帧是否是最早安全切换帧。",
+      "actual_switch_frames": [
+        256
+      ],
+      "early": false
+    },
+    {
+      "stage": 1,
+      "interval": null,
+      "completed_by_frame": 480,
+      "confidence": "中",
+      "source": "Codex直接检查原始300/380/480/640/840/1000/1124帧",
+      "reason": "380至480帧接收杯有明显蓝色液体，源杯看似已空；到480帧视觉上已完成倾倒，但直到1124帧仍保持倾倒姿态。480帧是保守视觉上界，准确的粒子通过时刻不能从RGB确定。",
+      "actual_switch_frames": [],
+      "early": false
+    },
+    {
+      "stage": 2,
+      "interval": null,
+      "confidence": "高（未见放回）",
+      "source": "Codex直接检查原始640/840/1000/1124帧及原生返回指令日志",
+      "reason": "这些末段采样中源杯一直被持握在接收杯上方，未回到原垫；原生指令位置也始终为倾倒阶段。未观察到放回完成，无法给出完成帧。",
+      "actual_switch_frames": [],
+      "early": false
+    }
+  ],
   "video_offset_s": 0,
   "video_note": "同一轨迹的原始15Hz录像：第三人称为策略输入，头部仅供旁观。帧0对应模拟tick0，初始物理settle已结束。",
   "validation": {

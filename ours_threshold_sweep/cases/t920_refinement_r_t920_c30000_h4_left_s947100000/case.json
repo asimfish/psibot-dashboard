@@ -12,8 +12,81 @@
   "head_video": "cases/t920_refinement_r_t920_c30000_h4_left_s947100000/head_camera.mp4",
   "trace": "cases/t920_refinement_r_t920_c30000_h4_left_s947100000/trace.json",
   "audit": "cases/t920_refinement_r_t920_c30000_h4_left_s947100000/audit.json",
-  "images": [],
-  "annotations": [],
+  "images": [
+    {
+      "path": "cases/t920_refinement_r_t920_c30000_h4_left_s947100000/f240.png",
+      "caption": "原始视频帧 240"
+    },
+    {
+      "path": "cases/t920_refinement_r_t920_c30000_h4_left_s947100000/f253.png",
+      "caption": "原始视频帧 253"
+    },
+    {
+      "path": "cases/t920_refinement_r_t920_c30000_h4_left_s947100000/f270.png",
+      "caption": "原始视频帧 270"
+    },
+    {
+      "path": "cases/t920_refinement_r_t920_c30000_h4_left_s947100000/f369.png",
+      "caption": "原始视频帧 369"
+    },
+    {
+      "path": "cases/t920_refinement_r_t920_c30000_h4_left_s947100000/f381.png",
+      "caption": "原始视频帧 381"
+    },
+    {
+      "path": "cases/t920_refinement_r_t920_c30000_h4_left_s947100000/f393.png",
+      "caption": "原始视频帧 393"
+    },
+    {
+      "path": "cases/t920_refinement_r_t920_c30000_h4_left_s947100000/f600.png",
+      "caption": "原始视频帧 600"
+    },
+    {
+      "path": "cases/t920_refinement_r_t920_c30000_h4_left_s947100000/f680.png",
+      "caption": "原始视频帧 680"
+    },
+    {
+      "path": "cases/t920_refinement_r_t920_c30000_h4_left_s947100000/f757.png",
+      "caption": "原始视频帧 757"
+    }
+  ],
+  "annotations": [
+    {
+      "stage": 0,
+      "interval": null,
+      "completed_by_frame": 270,
+      "confidence": "中",
+      "source": "Codex直接检查原始240/253/270/369/381/393/600/680/757帧",
+      "reason": "270帧源杯已被平握并位于接收杯上方。记录可见倾倒准备位的完成上界，最早深度对齐时刻未知；不能用这个上界判断更早的实际切换是否提前。",
+      "actual_switch_frames": [
+        253
+      ],
+      "early": false
+    },
+    {
+      "stage": 1,
+      "interval": null,
+      "completed_by_frame": 393,
+      "confidence": "中",
+      "source": "Codex直接检查原始240/253/270/369/381/393/600/680/757帧",
+      "reason": "393帧源杯倾斜且视觉上接近空杯，接收杯内可见蓝色液体。只给出保守视觉完成上界；RGB不能精确数清残余粒子，也不能由此证明实际切换帧就是完成时刻。",
+      "actual_switch_frames": [
+        381
+      ],
+      "early": false
+    },
+    {
+      "stage": 2,
+      "interval": null,
+      "confidence": "低（释放接触不清）",
+      "source": "Codex直接检查原始240/253/270/369/381/393/600/680/757帧",
+      "reason": "600帧源杯已靠近原垫，680至757帧杯站在垫上、手抬起，但这一视角无法可靠确认最后接触与稳定条件。保留原始失败验收，不把外观上接近完成当作成功，也不给出无依据的精确完成帧。",
+      "actual_switch_frames": [
+        678
+      ],
+      "early": false
+    }
+  ],
   "video_offset_s": 0,
   "video_note": "同一轨迹的原始15Hz录像：第三人称为策略输入，头部仅供旁观。帧0对应模拟tick0，初始物理settle已结束。 末尾另有一次分类器更新触发Planner格式拒绝，未返回策略、未执行动作；仅在下载日志的unreturned_classifier_events中保留。",
   "validation": {
