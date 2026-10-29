@@ -1,0 +1,103 @@
+{
+  "id": "t975_heldout_f_t975_h8_s0_c30000_h8_left_s947300000",
+  "arm": "t975",
+  "partition": "heldout_f_t975_h8_s0",
+  "split": "heldout",
+  "threshold": 0.975,
+  "horizon": 8,
+  "side": "left",
+  "roster_index": 0,
+  "outcome": "failure",
+  "verified": true,
+  "video": "cases/t975_heldout_f_t975_h8_s0_c30000_h8_left_s947300000/third_camera.mp4",
+  "head_video": "cases/t975_heldout_f_t975_h8_s0_c30000_h8_left_s947300000/head_camera.mp4",
+  "trace": "cases/t975_heldout_f_t975_h8_s0_c30000_h8_left_s947300000/trace.json",
+  "audit": "cases/t975_heldout_f_t975_h8_s0_c30000_h8_left_s947300000/audit.json",
+  "images": [
+    {
+      "path": "cases/t975_heldout_f_t975_h8_s0_c30000_h8_left_s947300000/f0.png",
+      "caption": "原始视频帧 0"
+    },
+    {
+      "path": "cases/t975_heldout_f_t975_h8_s0_c30000_h8_left_s947300000/f150.png",
+      "caption": "原始视频帧 150"
+    },
+    {
+      "path": "cases/t975_heldout_f_t975_h8_s0_c30000_h8_left_s947300000/f250.png",
+      "caption": "原始视频帧 250"
+    },
+    {
+      "path": "cases/t975_heldout_f_t975_h8_s0_c30000_h8_left_s947300000/f260.png",
+      "caption": "原始视频帧 260"
+    },
+    {
+      "path": "cases/t975_heldout_f_t975_h8_s0_c30000_h8_left_s947300000/f280.png",
+      "caption": "原始视频帧 280"
+    },
+    {
+      "path": "cases/t975_heldout_f_t975_h8_s0_c30000_h8_left_s947300000/f300.png",
+      "caption": "原始视频帧 300"
+    },
+    {
+      "path": "cases/t975_heldout_f_t975_h8_s0_c30000_h8_left_s947300000/f324.png",
+      "caption": "原始视频帧 324"
+    }
+  ],
+  "annotations": [
+    {
+      "stage": 0,
+      "completed_by_frame": 250,
+      "confidence": "中：仅稀疏原始画面的视觉上界",
+      "source": "Codex 直接检查原始第三人称帧0/150/250",
+      "reason": "帧250可见烧杯已提起并移到接收杯上方附近；无法从稀疏画面确定最早就绪帧，不把该上界当作提前切换的下界。",
+      "actual_switch_frames": [
+        252
+      ],
+      "early": false
+    },
+    {
+      "stage": 1,
+      "confidence": "高：帧324仍可见液流；完成时点未知",
+      "source": "Codex 直接检查原始帧250/260/280/300/324",
+      "reason": "原始录像在帧324仍可见倾倒液流，之后没有可检查的画面，无法给出倾倒完成上界。与候选0.80的同场景视频一样，首个切换发生在252；这两个单例的成败差异不能单独证明阈值是原因。",
+      "actual_switch_frames": [],
+      "early": false
+    }
+  ],
+  "video_offset_s": 0,
+  "video_note": "同一轨迹的原始15Hz录像：第三人称为策略输入，头部仅供旁观。帧0对应模拟tick0，初始物理settle已结束。",
+  "validation": {
+    "full_decode": true,
+    "ffprobe": {
+      "third_camera.mp4": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 640,
+            "height": 480,
+            "avg_frame_rate": "15/1",
+            "nb_frames": "325"
+          }
+        ],
+        "format": {
+          "duration": "21.667000"
+        }
+      },
+      "head_camera.mp4": {
+        "programs": [],
+        "streams": [
+          {
+            "width": 640,
+            "height": 480,
+            "avg_frame_rate": "15/1",
+            "nb_frames": "325"
+          }
+        ],
+        "format": {
+          "duration": "21.667000"
+        }
+      }
+    },
+    "frame_count_matches_original_manifest": true
+  }
+}
