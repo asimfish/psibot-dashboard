@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-29T15:04:37.785304+00:00",
+  "updated_utc": "2026-10-29T18:43:17.988005+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -1012,8 +1012,8 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "500ml 透明容量瓶",
-      "status_note": "ACT32k三种子源15/15抓起、3/15成功且终点20mm；14/15保持阶段曾进入20mm后部分漂移。新增2条原轨迹、6个三视角视频；DP约58k/100k，保持段对照R2在准备数据。",
-      "next": "验证保持段候选是否减少漂移，再做独立OOD、完整几何和视觉验收。",
+      "status_note": "原ACT32k源15/15抓起、3/15终点20mm；残差版仅11/15与2/15，未改善。状态噪声三种子合计15/15与2/15，同种子无噪声对照5/5与0/5。初始视觉上下文对照训练中；完整验收未通过。",
+      "next": "初始/当前RGB三种子及当前/当前同计算对照先完成固定10k，再核对全部源5位置闭环；未通过不启动正式150。",
       "source120_closed": {
         "episodes": 100,
         "Native_successes": 100,
@@ -1054,8 +1054,59 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "1000ml 透明容量瓶",
-      "status_note": "位置12次中Z+5mm组3/3抬起，仍有32个严格交叉姿态；其他三组1/3、1/3、2/3。新roll/yaw±5°姿态对照已启动，未准入训练。",
-      "next": "核对原时钟、物理抬升与全120Hz几何后决定下一设置。"
+      "status_note": "选定设置小样3/3实际抬起、8634个120Hz位姿零严格手/目标交叉，九段原视频完整解码、72画面抽查正常。完整源采集36/100；完整100条物理、几何与视觉门槛未关闭，不训练、不计策略成功率。",
+      "next": "边采集边审计全部100条原120Hz数据，保持原严格判据；完整源准入后才训练DP/ACT三个种子。",
+      "qualification": {
+        "setting": "FullB c.95,z+7mm,yaw+5deg,motion_steps240 thenhold24s",
+        "episodes": 3,
+        "native_successes": 3,
+        "physical_goal_passed": 3,
+        "strict_120Hz_hand_target_crossing_poses": 0,
+        "audited_original120Hz_poses": 8634,
+        "sampled_original_video_views": 72,
+        "full_visual_passed": false
+      },
+      "source": {
+        "tag": "src100-f1000B-c95-z7-yaw5-m8-p120-20261029cc",
+        "planned_episodes": 100,
+        "episodes_completed": 36,
+        "native_successes": 36,
+        "terminal20_component": 36,
+        "geometry_episodes_admitted": 28,
+        "geometry_episodes_closed": 0,
+        "geometry_full100_result": null,
+        "development_training_allowed": false,
+        "formal_accepted": false
+      },
+      "source_review_videos": [
+        {
+          "label": "1000ml瓶源示范64 · chest（原视频，非策略验收）",
+          "url": "assets/grasp/pro6000_F1000_source_pilot_20261029/source64_chest.mp4",
+          "SHA256": "aa66e76db331b7f8156ca225fdf763982ffb4baab8e5799ed5b082b28f552fb9",
+          "source_BOS_key": "liyufeng/pro6000-bulk/data/grasp_pro6000_cc/jobs/qual-f1000B-poseB-yaw5micro-native12-p120-20261029cc/f1000B_c95_zplus7_yawplus5_m8/cell00_gpu3/native_run/original_lerobot/20261030_005026/videos/observation.images.chest_rgb/chunk-000/file-001.mp4",
+          "source_id": 64,
+          "source_scope": "qualified development pilot, not policy evaluation",
+          "full_original_decode_passed": true
+        },
+        {
+          "label": "1000ml瓶源示范64 · head（原视频，非策略验收）",
+          "url": "assets/grasp/pro6000_F1000_source_pilot_20261029/source64_head.mp4",
+          "SHA256": "4e68f6b45ff531d53406b7044b9963d3ab614ad3c9ac78a4fb30fedccb5ef3b5",
+          "source_BOS_key": "liyufeng/pro6000-bulk/data/grasp_pro6000_cc/jobs/qual-f1000B-poseB-yaw5micro-native12-p120-20261029cc/f1000B_c95_zplus7_yawplus5_m8/cell00_gpu3/native_run/original_lerobot/20261030_005026/videos/observation.images.head_rgb/chunk-000/file-001.mp4",
+          "source_id": 64,
+          "source_scope": "qualified development pilot, not policy evaluation",
+          "full_original_decode_passed": true
+        },
+        {
+          "label": "1000ml瓶源示范64 · third（原视频，非策略验收）",
+          "url": "assets/grasp/pro6000_F1000_source_pilot_20261029/source64_third.mp4",
+          "SHA256": "9ea8bb9dc1cd0d95babd709fac900b209852e04e000fb8e5b0ca06f494123f57",
+          "source_BOS_key": "liyufeng/pro6000-bulk/data/grasp_pro6000_cc/jobs/qual-f1000B-poseB-yaw5micro-native12-p120-20261029cc/f1000B_c95_zplus7_yawplus5_m8/cell00_gpu3/native_run/original_lerobot/20261030_005026/videos/observation.images.third_rgb/chunk-000/file-001.mp4",
+          "source_id": 64,
+          "source_scope": "qualified development pilot, not policy evaluation",
+          "full_original_decode_passed": true
+        }
+      ]
     },
     {
       "object": "erlenmeyer_flask",
@@ -1195,11 +1246,11 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 179,
+    "registered_jobs": 188,
     "active_registered_jobs": 3,
     "BOS_mount_count": 2,
-    "state": "HOLD_DRIFT_AND_SOURCE_CLEARANCE_DIAGNOSIS",
-    "state_note": "500ml容量瓶ACT源15/15抓起、3/15终点20mm；14/15曾进入20mm后部分漂移。研钵新DP/ACT各6/15抓起、0/15终点20mm。两训练作业分配8张Pro6000，DP约58k/100k，ACT对照R2准备数据；1000ml姿态对照进行中。完整通过0/21。",
+    "state": "PAIRED_VISUAL_CONTEXT_TRAINING_AND_STREAMING_SOURCE_AUDIT",
+    "state_note": "2026-10-29T18:43 UTC快照：DP四卡约88k/100k；ACT初始/当前图像与同计算对照四卡已执行670–730/10k步。1000ml容量瓶采集36/100，28条边采边做120Hz审计。残差版闭环11/15抓起、2/15终点20mm，未改善，不扩大。完整验收仍0/21。",
     "prepared_not_submitted": [
       {
         "tag": "eval-m6-dp-b50-20261025cc",
@@ -1208,7 +1259,7 @@
         "name": "50ml烧杯正式DP测试"
       }
     ],
-    "checked_utc": "2026-10-29T15:04:37.785304+00:00",
+    "checked_utc": "2026-10-29T18:43:17.988005+00:00",
     "jobs": [
       {
         "tag": "qual-mortar-p120-smoke4-20261028cc",
@@ -2269,7 +2320,37 @@
         "name": "500ml容量瓶DP3与50ml烧杯DP25 · 四卡训练中",
         "status": "RUNNING",
         "job_id": "job-3oypanskj7x5",
-        "progress_note": "四个DP最近57950–58100/100000，约97–99%利用率；固定100k预算后审核，不自动放行正式测试。"
+        "progress_note": "四卡持续优化：500ml容量瓶三个原种子及50ml烧杯种子25，最新约88k/100k。训练收尾及固定开发测试后再决定正式测试，仍未验收。",
+        "training_progress": [
+          {
+            "method": "dp",
+            "object": "clear_volume",
+            "seed": 26121921,
+            "GPU": 0,
+            "updates": 88150
+          },
+          {
+            "method": "dp",
+            "object": "clear_volume",
+            "seed": 26121923,
+            "GPU": 1,
+            "updates": 88200
+          },
+          {
+            "method": "dp",
+            "object": "clear_volume",
+            "seed": 26121925,
+            "GPU": 2,
+            "updates": 88000
+          },
+          {
+            "method": "dp",
+            "object": "glass_beaker",
+            "seed": 26121925,
+            "GPU": 3,
+            "updates": 88250
+          }
+        ]
       },
       {
         "tag": "dev-A32-f500B-source15-20261029cc",
@@ -2302,9 +2383,9 @@
       {
         "tag": "train-A10warm-f500B-noise3-control21-20261029cc-r2",
         "name": "500ml保持段对照R2 · 四卡准备数据",
-        "status": "RUNNING",
+        "status": "SUCCEEDED",
         "job_id": "job-uia39dgs96aa",
-        "progress_note": "100条原源/16单元准入及解码完成。三个状态扰动种子加同种子21原输入对照，各续训10k。源RGB/动作/95-5划分/归一化与测试输入不变；候选修复尚未验证。"
+        "progress_note": "全部四个ACT完成10k追加训练；噪声三种子闭环合计15/15抓起、2/15终点20mm，无噪声同种子对照5/5抓起、0/5终点20mm。不是完整SpatialSSR或泛化通过；两段原始作业与失败记录分别保留。"
       },
       {
         "tag": "qual-f1000B-poseB-position-native12-p120-20261029cc",
@@ -2316,9 +2397,107 @@
       {
         "tag": "qual-f1000B-poseB-orient-native12-p120-20261029cc",
         "name": "1000ml抓取姿态 · 原12次对照",
-        "status": "RUNNING",
+        "status": "SUCCEEDED",
         "job_id": "job-gbmefr6nl9ef",
-        "progress_note": "固定Z+5mm与c0.95，roll/yaw分别±5°，原sourceID1/64/80及Native26503001各3次。只改一轴姿态；原XY、资产、物理保留。外置CPU几何监控已接续。"
+        "progress_note": "原姿态对照及全部几何审计已结束，结果保留；进一步微调后另有两个3/3抬起且严格零交叉候选，采用z+7mm/yaw+5°设置扩大到完整100位置。"
+      },
+      {
+        "tag": "train-A10ctxRGB-f500B3-currentctrl21-20261029cc",
+        "name": "500ml容量瓶 ACT · 初始/当前图像三种子及同计算对照",
+        "job_id": "job-4vvq1iy9qapl",
+        "status": "RUNNING",
+        "progress_note": "四张卡均已执行优化，最新670/690/730/690步，固定追加10k；前三卡使用初始+当前三视角，第四卡同种子21使用当前+当前同计算对照。无动作残差、无状态噪声、无关节头重置，不加入物体位姿或未来图像。训练/测试图像绑定及跨episode清缓存CPU检查通过；未启动正式验收。",
+        "training_progress": [
+          {
+            "method": "act",
+            "object": "clear_volume",
+            "seed": 26121921,
+            "GPU": 0,
+            "updates": 670
+          },
+          {
+            "method": "act",
+            "object": "clear_volume",
+            "seed": 26121923,
+            "GPU": 1,
+            "updates": 690
+          },
+          {
+            "method": "act",
+            "object": "clear_volume",
+            "seed": 26121925,
+            "GPU": 2,
+            "updates": 730
+          },
+          {
+            "method": "act",
+            "object": "clear_volume",
+            "seed": 26121921,
+            "GPU": 3,
+            "updates": 690
+          }
+        ]
+      },
+      {
+        "tag": "src100-f1000B-c95-z7-yaw5-m8-p120-20261029cc",
+        "name": "1000ml容量瓶 · 合格小样设置采集完整100位置",
+        "job_id": "job-houyy61gm48w",
+        "status": "RUNNING",
+        "Native_progress": {
+          "eps": 36,
+          "succ": 36,
+          "t20": 36
+        },
+        "progress_note": "采集进行中：已完成36/100，已完成部分原生成功36、终点20mm分量36；完整物理/几何审计与视觉门槛关闭前不训练。已有28条原始源数据边采集边做完整120Hz手/目标几何审计，当前0条几何结果关闭；不能把尚未审完写成零穿模。"
+      },
+      {
+        "tag": "train-A10armres-f500B3-absolutectrl21-20261029cc",
+        "name": "500ml容量瓶 ACT · 动作残差与同种子绝对动作对照（训练完成）",
+        "job_id": "job-nn7z7hfig2fx",
+        "status": "SUCCEEDED",
+        "progress_note": "四个ACT均完成固定10k追加训练；三个残差模型离线门槛通过，但闭环11/15抓起、2/15终点20mm，低于原模型15/15与3/15。绝对动作对照5/5抓起、0/5终点20mm。停止扩展这一候选，保留全部结果。"
+      },
+      {
+        "tag": "dev-A10armres-f500B-source15-20261029cc",
+        "name": "500ml容量瓶 ACT · 残差版三种子源15次",
+        "job_id": "job-5j8u1zk83kx5",
+        "status": "SUCCEEDED",
+        "progress_note": "完整15次均按原身份、原位置、同Native随机种子及权重/统计SHA正常关闭；11/15抓起、2/15成功且终点20mm。离线拟合变好未转化为闭环改善；不扩大为正式150次。"
+      },
+      {
+        "tag": "dev-A10armabs-f500B-source5-20261029cc",
+        "name": "500ml容量瓶 ACT · 绝对动作同种子对照源5次",
+        "job_id": "job-0t831pc6f2mz",
+        "status": "SUCCEEDED",
+        "progress_note": "同种子21、同五位置、同关节头初始化和追加预算的绝对动作对照：5/5抓起、0/5成功且终点20mm。原始完整结果保留，非正式验收。"
+      },
+      {
+        "tag": "dev-A10noise-f500B-source15-20261029cc",
+        "name": "500ml容量瓶 ACT · 状态噪声版首个源5次，后续未启动",
+        "job_id": "job-l9filg54zutq",
+        "status": "FAILED",
+        "progress_note": "父作业FAILED：只有种子21的5次被准入，正常关闭5/5抓起、0/5终点20mm；另外两个种子从未启动，不能报告完整15次。后续仅补原来未启动的10次，未重跑已完成试次。"
+      },
+      {
+        "tag": "dev-A10noise-f500B-unlaunched23-25-source10-20261029cc",
+        "name": "500ml容量瓶 ACT · 仅补尚未启动两种子源10次",
+        "job_id": "job-d4fcyo4p45rs",
+        "status": "SUCCEEDED",
+        "progress_note": "仅执行此前未启动的种子23/25共10次：10/10抓起、2/10成功且终点20mm。与原种子21的5次共同覆盖三个种子，但各原始作业和计分分母保持独立。"
+      },
+      {
+        "tag": "dev-A10clean-f500B-source5-20261029cc",
+        "name": "500ml容量瓶 ACT · 无噪声继续训练同种子源5次",
+        "job_id": "job-8fud5qe2pj5n",
+        "status": "SUCCEEDED",
+        "progress_note": "无状态噪声继续训练的同种子21对照：固定五个源位置，5/5抓起、0/5成功且终点20mm；不把额外训练完成当成验收。"
+      },
+      {
+        "tag": "qual-f1000B-poseB-yaw5micro-native12-p120-20261029cc",
+        "name": "1000ml容量瓶 · 四组微调12次及完整120Hz几何审计",
+        "job_id": "job-ja0qh9akdhgv",
+        "status": "SUCCEEDED",
+        "progress_note": "四组各3次：z+5/yaw+6、z+6/yaw+5、z+7/yaw+5均3/3抬起且8634个120Hz姿态零严格交叉；z+5/yaw+7仍有1个交叉姿态。选z+7/yaw+5扩大100条；九段原视频完整解码、三视角72画面抽查通过，未宣称完整场景/轨迹视觉通过。"
       }
     ],
     "progress_note": "研钵抗扰动与同种子原输入续训对照各0/5，CPU与原始视频均封存，未放行正式测试。采样审计发现训练约51.3%落在动作结束后的保持段；新采样实现已通过CPU确定性和边界检查，尚未训练。",
@@ -2419,7 +2598,7 @@
     "training_allocated_GPUs": 8,
     "training_optimizers_last_verified": 4
   },
-  "evidence_note": "31个独立策略版本、30段原策略视频及独立源示范视频全部保留。源验证、离线误差、训练关闭和场景位姿组件均不等于正式验收；仍须逐物体DP/ACT达到论文SR、完整SpatialSSR、冻结泛化和视觉标准。完整通过0/21。",
+  "evidence_note": "原有版本与全部策略视频保留。新增动作残差和状态噪声闭环对照，报告全部完成结果及未启动缺口；离线改善未转化为终点改善。初始/当前RGB与同计算对照训练中。F1000仅源小样合格，完整100条仍在采集和审计，三视角源视频不代表策略验收。",
   "offline_DP_probe": {
     "observations": 4,
     "source_episodes": 1,
@@ -5114,6 +5293,319 @@
         "full_geometry_SSR_evaluated": false
       },
       "job_id": "job-cq6061llozuh"
+    },
+    {
+      "candidate": "pro6000-dev-A10noise-f500B-source15-20261029cc",
+      "object": "clear_volumetric_flask_500ml",
+      "method": "ACT",
+      "display_name": "状态噪声版首个源5次，后续未启动",
+      "current_native": false,
+      "development": true,
+      "expected_trials": 15,
+      "formal_accepted": false,
+      "paper_ssr_percent": null,
+      "reported_SpatialSSR_percent": null,
+      "progress": {
+        "episode_num": 5,
+        "episode_success_num": 5,
+        "success_rate": 1.0
+      },
+      "protocol": {
+        "method": "act",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "原±3cm固定源位置（非OOD）",
+        "duration_label": "24s物理上限",
+        "seed": "26121921",
+        "source_ids": [
+          42,
+          37,
+          26,
+          28,
+          17
+        ],
+        "note": "原五个已知源验证位置，各原始训练种子保留；同Native随机种子26722900。未进行正式OOD泛化。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": [
+            26121921
+          ],
+          "updates": 10000,
+          "warmstart_parent_updates": 32000,
+          "updates_semantics": "additional updates; original same-object parent32k"
+        }
+      },
+      "metric_note": "父作业FAILED：只有种子21的5次被准入，正常关闭5/5抓起、0/5终点20mm；另外两个种子从未启动，不能报告完整15次。后续仅补原来未启动的10次，未重跑已完成试次。",
+      "cases": [],
+      "result": {
+        "SR": 100.0,
+        "success_and_terminal_dP20": 0.0,
+        "SpatialSSR": null,
+        "trials": 5,
+        "successes": 5,
+        "success_terminal20mm": 0,
+        "formal_accepted": false,
+        "full_geometry_SSR_evaluated": false,
+        "formal_evaluation_status": "DEVELOPMENT_INCOMPLETE",
+        "planned_trials": 15,
+        "missing_cohorts_not_scored_as_trials": true
+      },
+      "job_id": "job-l9filg54zutq"
+    },
+    {
+      "candidate": "pro6000-dev-A10clean-f500B-source5-20261029cc",
+      "object": "clear_volumetric_flask_500ml",
+      "method": "ACT",
+      "display_name": "无噪声继续训练同种子源5次",
+      "current_native": false,
+      "development": true,
+      "expected_trials": 5,
+      "formal_accepted": false,
+      "paper_ssr_percent": null,
+      "reported_SpatialSSR_percent": null,
+      "progress": {
+        "episode_num": 5,
+        "episode_success_num": 5,
+        "success_rate": 1.0
+      },
+      "protocol": {
+        "method": "act",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "原±3cm固定源位置（非OOD）",
+        "duration_label": "24s物理上限",
+        "seed": "26121921",
+        "source_ids": [
+          42,
+          37,
+          26,
+          28,
+          17
+        ],
+        "note": "原五个已知源验证位置，各原始训练种子保留；同Native随机种子26722900。未进行正式OOD泛化。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": [
+            26121921
+          ],
+          "updates": 10000,
+          "warmstart_parent_updates": 32000,
+          "updates_semantics": "additional updates; original same-object parent32k"
+        }
+      },
+      "metric_note": "无状态噪声继续训练的同种子21对照：固定五个源位置，5/5抓起、0/5成功且终点20mm；不把额外训练完成当成验收。",
+      "cases": [],
+      "result": {
+        "SR": 100.0,
+        "success_and_terminal_dP20": 0.0,
+        "SpatialSSR": null,
+        "trials": 5,
+        "successes": 5,
+        "success_terminal20mm": 0,
+        "formal_accepted": false,
+        "full_geometry_SSR_evaluated": false,
+        "formal_evaluation_status": "DEVELOPMENT_COMPLETE",
+        "planned_trials": 5,
+        "missing_cohorts_not_scored_as_trials": true
+      },
+      "job_id": "job-8fud5qe2pj5n"
+    },
+    {
+      "candidate": "pro6000-dev-A10noise-f500B-unlaunched23-25-source10-20261029cc",
+      "object": "clear_volumetric_flask_500ml",
+      "method": "ACT",
+      "display_name": "仅补尚未启动两种子源10次",
+      "current_native": false,
+      "development": true,
+      "expected_trials": 10,
+      "formal_accepted": false,
+      "paper_ssr_percent": null,
+      "reported_SpatialSSR_percent": null,
+      "progress": {
+        "episode_num": 10,
+        "episode_success_num": 10,
+        "success_rate": 1.0
+      },
+      "protocol": {
+        "method": "act",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "原±3cm固定源位置（非OOD）",
+        "duration_label": "24s物理上限",
+        "seed": "26121923 / 26121925",
+        "source_ids": [
+          42,
+          37,
+          26,
+          28,
+          17
+        ],
+        "note": "原五个已知源验证位置，各原始训练种子保留；同Native随机种子26722900。未进行正式OOD泛化。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": [
+            26121923,
+            26121925
+          ],
+          "updates": 10000,
+          "warmstart_parent_updates": 32000,
+          "updates_semantics": "additional updates; original same-object parent32k"
+        }
+      },
+      "metric_note": "仅执行此前未启动的种子23/25共10次：10/10抓起、2/10成功且终点20mm。与原种子21的5次共同覆盖三个种子，但各原始作业和计分分母保持独立。",
+      "cases": [],
+      "result": {
+        "SR": 100.0,
+        "success_and_terminal_dP20": 20.0,
+        "SpatialSSR": null,
+        "trials": 10,
+        "successes": 10,
+        "success_terminal20mm": 2,
+        "formal_accepted": false,
+        "full_geometry_SSR_evaluated": false,
+        "formal_evaluation_status": "DEVELOPMENT_COMPLETE",
+        "planned_trials": 10,
+        "missing_cohorts_not_scored_as_trials": true
+      },
+      "job_id": "job-d4fcyo4p45rs"
+    },
+    {
+      "candidate": "pro6000-dev-A10armabs-f500B-source5-20261029cc",
+      "object": "clear_volumetric_flask_500ml",
+      "method": "ACT",
+      "display_name": "绝对动作同种子对照源5次",
+      "current_native": false,
+      "development": true,
+      "expected_trials": 5,
+      "formal_accepted": false,
+      "paper_ssr_percent": null,
+      "reported_SpatialSSR_percent": null,
+      "progress": {
+        "episode_num": 5,
+        "episode_success_num": 5,
+        "success_rate": 1.0
+      },
+      "protocol": {
+        "method": "act",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "原±3cm固定源位置（非OOD）",
+        "duration_label": "24s物理上限",
+        "seed": "26121921",
+        "source_ids": [
+          42,
+          37,
+          26,
+          28,
+          17
+        ],
+        "note": "原五个已知源验证位置，各原始训练种子保留；同Native随机种子26722900。未进行正式OOD泛化。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": [
+            26121921
+          ],
+          "updates": 10000,
+          "warmstart_parent_updates": 32000,
+          "updates_semantics": "additional updates; original same-object parent32k"
+        }
+      },
+      "metric_note": "同种子21、同五位置、同关节头初始化和追加预算的绝对动作对照：5/5抓起、0/5成功且终点20mm。原始完整结果保留，非正式验收。",
+      "cases": [],
+      "result": {
+        "SR": 100.0,
+        "success_and_terminal_dP20": 0.0,
+        "SpatialSSR": null,
+        "trials": 5,
+        "successes": 5,
+        "success_terminal20mm": 0,
+        "formal_accepted": false,
+        "full_geometry_SSR_evaluated": false,
+        "formal_evaluation_status": "DEVELOPMENT_COMPLETE",
+        "planned_trials": 5,
+        "missing_cohorts_not_scored_as_trials": true
+      },
+      "job_id": "job-0t831pc6f2mz"
+    },
+    {
+      "candidate": "pro6000-dev-A10armres-f500B-source15-20261029cc",
+      "object": "clear_volumetric_flask_500ml",
+      "method": "ACT",
+      "display_name": "残差版三种子源15次",
+      "current_native": false,
+      "development": true,
+      "expected_trials": 15,
+      "formal_accepted": false,
+      "paper_ssr_percent": null,
+      "reported_SpatialSSR_percent": null,
+      "progress": {
+        "episode_num": 15,
+        "episode_success_num": 11,
+        "success_rate": 0.7333333333333333
+      },
+      "protocol": {
+        "method": "act",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "原±3cm固定源位置（非OOD）",
+        "duration_label": "24s物理上限",
+        "seed": "26121921 / 26121923 / 26121925",
+        "source_ids": [
+          42,
+          37,
+          26,
+          28,
+          17
+        ],
+        "note": "原五个已知源验证位置，各原始训练种子保留；同Native随机种子26722900。未进行正式OOD泛化。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": [
+            26121921,
+            26121923,
+            26121925
+          ],
+          "updates": 10000,
+          "warmstart_parent_updates": 32000,
+          "updates_semantics": "additional updates; original same-object parent32k"
+        }
+      },
+      "metric_note": "完整15次均按原身份、原位置、同Native随机种子及权重/统计SHA正常关闭；11/15抓起、2/15成功且终点20mm。离线拟合变好未转化为闭环改善；不扩大为正式150次。",
+      "cases": [],
+      "result": {
+        "SR": 73.33333333333333,
+        "success_and_terminal_dP20": 13.333333333333334,
+        "SpatialSSR": null,
+        "trials": 15,
+        "successes": 11,
+        "success_terminal20mm": 2,
+        "formal_accepted": false,
+        "full_geometry_SSR_evaluated": false,
+        "formal_evaluation_status": "DEVELOPMENT_COMPLETE",
+        "planned_trials": 15,
+        "missing_cohorts_not_scored_as_trials": true
+      },
+      "job_id": "job-5j8u1zk83kx5"
     }
   ],
   "geometry_distance_metric_note": "交叉见证的平面端点分离量不是实体穿透深度。严格零交叉判据不变；历史depth字段保留原报告，不用于放宽门槛。"
