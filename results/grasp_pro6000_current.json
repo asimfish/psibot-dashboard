@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-30T19:31:09.730793+00:00",
+  "updated_utc": "2026-10-30T20:49:19.860153+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -410,7 +410,7 @@
         "lifted": 100,
         "strict_crossings": 0
       },
-      "next": "完成正在运行的DP独立150次及全场景SSR/视觉；新三种子ACT完成内容封存后接续受控测试和正式150。",
+      "next": "正在测试原始ACT32k三种子开发15，不带保持或目标参考；固定保持DP150继续原120Hz几何审计。两条线分别记录。",
       "name": "50ml 玻璃烧杯",
       "status_note": "固定保持DP变体的独立150条全部闭合：145次曾成功、56次成功且终点20mm（96.7%/37.3%终点分量）。原127条未改，补23条全部闭合，保留全部5条任务失败。全150条原120Hz手物几何已启动；完整SpatialSSR/视觉仍待核验，SR高于论文75%也需审阅。原DP/ACT正式结果与变体分列，不计新通过。",
       "development_source_physics5": {
@@ -1019,8 +1019,8 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "250ml 透明容量瓶",
-      "status_note": "N1源100条已通过源抬升、终点与手物几何检查。旧三DP100k和三ACT32k训练进程已结束，但部分存档与生产日志模型哈希不符，旧测试继续隔离。新三ACT内容封存恢复训练已运行；不能把训练结束计成任务验收通过。",
-      "next": "三ACT各自CPU/SHA闭合后自动测试同五源位置，共15次；再依据结果决定独立OOD正式测试。DP100k为固定开发预算，非论文全预算。",
+      "status_note": "新三ACT各32k已完成完整CPU审计、生产端内容封存及本地外部原始权重哈希核验；已启动固定五源位置×三种子的开发15。新三DP100k封存重训已启动。旧生产日志/存档哈希不符版本继续隔离；开发结果、独立OOD与完整SSR待闭合。",
+      "next": "先收齐正在运行的原始ACT开发15；按完整结果决定下一步，不把训练完成计成验收。",
       "source120_closed": {
         "episodes": 100,
         "Native_successes": 100,
@@ -1093,8 +1093,8 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "500ml 透明容量瓶",
-      "status_note": "明确新表示变体：两个ACT种子初始RGB目标参考终点10/10，配对零参考1/10；两组原程序曾成功均10/10。额外324841个冻结学习系数；第三种子、独立OOD与完整几何/视觉未闭合，正式不通过。",
-      "next": "沿固定输入视觉对照继续定位，验证目标锚新动作表示及全轨迹风险；不重复无改善的FK正式测试。",
+      "status_note": "目标参考表示变体第三原种子已完成5/5，三种子在相同五个已知开发位置合计15/15抓起及终点20mm；前两种子零参考配对仅1/10终点达标。独立OOD、完整几何/视觉仍缺，不计原始ACT或正式通过。",
+      "next": "优先验证冻结三模型的独立范围外位置，检查目标参考是否只拟合源位置；保留全部对照和原始视频。",
       "source120_closed": {
         "episodes": 100,
         "Native_successes": 100,
@@ -1139,6 +1139,20 @@
         "mean_control_success_terminal20": 0,
         "predicted_goal_Native_trials": 10,
         "mean_control_Native_trials": 10
+      },
+      "declared_variant_source15": {
+        "trials": 15,
+        "Native_successes": 15,
+        "success_terminal20mm": 15,
+        "training_seeds": [
+          26121921,
+          26121923,
+          26121925
+        ],
+        "all_same_known_five_positions": true,
+        "independent_OOD": false,
+        "full_SpatialSSR": null,
+        "formal_accepted": false
       }
     },
     {
@@ -1383,14 +1397,24 @@
         "lifted": 100,
         "strict_crossings": 0
       },
-      "next": "保留当前目标观测，继续查抓取/终点学习误差；不推广已失败的初始XY改法。",
+      "next": "核对模型终点命令与实际末端轨迹，区分策略偏差与执行误差；当前模型不盲跑正式150。",
       "name": "漏斗",
-      "status_note": "DP100k原源验证9/15抓起、0/15终点20mm；固定初始目标XY对照只有2/15抓起、2/15终点20mm，已否决。旧正式结果独立保留。",
+      "status_note": "原始DP100k恢复源碰撞配置后，三种子开发15条全部关闭：8/15抓起、0/15终点20mm；旧配置为9/15、0/15。目标物体碰撞配置不是这次终点误差的充分解释。保留旧正式结果，不计验收。",
       "latest_source_development": {
         "method": "DP",
         "trials": 15,
         "successes": 9,
         "terminal20_component": 0,
+        "formal_accepted": false
+      },
+      "source_physics_DP100_development": {
+        "trials": 15,
+        "Native_successes": 8,
+        "success_terminal20mm": 0,
+        "previous_same15_Native_successes": 9,
+        "previous_same15_terminal20mm": 0,
+        "all_original_models_positions_and_thresholds_retained": true,
+        "full_SpatialSSR": null,
         "formal_accepted": false
       }
     },
@@ -1502,11 +1526,11 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 239,
-    "active_registered_jobs": 3,
+    "registered_jobs": 244,
+    "active_registered_jobs": 4,
     "BOS_mount_count": 2,
-    "state": "B50_ALL150_COMPONENTS_CLOSED_GEOMETRY_RUNNING_EIGHT_TRAINING_GPUS",
-    "state_note": "B50固定保持DP的独立150条已完整闭合：SR96.7%，成功且终点20mm分量37.3%；完整SSR/视觉与高SR泛化审阅仍未完成。两个训练作业共分配8张，F250三个新ACT合格后自动接续开发15次，F500第三种子r2已排。正式仍0/21。",
+    "state": "EIGHT_ALLOCATED_TRAINING_GPUS_ORIGINAL_ACT_TWO_OBJECTS_DEVELOPMENT",
+    "state_note": "4个新ACT32k及原始模型字节核验完成，F250和B50原始ACT开发15分别运行。漏斗源物理对照8/15抓起、0/15终点达标。F500目标参考变体三种子开发终点15/15，仍不是独立泛化或完整SSR。B50固定保持DP150完整结果及117段原始视频已保留；全量几何在共享CPU负载门槛下继续。正式仍0/21。",
     "prepared_not_submitted": [
       {
         "tag": "eval-m6-dp-b50-20261025cc",
@@ -1521,7 +1545,7 @@
         "progress_note": "旧ACT种子21/23出现生产日志与BOS存档哈希不符，旧测试继续挂起；新三ACT批次使用生产端内容封存。DP100k种子21也有来源不符，旧DP测试未放行。"
       }
     ],
-    "checked_utc": "2026-10-30T18:57:07.279730+00:00",
+    "checked_utc": "2026-10-30T20:44:25.963196+00:00",
     "jobs": [
       {
         "tag": "qual-mortar-p120-smoke4-20261028cc",
@@ -2988,42 +3012,48 @@
             "object": "clear_volume",
             "seed": 26121921,
             "GPU": 0,
-            "updates": 99900
+            "updates": 99900,
+            "returncode": null
           },
           {
             "method": "dp",
             "object": "clear_volume",
             "seed": 26121923,
             "GPU": 1,
-            "updates": 99900
+            "updates": 99900,
+            "returncode": null
           },
           {
             "method": "dp",
             "object": "clear_volume",
             "seed": 26121925,
             "GPU": 2,
-            "updates": 100000
+            "updates": 100000,
+            "returncode": 0
           },
           {
             "method": "act",
             "object": "clear_volume",
             "seed": 26121921,
             "GPU": 3,
-            "updates": 32000
+            "updates": 32000,
+            "returncode": 0
           },
           {
             "method": "act",
             "object": "clear_volume",
             "seed": 26121923,
             "GPU": 0,
-            "updates": 32000
+            "updates": 32000,
+            "returncode": 0
           },
           {
             "method": "act",
             "object": "clear_volume",
             "seed": 26121925,
             "GPU": 1,
-            "updates": 32000
+            "updates": 32000,
+            "returncode": 0
           }
         ]
       },
@@ -3221,28 +3251,32 @@
             "object": "glass_beaker",
             "seed": 26121921,
             "GPU": 0,
-            "updates": 46250
+            "updates": 60900,
+            "returncode": null
           },
           {
             "method": "dp",
             "object": "glass_beaker",
             "seed": 26121923,
             "GPU": 1,
-            "updates": 46300
+            "updates": 60900,
+            "returncode": null
           },
           {
             "method": "dp",
             "object": "glass_beaker",
             "seed": 26121925,
             "GPU": 2,
-            "updates": 46350
+            "updates": 61050,
+            "returncode": null
           },
           {
             "method": "act",
             "object": "clear_volume",
             "seed": 26121925,
             "GPU": 3,
-            "updates": 10000
+            "updates": 10000,
+            "returncode": 0
           }
         ]
       },
@@ -3263,46 +3297,112 @@
       {
         "tag": "train-A32-f250S3-b50S21-recovery-sealed-20261030cc",
         "job_id": "job-vqwd1825y5ps",
-        "status": "RUNNING",
-        "name": "F250三个ACT＋B50种子21 · 内容封存恢复训练",
-        "progress_note": "四个32k ACT已实际训练约6.7–6.9k；F250三种子内容封存后将自动接续已冻结的原15次开发测试。B50种子21技术复现保留旧审计失败，不按模型结束数量计验收。",
+        "status": "SUCCEEDED",
+        "name": "F250三ACT32k及B50种子21 · 训练和外部字节核验完成",
+        "progress_note": "4个ACT均32k，生产完整CPU门槛和内容封存通过；4份原始权重已在本地流式读取核对SHA。远端RAM保护门槛未改，后续两对象原始ACT开发测试已启动。",
         "training_progress": [
           {
             "method": "act",
             "object": "clear_volume",
             "seed": 26121921,
             "GPU": 0,
-            "updates": 730
+            "updates": 31920,
+            "returncode": null
           },
           {
             "method": "act",
             "object": "clear_volume",
             "seed": 26121923,
             "GPU": 1,
-            "updates": 710
+            "updates": 32000,
+            "returncode": null
           },
           {
             "method": "act",
             "object": "clear_volume",
             "seed": 26121925,
             "GPU": 2,
-            "updates": 720
+            "updates": 31650,
+            "returncode": null
           },
           {
             "method": "act",
             "object": "glass_beaker",
             "seed": 26121921,
             "GPU": 3,
-            "updates": 730
+            "updates": 32000,
+            "returncode": 0
           }
         ]
       },
       {
         "tag": "dev-A10goalAnchor-f500B-seed25-source5-20261030cc-r2",
         "job_id": "job-pvsqyiclu02k",
-        "status": "PENDING",
+        "status": "SUCCEEDED",
         "name": "F500目标参考ACT · 第三种子五次验证r2",
-        "progress_note": "修复节点仍要求两单元的继承断言；真实节点在CPU后端先RED后GREEN，一单元五条结果（含失败）完整保留，超预算两单元仍拒绝。原模型/RNG/已知开发位置/源物理配置不变；显式变体，未计验收。"
+        "progress_note": "5条全部正常CPU/SHA关闭，5次抓起和终点20mm；三种子已知开发位置合计15/15，仍缺独立OOD和完整SSR。"
+      },
+      {
+        "tag": "dev-D100-funnel-source-physics15-20261030cc-r2",
+        "job_id": "job-im1j77njl697",
+        "status": "SUCCEEDED",
+        "name": "漏斗原始DP · 源物理对照15已完成",
+        "progress_note": "15/15正常关闭：8抓起、0终点20mm；原15为9/15、0/15。源碰撞配置恢复未解决终点精度，保留所有失败；首版哈希配对启动故障另存。"
+      },
+      {
+        "tag": "train-D100-f250S3-D200-b50S21-sealed-20261030cc",
+        "job_id": "job-ysv1s20msumz",
+        "status": "RUNNING",
+        "name": "F250三DP100k内容封存重训 + B50原始DP200k预算诊断",
+        "training_progress": [
+          {
+            "method": "dp",
+            "object": "clear_volume",
+            "seed": 26121921,
+            "GPU": 0,
+            "updates": 1850,
+            "returncode": null
+          },
+          {
+            "method": "dp",
+            "object": "clear_volume",
+            "seed": 26121923,
+            "GPU": 1,
+            "updates": 1850,
+            "returncode": null
+          },
+          {
+            "method": "dp",
+            "object": "clear_volume",
+            "seed": 26121925,
+            "GPU": 2,
+            "updates": 1850,
+            "returncode": null
+          },
+          {
+            "method": "dp",
+            "object": "glass_beaker",
+            "seed": 26121921,
+            "GPU": 3,
+            "updates": 1850,
+            "returncode": null
+          }
+        ],
+        "progress_note": "4张各1个DP，F250三种子固定100k、B50原种子21固定200k预算诊断；生产封存先于兼容路径持久化。仍为开发固定预算，不是论文全epoch预算；总训练分配上限8张。"
+      },
+      {
+        "tag": "dev-A32-f250N1-sealed3-source15-20261030cc",
+        "job_id": "job-5hj9oolh5u6u",
+        "status": "RUNNING",
+        "name": "250ml透明容量瓶 · 原始ACT三种子开发15",
+        "progress_note": "三份新封存ACT原始权重外部核验完成，按原五个已知源位置测试，不带保持/目标参考；完整结果未收齐，不能报正式SR或SSR。"
+      },
+      {
+        "tag": "dev-A32-b50-sealed3-original-source15-20261030cc",
+        "job_id": "job-qx7yual0xdxv",
+        "status": "RUNNING",
+        "name": "50ml烧杯 · 原始ACT三种子开发15",
+        "progress_note": "预声明合格新21与已封存23/25；保持原ACT4、源物理、休止高度和4步reset，未加固定保持/目标参考。真实模型/归一化/采样器门槛及CPU三单元调度通过。"
       }
     ],
     "progress_note": "保留全部50个旧版本、84段旧原视频；新增6个开发结果版本、30段原视频及1个进行中的正式版本，共57版本/114段视频。原程序曾成功、终点区域、EEF20mm、完整SSR分别报告。",
@@ -3524,7 +3624,10 @@
     "previous_audit_evidence": "verification/grasp-B50-source-physics-and-B100-retest-20261030.json",
     "training_GPU_cap": 8,
     "allocated_training_GPUs": 8,
-    "current_recovery_evidence_url": "verification/grasp-B50-remaining23-and-source-provenance-20261030.json"
+    "current_recovery_evidence_url": "verification/grasp-B50-remaining23-and-source-provenance-20261030.json",
+    "observed_optimizer_GPUs": 7,
+    "observed_optimizer_GPU_note": "旧B50混合作业GPU3的ACT已完成，其余3张DP运行；新封存DP作业4张均已有实际更新。",
+    "sealed_continuation_evidence_url": "verification/grasp-sealed-models-and-original-source15-20261030.json"
   },
   "evidence_note": "B50独立150条完整结果已更新：96.7%为原生曾成功率，37.3%仅为成功且终点20mm分量，尚不是完整SpatialSSR。原127条和全部5条任务失败保留，旧114段与新增3段视频不变；全150条手物几何后台推进，验收仍0。",
   "offline_DP_probe": {
@@ -9351,6 +9454,98 @@
       },
       "job_id": "job-72yr4d6cmenl",
       "declared_variant_counts_toward_original_baseline_acceptance": false
+    },
+    {
+      "candidate": "pro6000-dev-A10goalAnchor-f500B-seed25-source5-20261030cc-r2",
+      "object": "clear_volumetric_flask_500ml",
+      "method": "ACT",
+      "display_name": "ACT目标参考变体第三种子 · 开发5/5终点达标",
+      "current_native": false,
+      "development": true,
+      "expected_trials": 5,
+      "formal_accepted": false,
+      "reported_SpatialSSR_percent": null,
+      "paper_ssr_percent": null,
+      "success_semantics": "original_ever_success_latch",
+      "progress": {
+        "episode_num": 5,
+        "episode_success_num": 5,
+        "success_rate": 1.0
+      },
+      "cases": [],
+      "job_id": "job-pvsqyiclu02k",
+      "train": {
+        "seeds": [
+          26121925
+        ]
+      },
+      "protocol": {
+        "collection_GPU": "Zenith Pro6000",
+        "evaluation_GPU": "Zenith Pro6000",
+        "independent_OOD": false,
+        "historical_positions_already_observed": true
+      },
+      "result": {
+        "SR": 100.0,
+        "trials": 5,
+        "successes": 5,
+        "success_terminal20mm": 5,
+        "success_and_terminal_dP20": 100.0,
+        "SpatialSSR": null,
+        "formal_accepted": false,
+        "full_geometry_SSR_evaluated": false
+      },
+      "unmodified_original_DP_or_ACT": false,
+      "producer_summary_SHA256": "0982c479e60041ff18f1d26ee0d7b23929932c6138e0765d5b971524ef9ebe4a",
+      "declared_policy_variant": "ACT_initial_RGB_goal_anchored_arm7_v1",
+      "extra_frozen_learned_coefficients": 324841,
+      "metric_note": "第三原种子25使用其自己的32k父模型+10k，原五个已知开发位置5/5抓起、5/5终点20mm；与前两种子合计15/15。明确为目标参考表示变体，额外324841个冻结学习系数；独立OOD、完整几何及本版本视频未核验，不计原始ACT或正式通过。前两种子的原始三视角仍保留在旧版本。"
+    },
+    {
+      "candidate": "pro6000-dev-D100-funnel-source-physics15-20261030cc-r2",
+      "object": "funnel",
+      "method": "DP",
+      "display_name": "原始DP100k源物理对照 · 8/15抓起、终点0/15",
+      "current_native": false,
+      "development": true,
+      "expected_trials": 15,
+      "formal_accepted": false,
+      "reported_SpatialSSR_percent": null,
+      "paper_ssr_percent": null,
+      "success_semantics": "original_ever_success_latch",
+      "progress": {
+        "episode_num": 15,
+        "episode_success_num": 8,
+        "success_rate": 0.5333333333333333
+      },
+      "cases": [],
+      "job_id": "job-im1j77njl697",
+      "train": {
+        "seeds": [
+          26121921,
+          26121923,
+          26121925
+        ]
+      },
+      "protocol": {
+        "collection_GPU": "Zenith Pro6000",
+        "evaluation_GPU": "Zenith Pro6000",
+        "independent_OOD": false,
+        "historical_positions_already_observed": true
+      },
+      "result": {
+        "SR": 53.333333333333336,
+        "trials": 15,
+        "successes": 8,
+        "success_terminal20mm": 0,
+        "success_and_terminal_dP20": 0.0,
+        "SpatialSSR": null,
+        "formal_accepted": false,
+        "full_geometry_SSR_evaluated": false
+      },
+      "unmodified_original_DP_or_ACT": true,
+      "producer_summary_SHA256": "5939ba38e509c45eb3b0f8b687fbb10136a606876bf81dcc48d01a2237072965",
+      "metric_note": "相同三种子DP100k EMA、相同15个已知源位置、相同随机种子和阈值；恢复源无液体/原资产碰撞配置。15条全部正常关闭，8条抓起、0条成功且终点20mm；旧配置为9/15、0/15。对照未解决终点误差，不将其扩展成盲目的正式150；不是完整SpatialSSR或独立泛化验收。"
     }
   ],
   "geometry_distance_metric_note": "交叉见证的平面端点分离量不是实体穿透深度。严格零交叉判据不变；历史depth字段保留原报告，不用于放宽门槛。"
