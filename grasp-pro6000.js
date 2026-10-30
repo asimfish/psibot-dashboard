@@ -92,7 +92,7 @@ function renderPro6000(snapshot) {
     link.addEventListener('click', () => document.getElementById('browser').scrollIntoView());
   }
   add(measured, 'p', '漏斗 ACT：+0 / +1 / +2 / +3cm 分组 SR 为 100 / 89.7 / 69.4 / 47.2%。SR 偏高的范围复核待确认；不能据此把物体记为通过。', 'muted');
-  add(measured, 'p', '研钵 ACT 有 145/150 试次表面交叉。b50 旧测试存在重置异常；最新诊断虽初始直立，策略动作后仍迅速倾倒，尚需被动静置对照区分物理不稳与策略碰撞。失败试次全部保留。', 'muted');
+  add(measured, 'p', snapshot.pipeline.b50_reset_note || '研钵旧 ACT 有145/150试次表面交叉；B50旧测试重置异常须先关闭。失败试次全部保留。', 'muted');
   const all = add(root, 'details');
   add(all, 'summary', '21 个物体的当前源数据、论文目标和下一步');
   const allTable = add(add(all, 'div', undefined, 'table-wrap'), 'table');
