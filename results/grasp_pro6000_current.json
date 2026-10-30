@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-29T23:21:10.967882+00:00",
+  "updated_utc": "2026-10-30T00:41:02.967710+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -980,7 +980,7 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "250ml 透明容量瓶",
-      "status_note": "默认闭合及0.98/0.96各3/3抬起，但源1在抬升初期的拇指近节/瓶颈发生短暂交叉。按真实表面法向向外平移0/1/2/4mm的新12次全部抬起且终点达标，正在审全部120Hz姿态；保留所有旧失败。",
+      "status_note": "默认闭合及0.98/0.96各3/3抬起，但源1在抬升初期的拇指近节/瓶颈发生短暂交叉。按真实表面法向向外平移0/1/2/4mm的新12次全部抬起且终点达标，正在审全部120Hz姿态；保留所有旧失败。 1mm外法向平移pilot3/3物理通过、8634姿态零交叉；百条重采已核验52条均物理/20mm通过，几何未完成，六模型训练仍挂起。",
       "next": "选全部3条物理、几何及源视觉通过的最小平移量，采完整100条；完整源过门槛后再训练DP/ACT。"
     },
     {
@@ -1033,7 +1033,7 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "500ml 透明容量瓶",
-      "status_note": "DP100k已完整测试：12/15曾成功、终点仍抬升9/15、终点20mm为0/15。初始/当前RGB为15/15保持抓取、1/15终点20mm；同计算对照5/5保持抓取、0/5终点。原ACT32k为3/15终点，新方案均未改善，附12段新原视频。",
+      "status_note": "DP100k已完整测试：12/15曾成功、终点仍抬升9/15、终点20mm为0/15。初始/当前RGB为15/15保持抓取、1/15终点20mm；同计算对照5/5保持抓取、0/5终点。原ACT32k为3/15终点，新方案均未改善，附12段新原视频。 新位置条件/均值两组各10次已关闭：抓起均10/10，终点20mm分别1/10、0/10。四卡FK训练对照进行中。",
       "next": "初始raw RGB→专家终点的训练95内交叉验证已通过，源验证5个位置的预测误差0.69–3.99mm。原种子21/23各完成预测位置/固定均值配对10k训练；完整CPU关闭后自动跑20次同位置配对开发验证，不计正式泛化。",
       "source120_closed": {
         "episodes": 100,
@@ -1073,7 +1073,12 @@
         ],
         "source_not_independent_formal": true,
         "Native_calls": 0,
-        "formal_accepted": false
+        "formal_accepted": false,
+        "closed_paired_Native_trials": 20,
+        "predicted_goal_success_terminal20": 1,
+        "mean_control_success_terminal20": 0,
+        "predicted_goal_Native_trials": 10,
+        "mean_control_Native_trials": 10
       }
     },
     {
@@ -1437,11 +1442,11 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 150,
-    "active_registered_jobs": 1,
+    "registered_jobs": 209,
+    "active_registered_jobs": 4,
     "BOS_mount_count": 2,
     "state": "INITIAL_RGB_GOAL_PAIRED_TEST_AND_NORMAL_GUIDED_SOURCE_REPAIR",
-    "state_note": "F1000 ACT源15次全部抓起但终点0/15，已定位模型水平面命令偏差；F500初始图像条件四组10k训练完成待配对闭环；F250法向平移12/12实际抬起，严格几何审计中。正式验收仍0/21。",
+    "state_note": "F500位置条件配对20次已闭合：两组均抓起10/10，但终点仅1/10和0/10；末端命令偏差仍是主要阻塞。四卡原ACT末端位置损失对照正在训练；F250百条采集/几何与B50重置复核并行。正式验收仍0/21。",
     "prepared_not_submitted": [
       {
         "tag": "eval-m6-dp-b50-20261025cc",
@@ -1460,9 +1465,14 @@
         "state": "HOLD_FOUR_CLOSED_MODELS",
         "name": "500ml瓶 · 固定均值配对对照",
         "progress_note": "两个原种子各5个固定源位置，四模型CPU和SHA门槛通过后由既有队列放行；不自动做正式测试。"
+      },
+      {
+        "name": "F250 · 三DP＋三ACT",
+        "tag": "train-D100A32-f250N1-three-each-20261030cc",
+        "progress_note": "六模型四卡配置已演练；必须全100物理/120Hz几何/原视频抽样和总8训练卡容量均通过才释放，当前保持挂起。"
       }
     ],
-    "checked_utc": "2026-10-29T23:21:10.967882+00:00",
+    "checked_utc": "2026-10-30T00:41:02.967710+00:00",
     "jobs": [
       {
         "tag": "qual-mortar-p120-smoke4-20261028cc",
@@ -2793,8 +2803,8 @@
           "2026-10-30T05:06:50.259571564+08:00 stdout F GRASP_CC_DECODED 16 cells 114 s"
         ],
         "optimizer_launched": false,
-        "name": "1000ml瓶DP100k · 三原种子训练中",
-        "progress_note": "原100条干净源；三卡持续优化，关闭后接续固定源15次验证。"
+        "name": "F1000 DP · 三种子100k训练",
+        "progress_note": "各分支已核验更新步：[28050, 27950, 27950]；尚未完成模型CPU门槛和原生闭环。"
       },
       {
         "tag": "train-A32-f1000B3-20261029cc",
@@ -2846,11 +2856,53 @@
         "name": "250ml瓶 · 瓶颈法向平移12次",
         "progress_note": "12/12物理及终点分量通过，全部120Hz几何审计进行中；尚未准入。",
         "observed_utc": "2026-10-29T23:21:10.967882+00:00"
+      },
+      {
+        "tag": "dev-A10rawGoal-f500B-source10-20261029cc",
+        "job_id": "job-p60ky0d2bpfs",
+        "status": "SUCCEEDED",
+        "name": "F500 · 初始RGB位置条件源10次",
+        "progress_note": "10/10抓起并终点持有，1/10成功且终点20mm；全10原预测目标在3.2–7.4mm内。完整SSR/泛化/视觉未验收。"
+      },
+      {
+        "tag": "dev-A10meanGoal-f500B-source10-20261029cc",
+        "job_id": "job-f2r2vrchf9tp",
+        "status": "SUCCEEDED",
+        "name": "F500 · 固定均值配对源10次",
+        "progress_note": "10/10抓起并终点持有，0/10成功且终点20mm。与条件版同两种子、相同额外10k和固定5位置/随机数。"
+      },
+      {
+        "tag": "train-A10fkAux-f500B3-control21-20261030cc",
+        "job_id": "job-qokfzqu9mk1w",
+        "status": "RUNNING",
+        "name": "F500 ACT · FK位置损失三候选＋同种子对照",
+        "progress_note": "各分支已核验更新步：[7690, 7690, 7670, 7590]；尚未完成模型CPU门槛和原生闭环。"
+      },
+      {
+        "tag": "src100-f250-c100-neckN1-m8-p120-20261029cc",
+        "job_id": "job-jyh20xlkibzf",
+        "status": "RUNNING",
+        "name": "F250 · 1mm法向修复百条重采",
+        "progress_note": "已核验52/100条全部抬起且终点20mm达标；8个CPU审计器处理中，不能把尚未完成的几何视为零交叉。12原视频完整解码，96抽样画面由root与Astra审阅。"
+      },
+      {
+        "tag": "dev-A32-b50-current-reset5-20261030cc",
+        "job_id": "job-nfq6xbx3qabq",
+        "status": "FAILED",
+        "name": "B50 · 当前重置复核首次构建失败",
+        "progress_note": "F500专用pro_node对象断言拒绝B50，在Native启动前失败；0有效试次，不作策略0/5。原始汇总SHA已验证，CPU真实入口RED/GREEN修复。"
+      },
+      {
+        "tag": "dev-A32-b50-current-reset5-20261030cc-r2",
+        "job_id": "job-jby9dpea9rl6",
+        "status": "RUNNING",
+        "name": "B50 · 当前重置复核修正版5次",
+        "progress_note": "修正对象断言后已进入原Native评估；当前未关闭有效试次。原5XY/随机数/高度/姿态/4步重置物理不变，当前ACT32k和已修复控制/动作缓冲。只诊断，不自动正式测试。"
       }
     ],
-    "progress_note": "保留42个旧版本和48段旧策略视频，新增F1000三种子15次开发版及6段原视频；原生成功、终点抓住、终点20mm和SpatialSSR分别呈现。",
+    "progress_note": "保留43个旧版本和54段旧策略视频，新增F500初始RGB位置条件及均值对照两个版本、12段三视角原视频。已关闭试次、训练进度与完整验收分开列示。",
     "DP_repair_note": "DP100k结果未改善终点精度：同源专家拟合误差较小、动作队列逐项一致，真实闭环终点偏差较大。配对CPU裁剪实验未见稳定收益，未部署；正在核对实际视觉/低维输入。",
-    "b50_reset_note": "约6–9mm初始XY偏移的旧错误已保留。最新初始XY准确至0.149mm、初始直立，但主动策略开始后0.117秒倾倒；仅此不足以证明被动重置不稳，EEF距离也不能排除长手指碰撞。正式DP继续挂起。",
+    "b50_reset_note": "旧放置高度/默认姿态/清零速度的5次诊断仍在0.117s倾倒。当前ACT32k+控制边界/动作缓冲复核首次因F500专用对象断言在Native前失败，0有效试次；CPU真实入口RED/GREEN修好且原作业FAILED后，r2已释放原5XY和随机数。正式DP继续挂起。",
     "failure_diagnosis": [
       "F1000三种子源15/15抓住但终点0/15。原USD FK在100条新源及实际测试状态复算一致，模型关节目标的水平面偏差已超20mm；6段原视频保留。",
       "F500训练95内的初始图像回归器已能恢复终点位置，验证误差0.69–3.99mm；当前配对实验检查策略是否会使用该信息，不能据CPU拟合认定SSR。",
@@ -2871,7 +2923,9 @@
       "历史排查记录：新RGB4烧杯ACT只关闭14/15，10成功、3终点20mm；缺失1条来自CUDA camera/reset技术故障。保留失败，不按较好种子筛选或作为正式通过。",
       "历史排查记录：正式验收仍需每个物体的DP、ACT同时达到论文SR、完整任务SpatialSSR，并通过冻结的±3/4/5/6cm泛化与视觉检查；源鉴定、训练关闭、终点20mm均不自动计通过。",
       "历史研钵ACT145/150交叉独立保留；原c0.490源100有14条交叉，旧源不入训。当前新引用100仅获开发训练准入，源质量不替代策略验收。",
-      "正式验收仍须每个物体DP、ACT达到各自论文SR与完整Grasp SpatialSSR，完成冻结±3/4/5/6cm测试、严格几何和视觉检查；所有失败、原身份和版本独立保留。"
+      "正式验收仍须每个物体DP、ACT达到各自论文SR与完整Grasp SpatialSSR，完成冻结±3/4/5/6cm测试、严格几何和视觉检查；所有失败、原身份和版本独立保留。",
+      "F500初始RGB条件与固定均值对照各10次全部抓住，但成功且终点20mm只有1/10和0/10；实际预测目标10/10距固定目标仅3.2–7.4mm。训练后条件因果CPU诊断支持当前策略后段对条件依赖很弱，不据此扩展正式测试。",
+      "新有界训练只在原ACT动作目标损失上加teacher关节FK位置项（固定0.1，配对0），共同模型选择、原q26/三RGB/action13推理不变；4分支各10k，先核查posterior与部署zero-latent误差，再原15+5闭环，不自动验收。"
     ],
     "expert_replay_prefix": {
       "prefix_seconds": 23.966666666666665,
@@ -2939,18 +2993,79 @@
       "new_and_legacy_staged_inline_checks_passed": true
     },
     "source_recovery_evidence": "verification/grasp_source_recovery_20261028.json",
-    "latest_audit_evidence": "verification/grasp_f1000_source15_raw_goal_20261029.json",
+    "latest_audit_evidence": "verification/grasp-F500-goal-pair-and-FK-training-20261030.json",
     "pick_place_comparison_evidence": "verification/grasp_mortar_closed15_20261029.json",
     "training_GPU_target": 8,
-    "training_GPUs_provisioned": 4,
-    "training_jobs_with_optimizer_progress": 1,
+    "training_GPUs_provisioned": 8,
+    "training_jobs_with_optimizer_progress": 2,
     "training_budget_evidence": "verification/grasp_source15_followthrough_20261028.json",
     "submitted_jobs": 150,
-    "training_optimizer_active_GPUs_observed": 3,
-    "training_utilization_note": "本批F500四卡配对训练正常结束，转入CPU核验/20次闭环；F1000 DP仍分配4卡、三原种子优化。训练上限8卡，下一批依源准入及机制对照结果接续，不将结束模型继续算作活跃训练。",
+    "training_optimizer_active_GPUs_observed": 7,
+    "training_utilization_note": "两个四卡低优训练任务共8张配额；最新日志确认4个ACT分支和3个DP优化进程，DP任务第4卡未放新种子。卡利用率按日志瞬时观测报告，不宣称8卡均持续满载。",
     "training_GPU_allocation_cap": 8,
-    "training_allocated_GPUs": 4,
-    "training_optimizers_last_verified": 3
+    "training_allocated_GPUs": 8,
+    "training_optimizers_last_verified": {
+      "train-A10fkAux-f500B3-control21-20261030cc": [
+        [
+          "act",
+          "clear_volume",
+          26121921,
+          0,
+          7690,
+          null
+        ],
+        [
+          "act",
+          "clear_volume",
+          26121923,
+          1,
+          7690,
+          null
+        ],
+        [
+          "act",
+          "clear_volume",
+          26121925,
+          2,
+          7670,
+          null
+        ],
+        [
+          "act",
+          "clear_volume",
+          26121921,
+          3,
+          7590,
+          null
+        ]
+      ],
+      "train-D100-f1000B3-20261029cc": [
+        [
+          "dp",
+          "clear_volume",
+          26121921,
+          0,
+          28050,
+          null
+        ],
+        [
+          "dp",
+          "clear_volume",
+          26121923,
+          1,
+          27950,
+          null
+        ],
+        [
+          "dp",
+          "clear_volume",
+          26121925,
+          2,
+          27950,
+          null
+        ]
+      ]
+    }
   },
   "evidence_note": "42个旧版本和48段旧策略视频原样保留；新增1000ml瓶三种子ACT源15次及6段原视频。新CPU位置探针、源修复和开发结果均不计正式150或完整SpatialSSR，0/21未变。",
   "offline_DP_probe": {
@@ -6578,6 +6693,376 @@
         "full_geometry_SSR_evaluated": false
       },
       "job_id": "job-udjnn56huviy"
+    },
+    {
+      "candidate": "pro6000-dev-A10rawGoal-f500B-source10-20261029cc",
+      "object": "clear_volumetric_flask_500ml",
+      "method": "ACT",
+      "display_name": "初始RGB位置条件 · 抓起10/10、终点1/10",
+      "current_native": false,
+      "development": true,
+      "expected_trials": 10,
+      "formal_accepted": false,
+      "paper_ssr_percent": null,
+      "reported_SpatialSSR_percent": null,
+      "progress": {
+        "episode_num": 10,
+        "episode_success_num": 10,
+        "success_rate": 1
+      },
+      "protocol": {
+        "method": "act",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "原±3cm固定源位置（非OOD）",
+        "duration_label": "24s物理上限",
+        "seed": "26121921 / 26121923",
+        "source_ids": [
+          42,
+          37,
+          26,
+          28,
+          17
+        ],
+        "chunk_size": 4,
+        "external_robot_state_dimension": 26,
+        "internal_conditioned_state_dimension": 29,
+        "action_dimension": 13,
+        "note": "同5冻结源位置×2原种子；相同Native随机数。输入条件由首次原始三RGB计算，训练仅用train95交叉预测；固定均值对照仍执行同一图像预测器。无场景位置、目标或时钟输入。非独立泛化/正式150。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": [
+            26121921,
+            26121923
+          ],
+          "updates": 10000,
+          "parent_updates": 32000
+        }
+      },
+      "metric_note": "两原种子各加训10k，10/10均抓起并终点持有；成功且终点20mm为1/10。实际Native首次RGB预测的目标误差10/10为3.2–7.4mm，策略仍只有1/10终点达标；训练后固定输入换条件的CPU诊断显示后段关节命令对XY条件反应很弱，CPU图像重放并非逐位Native复现。仅位置分量，完整SpatialSSR未验收。",
+      "cases": [
+        {
+          "episode": 2,
+          "camera": "chest_camera",
+          "url": "assets/grasp/pro6000_F500_raw_goal_pair_20261030/raw_predicted_minimum_terminal_error_chest.mp4",
+          "SHA256": "eb93d4d0f9294bbe01a9fb5de16ba75de468376ca7454ee2a670dde3ff17ca7c",
+          "success": true,
+          "terminal_translation_passed": true,
+          "physical_lift_region_at_terminal": true,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121923,
+          "source_id": 37,
+          "cohort": "development_ACT_demonstration_validation5",
+          "caption": "初始RGB预测条件；原生抓起且终点持有，末端误差16.9mm。每组全部10次中的最小/最大误差例，各三视角原视频；抽样视觉通过，完整几何和视觉待审。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A10rawGoal-f500B-source10-20261029cc/clear_volumetric_flask_500ml/cell01_s26121923_gpu1/native_run/native_rgb/episode_002_chest_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 2,
+          "camera": "head_camera",
+          "url": "assets/grasp/pro6000_F500_raw_goal_pair_20261030/raw_predicted_minimum_terminal_error_head.mp4",
+          "SHA256": "a45c39ac3ed3892392d9657a0a1e9ba46391f26a37f4c9bb153a47ff66de278e",
+          "success": true,
+          "terminal_translation_passed": true,
+          "physical_lift_region_at_terminal": true,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121923,
+          "source_id": 37,
+          "cohort": "development_ACT_demonstration_validation5",
+          "caption": "初始RGB预测条件；原生抓起且终点持有，末端误差16.9mm。每组全部10次中的最小/最大误差例，各三视角原视频；抽样视觉通过，完整几何和视觉待审。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A10rawGoal-f500B-source10-20261029cc/clear_volumetric_flask_500ml/cell01_s26121923_gpu1/native_run/native_rgb/episode_002_head_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 2,
+          "camera": "third_camera",
+          "url": "assets/grasp/pro6000_F500_raw_goal_pair_20261030/raw_predicted_minimum_terminal_error_third.mp4",
+          "SHA256": "d6ab940b5e266cd4640196693fae9b6615e011cd18bc02ca236feada726cbea5",
+          "success": true,
+          "terminal_translation_passed": true,
+          "physical_lift_region_at_terminal": true,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121923,
+          "source_id": 37,
+          "cohort": "development_ACT_demonstration_validation5",
+          "caption": "初始RGB预测条件；原生抓起且终点持有，末端误差16.9mm。每组全部10次中的最小/最大误差例，各三视角原视频；抽样视觉通过，完整几何和视觉待审。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A10rawGoal-f500B-source10-20261029cc/clear_volumetric_flask_500ml/cell01_s26121923_gpu1/native_run/native_rgb/episode_002_third_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 5,
+          "camera": "chest_camera",
+          "url": "assets/grasp/pro6000_F500_raw_goal_pair_20261030/raw_predicted_maximum_terminal_error_chest.mp4",
+          "SHA256": "0c009bbf53167a93e14f12f265ab12cea807b8f6257991cb62801bcd2c4a5f65",
+          "success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": true,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121921,
+          "source_id": 17,
+          "cohort": "development_ACT_demonstration_validation5",
+          "caption": "初始RGB预测条件；原生抓起且终点持有，末端误差62.5mm。每组全部10次中的最小/最大误差例，各三视角原视频；抽样视觉通过，完整几何和视觉待审。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A10rawGoal-f500B-source10-20261029cc/clear_volumetric_flask_500ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_005_chest_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 5,
+          "camera": "head_camera",
+          "url": "assets/grasp/pro6000_F500_raw_goal_pair_20261030/raw_predicted_maximum_terminal_error_head.mp4",
+          "SHA256": "487b518d665835db3b7a055ec01cb68ddcbd564f518c4b358f6c4d63b0ff3fe8",
+          "success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": true,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121921,
+          "source_id": 17,
+          "cohort": "development_ACT_demonstration_validation5",
+          "caption": "初始RGB预测条件；原生抓起且终点持有，末端误差62.5mm。每组全部10次中的最小/最大误差例，各三视角原视频；抽样视觉通过，完整几何和视觉待审。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A10rawGoal-f500B-source10-20261029cc/clear_volumetric_flask_500ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_005_head_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 5,
+          "camera": "third_camera",
+          "url": "assets/grasp/pro6000_F500_raw_goal_pair_20261030/raw_predicted_maximum_terminal_error_third.mp4",
+          "SHA256": "db00d2fce57de492c84b48fef69a1d900c609124bdb3b549ed391f9dbac12c0d",
+          "success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": true,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121921,
+          "source_id": 17,
+          "cohort": "development_ACT_demonstration_validation5",
+          "caption": "初始RGB预测条件；原生抓起且终点持有，末端误差62.5mm。每组全部10次中的最小/最大误差例，各三视角原视频；抽样视觉通过，完整几何和视觉待审。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A10rawGoal-f500B-source10-20261029cc/clear_volumetric_flask_500ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_005_third_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        }
+      ],
+      "result": {
+        "SR": 100,
+        "success_and_terminal_dP20": 10.0,
+        "SpatialSSR": null,
+        "trials": 10,
+        "successes": 10,
+        "terminal_physical_lift": 10,
+        "success_terminal20mm": 1,
+        "formal_accepted": false,
+        "full_geometry_SSR_evaluated": false
+      },
+      "job_id": "job-p60ky0d2bpfs"
+    },
+    {
+      "candidate": "pro6000-dev-A10meanGoal-f500B-source10-20261029cc",
+      "object": "clear_volumetric_flask_500ml",
+      "method": "ACT",
+      "display_name": "固定均值配对对照 · 抓起10/10、终点0/10",
+      "current_native": false,
+      "development": true,
+      "expected_trials": 10,
+      "formal_accepted": false,
+      "paper_ssr_percent": null,
+      "reported_SpatialSSR_percent": null,
+      "progress": {
+        "episode_num": 10,
+        "episode_success_num": 10,
+        "success_rate": 1
+      },
+      "protocol": {
+        "method": "act",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "原±3cm固定源位置（非OOD）",
+        "duration_label": "24s物理上限",
+        "seed": "26121921 / 26121923",
+        "source_ids": [
+          42,
+          37,
+          26,
+          28,
+          17
+        ],
+        "chunk_size": 4,
+        "external_robot_state_dimension": 26,
+        "internal_conditioned_state_dimension": 29,
+        "action_dimension": 13,
+        "note": "同5冻结源位置×2原种子；相同Native随机数。输入条件由首次原始三RGB计算，训练仅用train95交叉预测；固定均值对照仍执行同一图像预测器。无场景位置、目标或时钟输入。非独立泛化/正式150。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": [
+            26121921,
+            26121923
+          ],
+          "updates": 10000,
+          "parent_updates": 32000
+        }
+      },
+      "metric_note": "两原种子各加训10k，10/10均抓起并终点持有；成功且终点20mm为0/10。同种子、同10k额外更新、同固定源5和Native随机数；全部10次终点均超20mm。仅位置分量，完整SpatialSSR未验收。",
+      "cases": [
+        {
+          "episode": 4,
+          "camera": "chest_camera",
+          "url": "assets/grasp/pro6000_F500_raw_goal_pair_20261030/fixed_mean_minimum_terminal_error_chest.mp4",
+          "SHA256": "df8975fb7caebc7fdf64e13d9b56ca938fd0ce44afadd02ff598c6dee46c9dcc",
+          "success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": true,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121921,
+          "source_id": 28,
+          "cohort": "development_ACT_demonstration_validation5",
+          "caption": "固定训练均值配对对照；原生抓起且终点持有，末端误差24.6mm。每组全部10次中的最小/最大误差例，各三视角原视频；抽样视觉通过，完整几何和视觉待审。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A10meanGoal-f500B-source10-20261029cc/clear_volumetric_flask_500ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_004_chest_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 4,
+          "camera": "head_camera",
+          "url": "assets/grasp/pro6000_F500_raw_goal_pair_20261030/fixed_mean_minimum_terminal_error_head.mp4",
+          "SHA256": "693892f196c5706904ec870a3cc3acace7dbf95ade557269d2ceb1a4047f442a",
+          "success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": true,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121921,
+          "source_id": 28,
+          "cohort": "development_ACT_demonstration_validation5",
+          "caption": "固定训练均值配对对照；原生抓起且终点持有，末端误差24.6mm。每组全部10次中的最小/最大误差例，各三视角原视频；抽样视觉通过，完整几何和视觉待审。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A10meanGoal-f500B-source10-20261029cc/clear_volumetric_flask_500ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_004_head_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 4,
+          "camera": "third_camera",
+          "url": "assets/grasp/pro6000_F500_raw_goal_pair_20261030/fixed_mean_minimum_terminal_error_third.mp4",
+          "SHA256": "2727564e2d80a466c6ced6ecb5a0047b5792dd3a7452452ec0a61d0a60bdb4c8",
+          "success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": true,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121921,
+          "source_id": 28,
+          "cohort": "development_ACT_demonstration_validation5",
+          "caption": "固定训练均值配对对照；原生抓起且终点持有，末端误差24.6mm。每组全部10次中的最小/最大误差例，各三视角原视频；抽样视觉通过，完整几何和视觉待审。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A10meanGoal-f500B-source10-20261029cc/clear_volumetric_flask_500ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_004_third_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 5,
+          "camera": "chest_camera",
+          "url": "assets/grasp/pro6000_F500_raw_goal_pair_20261030/fixed_mean_maximum_terminal_error_chest.mp4",
+          "SHA256": "e865480b075958fc95ea5ce7c4a8f40fa696a8047b90a2e23ab253a4e0f7f35c",
+          "success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": true,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121921,
+          "source_id": 17,
+          "cohort": "development_ACT_demonstration_validation5",
+          "caption": "固定训练均值配对对照；原生抓起且终点持有，末端误差60.3mm。每组全部10次中的最小/最大误差例，各三视角原视频；抽样视觉通过，完整几何和视觉待审。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A10meanGoal-f500B-source10-20261029cc/clear_volumetric_flask_500ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_005_chest_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 5,
+          "camera": "head_camera",
+          "url": "assets/grasp/pro6000_F500_raw_goal_pair_20261030/fixed_mean_maximum_terminal_error_head.mp4",
+          "SHA256": "537f67764d65906bf7d69621bb9904b0c477abeae24e728f455712794c078eb5",
+          "success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": true,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121921,
+          "source_id": 17,
+          "cohort": "development_ACT_demonstration_validation5",
+          "caption": "固定训练均值配对对照；原生抓起且终点持有，末端误差60.3mm。每组全部10次中的最小/最大误差例，各三视角原视频；抽样视觉通过，完整几何和视觉待审。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A10meanGoal-f500B-source10-20261029cc/clear_volumetric_flask_500ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_005_head_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 5,
+          "camera": "third_camera",
+          "url": "assets/grasp/pro6000_F500_raw_goal_pair_20261030/fixed_mean_maximum_terminal_error_third.mp4",
+          "SHA256": "08fb11e5c54079ddb3a65f072167e6176446ef6323a31de0d3d545607d8a4dfa",
+          "success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": true,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121921,
+          "source_id": 17,
+          "cohort": "development_ACT_demonstration_validation5",
+          "caption": "固定训练均值配对对照；原生抓起且终点持有，末端误差60.3mm。每组全部10次中的最小/最大误差例，各三视角原视频；抽样视觉通过，完整几何和视觉待审。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A10meanGoal-f500B-source10-20261029cc/clear_volumetric_flask_500ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_005_third_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        }
+      ],
+      "result": {
+        "SR": 100,
+        "success_and_terminal_dP20": 0.0,
+        "SpatialSSR": null,
+        "trials": 10,
+        "successes": 10,
+        "terminal_physical_lift": 10,
+        "success_terminal20mm": 0,
+        "formal_accepted": false,
+        "full_geometry_SSR_evaluated": false
+      },
+      "job_id": "job-f2r2vrchf9tp"
     }
   ],
   "geometry_distance_metric_note": "交叉见证的平面端点分离量不是实体穿透深度。严格零交叉判据不变；历史depth字段保留原报告，不用于放宽门槛。"
