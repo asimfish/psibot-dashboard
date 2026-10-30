@@ -164,7 +164,7 @@ test('only the new snapshot adds browser versions; every existing dataset remain
   assert.equal(incomplete.result.formal_evaluation_status, 'FAILED_INCOMPLETE');
   assert.equal(incomplete.progress.episode_num, 23);
   const media=snapshot.runs.flatMap(r => r.cases);
-  assert.equal(media.length, 114);
+  assert.equal(media.length, 117);
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_Mortar_paired_source5_20261029/')).length, 6);
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_Mortar_source5_20261029/')).length, 3);
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_fresh_B100_20261027/')).length, 6);
@@ -172,7 +172,7 @@ test('only the new snapshot adds browser versions; every existing dataset remain
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_ClearL_source15_20261028/')).length, 6);
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_BrownV_formal150_20261028/')).length, 3);
   for (const clip of media) {
-    assert.match(clip.url, /^assets\/grasp\/(?:pro6000_fresh_B100_20261027\/trial(?:02|06)_s\d+_(?:chest|head|third)_camera|pro6000_formal_B100_20261028\/formal150_trial(?:000|001)_s26121921_(?:success|failure)_(?:chest|head|third)|pro6000_ClearL_source15_20261028\/clearL_ACT_source15_s26121921_ep(?:001|003)_(?:chest|head|third)_camera|pro6000_BrownV_formal150_20261028\/formal150_trial001_s26121921_(?:chest|head|third)_camera|pro6000_Mortar_source5_20261029\/source42_s26121921_failure_(?:chest|head|third)|pro6000_Mortar_paired_source5_20261029\/(?:state_noise|clean_control)_source42_s26121921_failure_(?:chest|head|third)|pro6000_F500_source15_20261029\/(?:terminal_failure_s26121921_ep005|terminal_pass_s26121925_ep002)_(?:chest|head|third)|pro6000_F500_DP100_source15_20261029\/(?:dropped_terminal|held_terminal_error)_(?:chest|head|third)|pro6000_F500_context_source20_20261029\/(?:initial_current|current_current_control)_(?:chest|head|third)|pro6000_F1000_ACT32_source15_20261029\/(?:minimum_terminal_error|maximum_terminal_error)_(?:chest|head|third)|pro6000_F500_raw_goal_pair_20261030\/(?:raw_predicted|fixed_mean)_(?:minimum_terminal_error|maximum_terminal_error)_(?:chest|head|third)|pro6000_F500_FK_aux_pair_20261030\/(?:FK_aux|FK_zero_control)_(?:minimum_terminal_error|maximum_terminal_error)_(?:chest|head|third)|pro6000_B50_source_physics_20261030\/B50_source_physics_(?:minimum_terminal_error|maximum_terminal_error)_(?:chest|head|third)|pro6000_hold_and_DP_closed_20261030\/(?:B50_ACT_hold|B50_DP_original|F1000_DP100|B50_DP_hold|F500_ACT_anchor|F500_ACT_zero_control)_(?:minimum_terminal_error|maximum_terminal_error|terminal_drop|paired_first_position)_(?:chest|head|third))\.mp4$/);
+    assert.match(clip.url, /^assets\/grasp\/(?:pro6000_fresh_B100_20261027\/trial(?:02|06)_s\d+_(?:chest|head|third)_camera|pro6000_formal_B100_20261028\/formal150_trial(?:000|001)_s26121921_(?:success|failure)_(?:chest|head|third)|pro6000_ClearL_source15_20261028\/clearL_ACT_source15_s26121921_ep(?:001|003)_(?:chest|head|third)_camera|pro6000_BrownV_formal150_20261028\/formal150_trial001_s26121921_(?:chest|head|third)_camera|pro6000_Mortar_source5_20261029\/source42_s26121921_failure_(?:chest|head|third)|pro6000_Mortar_paired_source5_20261029\/(?:state_noise|clean_control)_source42_s26121921_failure_(?:chest|head|third)|pro6000_F500_source15_20261029\/(?:terminal_failure_s26121921_ep005|terminal_pass_s26121925_ep002)_(?:chest|head|third)|pro6000_F500_DP100_source15_20261029\/(?:dropped_terminal|held_terminal_error)_(?:chest|head|third)|pro6000_F500_context_source20_20261029\/(?:initial_current|current_current_control)_(?:chest|head|third)|pro6000_F1000_ACT32_source15_20261029\/(?:minimum_terminal_error|maximum_terminal_error)_(?:chest|head|third)|pro6000_F500_raw_goal_pair_20261030\/(?:raw_predicted|fixed_mean)_(?:minimum_terminal_error|maximum_terminal_error)_(?:chest|head|third)|pro6000_F500_FK_aux_pair_20261030\/(?:FK_aux|FK_zero_control)_(?:minimum_terminal_error|maximum_terminal_error)_(?:chest|head|third)|pro6000_B50_source_physics_20261030\/B50_source_physics_(?:minimum_terminal_error|maximum_terminal_error)_(?:chest|head|third)|pro6000_hold_and_DP_closed_20261030\/(?:B50_ACT_hold|B50_DP_original|F1000_DP100|B50_DP_hold|F500_ACT_anchor|F500_ACT_zero_control)_(?:minimum_terminal_error|maximum_terminal_error|terminal_drop|paired_first_position)_(?:chest|head|third)|pro6000_B50_formal_firsttrial_20261030\/first_formal_(?:chest|head|third))\.mp4$/);
     const bytes=fs.readFileSync(path.join(root,clip.url));
     assert.equal(require('node:crypto').createHash('sha256').update(bytes).digest('hex'), clip.SHA256);
   }
@@ -284,5 +284,26 @@ test('F500 source lift success stays separate from terminal error and formal acc
  assert.equal(r.formal_accepted,false);assert.equal(r.cases.length,6);
  assert.ok(r.cases.every(c => c.frames===719 && c.full_original_decode_passed && !c.full_trajectory_visual_acceptance));
  assert.equal(r.cases.filter(c => c.terminal_translation_passed).length,3);
+ assert.equal(snapshot.objects_both_methods_formally_accepted,0);
+});
+
+
+test('B50 recovery retains all127 originals and only budgets23 new unique identities', () => {
+ const original=snapshot.runs.find(r => r.job_id==='job-pr3typucmhkb');
+ const recovery=snapshot.runs.find(r => r.candidate==='pro6000-eval-D50-b50-fixed240-formal150-20261030cc-r2');
+ assert.equal(original.progress.episode_num,127);assert.equal(original.progress.episode_success_num,124);
+ assert.equal(original.result.completed_success_terminal20mm,47);assert.equal(original.result.SR,null);
+ assert.equal(original.current_native,false);assert.equal(original.cases.length,3);
+ assert.ok(original.cases.every(c => c.episode===1 && c.terminal_translation_passed===false));
+ assert.equal(recovery.result.reused_verified_trials,127);assert.equal(recovery.result.new_native_trial_budget,23);
+ assert.equal(recovery.result.SR,null);assert.equal(recovery.result.SpatialSSR,null);
+ assert.equal(recovery.expected_trials,150);assert.equal(recovery.formal_accepted,false);
+ assert.equal(snapshot.pipeline.training_GPU_cap,8);assert.equal(snapshot.pipeline.allocated_training_GPUs,8);
+ const proof=JSON.parse(fs.readFileSync(path.join(root,snapshot.pipeline.current_recovery_evidence_url),'utf8'));
+ assert.equal(proof.B50_recovery.original3_task_failures_preserved,true);
+ assert.equal(proof.first_actual_fullscene.original_events,2877);
+ assert.equal(proof.first_actual_fullscene.nonadjacent_strict_crossing_pair_events,0);
+ assert.equal(proof.full_SpatialSSR,null);
+ const {container}=render(copy());assert.match(container.textContent,/已核验127\/150，成功124/);
  assert.equal(snapshot.objects_both_methods_formally_accepted,0);
 });

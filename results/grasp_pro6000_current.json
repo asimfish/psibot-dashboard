@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-30T11:55:14.598785+00:00",
+  "updated_utc": "2026-10-30T19:00:32.013937+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -412,7 +412,7 @@
       },
       "next": "完成正在运行的DP独立150次及全场景SSR/视觉；新三种子ACT完成内容封存后接续受控测试和正式150。",
       "name": "50ml 玻璃烧杯",
-      "status_note": "B50自动SDF物理问题已修复；固定保持变体开发终点ACT5/5、DP11/15，原120Hz手物零交叉。新的独立150位置DP正式测试已运行，完整SSR/视觉仍需核验；旧错误入口继续挂起。",
+      "status_note": "源物理重置已修复。DP固定保持变体独立150次原批保存127条：124次曾成功、47次成功且终点20mm；启动技术故障后仅补23条，全部真实任务失败保留。全场景120Hz已完整核对固定首试次，完整150次SpatialSSR/视觉仍待闭合；变体与原DP结果分列。",
       "development_source_physics5": {
         "Native_successes": 5,
         "terminal_held": 5,
@@ -434,6 +434,17 @@
           "hand_target_120Hz_states": 43107,
           "crossing_states": 0
         },
+        "full_SpatialSSR": null,
+        "formal_accepted": false
+      },
+      "declared_variant_formal_recovery": {
+        "old_job_id": "job-pr3typucmhkb",
+        "recovery_job_id": "job-72yr4d6cmenl",
+        "expected_unique_trials": 150,
+        "verified_closed_original_trials": 127,
+        "original_native_successes": 124,
+        "original_terminal20": 47,
+        "additional_trials_only": 23,
         "full_SpatialSSR": null,
         "formal_accepted": false
       }
@@ -1004,7 +1015,7 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "250ml 透明容量瓶",
-      "status_note": "100条源合格。旧ACT种子21生产/BOS权重不一致，旧测试保持挂起；两个其他种子匹配，新隔离种子21已训练约21.8k/32k并将内容寻址封存。三个DP继续训练。",
+      "status_note": "N1源100条已通过源抬升、终点与手物几何检查。旧三DP100k和三ACT32k训练进程已结束，但部分存档与生产日志模型哈希不符，旧测试继续隔离。新三ACT内容封存恢复训练已运行；不能把训练结束计成任务验收通过。",
       "next": "三ACT各自CPU/SHA闭合后自动测试同五源位置，共15次；再依据结果决定独立OOD正式测试。DP100k为固定开发预算，非论文全预算。",
       "source120_closed": {
         "episodes": 100,
@@ -1487,11 +1498,11 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 234,
-    "active_registered_jobs": 3,
+    "registered_jobs": 238,
+    "active_registered_jobs": 4,
     "BOS_mount_count": 2,
-    "state": "B50_INDEPENDENT_FORMAL150_RUNNING_TWO_TRAINING_JOBS_RUNNING",
-    "state_note": "B50新DP独立150次正式测试已RUNNING；固定保持开发对照ACT终点5/5、DP11/15且手物零交叉，F500目标参考10/10。新三ACT＋F250隔离ACT已约26.5–26.9k/32k，另三DP继续；正式仍0/21。",
+    "state": "B50_REMAINING23_RUNNING_SEALED_ACT_RECOVERY_RUNNING",
+    "state_note": "B50原批127/150（124次成功、47次成功且终点20mm）已保留，仅补23条。新四卡ACT恢复批次和B50三DP继续，两个训练作业共分配8张；F500第三种子已排5次开发验证。正式仍0/21。",
     "prepared_not_submitted": [
       {
         "tag": "eval-m6-dp-b50-20261025cc",
@@ -1503,10 +1514,10 @@
         "tag": "dev-A32-f250N1-source15-20261030cc",
         "name": "F250旧来源异常测试",
         "state": "HOLD_PRODUCER_BOS_IMMUTABILITY",
-        "progress_note": "旧种子21来源不符，旧测试继续挂起；隔离重训模型通过内容封存后使用新tag。"
+        "progress_note": "旧ACT种子21/23出现生产日志与BOS存档哈希不符，旧测试继续挂起；新三ACT批次使用生产端内容封存。DP100k种子21也有来源不符，旧DP测试未放行。"
       }
     ],
-    "checked_utc": "2026-10-30T11:53:56.953602+00:00",
+    "checked_utc": "2026-10-30T18:57:07.279730+00:00",
     "jobs": [
       {
         "tag": "qual-mortar-p120-smoke4-20261028cc",
@@ -2964,58 +2975,52 @@
       {
         "tag": "train-D100A32-f250N1-three-each-20261030cc",
         "job_id": "job-nnggy0l1ytul",
-        "status": "RUNNING",
-        "name": "F250 · 合格新源三DP＋三ACT训练",
-        "progress_note": "实际优化更新 [('dp', 26121921, 47050), ('dp', 26121923, 47050), ('dp', 26121925, 54100)]；训练完成不代表验收。",
+        "status": "SUCCEEDED",
+        "name": "F250 DP/ACT旧批次 · 训练结束，存档来源待恢复",
+        "progress_note": "三个DP100k和三个ACT32k进程已结束；部分存档模型哈希与生产日志不一致。旧ACT/DP测试继续隔离，不能据此称模型合格。",
         "training_progress": [
-          [
-            "dp",
-            "clear_volume",
-            26121921,
-            0,
-            47050,
-            null
-          ],
-          [
-            "dp",
-            "clear_volume",
-            26121923,
-            1,
-            47050,
-            null
-          ],
-          [
-            "dp",
-            "clear_volume",
-            26121925,
-            2,
-            54100,
-            null
-          ],
-          [
-            "act",
-            "clear_volume",
-            26121921,
-            3,
-            32000,
-            0
-          ],
-          [
-            "act",
-            "clear_volume",
-            26121923,
-            0,
-            32000,
-            0
-          ],
-          [
-            "act",
-            "clear_volume",
-            26121925,
-            1,
-            32000,
-            0
-          ]
+          {
+            "method": "dp",
+            "object": "clear_volume",
+            "seed": 26121921,
+            "GPU": 0,
+            "updates": 99900
+          },
+          {
+            "method": "dp",
+            "object": "clear_volume",
+            "seed": 26121923,
+            "GPU": 1,
+            "updates": 99900
+          },
+          {
+            "method": "dp",
+            "object": "clear_volume",
+            "seed": 26121925,
+            "GPU": 2,
+            "updates": 100000
+          },
+          {
+            "method": "act",
+            "object": "clear_volume",
+            "seed": 26121921,
+            "GPU": 3,
+            "updates": 32000
+          },
+          {
+            "method": "act",
+            "object": "clear_volume",
+            "seed": 26121923,
+            "GPU": 0,
+            "updates": 32000
+          },
+          {
+            "method": "act",
+            "object": "clear_volume",
+            "seed": 26121925,
+            "GPU": 1,
+            "updates": 32000
+          }
         ]
       },
       {
@@ -3122,7 +3127,7 @@
       {
         "tag": "train-A32-b50S3-f250S21-sealed-20261030cc",
         "name": "train-A32-b50S3-f250S21-sealed-20261030cc",
-        "status": "RUNNING",
+        "status": "FAILED",
         "job_id": "job-3jz7eu7f5s2k",
         "training_progress": [
           [
@@ -3158,7 +3163,7 @@
             null
           ]
         ],
-        "progress_note": "实际优化更新 [('act', 26121921, 26560), ('act', 26121923, 26500), ('act', 26121925, 26900), ('act', 26121921, 26940)]；训练完成不代表验收。"
+        "progress_note": "四个32k训练进程结束；F250种子21、B50种子23/25三个模型封存核验通过，B50种子21的CPU重复前向断言失败，未放行其测试。失败审计和模型保留。"
       },
       {
         "tag": "dev-A32-b50-fixed8-command-hold5-20261030cc",
@@ -3196,9 +3201,97 @@
         "tag": "eval-D50-b50-fixed240-formal150-20261030cc",
         "name": "B50 DP＋固定保持 · 新独立150次正式测试",
         "job_id": "job-pr3typucmhkb",
-        "status": "RUNNING",
+        "status": "FAILED",
         "training_progress": [],
-        "progress_note": "RUNNING：三个原50k EMA各50个新位置，覆盖±3/4/5/6cm；全部24s原终点计分，记录全场景及实际桌面/地面120Hz位姿。尚无完整结果，不计通过。"
+        "progress_note": "原批127/150闭合：124次原生成功、47次成功且终点20mm。首次未闭合进程Vulkan启动段错误；3条真实任务失败和全部已完成试次保留，r2只补23条，不把127条改成150条结果。"
+      },
+      {
+        "tag": "train-D100-b50S3-A10anchor-f500S25-20261030cc",
+        "job_id": "job-fe6oxbcheby1",
+        "status": "RUNNING",
+        "name": "B50三个DP100k＋F500第三ACT种子",
+        "progress_note": "三个B50原DP约46k/100k，继续训练；F500原种子25的目标参考ACT已完成10k，模型字节与生产日志及CPU门槛一致。",
+        "training_progress": [
+          {
+            "method": "dp",
+            "object": "glass_beaker",
+            "seed": 26121921,
+            "GPU": 0,
+            "updates": 46250
+          },
+          {
+            "method": "dp",
+            "object": "glass_beaker",
+            "seed": 26121923,
+            "GPU": 1,
+            "updates": 46300
+          },
+          {
+            "method": "dp",
+            "object": "glass_beaker",
+            "seed": 26121925,
+            "GPU": 2,
+            "updates": 46350
+          },
+          {
+            "method": "act",
+            "object": "clear_volume",
+            "seed": 26121925,
+            "GPU": 3,
+            "updates": 10000
+          }
+        ]
+      },
+      {
+        "tag": "eval-D50-b50-fixed240-formal150-20261030cc-r2",
+        "job_id": "job-72yr4d6cmenl",
+        "status": "RUNNING",
+        "name": "B50独立150次 · 保留127条，仅补23条",
+        "progress_note": "原批127/150：124次原生成功、47次成功且终点20mm。第125个进程在Vulkan启动阶段段错误，另22条未启动；保留全部127条及3条任务失败，用原XY/模型/全局随机种子补23条。当前尚无新增完成结果。"
+      },
+      {
+        "tag": "dev-A10goalAnchor-f500B-seed25-source5-20261030cc",
+        "job_id": "job-eghpjtlrsajq",
+        "status": "PENDING",
+        "name": "F500目标参考ACT · 第三原种子5次开发验证",
+        "progress_note": "原种子25自身32k父模型＋10k，原5个已知开发位置。真实模型字节、父种子、构建器和源资产物理配置均通过CPU核对，已入队；显式策略变体，未计正式通过。"
+      },
+      {
+        "tag": "train-A32-f250S3-b50S21-recovery-sealed-20261030cc",
+        "job_id": "job-vqwd1825y5ps",
+        "status": "RUNNING",
+        "name": "F250三个ACT＋B50种子21 · 内容封存恢复训练",
+        "progress_note": "新四卡ACT批次已实际训练约710–730/32k；F250使用本批全部三种子，测试前固定选择。B50种子21是原CPU失败的技术复现；旧失败保留。含另一四卡训练批次，总分配8张。",
+        "training_progress": [
+          {
+            "method": "act",
+            "object": "clear_volume",
+            "seed": 26121921,
+            "GPU": 0,
+            "updates": 730
+          },
+          {
+            "method": "act",
+            "object": "clear_volume",
+            "seed": 26121923,
+            "GPU": 1,
+            "updates": 710
+          },
+          {
+            "method": "act",
+            "object": "clear_volume",
+            "seed": 26121925,
+            "GPU": 2,
+            "updates": 720
+          },
+          {
+            "method": "act",
+            "object": "glass_beaker",
+            "seed": 26121921,
+            "GPU": 3,
+            "updates": 730
+          }
+        ]
       }
     ],
     "progress_note": "保留全部50个旧版本、84段旧原视频；新增6个开发结果版本、30段原视频及1个进行中的正式版本，共57版本/114段视频。原程序曾成功、终点区域、EEF20mm、完整SSR分别报告。",
@@ -3417,9 +3510,12 @@
       "F1000三DP均完成100k并经原模型CPU/SHA闭合，新15次已实际启动；原ACT三种子15/15持有、0/15终点20mm。完整SSR不能由训练步数或当前原生成功日志替代。",
       "酒精灯颈部/肩部12次扫描终点持有0/12，未排百条采集；一次瞬时成功后掉落不作为终点持有。所有失败保留；完整SpatialSSR还须全场景碰撞绑定、几何和视觉逐项闭合。"
     ],
-    "previous_audit_evidence": "verification/grasp-B50-source-physics-and-B100-retest-20261030.json"
+    "previous_audit_evidence": "verification/grasp-B50-source-physics-and-B100-retest-20261030.json",
+    "training_GPU_cap": 8,
+    "allocated_training_GPUs": 8,
+    "current_recovery_evidence_url": "verification/grasp-B50-remaining23-and-source-provenance-20261030.json"
   },
-  "evidence_note": "45个旧版本和66段旧策略视频原样保留；新增FK候选/零系数两个独立版本及12段原视频。F250全100源准入与六模型实际训练已闭合，源/CPU/开发测试均不计正式验收，0/21未变。",
+  "evidence_note": "旧视频和逐版本结果均保留。新增固定首条正式试次三视角，说明SR与终点20mm的差别；该试次全场景120Hz严格表面回放完成。B50补测仅23条，原127条及失败未删除；F250来源不符的旧模型不放行。全部完整验收计数仍0。",
   "offline_DP_probe": {
     "observations": 4,
     "source_episodes": 1,
@@ -9020,8 +9116,8 @@
       "candidate": "pro6000-eval-D50-b50-fixed240-formal150-20261030cc",
       "object": "glass_beaker_50ml",
       "method": "DP",
-      "display_name": "DP＋固定保持 · 独立150次正式测试进行中",
-      "current_native": true,
+      "display_name": "DP＋固定保持 · 原批127/150，技术中断",
+      "current_native": false,
       "development": false,
       "expected_trials": 150,
       "formal_accepted": false,
@@ -9031,8 +9127,8 @@
       "unmodified_original_DP_or_ACT": false,
       "success_semantics": "original_ever_success_latch",
       "progress": {
-        "episode_num": 0,
-        "episode_success_num": 0,
+        "episode_num": 127,
+        "episode_success_num": 124,
         "success_rate": null
       },
       "protocol": {
@@ -9059,15 +9155,129 @@
           "updates": 50000
         }
       },
-      "metric_note": "RUNNING：三个原50k EMA各50个新位置，覆盖±3/4/5/6cm；全部24s原终点计分，记录全场景及实际桌面/地面120Hz位姿。尚无完整结果，不计通过。",
-      "cases": [],
+      "metric_note": "不完整原批：127条已闭合，124次原生成功、47次成功且终点20mm。1个Vulkan启动失败、22条未启动；3条真实任务失败保留。下面视频固定选择第1试次，终点34.08mm失败。r2复用127条并仅补23条，两行共享同一个150条计划，不能相加成300条。",
+      "cases": [
+        {
+          "episode": 1,
+          "global_trial": 1,
+          "camera": "chest_camera",
+          "url": "assets/grasp/pro6000_B50_formal_firsttrial_20261030/first_formal_chest.mp4",
+          "SHA256": "240d1a74124d0cfde0c6dfbbd2df3429f49c8ca59eb01a1042fa15d3e51df40a",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": true,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24.0,
+          "training_seed": 26121921,
+          "cohort": "uniform_box+1cm",
+          "caption": "独立冻结位置的固定首试次；DP固定240控制保持变体，原程序曾成功，终点EEF误差34.08mm，未达20mm。三视角原视频完整解码，18个固定画面已审；完整150次视觉/SpatialSSR未通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/eval-D50-b50-fixed240-formal150-20261030cc/glass_beaker_50ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_001_chest_camera.mp4"
+        },
+        {
+          "episode": 1,
+          "global_trial": 1,
+          "camera": "head_camera",
+          "url": "assets/grasp/pro6000_B50_formal_firsttrial_20261030/first_formal_head.mp4",
+          "SHA256": "7e2b7f8b8bf2a453d28798932b9a350376bac68b78b22408f6828ecaedc8f5b8",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": true,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24.0,
+          "training_seed": 26121921,
+          "cohort": "uniform_box+1cm",
+          "caption": "独立冻结位置的固定首试次；DP固定240控制保持变体，原程序曾成功，终点EEF误差34.08mm，未达20mm。三视角原视频完整解码，18个固定画面已审；完整150次视觉/SpatialSSR未通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/eval-D50-b50-fixed240-formal150-20261030cc/glass_beaker_50ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_001_head_camera.mp4"
+        },
+        {
+          "episode": 1,
+          "global_trial": 1,
+          "camera": "third_camera",
+          "url": "assets/grasp/pro6000_B50_formal_firsttrial_20261030/first_formal_third.mp4",
+          "SHA256": "10c5f698e5282cb5cd2e10bd66e755e628f1c50a4f61c711a2345b14f971b49f",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": true,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24.0,
+          "training_seed": 26121921,
+          "cohort": "uniform_box+1cm",
+          "caption": "独立冻结位置的固定首试次；DP固定240控制保持变体，原程序曾成功，终点EEF误差34.08mm，未达20mm。三视角原视频完整解码，18个固定画面已审；完整150次视觉/SpatialSSR未通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/eval-D50-b50-fixed240-formal150-20261030cc/glass_beaker_50ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_001_third_camera.mp4"
+        }
+      ],
       "result": {
         "SR": null,
         "SpatialSSR": null,
+        "completed_trials": 127,
+        "completed_native_successes": 124,
+        "completed_success_terminal20mm": 47,
+        "formal_evaluation_status": "FAILED_INCOMPLETE_RECOVERY_23",
         "full_geometry_SSR_evaluated": false,
         "formal_accepted": false
       },
       "job_id": "job-pr3typucmhkb"
+    },
+    {
+      "candidate": "pro6000-eval-D50-b50-fixed240-formal150-20261030cc-r2",
+      "object": "glass_beaker_50ml",
+      "method": "DP",
+      "display_name": "DP＋固定保持 · 复用127条，仅补23条",
+      "current_native": true,
+      "development": false,
+      "expected_trials": 150,
+      "formal_accepted": false,
+      "reported_SpatialSSR_percent": null,
+      "paper_ssr_percent": 37,
+      "declared_policy_variant": "DP_fixed240_control_command_hold_v1",
+      "unmodified_original_DP_or_ACT": false,
+      "success_semantics": "original_ever_success_latch",
+      "progress": {
+        "episode_num": 127,
+        "episode_success_num": 124,
+        "success_rate": null
+      },
+      "protocol": {
+        "method": "dp",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "独立冻结150位置：源±3cm，测试±3/4/5/6cm",
+        "duration_label": "24s原物理终点，EEF20mm标准",
+        "seed": "26121921 / 26121923 / 26121925",
+        "chunk_size": 8,
+        "action_dimension": 13,
+        "note": "8s保持规则在旧开发轨迹上确定，新的150位置在本轮任何rollout前冻结；每位置独立Native进程，保存所有成功/失败。固定保持明确为策略变体，不标为未修改的原DP。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": [
+            26121921,
+            26121923,
+            26121925
+          ],
+          "updates": 50000
+        }
+      },
+      "metric_note": "原冻结150条计划的技术恢复；完整保留127条（含3条任务失败），只执行缺失的23个原身份及原随机种子。当前已核验分母仍127/150，完整SR/SpatialSSR尚未发布。该行与原批共享127条，不能作为另一组150次独立测试。",
+      "cases": [],
+      "result": {
+        "SR": null,
+        "SpatialSSR": null,
+        "reused_verified_trials": 127,
+        "new_native_trial_budget": 23,
+        "full_geometry_SSR_evaluated": false,
+        "formal_accepted": false
+      },
+      "job_id": "job-72yr4d6cmenl"
     }
   ],
   "geometry_distance_metric_note": "交叉见证的平面端点分离量不是实体穿透深度。严格零交叉判据不变；历史depth字段保留原报告，不用于放宽门槛。"
