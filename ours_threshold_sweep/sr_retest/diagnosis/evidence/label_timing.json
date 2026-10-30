@@ -1,0 +1,80 @@
+{
+  "schema": "safelab_training_label_timing_readonly_v1",
+  "verified_all100": {
+    "episodes": 100,
+    "frames": 68975,
+    "official_boundaries_and_language_same_across_review_original_cluster_mem0": true,
+    "mem0_all300_intervals_exact_last8_positive": true
+  },
+  "classification_distinction": {
+    "mem0_executor": "Parquet subtask_end is true in each inclusive interval last8 frames; lambda_classifier .2.",
+    "ours_executor": "Own executor classifier disabled, lambda_classifier0; this parquet flag is not deployed completion scorer.",
+    "ours_completion_I": "Actual frozen source tail_p8_h10_v3 metric sampler uses end-7..end positives.",
+    "ours_completion_II": "Actual deployed recipe E1CR samples current=end..end+5 positives; may include real next-stage images queried with previous-stage text. It is a separate sigmoid head, not final-State softmax.",
+    "ours_State": "Reviewed 2/1/2 transition/stable labels train separate State head; pour stable_post begins at physical95% NEW, earlier than completion-II positive T."
+  },
+  "all100_label_or_metadata_derived_timing": {
+    "hold_to_boundary_s": {
+      "n": 100,
+      "min": 2.0,
+      "median": 2.0,
+      "max": 2.0
+    },
+    "mem0_first_positive_minus_label95_s": {
+      "n": 100,
+      "min": 1.475,
+      "median": 1.5083333333333333,
+      "max": 1.5333333333333334
+    },
+    "ours_first_positive_minus_label95_s": {
+      "n": 100,
+      "min": 1.9416666666666667,
+      "median": 1.975,
+      "max": 2.0
+    },
+    "restore_input_minus_label95_s": {
+      "n": 100,
+      "min": 2.0083333333333333,
+      "median": 2.0416666666666665,
+      "max": 2.066666666666667
+    }
+  },
+  "all100_rawfluid_verified": false,
+  "limits": [
+    "Raw 120Hz liquid/contact traces checked only original EP0/56, not all100.",
+    "No current expert replay output used as collection evidence.",
+    "Labels establish intended supervision timing, not actual classifier probability or closed-loop causal effect.",
+    "Raw source WHOLE_DIAGNOSTIC flags whole_accepted=false/training_eligible=false are pre-independent-audit diagnostic fields; metadata says independent audit accepted. We do not relabel source as newly accepted."
+  ],
+  "source_summary_sha256": "a95f698f667c328ce1118212112187a4f2d27f27aecb25342c85037a5d2dfaad",
+  "original_two_episodes": [
+    {
+      "episode_index": 0,
+      "label_first95_tick": 2648,
+      "collection_pour_boundary_tick_metadata": 2888,
+      "hold_to_boundary_s": 2.0,
+      "mem0_first_positive_frame": 354,
+      "mem0_last_positive_frame": 361,
+      "ours_completionII_first_positive_frame": 361,
+      "ours_completionII_last_positive_source_frame": 366,
+      "restore_first_frame": 362,
+      "raw_original_first95_tick": 2648,
+      "raw_original_rows": 5732,
+      "raw_95_remains_true_through_episode_end": true
+    },
+    {
+      "episode_index": 56,
+      "label_first95_tick": 2508,
+      "collection_pour_boundary_tick_metadata": 2748,
+      "hold_to_boundary_s": 2.0,
+      "mem0_first_positive_frame": 336,
+      "mem0_last_positive_frame": 343,
+      "ours_completionII_first_positive_frame": 343,
+      "ours_completionII_last_positive_source_frame": 348,
+      "restore_first_frame": 344,
+      "raw_original_first95_tick": 2508,
+      "raw_original_rows": 5118,
+      "raw_95_remains_true_through_episode_end": true
+    }
+  ]
+}
