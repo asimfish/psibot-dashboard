@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-30T22:32:18.966282+00:00",
+  "updated_utc": "2026-10-30T23:32:11.303997+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -408,9 +408,9 @@
           "trials": 150,
           "formal_accepted": false
         },
-        "formal_evaluation_status": "TECHNICAL_FAILURE_FIRST5_RECOVERY_PENDING",
+        "formal_evaluation_status": "FIRST5_CLOSED_REMAINING145_RUNNING",
         "formal_evaluation_expected_trials": 150,
-        "completed_trials": 0,
+        "completed_trials": 5,
         "development_original_ACT32k_source15": {
           "trials": 15,
           "native_successes": 15,
@@ -418,7 +418,10 @@
           "same_five_known_XY_repeated_for_three_models": true,
           "full_SpatialSSR": null,
           "formal_accepted": false
-        }
+        },
+        "completed_native_successes": 5,
+        "completed_success_terminal20mm": 2,
+        "SpatialSSR": null
       },
       "object_accepted": false,
       "full_visual_passed": false,
@@ -427,9 +430,9 @@
         "lifted": 100,
         "strict_crossings": 0
       },
-      "next": "先核对首5恢复的实际诊断及封存结果，再推进同一150计划剩余145；8路CPU继续固定保持DP全量审计。",
+      "next": "完成原始ACT剩余145的封存与外部核验；继续全150几何、终点全场景和视觉核验。",
       "name": "50ml 玻璃烧杯",
-      "status_note": "原始ACT150首单元技术失败且0闭合，失败保留；相同冻结计划首5恢复检查待运行，未把技术失败记成策略SR0%。B50固定保持DP的120Hz手物审计已完成44/150、暂未发现交叉，8路CPU继续；训练仍占8卡。",
+      "status_note": "原始ACT冻结150：首5已外部核验，5抓起/2终点，剩余145正在Pro6000运行。固定保持DP的120Hz手物核验已完成124/150、暂未发现交叉，完整SSR/全量视觉仍待闭合。训练分配8张低优GPU。",
       "development_source_physics5": {
         "Native_successes": 5,
         "terminal_held": 5,
@@ -1562,11 +1565,11 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 247,
+    "registered_jobs": 249,
     "active_registered_jobs": 3,
     "BOS_mount_count": 2,
-    "state": "FIRSTCELL_RECOVERY_AFTER_ZERO_COMPLETION_TECHNICAL_FAILURE",
-    "state_note": "原始ACT150首单元技术失败且0闭合，失败保留；相同冻结计划首5恢复检查正在运行，未把技术失败记成策略SR0%。B50固定保持DP的120Hz手物审计已完成44/150、暂未发现交叉，8路CPU继续；训练仍占8卡。",
+    "state": "ORIGINAL_ACT_FIRST5_CLOSED_REMAINING145_RUNNING",
+    "state_note": "原始ACT冻结150：首5已外部核验，5抓起/2终点，剩余145正在Pro6000运行。固定保持DP的120Hz手物核验已完成124/150、暂未发现交叉，完整SSR/全量视觉仍待闭合。训练分配8张低优GPU。",
     "prepared_not_submitted": [
       {
         "tag": "eval-m6-dp-b50-20261025cc",
@@ -1581,7 +1584,7 @@
         "progress_note": "旧ACT种子21/23出现生产日志与BOS存档哈希不符，旧测试继续挂起；新三ACT批次使用生产端内容封存。DP100k种子21也有来源不符，旧DP测试未放行。"
       }
     ],
-    "checked_utc": "2026-10-30T22:02:38.607723+00:00",
+    "checked_utc": "2026-10-30T23:31:49.666072+00:00",
     "jobs": [
       {
         "tag": "qual-mortar-p120-smoke4-20261028cc",
@@ -3282,39 +3285,40 @@
         "name": "B50三个DP100k＋F500第三ACT种子",
         "progress_note": "实际优化进度：26121921:71450, 26121923:71500, 26121925:71650。总训练分配8卡，当前7个优化进程；同批已完成的第四卡不擅自重启或取消作业。",
         "training_progress": [
-          {
-            "method": "dp",
-            "object": "glass_beaker",
-            "seed": 26121921,
-            "GPU": 0,
-            "updates": 71450,
-            "returncode": null
-          },
-          {
-            "method": "dp",
-            "object": "glass_beaker",
-            "seed": 26121923,
-            "GPU": 1,
-            "updates": 71500,
-            "returncode": null
-          },
-          {
-            "method": "dp",
-            "object": "glass_beaker",
-            "seed": 26121925,
-            "GPU": 2,
-            "updates": 71650,
-            "returncode": null
-          },
-          {
-            "method": "act",
-            "object": "clear_volume",
-            "seed": 26121925,
-            "GPU": 3,
-            "updates": 10000,
-            "returncode": 0
-          }
-        ]
+          [
+            "dp",
+            "glass_beaker",
+            26121921,
+            0,
+            83400,
+            null
+          ],
+          [
+            "dp",
+            "glass_beaker",
+            26121923,
+            1,
+            83450,
+            null
+          ],
+          [
+            "dp",
+            "glass_beaker",
+            26121925,
+            2,
+            83600,
+            null
+          ],
+          [
+            "act",
+            "clear_volume",
+            26121925,
+            3,
+            10000,
+            0
+          ]
+        ],
+        "GPU_observation": "0, 40696 MiB, 98 % | 1, 40696 MiB, 95 % | 2, 40304 MiB, 95 % | 3, 0 MiB, 0 %"
       },
       {
         "tag": "eval-D50-b50-fixed240-formal150-20261030cc-r2",
@@ -3391,40 +3395,41 @@
         "status": "RUNNING",
         "name": "F250三DP100k内容封存重训 + B50原始DP200k预算诊断",
         "training_progress": [
-          {
-            "method": "dp",
-            "object": "clear_volume",
-            "seed": 26121921,
-            "GPU": 0,
-            "updates": 12450,
-            "returncode": null
-          },
-          {
-            "method": "dp",
-            "object": "clear_volume",
-            "seed": 26121923,
-            "GPU": 1,
-            "updates": 12450,
-            "returncode": null
-          },
-          {
-            "method": "dp",
-            "object": "clear_volume",
-            "seed": 26121925,
-            "GPU": 2,
-            "updates": 12450,
-            "returncode": null
-          },
-          {
-            "method": "dp",
-            "object": "glass_beaker",
-            "seed": 26121921,
-            "GPU": 3,
-            "updates": 12450,
-            "returncode": null
-          }
+          [
+            "dp",
+            "clear_volume",
+            26121921,
+            0,
+            24700,
+            null
+          ],
+          [
+            "dp",
+            "clear_volume",
+            26121923,
+            1,
+            24650,
+            null
+          ],
+          [
+            "dp",
+            "clear_volume",
+            26121925,
+            2,
+            24700,
+            null
+          ],
+          [
+            "dp",
+            "glass_beaker",
+            26121921,
+            3,
+            24650,
+            null
+          ]
         ],
-        "progress_note": "实际优化进度：26121921:12450, 26121923:12450, 26121925:12450, 26121921:12450。总训练分配8卡，当前7个优化进程；同批已完成的第四卡不擅自重启或取消作业。"
+        "progress_note": "实际优化进度：26121921:12450, 26121923:12450, 26121925:12450, 26121921:12450。总训练分配8卡，当前7个优化进程；同批已完成的第四卡不擅自重启或取消作业。",
+        "GPU_observation": "0, 40304 MiB, 97 % | 1, 40696 MiB, 95 % | 2, 40696 MiB, 97 % | 3, 39912 MiB, 93 %"
       },
       {
         "tag": "dev-A32-f250N1-sealed3-source15-20261030cc",
@@ -3464,21 +3469,28 @@
       {
         "tag": "eval-A32-b50-original-sealed-first5-20261030cc-r2",
         "job_id": "job-yruc5cgfxgz4",
+        "status": "SUCCEEDED",
+        "name": "原始ACT150 · 首5已外部核验5抓起/2终点",
+        "progress_note": "原150计划首5已通过生产端封存和外部逐文件哈希核验：5次抓起，2次成功且24s终点≤20mm。阶段5条不与计划150相加成155；剩余145复用同一模型/XY/RNG/Native入口。三视角视频固定取第1局，终点23.42mm失败。18个固定画面和2张原分辨率画面抽查正常，未代表全150视觉或完整SSR通过。"
+      },
+      {
+        "tag": "eval-A32-b50-original-sealed-remaining145-20261030cc-r3",
+        "job_id": "job-o28y91g8tv56",
         "status": "RUNNING",
-        "name": "原始ACT150 · 同计划首5恢复检查",
-        "progress_note": "本作业最多执行原150计划的首5条，模型、XY、Native随机数、24s/20mm和动作入口均相同。首单元CPU/封存/外部回读闭合后才推进剩余145；阶段5条不与计划150相加成155。不是按成绩筛选是否继续，其余旧失败保留。"
+        "name": "原始ACT150 · 同计划剩余145",
+        "progress_note": "同一冻结150计划，已核验首5：5次抓起、2次终点20mm；本作业仅执行剩余145，不重测首5、不增加至155，不按成绩筛选是否继续。三种原始ACT模型、全部XY、Native随机数、24s/20mm、动作入口保持一致，每GPU最多1个Native。下方视频沿用已封存首5的固定首试次，不是新145中的视频。全150 SR、完整SSR和视觉尚未闭合。"
       }
     ],
     "progress_note": "保留原60个版本和117段原始视频，新增4个独立结果/运行版本；旧版、技术重复、变体及新正式测试分别列出。",
     "DP_repair_note": "DP100k结果未改善终点精度：同源专家拟合误差较小、动作队列逐项一致，真实闭环终点偏差较大。配对CPU裁剪实验未见稳定收益，未部署；正在核对实际视觉/低维输入。",
     "b50_reset_note": "B50自动SDF物理问题已修复；固定保持变体开发终点ACT5/5、DP11/15，原120Hz手物零交叉。新的独立150位置DP正式测试已运行，完整SSR/视觉仍需核验；旧错误入口继续挂起。",
     "failure_diagnosis": [
-      "原始B50 ACT开发15/15抓起、3/15终点20mm；新150计划的首作业技术失败0闭合。相同冻结模型/XY/RNG首5恢复检查已提交，未改指标或合并成155条。",
+      "原始ACT源验证15/15抓起、3/15终点；全新150计划首作业技术失败0闭合，恢复首5已核验5抓起/2终点，其余145正在执行。首试次23.42mm仍按20mm失败。",
       "F500目标参考变体源位置15/15终点达标，独立源外15次仅10次抓起、3次终点；+1cm终点3/3，+2/+3cm各0/6。5个新位置由3模型共测，不能写成15个独立位置或完整SSR通过。",
       "F250三份新封存原始ACT开发15/15抓起、0/15终点，问题仍是终点控制；继续DP内容封存训练，不直接扩大无改善版本的正式测试。",
       "漏斗源物理对照首单元存在原始轨迹/派生汇总不一致及文件SHA不符；旧异常不修写成通过。新生产输出封存已实际GPU五局及外部回读一致，失败隔离路径用CPU负例演练通过。",
       "漏斗首种子5条SHA绑定原始轨迹中3条曾进20mm后漂出，24s终点均不达标；最小中间误差只作诊断，不改变验收时刻。",
-      "B50固定保持DP的120Hz手物审计已完成44/150，累计126588姿态暂未发现交叉；已提交BOS的旧36条全部外部哈希及原始轨迹核验通过，后续8路CPU推进。完整SSR/视觉仍未闭合。",
+      "固定保持DP全150已闭合145抓起/56终点20mm；120Hz手物审计124/150、356748实际姿态暂未发现交叉。该变体不计原DP通过，完整SSR和全量视觉尚未闭合。",
       "手/目标几何零交叉和20mm终点只是组件，完整Grasp SpatialSSR还需非法全场景碰撞域及视觉；变体未获得原始基线验收授权，正式仍0/21。"
     ],
     "expert_replay_prefix": {
@@ -3684,9 +3696,10 @@
     "observed_optimizer_GPU_note": "两训练作业合计8张卡；旧混合作业3个DP仍更新、同批第四卡已完成；新封存DP作业4个DP实际更新。",
     "sealed_continuation_evidence_url": "verification/grasp-sealed-models-and-original-source15-20261030.json",
     "original_ACT150_OOD_integrity_evidence_url": "verification/grasp-original-ACT150-OOD-and-output-integrity-20261030.json",
-    "firstcell_recovery_evidence_url": "verification/grasp-ACT150-technical-failure-and-first5-recovery-20261030.json"
+    "firstcell_recovery_evidence_url": "verification/grasp-ACT150-technical-failure-and-first5-recovery-20261030.json",
+    "original_ACT_first5_media_evidence_url": "verification/grasp-original-ACT-first5-closed-and-three-view-20261030.json"
   },
-  "evidence_note": "原始ACT150首单元技术失败且0闭合，失败保留；相同冻结计划首5恢复检查正在运行，未把技术失败记成策略SR0%。B50固定保持DP的120Hz手物审计已完成44/150、暂未发现交叉，8路CPU继续；训练仍占8卡。 原117段视频全部保留，正式仍0/21。",
+  "evidence_note": "原始ACT冻结150：首5已外部核验，5抓起/2终点，剩余145正在Pro6000运行。固定保持DP的120Hz手物核验已完成124/150、暂未发现交叉，完整SSR/全量视觉仍待闭合。训练分配8张低优GPU。 保留原117段视频并新增原始ACT实际首试次3视角，正式仍0/21。",
   "offline_DP_probe": {
     "observations": 4,
     "source_episodes": 1,
@@ -9812,8 +9825,8 @@
       "candidate": "pro6000-eval-A32-b50-original-sealed-first5-20261030cc-r2",
       "object": "glass_beaker_50ml",
       "method": "ACT",
-      "display_name": "原始ACT150计划 · 首5恢复检查",
-      "current_native": true,
+      "display_name": "原始ACT同一150计划 · 首5已封存，2次终点达标",
+      "current_native": false,
       "development": false,
       "expected_trials": 150,
       "formal_accepted": false,
@@ -9821,11 +9834,66 @@
       "paper_ssr_percent": 23,
       "success_semantics": "original_ever_success_latch",
       "progress": {
-        "episode_num": 0,
-        "episode_success_num": 0,
+        "episode_num": 5,
+        "episode_success_num": 5,
         "success_rate": null
       },
-      "cases": [],
+      "cases": [
+        {
+          "episode": 1,
+          "global_trial": 1,
+          "camera": "chest_camera",
+          "url": "assets/grasp/pro6000_B50_original_ACT_firsttrial_20261030/first_ACT_chest_camera.mp4",
+          "SHA256": "6ad4063c9bc4d2d425dbeae4622c8f896175b6118694e7fe3f2f6a587f8c2b7b",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "eef_translation_error_mm": 23.41863537047959,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24,
+          "training_seed": 26121921,
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/sealed_results/eval-A32-b50-original-sealed-first5-20261030cc-r2/glass_beaker_50ml/cell00_s26121921_gpu0/aec328b5ce36fb70c2eecdec7320bb5422e289d18bb77a5921cec6e99214485a/native_rgb/episode_001_chest_camera.mp4",
+          "source_job_id": "job-yruc5cgfxgz4",
+          "caption": "原始ACT冻结150计划的固定首试次，来自已封存首5阶段；抓起成功，24s终点EEF误差23.42mm，20mm精度失败。三视角原视频完整解码；固定画面抽查未见明显穿模或玻璃异常，完整轨迹/全150视觉仍待核验。"
+        },
+        {
+          "episode": 1,
+          "global_trial": 1,
+          "camera": "head_camera",
+          "url": "assets/grasp/pro6000_B50_original_ACT_firsttrial_20261030/first_ACT_head_camera.mp4",
+          "SHA256": "6358ff2aeddc918798c2290123c43c59ac08b2c7c7d2850ca92e57548a70cc57",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "eef_translation_error_mm": 23.41863537047959,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24,
+          "training_seed": 26121921,
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/sealed_results/eval-A32-b50-original-sealed-first5-20261030cc-r2/glass_beaker_50ml/cell00_s26121921_gpu0/aec328b5ce36fb70c2eecdec7320bb5422e289d18bb77a5921cec6e99214485a/native_rgb/episode_001_head_camera.mp4",
+          "source_job_id": "job-yruc5cgfxgz4",
+          "caption": "原始ACT冻结150计划的固定首试次，来自已封存首5阶段；抓起成功，24s终点EEF误差23.42mm，20mm精度失败。三视角原视频完整解码；固定画面抽查未见明显穿模或玻璃异常，完整轨迹/全150视觉仍待核验。"
+        },
+        {
+          "episode": 1,
+          "global_trial": 1,
+          "camera": "third_camera",
+          "url": "assets/grasp/pro6000_B50_original_ACT_firsttrial_20261030/first_ACT_third_camera.mp4",
+          "SHA256": "9cfd21381f3e6d9fea3c7fed0801f2f8ce23303ac817c02823f977efa2aafa18",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "eef_translation_error_mm": 23.41863537047959,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24,
+          "training_seed": 26121921,
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/sealed_results/eval-A32-b50-original-sealed-first5-20261030cc-r2/glass_beaker_50ml/cell00_s26121921_gpu0/aec328b5ce36fb70c2eecdec7320bb5422e289d18bb77a5921cec6e99214485a/native_rgb/episode_001_third_camera.mp4",
+          "source_job_id": "job-yruc5cgfxgz4",
+          "caption": "原始ACT冻结150计划的固定首试次，来自已封存首5阶段；抓起成功，24s终点EEF误差23.42mm，20mm精度失败。三视角原视频完整解码；固定画面抽查未见明显穿模或玻璃异常，完整轨迹/全150视觉仍待核验。"
+        }
+      ],
       "job_id": "job-yruc5cgfxgz4",
       "train": {
         "dataset": {
@@ -9853,15 +9921,132 @@
       "result": {
         "SR": null,
         "SpatialSSR": null,
-        "completed_trials": 0,
-        "formal_evaluation_status": "RECOVERY_FIRST5_OF_FROZEN150_RUNNING",
+        "completed_trials": 5,
+        "formal_evaluation_status": "FIRST5_CLOSED_REUSED_IN_SAME_FROZEN150",
         "formal_accepted": false,
         "full_geometry_SSR_evaluated": false,
-        "policy_SR": null
+        "policy_SR": null,
+        "completed_native_successes": 5,
+        "completed_success_terminal20mm": 2
       },
       "unmodified_original_DP_or_ACT": true,
-      "metric_note": "本作业最多执行原150计划的首5条，模型、XY、Native随机数、24s/20mm和动作入口均相同。首单元CPU/封存/外部回读闭合后才推进剩余145；阶段5条不与计划150相加成155。不是按成绩筛选是否继续，其余旧失败保留。",
+      "metric_note": "原150计划首5已通过生产端封存和外部逐文件哈希核验：5次抓起，2次成功且24s终点≤20mm。阶段5条不与计划150相加成155；剩余145复用同一模型/XY/RNG/Native入口。三视角视频固定取第1局，终点23.42mm失败。18个固定画面和2张原分辨率画面抽查正常，未代表全150视觉或完整SSR通过。",
       "maximum_current_phase_native_trials": 5,
+      "reuses_original_frozen150_campaign": true
+    },
+    {
+      "candidate": "pro6000-eval-A32-b50-original-sealed-remaining145-20261030cc-r3",
+      "object": "glass_beaker_50ml",
+      "method": "ACT",
+      "display_name": "原始ACT独立150计划 · 复用首5，剩余145运行中",
+      "current_native": true,
+      "development": false,
+      "expected_trials": 150,
+      "formal_accepted": false,
+      "reported_SpatialSSR_percent": null,
+      "paper_ssr_percent": 23,
+      "success_semantics": "original_ever_success_latch",
+      "progress": {
+        "episode_num": 5,
+        "episode_success_num": 5,
+        "success_rate": null
+      },
+      "cases": [
+        {
+          "episode": 1,
+          "global_trial": 1,
+          "camera": "chest_camera",
+          "url": "assets/grasp/pro6000_B50_original_ACT_firsttrial_20261030/first_ACT_chest_camera.mp4",
+          "SHA256": "6ad4063c9bc4d2d425dbeae4622c8f896175b6118694e7fe3f2f6a587f8c2b7b",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "eef_translation_error_mm": 23.41863537047959,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24,
+          "training_seed": 26121921,
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/sealed_results/eval-A32-b50-original-sealed-first5-20261030cc-r2/glass_beaker_50ml/cell00_s26121921_gpu0/aec328b5ce36fb70c2eecdec7320bb5422e289d18bb77a5921cec6e99214485a/native_rgb/episode_001_chest_camera.mp4",
+          "source_job_id": "job-yruc5cgfxgz4",
+          "caption": "原始ACT冻结150计划的固定首试次，来自已封存首5阶段；抓起成功，24s终点EEF误差23.42mm，20mm精度失败。三视角原视频完整解码；固定画面抽查未见明显穿模或玻璃异常，完整轨迹/全150视觉仍待核验。"
+        },
+        {
+          "episode": 1,
+          "global_trial": 1,
+          "camera": "head_camera",
+          "url": "assets/grasp/pro6000_B50_original_ACT_firsttrial_20261030/first_ACT_head_camera.mp4",
+          "SHA256": "6358ff2aeddc918798c2290123c43c59ac08b2c7c7d2850ca92e57548a70cc57",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "eef_translation_error_mm": 23.41863537047959,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24,
+          "training_seed": 26121921,
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/sealed_results/eval-A32-b50-original-sealed-first5-20261030cc-r2/glass_beaker_50ml/cell00_s26121921_gpu0/aec328b5ce36fb70c2eecdec7320bb5422e289d18bb77a5921cec6e99214485a/native_rgb/episode_001_head_camera.mp4",
+          "source_job_id": "job-yruc5cgfxgz4",
+          "caption": "原始ACT冻结150计划的固定首试次，来自已封存首5阶段；抓起成功，24s终点EEF误差23.42mm，20mm精度失败。三视角原视频完整解码；固定画面抽查未见明显穿模或玻璃异常，完整轨迹/全150视觉仍待核验。"
+        },
+        {
+          "episode": 1,
+          "global_trial": 1,
+          "camera": "third_camera",
+          "url": "assets/grasp/pro6000_B50_original_ACT_firsttrial_20261030/first_ACT_third_camera.mp4",
+          "SHA256": "9cfd21381f3e6d9fea3c7fed0801f2f8ce23303ac817c02823f977efa2aafa18",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "eef_translation_error_mm": 23.41863537047959,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24,
+          "training_seed": 26121921,
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/sealed_results/eval-A32-b50-original-sealed-first5-20261030cc-r2/glass_beaker_50ml/cell00_s26121921_gpu0/aec328b5ce36fb70c2eecdec7320bb5422e289d18bb77a5921cec6e99214485a/native_rgb/episode_001_third_camera.mp4",
+          "source_job_id": "job-yruc5cgfxgz4",
+          "caption": "原始ACT冻结150计划的固定首试次，来自已封存首5阶段；抓起成功，24s终点EEF误差23.42mm，20mm精度失败。三视角原视频完整解码；固定画面抽查未见明显穿模或玻璃异常，完整轨迹/全150视觉仍待核验。"
+        }
+      ],
+      "job_id": "job-o28y91g8tv56",
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": [
+            26121921,
+            26121923,
+            26121925
+          ],
+          "updates": 32000
+        }
+      },
+      "protocol": {
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "150个全新不同XY：源±3cm，测试±3/4/5/6cm",
+        "duration_label": "24s原终点评分，EEF20mm",
+        "chunk_size": 4,
+        "action_dimension": 13,
+        "seed": "26121921 / 26121923 / 26121925",
+        "note": "30个冷启动单元，每单元5局；四张卡每卡同时至多一个Native，全部失败保留。原始ACT，无固定保持/目标参考。"
+      },
+      "result": {
+        "SR": null,
+        "SpatialSSR": null,
+        "completed_trials": 5,
+        "formal_evaluation_status": "FROZEN150_FIRST5_REUSED_REMAINING145_RUNNING",
+        "formal_accepted": false,
+        "full_geometry_SSR_evaluated": false,
+        "policy_SR": null,
+        "completed_native_successes": 5,
+        "completed_success_terminal20mm": 2,
+        "reused_verified_trials": 5,
+        "new_native_trial_budget": 145
+      },
+      "unmodified_original_DP_or_ACT": true,
+      "metric_note": "同一冻结150计划，已核验首5：5次抓起、2次终点20mm；本作业仅执行剩余145，不重测首5、不增加至155，不按成绩筛选是否继续。三种原始ACT模型、全部XY、Native随机数、24s/20mm、动作入口保持一致，每GPU最多1个Native。下方视频沿用已封存首5的固定首试次，不是新145中的视频。全150 SR、完整SSR和视觉尚未闭合。",
+      "maximum_current_phase_native_trials": 145,
       "reuses_original_frozen150_campaign": true
     }
   ],
