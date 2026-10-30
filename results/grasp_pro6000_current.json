@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-30T19:00:32.013937+00:00",
+  "updated_utc": "2026-10-30T19:31:09.730793+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -412,7 +412,7 @@
       },
       "next": "完成正在运行的DP独立150次及全场景SSR/视觉；新三种子ACT完成内容封存后接续受控测试和正式150。",
       "name": "50ml 玻璃烧杯",
-      "status_note": "源物理重置已修复。DP固定保持变体独立150次原批保存127条：124次曾成功、47次成功且终点20mm；启动技术故障后仅补23条，全部真实任务失败保留。全场景120Hz已完整核对固定首试次，完整150次SpatialSSR/视觉仍待闭合；变体与原DP结果分列。",
+      "status_note": "固定保持DP变体的独立150条全部闭合：145次曾成功、56次成功且终点20mm（96.7%/37.3%终点分量）。原127条未改，补23条全部闭合，保留全部5条任务失败。全150条原120Hz手物几何已启动；完整SpatialSSR/视觉仍待核验，SR高于论文75%也需审阅。原DP/ACT正式结果与变体分列，不计新通过。",
       "development_source_physics5": {
         "Native_successes": 5,
         "terminal_held": 5,
@@ -446,7 +446,11 @@
         "original_terminal20": 47,
         "additional_trials_only": 23,
         "full_SpatialSSR": null,
-        "formal_accepted": false
+        "formal_accepted": false,
+        "verified_closed_unique_trials": 150,
+        "completed_native_successes": 145,
+        "completed_success_terminal20": 56,
+        "all5_task_failures_preserved": true
       }
     },
     {
@@ -1498,11 +1502,11 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 238,
-    "active_registered_jobs": 4,
+    "registered_jobs": 239,
+    "active_registered_jobs": 3,
     "BOS_mount_count": 2,
-    "state": "B50_REMAINING23_RUNNING_SEALED_ACT_RECOVERY_RUNNING",
-    "state_note": "B50原批127/150（124次成功、47次成功且终点20mm）已保留，仅补23条。新四卡ACT恢复批次和B50三DP继续，两个训练作业共分配8张；F500第三种子已排5次开发验证。正式仍0/21。",
+    "state": "B50_ALL150_COMPONENTS_CLOSED_GEOMETRY_RUNNING_EIGHT_TRAINING_GPUS",
+    "state_note": "B50固定保持DP的独立150条已完整闭合：SR96.7%，成功且终点20mm分量37.3%；完整SSR/视觉与高SR泛化审阅仍未完成。两个训练作业共分配8张，F250三个新ACT合格后自动接续开发15次，F500第三种子r2已排。正式仍0/21。",
     "prepared_not_submitted": [
       {
         "tag": "eval-m6-dp-b50-20261025cc",
@@ -3210,7 +3214,7 @@
         "job_id": "job-fe6oxbcheby1",
         "status": "RUNNING",
         "name": "B50三个DP100k＋F500第三ACT种子",
-        "progress_note": "三个B50原DP约46k/100k，继续训练；F500原种子25的目标参考ACT已完成10k，模型字节与生产日志及CPU门槛一致。",
+        "progress_note": "三个B50原DP约48.5k/100k，继续训练；F500第三ACT种子模型完整性已通过，开发入口单单元契约修复后已排r2。",
         "training_progress": [
           {
             "method": "dp",
@@ -3245,23 +3249,23 @@
       {
         "tag": "eval-D50-b50-fixed240-formal150-20261030cc-r2",
         "job_id": "job-72yr4d6cmenl",
-        "status": "RUNNING",
-        "name": "B50独立150次 · 保留127条，仅补23条",
-        "progress_note": "原批127/150：124次原生成功、47次成功且终点20mm。第125个进程在Vulkan启动阶段段错误，另22条未启动；保留全部127条及3条任务失败，用原XY/模型/全局随机种子补23条。当前尚无新增完成结果。"
+        "status": "SUCCEEDED",
+        "name": "B50独立150次 · 全部闭合，完整SSR仍待核验",
+        "progress_note": "23条补测全部闭合：21次曾成功、9次成功且终点20mm。合并原127条后完整150条为145次成功、56次成功且终点20mm；原3条任务失败和新增2条失败均保留。全150条120Hz手物几何已启动，暂不报完整SSR。"
       },
       {
         "tag": "dev-A10goalAnchor-f500B-seed25-source5-20261030cc",
         "job_id": "job-eghpjtlrsajq",
-        "status": "PENDING",
+        "status": "FAILED",
         "name": "F500目标参考ACT · 第三原种子5次开发验证",
-        "progress_note": "原种子25自身32k父模型＋10k，原5个已知开发位置。真实模型字节、父种子、构建器和源资产物理配置均通过CPU核对，已入队；显式策略变体，未计正式通过。"
+        "progress_note": "首次第三种子入口在任何Native之前被继承的“两单元”节点断言拒绝：新计划只有一单元五次。原失败保留；已用真实节点完整CPU生命周期RED/GREEN修正单单元契约，r2保留原模型/位置/RNG/物理配置。"
       },
       {
         "tag": "train-A32-f250S3-b50S21-recovery-sealed-20261030cc",
         "job_id": "job-vqwd1825y5ps",
         "status": "RUNNING",
         "name": "F250三个ACT＋B50种子21 · 内容封存恢复训练",
-        "progress_note": "新四卡ACT批次已实际训练约710–730/32k；F250使用本批全部三种子，测试前固定选择。B50种子21是原CPU失败的技术复现；旧失败保留。含另一四卡训练批次，总分配8张。",
+        "progress_note": "四个32k ACT已实际训练约6.7–6.9k；F250三种子内容封存后将自动接续已冻结的原15次开发测试。B50种子21技术复现保留旧审计失败，不按模型结束数量计验收。",
         "training_progress": [
           {
             "method": "act",
@@ -3292,6 +3296,13 @@
             "updates": 730
           }
         ]
+      },
+      {
+        "tag": "dev-A10goalAnchor-f500B-seed25-source5-20261030cc-r2",
+        "job_id": "job-pvsqyiclu02k",
+        "status": "PENDING",
+        "name": "F500目标参考ACT · 第三种子五次验证r2",
+        "progress_note": "修复节点仍要求两单元的继承断言；真实节点在CPU后端先RED后GREEN，一单元五条结果（含失败）完整保留，超预算两单元仍拒绝。原模型/RNG/已知开发位置/源物理配置不变；显式变体，未计验收。"
       }
     ],
     "progress_note": "保留全部50个旧版本、84段旧原视频；新增6个开发结果版本、30段原视频及1个进行中的正式版本，共57版本/114段视频。原程序曾成功、终点区域、EEF20mm、完整SSR分别报告。",
@@ -3515,7 +3526,7 @@
     "allocated_training_GPUs": 8,
     "current_recovery_evidence_url": "verification/grasp-B50-remaining23-and-source-provenance-20261030.json"
   },
-  "evidence_note": "旧视频和逐版本结果均保留。新增固定首条正式试次三视角，说明SR与终点20mm的差别；该试次全场景120Hz严格表面回放完成。B50补测仅23条，原127条及失败未删除；F250来源不符的旧模型不放行。全部完整验收计数仍0。",
+  "evidence_note": "B50独立150条完整结果已更新：96.7%为原生曾成功率，37.3%仅为成功且终点20mm分量，尚不是完整SpatialSSR。原127条和全部5条任务失败保留，旧114段与新增3段视频不变；全150条手物几何后台推进，验收仍0。",
   "offline_DP_probe": {
     "observations": 4,
     "source_episodes": 1,
@@ -9228,8 +9239,8 @@
       "candidate": "pro6000-eval-D50-b50-fixed240-formal150-20261030cc-r2",
       "object": "glass_beaker_50ml",
       "method": "DP",
-      "display_name": "DP＋固定保持 · 复用127条，仅补23条",
-      "current_native": true,
+      "display_name": "DP＋固定保持 · 独立150次已闭合，终点分量37.3%",
+      "current_native": false,
       "development": false,
       "expected_trials": 150,
       "formal_accepted": false,
@@ -9239,9 +9250,9 @@
       "unmodified_original_DP_or_ACT": false,
       "success_semantics": "original_ever_success_latch",
       "progress": {
-        "episode_num": 127,
-        "episode_success_num": 124,
-        "success_rate": null
+        "episode_num": 150,
+        "episode_success_num": 145,
+        "success_rate": 0.9666666666666667
       },
       "protocol": {
         "method": "dp",
@@ -9267,17 +9278,24 @@
           "updates": 50000
         }
       },
-      "metric_note": "原冻结150条计划的技术恢复；完整保留127条（含3条任务失败），只执行缺失的23个原身份及原随机种子。当前已核验分母仍127/150，完整SR/SpatialSSR尚未发布。该行与原批共享127条，不能作为另一组150次独立测试。",
+      "metric_note": "完整150条：145次原生成功（96.7%），56次成功且终点≤20mm（37.3%，对应论文数值37%仅为终点分量）。复用的127条逐条未改，另外23条全部闭合，保留全部5条任务失败；两版本共享原150条计划。全150条120Hz手物几何已启动，完整SpatialSSR/视觉仍待闭合。SR高于论文75%，需继续审阅实际外推分布；显式固定保持变体，暂不计原DP正式通过。",
       "cases": [],
       "result": {
-        "SR": null,
+        "SR": 96.66666666666667,
         "SpatialSSR": null,
         "reused_verified_trials": 127,
         "new_native_trial_budget": 23,
         "full_geometry_SSR_evaluated": false,
-        "formal_accepted": false
+        "formal_accepted": false,
+        "completed_trials": 150,
+        "completed_native_successes": 145,
+        "completed_success_terminal20mm": 56,
+        "terminal20_component_percent": 37.333333333333336,
+        "formal_evaluation_status": "ALL150_NATIVE_COMPONENTS_CLOSED_GEOMETRY_VISUAL_PENDING",
+        "all_original5_task_failures_preserved": true
       },
-      "job_id": "job-72yr4d6cmenl"
+      "job_id": "job-72yr4d6cmenl",
+      "declared_variant_counts_toward_original_baseline_acceptance": false
     }
   ],
   "geometry_distance_metric_note": "交叉见证的平面端点分离量不是实体穿透深度。严格零交叉判据不变；历史depth字段保留原报告，不用于放宽门槛。"

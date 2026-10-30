@@ -296,7 +296,9 @@ test('B50 recovery retains all127 originals and only budgets23 new unique identi
  assert.equal(original.current_native,false);assert.equal(original.cases.length,3);
  assert.ok(original.cases.every(c => c.episode===1 && c.terminal_translation_passed===false));
  assert.equal(recovery.result.reused_verified_trials,127);assert.equal(recovery.result.new_native_trial_budget,23);
- assert.equal(recovery.result.SR,null);assert.equal(recovery.result.SpatialSSR,null);
+ assert.equal(recovery.progress.episode_num,150);assert.equal(recovery.progress.episode_success_num,145);
+ assert.equal(recovery.result.completed_success_terminal20mm,56);assert.equal(recovery.result.SR,145/150*100);
+ assert.equal(recovery.current_native,false);assert.equal(recovery.result.SpatialSSR,null);
  assert.equal(recovery.expected_trials,150);assert.equal(recovery.formal_accepted,false);
  assert.equal(snapshot.pipeline.training_GPU_cap,8);assert.equal(snapshot.pipeline.allocated_training_GPUs,8);
  const proof=JSON.parse(fs.readFileSync(path.join(root,snapshot.pipeline.current_recovery_evidence_url),'utf8'));
