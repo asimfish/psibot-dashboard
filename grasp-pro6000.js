@@ -56,6 +56,12 @@ function renderPro6000(snapshot) {
     add(diagnosis, 'summary', '为什么还没有完整通过：失败证据与下一项验证');
     const entries = add(diagnosis, 'ul');
     for (const item of snapshot.pipeline.failure_diagnosis) add(entries, 'li', item);
+    if (snapshot.pipeline.failure_diagnosis_history?.length) {
+      const history = add(diagnosis, 'details');
+      add(history, 'summary', `历史排查记录（${snapshot.pipeline.failure_diagnosis_history.length} 条）`);
+      const archived = add(history, 'ul');
+      for (const item of snapshot.pipeline.failure_diagnosis_history) add(archived, 'li', item);
+    }
   }
   const measured = add(root, 'details');
   measured.open = true;
