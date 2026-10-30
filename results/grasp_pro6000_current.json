@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-30T22:06:50.881094+00:00",
+  "updated_utc": "2026-10-30T22:32:18.966282+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -408,7 +408,7 @@
           "trials": 150,
           "formal_accepted": false
         },
-        "formal_evaluation_status": "RUNNING_FRESH_ORIGINAL_ACT150",
+        "formal_evaluation_status": "TECHNICAL_FAILURE_FIRST5_RECOVERY_PENDING",
         "formal_evaluation_expected_trials": 150,
         "completed_trials": 0,
         "development_original_ACT32k_source15": {
@@ -427,9 +427,9 @@
         "lifted": 100,
         "strict_crossings": 0
       },
-      "next": "原始ACT150正在四卡测试，收齐后核对实际泛化、几何和视觉；固定保持DP150另做全量120Hz审计，变体不计原DP通过。",
+      "next": "先核对首5恢复的实际诊断及封存结果，再推进同一150计划剩余145；8路CPU继续固定保持DP全量审计。",
       "name": "50ml 玻璃烧杯",
-      "status_note": "原始ACT开发15/15抓起但终点3/15，新150个不同XY正式测试已启动。固定保持DP独立150为145抓起、56终点20mm，显式变体单独记录；完整SSR和视觉尚未闭合。",
+      "status_note": "原始ACT150首单元技术失败且0闭合，失败保留；相同冻结计划首5恢复检查待运行，未把技术失败记成策略SR0%。B50固定保持DP的120Hz手物审计已完成44/150、暂未发现交叉，8路CPU继续；训练仍占8卡。",
       "development_source_physics5": {
         "Native_successes": 5,
         "terminal_held": 5,
@@ -1565,8 +1565,8 @@
     "registered_jobs": 247,
     "active_registered_jobs": 3,
     "BOS_mount_count": 2,
-    "state": "ORIGINAL_ACT_FRESH150_RUNNING_OUTPUTS_SEALED_GEOMETRY_ACCELERATING",
-    "state_note": "B50原始ACT150已实际启动；原始ACT开发B50终点3/15、F250为0/15，F500目标参考变体独立外推3/15。封存链路实测5局外部回读一致；漏斗旧文件不一致仍隔离。正式0/21，训练占8卡/7个优化进程。",
+    "state": "FIRSTCELL_RECOVERY_AFTER_ZERO_COMPLETION_TECHNICAL_FAILURE",
+    "state_note": "原始ACT150首单元技术失败且0闭合，失败保留；相同冻结计划首5恢复检查正在运行，未把技术失败记成策略SR0%。B50固定保持DP的120Hz手物审计已完成44/150、暂未发现交叉，8路CPU继续；训练仍占8卡。",
     "prepared_not_submitted": [
       {
         "tag": "eval-m6-dp-b50-20261025cc",
@@ -3443,9 +3443,9 @@
       {
         "tag": "eval-A32-b50-original-sealed-formal150-20261030cc",
         "job_id": "job-u4q8qmb7otrk",
-        "status": "RUNNING",
-        "name": "50ml烧杯 · 原始ACT独立150局正式测试",
-        "progress_note": "已启动；三份事先固定的原始ACT32k模型，150个全新不同XY，±3/4/5/6cm，30单元各5局。每卡至多1个Native。保持24s终点/20mm；生产封存及失败隔离通过CPU演练，完整结果未收齐。"
+        "status": "FAILED",
+        "name": "原始ACT150 · 首单元技术失败0闭合",
+        "progress_note": "原作业已确认FAILED，首单元技术失败、0个闭合试次；不是策略成功率0%。旧记录及150个冻结XY全部保留。根因尚未知，首5恢复作业保留模型/XY/RNG/Native入口，仅增加被动诊断和失败归档；其余145未自动重提。"
       },
       {
         "tag": "dev-A10goalAnchor-f500B-outside3cm15-20261030cc",
@@ -3460,18 +3460,25 @@
         "status": "SUCCEEDED",
         "name": "结果存档链路 · 同一B50模型5局技术复核",
         "progress_note": "原模型/位置/RNG的技术重复，5抓起1终点；生产封存、BOS外部SHA回读、原始轨迹与汇总逐项一致。重复不增加验收分母。"
+      },
+      {
+        "tag": "eval-A32-b50-original-sealed-first5-20261030cc-r2",
+        "job_id": "job-yruc5cgfxgz4",
+        "status": "RUNNING",
+        "name": "原始ACT150 · 同计划首5恢复检查",
+        "progress_note": "本作业最多执行原150计划的首5条，模型、XY、Native随机数、24s/20mm和动作入口均相同。首单元CPU/封存/外部回读闭合后才推进剩余145；阶段5条不与计划150相加成155。不是按成绩筛选是否继续，其余旧失败保留。"
       }
     ],
     "progress_note": "保留原60个版本和117段原始视频，新增4个独立结果/运行版本；旧版、技术重复、变体及新正式测试分别列出。",
     "DP_repair_note": "DP100k结果未改善终点精度：同源专家拟合误差较小、动作队列逐项一致，真实闭环终点偏差较大。配对CPU裁剪实验未见稳定收益，未部署；正在核对实际视觉/低维输入。",
     "b50_reset_note": "B50自动SDF物理问题已修复；固定保持变体开发终点ACT5/5、DP11/15，原120Hz手物零交叉。新的独立150位置DP正式测试已运行，完整SSR/视觉仍需核验；旧错误入口继续挂起。",
     "failure_diagnosis": [
-      "原始B50 ACT三种子开发15/15抓起、3/15终点20mm；已冻结150个不同新XY并启动正式测试，不改24s/20mm、模型、源±3cm或动作通道。",
+      "原始B50 ACT开发15/15抓起、3/15终点20mm；新150计划的首作业技术失败0闭合。相同冻结模型/XY/RNG首5恢复检查已提交，未改指标或合并成155条。",
       "F500目标参考变体源位置15/15终点达标，独立源外15次仅10次抓起、3次终点；+1cm终点3/3，+2/+3cm各0/6。5个新位置由3模型共测，不能写成15个独立位置或完整SSR通过。",
       "F250三份新封存原始ACT开发15/15抓起、0/15终点，问题仍是终点控制；继续DP内容封存训练，不直接扩大无改善版本的正式测试。",
       "漏斗源物理对照首单元存在原始轨迹/派生汇总不一致及文件SHA不符；旧异常不修写成通过。新生产输出封存已实际GPU五局及外部回读一致，失败隔离路径用CPU负例演练通过。",
       "漏斗首种子5条SHA绑定原始轨迹中3条曾进20mm后漂出，24s终点均不达标；最小中间误差只作诊断，不改变验收时刻。",
-      "B50固定保持DP原150条手物几何审计已完成36条；同一审计器在本机单局约140.54秒、83MB，正在将已提交BOS结果核验接回，剩余用8路CPU加速。云端训练/测试作业均未取消或重启。",
+      "B50固定保持DP的120Hz手物审计已完成44/150，累计126588姿态暂未发现交叉；已提交BOS的旧36条全部外部哈希及原始轨迹核验通过，后续8路CPU推进。完整SSR/视觉仍未闭合。",
       "手/目标几何零交叉和20mm终点只是组件，完整Grasp SpatialSSR还需非法全场景碰撞域及视觉；变体未获得原始基线验收授权，正式仍0/21。"
     ],
     "expert_replay_prefix": {
@@ -3676,9 +3683,10 @@
     "observed_optimizer_GPUs": 7,
     "observed_optimizer_GPU_note": "两训练作业合计8张卡；旧混合作业3个DP仍更新、同批第四卡已完成；新封存DP作业4个DP实际更新。",
     "sealed_continuation_evidence_url": "verification/grasp-sealed-models-and-original-source15-20261030.json",
-    "original_ACT150_OOD_integrity_evidence_url": "verification/grasp-original-ACT150-OOD-and-output-integrity-20261030.json"
+    "original_ACT150_OOD_integrity_evidence_url": "verification/grasp-original-ACT150-OOD-and-output-integrity-20261030.json",
+    "firstcell_recovery_evidence_url": "verification/grasp-ACT150-technical-failure-and-first5-recovery-20261030.json"
   },
-  "evidence_note": "原始B50 ACT新独立150局已启动；F500源外泛化结果10/15抓起、3/15终点，F250原始ACT开发终点0/15。漏斗旧结果文件不一致已标记隔离，新结果采用生产封存及外部回读。保留117段原视频，终点分量、变体和完整SpatialSSR分别记录，正式0/21。",
+  "evidence_note": "原始ACT150首单元技术失败且0闭合，失败保留；相同冻结计划首5恢复检查正在运行，未把技术失败记成策略SR0%。B50固定保持DP的120Hz手物审计已完成44/150、暂未发现交叉，8路CPU继续；训练仍占8卡。 原117段视频全部保留，正式仍0/21。",
   "offline_DP_probe": {
     "observations": 4,
     "source_episodes": 1,
@@ -9750,8 +9758,8 @@
       "candidate": "pro6000-eval-A32-b50-original-sealed-formal150-20261030cc",
       "object": "glass_beaker_50ml",
       "method": "ACT",
-      "display_name": "原始ACT32k · 新独立150局正在测试",
-      "current_native": true,
+      "display_name": "原始ACT新150计划 · 首单元技术失败，0闭合",
+      "current_native": false,
       "development": false,
       "expected_trials": 150,
       "formal_accepted": false,
@@ -9792,12 +9800,69 @@
         "SR": null,
         "SpatialSSR": null,
         "completed_trials": 0,
-        "formal_evaluation_status": "RUNNING_FRESH_PREDECLARED_150",
+        "formal_evaluation_status": "TECHNICAL_FAILURE_ZERO_COMPLETED_TRIALS",
         "formal_accepted": false,
-        "full_geometry_SSR_evaluated": false
+        "full_geometry_SSR_evaluated": false,
+        "policy_SR": null
       },
       "unmodified_original_DP_or_ACT": true,
-      "metric_note": "已启动；三份事先固定的原始ACT32k模型，150个全新不同XY，±3/4/5/6cm，30单元各5局。每卡至多1个Native。保持24s终点/20mm；生产封存及失败隔离通过CPU演练，完整结果未收齐。"
+      "metric_note": "原作业已确认FAILED，首单元技术失败、0个闭合试次；不是策略成功率0%。旧记录及150个冻结XY全部保留。根因尚未知，首5恢复作业保留模型/XY/RNG/Native入口，仅增加被动诊断和失败归档；其余145未自动重提。"
+    },
+    {
+      "candidate": "pro6000-eval-A32-b50-original-sealed-first5-20261030cc-r2",
+      "object": "glass_beaker_50ml",
+      "method": "ACT",
+      "display_name": "原始ACT150计划 · 首5恢复检查",
+      "current_native": true,
+      "development": false,
+      "expected_trials": 150,
+      "formal_accepted": false,
+      "reported_SpatialSSR_percent": null,
+      "paper_ssr_percent": 23,
+      "success_semantics": "original_ever_success_latch",
+      "progress": {
+        "episode_num": 0,
+        "episode_success_num": 0,
+        "success_rate": null
+      },
+      "cases": [],
+      "job_id": "job-yruc5cgfxgz4",
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": [
+            26121921,
+            26121923,
+            26121925
+          ],
+          "updates": 32000
+        }
+      },
+      "protocol": {
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "150个全新不同XY：源±3cm，测试±3/4/5/6cm",
+        "duration_label": "24s原终点评分，EEF20mm",
+        "chunk_size": 4,
+        "action_dimension": 13,
+        "seed": "26121921 / 26121923 / 26121925",
+        "note": "30个冷启动单元，每单元5局；四张卡每卡同时至多一个Native，全部失败保留。原始ACT，无固定保持/目标参考。"
+      },
+      "result": {
+        "SR": null,
+        "SpatialSSR": null,
+        "completed_trials": 0,
+        "formal_evaluation_status": "RECOVERY_FIRST5_OF_FROZEN150_RUNNING",
+        "formal_accepted": false,
+        "full_geometry_SSR_evaluated": false,
+        "policy_SR": null
+      },
+      "unmodified_original_DP_or_ACT": true,
+      "metric_note": "本作业最多执行原150计划的首5条，模型、XY、Native随机数、24s/20mm和动作入口均相同。首单元CPU/封存/外部回读闭合后才推进剩余145；阶段5条不与计划150相加成155。不是按成绩筛选是否继续，其余旧失败保留。",
+      "maximum_current_phase_native_trials": 5,
+      "reuses_original_frozen150_campaign": true
     }
   ],
   "geometry_distance_metric_note": "交叉见证的平面端点分离量不是实体穿透深度。严格零交叉判据不变；历史depth字段保留原报告，不用于放宽门槛。"

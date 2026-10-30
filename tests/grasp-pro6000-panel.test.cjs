@@ -369,3 +369,20 @@ test('inconsistent Funnel derived artifacts stay quarantined despite a retained 
  assert.match(run.metric_note,/原始轨迹与汇总不一致/);
  assert.equal(run.formal_accepted,false);assert.equal(snapshot.objects_both_methods_formally_accepted,0);
 });
+
+test('zero-completion technical failure and first5 recovery keep the same150 denominator', () => {
+ const failed=snapshot.runs.find(r=>r.job_id==='job-u4q8qmb7otrk');
+ assert.equal(failed.current_native,false);assert.equal(failed.result.completed_trials,0);
+ assert.equal(failed.result.SR,null);assert.equal(failed.result.policy_SR,null);
+ assert.equal(failed.result.formal_evaluation_status,'TECHNICAL_FAILURE_ZERO_COMPLETED_TRIALS');
+ const phase=snapshot.runs.find(r=>r.job_id==='job-yruc5cgfxgz4');
+ assert.equal(phase.expected_trials,150);assert.equal(phase.maximum_current_phase_native_trials,5);
+ assert.equal(phase.reuses_original_frozen150_campaign,true);assert.equal(phase.result.SR,null);
+ assert.equal(phase.formal_accepted,false);assert.match(phase.metric_note,/不与计划150相加成155/);
+ const proof=JSON.parse(fs.readFileSync(path.join(root,snapshot.pipeline.firstcell_recovery_evidence_url),'utf8'));
+ assert.equal(proof.original_formal_failure.policy_SR,null);
+ assert.equal(proof.CPU_diagnostics.zero_completed_trials_reports_SR_null,true);
+ assert.equal(proof.CPU_diagnostics.actual_readiness_guard_with_real_recorded_GPU_binding_bytes_passed,true);
+ assert.equal(proof.cloud_jobs_cancelled_or_restarted,0);
+ assert.equal(proof.B50_all150_handtarget_CPU.full_SpatialSSR,null);
+});
