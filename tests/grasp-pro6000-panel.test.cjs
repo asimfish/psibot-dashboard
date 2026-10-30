@@ -333,3 +333,39 @@ test('new source-only results and sealed training never imply formal acceptance'
  assert.equal(evidence.B50_geometry.full_SpatialSSR,null);
  assert.equal(snapshot.objects_both_methods_formally_accepted,0);
 });
+
+test('original B50 ACT fresh150 stays pending without inheriting variant or development scores', () => {
+ const run=snapshot.runs.find(r=>r.job_id==='job-u4q8qmb7otrk');
+ assert.equal(run.expected_trials,150);assert.equal(run.development,false);
+ assert.equal(run.unmodified_original_DP_or_ACT,true);assert.equal(run.protocol.chunk_size,4);
+ assert.equal(run.result.SR,null);assert.equal(run.result.SpatialSSR,null);assert.equal(run.formal_accepted,false);
+ const development=snapshot.runs.find(r=>r.job_id==='job-qx7yual0xdxv');
+ assert.deepEqual([development.result.trials,development.result.successes,development.result.success_terminal20mm],[15,15,3]);
+ assert.equal(development.protocol.independent_OOD,false);
+ const evidence=JSON.parse(fs.readFileSync(path.join(root,snapshot.pipeline.original_ACT150_OOD_integrity_evidence_url),'utf8'));
+ assert.equal(evidence.fresh_original_ACT_formal150.distinct_new_XY,150);
+ assert.equal(evidence.fresh_original_ACT_formal150.fixed_hold_or_goal_anchor,false);
+ assert.equal(evidence.fresh_original_ACT_formal150.max_live_per_GPU,1);
+ assert.equal(evidence.actual_GPU_result_seal_smoke.technical_repeat_of_existing_five_not_new_acceptance_data,true);
+ assert.equal(evidence.failure_quarantine_CPU.CPU_storage_and_numeric_fixtures,true);
+ assert.equal(evidence.failure_quarantine_CPU.failed_or_inconsistent_output_never_generates_success_receipt,true);
+});
+
+test('F500 new outside-source stress exposes generalization failure with its actual distinct-position count', () => {
+ const run=snapshot.runs.find(r=>r.job_id==='job-hkbj62j3rnh6');
+ assert.deepEqual([run.result.trials,run.result.successes,run.result.success_terminal20mm],[15,10,3]);
+ assert.equal(run.protocol.independent_OOD,true);assert.equal(run.protocol.distinct_new_positions,5);
+ assert.equal(run.protocol.models_per_position,3);assert.equal(run.protocol.all_positions_strictly_outside_collection_3cm_box,true);
+ assert.equal(run.unmodified_original_DP_or_ACT,false);
+ assert.equal(run.declared_variant_counts_toward_original_baseline_acceptance,false);
+ assert.equal(run.result.SpatialSSR,null);assert.equal(run.formal_accepted,false);
+ assert.match(render(copy()).container.textContent,/源外15次仅10次抓起/);
+});
+
+test('inconsistent Funnel derived artifacts stay quarantined despite a retained producer aggregate', () => {
+ const run=snapshot.runs.find(r=>r.job_id==='job-im1j77njl697');
+ assert.equal(run.result.successes,8);assert.equal(run.result.usable_for_acceptance,false);
+ assert.equal(run.result.integrity_status,'QUARANTINED_RAW_TRACE_COMPONENTS_MANIFEST_MISMATCH');
+ assert.match(run.metric_note,/原始轨迹与汇总不一致/);
+ assert.equal(run.formal_accepted,false);assert.equal(snapshot.objects_both_methods_formally_accepted,0);
+});
