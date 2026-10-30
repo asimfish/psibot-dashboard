@@ -1,0 +1,290 @@
+{
+  "schema": "T947_grasp_switch_summary_v1",
+  "status": "DIAGNOSED_observations_NO_FIX_APPLIED",
+  "full_SR_attempts": 400,
+  "ours_attempts": 200,
+  "input_diagnostic_attempts": 32,
+  "ours_input_diagnostic_attempts": 16,
+  "autonomous_SR_unchanged": true,
+  "clock_domains": {
+    "simulation": "frame_index/15 == sim_tick/120",
+    "physics": "phase_tick/120",
+    "rpc": "wall seconds while simulation blocks; not simulated freefall time"
+  },
+  "switch_table": [
+    {
+      "horizon": 4,
+      "episodes": 100,
+      "confirmed_SR": 24,
+      "reached_pour_instruction": 98,
+      "reached_restore_instruction": 57,
+      "physical95pct_transfer": 28,
+      "physical_lift_not95pct": 72,
+      "restore_instruction_but_never_physical95pct": 29,
+      "physical95pct_but_no_restore": 0,
+      "transfer_to_restore_sim_seconds": {
+        "n": 28,
+        "minimum": 1.5833333333333321,
+        "median": 2.0999999999999996,
+        "p90": 2.9333333333333336,
+        "maximum": 43.8,
+        "mean": 4.036904761904762
+      },
+      "original_two_phase_switch_count": 155,
+      "second_positive_to_switch_all_zero_frames": true,
+      "entered_stage3_plus": 11,
+      "same_restore_text_repeat_cases": 10,
+      "same_restore_text_repeat_events": 181,
+      "repeated_case_outcomes": {
+        "task_timeout_75simsec": 4,
+        "physical_or_policy_failure": 7
+      },
+      "planner_event_rpc_wall_seconds": {
+        "n": 437,
+        "minimum": 1.5993852890096605,
+        "median": 3.4204943459481,
+        "p90": 11.712523805908859,
+        "maximum": 24.644537810236216,
+        "mean": 5.428884097068353
+      }
+    },
+    {
+      "horizon": 8,
+      "episodes": 100,
+      "confirmed_SR": 16,
+      "reached_pour_instruction": 99,
+      "reached_restore_instruction": 44,
+      "physical95pct_transfer": 22,
+      "physical_lift_not95pct": 78,
+      "restore_instruction_but_never_physical95pct": 24,
+      "physical95pct_but_no_restore": 2,
+      "transfer_to_restore_sim_seconds": {
+        "n": 20,
+        "minimum": 1.8333333333333357,
+        "median": 2.3125,
+        "p90": 3.8999999999999986,
+        "maximum": 9.349999999999998,
+        "mean": 2.871666666666667
+      },
+      "original_two_phase_switch_count": 143,
+      "second_positive_to_switch_all_zero_frames": true,
+      "entered_stage3_plus": 9,
+      "same_restore_text_repeat_cases": 8,
+      "same_restore_text_repeat_events": 71,
+      "repeated_case_outcomes": {
+        "task_timeout_75simsec": 5,
+        "physical_or_policy_failure": 4
+      },
+      "planner_event_rpc_wall_seconds": {
+        "n": 315,
+        "minimum": 1.593876734841615,
+        "median": 2.7290578730171546,
+        "p90": 6.986850431188941,
+        "maximum": 12.959274421446025,
+        "mean": 3.5805672940833215
+      }
+    }
+  ],
+  "slip_witnesses": [
+    {
+      "episode": "t947_trainobsC_ours_h4_train_rgb_ep056",
+      "condition": "train_rgb",
+      "source_episode": 56,
+      "horizon": 4,
+      "status": "task_timeout_75simsec",
+      "events": [
+        {
+          "tick": 2316,
+          "seconds": 19.3,
+          "contact_absent_until_s": 75.00833333333334,
+          "absence_duration_s": 55.708333333333336,
+          "stage": 1,
+          "tilt_deg": 20.036475440914987,
+          "drop_within500ms_m": 0.06635570526123047,
+          "min_vertical_velocity500ms_m_s": -1.0786328315734863,
+          "relative_position_motion500ms_m": 0.08473424903756765,
+          "loss_before_restore": true,
+          "loss_plus_fall": true,
+          "finger_target_delta_max_abs500ms_before_to100ms_after_rad": 0.0005221366882324219,
+          "finger_measured_delta_max_abs500ms_before_to100ms_after_rad": 0.05828094482421875,
+          "hand_contact_count_300ms_before_max": 100
+        }
+      ]
+    },
+    {
+      "episode": "t947_trainobsC_ours_h8_live_ep000",
+      "condition": "live",
+      "source_episode": 0,
+      "horizon": 8,
+      "status": "task_timeout_75simsec",
+      "events": [
+        {
+          "tick": 2875,
+          "seconds": 23.958333333333332,
+          "contact_absent_until_s": 75.00833333333334,
+          "absence_duration_s": 51.05,
+          "stage": 1,
+          "tilt_deg": 32.46080484713338,
+          "drop_within500ms_m": 0.09760791063308716,
+          "min_vertical_velocity500ms_m_s": -0.8779017925262451,
+          "relative_position_motion500ms_m": 0.11942559134646535,
+          "loss_before_restore": true,
+          "loss_plus_fall": true,
+          "finger_target_delta_max_abs500ms_before_to100ms_after_rad": 0.0009044408798217773,
+          "finger_measured_delta_max_abs500ms_before_to100ms_after_rad": 0.08657729625701904,
+          "hand_contact_count_300ms_before_max": 91
+        }
+      ]
+    },
+    {
+      "episode": "t947_trainobsC_ours_h8_train_rgb_ep056",
+      "condition": "train_rgb",
+      "source_episode": 56,
+      "horizon": 8,
+      "status": "task_timeout_75simsec",
+      "events": [
+        {
+          "tick": 2316,
+          "seconds": 19.3,
+          "contact_absent_until_s": 34.25,
+          "absence_duration_s": 14.95,
+          "stage": 1,
+          "tilt_deg": 51.81600080692345,
+          "drop_within500ms_m": 0.10352528095245361,
+          "min_vertical_velocity500ms_m_s": -0.776390790939331,
+          "relative_position_motion500ms_m": 0.12107164989954974,
+          "loss_before_restore": true,
+          "loss_plus_fall": true,
+          "finger_target_delta_max_abs500ms_before_to100ms_after_rad": 0.000217437744140625,
+          "finger_measured_delta_max_abs500ms_before_to100ms_after_rad": 0.11333203315734863,
+          "hand_contact_count_300ms_before_max": 73
+        }
+      ]
+    }
+  ],
+  "before_pour_same_scene": {
+    "window": "simulation13-15s, before learned pour instruction; same scene and model seed",
+    "conditions": {
+      "live": {
+        "relative_xyz_mm": [
+          -87.31668025922103,
+          -2.9514874855867923,
+          148.89254939924928
+        ],
+        "relative_quat": [
+          -0.434296016107929,
+          -0.4661041731785395,
+          -0.6310353054712023,
+          0.4426379032428175
+        ],
+        "hand_contacts_median": 86.0,
+        "measured_fingers_median_rad": [
+          1.5400553941726685,
+          2.5455541610717773,
+          2.4857265949249268,
+          2.5245511531829834,
+          2.446347951889038,
+          0.5273042917251587
+        ],
+        "target_fingers_median_rad": [
+          1.5199999809265137,
+          2.242612361907959,
+          2.4473607540130615,
+          2.4801721572875977,
+          2.44521427154541,
+          0.2662040591239929
+        ],
+        "difference_from_train_q_median_position_mm": 10.453002027549388,
+        "difference_from_train_q_median_orientation_deg": 8.285599855971778,
+        "fingers_target_maxabs_difference_from_trainq_rad": 0.0004258155822753906
+      },
+      "train_q": {
+        "relative_xyz_mm": [
+          -78.80755094236721,
+          1.0096972790811787,
+          144.2915728814682
+        ],
+        "relative_quat": [
+          -0.4853301124139184,
+          -0.4530296051991315,
+          -0.5864065164804443,
+          0.46405415225669827
+        ],
+        "hand_contacts_median": 137.0,
+        "measured_fingers_median_rad": [
+          1.535205364227295,
+          2.5747978687286377,
+          2.503079652786255,
+          2.555703639984131,
+          2.4464495182037354,
+          0.5183435082435608
+        ],
+        "target_fingers_median_rad": [
+          1.5199999809265137,
+          2.2430381774902344,
+          2.4473018646240234,
+          2.4802799224853516,
+          2.4452273845672607,
+          0.2663094103336334
+        ],
+        "difference_from_train_q_median_position_mm": 0.0,
+        "difference_from_train_q_median_orientation_deg": 0.0,
+        "fingers_target_maxabs_difference_from_trainq_rad": 0.0
+      },
+      "teacher": {
+        "relative_xyz_mm": [
+          -80.53062023264745,
+          0.707804890233088,
+          144.9974329208058
+        ],
+        "relative_quat": [
+          -0.48367469615204134,
+          -0.456570798238569,
+          -0.5899692766128286,
+          0.4577533693496554
+        ],
+        "hand_contacts_median": 133.0,
+        "measured_fingers_median_rad": [
+          1.5354448556900024,
+          2.570521116256714,
+          2.5006062984466553,
+          2.5495543479919434,
+          2.4465537071228027,
+          0.5207003951072693
+        ],
+        "target_fingers_median_rad": [
+          1.5199999809265137,
+          2.2431070804595947,
+          2.4473533630371094,
+          2.480262041091919,
+          2.4454784393310547,
+          0.2662145495414734
+        ],
+        "difference_from_train_q_median_position_mm": 1.8863576513177274,
+        "difference_from_train_q_median_orientation_deg": 0.9426780964235678,
+        "fingers_target_maxabs_difference_from_trainq_rad": 0.0002510547637939453
+      }
+    },
+    "claim_boundary": "contact point count is not grip force, pose delta alone does not prove causal slip trigger"
+  },
+  "source_sha256": {
+    "SUMMARY.json": "5acaee622cf2add94ed278a7ec025ff853e42a18cae69ecd78176f1ed8e708f3",
+    "SWITCH_TIMING.json": "63d3096bf744f3590b13ddf66aade0a1e7909b2cead55a599f4213d8ff69ca3d",
+    "GRASP_NATIVE_V2.json": "6e3486d1fda4a450c87b18cdd602658d6b15aee93bc5e7741e44e0a382f80489",
+    "REPEATED_STAGES.json": "d777f3388ea1aa581fc4526f6797992ff825eb5f9401be70fd917a4f854b473b",
+    "SOURCE_MECHANISM.md": "11934553f5595efcc8ebade3e6124a2a86b52ef9bf35495cf2244c63bb8bc449",
+    "VISUAL_EVIDENCE.json": "bdc287642737d52b8910d13b67b9c34cd7d7bf60e7c403c7728a95fddf6f60ca"
+  },
+  "figure_sha256": {
+    "slip_same_scene_inputs.png": "39eb85df56361d4c4404452959373d6e4cbe1bdb874aad74742c99489002bcbc",
+    "slip_ep000_h8_live_contact_sheet.jpg": "f8fd8d2a6836b83a95ef4ec0ea1bb6ea370575ee9e9f17d014fdcebabb7f9a10",
+    "switch_delay_ep001_h4.png": "eba4a7162652290e90a5ccb300693feaf2b9017be7bae75c8592c2846d183281",
+    "switch_delay_ep001_h4_contact_sheet.jpg": "c78e562eb69a4d3ee617390b02c998b3308130fc60f38787508799fa61dc090b"
+  },
+  "interpretation": "Read-only evidence, no model/threshold/control/physics fix applied. Contact counts do not measure force. Repeated resets are not proven causes of earlier slips.",
+  "measurement_notes": {
+    "finger_target_delta_max_abs500ms_before_to100ms_after_rad": "Maximum across6joints of abs(median target after0.1s - median target before0.5s). Not within-window pointwise max.",
+    "live_EP0_h8_finger_target_within_window_peak_to_peak_max_rad": 0.00142384,
+    "memory_reset": "Only stage-local runtime resets; completed keyframe anchors and long-term ancestors are not all erased."
+  }
+}
