@@ -327,6 +327,141 @@
         }
       ],
       "conclusion": "四条均独立验收成功，最终液体A=0/B=1290/溢出=0。是两训练场景的模型无关正控制，永久不计为模型成功率；说明环境在这四次回放中可完成任务。两种协议的速度前馈、重采样和重力补偿不同，不能据此单独归因于插值，也未排除其他场景的接触问题。"
+    },
+    {
+      "id": "recorded-guidance",
+      "label": "录制高层指导 · 4步／30步诊断",
+      "complete": true,
+      "scene_label": "原评测EP",
+      "baseline": "h4",
+      "variants": [
+        "h30"
+      ],
+      "variant_names": {
+        "h4": "Ours · 4步 · 录制高层指导",
+        "h30": "Ours · 30步 · 录制高层指导"
+      },
+      "cases": [
+        {
+          "episode": "t947_recorded_h4_ep002",
+          "scene": 2,
+          "variant": "h4",
+          "execution_horizon": 4,
+          "source_panel_episode": 2,
+          "seed": 262200002,
+          "outcome": "S",
+          "native_rows": 4865,
+          "physical_phase": 3,
+          "elapsed_sim_s": 40.53333333333333,
+          "phase_seconds": [
+            6.958333333333333,
+            23.666666666666668,
+            40.483333333333334
+          ],
+          "audit_sha256": "9eceb97bbcc05aec659bcb2507b8861a1bd8e06e69ff7c3f9e317b32f006aa5f",
+          "source_transfer_sha256": "01fafcbb673fa0fb422ecc1adc705067294364249e1cf57d0934b754b34f5428",
+          "autonomous_score_eligible": false,
+          "population_SR": false,
+          "media": {
+            "annotated": "media/t947_recorded_h4_ep002/ep002_h4_recorded_guidance_SUCCESS_subtasks.mp4",
+            "timeline": "media/t947_recorded_h4_ep002/frames.json",
+            "filename": "ep002_h4_recorded_guidance_SUCCESS_subtasks.mp4",
+            "video_frames": 609,
+            "full_duration": true,
+            "preview_only": true,
+            "source_video_sha256": "fe2ea313592382905036e4486099fe7cad4a46c2bc68c2e79fa6d79016711c38",
+            "source_result_sha256": "34c628b14c6b1d850f66e98888ca41666bd1dfe05b2cbb8a19392b4f97384630"
+          }
+        },
+        {
+          "episode": "t947_recorded_h30_ep002",
+          "scene": 2,
+          "variant": "h30",
+          "execution_horizon": 30,
+          "source_panel_episode": 2,
+          "seed": 262200002,
+          "outcome": "F",
+          "native_rows": 9001,
+          "physical_phase": 1,
+          "elapsed_sim_s": 75.0,
+          "phase_seconds": [
+            6.641666666666667
+          ],
+          "audit_sha256": "295cbb40e1fe3d117431e2ecc9ed06ceaf1e99b1a3ef0e5ca70c582f199087aa",
+          "source_transfer_sha256": "bdcf71ed4eb44ebdc10dac6a08a484cfebd8ce9b727f88ac99bd419de3deef5b",
+          "autonomous_score_eligible": false,
+          "population_SR": false,
+          "media": {
+            "annotated": "media/t947_recorded_h30_ep002/ep002_h30_recorded_guidance_FAILURE_subtasks.mp4",
+            "timeline": "media/t947_recorded_h30_ep002/frames.json",
+            "filename": "ep002_h30_recorded_guidance_FAILURE_subtasks.mp4",
+            "video_frames": 1126,
+            "full_duration": true,
+            "preview_only": true,
+            "source_video_sha256": "f95f01b1fc41dc8d17fdb99335dbbb07f99fab720b59b7b64d073a24fb60c979",
+            "source_result_sha256": "692bd15d37c2227c3e019ab22e28cfba65c38103a6855bb0e522635d8ff318e6"
+          }
+        },
+        {
+          "episode": "t947_recorded_h4_ep049",
+          "scene": 49,
+          "variant": "h4",
+          "execution_horizon": 4,
+          "source_panel_episode": 49,
+          "seed": 262200039,
+          "outcome": "F",
+          "native_rows": 9001,
+          "physical_phase": 1,
+          "elapsed_sim_s": 75.0,
+          "phase_seconds": [
+            6.666666666666667
+          ],
+          "audit_sha256": "b7fd2d55f60297f6b579ebc845e03612149a868234e42cfece00a3f56851f9f3",
+          "source_transfer_sha256": "86dc046029df7d82d505ad0b9fcbb2af1626aff928d958a2567aea1d61cccb03",
+          "autonomous_score_eligible": false,
+          "population_SR": false,
+          "media": {
+            "annotated": "media/t947_recorded_h4_ep049/ep049_h4_recorded_guidance_FAILURE_subtasks.mp4",
+            "timeline": "media/t947_recorded_h4_ep049/frames.json",
+            "filename": "ep049_h4_recorded_guidance_FAILURE_subtasks.mp4",
+            "video_frames": 1126,
+            "full_duration": true,
+            "preview_only": true,
+            "source_video_sha256": "af10925b1fdb5b34244d345b62a41b611ece0d707e17a3c3450bb7efac9ead6b",
+            "source_result_sha256": "4d26ea46cf72fb5f1252e7278222e75c443c9255f82cd17688426499cb9e84f5"
+          }
+        },
+        {
+          "episode": "t947_recorded_h30_ep049",
+          "scene": 49,
+          "variant": "h30",
+          "execution_horizon": 30,
+          "source_panel_episode": 49,
+          "seed": 262200039,
+          "outcome": "F",
+          "native_rows": 9001,
+          "physical_phase": 1,
+          "elapsed_sim_s": 75.0,
+          "phase_seconds": [
+            6.583333333333333
+          ],
+          "audit_sha256": "bc730268162368765c26ab94072dce55bf313b8be78418c1aa28114ea03ddbd9",
+          "source_transfer_sha256": "f7e7bc4c36fc2176abe4dd19e2f24ddfd178e94987c55526dea4ee1ecaad6023",
+          "autonomous_score_eligible": false,
+          "population_SR": false,
+          "media": {
+            "annotated": "media/t947_recorded_h30_ep049/ep049_h30_recorded_guidance_FAILURE_subtasks.mp4",
+            "timeline": "media/t947_recorded_h30_ep049/frames.json",
+            "filename": "ep049_h30_recorded_guidance_FAILURE_subtasks.mp4",
+            "video_frames": 1126,
+            "full_duration": true,
+            "preview_only": true,
+            "source_video_sha256": "23af327a72ce4a98aba0055f47f4baff7dfd8063f39cd35bfee8e796554d21cc",
+            "source_result_sha256": "e3fabc326f967e50ffefd08be3b6ad116bbd4b949dac17854b4300d65cc237a2"
+          }
+        }
+      ],
+      "conclusion": "录制高层指令与DAG，真实执行器、分类器和原N1物理；4步已验收2条（1完成），30步2条（0完成）。 每个步数仅两个左侧场景的预注册诊断；不是自主模型100条成功率，也不能只由两场景判断滑脱是否修复。"
     }
   ],
   "source_phase1_independent_audit_sha256": "7f18493c8d2c289a5fdcae530af1bb527ddd21109d53f485e2cb65f3b8740e10",
@@ -356,5 +491,6 @@
       "sha256": "f3fce49f137766548e4133699f13c02390db226dd60588b2e84994e8b34c4669",
       "public": "evidence/actual_train_layout.png"
     }
-  }
+  },
+  "recorded_guidance_source_roster_sha256": "86df5a7c785879e720031eeaaa4c72b269ac314e53661eaf379c72291307b183"
 }
