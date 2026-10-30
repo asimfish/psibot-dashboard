@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-30T09:28:34.802656+00:00",
+  "updated_utc": "2026-10-30T09:34:52.530166+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -412,7 +412,7 @@
       },
       "next": "完成全部120Hz原始轨迹穿模审计，修复终点精度；随后绑定正式三种子150计划，旧错误物理SR不作为新结果。",
       "name": "50ml 玻璃烧杯",
-      "status_note": "B50根因已证实：IL资产导入自动把源211个convexHull＋1个convexDecomposition转成212个SDF，质心/惯量改变。关闭原生自动转换并核对源物理后，被动5/5稳定，原ACT同5位置从0/5到5/5终点持有；20mm仅1/5，正式DP继续挂起，先完成策略/几何与入口核验。",
+      "status_note": "B50根因已证实：IL资产导入自动把源211个convexHull＋1个convexDecomposition转成212个SDF，质心/惯量改变。关闭原生自动转换并核对源物理后，被动5/5稳定，原ACT同5位置从0/5到5/5终点持有；20mm仅1/5，正式DP继续挂起，先完成策略/几何与入口核验。 全5次14,369个120Hz状态手部/末端与目标网格交叉0；全场景和完整视觉仍待验。",
       "development_source_physics5": {
         "Native_successes": 5,
         "terminal_held": 5,
@@ -3061,9 +3061,9 @@
     ],
     "progress_note": "保留全部47个旧版本与78段原视频；新增B50物理修复原ACT、B100原DP/ACT三版本，现50版本/84段视频。新小测与旧正式结果分别列出；采集、被动诊断和离线拟合均不计验收。",
     "DP_repair_note": "DP100k结果未改善终点精度：同源专家拟合误差较小、动作队列逐项一致，真实闭环终点偏差较大。配对CPU裁剪实验未见稳定收益，未部署；正在核对实际视觉/低维输入。",
-    "b50_reset_note": "B50根因已证实：IL资产导入自动把源211个convexHull＋1个convexDecomposition转成212个SDF，质心/惯量改变。关闭原生自动转换并核对源物理后，被动5/5稳定，原ACT同5位置从0/5到5/5终点持有；20mm仅1/5，正式DP继续挂起，先完成策略/几何与入口核验。",
+    "b50_reset_note": "B50根因已证实：IL资产导入自动把源211个convexHull＋1个convexDecomposition转成212个SDF，质心/惯量改变。关闭原生自动转换并核对源物理后，被动5/5稳定，原ACT同5位置从0/5到5/5终点持有；20mm仅1/5，正式DP继续挂起，先完成策略/几何与入口核验。 全5次14,369个120Hz状态手部/末端与目标网格交叉0；全场景和完整视觉仍待验。",
     "failure_diagnosis": [
-      "B50环境根因已修复并有因果对照：原生资产自动SDF改变质心/惯量；保持同原模型/XY/RNG后，被动5/5稳定、ACT5/5抓起且持有。终点20mm仅1/5，仍需解决策略精度与完整SSR。",
+      "B50环境根因已修复并有因果对照：原生资产自动SDF改变质心/惯量；保持同原模型/XY/RNG后，被动5/5稳定、ACT5/5抓起且持有。终点20mm仅1/5，仍需解决策略精度与完整SSR。 全5次14,369个120Hz状态手物网格零交叉。",
       "B100原模型复测已闭合：DP10/15原生成功（终点8/15、实际持有9/15），ACT4/15成功（终点2/15）。初始物体直立，ACT多数失败仍不抬升；不盲目扩大正式150。",
       "F250合格百条源已训练3个ACT和3个DP；ACT种子21的BOS权重SHA与生产日志不符，已保留证据并挂起三种子源测试。其余两ACT匹配；不以未核清来源的模型计分。",
       "F500原ACT在恢复源资产配置后仍5/5持有、0/5终点20mm；FK辅助候选/零系数20次也未改善。初始RGB目标锚将按两种子候选/零锚配对训练4分支，明确为新表示变体及额外324841个冻结学习系数。",
@@ -7665,7 +7665,7 @@
           "updates": 32000
         }
       },
-      "metric_note": "同一原ACT模型、原5位置/RNG，修复前0/5、修复后5/5抓起并持有；只定位并恢复物理配置，未重训。成功且终点20mm仅1/5，完整SpatialSSR/几何/视觉及正式150未通过。",
+      "metric_note": "同一原ACT模型、原5位置/RNG，修复前0/5、修复后5/5抓起并持有；只定位并恢复物理配置，未重训。成功且终点20mm仅1/5，完整SpatialSSR/几何/视觉及正式150未通过。 全部14,369个120Hz计分状态手部/末端与目标物体网格交叉0；手臂、桌面、自碰撞和完整视觉仍待验。",
       "cases": [
         {
           "episode": 4,
@@ -7680,7 +7680,7 @@
           "duration_s": 23.966667,
           "training_seed": 26121921,
           "cohort": "development_original_frozen_five_positions",
-          "caption": "恢复源物理配置后的原ACT32k；抓起并终点持有，末端误差18.25mm。最小/最大误差各三视角原视频；36抽样画面已审，完整120Hz几何及视觉验收仍待闭合。",
+          "caption": "恢复源物理配置后的原ACT32k；抓起并终点持有，末端误差18.25mm。最小/最大误差各三视角原视频；36抽样画面已审，全部120Hz手物网格交叉0；全场景几何及完整视觉仍待验。",
           "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A32-b50-source-physics-reset5-20261030cc/glass_beaker_50ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_004_chest_camera.mp4",
           "full_original_decode_passed": true,
           "sampled_visual_frames_reviewed": 6,
@@ -7699,7 +7699,7 @@
           "duration_s": 23.966667,
           "training_seed": 26121921,
           "cohort": "development_original_frozen_five_positions",
-          "caption": "恢复源物理配置后的原ACT32k；抓起并终点持有，末端误差18.25mm。最小/最大误差各三视角原视频；36抽样画面已审，完整120Hz几何及视觉验收仍待闭合。",
+          "caption": "恢复源物理配置后的原ACT32k；抓起并终点持有，末端误差18.25mm。最小/最大误差各三视角原视频；36抽样画面已审，全部120Hz手物网格交叉0；全场景几何及完整视觉仍待验。",
           "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A32-b50-source-physics-reset5-20261030cc/glass_beaker_50ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_004_head_camera.mp4",
           "full_original_decode_passed": true,
           "sampled_visual_frames_reviewed": 6,
@@ -7718,7 +7718,7 @@
           "duration_s": 23.966667,
           "training_seed": 26121921,
           "cohort": "development_original_frozen_five_positions",
-          "caption": "恢复源物理配置后的原ACT32k；抓起并终点持有，末端误差18.25mm。最小/最大误差各三视角原视频；36抽样画面已审，完整120Hz几何及视觉验收仍待闭合。",
+          "caption": "恢复源物理配置后的原ACT32k；抓起并终点持有，末端误差18.25mm。最小/最大误差各三视角原视频；36抽样画面已审，全部120Hz手物网格交叉0；全场景几何及完整视觉仍待验。",
           "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A32-b50-source-physics-reset5-20261030cc/glass_beaker_50ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_004_third_camera.mp4",
           "full_original_decode_passed": true,
           "sampled_visual_frames_reviewed": 6,
@@ -7737,7 +7737,7 @@
           "duration_s": 23.966667,
           "training_seed": 26121921,
           "cohort": "development_original_frozen_five_positions",
-          "caption": "恢复源物理配置后的原ACT32k；抓起并终点持有，末端误差39.22mm。最小/最大误差各三视角原视频；36抽样画面已审，完整120Hz几何及视觉验收仍待闭合。",
+          "caption": "恢复源物理配置后的原ACT32k；抓起并终点持有，末端误差39.22mm。最小/最大误差各三视角原视频；36抽样画面已审，全部120Hz手物网格交叉0；全场景几何及完整视觉仍待验。",
           "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A32-b50-source-physics-reset5-20261030cc/glass_beaker_50ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_005_chest_camera.mp4",
           "full_original_decode_passed": true,
           "sampled_visual_frames_reviewed": 6,
@@ -7756,7 +7756,7 @@
           "duration_s": 23.966667,
           "training_seed": 26121921,
           "cohort": "development_original_frozen_five_positions",
-          "caption": "恢复源物理配置后的原ACT32k；抓起并终点持有，末端误差39.22mm。最小/最大误差各三视角原视频；36抽样画面已审，完整120Hz几何及视觉验收仍待闭合。",
+          "caption": "恢复源物理配置后的原ACT32k；抓起并终点持有，末端误差39.22mm。最小/最大误差各三视角原视频；36抽样画面已审，全部120Hz手物网格交叉0；全场景几何及完整视觉仍待验。",
           "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A32-b50-source-physics-reset5-20261030cc/glass_beaker_50ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_005_head_camera.mp4",
           "full_original_decode_passed": true,
           "sampled_visual_frames_reviewed": 6,
@@ -7775,7 +7775,7 @@
           "duration_s": 23.966667,
           "training_seed": 26121921,
           "cohort": "development_original_frozen_five_positions",
-          "caption": "恢复源物理配置后的原ACT32k；抓起并终点持有，末端误差39.22mm。最小/最大误差各三视角原视频；36抽样画面已审，完整120Hz几何及视觉验收仍待闭合。",
+          "caption": "恢复源物理配置后的原ACT32k；抓起并终点持有，末端误差39.22mm。最小/最大误差各三视角原视频；36抽样画面已审，全部120Hz手物网格交叉0；全场景几何及完整视觉仍待验。",
           "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A32-b50-source-physics-reset5-20261030cc/glass_beaker_50ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_005_third_camera.mp4",
           "full_original_decode_passed": true,
           "sampled_visual_frames_reviewed": 6,
@@ -7791,7 +7791,11 @@
         "terminal_physical_lift": 5,
         "success_terminal20mm": 1,
         "formal_accepted": false,
-        "full_geometry_SSR_evaluated": false
+        "full_geometry_SSR_evaluated": false,
+        "hand_target_scored_120Hz_poses": 14369,
+        "strict_hand_target_crossing_poses": 0,
+        "hand_target_geometry_closed": true,
+        "full_scene_geometry_closed": false
       },
       "job_id": "job-jf30io2ztk9b"
     },
