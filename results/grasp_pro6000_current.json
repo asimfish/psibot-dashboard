@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-30T09:34:52.530166+00:00",
+  "updated_utc": "2026-10-30T09:47:35.269950+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -412,7 +412,7 @@
       },
       "next": "完成全部120Hz原始轨迹穿模审计，修复终点精度；随后绑定正式三种子150计划，旧错误物理SR不作为新结果。",
       "name": "50ml 玻璃烧杯",
-      "status_note": "B50根因已证实：IL资产导入自动把源211个convexHull＋1个convexDecomposition转成212个SDF，质心/惯量改变。关闭原生自动转换并核对源物理后，被动5/5稳定，原ACT同5位置从0/5到5/5终点持有；20mm仅1/5，正式DP继续挂起，先完成策略/几何与入口核验。 全5次14,369个120Hz状态手部/末端与目标网格交叉0；全场景和完整视觉仍待验。",
+      "status_note": "B50根因已证实：IL资产导入自动把源211个convexHull＋1个convexDecomposition转成212个SDF，质心/惯量改变。关闭原生自动转换并核对源物理后，被动5/5稳定，原ACT同5位置从0/5到5/5终点持有；20mm仅1/5，正式DP继续挂起，先完成策略/几何与入口核验。 全5次14,369个120Hz状态手部/末端与目标网格交叉0；全场景和完整视觉仍待验。 三个原DP50k模型的15次源物理复测已实际启动，待最终CPU关闭。",
       "development_source_physics5": {
         "Native_successes": 5,
         "terminal_held": 5,
@@ -1062,7 +1062,7 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "500ml 透明容量瓶",
-      "status_note": "原ACT恢复源资产配置后5/5持有但0/5终点20mm；FK候选15次仅1次终点、零系数5次0终点。初始RGB目标锚将做两种子/零锚4分支训练，是新表示变体并增加324841个冻结学习系数。",
+      "status_note": "原ACT恢复源资产配置后5/5持有但0/5终点20mm；FK候选15次仅1次终点、零系数5次0终点。初始RGB目标锚将做两种子/零锚4分支训练，是新表示变体并增加324841个冻结学习系数。 四ACT配对分支均已实际更新约640步；最终闭环结果尚未产生。",
       "next": "沿固定输入视觉对照继续定位，验证目标锚新动作表示及全轨迹风险；不重复无改善的FK正式测试。",
       "source120_closed": {
         "episodes": 100,
@@ -1136,7 +1136,7 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "1000ml 透明容量瓶",
-      "status_note": "ACT源15/15持有、0/15终点20mm。DP三种子最新98.65–98.9k/100k，闭合后先做固定15次，已加入原生无液体及源资产碰撞表示校验。",
+      "status_note": "ACT源15/15持有、0/15终点20mm。DP三种子全部100k、EMA和原CPU/SHA闭合，新固定15次测试已实际运行；源资产碰撞表示门槛保持，最终结果待CPU关闭。",
       "next": "不扩展当前ACT到正式150；先对比终点命令及初始位置条件机制。DP100k三原种子继续，完整模型关闭后自动跑15次固定源验证。",
       "qualification": {
         "setting": "FullB c.95,z+7mm,yaw+5deg,motion_steps240 thenhold24s",
@@ -1471,11 +1471,11 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 225,
-    "active_registered_jobs": 2,
+    "registered_jobs": 228,
+    "active_registered_jobs": 4,
     "BOS_mount_count": 2,
-    "state": "B50_PHYSICS_FIXED_POLICY_SSR_PENDING",
-    "state_note": "B50已定位自动SDF转换：恢复源物理后，被动5/5稳定，原ACT从0/5到5/5持有，但终点仅1/5。B100原DP/ACT复测10/15与4/15成功，仍未通过。F1000 DP接近100k；F250权重来源异常已拦截；正式0/21。",
+    "state": "B50_F1000_DP_TESTS_AND_TWO_TRAINING_JOBS_RUNNING",
+    "state_note": "四作业实际运行：B50原DP三种子15次、F1000新DP100k三种子15次；F250三DP继续，F500四ACT配对分支已开始更新。8张训练卡分配、7张有优化进程。B50原ACT已5/5持有且完整120Hz手物零交叉，终点仅1/5；正式0/21。",
     "prepared_not_submitted": [
       {
         "tag": "eval-m6-dp-b50-20261025cc",
@@ -1488,21 +1488,9 @@
         "name": "F250三种子源测试",
         "state": "HOLD_PRODUCER_BOS_IMMUTABILITY",
         "progress_note": "三ACT训练均闭合，但种子21权重摘要不匹配生产日志。保留所有原记录，来源未闭合前不测试、不报通过。"
-      },
-      {
-        "tag": "train-A10goalAnchor-f500B-paired2-20261030cc",
-        "name": "F500 RGB目标锚配对四分支训练",
-        "state": "HOLD_EIGHT_TRAINING_GPU_CAP",
-        "progress_note": "待F1000训练释放4卡后自动接续；两个原种子、候选/零锚各一，增加10k。是明确披露的新表示变体，不计为原ACT。"
-      },
-      {
-        "tag": "dev-D100-f1000B-source15-20261029cc",
-        "name": "F1000 DP100k固定源15次",
-        "state": "HOLD_THREE_IMMUTABLE_EMA",
-        "progress_note": "3个100k EMA各自关闭及CPU/SHA通过后自动固定15次，不自动转正式；采集/测试同Pro6000并核对源资产碰撞表示。"
       }
     ],
-    "checked_utc": "2026-10-30T09:24:40.258205+00:00",
+    "checked_utc": "2026-10-30T09:47:35.269950+00:00",
     "jobs": [
       {
         "tag": "qual-mortar-p120-smoke4-20261028cc",
@@ -2820,7 +2808,7 @@
       {
         "tag": "train-D100-f1000B3-20261029cc",
         "job_id": "job-wxqlwag97ll4",
-        "status": "RUNNING",
+        "status": "SUCCEEDED",
         "observed_utc": "2026-10-29T23:21:10.967882+00:00",
         "last_progress": [
           "2026-10-30T05:04:56.109070812+08:00 stdout F GRASP_CC_DERIVED_TEMPLATE glass_beaker_100ml",
@@ -2834,22 +2822,22 @@
         ],
         "optimizer_launched": false,
         "name": "F1000 · 三种子DP100k训练",
-        "progress_note": "实际更新 [('dp', 26121921, 98900), ('dp', 26121923, 98650), ('dp', 26121925, 98700)]；模型训练完成不等于策略验收。",
+        "progress_note": "实际更新 [('dp', 26121921, 100000), ('dp', 26121923, 100000), ('dp', 26121925, 100000)]。训练模型关闭/EMA完整性与实际策略验收分别核验。",
         "training_progress": [
           [
             "dp",
             "clear_volume",
             26121921,
             0,
-            98900,
-            null
+            100000,
+            0
           ],
           [
             "dp",
             "clear_volume",
             26121923,
             1,
-            98650,
+            100000,
             null
           ],
           [
@@ -2857,8 +2845,8 @@
             "clear_volume",
             26121925,
             2,
-            98700,
-            null
+            100000,
+            0
           ]
         ]
       },
@@ -2962,14 +2950,14 @@
         "job_id": "job-nnggy0l1ytul",
         "status": "RUNNING",
         "name": "F250 · 合格新源三DP＋三ACT训练",
-        "progress_note": "实际更新 [('dp', 26121921, 26950), ('dp', 26121923, 26950), ('dp', 26121925, 33950), ('act', 26121921, 32000), ('act', 26121923, 32000), ('act', 26121925, 32000)]；模型训练完成不等于策略验收。",
+        "progress_note": "实际更新 [('dp', 26121921, 29950), ('dp', 26121923, 29950), ('dp', 26121925, 36900), ('act', 26121921, 32000), ('act', 26121923, 32000), ('act', 26121925, 32000)]。训练模型关闭/EMA完整性与实际策略验收分别核验。",
         "training_progress": [
           [
             "dp",
             "clear_volume",
             26121921,
             0,
-            26950,
+            29950,
             null
           ],
           [
@@ -2977,7 +2965,7 @@
             "clear_volume",
             26121923,
             1,
-            26950,
+            29950,
             null
           ],
           [
@@ -2985,7 +2973,7 @@
             "clear_volume",
             26121925,
             2,
-            33950,
+            36900,
             null
           ],
           [
@@ -3057,6 +3045,63 @@
         "status": "SUCCEEDED",
         "name": "B50 · 源物理配置被动5次因果验证",
         "progress_note": "5/5稳定：首秒最大倾角2.04°、最大漂移1.39mm，源质量/质心/惯量匹配。未执行学习策略，不计ACT成功率。"
+      },
+      {
+        "tag": "train-A10goalAnchor-f500B-paired2-20261030cc",
+        "name": "F500 · RGB目标锚/零锚两种子四分支训练",
+        "job_id": "job-l1wvammta6r2",
+        "status": "RUNNING",
+        "training_progress": [
+          [
+            "act",
+            "clear_volume",
+            26121921,
+            0,
+            640,
+            null
+          ],
+          [
+            "act",
+            "clear_volume",
+            26121923,
+            1,
+            640,
+            null
+          ],
+          [
+            "act",
+            "clear_volume",
+            26121921,
+            2,
+            640,
+            null
+          ],
+          [
+            "act",
+            "clear_volume",
+            26121923,
+            3,
+            650,
+            null
+          ]
+        ],
+        "progress_note": "实际更新 [('act', 26121921, 640), ('act', 26121923, 640), ('act', 26121921, 640), ('act', 26121923, 650)]。训练模型关闭/EMA完整性与实际策略验收分别核验。"
+      },
+      {
+        "tag": "dev-D100-f1000B-source15-20261029cc",
+        "name": "F1000 · 新DP100k三种子固定15次",
+        "job_id": "job-tcz7mnmthp5e",
+        "status": "RUNNING",
+        "training_progress": [],
+        "progress_note": "三个100k EMA均CPU/SHA关闭；Native日志进行到6/15、6原生成功、0终点20mm。 仅运行日志进度，最终原始结果与CPU关闭尚待核验，不报完整SR/SSR。"
+      },
+      {
+        "tag": "dev-D50-b50-source-physics15-20261030cc",
+        "name": "B50 · 源物理修复后三DP固定15次",
+        "job_id": "job-euo3vojmnhb9",
+        "status": "RUNNING",
+        "training_progress": [],
+        "progress_note": "原3个已关闭DP50k模型，同5位置各一次共15次；Native日志进行到8/15、8原生成功、2终点20mm。 仅运行日志进度，最终原始结果与CPU关闭尚待核验，不报完整SR/SSR。"
       }
     ],
     "progress_note": "保留全部47个旧版本与78段原视频；新增B50物理修复原ACT、B100原DP/ACT三版本，现50版本/84段视频。新小测与旧正式结果分别列出；采集、被动诊断和离线拟合均不计验收。",
@@ -3067,7 +3112,7 @@
       "B100原模型复测已闭合：DP10/15原生成功（终点8/15、实际持有9/15），ACT4/15成功（终点2/15）。初始物体直立，ACT多数失败仍不抬升；不盲目扩大正式150。",
       "F250合格百条源已训练3个ACT和3个DP；ACT种子21的BOS权重SHA与生产日志不符，已保留证据并挂起三种子源测试。其余两ACT匹配；不以未核清来源的模型计分。",
       "F500原ACT在恢复源资产配置后仍5/5持有、0/5终点20mm；FK辅助候选/零系数20次也未改善。初始RGB目标锚将按两种子候选/零锚配对训练4分支，明确为新表示变体及额外324841个冻结学习系数。",
-      "F1000原ACT三种子15/15持有、0/15终点20mm；DP三种子最新98.65–98.9k/100k。3个EMA完成原CPU/SHA闭合后先运行固定15次，已补源资产物理一致性门槛。",
+      "F1000三DP均完成100k并经原模型CPU/SHA闭合，新15次已实际启动；原ACT三种子15/15持有、0/15终点20mm。完整SSR不能由训练步数或当前原生成功日志替代。",
       "酒精灯颈部/肩部12次扫描终点持有0/12，未排百条采集；一次瞬时成功后掉落不作为终点持有。所有失败保留；完整SpatialSSR还须全场景碰撞绑定、几何和视觉逐项闭合。"
     ],
     "expert_replay_prefix": {
@@ -3136,51 +3181,25 @@
       "new_and_legacy_staged_inline_checks_passed": true
     },
     "source_recovery_evidence": "verification/grasp_source_recovery_20261028.json",
-    "latest_audit_evidence": "verification/grasp-B50-source-physics-and-B100-retest-20261030.json",
+    "latest_audit_evidence": "verification/grasp-four-jobs-running-20261030.json",
     "pick_place_comparison_evidence": "verification/grasp_mortar_closed15_20261029.json",
     "training_GPU_target": 8,
     "training_GPUs_provisioned": 8,
     "training_jobs_with_optimizer_progress": 2,
     "training_budget_evidence": "verification/grasp_source15_followthrough_20261028.json",
-    "submitted_jobs": 225,
-    "training_optimizer_active_GPUs_observed": 6,
-    "training_utilization_note": "09:24 UTC快照：F250和F1000各占4卡配额，均有3卡DP在实际更新，共8张分配、6张训练活跃。F1000结束后由容量监控自动释放F500四ACT分支；不宣称8卡均满载。",
+    "submitted_jobs": 228,
+    "training_optimizer_active_GPUs_observed": 7,
+    "training_utilization_note": "09:47 UTC快照：F250四卡配额内3个DP更新至约29.95k/36.9k；F500四卡ACT配对分支均实际更新约640步，共8卡分配/7卡有优化进程。F250三DP卡利用率95–99%，F500采样瞬时0–30%，不宣称8卡持续满载。",
     "training_GPU_allocation_cap": 8,
     "training_allocated_GPUs": 8,
     "training_optimizers_last_verified": {
-      "train-D100-f1000B3-20261029cc": [
-        [
-          "dp",
-          "clear_volume",
-          26121921,
-          0,
-          98900,
-          null
-        ],
-        [
-          "dp",
-          "clear_volume",
-          26121923,
-          1,
-          98650,
-          null
-        ],
-        [
-          "dp",
-          "clear_volume",
-          26121925,
-          2,
-          98700,
-          null
-        ]
-      ],
       "train-D100A32-f250N1-three-each-20261030cc": [
         [
           "dp",
           "clear_volume",
           26121921,
           0,
-          26950,
+          29950,
           null
         ],
         [
@@ -3188,7 +3207,7 @@
           "clear_volume",
           26121923,
           1,
-          26950,
+          29950,
           null
         ],
         [
@@ -3196,7 +3215,7 @@
           "clear_volume",
           26121925,
           2,
-          33950,
+          36900,
           null
         ],
         [
@@ -3222,6 +3241,40 @@
           1,
           32000,
           0
+        ]
+      ],
+      "train-A10goalAnchor-f500B-paired2-20261030cc": [
+        [
+          "act",
+          "clear_volume",
+          26121921,
+          0,
+          640,
+          null
+        ],
+        [
+          "act",
+          "clear_volume",
+          26121923,
+          1,
+          640,
+          null
+        ],
+        [
+          "act",
+          "clear_volume",
+          26121921,
+          2,
+          640,
+          null
+        ],
+        [
+          "act",
+          "clear_volume",
+          26121923,
+          3,
+          650,
+          null
         ]
       ]
     },
@@ -3260,7 +3313,8 @@
       "初始RGB目标锚仅CPU可行性通过：训练内CV均值3.54mm、留出5均值3.40mm/最大4.81mm；71,916原动作可逆及原ACT图/零锚配对梯度已验。新动作表示尚未训练，不能计策略或SSR改善。",
       "当前重置/控制边界/动作缓冲复核5次已关闭，5/5仍在0.117–0.158s内开始运动，全部倾倒，0/5抓起。反证控制缓冲修复足以解决该物体；正式DP继续挂起，不重复同一重置测试。",
       "F1000三种子ACT开发测试15/15抓起、0/15终点20mm；DP三种子约65.6k/100k。训练与测试结果分别保留，不能因增加步数直接宣称改善。"
-    ]
+    ],
+    "previous_audit_evidence": "verification/grasp-B50-source-physics-and-B100-retest-20261030.json"
   },
   "evidence_note": "45个旧版本和66段旧策略视频原样保留；新增FK候选/零系数两个独立版本及12段原视频。F250全100源准入与六模型实际训练已闭合，源/CPU/开发测试均不计正式验收，0/21未变。",
   "offline_DP_probe": {
