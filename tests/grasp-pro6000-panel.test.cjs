@@ -312,3 +312,24 @@ test('B50 recovery retains all127 originals and only budgets23 new unique identi
  const {container}=render(copy());assert.match(container.textContent,/已核验127\/150，成功124/);
  assert.equal(snapshot.objects_both_methods_formally_accepted,0);
 });
+
+test('new source-only results and sealed training never imply formal acceptance', () => {
+ const third=snapshot.runs.find(r => r.job_id==='job-pvsqyiclu02k');
+ assert.equal(third.result.trials,5);assert.equal(third.result.success_terminal20mm,5);
+ assert.equal(third.development,true);assert.equal(third.protocol.independent_OOD,false);
+ assert.equal(third.unmodified_original_DP_or_ACT,false);assert.equal(third.result.SpatialSSR,null);
+ assert.equal(third.cases.length,0); // Earlier seed videos must not be relabeled as seed25.
+ const all3=snapshot.objects.find(r => r.object==='clear_volumetric_flask_500ml').declared_variant_source15;
+ assert.deepEqual([all3.trials,all3.Native_successes,all3.success_terminal20mm],[15,15,15]);
+ assert.equal(all3.independent_OOD,false);assert.equal(all3.full_SpatialSSR,null);
+ const funnel=snapshot.runs.find(r => r.job_id==='job-im1j77njl697');
+ assert.deepEqual([funnel.result.trials,funnel.result.successes,funnel.result.success_terminal20mm],[15,8,0]);
+ assert.equal(funnel.unmodified_original_DP_or_ACT,true);assert.equal(funnel.formal_accepted,false);
+ const evidence=JSON.parse(fs.readFileSync(path.join(root,snapshot.pipeline.sealed_continuation_evidence_url),'utf8'));
+ assert.equal(evidence.ACT_recovery.all4_CPU_gate_and_producer_seal_and_external_model_bytes_equal,true);
+ assert.deepEqual(evidence.training.fixed_DP_budgets,[100000,100000,100000,200000]);
+ assert.equal(evidence.training.full_paper_epoch_budget,false);
+ assert.equal(evidence.training.allocated_GPUs,8);assert.equal(evidence.training.observed_optimizer_GPUs,7);
+ assert.equal(evidence.B50_geometry.full_SpatialSSR,null);
+ assert.equal(snapshot.objects_both_methods_formally_accepted,0);
+});
