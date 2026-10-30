@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-30T09:47:35.269950+00:00",
+  "updated_utc": "2026-10-30T11:55:14.598785+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -410,14 +410,30 @@
         "lifted": 100,
         "strict_crossings": 0
       },
-      "next": "完成全部120Hz原始轨迹穿模审计，修复终点精度；随后绑定正式三种子150计划，旧错误物理SR不作为新结果。",
+      "next": "完成正在运行的DP独立150次及全场景SSR/视觉；新三种子ACT完成内容封存后接续受控测试和正式150。",
       "name": "50ml 玻璃烧杯",
-      "status_note": "B50根因已证实：IL资产导入自动把源211个convexHull＋1个convexDecomposition转成212个SDF，质心/惯量改变。关闭原生自动转换并核对源物理后，被动5/5稳定，原ACT同5位置从0/5到5/5终点持有；20mm仅1/5，正式DP继续挂起，先完成策略/几何与入口核验。 全5次14,369个120Hz状态手部/末端与目标网格交叉0；全场景和完整视觉仍待验。 三个原DP50k模型的15次源物理复测已实际启动，待最终CPU关闭。",
+      "status_note": "B50自动SDF物理问题已修复；固定保持变体开发终点ACT5/5、DP11/15，原120Hz手物零交叉。新的独立150位置DP正式测试已运行，完整SSR/视觉仍需核验；旧错误入口继续挂起。",
       "development_source_physics5": {
         "Native_successes": 5,
         "terminal_held": 5,
         "success_terminal20": 1,
         "trials": 5,
+        "full_SpatialSSR": null,
+        "formal_accepted": false
+      },
+      "development_fixed_hold_components": {
+        "ACT": {
+          "trials": 5,
+          "terminal20": 5,
+          "hand_target_120Hz_states": 14369,
+          "crossing_states": 0
+        },
+        "DP": {
+          "trials": 15,
+          "terminal20": 11,
+          "hand_target_120Hz_states": 43107,
+          "crossing_states": 0
+        },
         "full_SpatialSSR": null,
         "formal_accepted": false
       }
@@ -988,7 +1004,7 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "250ml 透明容量瓶",
-      "status_note": "100/100源物理与终点合格，完整120Hz手物网格零交叉，96抽样画面已审。3个ACT已闭合、3个DP在训练；ACT种子21的BOS权重摘要与生产日志不符，三种子测试已拦截，来源未确认前不计分。",
+      "status_note": "100条源合格。旧ACT种子21生产/BOS权重不一致，旧测试保持挂起；两个其他种子匹配，新隔离种子21已训练约21.8k/32k并将内容寻址封存。三个DP继续训练。",
       "next": "三ACT各自CPU/SHA闭合后自动测试同五源位置，共15次；再依据结果决定独立OOD正式测试。DP100k为固定开发预算，非论文全预算。",
       "source120_closed": {
         "episodes": 100,
@@ -1062,7 +1078,7 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "500ml 透明容量瓶",
-      "status_note": "原ACT恢复源资产配置后5/5持有但0/5终点20mm；FK候选15次仅1次终点、零系数5次0终点。初始RGB目标锚将做两种子/零锚4分支训练，是新表示变体并增加324841个冻结学习系数。 四ACT配对分支均已实际更新约640步；最终闭环结果尚未产生。",
+      "status_note": "明确新表示变体：两个ACT种子初始RGB目标参考终点10/10，配对零参考1/10；两组原程序曾成功均10/10。额外324841个冻结学习系数；第三种子、独立OOD与完整几何/视觉未闭合，正式不通过。",
       "next": "沿固定输入视觉对照继续定位，验证目标锚新动作表示及全轨迹风险；不重复无改善的FK正式测试。",
       "source120_closed": {
         "episodes": 100,
@@ -1136,7 +1152,7 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "1000ml 透明容量瓶",
-      "status_note": "ACT源15/15持有、0/15终点20mm。DP三种子全部100k、EMA和原CPU/SHA闭合，新固定15次测试已实际运行；源资产碰撞表示门槛保持，最终结果待CPU关闭。",
+      "status_note": "DP100k三EMA全部闭合；固定源15次中曾成功13、终点抬升/XY区域12、EEF20mm为0。ACT此前终点0/15；精度仍需修复，不能将原生成功率当SSR。",
       "next": "不扩展当前ACT到正式150；先对比终点命令及初始位置条件机制。DP100k三原种子继续，完整模型关闭后自动跑15次固定源验证。",
       "qualification": {
         "setting": "FullB c.95,z+7mm,yaw+5deg,motion_steps240 thenhold24s",
@@ -1471,26 +1487,26 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 228,
-    "active_registered_jobs": 4,
+    "registered_jobs": 234,
+    "active_registered_jobs": 3,
     "BOS_mount_count": 2,
-    "state": "B50_F1000_DP_TESTS_AND_TWO_TRAINING_JOBS_RUNNING",
-    "state_note": "四作业实际运行：B50原DP三种子15次、F1000新DP100k三种子15次；F250三DP继续，F500四ACT配对分支已开始更新。8张训练卡分配、7张有优化进程。B50原ACT已5/5持有且完整120Hz手物零交叉，终点仅1/5；正式0/21。",
+    "state": "B50_INDEPENDENT_FORMAL150_RUNNING_TWO_TRAINING_JOBS_RUNNING",
+    "state_note": "B50新DP独立150次正式测试已RUNNING；固定保持开发对照ACT终点5/5、DP11/15且手物零交叉，F500目标参考10/10。新三ACT＋F250隔离ACT已约26.5–26.9k/32k，另三DP继续；正式仍0/21。",
     "prepared_not_submitted": [
       {
         "tag": "eval-m6-dp-b50-20261025cc",
-        "name": "B50原正式DP",
-        "state": "HOLD_CORRECTED_ENTRY_AND_POLICY",
-        "progress_note": "环境稳定性已修复；原测试入口尚未放行，策略精度与完整SSR仍待验证，继续挂起。"
+        "name": "B50旧正式入口",
+        "state": "HOLD_WRONG_OLD_ENTRY",
+        "progress_note": "旧入口继续挂起；新物理/固定保持采用新tag与独立位置，不把旧结果改成通过。"
       },
       {
         "tag": "dev-A32-f250N1-source15-20261030cc",
-        "name": "F250三种子源测试",
+        "name": "F250旧来源异常测试",
         "state": "HOLD_PRODUCER_BOS_IMMUTABILITY",
-        "progress_note": "三ACT训练均闭合，但种子21权重摘要不匹配生产日志。保留所有原记录，来源未闭合前不测试、不报通过。"
+        "progress_note": "旧种子21来源不符，旧测试继续挂起；隔离重训模型通过内容封存后使用新tag。"
       }
     ],
-    "checked_utc": "2026-10-30T09:47:35.269950+00:00",
+    "checked_utc": "2026-10-30T11:53:56.953602+00:00",
     "jobs": [
       {
         "tag": "qual-mortar-p120-smoke4-20261028cc",
@@ -2822,7 +2838,7 @@
         ],
         "optimizer_launched": false,
         "name": "F1000 · 三种子DP100k训练",
-        "progress_note": "实际更新 [('dp', 26121921, 100000), ('dp', 26121923, 100000), ('dp', 26121925, 100000)]。训练模型关闭/EMA完整性与实际策略验收分别核验。",
+        "progress_note": "所有预定模型已通过原训练CPU门槛并BOS摘要闭合；后续测试另列，训练闭合不计验收。",
         "training_progress": [
           [
             "dp",
@@ -2950,14 +2966,14 @@
         "job_id": "job-nnggy0l1ytul",
         "status": "RUNNING",
         "name": "F250 · 合格新源三DP＋三ACT训练",
-        "progress_note": "实际更新 [('dp', 26121921, 29950), ('dp', 26121923, 29950), ('dp', 26121925, 36900), ('act', 26121921, 32000), ('act', 26121923, 32000), ('act', 26121925, 32000)]。训练模型关闭/EMA完整性与实际策略验收分别核验。",
+        "progress_note": "实际优化更新 [('dp', 26121921, 47050), ('dp', 26121923, 47050), ('dp', 26121925, 54100)]；训练完成不代表验收。",
         "training_progress": [
           [
             "dp",
             "clear_volume",
             26121921,
             0,
-            29950,
+            47050,
             null
           ],
           [
@@ -2965,7 +2981,7 @@
             "clear_volume",
             26121923,
             1,
-            29950,
+            47050,
             null
           ],
           [
@@ -2973,7 +2989,7 @@
             "clear_volume",
             26121925,
             2,
-            36900,
+            54100,
             null
           ],
           [
@@ -3050,7 +3066,7 @@
         "tag": "train-A10goalAnchor-f500B-paired2-20261030cc",
         "name": "F500 · RGB目标锚/零锚两种子四分支训练",
         "job_id": "job-l1wvammta6r2",
-        "status": "RUNNING",
+        "status": "SUCCEEDED",
         "training_progress": [
           [
             "act",
@@ -3085,35 +3101,116 @@
             null
           ]
         ],
-        "progress_note": "实际更新 [('act', 26121921, 640), ('act', 26121923, 640), ('act', 26121921, 640), ('act', 26121923, 650)]。训练模型关闭/EMA完整性与实际策略验收分别核验。"
+        "progress_note": "所有预定模型已通过原训练CPU门槛并BOS摘要闭合；后续测试另列，训练闭合不计验收。"
       },
       {
         "tag": "dev-D100-f1000B-source15-20261029cc",
-        "name": "F1000 · 新DP100k三种子固定15次",
+        "name": "DP100k源15次 · 曾成功13/15、终点0/15",
         "job_id": "job-tcz7mnmthp5e",
-        "status": "RUNNING",
+        "status": "SUCCEEDED",
         "training_progress": [],
-        "progress_note": "三个100k EMA均CPU/SHA关闭；Native日志进行到6/15、6原生成功、0终点20mm。 仅运行日志进度，最终原始结果与CPU关闭尚待核验，不报完整SR/SSR。"
+        "progress_note": "三个100k EMA均完成原CPU/SHA闭合。13/15原程序曾成功、12/15满足终点抬升/XY区域、0/15终点20mm。多个固定中间时刻也均0/15，不能照搬B50的8s保持策略。完整SSR未通过。"
       },
       {
         "tag": "dev-D50-b50-source-physics15-20261030cc",
-        "name": "B50 · 源物理修复后三DP固定15次",
+        "name": "原DP50k源物理复测 · 曾成功15/15、终点2/15",
         "job_id": "job-euo3vojmnhb9",
+        "status": "SUCCEEDED",
+        "training_progress": [],
+        "progress_note": "相同原三EMA、既有位置：15/15原程序曾成功，14/15满足终点抬升/XY区域，2/15成功且终点20mm。终点区域未通过不等于掉落；持续输出阶段出现漂移。旧位置不能充当独立正式150。"
+      },
+      {
+        "tag": "train-A32-b50S3-f250S21-sealed-20261030cc",
+        "name": "train-A32-b50S3-f250S21-sealed-20261030cc",
+        "status": "RUNNING",
+        "job_id": "job-3jz7eu7f5s2k",
+        "training_progress": [
+          [
+            "act",
+            "glass_beaker",
+            26121921,
+            0,
+            26560,
+            null
+          ],
+          [
+            "act",
+            "glass_beaker",
+            26121923,
+            1,
+            26500,
+            null
+          ],
+          [
+            "act",
+            "glass_beaker",
+            26121925,
+            2,
+            26900,
+            null
+          ],
+          [
+            "act",
+            "clear_volume",
+            26121921,
+            3,
+            26940,
+            null
+          ]
+        ],
+        "progress_note": "实际优化更新 [('act', 26121921, 26560), ('act', 26121923, 26500), ('act', 26121925, 26900), ('act', 26121921, 26940)]；训练完成不代表验收。"
+      },
+      {
+        "tag": "dev-A32-b50-fixed8-command-hold5-20261030cc",
+        "name": "ACT＋固定保持变体 · 终点5/5、手物零交叉",
+        "status": "SUCCEEDED",
+        "job_id": "job-82w28szfnxat",
+        "training_progress": [],
+        "progress_note": "同一旧种子21模型和已知5位置：前240个控制后保持自身最后命令，仍执行24s原物理终点；5/5曾成功、5/5终点20mm，原持续更新对照1/5。14,369个原120Hz状态手物表面零交叉。保持时刻来自旧开发轨迹，不作为独立泛化；全场景/完整视觉仍待闭合。"
+      },
+      {
+        "tag": "dev-D50-b50-fixed8-command-hold15-20261030cc",
+        "name": "DP＋固定保持变体 · 终点11/15、手物零交叉",
+        "status": "SUCCEEDED",
+        "job_id": "job-k0zq2xda49j8",
+        "training_progress": [],
+        "progress_note": "同一原三EMA、既有位置各5：15/15曾成功并满足终点区域、11/15成功且终点20mm，持续更新对照2/15；三种子终点分别5/5、3/5、3/5。43,107个原120Hz状态手物表面零交叉。明确为固定保持策略变体；新150个独立位置已冻结，尚不能报正式通过。"
+      },
+      {
+        "tag": "dev-A10goalAnchor-f500B-source10-20261030cc",
+        "name": "ACT初始RGB目标参考变体 · 终点10/10",
+        "status": "SUCCEEDED",
+        "job_id": "job-bet73kn3alkg",
+        "training_progress": [],
+        "progress_note": "相同两个原种子各5个已知源位置、再训练10k，初始RGB特征与训练预算一致。目标参考候选10/10终点20mm，零参考对照1/10；两组均10/10原程序曾成功。明确为新表示变体：保留344个原模型参数键，额外324841个冻结学习系数；无部署物体/EEF真值输入。三视角为同一种子21第一位置配对；第三种子、独立OOD、全程几何/视觉尚未闭合。"
+      },
+      {
+        "tag": "dev-A10zeroAnchor-f500B-source10-20261030cc",
+        "job_id": "job-seohwu2uk1b6",
+        "status": "SUCCEEDED",
+        "name": "ACT零参考配对对照 · 终点1/10",
+        "progress_note": "相同两个原种子各5个已知源位置、再训练10k，初始RGB特征与训练预算一致。目标参考候选10/10终点20mm，零参考对照1/10；两组均10/10原程序曾成功。明确为新表示变体：保留344个原模型参数键，额外324841个冻结学习系数；无部署物体/EEF真值输入。三视角为同一种子21第一位置配对；第三种子、独立OOD、全程几何/视觉尚未闭合。",
+        "training_progress": []
+      },
+      {
+        "tag": "eval-D50-b50-fixed240-formal150-20261030cc",
+        "name": "B50 DP＋固定保持 · 新独立150次正式测试",
+        "job_id": "job-pr3typucmhkb",
         "status": "RUNNING",
         "training_progress": [],
-        "progress_note": "原3个已关闭DP50k模型，同5位置各一次共15次；Native日志进行到8/15、8原生成功、2终点20mm。 仅运行日志进度，最终原始结果与CPU关闭尚待核验，不报完整SR/SSR。"
+        "progress_note": "RUNNING：三个原50k EMA各50个新位置，覆盖±3/4/5/6cm；全部24s原终点计分，记录全场景及实际桌面/地面120Hz位姿。尚无完整结果，不计通过。"
       }
     ],
-    "progress_note": "保留全部47个旧版本与78段原视频；新增B50物理修复原ACT、B100原DP/ACT三版本，现50版本/84段视频。新小测与旧正式结果分别列出；采集、被动诊断和离线拟合均不计验收。",
+    "progress_note": "保留全部50个旧版本、84段旧原视频；新增6个开发结果版本、30段原视频及1个进行中的正式版本，共57版本/114段视频。原程序曾成功、终点区域、EEF20mm、完整SSR分别报告。",
     "DP_repair_note": "DP100k结果未改善终点精度：同源专家拟合误差较小、动作队列逐项一致，真实闭环终点偏差较大。配对CPU裁剪实验未见稳定收益，未部署；正在核对实际视觉/低维输入。",
-    "b50_reset_note": "B50根因已证实：IL资产导入自动把源211个convexHull＋1个convexDecomposition转成212个SDF，质心/惯量改变。关闭原生自动转换并核对源物理后，被动5/5稳定，原ACT同5位置从0/5到5/5终点持有；20mm仅1/5，正式DP继续挂起，先完成策略/几何与入口核验。 全5次14,369个120Hz状态手部/末端与目标网格交叉0；全场景和完整视觉仍待验。",
+    "b50_reset_note": "B50自动SDF物理问题已修复；固定保持变体开发终点ACT5/5、DP11/15，原120Hz手物零交叉。新的独立150位置DP正式测试已运行，完整SSR/视觉仍需核验；旧错误入口继续挂起。",
     "failure_diagnosis": [
-      "B50环境根因已修复并有因果对照：原生资产自动SDF改变质心/惯量；保持同原模型/XY/RNG后，被动5/5稳定、ACT5/5抓起且持有。终点20mm仅1/5，仍需解决策略精度与完整SSR。 全5次14,369个120Hz状态手物网格零交叉。",
-      "B100原模型复测已闭合：DP10/15原生成功（终点8/15、实际持有9/15），ACT4/15成功（终点2/15）。初始物体直立，ACT多数失败仍不抬升；不盲目扩大正式150。",
-      "F250合格百条源已训练3个ACT和3个DP；ACT种子21的BOS权重SHA与生产日志不符，已保留证据并挂起三种子源测试。其余两ACT匹配；不以未核清来源的模型计分。",
-      "F500原ACT在恢复源资产配置后仍5/5持有、0/5终点20mm；FK辅助候选/零系数20次也未改善。初始RGB目标锚将按两种子候选/零锚配对训练4分支，明确为新表示变体及额外324841个冻结学习系数。",
-      "F1000三DP均完成100k并经原模型CPU/SHA闭合，新15次已实际启动；原ACT三种子15/15持有、0/15终点20mm。完整SSR不能由训练步数或当前原生成功日志替代。",
-      "酒精灯颈部/肩部12次扫描终点持有0/12，未排百条采集；一次瞬时成功后掉落不作为终点持有。所有失败保留；完整SpatialSSR还须全场景碰撞绑定、几何和视觉逐项闭合。"
+      "B50物理根因已修复，当前主要误差来自后段漂移：固定保持变体ACT5/5、DP11/15终点20mm，全部原120Hz手物零交叉。旧位置结果不能计正式通过；新150个独立测试位置覆盖±3/4/5/6cm，驱动预演后提交。",
+      "F500动作参考修正有真实配对改善：两个种子候选10/10终点、零参考1/10。新增324841个冻结学习系数，明确是表示变体；仍缺第三种子、独立OOD和完整几何/视觉，不能标原ACT验收。",
+      "F1000 DP100k三种子源15次：曾成功13/15、终点区域12/15、EEF20mm为0/15。中间固定时刻也未达20mm，不照搬B50保持时刻，需继续修复目标精度。",
+      "F250旧ACT种子21生产日志/BOS权重不一致，原测试继续挂起。新隔离种子21正训练并加入逐模型内容寻址封存；B50三个ACT同批训练，未来统一使用新三种子，避免挑选最好种子。",
+      "B100恢复源物理后DP终点8/15、ACT2/15；多数ACT失败仍不抬升。酒精灯12次姿态扫描终点区域0/12，尚无合格百条源；保留失败并继续动作/接触诊断。",
+      "手物零交叉和20mm终点分量不等于完整SpatialSSR；还需实际全场景非法碰撞域、桌面动态位姿、目标绑定及完整视觉证据。终点高度/XY区域未通过不等于实际掉落。"
     ],
     "expert_replay_prefix": {
       "prefix_seconds": 23.966666666666665,
@@ -3181,15 +3278,15 @@
       "new_and_legacy_staged_inline_checks_passed": true
     },
     "source_recovery_evidence": "verification/grasp_source_recovery_20261028.json",
-    "latest_audit_evidence": "verification/grasp-four-jobs-running-20261030.json",
+    "latest_audit_evidence": "verification/grasp-B50-hold-F500-anchor-and-DP-results-20261030.json",
     "pick_place_comparison_evidence": "verification/grasp_mortar_closed15_20261029.json",
     "training_GPU_target": 8,
     "training_GPUs_provisioned": 8,
     "training_jobs_with_optimizer_progress": 2,
     "training_budget_evidence": "verification/grasp_source15_followthrough_20261028.json",
-    "submitted_jobs": 228,
+    "submitted_jobs": 234,
     "training_optimizer_active_GPUs_observed": 7,
-    "training_utilization_note": "09:47 UTC快照：F250四卡配额内3个DP更新至约29.95k/36.9k；F500四卡ACT配对分支均实际更新约640步，共8卡分配/7卡有优化进程。F250三DP卡利用率95–99%，F500采样瞬时0–30%，不宣称8卡持续满载。",
+    "training_utilization_note": "11:53 UTC：两训练作业占8张卡，3个F250 DP实际47.1–54.1k/100k，4个ACT实际26.5–26.9k/32k，共7个优化进程。B50正式150测试另占4张同型卡。",
     "training_GPU_allocation_cap": 8,
     "training_allocated_GPUs": 8,
     "training_optimizers_last_verified": {
@@ -3199,7 +3296,7 @@
           "clear_volume",
           26121921,
           0,
-          29950,
+          45150,
           null
         ],
         [
@@ -3207,7 +3304,7 @@
           "clear_volume",
           26121923,
           1,
-          29950,
+          45150,
           null
         ],
         [
@@ -3215,7 +3312,7 @@
           "clear_volume",
           26121925,
           2,
-          36900,
+          52150,
           null
         ],
         [
@@ -3243,37 +3340,37 @@
           0
         ]
       ],
-      "train-A10goalAnchor-f500B-paired2-20261030cc": [
+      "train-A32-b50S3-f250S21-sealed-20261030cc": [
         [
           "act",
-          "clear_volume",
+          "glass_beaker",
           26121921,
           0,
-          640,
+          21530,
           null
         ],
         [
           "act",
-          "clear_volume",
+          "glass_beaker",
           26121923,
           1,
-          640,
+          21460,
+          null
+        ],
+        [
+          "act",
+          "glass_beaker",
+          26121925,
+          2,
+          21780,
           null
         ],
         [
           "act",
           "clear_volume",
           26121921,
-          2,
-          640,
-          null
-        ],
-        [
-          "act",
-          "clear_volume",
-          26121923,
           3,
-          650,
+          21810,
           null
         ]
       ]
@@ -3312,7 +3409,13 @@
       "固定输入CPU换专家同源终点RGB可把保持段命令误差约38–44mm降到4–5mm；换专家q无明显改善，已反证简单q复制假设。物理场景不匹配，不能单独归为渲染域差异。",
       "初始RGB目标锚仅CPU可行性通过：训练内CV均值3.54mm、留出5均值3.40mm/最大4.81mm；71,916原动作可逆及原ACT图/零锚配对梯度已验。新动作表示尚未训练，不能计策略或SSR改善。",
       "当前重置/控制边界/动作缓冲复核5次已关闭，5/5仍在0.117–0.158s内开始运动，全部倾倒，0/5抓起。反证控制缓冲修复足以解决该物体；正式DP继续挂起，不重复同一重置测试。",
-      "F1000三种子ACT开发测试15/15抓起、0/15终点20mm；DP三种子约65.6k/100k。训练与测试结果分别保留，不能因增加步数直接宣称改善。"
+      "F1000三种子ACT开发测试15/15抓起、0/15终点20mm；DP三种子约65.6k/100k。训练与测试结果分别保留，不能因增加步数直接宣称改善。",
+      "B50环境根因已修复并有因果对照：原生资产自动SDF改变质心/惯量；保持同原模型/XY/RNG后，被动5/5稳定、ACT5/5抓起且持有。终点20mm仅1/5，仍需解决策略精度与完整SSR。 全5次14,369个120Hz状态手物网格零交叉。",
+      "B100原模型复测已闭合：DP10/15原生成功（终点8/15、实际持有9/15），ACT4/15成功（终点2/15）。初始物体直立，ACT多数失败仍不抬升；不盲目扩大正式150。",
+      "F250合格百条源已训练3个ACT和3个DP；ACT种子21的BOS权重SHA与生产日志不符，已保留证据并挂起三种子源测试。其余两ACT匹配；不以未核清来源的模型计分。",
+      "F500原ACT在恢复源资产配置后仍5/5持有、0/5终点20mm；FK辅助候选/零系数20次也未改善。初始RGB目标锚将按两种子候选/零锚配对训练4分支，明确为新表示变体及额外324841个冻结学习系数。",
+      "F1000三DP均完成100k并经原模型CPU/SHA闭合，新15次已实际启动；原ACT三种子15/15持有、0/15终点20mm。完整SSR不能由训练步数或当前原生成功日志替代。",
+      "酒精灯颈部/肩部12次扫描终点持有0/12，未排百条采集；一次瞬时成功后掉落不作为终点持有。所有失败保留；完整SpatialSSR还须全场景碰撞绑定、几何和视觉逐项闭合。"
     ],
     "previous_audit_evidence": "verification/grasp-B50-source-physics-and-B100-retest-20261030.json"
   },
@@ -7962,6 +8065,1009 @@
         "full_geometry_SSR_evaluated": false
       },
       "job_id": "job-ajyvlc05xolf"
+    },
+    {
+      "candidate": "pro6000-dev-D50-b50-source-physics15-20261030cc",
+      "object": "glass_beaker_50ml",
+      "method": "DP",
+      "display_name": "原DP50k源物理复测 · 曾成功15/15、终点2/15",
+      "current_native": false,
+      "development": true,
+      "expected_trials": 15,
+      "formal_accepted": false,
+      "reported_SpatialSSR_percent": null,
+      "paper_ssr_percent": null,
+      "success_semantics": "original_ever_success_latch",
+      "progress": {
+        "episode_num": 15,
+        "episode_success_num": 15,
+        "success_rate": 1.0
+      },
+      "protocol": {
+        "method": "dp",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "已观测的固定开发位置；非独立正式泛化",
+        "duration_label": "24s物理上限，原终点计分",
+        "seed": "26121921 / 26121923 / 26121925",
+        "chunk_size": 8,
+        "action_dimension": 13,
+        "note": "采集/测试同型号；恢复源资产物理配置。Native成功为原程序曾成功；终点区域、EEF20mm和完整SSR分别报告。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": [
+            26121921,
+            26121923,
+            26121925
+          ],
+          "updates": 50000
+        }
+      },
+      "metric_note": "相同原三EMA、既有位置：15/15原程序曾成功，14/15满足终点抬升/XY区域，2/15成功且终点20mm。终点区域未通过不等于掉落；持续输出阶段出现漂移。旧位置不能充当独立正式150。",
+      "cases": [
+        {
+          "episode": 7,
+          "camera": "chest_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/B50_DP_original_minimum_terminal_error_chest.mp4",
+          "SHA256": "39688b40d8f38a066c04d57607919d1f419877e551199a5f67b44ee2025f2267",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": true,
+          "physical_lift_region_at_terminal": true,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121923,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "原DP；原程序曾成功=True，终点满足抬升/XY区域，终点EEF误差14.03mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-D50-b50-source-physics15-20261030cc/glass_beaker_50ml/cell01_s26121923_gpu1/native_run/native_rgb/episode_002_chest_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 7,
+          "camera": "head_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/B50_DP_original_minimum_terminal_error_head.mp4",
+          "SHA256": "6f44d61aed5a797aa04dcfad301c5acaa2b3136d2cc6bff1dc9d0b9cb5e81ff0",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": true,
+          "physical_lift_region_at_terminal": true,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121923,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "原DP；原程序曾成功=True，终点满足抬升/XY区域，终点EEF误差14.03mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-D50-b50-source-physics15-20261030cc/glass_beaker_50ml/cell01_s26121923_gpu1/native_run/native_rgb/episode_002_head_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 7,
+          "camera": "third_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/B50_DP_original_minimum_terminal_error_third.mp4",
+          "SHA256": "3e65eb1cef8ee95c5e9ed80b3d6bebc736a59ac6a9c6bd635fa59ff1de47028e",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": true,
+          "physical_lift_region_at_terminal": true,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121923,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "原DP；原程序曾成功=True，终点满足抬升/XY区域，终点EEF误差14.03mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-D50-b50-source-physics15-20261030cc/glass_beaker_50ml/cell01_s26121923_gpu1/native_run/native_rgb/episode_002_third_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 2,
+          "camera": "chest_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/B50_DP_original_terminal_drop_chest.mp4",
+          "SHA256": "dc243361c211047681419d31b53401f319ada1c7685d91b0dda76b79190f9468",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": false,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121921,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "原DP；原程序曾成功=True，终点未满足抬升/XY区域；不能据此认定掉落，终点EEF误差128.58mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-D50-b50-source-physics15-20261030cc/glass_beaker_50ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_002_chest_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 2,
+          "camera": "head_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/B50_DP_original_terminal_drop_head.mp4",
+          "SHA256": "d8e4cadaff6ec7f0f2c50a2c525011248d5cf3daacde51bb04c8c85b8fc94dca",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": false,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121921,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "原DP；原程序曾成功=True，终点未满足抬升/XY区域；不能据此认定掉落，终点EEF误差128.58mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-D50-b50-source-physics15-20261030cc/glass_beaker_50ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_002_head_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 2,
+          "camera": "third_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/B50_DP_original_terminal_drop_third.mp4",
+          "SHA256": "b03a1268afa5362e26f0b4e3ec57e8a176415efe683386b6cbc5293e83d7fdc8",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": false,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121921,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "原DP；原程序曾成功=True，终点未满足抬升/XY区域；不能据此认定掉落，终点EEF误差128.58mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-D50-b50-source-physics15-20261030cc/glass_beaker_50ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_002_third_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        }
+      ],
+      "result": {
+        "SR": 100.0,
+        "success_and_terminal_dP20": 13.333333333333334,
+        "SpatialSSR": null,
+        "trials": 15,
+        "successes": 15,
+        "terminal_physical_lift_region": 14,
+        "success_terminal20mm": 2,
+        "formal_accepted": false,
+        "full_geometry_SSR_evaluated": false
+      },
+      "job_id": "job-euo3vojmnhb9"
+    },
+    {
+      "candidate": "pro6000-dev-D100-f1000B-source15-20261029cc",
+      "object": "clear_volumetric_flask_1000ml",
+      "method": "DP",
+      "display_name": "DP100k源15次 · 曾成功13/15、终点0/15",
+      "current_native": false,
+      "development": true,
+      "expected_trials": 15,
+      "formal_accepted": false,
+      "reported_SpatialSSR_percent": null,
+      "paper_ssr_percent": null,
+      "success_semantics": "original_ever_success_latch",
+      "progress": {
+        "episode_num": 15,
+        "episode_success_num": 13,
+        "success_rate": 0.8666666666666667
+      },
+      "protocol": {
+        "method": "dp",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "已观测的固定开发位置；非独立正式泛化",
+        "duration_label": "24s物理上限，原终点计分",
+        "seed": "26121921 / 26121923 / 26121925",
+        "chunk_size": 8,
+        "action_dimension": 13,
+        "note": "采集/测试同型号；恢复源资产物理配置。Native成功为原程序曾成功；终点区域、EEF20mm和完整SSR分别报告。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": [
+            26121921,
+            26121923,
+            26121925
+          ],
+          "updates": 100000
+        }
+      },
+      "metric_note": "三个100k EMA均完成原CPU/SHA闭合。13/15原程序曾成功、12/15满足终点抬升/XY区域、0/15终点20mm。多个固定中间时刻也均0/15，不能照搬B50的8s保持策略。完整SSR未通过。",
+      "cases": [
+        {
+          "episode": 9,
+          "camera": "chest_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/F1000_DP100_minimum_terminal_error_chest.mp4",
+          "SHA256": "60a1af66c6801d1b549cd5d059bbc68cee365a3b3f77e4abe8ad862b5b274844",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": true,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121923,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "原DP；原程序曾成功=True，终点满足抬升/XY区域，终点EEF误差30.38mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-D100-f1000B-source15-20261029cc/clear_volumetric_flask_1000ml/cell01_s26121923_gpu1/native_run/native_rgb/episode_004_chest_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 9,
+          "camera": "head_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/F1000_DP100_minimum_terminal_error_head.mp4",
+          "SHA256": "ea0ffd0e60305f5017dad178408f385775b5225495f5e2618a780b3dbf49cca7",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": true,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121923,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "原DP；原程序曾成功=True，终点满足抬升/XY区域，终点EEF误差30.38mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-D100-f1000B-source15-20261029cc/clear_volumetric_flask_1000ml/cell01_s26121923_gpu1/native_run/native_rgb/episode_004_head_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 9,
+          "camera": "third_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/F1000_DP100_minimum_terminal_error_third.mp4",
+          "SHA256": "df59fa3e4bfa9498c4b2287176f4a9b939ee30bae0ae2a002c32b3523913fcee",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": true,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121923,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "原DP；原程序曾成功=True，终点满足抬升/XY区域，终点EEF误差30.38mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-D100-f1000B-source15-20261029cc/clear_volumetric_flask_1000ml/cell01_s26121923_gpu1/native_run/native_rgb/episode_004_third_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 5,
+          "camera": "chest_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/F1000_DP100_terminal_drop_chest.mp4",
+          "SHA256": "674b356c6ab545afe49fca77ec4770db90c7ed15462beb9a167fca5682fd5628",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": false,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121921,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "原DP；原程序曾成功=True，终点未满足抬升/XY区域；不能据此认定掉落，终点EEF误差124.20mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-D100-f1000B-source15-20261029cc/clear_volumetric_flask_1000ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_005_chest_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 5,
+          "camera": "head_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/F1000_DP100_terminal_drop_head.mp4",
+          "SHA256": "39580d4c86838d621466c97994cc420066269ffd2650f4ae4e1b43b25e352355",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": false,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121921,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "原DP；原程序曾成功=True，终点未满足抬升/XY区域；不能据此认定掉落，终点EEF误差124.20mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-D100-f1000B-source15-20261029cc/clear_volumetric_flask_1000ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_005_head_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 5,
+          "camera": "third_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/F1000_DP100_terminal_drop_third.mp4",
+          "SHA256": "1418f0b7d125cfba4a65dd046de3505f6abe44d33afe6e7f5467931dd06b8adc",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": false,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121921,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "原DP；原程序曾成功=True，终点未满足抬升/XY区域；不能据此认定掉落，终点EEF误差124.20mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-D100-f1000B-source15-20261029cc/clear_volumetric_flask_1000ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_005_third_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        }
+      ],
+      "result": {
+        "SR": 86.66666666666667,
+        "success_and_terminal_dP20": 0.0,
+        "SpatialSSR": null,
+        "trials": 15,
+        "successes": 13,
+        "terminal_physical_lift_region": 12,
+        "success_terminal20mm": 0,
+        "formal_accepted": false,
+        "full_geometry_SSR_evaluated": false
+      },
+      "job_id": "job-tcz7mnmthp5e"
+    },
+    {
+      "candidate": "pro6000-dev-A32-b50-fixed8-command-hold5-20261030cc",
+      "object": "glass_beaker_50ml",
+      "method": "ACT",
+      "display_name": "ACT＋固定保持变体 · 终点5/5、手物零交叉",
+      "current_native": false,
+      "development": true,
+      "expected_trials": 5,
+      "formal_accepted": false,
+      "reported_SpatialSSR_percent": null,
+      "paper_ssr_percent": null,
+      "success_semantics": "original_ever_success_latch",
+      "progress": {
+        "episode_num": 5,
+        "episode_success_num": 5,
+        "success_rate": 1.0
+      },
+      "protocol": {
+        "method": "act",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "已观测的固定开发位置；非独立正式泛化",
+        "duration_label": "24s物理上限，原终点计分",
+        "seed": "26121921",
+        "chunk_size": 4,
+        "action_dimension": 13,
+        "note": "采集/测试同型号；恢复源资产物理配置。Native成功为原程序曾成功；终点区域、EEF20mm和完整SSR分别报告。明确策略变体：ACT_fixed240_control_command_hold_v1，不标为未修改的原DP/ACT。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": [
+            26121921
+          ],
+          "updates": 32000
+        }
+      },
+      "metric_note": "同一旧种子21模型和已知5位置：前240个控制后保持自身最后命令，仍执行24s原物理终点；5/5曾成功、5/5终点20mm，原持续更新对照1/5。14,369个原120Hz状态手物表面零交叉。保持时刻来自旧开发轨迹，不作为独立泛化；全场景/完整视觉仍待闭合。",
+      "cases": [
+        {
+          "episode": 2,
+          "camera": "chest_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/B50_ACT_hold_minimum_terminal_error_chest.mp4",
+          "SHA256": "812066cb34831db6216e7bae42f2734993610235dd9ce8e38055601475bcc61c",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": true,
+          "physical_lift_region_at_terminal": true,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121921,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "ACT_fixed240_control_command_hold_v1；原程序曾成功=True，终点满足抬升/XY区域，终点EEF误差10.57mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A32-b50-fixed8-command-hold5-20261030cc/glass_beaker_50ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_002_chest_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 2,
+          "camera": "head_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/B50_ACT_hold_minimum_terminal_error_head.mp4",
+          "SHA256": "8afd62a43ef5840d83c05c05d2e3697bf34d0f8e672d9a8994fcdbc074b85eec",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": true,
+          "physical_lift_region_at_terminal": true,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121921,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "ACT_fixed240_control_command_hold_v1；原程序曾成功=True，终点满足抬升/XY区域，终点EEF误差10.57mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A32-b50-fixed8-command-hold5-20261030cc/glass_beaker_50ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_002_head_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 2,
+          "camera": "third_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/B50_ACT_hold_minimum_terminal_error_third.mp4",
+          "SHA256": "e96143c4c5f04910e25dcb17604c959b692cad98cbf39fd670178f561fc01736",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": true,
+          "physical_lift_region_at_terminal": true,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121921,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "ACT_fixed240_control_command_hold_v1；原程序曾成功=True，终点满足抬升/XY区域，终点EEF误差10.57mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A32-b50-fixed8-command-hold5-20261030cc/glass_beaker_50ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_002_third_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 1,
+          "camera": "chest_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/B50_ACT_hold_maximum_terminal_error_chest.mp4",
+          "SHA256": "69c687ae9829c46e287bb56f9897a67c3cd8dccf50e299f1ab7f7c170ca32a53",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": true,
+          "physical_lift_region_at_terminal": true,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24.0,
+          "training_seed": 26121921,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "ACT_fixed240_control_command_hold_v1；原程序曾成功=True，终点满足抬升/XY区域，终点EEF误差19.07mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A32-b50-fixed8-command-hold5-20261030cc/glass_beaker_50ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_001_chest_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 1,
+          "camera": "head_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/B50_ACT_hold_maximum_terminal_error_head.mp4",
+          "SHA256": "98e1b837106ddc611644f3da90cf623d35178d2f1b2584f7207f06305dd2078c",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": true,
+          "physical_lift_region_at_terminal": true,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24.0,
+          "training_seed": 26121921,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "ACT_fixed240_control_command_hold_v1；原程序曾成功=True，终点满足抬升/XY区域，终点EEF误差19.07mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A32-b50-fixed8-command-hold5-20261030cc/glass_beaker_50ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_001_head_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 1,
+          "camera": "third_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/B50_ACT_hold_maximum_terminal_error_third.mp4",
+          "SHA256": "78cdf798ee87a6cf4d4bb7597228d77054ec10ed67422dee3e48c4bbfad714c1",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": true,
+          "physical_lift_region_at_terminal": true,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24.0,
+          "training_seed": 26121921,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "ACT_fixed240_control_command_hold_v1；原程序曾成功=True，终点满足抬升/XY区域，终点EEF误差19.07mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A32-b50-fixed8-command-hold5-20261030cc/glass_beaker_50ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_001_third_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        }
+      ],
+      "result": {
+        "SR": 100.0,
+        "success_and_terminal_dP20": 100.0,
+        "SpatialSSR": null,
+        "trials": 5,
+        "successes": 5,
+        "terminal_physical_lift_region": 5,
+        "success_terminal20mm": 5,
+        "formal_accepted": false,
+        "full_geometry_SSR_evaluated": false
+      },
+      "job_id": "job-82w28szfnxat",
+      "declared_policy_variant": "ACT_fixed240_control_command_hold_v1",
+      "unmodified_original_DP_or_ACT": false
+    },
+    {
+      "candidate": "pro6000-dev-D50-b50-fixed8-command-hold15-20261030cc",
+      "object": "glass_beaker_50ml",
+      "method": "DP",
+      "display_name": "DP＋固定保持变体 · 终点11/15、手物零交叉",
+      "current_native": false,
+      "development": true,
+      "expected_trials": 15,
+      "formal_accepted": false,
+      "reported_SpatialSSR_percent": null,
+      "paper_ssr_percent": null,
+      "success_semantics": "original_ever_success_latch",
+      "progress": {
+        "episode_num": 15,
+        "episode_success_num": 15,
+        "success_rate": 1.0
+      },
+      "protocol": {
+        "method": "dp",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "已观测的固定开发位置；非独立正式泛化",
+        "duration_label": "24s物理上限，原终点计分",
+        "seed": "26121921 / 26121923 / 26121925",
+        "chunk_size": 8,
+        "action_dimension": 13,
+        "note": "采集/测试同型号；恢复源资产物理配置。Native成功为原程序曾成功；终点区域、EEF20mm和完整SSR分别报告。明确策略变体：DP_fixed240_control_command_hold_v1，不标为未修改的原DP/ACT。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": [
+            26121921,
+            26121923,
+            26121925
+          ],
+          "updates": 50000
+        }
+      },
+      "metric_note": "同一原三EMA、既有位置各5：15/15曾成功并满足终点区域、11/15成功且终点20mm，持续更新对照2/15；三种子终点分别5/5、3/5、3/5。43,107个原120Hz状态手物表面零交叉。明确为固定保持策略变体；新150个独立位置已冻结，尚不能报正式通过。",
+      "cases": [
+        {
+          "episode": 1,
+          "camera": "chest_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/B50_DP_hold_minimum_terminal_error_chest.mp4",
+          "SHA256": "2d28f26d2a6518f68a91478b727f422d5d6f0edb287e0a0126e406fa4b36948b",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": true,
+          "physical_lift_region_at_terminal": true,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24.0,
+          "training_seed": 26121921,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "DP_fixed240_control_command_hold_v1；原程序曾成功=True，终点满足抬升/XY区域，终点EEF误差9.22mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-D50-b50-fixed8-command-hold15-20261030cc/glass_beaker_50ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_001_chest_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 1,
+          "camera": "head_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/B50_DP_hold_minimum_terminal_error_head.mp4",
+          "SHA256": "6339ff69b251880c45c88c7a87f4cc24a32dc9ba9b591890aef7d1229ee72da6",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": true,
+          "physical_lift_region_at_terminal": true,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24.0,
+          "training_seed": 26121921,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "DP_fixed240_control_command_hold_v1；原程序曾成功=True，终点满足抬升/XY区域，终点EEF误差9.22mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-D50-b50-fixed8-command-hold15-20261030cc/glass_beaker_50ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_001_head_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 1,
+          "camera": "third_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/B50_DP_hold_minimum_terminal_error_third.mp4",
+          "SHA256": "614b31403d360f1ab86294438e3c99f2b5c620ff602f6dd025f2375b9bdeb18a",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": true,
+          "physical_lift_region_at_terminal": true,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24.0,
+          "training_seed": 26121921,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "DP_fixed240_control_command_hold_v1；原程序曾成功=True，终点满足抬升/XY区域，终点EEF误差9.22mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-D50-b50-fixed8-command-hold15-20261030cc/glass_beaker_50ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_001_third_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 9,
+          "camera": "chest_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/B50_DP_hold_maximum_terminal_error_chest.mp4",
+          "SHA256": "c62747e5fd6ef870dd61b816699ea3ba63fde8f0f112a1d8330286c204c1bd7a",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": true,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121923,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "DP_fixed240_control_command_hold_v1；原程序曾成功=True，终点满足抬升/XY区域，终点EEF误差31.03mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-D50-b50-fixed8-command-hold15-20261030cc/glass_beaker_50ml/cell01_s26121923_gpu1/native_run/native_rgb/episode_004_chest_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 9,
+          "camera": "head_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/B50_DP_hold_maximum_terminal_error_head.mp4",
+          "SHA256": "06d37e2cfe3a1930b339a2440024ca702dbbf3c60273d965c0efe8aa3ca45fd1",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": true,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121923,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "DP_fixed240_control_command_hold_v1；原程序曾成功=True，终点满足抬升/XY区域，终点EEF误差31.03mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-D50-b50-fixed8-command-hold15-20261030cc/glass_beaker_50ml/cell01_s26121923_gpu1/native_run/native_rgb/episode_004_head_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 9,
+          "camera": "third_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/B50_DP_hold_maximum_terminal_error_third.mp4",
+          "SHA256": "aa99a3aaee63bc7644c27d94b3a3194b554975de2803e24d6a691402df496036",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": true,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966667,
+          "training_seed": 26121923,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "DP_fixed240_control_command_hold_v1；原程序曾成功=True，终点满足抬升/XY区域，终点EEF误差31.03mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-D50-b50-fixed8-command-hold15-20261030cc/glass_beaker_50ml/cell01_s26121923_gpu1/native_run/native_rgb/episode_004_third_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        }
+      ],
+      "result": {
+        "SR": 100.0,
+        "success_and_terminal_dP20": 73.33333333333333,
+        "SpatialSSR": null,
+        "trials": 15,
+        "successes": 15,
+        "terminal_physical_lift_region": 15,
+        "success_terminal20mm": 11,
+        "formal_accepted": false,
+        "full_geometry_SSR_evaluated": false
+      },
+      "job_id": "job-k0zq2xda49j8",
+      "declared_policy_variant": "DP_fixed240_control_command_hold_v1",
+      "unmodified_original_DP_or_ACT": false
+    },
+    {
+      "candidate": "pro6000-dev-A10goalAnchor-f500B-source10-20261030cc",
+      "object": "clear_volumetric_flask_500ml",
+      "method": "ACT",
+      "display_name": "ACT初始RGB目标参考变体 · 终点10/10",
+      "current_native": false,
+      "development": true,
+      "expected_trials": 10,
+      "formal_accepted": false,
+      "reported_SpatialSSR_percent": null,
+      "paper_ssr_percent": null,
+      "success_semantics": "original_ever_success_latch",
+      "progress": {
+        "episode_num": 10,
+        "episode_success_num": 10,
+        "success_rate": 1.0
+      },
+      "protocol": {
+        "method": "act",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "已观测的固定开发位置；非独立正式泛化",
+        "duration_label": "24s物理上限，原终点计分",
+        "seed": "26121921 / 26121923",
+        "chunk_size": 4,
+        "action_dimension": 13,
+        "note": "采集/测试同型号；恢复源资产物理配置。Native成功为原程序曾成功；终点区域、EEF20mm和完整SSR分别报告。明确策略变体：ACT_initial_RGB_goal_anchored_arm7_v1，不标为未修改的原DP/ACT。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 95
+        },
+        "training": {
+          "seed": [
+            26121921,
+            26121923
+          ],
+          "updates": 42000
+        }
+      },
+      "metric_note": "相同两个原种子各5个已知源位置、再训练10k，初始RGB特征与训练预算一致。目标参考候选10/10终点20mm，零参考对照1/10；两组均10/10原程序曾成功。明确为新表示变体：保留344个原模型参数键，额外324841个冻结学习系数；无部署物体/EEF真值输入。三视角为同一种子21第一位置配对；第三种子、独立OOD、全程几何/视觉尚未闭合。",
+      "cases": [
+        {
+          "episode": 1,
+          "camera": "chest_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/F500_ACT_anchor_paired_first_position_chest.mp4",
+          "SHA256": "891f6a98881f0db9ce1d201c5d75ac1e42860a5624fbdefa33d5f8731122c77a",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": true,
+          "physical_lift_region_at_terminal": true,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24.0,
+          "training_seed": 26121921,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "ACT_initial_RGB_goal_anchored_arm7_v1；原程序曾成功=True，终点满足抬升/XY区域，终点EEF误差7.84mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A10goalAnchor-f500B-source10-20261030cc/clear_volumetric_flask_500ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_001_chest_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 1,
+          "camera": "head_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/F500_ACT_anchor_paired_first_position_head.mp4",
+          "SHA256": "1d3ba43b1e42f9a6f33a3badd1ebfedd98c13e64ec269f24c855dfc0f48495fd",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": true,
+          "physical_lift_region_at_terminal": true,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24.0,
+          "training_seed": 26121921,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "ACT_initial_RGB_goal_anchored_arm7_v1；原程序曾成功=True，终点满足抬升/XY区域，终点EEF误差7.84mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A10goalAnchor-f500B-source10-20261030cc/clear_volumetric_flask_500ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_001_head_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 1,
+          "camera": "third_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/F500_ACT_anchor_paired_first_position_third.mp4",
+          "SHA256": "227515a3daa8991531b3f301c32ab393beda36c2c82e5bb330ad56427513884c",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": true,
+          "physical_lift_region_at_terminal": true,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24.0,
+          "training_seed": 26121921,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "ACT_initial_RGB_goal_anchored_arm7_v1；原程序曾成功=True，终点满足抬升/XY区域，终点EEF误差7.84mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A10goalAnchor-f500B-source10-20261030cc/clear_volumetric_flask_500ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_001_third_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        }
+      ],
+      "result": {
+        "SR": 100.0,
+        "success_and_terminal_dP20": 100.0,
+        "SpatialSSR": null,
+        "trials": 10,
+        "successes": 10,
+        "terminal_physical_lift_region": 10,
+        "success_terminal20mm": 10,
+        "formal_accepted": false,
+        "full_geometry_SSR_evaluated": false
+      },
+      "job_id": "job-bet73kn3alkg",
+      "declared_policy_variant": "ACT_initial_RGB_goal_anchored_arm7_v1",
+      "unmodified_original_DP_or_ACT": false,
+      "extra_frozen_learned_coefficients": 324841,
+      "paired_condition": "initial_RGB_anchor"
+    },
+    {
+      "candidate": "pro6000-dev-A10zeroAnchor-f500B-source10-20261030cc",
+      "object": "clear_volumetric_flask_500ml",
+      "method": "ACT",
+      "display_name": "ACT零参考配对对照 · 终点1/10",
+      "current_native": false,
+      "development": true,
+      "expected_trials": 10,
+      "formal_accepted": false,
+      "reported_SpatialSSR_percent": null,
+      "paper_ssr_percent": null,
+      "success_semantics": "original_ever_success_latch",
+      "progress": {
+        "episode_num": 10,
+        "episode_success_num": 10,
+        "success_rate": 1.0
+      },
+      "protocol": {
+        "method": "act",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "已观测的固定开发位置；非独立正式泛化",
+        "duration_label": "24s物理上限，原终点计分",
+        "seed": "26121921 / 26121923",
+        "chunk_size": 4,
+        "action_dimension": 13,
+        "note": "采集/测试同型号；恢复源资产物理配置。Native成功为原程序曾成功；终点区域、EEF20mm和完整SSR分别报告。明确策略变体：ACT_initial_RGB_goal_zero_anchor_control_v1，不标为未修改的原DP/ACT。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 95
+        },
+        "training": {
+          "seed": [
+            26121921,
+            26121923
+          ],
+          "updates": 42000
+        }
+      },
+      "metric_note": "相同两个原种子各5个已知源位置、再训练10k，初始RGB特征与训练预算一致。目标参考候选10/10终点20mm，零参考对照1/10；两组均10/10原程序曾成功。明确为新表示变体：保留344个原模型参数键，额外324841个冻结学习系数；无部署物体/EEF真值输入。三视角为同一种子21第一位置配对；第三种子、独立OOD、全程几何/视觉尚未闭合。",
+      "cases": [
+        {
+          "episode": 1,
+          "camera": "chest_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/F500_ACT_zero_control_paired_first_position_chest.mp4",
+          "SHA256": "6b068710d6d957ab6a540f0fa3a08399dd41e5d34225faeacfe7aee2e919a5a5",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": true,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24.0,
+          "training_seed": 26121921,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "ACT_initial_RGB_goal_feature_zero_anchor_control；原程序曾成功=True，终点满足抬升/XY区域，终点EEF误差45.79mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A10zeroAnchor-f500B-source10-20261030cc/clear_volumetric_flask_500ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_001_chest_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 1,
+          "camera": "head_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/F500_ACT_zero_control_paired_first_position_head.mp4",
+          "SHA256": "e6725fb49a96ed53fd3fc2c606dfc7de63f04598ea08b24b5c1a774c76cf4e31",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": true,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24.0,
+          "training_seed": 26121921,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "ACT_initial_RGB_goal_feature_zero_anchor_control；原程序曾成功=True，终点满足抬升/XY区域，终点EEF误差45.79mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A10zeroAnchor-f500B-source10-20261030cc/clear_volumetric_flask_500ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_001_head_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        },
+        {
+          "episode": 1,
+          "camera": "third_camera",
+          "url": "assets/grasp/pro6000_hold_and_DP_closed_20261030/F500_ACT_zero_control_paired_first_position_third.mp4",
+          "SHA256": "59bee27192b5b492e9f02a142c1ba90ef1ec562932b1663d6a22364ee4a4dd96",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "physical_lift_region_at_terminal": true,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24.0,
+          "training_seed": 26121921,
+          "cohort": "known_development_positions_not_independent_acceptance",
+          "caption": "ACT_initial_RGB_goal_feature_zero_anchor_control；原程序曾成功=True，终点满足抬升/XY区域，终点EEF误差45.79mm。原始三视角视频；每段6个固定时刻已审，未计完整视觉/SSR通过。",
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/jobs/dev-A10zeroAnchor-f500B-source10-20261030cc/clear_volumetric_flask_500ml/cell00_s26121921_gpu0/native_run/native_rgb/episode_001_third_camera.mp4",
+          "full_original_decode_passed": true,
+          "sampled_visual_frames_reviewed": 6,
+          "full_trajectory_visual_acceptance": false
+        }
+      ],
+      "result": {
+        "SR": 100.0,
+        "success_and_terminal_dP20": 10.0,
+        "SpatialSSR": null,
+        "trials": 10,
+        "successes": 10,
+        "terminal_physical_lift_region": 10,
+        "success_terminal20mm": 1,
+        "formal_accepted": false,
+        "full_geometry_SSR_evaluated": false
+      },
+      "job_id": "job-seohwu2uk1b6",
+      "declared_policy_variant": "ACT_initial_RGB_goal_zero_anchor_control_v1",
+      "unmodified_original_DP_or_ACT": false,
+      "extra_frozen_learned_coefficients": 324841,
+      "paired_condition": "zero_anchor"
+    },
+    {
+      "candidate": "pro6000-eval-D50-b50-fixed240-formal150-20261030cc",
+      "object": "glass_beaker_50ml",
+      "method": "DP",
+      "display_name": "DP＋固定保持 · 独立150次正式测试进行中",
+      "current_native": true,
+      "development": false,
+      "expected_trials": 150,
+      "formal_accepted": false,
+      "reported_SpatialSSR_percent": null,
+      "paper_ssr_percent": 37,
+      "declared_policy_variant": "DP_fixed240_control_command_hold_v1",
+      "unmodified_original_DP_or_ACT": false,
+      "success_semantics": "original_ever_success_latch",
+      "progress": {
+        "episode_num": 0,
+        "episode_success_num": 0,
+        "success_rate": null
+      },
+      "protocol": {
+        "method": "dp",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "独立冻结150位置：源±3cm，测试±3/4/5/6cm",
+        "duration_label": "24s原物理终点，EEF20mm标准",
+        "seed": "26121921 / 26121923 / 26121925",
+        "chunk_size": 8,
+        "action_dimension": 13,
+        "note": "8s保持规则在旧开发轨迹上确定，新的150位置在本轮任何rollout前冻结；每位置独立Native进程，保存所有成功/失败。固定保持明确为策略变体，不标为未修改的原DP。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": [
+            26121921,
+            26121923,
+            26121925
+          ],
+          "updates": 50000
+        }
+      },
+      "metric_note": "RUNNING：三个原50k EMA各50个新位置，覆盖±3/4/5/6cm；全部24s原终点计分，记录全场景及实际桌面/地面120Hz位姿。尚无完整结果，不计通过。",
+      "cases": [],
+      "result": {
+        "SR": null,
+        "SpatialSSR": null,
+        "full_geometry_SSR_evaluated": false,
+        "formal_accepted": false
+      },
+      "job_id": "job-pr3typucmhkb"
     }
   ],
   "geometry_distance_metric_note": "交叉见证的平面端点分离量不是实体穿透深度。严格零交叉判据不变；历史depth字段保留原报告，不用于放宽门槛。"
