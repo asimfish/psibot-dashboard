@@ -163,7 +163,9 @@ test('only the new snapshot adds browser versions; every existing dataset remain
   assert.equal(incomplete.expected_trials, 150);
   assert.equal(incomplete.result.formal_evaluation_status, 'FAILED_INCOMPLETE');
   assert.equal(incomplete.progress.episode_num, 23);
-  const media=snapshot.runs.flatMap(r => r.cases);
+  const references=snapshot.runs.flatMap(r => r.cases);
+  const media=[...new Map(references.map(c => [c.url,c])).values()];
+  for (const c of references) assert.equal(media.find(m => m.url===c.url).SHA256,c.SHA256);
   assert.equal(media.length, 117);
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_Mortar_paired_source5_20261029/')).length, 6);
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_Mortar_source5_20261029/')).length, 3);
@@ -299,6 +301,7 @@ test('B50 recovery retains all127 originals and only budgets23 new unique identi
  assert.equal(recovery.progress.episode_num,150);assert.equal(recovery.progress.episode_success_num,145);
  assert.equal(recovery.result.completed_success_terminal20mm,56);assert.equal(recovery.result.SR,145/150*100);
  assert.equal(recovery.current_native,false);assert.equal(recovery.result.SpatialSSR,null);
+ assert.equal(recovery.cases.length,3);assert.deepEqual(recovery.cases.map(c => c.url),original.cases.map(c => c.url));
  assert.equal(recovery.expected_trials,150);assert.equal(recovery.formal_accepted,false);
  assert.equal(snapshot.pipeline.training_GPU_cap,8);assert.equal(snapshot.pipeline.allocated_training_GPUs,8);
  const proof=JSON.parse(fs.readFileSync(path.join(root,snapshot.pipeline.current_recovery_evidence_url),'utf8'));
