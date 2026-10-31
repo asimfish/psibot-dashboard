@@ -1,0 +1,68 @@
+{
+  "owner_task": "T-947",
+  "population_SR": false,
+  "diagnostic_only": true,
+  "observed_source": "Four previously accepted recorded-high-level-guidance rollouts; no new model/physics execution.",
+  "interpretation": "Under the recorded initial cup-to-wrist rigid transform, measured wrist motion would tilt the cup substantially. In three failed cases actual cup orientation diverges substantially from this rigid relation while hand contacts remain positive. Counts do not measure force and do not establish a unique friction/penetration cause. Maxima need not occur at the same tick. After first zero contact, any later recontact is excluded from the main table.",
+  "formula": "R_c_expected(t) = R_w(t) @ R_w(t0).T @ R_c(t0)",
+  "cases": [
+    {
+      "episode": "t947_recorded_h4_ep002",
+      "diagnostic_outcome": "S",
+      "source_final_case_review_sha256": "9eceb97bbcc05aec659bcb2507b8861a1bd8e06e69ff7c3f9e317b32f006aa5f",
+      "tick_window_inclusive": [
+        2040,
+        3088
+      ],
+      "min_hand_contact_points": 97,
+      "expected_fixed_grasp_tilt_max_deg": 98.03316420197677,
+      "actual_cup_tilt_max_deg": 95.81633197210321,
+      "orientation_error_max_deg": 3.445146057337239,
+      "first_zero_hand_contact_tick": null
+    },
+    {
+      "episode": "t947_recorded_h30_ep002",
+      "diagnostic_outcome": "F",
+      "source_final_case_review_sha256": "295cbb40e1fe3d117431e2ecc9ed06ceaf1e99b1a3ef0e5ca70c582f199087aa",
+      "tick_window_inclusive": [
+        2088,
+        2984
+      ],
+      "min_hand_contact_points": 62,
+      "expected_fixed_grasp_tilt_max_deg": 104.72490877581023,
+      "actual_cup_tilt_max_deg": 47.70300407892771,
+      "orientation_error_max_deg": 66.06376443238182,
+      "first_zero_hand_contact_tick": null
+    },
+    {
+      "episode": "t947_recorded_h4_ep049",
+      "diagnostic_outcome": "F",
+      "source_final_case_review_sha256": "b7fd2d55f60297f6b579ebc845e03612149a868234e42cfece00a3f56851f9f3",
+      "tick_window_inclusive": [
+        2048,
+        2984
+      ],
+      "min_hand_contact_points": 50,
+      "expected_fixed_grasp_tilt_max_deg": 101.2142737180183,
+      "actual_cup_tilt_max_deg": 50.62670629988636,
+      "orientation_error_max_deg": 66.50043490632747,
+      "first_zero_hand_contact_tick": null
+    },
+    {
+      "episode": "t947_recorded_h30_ep049",
+      "diagnostic_outcome": "F",
+      "source_final_case_review_sha256": "bc730268162368765c26ab94072dce55bf313b8be78418c1aa28114ea03ddbd9",
+      "tick_window_inclusive": [
+        2112,
+        2887
+      ],
+      "min_hand_contact_points": 3,
+      "expected_fixed_grasp_tilt_max_deg": 98.45157909572937,
+      "actual_cup_tilt_max_deg": 60.325544296962654,
+      "orientation_error_max_deg": 70.3619540696164,
+      "first_zero_hand_contact_tick": 2888
+    }
+  ],
+  "source_summary_sha256": "3463859f7ade55433dc82e2de33c7ed2264d39139966401313d95de55d13df55",
+  "figure_sha256": "2044ca3239e51736ce8c75b508e687211408ff62b18c12ae2e1630d8b025dd8c"
+}
