@@ -391,10 +391,12 @@ test('sealed ACT first5 and remaining145 share150 with actual first-trial media 
  const first=snapshot.runs.find(r=>r.job_id==='job-yruc5cgfxgz4');
  const rest=snapshot.runs.find(r=>r.job_id==='job-o28y91g8tv56');
  assert.deepEqual([first.progress.episode_num,first.progress.episode_success_num,first.result.completed_success_terminal20mm],[5,5,2]);
- assert.equal(first.current_native,false);assert.equal(rest.current_native,true);
+ assert.equal(first.current_native,false);assert.equal(rest.current_native,false);
+ assert.equal(first.result.SR,null);assert.equal(rest.result.SR,143/150*100);
+ assert.deepEqual([rest.progress.episode_num,rest.progress.episode_success_num,rest.result.completed_success_terminal20mm],[150,143,54]);
  assert.equal(rest.result.reused_verified_trials,5);assert.equal(rest.result.new_native_trial_budget,145);
  for(const run of [first,rest]) {
-  assert.equal(run.expected_trials,150);assert.equal(run.result.SR,null);assert.equal(run.result.SpatialSSR,null);
+  assert.equal(run.expected_trials,150);assert.equal(run.result.SpatialSSR,null);
   assert.equal(run.unmodified_original_DP_or_ACT,true);assert.equal(run.formal_accepted,false);
   assert.equal(run.cases.length,3);
   for(const clip of run.cases) {
@@ -413,7 +415,7 @@ test('sealed ACT first5 and remaining145 share150 with actual first-trial media 
 
 test('paired source diagnosis and failed CPU sidecar never become policy acceptance', () => {
  const job=snapshot.pipeline.jobs.find(j=>j.job_id==='job-qsij36r8zmr9');
- assert.equal(job.status,'RUNNING');assert.match(job.progress_note,/20条开发源示范/);
+ assert.equal(job.status,'SUCCEEDED');assert.match(job.progress_note,/20条开发源示范/);
  const proof=JSON.parse(fs.readFileSync(path.join(root,snapshot.pipeline.source_pose_paired20_evidence_url),'utf8'));
  assert.deepEqual(proof.source_grasp.grasp_offset,[-.1326,-.0395,-.025]);
  assert.deepEqual(proof.source_protocol_recorded_Main_registry_grasp.grasp_offset,[-.11324,-.0393,.013]);
@@ -425,4 +427,21 @@ test('paired source diagnosis and failed CPU sidecar never become policy accepta
  assert.equal(proof.BOS_original_corruption_established,false);
  assert.equal(proof.full_SpatialSSR,null);assert.equal(proof.formal_accepted_objects,0);
  assert.equal(snapshot.runs.some(r=>r.job_id===job.job_id),false);
+});
+
+
+test('closed original ACT150 and DP hand-target geometry retain distinct metric scopes',()=>{
+ const proof=JSON.parse(fs.readFileSync(path.join(root,snapshot.pipeline.ACT150_geometry150_closed_evidence_url),'utf8'));
+ const a=proof.original_ACT150;
+ assert.deepEqual([a.trials,a.Native_successes,a.success_terminal20mm],[150,143,54]);
+ assert.equal(a.first5_reused_and_not_retested,true);assert.equal(a.unmodified_original_ACT,true);
+ assert.deepEqual([a.by_group.actual_outside_source.trials,a.by_group.actual_outside_source.Native_successes],[62,55]);
+ const dp=proof.DP_declared_fixed_hold_handtarget150;assert.equal(dp.poses_checked,431550);
+ assert.equal(dp.strict_hand_target_crossing_trials,1);assert.equal(dp.success_terminal20_no_hand_target_crossings,56);
+ assert.equal(proof.DP_crossing_trials[0].global_trial,141);assert.equal(proof.DP_crossing_trials[0].success,false);
+ assert.equal(proof.paired_source20.source_episodes,20);assert.equal(proof.paired_source20.policy_acceptance,false);
+ assert.equal(proof.mounted_runtime_r2_actual_preflight.rtree,'1.4.1');
+ const r=snapshot.runs.find(r=>r.job_id==='job-o28y91g8tv56');assert.equal(r.current_native,false);
+ assert.equal(r.result.success_terminal20mm_percent,36);assert.equal(r.result.SpatialSSR,null);
+ assert.equal(r.formal_accepted,false);assert.equal(proof.formal_accepted_objects,0);
 });
