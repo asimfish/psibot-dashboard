@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-30T23:57:05.998727+00:00",
+  "updated_utc": "2026-10-31T01:19:47.483861+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -398,8 +398,8 @@
         "formal_accepted": false
       },
       "ACT": {
-        "SR": null,
-        "SpatialSSR_reported": 0.0,
+        "SR": 95.33333333333334,
+        "SpatialSSR_reported": null,
         "trials": 150,
         "formal_accepted": false,
         "historical_before_fresh_original_ACT150": {
@@ -408,9 +408,9 @@
           "trials": 150,
           "formal_accepted": false
         },
-        "formal_evaluation_status": "FIRST5_CLOSED_REMAINING145_RUNNING",
+        "formal_evaluation_status": "ALL150_NATIVE_AND_TERMINAL_COMPONENTS_EXTERNALLY_CLOSED",
         "formal_evaluation_expected_trials": 150,
-        "completed_trials": 5,
+        "completed_trials": 150,
         "development_original_ACT32k_source15": {
           "trials": 15,
           "native_successes": 15,
@@ -419,9 +419,10 @@
           "full_SpatialSSR": null,
           "formal_accepted": false
         },
-        "completed_native_successes": 5,
-        "completed_success_terminal20mm": 2,
-        "SpatialSSR": null
+        "completed_native_successes": 143,
+        "completed_success_terminal20mm": 54,
+        "SpatialSSR": null,
+        "success_terminal20mm_percent": 36.0
       },
       "object_accepted": false,
       "full_visual_passed": false,
@@ -430,9 +431,9 @@
         "lifted": 100,
         "strict_crossings": 0
       },
-      "next": "完成原始ACT剩余145的封存与外部核验；继续全150几何、终点全场景和视觉核验。",
+      "next": "完成原始ACT全150既有轨迹的全场景碰撞及视觉核验；继续原始DP100k三种子的开发验证。",
       "name": "50ml 玻璃烧杯",
-      "status_note": "4个Pro6000云任务运行，训练分配8卡、观察到7个优化器；原始ACT首5已核验5抓起/2终点，剩余145运行。固定保持DP手物审计140/150暂未发现交叉；最后10局下载中4个姿态文件被截断，已加入完整长度/原哈希检查并仅重读缺失文件，不重跑策略。",
+      "status_note": "B50原始ACT150已外部核验143成功/54成功且终点20mm；固定保持DP全150的431550个120Hz手物姿态核验完毕，1个交叉发生在失败局，56个成功且终点达标局均无手物交叉。完整SSR/视觉仍待闭合。训练分配8卡，观察到7个优化器；小棕瓶最难5位置仍失败，继续诊断。",
       "development_source_physics5": {
         "Native_successes": 5,
         "terminal_held": 5,
@@ -470,7 +471,21 @@
         "verified_closed_unique_trials": 150,
         "completed_native_successes": 145,
         "completed_success_terminal20": 56,
-        "all5_task_failures_preserved": true
+        "all5_task_failures_preserved": true,
+        "handtarget120Hz": {
+          "utc": "2026-10-31T00:10:21.090433+00:00",
+          "trials": 150,
+          "Native_successes": 145,
+          "success_terminal20": 56,
+          "all_original_120Hz_scored_rows_audited": true,
+          "all5_task_failures_and_all_terminal_failures_preserved": true,
+          "poses_checked": 431550,
+          "strict_hand_target_crossing_trials": 1,
+          "success_terminal20_no_hand_target_crossings": 56,
+          "scope": "Every original/recovered trial, authored hand and activeEEF vs target at every original120Hz event. Fullscene and visual evidence still separate.",
+          "full_SpatialSSR": null,
+          "formal_accepted": false
+        }
       }
     },
     {
@@ -836,9 +851,9 @@
         "lift_components_full100_verified": true,
         "terminal_lift_min_m": -0.026144325733184814
       },
-      "next": "等待同位置/随机数的20局抓取位姿配对结果；同时核对每组120Hz几何与实际物理抬升，合格后才扩大采集。",
+      "next": "诊断旧失败位置的实际手部与物体相对轨迹，确认原因后再采集合格的100条安全示范。",
       "name": "小棕色试剂瓶",
-      "status_note": "旧160次闭合量/时长扫描未得到合格源。旧源实际协议保留了不同于Main注册值的抓取位置和偏航；新配对20局正在测量位姿影响，不计策略成功率或正式验收。"
+      "status_note": "恢复旧源抓取位姿可修复前5位置；旧失败的5个位置仍全部抓取失败。只增大闭合量不够，下一步检查实际接近/闭合/抬升轨迹，几何和视频结果保留。"
     },
     {
       "object": "clear_reagent_bottle_large",
@@ -1566,10 +1581,10 @@
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
     "registered_jobs": 249,
-    "active_registered_jobs": 4,
+    "active_registered_jobs": 3,
     "BOS_mount_count": 2,
-    "state": "FOUR_JOBS_WITH_PAIRED_SOURCE_REPAIR_AND_CPU_FALLBACK",
-    "state_note": "4个Pro6000云任务运行，训练分配8卡、观察到7个优化器；原始ACT首5已核验5抓起/2终点，剩余145运行。固定保持DP手物审计140/150暂未发现交叉；最后10局下载中4个姿态文件被截断，已加入完整长度/原哈希检查并仅重读缺失文件，不重跑策略。",
+    "state": "ORIGINAL_ACT150_CLOSED_GEOMETRY_AND_SOURCE_DIAGNOSIS_CONTINUING",
+    "state_note": "B50原始ACT150已外部核验143成功/54成功且终点20mm；固定保持DP全150的431550个120Hz手物姿态核验完毕，1个交叉发生在失败局，56个成功且终点达标局均无手物交叉。完整SSR/视觉仍待闭合。训练分配8卡，观察到7个优化器；小棕瓶最难5位置仍失败，继续诊断。",
     "prepared_not_submitted": [
       {
         "tag": "eval-m6-dp-b50-20261025cc",
@@ -1584,7 +1599,7 @@
         "progress_note": "旧ACT种子21/23出现生产日志与BOS存档哈希不符，旧测试继续挂起；新三ACT批次使用生产端内容封存。DP100k种子21也有来源不符，旧DP测试未放行。"
       }
     ],
-    "checked_utc": "2026-10-30T23:52:04.716126+00:00",
+    "checked_utc": "2026-10-31T01:17:07.538378+00:00",
     "jobs": [
       {
         "tag": "qual-mortar-p120-smoke4-20261028cc",
@@ -3290,7 +3305,7 @@
             "glass_beaker",
             26121921,
             0,
-            86100,
+            97750,
             null
           ],
           [
@@ -3298,7 +3313,7 @@
             "glass_beaker",
             26121923,
             1,
-            86150,
+            97800,
             null
           ],
           [
@@ -3306,7 +3321,7 @@
             "glass_beaker",
             26121925,
             2,
-            86300,
+            97950,
             null
           ],
           [
@@ -3318,7 +3333,7 @@
             0
           ]
         ],
-        "GPU_observation": "0, 40696 MiB, 99 % | 1, 40696 MiB, 99 % | 2, 40304 MiB, 99 % | 3, 0 MiB, 0 %"
+        "GPU_observation": "0, 40696 MiB, 96 % | 1, 40696 MiB, 97 % | 2, 40304 MiB, 96 % | 3, 0 MiB, 0 %"
       },
       {
         "tag": "eval-D50-b50-fixed240-formal150-20261030cc-r2",
@@ -3400,7 +3415,7 @@
             "clear_volume",
             26121921,
             0,
-            27400,
+            38800,
             null
           ],
           [
@@ -3408,7 +3423,7 @@
             "clear_volume",
             26121923,
             1,
-            27350,
+            38750,
             null
           ],
           [
@@ -3416,7 +3431,7 @@
             "clear_volume",
             26121925,
             2,
-            27400,
+            38850,
             null
           ],
           [
@@ -3424,12 +3439,12 @@
             "glass_beaker",
             26121921,
             3,
-            27400,
+            38800,
             null
           ]
         ],
         "progress_note": "实际优化进度：26121921:12450, 26121923:12450, 26121925:12450, 26121921:12450。总训练分配8卡，当前7个优化进程；同批已完成的第四卡不擅自重启或取消作业。",
-        "GPU_observation": "0, 40304 MiB, 96 % | 1, 40696 MiB, 99 % | 2, 40696 MiB, 97 % | 3, 39912 MiB, 95 %"
+        "GPU_observation": "0, 40696 MiB, 93 % | 1, 40696 MiB, 99 % | 2, 40696 MiB, 97 % | 3, 39912 MiB, 94 %"
       },
       {
         "tag": "dev-A32-f250N1-sealed3-source15-20261030cc",
@@ -3476,29 +3491,37 @@
       {
         "tag": "eval-A32-b50-original-sealed-remaining145-20261030cc-r3",
         "job_id": "job-o28y91g8tv56",
-        "status": "RUNNING",
+        "status": "SUCCEEDED",
         "name": "原始ACT150 · 同计划剩余145",
-        "progress_note": "同一冻结150计划，已核验首5：5次抓起、2次终点20mm；本作业仅执行剩余145，不重测首5、不增加至155，不按成绩筛选是否继续。三种原始ACT模型、全部XY、Native随机数、24s/20mm、动作入口保持一致，每GPU最多1个Native。下方视频沿用已封存首5的固定首试次，不是新145中的视频。全150 SR、完整SSR和视觉尚未闭合。"
+        "progress_note": "同一冻结计划150个不同新XY全部闭合并外部核验：143成功（95.3%），54成功且24s终点20mm（36.0%）。首5仅复用一次，全部7个失败保留；完整几何/视觉待完成，不标SSR通过。"
       },
       {
         "tag": "qual-brownS-pose-paired20-plus-B50CPU-20261030cc",
         "job_id": "job-qsij36r8zmr9",
         "name": "小棕瓶抓取位姿配对采集20局",
+        "status": "SUCCEEDED",
+        "progress_note": "20条开发源示范已结束：前5个配对位置，注册位姿c50为0/5、旧源位姿c50为5/5；c65分别2/5与5/5。仅源物理分量，几何和视觉待审。先前CPU子进程失败记录保留；新R2已通过实际节点依赖预检。"
+      },
+      {
+        "tag": "qual-brownS-hard5-c50to65-B50post-r2-20261031cc",
+        "job_id": "job-1v0xblr9suf4",
+        "name": "小棕瓶旧失败位置20局及已有轨迹CPU验收",
         "status": "RUNNING",
-        "progress_note": "4组配对、共20条开发源示范：原注册位姿与旧源修复位姿，闭合0.50/0.65，同5位置/随机数、原6s动作及24s终点、120Hz。旧源记录证实位姿存在X19.36mm/Z38mm及偏航2°差异；本轮测量其影响，不自动训练或验收。CPU旁路子进程退出1，已启用完整长度/哈希校验的CPU进程，仅补原140/150之外的10局；不标通过。"
+        "progress_note": "旧源5个失败位置7/12/15/17/18，恢复旧抓取位姿，闭合0.50/0.55/0.60/0.65共20条源示范，原6s及24s终点。四组均0/5 Native成功，不能直接扩大采集或训练。CPU旁路继续读取已有150轨迹和450段视频，不重跑策略。"
       }
     ],
     "progress_note": "保留原60个版本和117段原始视频，新增4个独立结果/运行版本；旧版、技术重复、变体及新正式测试分别列出。",
     "DP_repair_note": "DP100k结果未改善终点精度：同源专家拟合误差较小、动作队列逐项一致，真实闭环终点偏差较大。配对CPU裁剪实验未见稳定收益，未部署；正在核对实际视觉/低维输入。",
     "b50_reset_note": "B50自动SDF物理问题已修复；固定保持变体开发终点ACT5/5、DP11/15，原120Hz手物零交叉。新的独立150位置DP正式测试已运行，完整SSR/视觉仍需核验；旧错误入口继续挂起。",
     "failure_diagnosis": [
-      "原始ACT源验证15/15抓起、3/15终点；全新150计划首作业技术失败0闭合，恢复首5已核验5抓起/2终点，其余145正在执行。首试次23.42mm仍按20mm失败。",
+      "B50原始ACT全新150个不同XY已外部逐文件核验：143/150成功（95.3%）、54/150成功且终点20mm（36.0%）。源范围外62局成功55、终点26；扩大3cm组36局成功30、终点9。完整SSR/全量视觉未闭合，SR比论文高32.3个百分点，范围分组公开保留。",
       "F500目标参考变体源位置15/15终点达标，独立源外15次仅10次抓起、3次终点；+1cm终点3/3，+2/+3cm各0/6。5个新位置由3模型共测，不能写成15个独立位置或完整SSR通过。",
       "F250三份新封存原始ACT开发15/15抓起、0/15终点，问题仍是终点控制；继续DP内容封存训练，不直接扩大无改善版本的正式测试。",
       "漏斗源物理对照首单元存在原始轨迹/派生汇总不一致及文件SHA不符；旧异常不修写成通过。新生产输出封存已实际GPU五局及外部回读一致，失败隔离路径用CPU负例演练通过。",
       "漏斗首种子5条SHA绑定原始轨迹中3条曾进20mm后漂出，24s终点均不达标；最小中间误差只作诊断，不改变验收时刻。",
-      "固定保持DP全150为145抓起/56终点；120Hz手物审计140/150暂未发现交叉。签名接口曾HTTP429；挂载BOS旁路子进程失败，具体原因待补证。原读取器随后发现4个2–8MB截断文件（NPY应30.24MB），新读取器通过短响应拒绝/完整响应接受回归，只补最后10局。BOS原件损坏尚无证据，完整SSR/全量视觉未闭合。",
-      "手/目标几何零交叉和20mm终点只是组件，完整Grasp SpatialSSR还需非法全场景碰撞域及视觉；变体未获得原始基线验收授权，正式仍0/21。"
+      "固定保持DP全150为145成功/56终点；全部431550个120Hz手物姿态闭合。全局第141局有1个交叉姿态，该局任务和终点均失败；平面交叉见证端点间距0.0589mm不是穿透深度。56个联合成功局无手物交叉，全场景/视觉仍待闭合。",
+      "手/目标几何零交叉和20mm终点只是组件，完整Grasp SpatialSSR还需非法全场景碰撞域及视觉；变体未获得原始基线验收授权，正式仍0/21。",
+      "小棕瓶旧扫描遗漏旧源抓取位姿；前5位置恢复旧位姿后0/5升至5/5，但旧失败位置7/12/15/17/18在闭合0.50–0.65均0/5成功，不能仅凭容易位置放行源100或训练。"
     ],
     "expert_replay_prefix": {
       "prefix_seconds": 23.966666666666665,
@@ -3705,9 +3728,10 @@
     "original_ACT150_OOD_integrity_evidence_url": "verification/grasp-original-ACT150-OOD-and-output-integrity-20261030.json",
     "firstcell_recovery_evidence_url": "verification/grasp-ACT150-technical-failure-and-first5-recovery-20261030.json",
     "original_ACT_first5_media_evidence_url": "verification/grasp-original-ACT-first5-closed-and-three-view-20261030.json",
-    "source_pose_paired20_evidence_url": "verification/grasp-BrownS-pose-paired20-and-CPU-fallback-20261030.json"
+    "source_pose_paired20_evidence_url": "verification/grasp-BrownS-pose-paired20-and-CPU-fallback-20261030.json",
+    "ACT150_geometry150_closed_evidence_url": "verification/grasp-original-ACT150-and-DP-geometry-closed-20261031.json"
   },
-  "evidence_note": "4个Pro6000云任务运行，训练分配8卡、观察到7个优化器；原始ACT首5已核验5抓起/2终点，剩余145运行。固定保持DP手物审计140/150暂未发现交叉；最后10局下载中4个姿态文件被截断，已加入完整长度/原哈希检查并仅重读缺失文件，不重跑策略。 保留66个版本、120段实际视频，正式仍0/21。",
+  "evidence_note": "B50原始ACT150已外部核验143成功/54成功且终点20mm；固定保持DP全150的431550个120Hz手物姿态核验完毕，1个交叉发生在失败局，56个成功且终点达标局均无手物交叉。完整SSR/视觉仍待闭合。训练分配8卡，观察到7个优化器；小棕瓶最难5位置仍失败，继续诊断。 保留66个版本、120段实际视频；正式0/21。",
   "offline_DP_probe": {
     "observations": 4,
     "source_episodes": 1,
@@ -9946,8 +9970,8 @@
       "candidate": "pro6000-eval-A32-b50-original-sealed-remaining145-20261030cc-r3",
       "object": "glass_beaker_50ml",
       "method": "ACT",
-      "display_name": "原始ACT独立150计划 · 复用首5，剩余145运行中",
-      "current_native": true,
+      "display_name": "原始ACT独立150 · 143成功 / 54成功且终点20mm",
+      "current_native": false,
       "development": false,
       "expected_trials": 150,
       "formal_accepted": false,
@@ -9955,9 +9979,9 @@
       "paper_ssr_percent": 23,
       "success_semantics": "original_ever_success_latch",
       "progress": {
-        "episode_num": 5,
-        "episode_success_num": 5,
-        "success_rate": null
+        "episode_num": 150,
+        "episode_success_num": 143,
+        "success_rate": 0.9533333333333334
       },
       "cases": [
         {
@@ -10040,20 +10064,73 @@
         "note": "30个冷启动单元，每单元5局；四张卡每卡同时至多一个Native，全部失败保留。原始ACT，无固定保持/目标参考。"
       },
       "result": {
-        "SR": null,
+        "SR": 95.33333333333334,
         "SpatialSSR": null,
-        "completed_trials": 5,
-        "formal_evaluation_status": "FROZEN150_FIRST5_REUSED_REMAINING145_RUNNING",
+        "completed_trials": 150,
+        "formal_evaluation_status": "ALL150_PRIMARY_BYTES_AND_RAW_OUTCOMES_EXTERNALLY_CLOSED",
         "formal_accepted": false,
         "full_geometry_SSR_evaluated": false,
-        "policy_SR": null,
-        "completed_native_successes": 5,
-        "completed_success_terminal20mm": 2,
+        "policy_SR": 95.33333333333334,
+        "completed_native_successes": 143,
+        "completed_success_terminal20mm": 54,
         "reused_verified_trials": 5,
-        "new_native_trial_budget": 145
+        "new_native_trial_budget": 145,
+        "success_terminal20mm_percent": 36.0,
+        "by_group": {
+          "all": {
+            "trials": 150,
+            "Native_successes": 143,
+            "success_terminal20mm": 54
+          },
+          "seed_26121921": {
+            "trials": 50,
+            "Native_successes": 47,
+            "success_terminal20mm": 27
+          },
+          "uniform_box+0cm": {
+            "trials": 39,
+            "Native_successes": 39,
+            "success_terminal20mm": 13
+          },
+          "actual_inside_source": {
+            "trials": 88,
+            "Native_successes": 88,
+            "success_terminal20mm": 28
+          },
+          "uniform_box+1cm": {
+            "trials": 39,
+            "Native_successes": 39,
+            "success_terminal20mm": 18
+          },
+          "actual_outside_source": {
+            "trials": 62,
+            "Native_successes": 55,
+            "success_terminal20mm": 26
+          },
+          "uniform_box+2cm": {
+            "trials": 36,
+            "Native_successes": 35,
+            "success_terminal20mm": 14
+          },
+          "uniform_box+3cm": {
+            "trials": 36,
+            "Native_successes": 30,
+            "success_terminal20mm": 9
+          },
+          "seed_26121923": {
+            "trials": 50,
+            "Native_successes": 47,
+            "success_terminal20mm": 14
+          },
+          "seed_26121925": {
+            "trials": 50,
+            "Native_successes": 49,
+            "success_terminal20mm": 13
+          }
+        }
       },
       "unmodified_original_DP_or_ACT": true,
-      "metric_note": "同一冻结150计划，已核验首5：5次抓起、2次终点20mm；本作业仅执行剩余145，不重测首5、不增加至155，不按成绩筛选是否继续。三种原始ACT模型、全部XY、Native随机数、24s/20mm、动作入口保持一致，每GPU最多1个Native。下方视频沿用已封存首5的固定首试次，不是新145中的视频。全150 SR、完整SSR和视觉尚未闭合。",
+      "metric_note": "同一冻结150计划，首5只复用一次，全部150不同新XY、3种子和7个失败均保留。143/150成功（95.3%），54/150同时成功且24s终点20mm（36.0%，尚非完整SSR）；源范围外62局成功55，扩大3cm组30/36。原始ACT，无保持或目标参考。三视角视频沿用冻结计划固定首试次（23.42mm按失败）；全150几何与视觉尚未闭合。",
       "maximum_current_phase_native_trials": 145,
       "reuses_original_frozen150_campaign": true
     }
