@@ -462,6 +462,362 @@
         }
       ],
       "conclusion": "录制高层指令与DAG，真实执行器、分类器和原N1物理；4步已验收2条（1完成），30步2条（0完成）。 每个步数仅两个左侧场景的预注册诊断；不是自主模型100条成功率，也不能只由两场景判断滑脱是否修复。"
+    },
+    {
+      "id": "recorded-grip",
+      "label": "录制高层 · 抓持偏移诊断",
+      "complete": false,
+      "scene_label": "原评测EP",
+      "baseline": "offset0",
+      "variants": [
+        "offset20",
+        "offset40",
+        "offset80"
+      ],
+      "variant_names": {
+        "offset0": "Ours · 零偏移",
+        "offset20": "Ours · +0.02rad",
+        "offset40": "Ours · +0.04rad",
+        "offset80": "Ours · +0.08rad"
+      },
+      "cases": [
+        {
+          "episode": "t947_recorded_grip_h4_ep002_offset000",
+          "scene": 2,
+          "variant": "offset0",
+          "execution_horizon": 4,
+          "grip_offset_rad": 0.0,
+          "source_panel_episode": 2,
+          "seed": 262200002,
+          "outcome": "S",
+          "native_rows": 4753,
+          "physical_phase": 3,
+          "elapsed_sim_s": 39.6,
+          "phase_seconds": [
+            6.833333333333333,
+            23.475,
+            39.55
+          ],
+          "audit_sha256": "cc6763d5b8aa657b9d8f7b75cdea204e1f332ac77a1298383d41e6c89e746189",
+          "source_transfer_sha256": "527f887e80665b859a59091491bb48a60846422a3bee5cdabc97232bc547890b",
+          "population_SR": false,
+          "autonomous_score_eligible": false,
+          "media": {
+            "annotated": "media/t947_recorded_grip_h4_ep002_offset000/ep002_h4_recorded_grip000_SUCCESS_subtasks.mp4",
+            "timeline": "media/t947_recorded_grip_h4_ep002_offset000/frames.json",
+            "filename": "ep002_h4_recorded_grip000_SUCCESS_subtasks.mp4",
+            "video_frames": 595,
+            "full_duration": true,
+            "preview_only": true,
+            "source_video_sha256": "a851ad423090289ad17cd744b2f80001baa6009d42c2d45020a3cf356eb2ccea",
+            "source_result_sha256": "08cc604ebd4db0bf7d881db82b2c588bafd247f41959fe980d971705a2e6a095"
+          }
+        },
+        {
+          "episode": "t947_recorded_grip_h4_ep002_offset020",
+          "scene": 2,
+          "variant": "offset20",
+          "execution_horizon": 4,
+          "grip_offset_rad": 0.02,
+          "source_panel_episode": 2,
+          "seed": 262200002,
+          "outcome": "F",
+          "native_rows": 9001,
+          "physical_phase": 2,
+          "elapsed_sim_s": 75.0,
+          "phase_seconds": [
+            6.841666666666667,
+            24.416666666666668
+          ],
+          "audit_sha256": "85f2451ff2b89fc79dd530396cea4522f0b341ac047836cd63bbbe9f9fa0fd3c",
+          "source_transfer_sha256": "6bf6cf6013da730f01cccaea121af95ed5ae21ef18ad2f140f97b05707f5ce70",
+          "population_SR": false,
+          "autonomous_score_eligible": false,
+          "media": {
+            "annotated": "media/t947_recorded_grip_h4_ep002_offset020/ep002_h4_recorded_grip020_FAILURE_subtasks.mp4",
+            "timeline": "media/t947_recorded_grip_h4_ep002_offset020/frames.json",
+            "filename": "ep002_h4_recorded_grip020_FAILURE_subtasks.mp4",
+            "video_frames": 1126,
+            "full_duration": true,
+            "preview_only": true,
+            "source_video_sha256": "6471129eb8a3b70ca745fe2d47f7b002a7faf0aea7fd3a261d6705c256a3720c",
+            "source_result_sha256": "ab14c49e52063ce33b71bbb2589988ba29d58800f10974dc1ccd4a50723062da"
+          }
+        },
+        {
+          "episode": "t947_recorded_grip_h4_ep002_offset040",
+          "scene": 2,
+          "variant": "offset40",
+          "execution_horizon": 4,
+          "grip_offset_rad": 0.04,
+          "source_panel_episode": 2,
+          "seed": 262200002,
+          "outcome": "F",
+          "native_rows": 9001,
+          "physical_phase": 1,
+          "elapsed_sim_s": 75.0,
+          "phase_seconds": [
+            6.875
+          ],
+          "audit_sha256": "31ea77d2c1ed8bc71451fb6b1b5f80af83a48587b0ab1f95d6f5d47c9f037a21",
+          "source_transfer_sha256": "601d2ee56862f6e95d6d6b68f68d702d5187b28239079ea5ada926aeaeb84d0d",
+          "population_SR": false,
+          "autonomous_score_eligible": false,
+          "media": {
+            "annotated": "media/t947_recorded_grip_h4_ep002_offset040/ep002_h4_recorded_grip040_FAILURE_subtasks.mp4",
+            "timeline": "media/t947_recorded_grip_h4_ep002_offset040/frames.json",
+            "filename": "ep002_h4_recorded_grip040_FAILURE_subtasks.mp4",
+            "video_frames": 1126,
+            "full_duration": true,
+            "preview_only": true,
+            "source_video_sha256": "974b92c864a8f4634f02d27ec466989fec5799f032dad6ef25e8c9d6f1ae1e54",
+            "source_result_sha256": "4f250ffafe12a8b13c8ca5c6b20bcbf1aec9d3ce6fa0be17bc5e27030ff9a13e"
+          }
+        },
+        {
+          "episode": "t947_recorded_grip_h4_ep002_offset080",
+          "scene": 2,
+          "variant": "offset80",
+          "execution_horizon": 4,
+          "grip_offset_rad": 0.08,
+          "source_panel_episode": 2,
+          "seed": 262200002,
+          "outcome": "F",
+          "native_rows": 9001,
+          "physical_phase": 1,
+          "elapsed_sim_s": 75.0,
+          "phase_seconds": [
+            6.791666666666667
+          ],
+          "audit_sha256": "8b66144fd30b7bdc3b5e7d64b348df5a3b0c73067720c9504840404190877191",
+          "source_transfer_sha256": "a43b703da34a21c33c9e3682bd6293dbcda81c0103c92bbdd2f2aaa7f8dac58c",
+          "population_SR": false,
+          "autonomous_score_eligible": false,
+          "media": {
+            "annotated": "media/t947_recorded_grip_h4_ep002_offset080/ep002_h4_recorded_grip080_FAILURE_subtasks.mp4",
+            "timeline": "media/t947_recorded_grip_h4_ep002_offset080/frames.json",
+            "filename": "ep002_h4_recorded_grip080_FAILURE_subtasks.mp4",
+            "video_frames": 1126,
+            "full_duration": true,
+            "preview_only": true,
+            "source_video_sha256": "0036673c1326186a79158dba047f1e254db6a250dc23bd71f8f5b2b040746f33",
+            "source_result_sha256": "9a9478fc168cbd22d86276d0b0ded4be3b8f22c3099f4fcd54a264c3a7f5657d"
+          }
+        },
+        {
+          "episode": "t947_recorded_grip_h4_ep049_offset000",
+          "scene": 49,
+          "variant": "offset0",
+          "execution_horizon": 4,
+          "grip_offset_rad": 0.0,
+          "source_panel_episode": 49,
+          "seed": 262200039,
+          "outcome": "F",
+          "native_rows": 9001,
+          "physical_phase": 1,
+          "elapsed_sim_s": 75.0,
+          "phase_seconds": [
+            6.716666666666667
+          ],
+          "audit_sha256": "aea336ddc0e73e4962009af502d33d2eb38c94df93ff1a3693395be0f2e77ce4",
+          "source_transfer_sha256": "b0b5d96befe1a68480640f8f7eda6c294416290e562751eee22712526b32e5be",
+          "population_SR": false,
+          "autonomous_score_eligible": false,
+          "media": {
+            "annotated": "media/t947_recorded_grip_h4_ep049_offset000/ep049_h4_recorded_grip000_FAILURE_subtasks.mp4",
+            "timeline": "media/t947_recorded_grip_h4_ep049_offset000/frames.json",
+            "filename": "ep049_h4_recorded_grip000_FAILURE_subtasks.mp4",
+            "video_frames": 1126,
+            "full_duration": true,
+            "preview_only": true,
+            "source_video_sha256": "9b6c8daf97aa7c63e70993bf6012b4aa8a4e6e38988f8a65a983eb220fd0f63f",
+            "source_result_sha256": "69077c487b670c767938fc3b6835edfe01cf1441551e27ed87265219bd129ac8"
+          }
+        },
+        {
+          "episode": "t947_recorded_grip_h4_ep049_offset020",
+          "scene": 49,
+          "variant": "offset20",
+          "execution_horizon": 4,
+          "grip_offset_rad": 0.02,
+          "source_panel_episode": 49,
+          "seed": 262200039,
+          "outcome": "F",
+          "native_rows": 9001,
+          "physical_phase": 1,
+          "elapsed_sim_s": 75.0,
+          "phase_seconds": [
+            6.725
+          ],
+          "audit_sha256": "933809688e27f13b55d5da52a8d32dffb041fa3f60227d5ae52f2e11dd4afe7a",
+          "source_transfer_sha256": "a29ef670647f4d58dedfcd8afa77b003f79677f385cb1f7d84c9aacad887176c",
+          "population_SR": false,
+          "autonomous_score_eligible": false,
+          "media": {
+            "annotated": "media/t947_recorded_grip_h4_ep049_offset020/ep049_h4_recorded_grip020_FAILURE_subtasks.mp4",
+            "timeline": "media/t947_recorded_grip_h4_ep049_offset020/frames.json",
+            "filename": "ep049_h4_recorded_grip020_FAILURE_subtasks.mp4",
+            "video_frames": 1126,
+            "full_duration": true,
+            "preview_only": true,
+            "source_video_sha256": "d33a89f3db24181c9831ac0e3d92f0d73404ddeed5eb4e201dac489bb710b5fe",
+            "source_result_sha256": "ae233fd17014cb2851c4021e5ad8cca9b9345200c7b31af788952afeaecc0a05"
+          }
+        }
+      ],
+      "counts": [
+        {
+          "offset_rad": 0,
+          "planned": 2,
+          "success": 1,
+          "failure": 1,
+          "unknown": 0,
+          "unstarted": 0
+        },
+        {
+          "offset_rad": 0.02,
+          "planned": 2,
+          "success": 0,
+          "failure": 2,
+          "unknown": 0,
+          "unstarted": 0
+        },
+        {
+          "offset_rad": 0.04,
+          "planned": 2,
+          "success": 0,
+          "failure": 1,
+          "unknown": 1,
+          "unstarted": 0
+        },
+        {
+          "offset_rad": 0.08,
+          "planned": 2,
+          "success": 0,
+          "failure": 1,
+          "unknown": 0,
+          "unstarted": 1
+        }
+      ],
+      "unknown_cases": [
+        {
+          "episode": "t947_recorded_grip_h4_ep049_offset040",
+          "scene": 49,
+          "variant": "offset40",
+          "execution_horizon": 4,
+          "grip_offset_rad": 0.04,
+          "outcome": "U",
+          "elapsed_sim_s": 25.125,
+          "physical_phase": 1,
+          "native_rows": 3016,
+          "physical_SR_v1": null,
+          "case_independently_accepted": false,
+          "custody_independently_accepted": true,
+          "reason": "单粒子同时落入两个 authored cavity，原观测器中止；未裁定任务成功或失败。",
+          "audit_sha256": "03a58069a3ab5a1931c941aeed339258383e32c23b26ef1734ce22114337f3a2",
+          "source_result_sha256": "bc014a6ba661813858a5c12113693975aa4a026a2ba957e7a393a55cc87834dd",
+          "media": {
+            "annotated": "media/t947_recorded_grip_h4_ep049_offset040/ep049_h4_recorded_grip040_UNKNOWN_recorded_prefix_subtasks.mp4",
+            "timeline": "media/t947_recorded_grip_h4_ep049_offset040/frames.json",
+            "filename": "ep049_h4_recorded_grip040_UNKNOWN_recorded_prefix_subtasks.mp4",
+            "video_frames": 377,
+            "full_duration": true,
+            "preview_only": true,
+            "source_video_sha256": "75249bdc3062371094a6afbf7dc901614cafd9c7558f8ce56f15dcfbd216fe29",
+            "source_result_sha256": "bc014a6ba661813858a5c12113693975aa4a026a2ba957e7a393a55cc87834dd",
+            "episode_complete": false,
+            "recorded_prefix_only": true
+          }
+        }
+      ],
+      "unstarted_episode_ids": [
+        "t947_recorded_grip_h4_ep049_offset080"
+      ],
+      "condition_matrix": [
+        {
+          "episode": "t947_recorded_grip_h4_ep002_offset000",
+          "scene": 2,
+          "offset_rad": 0,
+          "outcome": "S",
+          "elapsed_sim_s": 39.6,
+          "media_available": true,
+          "case_independently_accepted": true,
+          "episode_complete": true
+        },
+        {
+          "episode": "t947_recorded_grip_h4_ep002_offset020",
+          "scene": 2,
+          "offset_rad": 0.02,
+          "outcome": "F",
+          "elapsed_sim_s": 75.0,
+          "media_available": true,
+          "case_independently_accepted": true,
+          "episode_complete": true
+        },
+        {
+          "episode": "t947_recorded_grip_h4_ep002_offset040",
+          "scene": 2,
+          "offset_rad": 0.04,
+          "outcome": "F",
+          "elapsed_sim_s": 75.0,
+          "media_available": true,
+          "case_independently_accepted": true,
+          "episode_complete": true
+        },
+        {
+          "episode": "t947_recorded_grip_h4_ep002_offset080",
+          "scene": 2,
+          "offset_rad": 0.08,
+          "outcome": "F",
+          "elapsed_sim_s": 75.0,
+          "media_available": true,
+          "case_independently_accepted": true,
+          "episode_complete": true
+        },
+        {
+          "episode": "t947_recorded_grip_h4_ep049_offset000",
+          "scene": 49,
+          "offset_rad": 0,
+          "outcome": "F",
+          "elapsed_sim_s": 75.0,
+          "media_available": true,
+          "case_independently_accepted": true,
+          "episode_complete": true
+        },
+        {
+          "episode": "t947_recorded_grip_h4_ep049_offset020",
+          "scene": 49,
+          "offset_rad": 0.02,
+          "outcome": "F",
+          "elapsed_sim_s": 75.0,
+          "media_available": true,
+          "case_independently_accepted": true,
+          "episode_complete": true
+        },
+        {
+          "episode": "t947_recorded_grip_h4_ep049_offset040",
+          "scene": 49,
+          "offset_rad": 0.04,
+          "outcome": "U",
+          "elapsed_sim_s": 25.125,
+          "media_available": true,
+          "case_independently_accepted": false,
+          "episode_complete": false
+        },
+        {
+          "episode": "t947_recorded_grip_h4_ep049_offset080",
+          "scene": 49,
+          "offset_rad": 0.08,
+          "outcome": "UNSTARTED",
+          "elapsed_sim_s": null,
+          "media_available": false,
+          "case_independently_accepted": false,
+          "episode_complete": false
+        }
+      ],
+      "outcome_summary": "1成功 / 5未完成 / 1未知 / 1未运行",
+      "conclusion": "记录高层指导，真实分类器和执行器；同两场景、4步，每个偏移预注册2条，单独列出S/F/U和未运行。 每个Isaac App只有一个环境；两个场景都在左侧，是各轴±1cm分布中的固定实例。 神经权重、相机、物理、控制器和原分类阈值不改，仅在时间集成后改变五指闭合目标，真实反馈轨迹可随之变化。 这些是小样本机械诊断，不能替代原100条成功率，不能凭两例宣布最佳参数或修复完成。 零偏移EP2原RESULT为task_success；其历史收尾工具U原样保留，视频S来自独立后验物理验收。该条只运行一次，其余七条在修复审计目录后的独立版本接续。 EP49/+0.04在25.125秒后因观测异常中断，视频只包含已录制前缀；+0.08随后未运行。",
+      "population_SR": false
     }
   ],
   "source_phase1_independent_audit_sha256": "7f18493c8d2c289a5fdcae530af1bb527ddd21109d53f485e2cb65f3b8740e10",
