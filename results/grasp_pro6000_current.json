@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-31T03:09:27.375882+00:00",
+  "updated_utc": "2026-10-31T05:53:20.118348+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -396,11 +396,15 @@
       "collection_and_eval_GPU_line": "Zenith Pro6000",
       "DP": {
         "formal_accepted": false,
-        "SR": null,
+        "SR": 99.33333333333333,
         "SpatialSSR": null,
-        "formal_evaluation_status": "RUNNING",
+        "formal_evaluation_status": "CLOSED_FAILED_SSR_PRECISION_UPPER_BOUND",
         "current_job_id": "job-r3qmttq7zflw",
-        "completed_trials": 0
+        "completed_trials": 150,
+        "completed_native_successes": 149,
+        "completed_success_terminal20mm": 44,
+        "success_terminal20mm_percent": 29.333333333333332,
+        "SpatialSSR_upper_bound_percent": 29.333333333333332
       },
       "ACT": {
         "SR": 95.33333333333334,
@@ -427,18 +431,41 @@
         "completed_native_successes": 143,
         "completed_success_terminal20mm": 54,
         "SpatialSSR": null,
-        "success_terminal20mm_percent": 36.0
+        "success_terminal20mm_percent": 36.0,
+        "visual_representative_review": {
+          "trials": 19,
+          "original_videos": 57,
+          "all7_task_failures_included": true,
+          "sampled_visible_anomalies": 0,
+          "numerical_safety_passed": false
+        },
+        "fullscene_trajectory_checked_poses": 34488,
+        "fullscene_strict_crossing_trials_so_far": [
+          13,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          19,
+          21,
+          24,
+          25,
+          31
+        ]
       },
       "object_accepted": false,
       "full_visual_passed": false,
       "source": {
         "episodes": 100,
         "lifted": 100,
-        "strict_crossings": 0
+        "strict_crossings": 0,
+        "geometry_scope": "Original100 hand/target surface checks only; scene/table source safety is not certified."
       },
-      "next": "完成原始DP100k正式150，和原始ACT150分别做全场景120Hz安全分量及视觉审阅；保留全部失败与每种子的差异。",
+      "next": "DP验证预声明200k三种子终点精度；ACT继续已有全场景审计，并先用小批源示范验证桌面避碰后再训练。",
       "name": "50ml 玻璃烧杯",
-      "status_note": "8张训练卡持续优化。原始DP100k开发15抓起/6终点（50k为2），正式150启动包漏依赖已修复，新作业运行；原始ACT150为143成功/54成功且终点20mm，完整SSR待记录后处理与视觉。小棕瓶10s两组5/5抓起但几何不净，继续修复源。",
+      "status_note": "原始DP正式150已核验149成功/44终点合格，完整SSR上限29.3%低于论文37%；原始ACT150为143成功/54终点合格，19局三视角抽查无明显渲染异常，但全场景审计检出手指擦入桌面。8卡持续训练；小棕瓶原始池107/250，安全筛选与训练准入仍待闭合。",
       "development_source_physics5": {
         "Native_successes": 5,
         "terminal_held": 5,
@@ -893,9 +920,9 @@
         "lift_components_full100_verified": true,
         "terminal_lift_min_m": -0.026144325733184814
       },
-      "next": "在同5个旧失败位置测试降低闭合及微调高度，先完成120Hz几何与三视角检查，再重采安全源100。",
+      "next": "完成原始池，逐条120Hz/写入器/三视角及场景安全核验，按冻结顺序选择100条；保留所有原始拒绝项。",
       "name": "小棕色试剂瓶",
-      "status_note": "10s动作两组各5/5抓起，几何审计仍发现交叉：下移1cm为3/5、18姿态，下移2cm为5/5、274姿态。继续降低闭合/微调抓取点，不把未通过的源投入训练。",
+      "status_note": "软闭合源20全部抬起，但仅7条完整手物无交叉；当前250条原始池已完成107条，全部原生成功/终点20mm。原始池不直接训练，按完整质量门筛出100条安全示范。",
       "source_lower_grip_geometry20": [
         {
           "setting": "z10_m6",
@@ -1665,10 +1692,10 @@
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
     "registered_jobs": 249,
-    "active_registered_jobs": 3,
+    "active_registered_jobs": 4,
     "BOS_mount_count": 2,
-    "state": "EIGHT_OPTIMIZERS_ORIGINAL_DP100_FORMAL150_AND_RECORDED_SSR_CLOSURE",
-    "state_note": "8张训练卡持续优化。原始DP100k开发15抓起/6终点（50k为2），正式150启动包漏依赖已修复，新作业运行；原始ACT150为143成功/54成功且终点20mm，完整SSR待记录后处理与视觉。小棕瓶10s两组5/5抓起但几何不净，继续修复源。",
+    "state": "ORIGINAL_DP150_FAILED_PRECISION_ACT_TABLE_CONTACT_AND_SAFE_SOURCE_CURATION",
+    "state_note": "原始DP正式150已核验149成功/44终点合格，完整SSR上限29.3%低于论文37%；原始ACT150为143成功/54终点合格，19局三视角抽查无明显渲染异常，但全场景审计检出手指擦入桌面。8卡持续训练；小棕瓶原始池107/250，安全筛选与训练准入仍待闭合。",
     "prepared_not_submitted": [
       {
         "tag": "eval-m6-dp-b50-20261025cc",
@@ -1683,7 +1710,7 @@
         "progress_note": "旧ACT种子21/23出现生产日志与BOS存档哈希不符，旧测试继续挂起；新三ACT批次使用生产端内容封存。DP100k种子21也有来源不符，旧DP测试未放行。"
       }
     ],
-    "checked_utc": "2026-10-31T03:07:19.212150+00:00",
+    "checked_utc": "2026-10-31T05:49:46.455752+00:00",
     "jobs": [
       {
         "tag": "qual-mortar-p120-smoke4-20261028cc",
@@ -3499,7 +3526,7 @@
             "clear_volume",
             26121921,
             0,
-            53750,
+            75750,
             null
           ],
           [
@@ -3507,7 +3534,7 @@
             "clear_volume",
             26121923,
             1,
-            53650,
+            75600,
             null
           ],
           [
@@ -3515,7 +3542,7 @@
             "clear_volume",
             26121925,
             2,
-            53800,
+            75800,
             null
           ],
           [
@@ -3523,12 +3550,13 @@
             "glass_beaker",
             26121921,
             3,
-            53750,
+            75750,
             null
           ]
         ],
-        "progress_note": "4个原始DP优化器持续更新：F250三种子100k预算，B50种子21为200k预算；本次观察约53,650–53,800步。另一个4卡训练任务同时更新，共8张训练卡。每个输出须经生产端内容封存和CPU核验，训练完成不代表验收。",
-        "GPU_observation": "0, 40696 MiB, 97 % | 1, 40696 MiB, 93 % | 2, 40696 MiB, 99 % | 3, 40304 MiB, 93 %"
+        "progress_note": "F250 DP三种子约7.56–7.58万步，B50种子21约7.58万步；四卡持续更新，最近利用率96%–99%。",
+        "GPU_observation": "0, 40696 MiB, 96 % | 1, 40696 MiB, 99 % | 2, 40696 MiB, 99 % | 3, 40304 MiB, 96 %",
+        "training_observed_utc": "2026-10-31T13:48:13.795038361+08:00"
       },
       {
         "tag": "dev-A32-f250N1-sealed3-source15-20261030cc",
@@ -3620,7 +3648,7 @@
             "glass_beaker",
             26121923,
             0,
-            7850,
+            29900,
             null
           ],
           [
@@ -3628,7 +3656,7 @@
             "glass_beaker",
             26121925,
             1,
-            7850,
+            29850,
             null
           ],
           [
@@ -3636,7 +3664,7 @@
             "funnel",
             26121921,
             2,
-            7850,
+            29850,
             null
           ],
           [
@@ -3644,37 +3672,44 @@
             "funnel",
             26121923,
             3,
-            7850,
+            29900,
             null
           ]
         ],
-        "GPU_observation": "0, 39518 MiB, 97 % | 1, 41086 MiB, 96 % | 2, 39518 MiB, 99 % | 3, 40302 MiB, 99 %",
-        "progress_note": "4张卡各1个原始DP200k：B50原始种子23/25补齐正在跑的200k种子21；漏斗原始种子21/23做固定预算对照。原模型/源数据/测试均保留，生产端内容封存，所有正式测试需另行核验。"
+        "GPU_observation": "0, 40696 MiB, 99 % | 1, 41088 MiB, 97 % | 2, 39520 MiB, 96 % | 3, 40304 MiB, 98 %",
+        "progress_note": "B50种子23/25与漏斗种子21/23固定200k预算；当前约2.99万步，四卡持续更新，最近利用率96%–99%。",
+        "training_observed_utc": "2026-10-31T13:47:23.859799921+08:00"
       },
       {
         "tag": "eval-D100-b50-original-sealed-formal150-20261031cc-r2",
         "job_id": "job-r3qmttq7zflw",
         "name": "原始DP100k三种子 · 正式150恢复",
+        "status": "SUCCEEDED",
+        "progress_note": "正式150已闭合并外部核验：149成功、44成功且终点20mm；SR99.3%，完整SSR上限29.3%低于论文37%，明确未达标。原三种子分别49/50+21终点、50/50+5终点、50/50+18终点，全部保留。"
+      },
+      {
+        "tag": "qual-PP-cylHand20-original150CPU-20261031cc-r2",
+        "job_id": "job-jqfb13n610bl",
+        "name": "量筒PP手型源20 + 原始ACT/DP记录后处理",
         "status": "RUNNING",
-        "progress_note": "恢复启动包漏依赖；原失败0次测试保留。同一150冻结位置与全部3个原始模型，4张卡各最多1个Native。24s/20mm/chunk8/DDIM16；记录后由CPU完成ACT与DP各自几何和视觉，不重跑ACT。"
+        "progress_note": "源20已采齐：塑料量筒10s为4/5原生成功、5/5抬起；6s为0/5。玻璃量筒6s为0/5成功、4/5抬起，10s为0/5。完整源几何待审，均未准入训练。并行处理已有ACT/DP记录，不重跑正式Native；ACT已发现手指擦入桌面。"
+      },
+      {
+        "tag": "raw250-brownS-z05c65-m10-p120-20261031cc",
+        "job_id": "job-pr3guqyplpny",
+        "name": "小棕瓶原始250条 · 筛选100条安全示范",
+        "status": "RUNNING",
+        "progress_note": "250条预声明±3cm原始池，当前107/250条均原生成功且终点20mm。保留所有原始失败及交叉，逐条完整120Hz检查后按固定ID选前100个合格示范；不足100或覆盖不足不训练。"
       }
     ],
-    "progress_note": "保留此前全部66个版本和120段原始视频，新增原始DP100k开发、正式启动失败及恢复共3个版本和9段实际开发视频；现69版本、129段视频，技术失败与正式/开发成绩分别保留。",
-    "DP_repair_note": "原始DP100k在B50相同开发15局的联合终点从50k的2局升至6局，三原始种子为3/0/3；不等于正式泛化或完整SSR。新正式150恢复运行；DP200k固定预算对照继续训练，不采用保持/目标参考来冒充原始基线。",
-    "b50_reset_note": "B50源/测试物理重置修复沿用既定设置。固定保持变体正式150已闭合145成功/56终点，全部120Hz手物审计闭合；原始ACT150为143成功/54终点，原始DP100k另测同冻结150。各自全场景/视觉和原始基线授权分别记录。",
+    "progress_note": "原始DP正式150已核验149成功/44终点合格，完整SSR上限29.3%低于论文37%；原始ACT150为143成功/54终点合格，19局三视角抽查无明显渲染异常，但全场景审计检出手指擦入桌面。8卡持续训练；小棕瓶原始池107/250，安全筛选与训练准入仍待闭合。",
+    "DP_repair_note": "原始DP100k正式150已外部闭合：149成功、44成功且终点20mm，SSR上限29.3%低于论文37%。三原始种子终点21/5/18全部保留；200k预声明固定预算训练继续，不使用保持或目标参考冒充原始基线。",
+    "b50_reset_note": "B50源/测试重置修复沿用冻结设置。原始DP100k与ACT分开核验，不与固定保持变体混算。新问题是DP终点精度不足、ACT接近阶段手指与桌面相交；物体成功抓起也不能记为完整通过。",
     "failure_diagnosis": [
-      "B50原始ACT全新150个不同XY已外部逐文件核验：143/150成功（95.3%）、54/150成功且终点20mm（36.0%）。源范围外62局成功55、终点26；扩大3cm组36局成功30、终点9。完整SSR/全量视觉未闭合，SR比论文高32.3个百分点，范围分组公开保留。",
-      "F500目标参考变体源位置15/15终点达标，独立源外15次仅10次抓起、3次终点；+1cm终点3/3，+2/+3cm各0/6。5个新位置由3模型共测，不能写成15个独立位置或完整SSR通过。",
-      "F250三份新封存原始ACT开发15/15抓起、0/15终点，问题仍是终点控制；继续DP内容封存训练，不直接扩大无改善版本的正式测试。",
-      "漏斗源物理对照首单元存在原始轨迹/派生汇总不一致及文件SHA不符；旧异常不修写成通过。新生产输出封存已实际GPU五局及外部回读一致，失败隔离路径用CPU负例演练通过。",
-      "漏斗首种子5条SHA绑定原始轨迹中3条曾进20mm后漂出，24s终点均不达标；最小中间误差只作诊断，不改变验收时刻。",
-      "固定保持DP全150为145成功/56终点；全部431550个120Hz手物姿态闭合。全局第141局有1个交叉姿态，该局任务和终点均失败；平面交叉见证端点间距0.0589mm不是穿透深度。56个联合成功局无手物交叉，全场景/视觉仍待闭合。",
-      "手/目标几何零交叉和20mm终点只是组件，完整Grasp SpatialSSR还需非法全场景碰撞域及视觉；变体未获得原始基线验收授权，正式仍0/21。",
-      "小棕瓶旧扫描遗漏旧源抓取位姿；前5位置恢复旧位姿后0/5升至5/5，但旧失败位置7/12/15/17/18在闭合0.50–0.65均0/5成功，不能仅凭容易位置放行源100或训练。",
-      "原始DP100k在相同已知5位置×3模型的开发测试，联合终点从2/15提升到6/15；三种子分别3/0/3，全部保留。已放行匹配冻结150新位置正式测试，开发40%不是完整SSR。",
-      "CPU审计曾遇到旧绝对网格路径、过早清理空间轨迹、把ACT后续719帧视频误当720帧。均保留失败日志，已用实际路径拒绝、实际14369姿态消费者及实际719帧正例/错误720负例验证修复；完整场景全部51个机器人-目标可见网格对纳入判据，不改变20mm或碰撞阈值。",
-      "原始DP100k正式150首作业在Native启动前漏打包GPU清单模块，0局技术失败；已使用远端实际PRE补齐两个导入域，以实际导入、原清单JSON读回和30单元模型门检查通过后新tag恢复，同150位置/三模型/RNG。",
-      "小棕瓶10s降低抓取位置改善原生成功到5/5，但下移1cm仍3/5有18个表面交叉姿态，下移2cm为5/5有274个；抓起成功不能替代安全源准入。"
+      "B50原始DP100k正式150：149/150成功，只有44/150同时满足终点20mm；即使全部无碰撞，SSR最高29.3%，仍低于论文37%。三种子终点21/5/18保留，正在用预先固定的200k预算诊断终点精度，不反复重测同一100k模型。",
+      "B50原始ACT150：143成功/54终点合格；全部150终点已审，完整轨迹审计尚在进行，前期已发现小指末节（另有无名指）与木桌面相交。下一步验证抓取高度/手型修复，并将桌面安全纳入源数据准入。",
+      "ACT全部450段视频已有原生产端完整解码和内容封存；本次独立下载并完整解码19局57段，含全部7次原生失败。25时刻/相机的盲审未见明显玻璃渲染问题；抽查正常不能覆盖数值穿模。额外重复全解码阶段因已有不可覆盖归档停止，保留失败并复用已完成证据。",
+      "小棕瓶原20条只有7条全程手物无交叉，均不整批训练。已采集107/250条新原始池，按预声明顺序筛选100条安全示范；完整120Hz分段计算已用真实14390姿态和14个阳性验证一致性，写入器、视觉及其他场景安全另行准入。"
     ],
     "expert_replay_prefix": {
       "prefix_seconds": 23.966666666666665,
@@ -3750,7 +3785,7 @@
     "training_budget_evidence": "verification/grasp_source15_followthrough_20261028.json",
     "submitted_jobs": 234,
     "training_optimizer_active_GPUs_observed": 8,
-    "training_utilization_note": "两个4卡训练任务均在更新，共8个优化器；固定预算对照及训练内容封存，新增任务计入8卡上限。",
+    "training_utilization_note": "两个4卡训练作业共8个优化器仍更新，最近观测约93%–99%；上限含已分配/排队卡。F250三种子约7.56–7.58万步，另4卡约2.99万步。",
     "training_GPU_allocation_cap": 8,
     "training_allocated_GPUs": 8,
     "training_optimizers_last_verified": 8,
@@ -3800,7 +3835,19 @@
       "F1000 DP100k三种子源15次：曾成功13/15、终点区域12/15、EEF20mm为0/15。中间固定时刻也未达20mm，不照搬B50保持时刻，需继续修复目标精度。",
       "F250旧ACT种子21生产日志/BOS权重不一致，原测试继续挂起。新隔离种子21正训练并加入逐模型内容寻址封存；B50三个ACT同批训练，未来统一使用新三种子，避免挑选最好种子。",
       "B100恢复源物理后DP终点8/15、ACT2/15；多数ACT失败仍不抬升。酒精灯12次姿态扫描终点区域0/12，尚无合格百条源；保留失败并继续动作/接触诊断。",
-      "手物零交叉和20mm终点分量不等于完整SpatialSSR；还需实际全场景非法碰撞域、桌面动态位姿、目标绑定及完整视觉证据。终点高度/XY区域未通过不等于实际掉落。"
+      "手物零交叉和20mm终点分量不等于完整SpatialSSR；还需实际全场景非法碰撞域、桌面动态位姿、目标绑定及完整视觉证据。终点高度/XY区域未通过不等于实际掉落。",
+      "B50原始ACT全新150个不同XY已外部逐文件核验：143/150成功（95.3%）、54/150成功且终点20mm（36.0%）。源范围外62局成功55、终点26；扩大3cm组36局成功30、终点9。完整SSR/全量视觉未闭合，SR比论文高32.3个百分点，范围分组公开保留。",
+      "F500目标参考变体源位置15/15终点达标，独立源外15次仅10次抓起、3次终点；+1cm终点3/3，+2/+3cm各0/6。5个新位置由3模型共测，不能写成15个独立位置或完整SSR通过。",
+      "F250三份新封存原始ACT开发15/15抓起、0/15终点，问题仍是终点控制；继续DP内容封存训练，不直接扩大无改善版本的正式测试。",
+      "漏斗源物理对照首单元存在原始轨迹/派生汇总不一致及文件SHA不符；旧异常不修写成通过。新生产输出封存已实际GPU五局及外部回读一致，失败隔离路径用CPU负例演练通过。",
+      "漏斗首种子5条SHA绑定原始轨迹中3条曾进20mm后漂出，24s终点均不达标；最小中间误差只作诊断，不改变验收时刻。",
+      "固定保持DP全150为145成功/56终点；全部431550个120Hz手物姿态闭合。全局第141局有1个交叉姿态，该局任务和终点均失败；平面交叉见证端点间距0.0589mm不是穿透深度。56个联合成功局无手物交叉，全场景/视觉仍待闭合。",
+      "手/目标几何零交叉和20mm终点只是组件，完整Grasp SpatialSSR还需非法全场景碰撞域及视觉；变体未获得原始基线验收授权，正式仍0/21。",
+      "小棕瓶旧扫描遗漏旧源抓取位姿；前5位置恢复旧位姿后0/5升至5/5，但旧失败位置7/12/15/17/18在闭合0.50–0.65均0/5成功，不能仅凭容易位置放行源100或训练。",
+      "原始DP100k在相同已知5位置×3模型的开发测试，联合终点从2/15提升到6/15；三种子分别3/0/3，全部保留。已放行匹配冻结150新位置正式测试，开发40%不是完整SSR。",
+      "CPU审计曾遇到旧绝对网格路径、过早清理空间轨迹、把ACT后续719帧视频误当720帧。均保留失败日志，已用实际路径拒绝、实际14369姿态消费者及实际719帧正例/错误720负例验证修复；完整场景全部51个机器人-目标可见网格对纳入判据，不改变20mm或碰撞阈值。",
+      "原始DP100k正式150首作业在Native启动前漏打包GPU清单模块，0局技术失败；已使用远端实际PRE补齐两个导入域，以实际导入、原清单JSON读回和30单元模型门检查通过后新tag恢复，同150位置/三模型/RNG。",
+      "小棕瓶10s降低抓取位置改善原生成功到5/5，但下移1cm仍3/5有18个表面交叉姿态，下移2cm为5/5有274个；抓起成功不能替代安全源准入。"
     ],
     "previous_audit_evidence": "verification/grasp-B50-source-physics-and-B100-retest-20261030.json",
     "training_GPU_cap": 8,
@@ -3814,9 +3861,10 @@
     "original_ACT_first5_media_evidence_url": "verification/grasp-original-ACT-first5-closed-and-three-view-20261030.json",
     "source_pose_paired20_evidence_url": "verification/grasp-BrownS-pose-paired20-and-CPU-fallback-20261030.json",
     "ACT150_geometry150_closed_evidence_url": "verification/grasp-original-ACT150-and-DP-geometry-closed-20261031.json",
-    "original_DP100_source15_formal150_evidence_url": "verification/grasp-original-DP100-source15-formal150-20261031.json"
+    "original_DP100_source15_formal150_evidence_url": "verification/grasp-original-DP100-source15-formal150-20261031.json",
+    "latest_original_DP150_ACT_visual_sourcepool_evidence_url": "verification/grasp-original-DP150-ACT-visual-sourcepool-20261031.json"
   },
-  "evidence_note": "8张训练卡持续优化。原始DP100k开发15抓起/6终点（50k为2），正式150启动包漏依赖已修复，新作业运行；原始ACT150为143成功/54成功且终点20mm，完整SSR待记录后处理与视觉。小棕瓶10s两组5/5抓起但几何不净，继续修复源。 保留69个版本和129段实际视频；正式仍0/21。",
+  "evidence_note": "原始DP正式150已核验149成功/44终点合格，完整SSR上限29.3%低于论文37%；原始ACT150为143成功/54终点合格，19局三视角抽查无明显渲染异常，但全场景审计检出手指擦入桌面。8卡持续训练；小棕瓶原始池107/250，安全筛选与训练准入仍待闭合。 保留69个版本和原129段视频，新增12段原始DP正式视频（含失败），共141段。正式仍0/21与0/42。",
   "offline_DP_probe": {
     "observations": 4,
     "source_episodes": 1,
@@ -10486,8 +10534,8 @@
       "candidate": "pro6000-eval-D100-b50-original-sealed-formal150-20261031cc-r2",
       "object": "glass_beaker_50ml",
       "method": "DP",
-      "display_name": "原始DP100k · 匹配ACT冻结150（恢复运行）",
-      "current_native": true,
+      "display_name": "原始DP100k正式150 · 149成功/44终点，SSR未达标",
+      "current_native": false,
       "development": false,
       "expected_trials": 150,
       "formal_accepted": false,
@@ -10495,11 +10543,216 @@
       "paper_ssr_percent": 37,
       "success_semantics": "original_ever_success_latch",
       "progress": {
-        "episode_num": 0,
-        "episode_success_num": 0,
-        "success_rate": null
+        "episode_num": 150,
+        "episode_success_num": 149,
+        "success_rate": 0.9933333333333333
       },
-      "cases": [],
+      "cases": [
+        {
+          "episode": 1,
+          "training_seed": 26121921,
+          "camera": "head_camera",
+          "url": "assets/grasp/pro6000_B50_DP100_formal150_20261031/trial001_head_camera.mp4",
+          "SHA256": "06114ab9eb47b134cd319ae8906d8726a3842118d6f1fe282b00d5dc4a012069",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": true,
+          "eef_translation_error_mm": 15.182206087574944,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24.0,
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/sealed_results/eval-D100-b50-original-sealed-formal150-20261031cc-r2/glass_beaker_50ml/cell00_s26121921_gpu0/d88de788b97802766fcddbc3c4512da1ad23c8195786dfbaa2cf739714bfd221/native_rgb/episode_001_head_camera.mp4",
+          "source_job_id": "job-r3qmttq7zflw",
+          "caption": "原始DP100k正式150：试次1，抓起成功；终点EEF误差15.18mm，达到20mm。原三视角完整解码；固定8时刻抽查，不能替代全轨迹几何检查。"
+        },
+        {
+          "episode": 1,
+          "training_seed": 26121921,
+          "camera": "chest_camera",
+          "url": "assets/grasp/pro6000_B50_DP100_formal150_20261031/trial001_chest_camera.mp4",
+          "SHA256": "43299d090c433c240def23ba414102e86c8e50d638558800cf474122e178ea48",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": true,
+          "eef_translation_error_mm": 15.182206087574944,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24.0,
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/sealed_results/eval-D100-b50-original-sealed-formal150-20261031cc-r2/glass_beaker_50ml/cell00_s26121921_gpu0/d88de788b97802766fcddbc3c4512da1ad23c8195786dfbaa2cf739714bfd221/native_rgb/episode_001_chest_camera.mp4",
+          "source_job_id": "job-r3qmttq7zflw",
+          "caption": "原始DP100k正式150：试次1，抓起成功；终点EEF误差15.18mm，达到20mm。原三视角完整解码；固定8时刻抽查，不能替代全轨迹几何检查。"
+        },
+        {
+          "episode": 1,
+          "training_seed": 26121921,
+          "camera": "third_camera",
+          "url": "assets/grasp/pro6000_B50_DP100_formal150_20261031/trial001_third_camera.mp4",
+          "SHA256": "18227972d5f6f509f83ad0feef6acf1d28768dc605204b740c6ef478786ce959",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": true,
+          "eef_translation_error_mm": 15.182206087574944,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24.0,
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/sealed_results/eval-D100-b50-original-sealed-formal150-20261031cc-r2/glass_beaker_50ml/cell00_s26121921_gpu0/d88de788b97802766fcddbc3c4512da1ad23c8195786dfbaa2cf739714bfd221/native_rgb/episode_001_third_camera.mp4",
+          "source_job_id": "job-r3qmttq7zflw",
+          "caption": "原始DP100k正式150：试次1，抓起成功；终点EEF误差15.18mm，达到20mm。原三视角完整解码；固定8时刻抽查，不能替代全轨迹几何检查。"
+        },
+        {
+          "episode": 35,
+          "training_seed": 26121921,
+          "camera": "head_camera",
+          "url": "assets/grasp/pro6000_B50_DP100_formal150_20261031/trial035_head_camera.mp4",
+          "SHA256": "465d6b0503549d5b4b208731c84744d3a216d4f29c8f2249a970d7a577d9ab9f",
+          "success": false,
+          "native_latched_success": false,
+          "terminal_translation_passed": false,
+          "eef_translation_error_mm": 216.94641572301555,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966666666666665,
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/sealed_results/eval-D100-b50-original-sealed-formal150-20261031cc-r2/glass_beaker_50ml/cell06_s26121921_gpu2/e1e2c6cc8882831010a47e6254945d96d3b3e5765c7867130daf09e8330ea9af/native_rgb/episode_005_head_camera.mp4",
+          "source_job_id": "job-r3qmttq7zflw",
+          "caption": "原始DP100k正式150：试次35，原生失败，烧杯留在桌上；终点EEF误差216.95mm，未达到20mm。原三视角完整解码；固定8时刻抽查，不能替代全轨迹几何检查。"
+        },
+        {
+          "episode": 35,
+          "training_seed": 26121921,
+          "camera": "chest_camera",
+          "url": "assets/grasp/pro6000_B50_DP100_formal150_20261031/trial035_chest_camera.mp4",
+          "SHA256": "c4c620d114ee45a380a10c31df1f36f1be297492bc512be3cbc7cef8de4da8f1",
+          "success": false,
+          "native_latched_success": false,
+          "terminal_translation_passed": false,
+          "eef_translation_error_mm": 216.94641572301555,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966666666666665,
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/sealed_results/eval-D100-b50-original-sealed-formal150-20261031cc-r2/glass_beaker_50ml/cell06_s26121921_gpu2/e1e2c6cc8882831010a47e6254945d96d3b3e5765c7867130daf09e8330ea9af/native_rgb/episode_005_chest_camera.mp4",
+          "source_job_id": "job-r3qmttq7zflw",
+          "caption": "原始DP100k正式150：试次35，原生失败，烧杯留在桌上；终点EEF误差216.95mm，未达到20mm。原三视角完整解码；固定8时刻抽查，不能替代全轨迹几何检查。"
+        },
+        {
+          "episode": 35,
+          "training_seed": 26121921,
+          "camera": "third_camera",
+          "url": "assets/grasp/pro6000_B50_DP100_formal150_20261031/trial035_third_camera.mp4",
+          "SHA256": "fa7fccd8934dc9a144e199e62afc4d415d004da8b2dc6b66519d125a7372a537",
+          "success": false,
+          "native_latched_success": false,
+          "terminal_translation_passed": false,
+          "eef_translation_error_mm": 216.94641572301555,
+          "frames": 719,
+          "fps": 30,
+          "duration_s": 23.966666666666665,
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/sealed_results/eval-D100-b50-original-sealed-formal150-20261031cc-r2/glass_beaker_50ml/cell06_s26121921_gpu2/e1e2c6cc8882831010a47e6254945d96d3b3e5765c7867130daf09e8330ea9af/native_rgb/episode_005_third_camera.mp4",
+          "source_job_id": "job-r3qmttq7zflw",
+          "caption": "原始DP100k正式150：试次35，原生失败，烧杯留在桌上；终点EEF误差216.95mm，未达到20mm。原三视角完整解码；固定8时刻抽查，不能替代全轨迹几何检查。"
+        },
+        {
+          "episode": 51,
+          "training_seed": 26121923,
+          "camera": "head_camera",
+          "url": "assets/grasp/pro6000_B50_DP100_formal150_20261031/trial051_head_camera.mp4",
+          "SHA256": "0d3863d106975db199684e2b40c2eca51604d492f81d082a3dd803cb91d2fbee",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "eef_translation_error_mm": 56.41896235053702,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24.0,
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/sealed_results/eval-D100-b50-original-sealed-formal150-20261031cc-r2/glass_beaker_50ml/cell10_s26121923_gpu2/1f189b8b78d42cef5e738129444430fd98001db081127b2d02292a4e1ad3f0d3/native_rgb/episode_001_head_camera.mp4",
+          "source_job_id": "job-r3qmttq7zflw",
+          "caption": "原始DP100k正式150：试次51，抓起成功；终点EEF误差56.42mm，未达到20mm。原三视角完整解码；固定8时刻抽查，不能替代全轨迹几何检查。"
+        },
+        {
+          "episode": 51,
+          "training_seed": 26121923,
+          "camera": "chest_camera",
+          "url": "assets/grasp/pro6000_B50_DP100_formal150_20261031/trial051_chest_camera.mp4",
+          "SHA256": "855c8c073f4495dccd1ca2a3b8e718287e965f8f0f0912ef170c4a1eab88ff80",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "eef_translation_error_mm": 56.41896235053702,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24.0,
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/sealed_results/eval-D100-b50-original-sealed-formal150-20261031cc-r2/glass_beaker_50ml/cell10_s26121923_gpu2/1f189b8b78d42cef5e738129444430fd98001db081127b2d02292a4e1ad3f0d3/native_rgb/episode_001_chest_camera.mp4",
+          "source_job_id": "job-r3qmttq7zflw",
+          "caption": "原始DP100k正式150：试次51，抓起成功；终点EEF误差56.42mm，未达到20mm。原三视角完整解码；固定8时刻抽查，不能替代全轨迹几何检查。"
+        },
+        {
+          "episode": 51,
+          "training_seed": 26121923,
+          "camera": "third_camera",
+          "url": "assets/grasp/pro6000_B50_DP100_formal150_20261031/trial051_third_camera.mp4",
+          "SHA256": "fcd5db39580fdfa86aedfe241878250f7b8ea8afab5324065c0650bb1ae76e54",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "eef_translation_error_mm": 56.41896235053702,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24.0,
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/sealed_results/eval-D100-b50-original-sealed-formal150-20261031cc-r2/glass_beaker_50ml/cell10_s26121923_gpu2/1f189b8b78d42cef5e738129444430fd98001db081127b2d02292a4e1ad3f0d3/native_rgb/episode_001_third_camera.mp4",
+          "source_job_id": "job-r3qmttq7zflw",
+          "caption": "原始DP100k正式150：试次51，抓起成功；终点EEF误差56.42mm，未达到20mm。原三视角完整解码；固定8时刻抽查，不能替代全轨迹几何检查。"
+        },
+        {
+          "episode": 101,
+          "training_seed": 26121925,
+          "camera": "head_camera",
+          "url": "assets/grasp/pro6000_B50_DP100_formal150_20261031/trial101_head_camera.mp4",
+          "SHA256": "8701b63c7a240b9535341b04b0316838e04013b7e2102122b05e3cde799f26ca",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "eef_translation_error_mm": 29.235338647831103,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24.0,
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/sealed_results/eval-D100-b50-original-sealed-formal150-20261031cc-r2/glass_beaker_50ml/cell20_s26121925_gpu0/8437b4509473770d2bba56cd3f767a25586fec7d18f4c5ef41d2b782f3a297fd/native_rgb/episode_001_head_camera.mp4",
+          "source_job_id": "job-r3qmttq7zflw",
+          "caption": "原始DP100k正式150：试次101，抓起成功；终点EEF误差29.24mm，未达到20mm。原三视角完整解码；固定8时刻抽查，不能替代全轨迹几何检查。"
+        },
+        {
+          "episode": 101,
+          "training_seed": 26121925,
+          "camera": "chest_camera",
+          "url": "assets/grasp/pro6000_B50_DP100_formal150_20261031/trial101_chest_camera.mp4",
+          "SHA256": "64576f1deac16bf9266c6ea17ef9ce3fc5151ebf55c4d9b1583b5a67b89a0523",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "eef_translation_error_mm": 29.235338647831103,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24.0,
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/sealed_results/eval-D100-b50-original-sealed-formal150-20261031cc-r2/glass_beaker_50ml/cell20_s26121925_gpu0/8437b4509473770d2bba56cd3f767a25586fec7d18f4c5ef41d2b782f3a297fd/native_rgb/episode_001_chest_camera.mp4",
+          "source_job_id": "job-r3qmttq7zflw",
+          "caption": "原始DP100k正式150：试次101，抓起成功；终点EEF误差29.24mm，未达到20mm。原三视角完整解码；固定8时刻抽查，不能替代全轨迹几何检查。"
+        },
+        {
+          "episode": 101,
+          "training_seed": 26121925,
+          "camera": "third_camera",
+          "url": "assets/grasp/pro6000_B50_DP100_formal150_20261031/trial101_third_camera.mp4",
+          "SHA256": "c5686af0d0adb34d90ab8638dd41c967b3ed28f35bd4e0919d3b55c573d146e9",
+          "success": true,
+          "native_latched_success": true,
+          "terminal_translation_passed": false,
+          "eef_translation_error_mm": 29.235338647831103,
+          "frames": 720,
+          "fps": 30,
+          "duration_s": 24.0,
+          "source_BOS_key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/sealed_results/eval-D100-b50-original-sealed-formal150-20261031cc-r2/glass_beaker_50ml/cell20_s26121925_gpu0/8437b4509473770d2bba56cd3f767a25586fec7d18f4c5ef41d2b782f3a297fd/native_rgb/episode_001_third_camera.mp4",
+          "source_job_id": "job-r3qmttq7zflw",
+          "caption": "原始DP100k正式150：试次101，抓起成功；终点EEF误差29.24mm，未达到20mm。原三视角完整解码；固定8时刻抽查，不能替代全轨迹几何检查。"
+        }
+      ],
       "job_id": "job-r3qmttq7zflw",
       "train": {
         "dataset": {
@@ -10526,14 +10779,39 @@
         "note": "ACT已先测该冻结位置；不是重新选择测试点。四卡每卡同时最多1个Native，30单元×5。"
       },
       "result": {
-        "SR": null,
+        "SR": 99.33333333333333,
         "SpatialSSR": null,
-        "completed_trials": 0,
-        "formal_evaluation_status": "RUNNING",
-        "formal_accepted": false
+        "completed_trials": 150,
+        "formal_evaluation_status": "CLOSED_FAILED_SSR_PRECISION_UPPER_BOUND",
+        "formal_accepted": false,
+        "successes": 149,
+        "completed_native_successes": 149,
+        "completed_success_terminal20mm": 44,
+        "success_and_terminal_dP20": 29.333333333333332,
+        "SpatialSSR_upper_bound_percent": 29.333333333333332,
+        "by_seed": [
+          {
+            "seed": 26121921,
+            "trials": 50,
+            "Native_successes": 49,
+            "success_terminal20mm": 21
+          },
+          {
+            "seed": 26121923,
+            "trials": 50,
+            "Native_successes": 50,
+            "success_terminal20mm": 5
+          },
+          {
+            "seed": 26121925,
+            "trials": 50,
+            "Native_successes": 50,
+            "success_terminal20mm": 18
+          }
+        ]
       },
       "unmodified_original_DP_or_ACT": true,
-      "metric_note": "原启动技术失败0次Native已保留。新包补齐GPU清单模块，实际导入/清单读回与30单元CPU门通过；原150位置/3模型/RNG不变，保留种子23，无保持/目标参考。完整SSR和视觉待后处理。"
+      "metric_note": "同冻结150个XY、3种子各50，149成功/44成功且终点20mm；SR99.3%高于论文75%，源外实际62局中成功61局，保留全部失败。完整SSR上限29.3%低于论文37%，未通过。下方各种子首局与唯一原生失败35的原视频。"
     }
   ],
   "geometry_distance_metric_note": "交叉见证的平面端点分离量不是实体穿透深度。严格零交叉判据不变；历史depth字段保留原报告，不用于放宽门槛。"
