@@ -410,3 +410,19 @@ test('sealed ACT first5 and remaining145 share150 with actual first-trial media 
  assert.equal(proof.sampled_visual_review.all150_or_full_trajectory_visual_passed,false);
  assert.equal(proof.remaining145.extra_cohort_trials,0);assert.equal(proof.full_SpatialSSR,null);
 });
+
+test('paired source diagnosis and failed CPU sidecar never become policy acceptance', () => {
+ const job=snapshot.pipeline.jobs.find(j=>j.job_id==='job-qsij36r8zmr9');
+ assert.equal(job.status,'RUNNING');assert.match(job.progress_note,/20条开发源示范/);
+ const proof=JSON.parse(fs.readFileSync(path.join(root,snapshot.pipeline.source_pose_paired20_evidence_url),'utf8'));
+ assert.deepEqual(proof.source_grasp.grasp_offset,[-.1326,-.0395,-.025]);
+ assert.deepEqual(proof.source_protocol_recorded_Main_registry_grasp.grasp_offset,[-.11324,-.0393,.013]);
+ assert.equal(proof.paired_source20.policy_training_or_formal_auto_release,false);
+ assert.equal(proof.mounted_CPU_child_result.returncode,1);
+ assert.equal(proof.local_CPU_resume.cloud_jobs_changed,false);
+ assert.equal(proof.actual_checked_transfer_CPU_gate.actual_short_HTTP_body_rejected,true);
+ assert.equal(proof.actual_checked_transfer_CPU_gate.old_verified_path_preserved_on_failed_transfer,true);
+ assert.equal(proof.BOS_original_corruption_established,false);
+ assert.equal(proof.full_SpatialSSR,null);assert.equal(proof.formal_accepted_objects,0);
+ assert.equal(snapshot.runs.some(r=>r.job_id===job.job_id),false);
+});
