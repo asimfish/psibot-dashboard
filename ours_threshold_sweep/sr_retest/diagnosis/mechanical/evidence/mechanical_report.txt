@@ -1,0 +1,36 @@
+T-947 two-cross mechanical timeline, source-bound CPU evidence
+
+Both source outcomes remain F. Root independently accepted both complete physical F results, all 5729 particle/native records, all1290 particles and717 frames/camera. Full49-file source custody exists for each case. No new GPU/context, model, API, launch, retry, signal or source modification occurred during this monitoring/analysis.
+
+E denotes original expert EP0 commands; L denotes the original failed learned EP0 commands. All comparisons use original tick0 +120Hz clock, trimmed to the common first5728 ticks. No phase alignment or event warping was performed. Relative-pose drift uses a fixed common tick1200 (10s) reference. These are descriptive geometry/contact thresholds, not new safety, grip-force or success criteria.
+
+Condition | Pickup | 95% liquid in B | >=1s continuous hand-contact0 | First original-pad contact after pickup | First receiver-pad contact after pickup
+EE | 6.558s | 21.750s | 39.542s | 37.042s rack_S1 | none
+EL | 6.558s | 21.858s | 25.658s | none | 26.042s rack_S2
+LE | 6.567s | none | 22.000s | none | 22.158s rack_S2
+LL | 6.558s | none | 24.825s | none | none in common prefix
+
+EL is NOT merely failure to release, sticking to the hand, a wrong final center predicate or an old tilt cutoff. It first transferred all1290 particles into B with no liquid spill. At24.667s relative cup-to-wrist rotation first exceeds5 degrees, followed by up to76.29 degrees while hand contact is still reported. It loses all hand contact at25.658s while no pad supports the cup. Only0.383s later does it hit receiver pad rack_S2; it never returns to original pad rack_S1. It ends sideways,95.48deg, robot/hand contact0. The source trace therefore identifies return/upright-phase loss and a fall, not intentional placement followed by a hand that refuses to open.
+
+L-hand commands in EL already move >=0.05rad from the EE closed reference toward the initial open command at24.567s. EE hand commands do not cross that same descriptive threshold until38.633s, after support on original pad at37.042s. At EL's loss time, the matched EE wrist orientation would still hold the cup at74.74deg. EL's cup briefly reaching5.39deg is produced by about76deg of cup-to-wrist rotation and is not proof of a secure, completed wrist-upright action. This distinguishes hand-opening timing from the actual wrist return.
+
+LE loses its cup at22s although its expert hand targets remain the exact same original closed grasp throughout that interval; those targets only start opening at38.633s. Its first >5deg relative rotation after10s is at19.842s; rotation reaches63.52deg with some contact still reported. It never puts a particle into B and ends with1284 particles in the original spill field. Thus early opening cannot explain LE. LL also develops large relative rotation and loses contact, supporting a separate learned-arm/grasp-geometry problem or interaction.
+
+Initial-grasp geometry: at10s, EE/EL cup tilt is2.78/3.29deg with155/145 reported hand contacts; LE/LL is11.46/11.93deg with67/84 contacts. LE versus EE cup-to-wrist pose differs by7.96deg and9.03mm; wrist world position differs11.70mm. At pickup tick787 the corresponding differences are7.09deg/8.12mm and wrist8.65mm. The same source expert closed finger targets therefore do not recover the expert contact geometry on the learned arm path. At10s the original contact report for hand2_link_2_2 contains72 contacts in EE,63 in EL,10 in LE,14 in LL; these link IDs are not assigned unverified anatomical names. Contact counts are not forces.
+
+Geometry recommendations for root review, not implemented changes:
+1. Check grasp approach wrist position/orientation and cup-center-in-palm/contact-body distribution against the original successful EE geometry before globally adding finger closure. The observed8deg/9mm is a comparison, NOT a ready-to-apply world-coordinate offset or calibrated correction.
+2. Check return/upright hand-command timing separately from tilt/return motion. A cup becoming upright while rolling out of the hand must not be mistaken for secure wrist return. Source hand-opening commands can be earlier than compatible with an expert arm trajectory.
+3. Keep grasp-force claims bounded: current recordings contain targets, measured angles and contacts but no actual effort/impulse readback. Finger target tracking errors also occur in successful EE, so forcing measured fingers to exactly match their setpoints is not an established repair.
+
+Limits: one scene and two fixed mixes, not a fully crossed causal estimate or autonomous success rate. Natural liquid/contact initial states differ. The failed learned command stream was generated under its own failed visual/physical evolution; mixing its hand stream with expert arm motion can misalign task phases. These results localize hypotheses but do not prove a live successful policy would open at the same time. Original EE full5731tick S and LL full9000tick F remain unchanged. LL's legacy spill=0 field must not be interpreted as proof no particles were lost: its outside/in_transit fields differ from the new cases.
+
+Artifacts:
+MECHANICAL_TIMELINE.json: all exact source SHA, events and matched-clock state/command samples.
+MECHANICAL_TIMELINE_120HZ.csv.gz: dense4-condition contact/pose/liquid curves.
+HAND_OPENING_TARGET_TIMELINE.json: exact original native target opening samples and pinned control sources.
+INITIAL_GRASP_CONTACT_BODY_SAMPLES.json: original per-link contact samples.
+ALL_RAW_CUSTODY.json: two complete source-sealed raw transfers.
+CLOSED_STRUCTURE_PROOF.json: actual native/particle/camera structural closure.
+
+No new experiment is being prepared or started. Root decides the next controlled probe after the action-label semantics review.
