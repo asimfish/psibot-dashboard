@@ -1,0 +1,344 @@
+{
+  "owner_task": "T-947",
+  "review_task": "T-1065",
+  "case_order": [
+    "t947_live_prefix_ep000_expert_arm_v1",
+    "t947_live_prefix_ep000_NN_sham_v1"
+  ],
+  "formal_pair_only": true,
+  "resource_canary_excluded": true,
+  "original_outcomes": [
+    "S",
+    "F"
+  ],
+  "first_input_comparison": {
+    "raw_RGB_shape": [
+      480,
+      640,
+      3
+    ],
+    "RGB_pixel_MAE_0to255": 0.7118348524305556,
+    "RGB_MAE_per_channel": [
+      0.66921875,
+      0.7225065104166667,
+      0.743779296875
+    ],
+    "RGB_RMSE_0to255": 1.2470820978109483,
+    "maximum_channel_absolute_difference": 61,
+    "identical_pixel_fraction": 0.27318359375,
+    "RGB_bitwise_equal": false,
+    "first_PNG_SHA256": [
+      "b1dd2f08497dbd150dfc78ad8ddab4b1f6726eb7104cfba243200423f5024968",
+      "65b2e68ffb0b4460b52ff178151c19ddebab5540f7cb9b069c526b830f0e9f64"
+    ],
+    "q13_absolute_difference_rad": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "q13_max_absolute_difference_rad": 0.0,
+    "q13_mean_absolute_difference_rad": 0.0,
+    "q13_bitwise_equal": true,
+    "nominal_prephysics_table_exact_equal": true,
+    "nominal_table_SHA256": [
+      "53dd8f5cff07b20303d1cb657e309a27a6197faa9c38565f5042cbede00db0b9",
+      "53dd8f5cff07b20303d1cb657e309a27a6197faa9c38565f5042cbede00db0b9"
+    ],
+    "initial241_receipts_exact_equal": true,
+    "initial241_receipts": [
+      {
+        "passed": true,
+        "native_tick": 240,
+        "rows": 241,
+        "original_errors": [],
+        "policy_actions_so_far": 0,
+        "env_index": 0,
+        "same_global_clock": true
+      },
+      {
+        "passed": true,
+        "native_tick": 240,
+        "rows": 241,
+        "original_errors": [],
+        "policy_actions_so_far": 0,
+        "env_index": 0,
+        "same_global_clock": true
+      }
+    ],
+    "full_pre_recorder_initial241_trace_available": false,
+    "interpretation": "Same scene, seed, nominal initialization and passing initial241 receipt do not imply bitwise equal RGB or settled q. Independent App/render/settle variation remains a caveat, not ruled out by this single pair."
+  },
+  "per_frame_score_summaries": [
+    {
+      "case": "t947_live_prefix_ep000_expert_arm_v1",
+      "stage_score_summaries": [
+        {
+          "stage": 0,
+          "exclude_entry_frame": 0,
+          "scored_later_frames": 252,
+          "maximum": 0.9815596342086792,
+          "maximum_frame": 253,
+          "frames_ge_0975": [
+            253
+          ]
+        },
+        {
+          "stage": 1,
+          "exclude_entry_frame": 254,
+          "scored_later_frames": 121,
+          "maximum": 0.9775955080986023,
+          "maximum_frame": 375,
+          "frames_ge_0975": [
+            375
+          ]
+        },
+        {
+          "stage": 2,
+          "exclude_entry_frame": 376,
+          "scored_later_frames": 215,
+          "maximum": 0.004274238832294941,
+          "maximum_frame": 537,
+          "frames_ge_0975": []
+        }
+      ],
+      "max_receiver_B_particles": 1290,
+      "final_liquid_counts": {
+        "total": 1290,
+        "A": 0,
+        "B": 1290,
+        "outside_vessels": 0,
+        "in_transit": 0,
+        "spill": 0,
+        "currently_spilled_outside": 0
+      },
+      "final_policy_done": false,
+      "final_planner_terminal": false,
+      "score_semantics": "Scores are passive persisted response values; stage-entry score belongs to the classifier update that completed the previous stage and is excluded from new-stage maxima. No new classifier evaluation or threshold intervention was performed."
+    },
+    {
+      "case": "t947_live_prefix_ep000_NN_sham_v1",
+      "stage_score_summaries": [
+        {
+          "stage": 0,
+          "exclude_entry_frame": 0,
+          "scored_later_frames": 259,
+          "maximum": 0.9781622290611267,
+          "maximum_frame": 260,
+          "frames_ge_0975": [
+            260
+          ]
+        },
+        {
+          "stage": 1,
+          "exclude_entry_frame": 261,
+          "scored_later_frames": 863,
+          "maximum": 0.0831374078989029,
+          "maximum_frame": 366,
+          "frames_ge_0975": []
+        }
+      ],
+      "max_receiver_B_particles": 0,
+      "final_liquid_counts": {
+        "total": 1290,
+        "A": 227,
+        "B": 0,
+        "outside_vessels": 1063,
+        "in_transit": 0,
+        "spill": 1063,
+        "currently_spilled_outside": 1063
+      },
+      "final_policy_done": false,
+      "final_planner_terminal": false,
+      "score_semantics": "Scores are passive persisted response values; stage-entry score belongs to the classifier update that completed the previous stage and is excluded from new-stage maxima. No new classifier evaluation or threshold intervention was performed."
+    }
+  ],
+  "events": [
+    {
+      "case": "t947_live_prefix_ep000_expert_arm_v1",
+      "original_SR": true,
+      "original_status": "task_success",
+      "physical_task_events": [
+        787,
+        2758,
+        4730
+      ],
+      "planner_stage_changes": [
+        {
+          "frame": 0,
+          "seconds": 0.0,
+          "stage": 0,
+          "subtask": "Pick up the beaker of blue liquid from the near-left coaster with the right hand and move it above the other beaker.",
+          "score": null,
+          "dag_selection": {
+            "direct_source_ids": [],
+            "transitive_source_ids": []
+          }
+        },
+        {
+          "frame": 254,
+          "seconds": 16.933333333333334,
+          "stage": 1,
+          "subtask": "Tilt the beaker to pour the blue liquid into the other beaker.",
+          "score": 0.9894212484359741,
+          "dag_selection": {
+            "direct_source_ids": [],
+            "transitive_source_ids": []
+          }
+        },
+        {
+          "frame": 376,
+          "seconds": 25.066666666666666,
+          "stage": 2,
+          "subtask": "Turn the empty beaker upright, put it back on the near-left coaster, release it, and move the right hand away.",
+          "score": 0.9788902997970581,
+          "dag_selection": {
+            "direct_source_ids": [
+              0
+            ],
+            "transitive_source_ids": [
+              0
+            ]
+          }
+        }
+      ],
+      "wrist_reference_tick": 1200,
+      "first_rotation_over5deg_after_ref": {
+        "tick": 4684,
+        "seconds": 39.03333333333333,
+        "hand_contacts": 113,
+        "robot_contacts": 113,
+        "support": {
+          "rack_S1": 115,
+          "rack_S2": 0,
+          "operation_tray": 0
+        },
+        "tilt_deg": 2.3069321272288965,
+        "relative_translation_since_ref_m": 0.005771910769146118,
+        "relative_rotation_since_ref_deg": 5.00941706320282,
+        "B": 1290
+      },
+      "unsupported_no_hand_runs_at_least125ms_after_pickup": [],
+      "last": {
+        "tick": 4736,
+        "seconds": 39.46666666666667,
+        "hand_contacts": 0,
+        "robot_contacts": 0,
+        "support": {
+          "rack_S1": 117,
+          "rack_S2": 0,
+          "operation_tray": 0
+        },
+        "tilt_deg": 0.030212384733255573,
+        "relative_translation_since_ref_m": 0.008448217680211678,
+        "relative_rotation_since_ref_deg": 6.173984514443428,
+        "B": 1290
+      },
+      "final_policy_done": false,
+      "final_policy_terminal": false,
+      "role": "Passive descriptive timelines only. A drift threshold or no-hand interval is not a new SR, early-stop rule, or single-cause proof. No interval beyond recorded close is inferred.",
+      "script_sha256": "f9a0635d1172d3238069608bd86dffc31be77fe509a42c8e779601917736fc9d"
+    },
+    {
+      "case": "t947_live_prefix_ep000_NN_sham_v1",
+      "original_SR": false,
+      "original_status": "task_timeout_75simsec",
+      "physical_task_events": [
+        780
+      ],
+      "planner_stage_changes": [
+        {
+          "frame": 0,
+          "seconds": 0.0,
+          "stage": 0,
+          "subtask": "Pick up the beaker of blue liquid from the near-left coaster with the right hand and move it above the other beaker.",
+          "score": null,
+          "dag_selection": {
+            "direct_source_ids": [],
+            "transitive_source_ids": []
+          }
+        },
+        {
+          "frame": 261,
+          "seconds": 17.4,
+          "stage": 1,
+          "subtask": "Tilt the beaker to pour the blue liquid into the other beaker.",
+          "score": 0.9884651899337769,
+          "dag_selection": {
+            "direct_source_ids": [],
+            "transitive_source_ids": []
+          }
+        }
+      ],
+      "wrist_reference_tick": 1200,
+      "first_rotation_over5deg_after_ref": {
+        "tick": 2407,
+        "seconds": 20.058333333333334,
+        "hand_contacts": 81,
+        "robot_contacts": 81,
+        "support": {
+          "rack_S1": 0,
+          "rack_S2": 0,
+          "operation_tray": 0
+        },
+        "tilt_deg": 49.49964972939787,
+        "relative_translation_since_ref_m": 0.0021803516442220295,
+        "relative_rotation_since_ref_deg": 5.012576538598129,
+        "B": 0
+      },
+      "unsupported_no_hand_runs_at_least125ms_after_pickup": [
+        {
+          "first": {
+            "tick": 4571,
+            "seconds": 38.09166666666667,
+            "hand_contacts": 0,
+            "robot_contacts": 0,
+            "support": {
+              "rack_S1": 0,
+              "rack_S2": 0,
+              "operation_tray": 0
+            },
+            "tilt_deg": 10.7345203717274,
+            "relative_translation_since_ref_m": 0.05128851102804071,
+            "relative_rotation_since_ref_deg": 109.28354360523288,
+            "B": 0
+          },
+          "last_tick": 4592,
+          "duration_seconds": 0.18333333333333332
+        }
+      ],
+      "last": {
+        "tick": 9000,
+        "seconds": 75.0,
+        "hand_contacts": 0,
+        "robot_contacts": 0,
+        "support": {
+          "rack_S1": 0,
+          "rack_S2": 8,
+          "operation_tray": 16
+        },
+        "tilt_deg": 92.61460882537234,
+        "relative_translation_since_ref_m": 0.1170345982079239,
+        "relative_rotation_since_ref_deg": 158.00922148297332,
+        "B": 0
+      },
+      "final_policy_done": false,
+      "final_policy_terminal": false,
+      "role": "Passive descriptive timelines only. A drift threshold or no-hand interval is not a new SR, early-stop rule, or single-cause proof. No interval beyond recorded close is inferred.",
+      "script_sha256": "f9a0635d1172d3238069608bd86dffc31be77fe509a42c8e779601917736fc9d"
+    }
+  ],
+  "interpretation": "In this single-scene live-feedback pair, A completed and B slid/rotated then lost the cup and timed out. B entered the pouring instruction; B never received liquid, and later pouring completion scores stayed far below the threshold. This is not merely an early-stop/terminal-label error. Prefix intervention supports a grasp/trajectory mechanism worth replication, but bitwise initial differences, scene specificity and divergent later live NN feedback preclude a single-cause or population-SR claim.",
+  "no_new_model_or_GPU_run": true,
+  "runwide_cleanup_review_pending": true,
+  "source_script_sha256": "274ee51619eaf63a84b530127ccec02e1d8cfb9a0ad68793a0d8c0282cff1f50"
+}
