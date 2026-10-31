@@ -1,0 +1,236 @@
+{
+  "schema": "resize_probe_panel_v1",
+  "private_only": false,
+  "published": true,
+  "closed_loop": false,
+  "population_SR": false,
+  "training_scene_count": 1,
+  "observations": 368,
+  "query_count_per_run": 94,
+  "runs_per_method": [
+    "A1",
+    "A2",
+    "B"
+  ],
+  "prediction_horizon": 30,
+  "nominal_selected_prefix": 4,
+  "observation_hz": 15,
+  "stage_boundaries": [
+    241,
+    363
+  ],
+  "stage_counts": [
+    60,
+    30,
+    2
+  ],
+  "stage_labels": [
+    "抓取并移到接收杯上方",
+    "倾倒蓝色液体",
+    "恢复直立、归位并释放"
+  ],
+  "methods": [
+    {
+      "id": "mem0",
+      "title": "Mem-0",
+      "checkpoint_step": 30000,
+      "AA_exact": true,
+      "AA_prediction_records": 94,
+      "AA_visual_records": 370,
+      "AA_classifier_records": 370,
+      "actual_noise_equal_AB": true,
+      "rows": [
+        {
+          "stage": 0,
+          "query_count": 60,
+          "sampled_arm7_A": 0.007842941238073478,
+          "sampled_arm7_B": 0.007144455612133653,
+          "sampled_hand6_A": 0.0017265698176228731,
+          "sampled_hand6_B": 0.0011213658910093128,
+          "ensemble_arm7_A": 0.012822365482330482,
+          "ensemble_arm7_B": 0.00760157148914272,
+          "ensemble_hand6_A": 0.0013140626235716686,
+          "ensemble_hand6_B": 0.0009641556080045747
+        },
+        {
+          "stage": 1,
+          "query_count": 30,
+          "sampled_arm7_A": 0.007791797834664136,
+          "sampled_arm7_B": 0.006960986726212335,
+          "sampled_hand6_A": 0.0005969769643368132,
+          "sampled_hand6_B": 0.0005405746851122537,
+          "ensemble_arm7_A": 0.005683917529512366,
+          "ensemble_arm7_B": 0.005314958504471284,
+          "ensemble_hand6_A": 0.00034270302572499036,
+          "ensemble_hand6_B": 0.0003356838268118324
+        },
+        {
+          "stage": 2,
+          "query_count": 2,
+          "sampled_arm7_A": 0.007203649325324184,
+          "sampled_arm7_B": 0.009165763240831785,
+          "sampled_hand6_A": 0.00018371107987184035,
+          "sampled_hand6_B": 0.00016379559186124792,
+          "ensemble_arm7_A": 0.0071194175244835315,
+          "ensemble_arm7_B": 0.007433366392344648,
+          "ensemble_hand6_A": 8.372371524961126e-05,
+          "ensemble_hand6_B": 5.972915177944158e-05
+        }
+      ]
+    },
+    {
+      "id": "ours",
+      "title": "Ours / TTC",
+      "checkpoint_step": 30000,
+      "AA_exact": true,
+      "AA_prediction_records": 94,
+      "AA_visual_records": 377,
+      "AA_classifier_records": 368,
+      "actual_noise_equal_AB": true,
+      "rows": [
+        {
+          "stage": 0,
+          "query_count": 60,
+          "sampled_arm7_A": 0.008611288829366672,
+          "sampled_arm7_B": 0.007853521038615757,
+          "sampled_hand6_A": 0.001905556840345222,
+          "sampled_hand6_B": 0.0013598273404095687,
+          "ensemble_arm7_A": 0.015065373901703665,
+          "ensemble_arm7_B": 0.00952517874727346,
+          "ensemble_hand6_A": 0.0011236007571855848,
+          "ensemble_hand6_B": 0.000975225177204583
+        },
+        {
+          "stage": 1,
+          "query_count": 30,
+          "sampled_arm7_A": 0.007021886764238969,
+          "sampled_arm7_B": 0.006512956931379213,
+          "sampled_hand6_A": 0.0011935257528820488,
+          "sampled_hand6_B": 0.0010970289848487827,
+          "ensemble_arm7_A": 0.0059823308392200165,
+          "ensemble_arm7_B": 0.004755203456689589,
+          "ensemble_hand6_A": 0.0009590977860284394,
+          "ensemble_hand6_B": 0.0009191056636157581
+        },
+        {
+          "stage": 2,
+          "query_count": 2,
+          "sampled_arm7_A": 0.00913188944047921,
+          "sampled_arm7_B": 0.010068054327539528,
+          "sampled_hand6_A": 0.0011499464857629804,
+          "sampled_hand6_B": 0.0010866561873663855,
+          "ensemble_arm7_A": 0.007913799823640023,
+          "ensemble_arm7_B": 0.00883061298103908,
+          "ensemble_hand6_A": 0.001107327519141525,
+          "ensemble_hand6_B": 0.0010206054550307927
+        }
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "stage": 0,
+      "text": "Pick up the beaker of blue liquid from the near-left coaster with the right hand and move it above the other beaker."
+    },
+    {
+      "stage": 1,
+      "text": "Tilt the beaker to pour the blue liquid into the other beaker."
+    },
+    {
+      "stage": 2,
+      "text": "Turn the empty beaker upright, put it back on the near-left coaster, release it, and move the right hand away."
+    }
+  ],
+  "fixed_history": {
+    "source": "原Ours教师输入回放实际输出的文本、关键帧与DAG记录；不是ground truth划分，也不是本次自主规划。",
+    "keyframes": [
+      98,
+      122,
+      155,
+      210,
+      273,
+      295,
+      335
+    ],
+    "q_source": "同一原时钟专家回放的实测13维关节角 measured13_rad[8*f]，不是目标角或本次预测。",
+    "RGB_source": "同一条训练示范episode0的原始第三人称RGB，前368帧；不是本次模型动作产生的新画面。"
+  },
+  "classifier": {
+    "mem0": {
+      "threshold": 0.5,
+      "changed_threshold_masks": [
+        {
+          "frame": 354,
+          "stage": 1,
+          "A": 0.1074487492442131,
+          "B": 0.9759564399719238
+        }
+      ],
+      "first_two_positive_stage1": {
+        "A": [
+          355,
+          356
+        ],
+        "B": [
+          354,
+          355
+        ]
+      },
+      "scope": "Mem-0共用缩放后的视觉特征，因此原分类器输入和分数也改变；固定历史不由这些分数重新选择。"
+    },
+    "ours": {
+      "threshold": 0.975,
+      "stable_observations": 2,
+      "mode": "累计阳性",
+      "raw_records_exact_AB": true,
+      "strict_trigger_frames": [
+        241,
+        363
+      ],
+      "scope": "Ours保留独立原始图像分类分支；本探针A/B原分类器368条记录逐值一致，无FSM覆盖。"
+    }
+  },
+  "tail_example": {
+    "method": "Mem-0",
+    "query_frame": 200,
+    "chunk_row_0based": 29,
+    "joint": "arm2_joint_link7",
+    "full_chunk_AB_difference_rad": 0.5156806707382202,
+    "later_query": 228,
+    "later_prefix_row_0based": 1,
+    "nominal_global_frame": 229,
+    "term_weight": 0.125,
+    "contributor_count": 8,
+    "later_ensemble_AB_difference_rad": 0.06477677822113037,
+    "scope": "这是原时间集成中的算术贡献，不是已执行的物理轨迹或抖动因果证明。"
+  },
+  "excluded_init_probes": [
+    {
+      "id": "V1 Mem-0",
+      "outcome": "U",
+      "query_count": 0,
+      "reason": "调用方把另一方法的统计文件SHA传给Mem-0，初始化守卫拒绝；两份数值统计表除dataset_root字符串外相同。"
+    },
+    {
+      "id": "V2 Ours",
+      "outcome": "U",
+      "query_count": 0,
+      "reason": "未调用原交付包的路径重定位，分类器原机器路径不存在；V3调用原prepare_runtime，只续跑Ours三组。"
+    }
+  ],
+  "legacy_records": {
+    "unchanged": true,
+    "existing_closed_loop_records": 400,
+    "existing_U_records": 48
+  },
+  "limits": [
+    "本页不是100条闭环成功率；没有新增SR或对模型排序。每方法94queries×A1/A2/B属于同一固定输入片段。",
+    "统计量是逐query RMSE的算术均值，单位rad；先在该query前4步及arm7或hand6维度上计算RMSE，再平均。",
+    "跨越原记录阶段边界的query240和361从阶段表排除；曲线仍显示全部94点并以空心点标记。",
+    "stage2只有2个query，B的arm误差略高；参考专家目标可延伸到368帧输入片段之后，不能代表完整归位表现。",
+    "原P30预测和完整30步时间集成均未改变；名义H4只是误差统计窗口，本探针没有执行机械控制。",
+    "返回动作、时间集成、归一化、实际噪声与原专家时钟已独立复算；隐藏NN前向和CUDA随机生成算法没有独立重跑。",
+    "本地较新Torch不能逐位复现候选B像素；5个重叠224输入及processor哈希匹配相同运行库版本CPU参考。A的370次输入224像素在本地全部复现。",
+    "长尾可能进入后续前4步；额外历史长度计算只是固定样本算术探索，没有证明闭环抖动已解决或SR提升。"
+  ]
+}
