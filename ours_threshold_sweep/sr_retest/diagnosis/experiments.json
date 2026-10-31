@@ -818,6 +818,522 @@
       "outcome_summary": "1成功 / 5未完成 / 1未知 / 1未运行",
       "conclusion": "记录高层指导，真实分类器和执行器；同两场景、4步，每个偏移预注册2条，单独列出S/F/U和未运行。 每个Isaac App只有一个环境；两个场景都在左侧，是各轴±1cm分布中的固定实例。 神经权重、相机、物理、控制器和原分类阈值不改，仅在时间集成后改变五指闭合目标，真实反馈轨迹可随之变化。 这些是小样本机械诊断，不能替代原100条成功率，不能凭两例宣布最佳参数或修复完成。 零偏移EP2原RESULT为task_success；其历史收尾工具U原样保留，视频S来自独立后验物理验收。该条只运行一次，其余七条在修复审计目录后的独立版本接续。 EP49/+0.04在25.125秒后因观测异常中断，视频只包含已录制前缀；+0.08随后未运行。",
       "population_SR": false
+    },
+    {
+      "id": "stage2-cadence-grip0",
+      "label": "阶段执行对照 · 抓握偏移0.00rad",
+      "complete": true,
+      "scene_label": "原评测EP",
+      "scene_options": [
+        2,
+        49
+      ],
+      "baseline": "all4",
+      "variants": [
+        "stage2h30"
+      ],
+      "variant_names": {
+        "all4": "历史对照 · 全程H4",
+        "stage2h30": "新诊断 · H4/4/30"
+      },
+      "cases": [
+        {
+          "episode": "t947_recorded_grip_h4_ep002_offset000",
+          "scene": 2,
+          "variant": "all4",
+          "execution_horizon": 4,
+          "grip_offset_rad": 0.0,
+          "source_panel_episode": 2,
+          "seed": 262200002,
+          "outcome": "S",
+          "native_rows": 4753,
+          "physical_phase": 3,
+          "elapsed_sim_s": 39.6,
+          "phase_seconds": [
+            6.833333333333333,
+            23.475,
+            39.55
+          ],
+          "audit_sha256": "cc6763d5b8aa657b9d8f7b75cdea204e1f332ac77a1298383d41e6c89e746189",
+          "source_transfer_sha256": "527f887e80665b859a59091491bb48a60846422a3bee5cdabc97232bc547890b",
+          "population_SR": false,
+          "autonomous_score_eligible": false,
+          "media": {
+            "annotated": "media/t947_recorded_grip_h4_ep002_offset000/ep002_h4_recorded_grip000_SUCCESS_subtasks.mp4",
+            "timeline": "media/t947_recorded_grip_h4_ep002_offset000/frames.json",
+            "filename": "ep002_h4_recorded_grip000_SUCCESS_subtasks.mp4",
+            "video_frames": 595,
+            "full_duration": true,
+            "preview_only": true,
+            "source_video_sha256": "a851ad423090289ad17cd744b2f80001baa6009d42c2d45020a3cf356eb2ccea",
+            "source_result_sha256": "08cc604ebd4db0bf7d881db82b2c588bafd247f41959fe980d971705a2e6a095"
+          },
+          "historical_source_case_independently_accepted": true,
+          "comparison_status_text": "历史H4对照：已独立验收的原轨迹；直接复用旧视频，不重跑、不重编码。"
+        },
+        {
+          "episode": "t947_recorded_s2h30_ep002_offset000",
+          "scene": 2,
+          "variant": "stage2h30",
+          "execution_horizon": 4,
+          "execution_horizon_semantics": "base4 protocol only",
+          "effective_execution_replanning_schedule": {
+            "0": 4,
+            "1": 4,
+            "2": 30
+          },
+          "grip_offset_rad": 0.0,
+          "source_panel_episode": 2,
+          "seed": 262200002,
+          "outcome": "F",
+          "native_rows": 9001,
+          "physical_phase": 2,
+          "elapsed_sim_s": 75.0,
+          "phase_seconds": [
+            6.833333333333333,
+            23.683333333333334
+          ],
+          "audit_sha256": "9238cc7aab40cc812ff112dc870d6b8c4dab6c2710c36c6868d8fd8dc220a388",
+          "source_result_sha256": "f62e746aae2b85351832c266042e3366f4ce4ec2b787cfdbedcfb83ead20f73d",
+          "case_independently_accepted": true,
+          "parent_final_acceptance": true,
+          "parent_final_closure_pending": false,
+          "component_review_passed": true,
+          "population_SR": false,
+          "autonomous_score_eligible": false,
+          "final_index_sha256": "706120b530a5ac3eebc42d1d156014fde202e4a9984ba8239be73f4abb7cdfca",
+          "source_media_audit_sha256": "ff371a44ae0ee5a82094ef0fd370979b67a36e5a8c5accd7083604c305820e9a",
+          "source_media_receipt_sha256": "0474377a72c5778b5ffa59427d51424b7a71a4a9b3519c8e8ab607ca8584f51b",
+          "media_acceptance_at_export": {
+            "case_independently_accepted": false,
+            "parent_final_closure_pending": true
+          },
+          "comparison_status_text": "四案物理证据和母级均已独立最终验收；原F结果保留。",
+          "actual_queue_summary": {
+            "rows": 1125,
+            "neural_predictions": 122,
+            "stage_first_frames": {
+              "0": 0,
+              "1": 254,
+              "2": 383
+            },
+            "full_stage2_30row_windows": 24,
+            "last_window_consumed_rows": 22,
+            "stage_transition_discards": [
+              {
+                "frame": 254,
+                "old_stage": 0,
+                "old_birth": 252,
+                "consumed_rows": 2,
+                "discarded_indices": [
+                  2,
+                  3
+                ]
+              },
+              {
+                "frame": 383,
+                "old_stage": 1,
+                "old_birth": 382,
+                "consumed_rows": 1,
+                "discarded_indices": [
+                  1,
+                  2,
+                  3
+                ]
+              }
+            ],
+            "all_original30_retained_and_selected_exact": true
+          },
+          "media": {
+            "annotated": "media/t947_recorded_s2h30_ep002_offset000/ep002_h4-4-30_grip000_FAILURE_subtasks.mp4",
+            "timeline": "media/t947_recorded_s2h30_ep002_offset000/frames.json",
+            "filename": "ep002_h4-4-30_grip000_FAILURE_subtasks.mp4",
+            "video_frames": 1126,
+            "full_duration": true,
+            "preview_only": true,
+            "source_video_sha256": "f07e3503f6dd6b0ce6b1331fbf83289f4ca2f026cdf05a3a049d5f414647a565",
+            "source_result_sha256": "f62e746aae2b85351832c266042e3366f4ce4ec2b787cfdbedcfb83ead20f73d",
+            "episode_complete": true,
+            "recorded_prefix_only": false
+          }
+        },
+        {
+          "episode": "t947_recorded_grip_h4_ep049_offset000",
+          "scene": 49,
+          "variant": "all4",
+          "execution_horizon": 4,
+          "grip_offset_rad": 0.0,
+          "source_panel_episode": 49,
+          "seed": 262200039,
+          "outcome": "F",
+          "native_rows": 9001,
+          "physical_phase": 1,
+          "elapsed_sim_s": 75.0,
+          "phase_seconds": [
+            6.716666666666667
+          ],
+          "audit_sha256": "aea336ddc0e73e4962009af502d33d2eb38c94df93ff1a3693395be0f2e77ce4",
+          "source_transfer_sha256": "b0b5d96befe1a68480640f8f7eda6c294416290e562751eee22712526b32e5be",
+          "population_SR": false,
+          "autonomous_score_eligible": false,
+          "media": {
+            "annotated": "media/t947_recorded_grip_h4_ep049_offset000/ep049_h4_recorded_grip000_FAILURE_subtasks.mp4",
+            "timeline": "media/t947_recorded_grip_h4_ep049_offset000/frames.json",
+            "filename": "ep049_h4_recorded_grip000_FAILURE_subtasks.mp4",
+            "video_frames": 1126,
+            "full_duration": true,
+            "preview_only": true,
+            "source_video_sha256": "9b6c8daf97aa7c63e70993bf6012b4aa8a4e6e38988f8a65a983eb220fd0f63f",
+            "source_result_sha256": "69077c487b670c767938fc3b6835edfe01cf1441551e27ed87265219bd129ac8"
+          },
+          "historical_source_case_independently_accepted": true,
+          "comparison_status_text": "历史H4对照：已独立验收的原轨迹；直接复用旧视频，不重跑、不重编码。"
+        },
+        {
+          "episode": "t947_recorded_s2h30_ep049_offset000",
+          "scene": 49,
+          "variant": "stage2h30",
+          "execution_horizon": 4,
+          "execution_horizon_semantics": "base4 protocol only",
+          "effective_execution_replanning_schedule": {
+            "0": 4,
+            "1": 4,
+            "2": 30
+          },
+          "grip_offset_rad": 0.0,
+          "source_panel_episode": 49,
+          "seed": 262200039,
+          "outcome": "F",
+          "native_rows": 9001,
+          "physical_phase": 1,
+          "elapsed_sim_s": 75.0,
+          "phase_seconds": [
+            6.708333333333333
+          ],
+          "audit_sha256": "6c0ddfe48acab4a538e1397a399a3df001e8cfe29f51491be9298f16b00b62e1",
+          "source_result_sha256": "091fcb12cf77ec8ba6436f25b6677d2439968267eb9fb065e34ba7a335c80c64",
+          "case_independently_accepted": true,
+          "parent_final_acceptance": true,
+          "parent_final_closure_pending": false,
+          "component_review_passed": true,
+          "population_SR": false,
+          "autonomous_score_eligible": false,
+          "final_index_sha256": "706120b530a5ac3eebc42d1d156014fde202e4a9984ba8239be73f4abb7cdfca",
+          "source_media_audit_sha256": "6c0ddfe48acab4a538e1397a399a3df001e8cfe29f51491be9298f16b00b62e1",
+          "source_media_receipt_sha256": "0662c4df1a384776893228a31e43861602a5470bbb709d151dd1f11156c2ef3b",
+          "media_acceptance_at_export": {
+            "case_independently_accepted": true,
+            "parent_final_closure_pending": false
+          },
+          "comparison_status_text": "四案物理证据和母级均已独立最终验收；原F结果保留。 实际从未进入stage2，全程仍执行H4，没有使用H30。",
+          "actual_queue_summary": {
+            "rows": 1125,
+            "neural_predictions": 282,
+            "stage_first_frames": {
+              "0": 0,
+              "1": 256,
+              "2": null
+            },
+            "full_stage2_30row_windows": 0,
+            "last_window_consumed_rows": 1,
+            "stage_transition_discards": [
+              {
+                "frame": 256,
+                "old_stage": 0,
+                "old_birth": 252,
+                "consumed_rows": 4,
+                "discarded_indices": []
+              }
+            ],
+            "all_original30_retained_and_selected_exact": true
+          },
+          "media": {
+            "annotated": "media/t947_recorded_s2h30_ep049_offset000/ep049_h4-4-30_grip000_FAILURE_subtasks.mp4",
+            "timeline": "media/t947_recorded_s2h30_ep049_offset000/frames.json",
+            "filename": "ep049_h4-4-30_grip000_FAILURE_subtasks.mp4",
+            "video_frames": 1126,
+            "full_duration": true,
+            "preview_only": false,
+            "source_video_sha256": "ce179f4eb8a0af6beda6f6d840099a92d166f05081a8de0c624fc3efb61749f9",
+            "source_result_sha256": "091fcb12cf77ec8ba6436f25b6677d2439968267eb9fb065e34ba7a335c80c64",
+            "episode_complete": true,
+            "recorded_prefix_only": false
+          }
+        }
+      ],
+      "pending_cases": [],
+      "selector_status": "（四案证据已最终验收）",
+      "outcome_summary": "新两案最终验收：F/F；非总体成功率",
+      "conclusion": "四个新记录已完成独立物理与母级最终验收，原结果1S/3F保持不变；这是两固定左侧场景、两抓握偏移的录制高层指导诊断，不是100条自主成功率。历史H4视频直接复用。H4/4/30同时改变重规划和时间集成重叠，且初始RGB/轨迹不完全相同，不能作为严格单因素因果证明。",
+      "parent_final_closure_pending": false,
+      "population_SR": false,
+      "source_run_complete": true,
+      "producer_outcome_sequence": "F/F",
+      "parent_final_acceptance": true
+    },
+    {
+      "id": "stage2-cadence-grip20",
+      "label": "阶段执行对照 · 抓握偏移0.02rad",
+      "complete": true,
+      "scene_label": "原评测EP",
+      "scene_options": [
+        2,
+        49
+      ],
+      "baseline": "all4",
+      "variants": [
+        "stage2h30"
+      ],
+      "variant_names": {
+        "all4": "历史对照 · 全程H4",
+        "stage2h30": "新诊断 · H4/4/30"
+      },
+      "cases": [
+        {
+          "episode": "t947_recorded_grip_h4_ep002_offset020",
+          "scene": 2,
+          "variant": "all4",
+          "execution_horizon": 4,
+          "grip_offset_rad": 0.02,
+          "source_panel_episode": 2,
+          "seed": 262200002,
+          "outcome": "F",
+          "native_rows": 9001,
+          "physical_phase": 2,
+          "elapsed_sim_s": 75.0,
+          "phase_seconds": [
+            6.841666666666667,
+            24.416666666666668
+          ],
+          "audit_sha256": "85f2451ff2b89fc79dd530396cea4522f0b341ac047836cd63bbbe9f9fa0fd3c",
+          "source_transfer_sha256": "6bf6cf6013da730f01cccaea121af95ed5ae21ef18ad2f140f97b05707f5ce70",
+          "population_SR": false,
+          "autonomous_score_eligible": false,
+          "media": {
+            "annotated": "media/t947_recorded_grip_h4_ep002_offset020/ep002_h4_recorded_grip020_FAILURE_subtasks.mp4",
+            "timeline": "media/t947_recorded_grip_h4_ep002_offset020/frames.json",
+            "filename": "ep002_h4_recorded_grip020_FAILURE_subtasks.mp4",
+            "video_frames": 1126,
+            "full_duration": true,
+            "preview_only": true,
+            "source_video_sha256": "6471129eb8a3b70ca745fe2d47f7b002a7faf0aea7fd3a261d6705c256a3720c",
+            "source_result_sha256": "ab14c49e52063ce33b71bbb2589988ba29d58800f10974dc1ccd4a50723062da"
+          },
+          "historical_source_case_independently_accepted": true,
+          "comparison_status_text": "历史H4对照：已独立验收的原轨迹；直接复用旧视频，不重跑、不重编码。"
+        },
+        {
+          "episode": "t947_recorded_s2h30_ep002_offset020",
+          "scene": 2,
+          "variant": "stage2h30",
+          "execution_horizon": 4,
+          "execution_horizon_semantics": "base4 protocol only",
+          "effective_execution_replanning_schedule": {
+            "0": 4,
+            "1": 4,
+            "2": 30
+          },
+          "grip_offset_rad": 0.02,
+          "source_panel_episode": 2,
+          "seed": 262200002,
+          "outcome": "S",
+          "native_rows": 5177,
+          "physical_phase": 3,
+          "elapsed_sim_s": 43.13333333333333,
+          "phase_seconds": [
+            6.7,
+            25.083333333333332,
+            43.083333333333336
+          ],
+          "audit_sha256": "5556c591632c2834e4584936c9063cb564cb2ea090800ba0b667b7d909a50bf9",
+          "source_result_sha256": "8d3e1e209cb604de20dc81e433cd911a9f71c7f597a62d120d844c9bc95fc9f7",
+          "case_independently_accepted": true,
+          "parent_final_acceptance": true,
+          "parent_final_closure_pending": false,
+          "component_review_passed": true,
+          "population_SR": false,
+          "autonomous_score_eligible": false,
+          "final_index_sha256": "706120b530a5ac3eebc42d1d156014fde202e4a9984ba8239be73f4abb7cdfca",
+          "source_media_audit_sha256": "ff9474f6e04640ae0b91c5e589b6c1bd021b9200e44e870284b3da963f1fe624",
+          "source_media_receipt_sha256": "a263ecf957a4abc276cf53f5085a4d4275deab6801b8c03a55dd663d01cc4930",
+          "media_acceptance_at_export": {
+            "case_independently_accepted": false,
+            "parent_final_closure_pending": true
+          },
+          "comparison_status_text": "四案物理证据和母级均已独立最终验收；原S结果保留。 末段无机器人接触仅7个120Hz样本，原SR无额外保持要求。",
+          "actual_queue_summary": {
+            "rows": 647,
+            "neural_predictions": 113,
+            "stage_first_frames": {
+              "0": 0,
+              "1": 250,
+              "2": 416
+            },
+            "full_stage2_30row_windows": 7,
+            "last_window_consumed_rows": 21,
+            "stage_transition_discards": [
+              {
+                "frame": 250,
+                "old_stage": 0,
+                "old_birth": 248,
+                "consumed_rows": 2,
+                "discarded_indices": [
+                  2,
+                  3
+                ]
+              },
+              {
+                "frame": 416,
+                "old_stage": 1,
+                "old_birth": 414,
+                "consumed_rows": 2,
+                "discarded_indices": [
+                  2,
+                  3
+                ]
+              }
+            ],
+            "all_original30_retained_and_selected_exact": true
+          },
+          "media": {
+            "annotated": "media/t947_recorded_s2h30_ep002_offset020/ep002_h4-4-30_grip020_SUCCESS_subtasks.mp4",
+            "timeline": "media/t947_recorded_s2h30_ep002_offset020/frames.json",
+            "filename": "ep002_h4-4-30_grip020_SUCCESS_subtasks.mp4",
+            "video_frames": 648,
+            "full_duration": true,
+            "preview_only": true,
+            "source_video_sha256": "698812d709c45b9af39d310b4398cd3873b4c699e4a0d2c224dc7fe0fa49c08d",
+            "source_result_sha256": "8d3e1e209cb604de20dc81e433cd911a9f71c7f597a62d120d844c9bc95fc9f7",
+            "episode_complete": true,
+            "recorded_prefix_only": false
+          }
+        },
+        {
+          "episode": "t947_recorded_grip_h4_ep049_offset020",
+          "scene": 49,
+          "variant": "all4",
+          "execution_horizon": 4,
+          "grip_offset_rad": 0.02,
+          "source_panel_episode": 49,
+          "seed": 262200039,
+          "outcome": "F",
+          "native_rows": 9001,
+          "physical_phase": 1,
+          "elapsed_sim_s": 75.0,
+          "phase_seconds": [
+            6.725
+          ],
+          "audit_sha256": "933809688e27f13b55d5da52a8d32dffb041fa3f60227d5ae52f2e11dd4afe7a",
+          "source_transfer_sha256": "a29ef670647f4d58dedfcd8afa77b003f79677f385cb1f7d84c9aacad887176c",
+          "population_SR": false,
+          "autonomous_score_eligible": false,
+          "media": {
+            "annotated": "media/t947_recorded_grip_h4_ep049_offset020/ep049_h4_recorded_grip020_FAILURE_subtasks.mp4",
+            "timeline": "media/t947_recorded_grip_h4_ep049_offset020/frames.json",
+            "filename": "ep049_h4_recorded_grip020_FAILURE_subtasks.mp4",
+            "video_frames": 1126,
+            "full_duration": true,
+            "preview_only": true,
+            "source_video_sha256": "d33a89f3db24181c9831ac0e3d92f0d73404ddeed5eb4e201dac489bb710b5fe",
+            "source_result_sha256": "ae233fd17014cb2851c4021e5ad8cca9b9345200c7b31af788952afeaecc0a05"
+          },
+          "historical_source_case_independently_accepted": true,
+          "comparison_status_text": "历史H4对照：已独立验收的原轨迹；直接复用旧视频，不重跑、不重编码。"
+        },
+        {
+          "episode": "t947_recorded_s2h30_ep049_offset020",
+          "scene": 49,
+          "variant": "stage2h30",
+          "execution_horizon": 4,
+          "execution_horizon_semantics": "base4 protocol only",
+          "effective_execution_replanning_schedule": {
+            "0": 4,
+            "1": 4,
+            "2": 30
+          },
+          "grip_offset_rad": 0.02,
+          "source_panel_episode": 49,
+          "seed": 262200039,
+          "outcome": "F",
+          "native_rows": 9001,
+          "physical_phase": 1,
+          "elapsed_sim_s": 75.0,
+          "phase_seconds": [
+            6.683333333333334
+          ],
+          "audit_sha256": "5b57cb13b5246b016f91613e99aeb5fed717edbd4d94d214280702a4e018c96a",
+          "source_result_sha256": "c18e5f459455f8351c5ad525a02372be1e4fa6d4aaa6e5941fda58986bdbfcdd",
+          "case_independently_accepted": true,
+          "parent_final_acceptance": true,
+          "parent_final_closure_pending": false,
+          "component_review_passed": true,
+          "population_SR": false,
+          "autonomous_score_eligible": false,
+          "final_index_sha256": "706120b530a5ac3eebc42d1d156014fde202e4a9984ba8239be73f4abb7cdfca",
+          "source_media_audit_sha256": "5b57cb13b5246b016f91613e99aeb5fed717edbd4d94d214280702a4e018c96a",
+          "source_media_receipt_sha256": "d36e5ad625f3dfcc9653bcba504768c112b05ea2545f71cf0c563c4d24400fb2",
+          "media_acceptance_at_export": {
+            "case_independently_accepted": true,
+            "parent_final_closure_pending": false
+          },
+          "comparison_status_text": "四案物理证据和母级均已独立最终验收；原F结果保留。",
+          "actual_queue_summary": {
+            "rows": 1125,
+            "neural_predictions": 120,
+            "stage_first_frames": {
+              "0": 0,
+              "1": 253,
+              "2": 376
+            },
+            "full_stage2_30row_windows": 24,
+            "last_window_consumed_rows": 29,
+            "stage_transition_discards": [
+              {
+                "frame": 253,
+                "old_stage": 0,
+                "old_birth": 252,
+                "consumed_rows": 1,
+                "discarded_indices": [
+                  1,
+                  2,
+                  3
+                ]
+              },
+              {
+                "frame": 376,
+                "old_stage": 1,
+                "old_birth": 373,
+                "consumed_rows": 3,
+                "discarded_indices": [
+                  3
+                ]
+              }
+            ],
+            "all_original30_retained_and_selected_exact": true
+          },
+          "media": {
+            "annotated": "media/t947_recorded_s2h30_ep049_offset020/ep049_h4-4-30_grip020_FAILURE_subtasks.mp4",
+            "timeline": "media/t947_recorded_s2h30_ep049_offset020/frames.json",
+            "filename": "ep049_h4-4-30_grip020_FAILURE_subtasks.mp4",
+            "video_frames": 1126,
+            "full_duration": true,
+            "preview_only": false,
+            "source_video_sha256": "e23b2ec7ee739d40acd3c61bcd3f5ca2f1487e21989107e47bb0e6e12b66f59b",
+            "source_result_sha256": "c18e5f459455f8351c5ad525a02372be1e4fa6d4aaa6e5941fda58986bdbfcdd",
+            "episode_complete": true,
+            "recorded_prefix_only": false
+          }
+        }
+      ],
+      "pending_cases": [],
+      "selector_status": "（四案证据已最终验收）",
+      "outcome_summary": "新两案最终验收：S/F；非总体成功率",
+      "conclusion": "四个新记录已完成独立物理与母级最终验收，原结果1S/3F保持不变；这是两固定左侧场景、两抓握偏移的录制高层指导诊断，不是100条自主成功率。历史H4视频直接复用。H4/4/30同时改变重规划和时间集成重叠，且初始RGB/轨迹不完全相同，不能作为严格单因素因果证明。",
+      "parent_final_closure_pending": false,
+      "population_SR": false,
+      "source_run_complete": true,
+      "producer_outcome_sequence": "S/F",
+      "parent_final_acceptance": true
     }
   ],
   "source_phase1_independent_audit_sha256": "7f18493c8d2c289a5fdcae530af1bb527ddd21109d53f485e2cb65f3b8740e10",
