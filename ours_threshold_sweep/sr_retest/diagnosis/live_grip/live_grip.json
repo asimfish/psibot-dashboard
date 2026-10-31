@@ -1,0 +1,1080 @@
+{
+  "owner_task": "T-947",
+  "schema": "T947_live_grip_eight_diagnostic_web_v1",
+  "prepared_only": false,
+  "published": true,
+  "source_aggregate_review_sha256": "6d8478b95c87409b5840f5045f25c4d362239ad642378ef7f005419f3d31ea72",
+  "current_parent_final_acceptance": true,
+  "historical_first_two_parent_pending_receipts_unchanged": true,
+  "experiment": "原Ours30k live Next+DAG，post-ensemble手指闭合偏置诊断",
+  "case_count": 8,
+  "selected_scene_count": 2,
+  "selected_source_episodes": [
+    2,
+    49
+  ],
+  "offsets_rad": [
+    0,
+    0.02,
+    0.04,
+    0.08
+  ],
+  "original_outcomes": {
+    "S": 1,
+    "F": 7,
+    "U": 0
+  },
+  "population_SR": false,
+  "population_percentage_reported": false,
+  "old_original_400_and_48U_untouched": true,
+  "condition": "两个固定左侧场景；源测试A-only ±1cm，B/垫固定；P30，每次执行H4，原linear8控制。",
+  "method_limit": "全部使用真实live planner、DAG、executor、classifier和相机。偏置以外的闭环图像与planner输出不保证逐位相同，不能视为严格单因素因果实验。",
+  "limits": [
+    "1S7F仅为EP2/49两个选定场景的8案结果，不是100条正式成功率，也不替换旧400/48U。",
+    "接触点数不能换算握力；杯对腕位姿变化不能单独证明摩擦、力饱和或PhysX穿模。",
+    "expert-open只是描述性参考，零剂量成功是“必须完全张手才可释放”的反例。",
+    "字幕来自真实policy log；末相机帧若无新推理，仅显示最后已执行指令。",
+    "预览为完整原相机序列的压缩转码，原始视频与RESULT/原seal均未修改。"
+  ],
+  "cases": [
+    {
+      "episode": "cloud4_pair0_t947_grip_h4_ep002_offset000",
+      "source_panel_episode": 2,
+      "grip_offset_rad": 0.0,
+      "diagnostic_outcome": "S",
+      "original_RESULT_status": "task_success",
+      "original_physical_phase": 3,
+      "original_elapsed_sim_seconds": 39.266666666666666,
+      "case_independently_accepted": true,
+      "parent_final_acceptance": true,
+      "historical_case_review_parent_final_acceptance": false,
+      "parent_acceptance_authority_sha256": "6d8478b95c87409b5840f5045f25c4d362239ad642378ef7f005419f3d31ea72",
+      "population_SR": false,
+      "scored": false,
+      "live_original_Next_DAG_and_model_inference": true,
+      "recorded_or_GT_guidance": false,
+      "execution_horizon": 4,
+      "prediction_horizon": 30,
+      "test_distribution": "A-only independent XY uniform +/-0.01m; pads/B fixed",
+      "input_camera": "third_camera",
+      "filename": "ep002_offset000_SUCCESS_live_h4_subtasks.mp4",
+      "video": "media/cloud4_pair0_t947_grip_h4_ep002_offset000/ep002_offset000_SUCCESS_live_h4_subtasks.mp4",
+      "timeline": "media/cloud4_pair0_t947_grip_h4_ep002_offset000/frames.json",
+      "video_frames": 590,
+      "policy_frames": 589,
+      "fps": 15,
+      "full_decode_frames": 590,
+      "preview_only": true,
+      "full_recorded_duration": true,
+      "no_motion_or_time_resampling": true,
+      "native_camera_image_unscaled_640x480": true,
+      "source_review_sha256": "3d816a68e6db3b74ca295066adf7a2dff8654c5a3083ea6eccd9c8504b7bc297",
+      "source_case_seal_sha256": "ab5c992bf1b65b51d5b0759112449f6e8b4ea1cf93aafe61b47b6920fa0ab254",
+      "source_video_sha256": "1b1e15ae3fb8a5cfdd03cc76b595e6fcb6106afd46e70192457c411762ffddb0",
+      "source_policy_sha256": "b5e23621c82cdf128bfddcecc8981662f17e4a29148264ac1da4196e42acfd79",
+      "source_RESULT_sha256": "c776533e7d6f0823f687299044eeea13945d8cef52aa5887af10492d4e261465",
+      "instructions": [
+        {
+          "frame": 0,
+          "seconds": 0.0,
+          "stage": 0,
+          "instruction": "Pick up the beaker of blue liquid from the near-left coaster with the right hand and move it above the other beaker."
+        },
+        {
+          "frame": 257,
+          "seconds": 17.133333333333333,
+          "stage": 1,
+          "instruction": "Tilt the beaker to pour the blue liquid into the other beaker."
+        },
+        {
+          "frame": 386,
+          "seconds": 25.733333333333334,
+          "stage": 2,
+          "instruction": "Turn the empty beaker upright, put it back on the near-left coaster, release it, and move the right hand away."
+        }
+      ],
+      "public_files": {
+        "media/cloud4_pair0_t947_grip_h4_ep002_offset000/ep002_offset000_SUCCESS_live_h4_subtasks.mp4": {
+          "bytes": 150190,
+          "sha256": "8039bd397d70dc0f9f0e9027c6824020d5033df529f682ccee8d67a60c7b30fc"
+        },
+        "media/cloud4_pair0_t947_grip_h4_ep002_offset000/frames.json": {
+          "bytes": 212937,
+          "sha256": "e1965d6177b7b08359e385b8dce9b420f902262b08b6e062ce31e0b7ff602a9a"
+        }
+      },
+      "diagnostic_label": "完成倾倒、归位与释放",
+      "diagnostic_description": "原SR在39.267s成功；终态A3/B1287，原垫接触117、机器人接触0。无需达到完全张手的expert-open参考值。",
+      "verified_facts": {
+        "final_liquid_counts": {
+          "total": 1290,
+          "A": 3,
+          "B": 1287,
+          "outside_vessels": 0,
+          "in_transit": 0,
+          "spill": 0,
+          "currently_spilled_outside": 0
+        },
+        "model_stage_first_frames": {
+          "0": 0,
+          "1": 257,
+          "2": 386
+        },
+        "restore_event_seconds": 39.266666666666666,
+        "release_zero_robot_contacts_at_SR": true,
+        "extra_hold_required_by_original_SR": false
+      },
+      "facts_authority_sha256": "f0bc10f5ec1a63ed909a7ea650b542445063fa33f27259bdffc5dc37e2f6d467",
+      "media_receipt_sha256": "0cba0cca0e960e81c6fe3b661acc1611a9dd69101568ed0bdc66eb9e85e5c879",
+      "score_attribution_limit": "On a handoff frame, score input stage is inferred from prior returned action stage; this is explicitly marked, not GT."
+    },
+    {
+      "episode": "cloud4_pair0_t947_grip_h4_ep002_offset020",
+      "source_panel_episode": 2,
+      "grip_offset_rad": 0.02,
+      "diagnostic_outcome": "F",
+      "original_RESULT_status": "task_timeout_75simsec",
+      "original_physical_phase": 2,
+      "original_elapsed_sim_seconds": 75.0,
+      "case_independently_accepted": true,
+      "parent_final_acceptance": true,
+      "historical_case_review_parent_final_acceptance": false,
+      "parent_acceptance_authority_sha256": "6d8478b95c87409b5840f5045f25c4d362239ad642378ef7f005419f3d31ea72",
+      "population_SR": false,
+      "scored": false,
+      "live_original_Next_DAG_and_model_inference": true,
+      "recorded_or_GT_guidance": false,
+      "execution_horizon": 4,
+      "prediction_horizon": 30,
+      "test_distribution": "A-only independent XY uniform +/-0.01m; pads/B fixed",
+      "input_camera": "third_camera",
+      "filename": "ep002_offset020_FAILURE_live_h4_subtasks.mp4",
+      "video": "media/cloud4_pair0_t947_grip_h4_ep002_offset020/ep002_offset020_FAILURE_live_h4_subtasks.mp4",
+      "timeline": "media/cloud4_pair0_t947_grip_h4_ep002_offset020/frames.json",
+      "video_frames": 1126,
+      "policy_frames": 1125,
+      "fps": 15,
+      "full_decode_frames": 1126,
+      "preview_only": true,
+      "full_recorded_duration": true,
+      "no_motion_or_time_resampling": true,
+      "native_camera_image_unscaled_640x480": true,
+      "source_review_sha256": "da0f477cd539a7dc7c2e869a159af2adacd1a7d563dca029fe0a2da2a4823a6d",
+      "source_case_seal_sha256": "6e529ba656e9e352f48c81a9426d3b3097facc767cf588d3b97aa63377fba7c7",
+      "source_video_sha256": "94ac9c41e110a5adc4fa76e8d15a84b6f89396efa91af6417e6b913c51e93e96",
+      "source_policy_sha256": "0a25e2f48287fc000ef9b84cbe466c94fddc3ef8bcb981ee789082de62b9e408",
+      "source_RESULT_sha256": "944cd7e5bb42ee5987ceff12d5d2f3f28f995b86c0ea36da892eb786e69dce08",
+      "instructions": [
+        {
+          "frame": 0,
+          "seconds": 0.0,
+          "stage": 0,
+          "instruction": "Pick up the beaker of blue liquid from the near-left coaster with the right hand and move it above the other beaker."
+        },
+        {
+          "frame": 248,
+          "seconds": 16.533333333333335,
+          "stage": 1,
+          "instruction": "Tilt the beaker to pour the blue liquid into the other beaker."
+        },
+        {
+          "frame": 428,
+          "seconds": 28.533333333333335,
+          "stage": 2,
+          "instruction": "Turn the empty beaker upright, put it back on the near-left coaster, release it, and move the right hand away."
+        }
+      ],
+      "public_files": {
+        "media/cloud4_pair0_t947_grip_h4_ep002_offset020/ep002_offset020_FAILURE_live_h4_subtasks.mp4": {
+          "bytes": 238446,
+          "sha256": "deaf5132368bd6c26b6a61e914ad5e38750e9e83c6ee82300e0cb3973df1866e"
+        },
+        "media/cloud4_pair0_t947_grip_h4_ep002_offset020/frames.json": {
+          "bytes": 407951,
+          "sha256": "156f548a2c611b75eb05fa12149ca7e991f1462b30449c8cf629dc9c26856397"
+        }
+      },
+      "diagnostic_label": "倾倒达标，归位后未释放",
+      "diagnostic_description": "B1258/1290（≥95%）；40.217s触垫时其余归位条件已满足，但机器人接触86。倒液达标后从未出现零机器人接触；原75s超时F。",
+      "verified_facts": {
+        "final_liquid_counts": {
+          "total": 1290,
+          "A": 0,
+          "B": 1258,
+          "outside_vessels": 32,
+          "in_transit": 0,
+          "spill": 32,
+          "currently_spilled_outside": 32
+        },
+        "model_stage_first_frames": {
+          "0": 0,
+          "1": 248,
+          "2": 428
+        },
+        "classifier_score_groups": {
+          "0": {
+            "nonnull": 247,
+            "max_observed_score": 0.988433301448822,
+            "positive_frames": [
+              247,
+              248
+            ],
+            "score_input_stage_inferred_at_handoff": true
+          },
+          "1": {
+            "nonnull": 180,
+            "max_observed_score": 0.9789942502975464,
+            "positive_frames": [
+              427,
+              428
+            ],
+            "score_input_stage_inferred_at_handoff": true
+          },
+          "2": {
+            "nonnull": 696,
+            "max_observed_score": 0.003377007320523262,
+            "positive_frames": [],
+            "score_input_stage_inferred_at_handoff": true
+          }
+        },
+        "restore_failure_remainder": {
+          "liquid_at95_tick": 2868,
+          "liquid_at95_seconds": 23.9,
+          "receiver_percent_final": 97.51937984496124,
+          "final_spill_particles": 32,
+          "restore_model_stage_first_tick": 3424,
+          "restore_model_stage_first_seconds": 28.533333333333335,
+          "restore_switch_after95_seconds": 4.633333333333334,
+          "premature_restore_before95": false,
+          "receiver95_never_lost_after_first": true,
+          "post95_robot0_rows": 0,
+          "post95_min_robot_contacts": 76,
+          "original20mm_only_rejection": false,
+          "all_other_SR_conditions_true_but_robot_contact_positive_rows": 43,
+          "final_violated_restore_conditions": [
+            "ownpad_contact",
+            "robot_contact0"
+          ],
+          "SSR_warning_was_not_early_termination": true,
+          "original_recording_completed75sim_seconds": true
+        },
+        "no_contact_free_release_after_receiver95": true
+      },
+      "facts_authority_sha256": "04a2f8445a10043dc71b76e3b30ae8abd381c9daaaa10e8bf91b086894385e86",
+      "media_receipt_sha256": "4302c12d09c5d27da545b0601d5a8531c3b2f3c6357f2de02c0adffcfca51bbe",
+      "score_attribution_limit": "On a handoff frame, score input stage is inferred from prior returned action stage; this is explicitly marked, not GT."
+    },
+    {
+      "episode": "cloud4_pair1_t947_grip_h4_ep002_offset040",
+      "source_panel_episode": 2,
+      "grip_offset_rad": 0.04,
+      "diagnostic_outcome": "F",
+      "original_RESULT_status": "task_timeout_75simsec",
+      "original_physical_phase": 2,
+      "original_elapsed_sim_seconds": 75.0,
+      "case_independently_accepted": true,
+      "parent_final_acceptance": true,
+      "historical_case_review_parent_final_acceptance": true,
+      "parent_acceptance_authority_sha256": "6d8478b95c87409b5840f5045f25c4d362239ad642378ef7f005419f3d31ea72",
+      "population_SR": false,
+      "scored": false,
+      "live_original_Next_DAG_and_model_inference": true,
+      "recorded_or_GT_guidance": false,
+      "execution_horizon": 4,
+      "prediction_horizon": 30,
+      "test_distribution": "A-only independent XY uniform +/-0.01m; pads/B fixed",
+      "input_camera": "third_camera",
+      "filename": "ep002_offset040_FAILURE_live_h4_subtasks.mp4",
+      "video": "media/cloud4_pair1_t947_grip_h4_ep002_offset040/ep002_offset040_FAILURE_live_h4_subtasks.mp4",
+      "timeline": "media/cloud4_pair1_t947_grip_h4_ep002_offset040/frames.json",
+      "video_frames": 1126,
+      "policy_frames": 1125,
+      "fps": 15,
+      "full_decode_frames": 1126,
+      "preview_only": true,
+      "full_recorded_duration": true,
+      "no_motion_or_time_resampling": true,
+      "native_camera_image_unscaled_640x480": true,
+      "source_review_sha256": "c192ff86d6ab3933151b7ec472528ec574c435b7689cd0d31e160822a4757e71",
+      "source_case_seal_sha256": "8acceb49bc0ad5e4419e83907ffc01a97ba8b8c4ddc0eef7df62477ae4df423c",
+      "source_video_sha256": "92d35a21561914502645203f4eeed6f8b11196066847ad213039fd05fe83c604",
+      "source_policy_sha256": "9ce4748f438b9b2316e58fd8296c9e363e64b0d8b63b2e768c2296b9756e4aa2",
+      "source_RESULT_sha256": "1388b3f26ce23611b7e5f17890c5847ebd01ccb1d899a7d6b3e0f007bb42ac33",
+      "instructions": [
+        {
+          "frame": 0,
+          "seconds": 0.0,
+          "stage": 0,
+          "instruction": "Pick up the beaker of blue liquid from the near-left coaster with the right hand and move it above the other beaker."
+        },
+        {
+          "frame": 248,
+          "seconds": 16.533333333333335,
+          "stage": 1,
+          "instruction": "Tilt the beaker to pour the blue liquid into the other beaker."
+        },
+        {
+          "frame": 389,
+          "seconds": 25.933333333333334,
+          "stage": 2,
+          "instruction": "Turn the empty beaker upright, put it back on the near-left coaster, release it, and move the right hand away."
+        }
+      ],
+      "public_files": {
+        "media/cloud4_pair1_t947_grip_h4_ep002_offset040/ep002_offset040_FAILURE_live_h4_subtasks.mp4": {
+          "bytes": 237106,
+          "sha256": "71b41f60c94093069648820c06c1c74a925b475890581ea09b67f72974a95c23"
+        },
+        "media/cloud4_pair1_t947_grip_h4_ep002_offset040/frames.json": {
+          "bytes": 409881,
+          "sha256": "70a81fd10387c805c1020ddadb491b85f82900d7986939421857ebc94a11d700"
+        }
+      },
+      "diagnostic_label": "液体全到B，归位后未释放",
+      "diagnostic_description": "终态A0/B1290。37.958s触垫时机器人接触143；后续未出现零机器人接触，原75s超时F。",
+      "verified_facts": {
+        "final_liquid_counts": {
+          "total": 1290,
+          "A": 0,
+          "B": 1290,
+          "outside_vessels": 0,
+          "in_transit": 0,
+          "spill": 0,
+          "currently_spilled_outside": 0
+        },
+        "receiver_max": 1290,
+        "model_stage_first_frames": {
+          "0": 0,
+          "1": 248,
+          "2": 389
+        },
+        "stage_switches": [
+          {
+            "frame": 0,
+            "to": 0,
+            "completion_score": null,
+            "B_at_switch": 0
+          },
+          {
+            "frame": 248,
+            "to": 1,
+            "completion_score": 0.9884665012359619,
+            "B_at_switch": 0
+          },
+          {
+            "frame": 389,
+            "to": 2,
+            "completion_score": 0.9848573207855225,
+            "B_at_switch": 1290
+          }
+        ],
+        "classifier_score_groups": {
+          "0": {
+            "nonnull": 247,
+            "max_observed_score": 0.9884665012359619,
+            "positive_frames": [
+              247,
+              248
+            ],
+            "handoff_score_input_stage_inferred": true
+          },
+          "1": {
+            "nonnull": 141,
+            "max_observed_score": 0.9848573207855225,
+            "positive_frames": [
+              388,
+              389
+            ],
+            "handoff_score_input_stage_inferred": true
+          },
+          "2": {
+            "nonnull": 735,
+            "max_observed_score": 0.003950218204408884,
+            "positive_frames": [],
+            "handoff_score_input_stage_inferred": true
+          }
+        },
+        "contact_preserved_relative_pose": {
+          "first_tick": 1984,
+          "stop_tick_exclusive": 3112,
+          "rows": 1128,
+          "minimum_hand_contacts": 129,
+          "rotation_max_deg": 1.4012431399649112,
+          "translation_max_mm": 1.0692971065305639,
+          "rotation_peak_tick": 2869,
+          "rotation_peak_seconds": 23.908333333333335,
+          "cup_tilt_at_relative_rotation_peak_deg": 93.6443045692388,
+          "rotation_first_over5deg_tick": null,
+          "translation_first_over5mm_tick": null,
+          "force_or_no_penetration_proven": false
+        },
+        "original_task_event_ticks": [
+          819,
+          2879
+        ]
+      },
+      "facts_authority_sha256": "6d8478b95c87409b5840f5045f25c4d362239ad642378ef7f005419f3d31ea72",
+      "media_receipt_sha256": "19c8529cbbdd3050408b562c0b31fa81b90491ea7787e5732ae939d40f7037ff",
+      "score_attribution_limit": "On a handoff frame, score input stage is inferred from prior returned action stage; this is explicitly marked, not GT."
+    },
+    {
+      "episode": "cloud4_pair1_t947_grip_h4_ep002_offset080",
+      "source_panel_episode": 2,
+      "grip_offset_rad": 0.08,
+      "diagnostic_outcome": "F",
+      "original_RESULT_status": "task_timeout_75simsec",
+      "original_physical_phase": 1,
+      "original_elapsed_sim_seconds": 75.0,
+      "case_independently_accepted": true,
+      "parent_final_acceptance": true,
+      "historical_case_review_parent_final_acceptance": true,
+      "parent_acceptance_authority_sha256": "6d8478b95c87409b5840f5045f25c4d362239ad642378ef7f005419f3d31ea72",
+      "population_SR": false,
+      "scored": false,
+      "live_original_Next_DAG_and_model_inference": true,
+      "recorded_or_GT_guidance": false,
+      "execution_horizon": 4,
+      "prediction_horizon": 30,
+      "test_distribution": "A-only independent XY uniform +/-0.01m; pads/B fixed",
+      "input_camera": "third_camera",
+      "filename": "ep002_offset080_FAILURE_live_h4_subtasks.mp4",
+      "video": "media/cloud4_pair1_t947_grip_h4_ep002_offset080/ep002_offset080_FAILURE_live_h4_subtasks.mp4",
+      "timeline": "media/cloud4_pair1_t947_grip_h4_ep002_offset080/frames.json",
+      "video_frames": 1126,
+      "policy_frames": 1125,
+      "fps": 15,
+      "full_decode_frames": 1126,
+      "preview_only": true,
+      "full_recorded_duration": true,
+      "no_motion_or_time_resampling": true,
+      "native_camera_image_unscaled_640x480": true,
+      "source_review_sha256": "17985ced693cc00b173f8f9c9774c83ef3a0b72027bb39ee571acfa228b41047",
+      "source_case_seal_sha256": "4541a2aa031323a2325b88c8278c0a388583de374161bfcc5efb4c64a9ebe1eb",
+      "source_video_sha256": "e51d3514a959488ae5979a67042e09f69466094a438b60da1a1f3f1803afa1b0",
+      "source_policy_sha256": "b88ec0dfa3dd43cf5386d050bbb413279488761c8ebb7894a789e2aea79a8eed",
+      "source_RESULT_sha256": "82da799470b4324e23b05459353e72d5bd89ce3670c9c9ad8ceb288f5ce2d3d8",
+      "instructions": [
+        {
+          "frame": 0,
+          "seconds": 0.0,
+          "stage": 0,
+          "instruction": "Pick up the beaker of blue liquid from the near-left coaster with the right hand and move it above the other beaker."
+        }
+      ],
+      "public_files": {
+        "media/cloud4_pair1_t947_grip_h4_ep002_offset080/ep002_offset080_FAILURE_live_h4_subtasks.mp4": {
+          "bytes": 225884,
+          "sha256": "e7bec57ae0f69ccdae4093ce4fbabf83aa49b8c470570e3403b648d6affabd84"
+        },
+        "media/cloud4_pair1_t947_grip_h4_ep002_offset080/frames.json": {
+          "bytes": 421873,
+          "sha256": "f3753e91002bb5c161719af70fe1a80a4e149dc1bebb0a98793538415e86da41"
+        }
+      },
+      "diagnostic_label": "模型始终停在抓取子任务",
+      "diagnostic_description": "物理拾起已发生，模型抓取段最高分0.966495，低于0.975；没有模型子任务切换，B始终0，原75s超时F。",
+      "verified_facts": {
+        "final_liquid_counts": {
+          "total": 1290,
+          "A": 1290,
+          "B": 0,
+          "outside_vessels": 0,
+          "in_transit": 0,
+          "spill": 0,
+          "currently_spilled_outside": 0
+        },
+        "receiver_max": 0,
+        "model_stage_first_frames": {
+          "0": 0
+        },
+        "stage_switches": [
+          {
+            "frame": 0,
+            "to": 0,
+            "completion_score": null,
+            "B_at_switch": 0
+          }
+        ],
+        "classifier_score_groups": {
+          "0": {
+            "nonnull": 1123,
+            "max_observed_score": 0.9664950966835022,
+            "positive_frames": [],
+            "handoff_score_input_stage_inferred": true
+          }
+        },
+        "contact_preserved_relative_pose": null,
+        "original_task_event_ticks": [
+          819
+        ]
+      },
+      "facts_authority_sha256": "6d8478b95c87409b5840f5045f25c4d362239ad642378ef7f005419f3d31ea72",
+      "media_receipt_sha256": "95214d579b3b47dabb26285cbd12e5542f91e82c014ff8179f0619ff16ca8504",
+      "score_attribution_limit": "On a handoff frame, score input stage is inferred from prior returned action stage; this is explicitly marked, not GT."
+    },
+    {
+      "episode": "cloud4_pair0_t947_grip_h4_ep049_offset000",
+      "source_panel_episode": 49,
+      "grip_offset_rad": 0.0,
+      "diagnostic_outcome": "F",
+      "original_RESULT_status": "task_timeout_75simsec",
+      "original_physical_phase": 1,
+      "original_elapsed_sim_seconds": 75.0,
+      "case_independently_accepted": true,
+      "parent_final_acceptance": true,
+      "historical_case_review_parent_final_acceptance": true,
+      "parent_acceptance_authority_sha256": "6d8478b95c87409b5840f5045f25c4d362239ad642378ef7f005419f3d31ea72",
+      "population_SR": false,
+      "scored": false,
+      "live_original_Next_DAG_and_model_inference": true,
+      "recorded_or_GT_guidance": false,
+      "execution_horizon": 4,
+      "prediction_horizon": 30,
+      "test_distribution": "A-only independent XY uniform +/-0.01m; pads/B fixed",
+      "input_camera": "third_camera",
+      "filename": "ep049_offset000_FAILURE_live_h4_subtasks.mp4",
+      "video": "media/cloud4_pair0_t947_grip_h4_ep049_offset000/ep049_offset000_FAILURE_live_h4_subtasks.mp4",
+      "timeline": "media/cloud4_pair0_t947_grip_h4_ep049_offset000/frames.json",
+      "video_frames": 1126,
+      "policy_frames": 1125,
+      "fps": 15,
+      "full_decode_frames": 1126,
+      "preview_only": true,
+      "full_recorded_duration": true,
+      "no_motion_or_time_resampling": true,
+      "native_camera_image_unscaled_640x480": true,
+      "source_review_sha256": "add1f952c4549ed9ef760de7c80b639eaaf97e93c76df9b96f92be45b38666be",
+      "source_case_seal_sha256": "3225d07d4ee2d93ece47bbfb7d202e3f9a296856bdf8292f1cb1c50e6f8181a2",
+      "source_video_sha256": "e631555aa2f1243f530acd8e5f027c8032089f469bd872ab6e2a7754b5b89346",
+      "source_policy_sha256": "4a57ef178affdf1a56cc44203636600834fff438ceee8aef06ab0b3bc59254bb",
+      "source_RESULT_sha256": "302aa4ba5f47da2b839e9f28b877d0b30c7d98cde37d97672162a26b0baa4b6c",
+      "instructions": [
+        {
+          "frame": 0,
+          "seconds": 0.0,
+          "stage": 0,
+          "instruction": "Pick up the beaker of blue liquid from the near-left coaster with the right hand and move it above the other beaker."
+        },
+        {
+          "frame": 253,
+          "seconds": 16.866666666666667,
+          "stage": 1,
+          "instruction": "Tilt the beaker to pour the blue liquid into the other beaker."
+        }
+      ],
+      "public_files": {
+        "media/cloud4_pair0_t947_grip_h4_ep049_offset000/ep049_offset000_FAILURE_live_h4_subtasks.mp4": {
+          "bytes": 227825,
+          "sha256": "9930907fa8959a8aa4f86aa57c5f0d78cc2f13a67c80a445b95d5692afcebe64"
+        },
+        "media/cloud4_pair0_t947_grip_h4_ep049_offset000/frames.json": {
+          "bytes": 374801,
+          "sha256": "98b753644c8c88751c548cae3639e31872a74aa3ee1a6c2d56c98d25007089c8"
+        }
+      },
+      "diagnostic_label": "倾倒中杯对腕滑转，未完成倒液",
+      "diagnostic_description": "保有手部接触的倾倒前缀内，相对杯腕旋转峰70.13°、平移47.04mm；21.9s出现零机器人接触。B最多2，模型未切归位，原F。",
+      "verified_facts": {
+        "final_liquid_counts": {
+          "total": 1290,
+          "A": 8,
+          "B": 2,
+          "outside_vessels": 1280,
+          "in_transit": 1280,
+          "spill": 0,
+          "currently_spilled_outside": 0
+        },
+        "receiver_max": 2,
+        "model_stage_first_frames": {
+          "0": 0,
+          "1": 253
+        },
+        "stage_switches": [
+          {
+            "frame": 0,
+            "to": 0,
+            "completion_score": null,
+            "B_at_switch": 0
+          },
+          {
+            "frame": 253,
+            "to": 1,
+            "completion_score": 0.9902253746986389,
+            "B_at_switch": 0
+          }
+        ],
+        "classifier_score_groups": {
+          "0": {
+            "nonnull": 252,
+            "max_observed_score": 0.9902253746986389,
+            "positive_frames": [
+              252,
+              253
+            ],
+            "handoff_score_input_stage_inferred": true
+          },
+          "1": {
+            "nonnull": 871,
+            "max_observed_score": 0.0029142238199710846,
+            "positive_frames": [],
+            "handoff_score_input_stage_inferred": true
+          }
+        },
+        "contact_preserved_relative_pose": {
+          "first_tick": 2024,
+          "stop_tick_exclusive": 2628,
+          "rows": 604,
+          "minimum_hand_contacts": 8,
+          "rotation_max_deg": 70.13439009312405,
+          "translation_max_mm": 47.042492192900774,
+          "rotation_peak_tick": 2622,
+          "rotation_peak_seconds": 21.85,
+          "cup_tilt_at_relative_rotation_peak_deg": 29.192982558675265,
+          "rotation_first_over5deg_tick": 2385,
+          "translation_first_over5mm_tick": 2390,
+          "force_or_no_penetration_proven": false
+        },
+        "original_task_event_ticks": [
+          800
+        ]
+      },
+      "facts_authority_sha256": "6d8478b95c87409b5840f5045f25c4d362239ad642378ef7f005419f3d31ea72",
+      "media_receipt_sha256": "e487a79c3e01079fd5a5632423beda1547c43ff9758eff571206157c3ed7aac8",
+      "score_attribution_limit": "On a handoff frame, score input stage is inferred from prior returned action stage; this is explicitly marked, not GT."
+    },
+    {
+      "episode": "cloud4_pair0_t947_grip_h4_ep049_offset020",
+      "source_panel_episode": 49,
+      "grip_offset_rad": 0.02,
+      "diagnostic_outcome": "F",
+      "original_RESULT_status": "task_timeout_75simsec",
+      "original_physical_phase": 1,
+      "original_elapsed_sim_seconds": 75.0,
+      "case_independently_accepted": true,
+      "parent_final_acceptance": true,
+      "historical_case_review_parent_final_acceptance": true,
+      "parent_acceptance_authority_sha256": "6d8478b95c87409b5840f5045f25c4d362239ad642378ef7f005419f3d31ea72",
+      "population_SR": false,
+      "scored": false,
+      "live_original_Next_DAG_and_model_inference": true,
+      "recorded_or_GT_guidance": false,
+      "execution_horizon": 4,
+      "prediction_horizon": 30,
+      "test_distribution": "A-only independent XY uniform +/-0.01m; pads/B fixed",
+      "input_camera": "third_camera",
+      "filename": "ep049_offset020_FAILURE_live_h4_subtasks.mp4",
+      "video": "media/cloud4_pair0_t947_grip_h4_ep049_offset020/ep049_offset020_FAILURE_live_h4_subtasks.mp4",
+      "timeline": "media/cloud4_pair0_t947_grip_h4_ep049_offset020/frames.json",
+      "video_frames": 1126,
+      "policy_frames": 1125,
+      "fps": 15,
+      "full_decode_frames": 1126,
+      "preview_only": true,
+      "full_recorded_duration": true,
+      "no_motion_or_time_resampling": true,
+      "native_camera_image_unscaled_640x480": true,
+      "source_review_sha256": "7a5fe4dc61f56810d0ee5d31d4a903cbe9c91e01418577f4407fc467812bbae8",
+      "source_case_seal_sha256": "41754496b93b2a84c1d74879d194a861fa06e42eccb4eef20b539748584a0b76",
+      "source_video_sha256": "c22ea4318073972565f694063f244ac134336b2ea791aa1c4a96066f05c7e314",
+      "source_policy_sha256": "d9f7abe560c91e213860b4197fc211bc643ad37cb5cc6d3520f9e3c62896c41b",
+      "source_RESULT_sha256": "42cf6825856c10d61648de6fdcbe2a2677486f940926e2cefb1c621ddd61e85b",
+      "instructions": [
+        {
+          "frame": 0,
+          "seconds": 0.0,
+          "stage": 0,
+          "instruction": "Pick up the beaker of blue liquid from the near-left coaster with the right hand and move it above the other beaker."
+        },
+        {
+          "frame": 252,
+          "seconds": 16.8,
+          "stage": 1,
+          "instruction": "Tilt the beaker to pour the blue liquid into the other beaker."
+        },
+        {
+          "frame": 385,
+          "seconds": 25.666666666666668,
+          "stage": 2,
+          "instruction": "Turn the empty beaker upright, put it back on the near-left coaster, release it, and move the right hand away."
+        }
+      ],
+      "public_files": {
+        "media/cloud4_pair0_t947_grip_h4_ep049_offset020/ep049_offset020_FAILURE_live_h4_subtasks.mp4": {
+          "bytes": 243253,
+          "sha256": "34d55d91c6168b6cb6e8d14dfddd73393cf8048bf7d8080fdabc5152cbe2583d"
+        },
+        "media/cloud4_pair0_t947_grip_h4_ep049_offset020/frames.json": {
+          "bytes": 410004,
+          "sha256": "f504b048b01517d09ea6e5d2f81d88bdd5beee5c5625014ba3ab66be8fbeb4d2"
+        }
+      },
+      "diagnostic_label": "杯对腕滑转，B0时切归位",
+      "diagnostic_description": "保有接触前缀内相对杯腕旋转峰63.91°、平移30.07mm；模型frame385切归位时B0，原F。",
+      "verified_facts": {
+        "final_liquid_counts": {
+          "total": 1290,
+          "A": 1290,
+          "B": 0,
+          "outside_vessels": 0,
+          "in_transit": 0,
+          "spill": 0,
+          "currently_spilled_outside": 0
+        },
+        "receiver_max": 0,
+        "model_stage_first_frames": {
+          "0": 0,
+          "1": 252,
+          "2": 385
+        },
+        "stage_switches": [
+          {
+            "frame": 0,
+            "to": 0,
+            "completion_score": null,
+            "B_at_switch": 0
+          },
+          {
+            "frame": 252,
+            "to": 1,
+            "completion_score": 0.9902499318122864,
+            "B_at_switch": 0
+          },
+          {
+            "frame": 385,
+            "to": 2,
+            "completion_score": 0.9809809923171997,
+            "B_at_switch": 0
+          }
+        ],
+        "classifier_score_groups": {
+          "0": {
+            "nonnull": 251,
+            "max_observed_score": 0.9902499318122864,
+            "positive_frames": [
+              251,
+              252
+            ],
+            "handoff_score_input_stage_inferred": true
+          },
+          "1": {
+            "nonnull": 133,
+            "max_observed_score": 0.9809809923171997,
+            "positive_frames": [
+              377,
+              385
+            ],
+            "handoff_score_input_stage_inferred": true
+          },
+          "2": {
+            "nonnull": 739,
+            "max_observed_score": 0.010880254209041595,
+            "positive_frames": [],
+            "handoff_score_input_stage_inferred": true
+          }
+        },
+        "contact_preserved_relative_pose": {
+          "first_tick": 2016,
+          "stop_tick_exclusive": 3080,
+          "rows": 1064,
+          "minimum_hand_contacts": 51,
+          "rotation_max_deg": 63.908284870119054,
+          "translation_max_mm": 30.06835871653427,
+          "rotation_peak_tick": 3049,
+          "rotation_peak_seconds": 25.408333333333335,
+          "cup_tilt_at_relative_rotation_peak_deg": 41.74845435524079,
+          "rotation_first_over5deg_tick": 2309,
+          "translation_first_over5mm_tick": 2355,
+          "force_or_no_penetration_proven": false
+        },
+        "original_task_event_ticks": [
+          800
+        ]
+      },
+      "facts_authority_sha256": "6d8478b95c87409b5840f5045f25c4d362239ad642378ef7f005419f3d31ea72",
+      "media_receipt_sha256": "9481b98c3964573c5adb9e402f521b942e255b65059fc93cbb32997ba48752aa",
+      "score_attribution_limit": "On a handoff frame, score input stage is inferred from prior returned action stage; this is explicitly marked, not GT."
+    },
+    {
+      "episode": "cloud4_pair1_t947_grip_h4_ep049_offset040",
+      "source_panel_episode": 49,
+      "grip_offset_rad": 0.04,
+      "diagnostic_outcome": "F",
+      "original_RESULT_status": "task_timeout_75simsec",
+      "original_physical_phase": 1,
+      "original_elapsed_sim_seconds": 75.0,
+      "case_independently_accepted": true,
+      "parent_final_acceptance": true,
+      "historical_case_review_parent_final_acceptance": true,
+      "parent_acceptance_authority_sha256": "6d8478b95c87409b5840f5045f25c4d362239ad642378ef7f005419f3d31ea72",
+      "population_SR": false,
+      "scored": false,
+      "live_original_Next_DAG_and_model_inference": true,
+      "recorded_or_GT_guidance": false,
+      "execution_horizon": 4,
+      "prediction_horizon": 30,
+      "test_distribution": "A-only independent XY uniform +/-0.01m; pads/B fixed",
+      "input_camera": "third_camera",
+      "filename": "ep049_offset040_FAILURE_live_h4_subtasks.mp4",
+      "video": "media/cloud4_pair1_t947_grip_h4_ep049_offset040/ep049_offset040_FAILURE_live_h4_subtasks.mp4",
+      "timeline": "media/cloud4_pair1_t947_grip_h4_ep049_offset040/frames.json",
+      "video_frames": 1126,
+      "policy_frames": 1125,
+      "fps": 15,
+      "full_decode_frames": 1126,
+      "preview_only": true,
+      "full_recorded_duration": true,
+      "no_motion_or_time_resampling": true,
+      "native_camera_image_unscaled_640x480": true,
+      "source_review_sha256": "745ca42fb9d18e4809027590cb0ed11a77c8fd4539f9c6c5f079306c1e9ed191",
+      "source_case_seal_sha256": "18e8dd15d5786a84789ffb882a7db38bdf002f0efa5ac206594df335dfb06747",
+      "source_video_sha256": "ca51a864a1d6f54863deffca3d399d58f700b9eb22dd18ac2aa3c19e045057a1",
+      "source_policy_sha256": "fd6a56d95ee6e318ad94797e82392238298fc99164047d9d950ec7833dd764fb",
+      "source_RESULT_sha256": "801c6c065fb54271d1832b4b1fbd51d2a890323250c26391a69e919c00d77cb3",
+      "instructions": [
+        {
+          "frame": 0,
+          "seconds": 0.0,
+          "stage": 0,
+          "instruction": "Pick up the beaker of blue liquid from the near-left coaster with the right hand and move it above the other beaker."
+        },
+        {
+          "frame": 245,
+          "seconds": 16.333333333333332,
+          "stage": 1,
+          "instruction": "Tilt the beaker to pour the blue liquid into the other beaker."
+        }
+      ],
+      "public_files": {
+        "media/cloud4_pair1_t947_grip_h4_ep049_offset040/ep049_offset040_FAILURE_live_h4_subtasks.mp4": {
+          "bytes": 228320,
+          "sha256": "0640a0eb937b7466d15cd7dd09f044463eee97509fd2a5a161d6eeeb50eb441f"
+        },
+        "media/cloud4_pair1_t947_grip_h4_ep049_offset040/frames.json": {
+          "bytes": 374210,
+          "sha256": "8612a229680016afc69fba4aa14b942a71800b0bfbac85eda115c0e9a8159a46"
+        }
+      },
+      "diagnostic_label": "保持接触仍滑转，未完成倒液",
+      "diagnostic_description": "倾倒段全程仍有手部接触，相对杯腕旋转峰65.49°、平移32.60mm；B始终0、模型未切归位，原F。",
+      "verified_facts": {
+        "final_liquid_counts": {
+          "total": 1290,
+          "A": 1290,
+          "B": 0,
+          "outside_vessels": 0,
+          "in_transit": 0,
+          "spill": 0,
+          "currently_spilled_outside": 0
+        },
+        "receiver_max": 0,
+        "model_stage_first_frames": {
+          "0": 0,
+          "1": 245
+        },
+        "stage_switches": [
+          {
+            "frame": 0,
+            "to": 0,
+            "completion_score": null,
+            "B_at_switch": 0
+          },
+          {
+            "frame": 245,
+            "to": 1,
+            "completion_score": 0.9880858659744263,
+            "B_at_switch": 0
+          }
+        ],
+        "classifier_score_groups": {
+          "0": {
+            "nonnull": 244,
+            "max_observed_score": 0.9880858659744263,
+            "positive_frames": [
+              244,
+              245
+            ],
+            "handoff_score_input_stage_inferred": true
+          },
+          "1": {
+            "nonnull": 879,
+            "max_observed_score": 0.9557207822799683,
+            "positive_frames": [],
+            "handoff_score_input_stage_inferred": true
+          }
+        },
+        "contact_preserved_relative_pose": {
+          "first_tick": 1960,
+          "stop_tick_exclusive": 9001,
+          "rows": 7041,
+          "minimum_hand_contacts": 53,
+          "rotation_max_deg": 65.49161807027195,
+          "translation_max_mm": 32.5961674108777,
+          "rotation_peak_tick": 5274,
+          "rotation_peak_seconds": 43.95,
+          "cup_tilt_at_relative_rotation_peak_deg": 36.434778875541134,
+          "rotation_first_over5deg_tick": 2376,
+          "translation_first_over5mm_tick": 2405,
+          "force_or_no_penetration_proven": false
+        },
+        "original_task_event_ticks": [
+          801
+        ]
+      },
+      "facts_authority_sha256": "6d8478b95c87409b5840f5045f25c4d362239ad642378ef7f005419f3d31ea72",
+      "media_receipt_sha256": "381cf9c459ebd1179c4e9661d90b4a25445444cb834e26df91d3036169c87c86",
+      "score_attribution_limit": "On a handoff frame, score input stage is inferred from prior returned action stage; this is explicitly marked, not GT."
+    },
+    {
+      "episode": "cloud4_pair1_t947_grip_h4_ep049_offset080",
+      "source_panel_episode": 49,
+      "grip_offset_rad": 0.08,
+      "diagnostic_outcome": "F",
+      "original_RESULT_status": "task_timeout_75simsec",
+      "original_physical_phase": 1,
+      "original_elapsed_sim_seconds": 75.0,
+      "case_independently_accepted": true,
+      "parent_final_acceptance": true,
+      "historical_case_review_parent_final_acceptance": true,
+      "parent_acceptance_authority_sha256": "6d8478b95c87409b5840f5045f25c4d362239ad642378ef7f005419f3d31ea72",
+      "population_SR": false,
+      "scored": false,
+      "live_original_Next_DAG_and_model_inference": true,
+      "recorded_or_GT_guidance": false,
+      "execution_horizon": 4,
+      "prediction_horizon": 30,
+      "test_distribution": "A-only independent XY uniform +/-0.01m; pads/B fixed",
+      "input_camera": "third_camera",
+      "filename": "ep049_offset080_FAILURE_live_h4_subtasks.mp4",
+      "video": "media/cloud4_pair1_t947_grip_h4_ep049_offset080/ep049_offset080_FAILURE_live_h4_subtasks.mp4",
+      "timeline": "media/cloud4_pair1_t947_grip_h4_ep049_offset080/frames.json",
+      "video_frames": 1126,
+      "policy_frames": 1125,
+      "fps": 15,
+      "full_decode_frames": 1126,
+      "preview_only": true,
+      "full_recorded_duration": true,
+      "no_motion_or_time_resampling": true,
+      "native_camera_image_unscaled_640x480": true,
+      "source_review_sha256": "f2499296bc6abd6bb6495ff804021600b5037209b953111703b3a4a732f02daa",
+      "source_case_seal_sha256": "ffd63e4b8cde3d973da56cd41f3ebbc0bdd063f247946e75f04411daad64ad5a",
+      "source_video_sha256": "e725bacd972877c3f16c4dacc8cab3314089991e4766b6f12314426012fa3703",
+      "source_policy_sha256": "9e26db819cdcd39f165eba2527c1bdf35aa46d6d4271faee12806fc4aee87463",
+      "source_RESULT_sha256": "b51107c4488cbd97be2f6231539aa88695c6cb11ddbca42e2b330aeda660276a",
+      "instructions": [
+        {
+          "frame": 0,
+          "seconds": 0.0,
+          "stage": 0,
+          "instruction": "Pick up the beaker of blue liquid from the near-left coaster with the right hand and move it above the other beaker."
+        },
+        {
+          "frame": 244,
+          "seconds": 16.266666666666666,
+          "stage": 1,
+          "instruction": "Tilt the beaker to pour the blue liquid into the other beaker."
+        },
+        {
+          "frame": 389,
+          "seconds": 25.933333333333334,
+          "stage": 2,
+          "instruction": "Turn the empty beaker upright, put it back on the near-left coaster, release it, and move the right hand away."
+        }
+      ],
+      "public_files": {
+        "media/cloud4_pair1_t947_grip_h4_ep049_offset080/ep049_offset080_FAILURE_live_h4_subtasks.mp4": {
+          "bytes": 238339,
+          "sha256": "fc71e41e7228d5072075424b81e2543a605e3de575c5a6ac6cc3d8a1bc30f9e3"
+        },
+        "media/cloud4_pair1_t947_grip_h4_ep049_offset080/frames.json": {
+          "bytes": 409501,
+          "sha256": "ebe1d3015fb1c45108dcda6542ba02f46e9d43a1d5a7e56eabd74c5b5a542ca3"
+        }
+      },
+      "diagnostic_label": "杯对腕滑转，B0时切归位",
+      "diagnostic_description": "保有接触前缀内相对杯腕旋转峰59.43°、平移29.38mm；模型frame389切归位时B0，原F。",
+      "verified_facts": {
+        "final_liquid_counts": {
+          "total": 1290,
+          "A": 119,
+          "B": 0,
+          "outside_vessels": 1171,
+          "in_transit": 0,
+          "spill": 1171,
+          "currently_spilled_outside": 1171
+        },
+        "receiver_max": 0,
+        "model_stage_first_frames": {
+          "0": 0,
+          "1": 244,
+          "2": 389
+        },
+        "stage_switches": [
+          {
+            "frame": 0,
+            "to": 0,
+            "completion_score": null,
+            "B_at_switch": 0
+          },
+          {
+            "frame": 244,
+            "to": 1,
+            "completion_score": 0.9912580847740173,
+            "B_at_switch": 0
+          },
+          {
+            "frame": 389,
+            "to": 2,
+            "completion_score": 0.984002411365509,
+            "B_at_switch": 0
+          }
+        ],
+        "classifier_score_groups": {
+          "0": {
+            "nonnull": 243,
+            "max_observed_score": 0.9912580847740173,
+            "positive_frames": [
+              243,
+              244
+            ],
+            "handoff_score_input_stage_inferred": true
+          },
+          "1": {
+            "nonnull": 145,
+            "max_observed_score": 0.984002411365509,
+            "positive_frames": [
+              388,
+              389
+            ],
+            "handoff_score_input_stage_inferred": true
+          },
+          "2": {
+            "nonnull": 735,
+            "max_observed_score": 0.007316347677260637,
+            "positive_frames": [],
+            "handoff_score_input_stage_inferred": true
+          }
+        },
+        "contact_preserved_relative_pose": {
+          "first_tick": 1952,
+          "stop_tick_exclusive": 3112,
+          "rows": 1160,
+          "minimum_hand_contacts": 53,
+          "rotation_max_deg": 59.427163753835586,
+          "translation_max_mm": 29.38122900204348,
+          "rotation_peak_tick": 3022,
+          "rotation_peak_seconds": 25.183333333333334,
+          "cup_tilt_at_relative_rotation_peak_deg": 41.35288190952534,
+          "rotation_first_over5deg_tick": 2379,
+          "translation_first_over5mm_tick": 2403,
+          "force_or_no_penetration_proven": false
+        },
+        "original_task_event_ticks": [
+          803
+        ]
+      },
+      "facts_authority_sha256": "6d8478b95c87409b5840f5045f25c4d362239ad642378ef7f005419f3d31ea72",
+      "media_receipt_sha256": "cc27d6898ed1b6b1b2f787d85c2c7ac9a9092e1b58fde9db069b405af94df7e9",
+      "score_attribution_limit": "On a handoff frame, score input stage is inferred from prior returned action stage; this is explicitly marked, not GT."
+    }
+  ]
+}
