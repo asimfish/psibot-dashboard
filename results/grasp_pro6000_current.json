@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-30T23:32:11.303997+00:00",
+  "updated_utc": "2026-10-30T23:57:05.998727+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -432,7 +432,7 @@
       },
       "next": "完成原始ACT剩余145的封存与外部核验；继续全150几何、终点全场景和视觉核验。",
       "name": "50ml 玻璃烧杯",
-      "status_note": "原始ACT冻结150：首5已外部核验，5抓起/2终点，剩余145正在Pro6000运行。固定保持DP的120Hz手物核验已完成124/150、暂未发现交叉，完整SSR/全量视觉仍待闭合。训练分配8张低优GPU。",
+      "status_note": "4个Pro6000云任务运行，训练分配8卡、观察到7个优化器；原始ACT首5已核验5抓起/2终点，剩余145运行。固定保持DP手物审计140/150暂未发现交叉；最后10局下载中4个姿态文件被截断，已加入完整长度/原哈希检查并仅重读缺失文件，不重跑策略。",
       "development_source_physics5": {
         "Native_successes": 5,
         "terminal_held": 5,
@@ -836,9 +836,9 @@
         "lift_components_full100_verified": true,
         "terminal_lift_min_m": -0.026144325733184814
       },
-      "next": "R2interrupted111/160lastprogress. R3onlymissing fixedcasesqueued; allclosednativefailuresretained.",
+      "next": "等待同位置/随机数的20局抓取位姿配对结果；同时核对每组120Hz几何与实际物理抬升，合格后才扩大采集。",
       "name": "小棕色试剂瓶",
-      "status_note": "完整16设置×10位置扫描已收尾并保留所有失败；10–12秒多组有约15–21mm交叉，c0.65/6秒也有0.64mm交叉，未确认可通过全组成功与严格零交叉准入的源。"
+      "status_note": "旧160次闭合量/时长扫描未得到合格源。旧源实际协议保留了不同于Main注册值的抓取位置和偏航；新配对20局正在测量位姿影响，不计策略成功率或正式验收。"
     },
     {
       "object": "clear_reagent_bottle_large",
@@ -1566,10 +1566,10 @@
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
     "registered_jobs": 249,
-    "active_registered_jobs": 3,
+    "active_registered_jobs": 4,
     "BOS_mount_count": 2,
-    "state": "ORIGINAL_ACT_FIRST5_CLOSED_REMAINING145_RUNNING",
-    "state_note": "原始ACT冻结150：首5已外部核验，5抓起/2终点，剩余145正在Pro6000运行。固定保持DP的120Hz手物核验已完成124/150、暂未发现交叉，完整SSR/全量视觉仍待闭合。训练分配8张低优GPU。",
+    "state": "FOUR_JOBS_WITH_PAIRED_SOURCE_REPAIR_AND_CPU_FALLBACK",
+    "state_note": "4个Pro6000云任务运行，训练分配8卡、观察到7个优化器；原始ACT首5已核验5抓起/2终点，剩余145运行。固定保持DP手物审计140/150暂未发现交叉；最后10局下载中4个姿态文件被截断，已加入完整长度/原哈希检查并仅重读缺失文件，不重跑策略。",
     "prepared_not_submitted": [
       {
         "tag": "eval-m6-dp-b50-20261025cc",
@@ -1584,7 +1584,7 @@
         "progress_note": "旧ACT种子21/23出现生产日志与BOS存档哈希不符，旧测试继续挂起；新三ACT批次使用生产端内容封存。DP100k种子21也有来源不符，旧DP测试未放行。"
       }
     ],
-    "checked_utc": "2026-10-30T23:31:49.666072+00:00",
+    "checked_utc": "2026-10-30T23:52:04.716126+00:00",
     "jobs": [
       {
         "tag": "qual-mortar-p120-smoke4-20261028cc",
@@ -3290,7 +3290,7 @@
             "glass_beaker",
             26121921,
             0,
-            83400,
+            86100,
             null
           ],
           [
@@ -3298,7 +3298,7 @@
             "glass_beaker",
             26121923,
             1,
-            83450,
+            86150,
             null
           ],
           [
@@ -3306,7 +3306,7 @@
             "glass_beaker",
             26121925,
             2,
-            83600,
+            86300,
             null
           ],
           [
@@ -3318,7 +3318,7 @@
             0
           ]
         ],
-        "GPU_observation": "0, 40696 MiB, 98 % | 1, 40696 MiB, 95 % | 2, 40304 MiB, 95 % | 3, 0 MiB, 0 %"
+        "GPU_observation": "0, 40696 MiB, 99 % | 1, 40696 MiB, 99 % | 2, 40304 MiB, 99 % | 3, 0 MiB, 0 %"
       },
       {
         "tag": "eval-D50-b50-fixed240-formal150-20261030cc-r2",
@@ -3400,7 +3400,7 @@
             "clear_volume",
             26121921,
             0,
-            24700,
+            27400,
             null
           ],
           [
@@ -3408,7 +3408,7 @@
             "clear_volume",
             26121923,
             1,
-            24650,
+            27350,
             null
           ],
           [
@@ -3416,7 +3416,7 @@
             "clear_volume",
             26121925,
             2,
-            24700,
+            27400,
             null
           ],
           [
@@ -3424,12 +3424,12 @@
             "glass_beaker",
             26121921,
             3,
-            24650,
+            27400,
             null
           ]
         ],
         "progress_note": "实际优化进度：26121921:12450, 26121923:12450, 26121925:12450, 26121921:12450。总训练分配8卡，当前7个优化进程；同批已完成的第四卡不擅自重启或取消作业。",
-        "GPU_observation": "0, 40304 MiB, 97 % | 1, 40696 MiB, 95 % | 2, 40696 MiB, 97 % | 3, 39912 MiB, 93 %"
+        "GPU_observation": "0, 40304 MiB, 96 % | 1, 40696 MiB, 99 % | 2, 40696 MiB, 97 % | 3, 39912 MiB, 95 %"
       },
       {
         "tag": "dev-A32-f250N1-sealed3-source15-20261030cc",
@@ -3479,6 +3479,13 @@
         "status": "RUNNING",
         "name": "原始ACT150 · 同计划剩余145",
         "progress_note": "同一冻结150计划，已核验首5：5次抓起、2次终点20mm；本作业仅执行剩余145，不重测首5、不增加至155，不按成绩筛选是否继续。三种原始ACT模型、全部XY、Native随机数、24s/20mm、动作入口保持一致，每GPU最多1个Native。下方视频沿用已封存首5的固定首试次，不是新145中的视频。全150 SR、完整SSR和视觉尚未闭合。"
+      },
+      {
+        "tag": "qual-brownS-pose-paired20-plus-B50CPU-20261030cc",
+        "job_id": "job-qsij36r8zmr9",
+        "name": "小棕瓶抓取位姿配对采集20局",
+        "status": "RUNNING",
+        "progress_note": "4组配对、共20条开发源示范：原注册位姿与旧源修复位姿，闭合0.50/0.65，同5位置/随机数、原6s动作及24s终点、120Hz。旧源记录证实位姿存在X19.36mm/Z38mm及偏航2°差异；本轮测量其影响，不自动训练或验收。CPU旁路子进程退出1，已启用完整长度/哈希校验的CPU进程，仅补原140/150之外的10局；不标通过。"
       }
     ],
     "progress_note": "保留原60个版本和117段原始视频，新增4个独立结果/运行版本；旧版、技术重复、变体及新正式测试分别列出。",
@@ -3490,7 +3497,7 @@
       "F250三份新封存原始ACT开发15/15抓起、0/15终点，问题仍是终点控制；继续DP内容封存训练，不直接扩大无改善版本的正式测试。",
       "漏斗源物理对照首单元存在原始轨迹/派生汇总不一致及文件SHA不符；旧异常不修写成通过。新生产输出封存已实际GPU五局及外部回读一致，失败隔离路径用CPU负例演练通过。",
       "漏斗首种子5条SHA绑定原始轨迹中3条曾进20mm后漂出，24s终点均不达标；最小中间误差只作诊断，不改变验收时刻。",
-      "固定保持DP全150已闭合145抓起/56终点20mm；120Hz手物审计124/150、356748实际姿态暂未发现交叉。该变体不计原DP通过，完整SSR和全量视觉尚未闭合。",
+      "固定保持DP全150为145抓起/56终点；120Hz手物审计140/150暂未发现交叉。签名接口曾HTTP429；挂载BOS旁路子进程失败，具体原因待补证。原读取器随后发现4个2–8MB截断文件（NPY应30.24MB），新读取器通过短响应拒绝/完整响应接受回归，只补最后10局。BOS原件损坏尚无证据，完整SSR/全量视觉未闭合。",
       "手/目标几何零交叉和20mm终点只是组件，完整Grasp SpatialSSR还需非法全场景碰撞域及视觉；变体未获得原始基线验收授权，正式仍0/21。"
     ],
     "expert_replay_prefix": {
@@ -3697,9 +3704,10 @@
     "sealed_continuation_evidence_url": "verification/grasp-sealed-models-and-original-source15-20261030.json",
     "original_ACT150_OOD_integrity_evidence_url": "verification/grasp-original-ACT150-OOD-and-output-integrity-20261030.json",
     "firstcell_recovery_evidence_url": "verification/grasp-ACT150-technical-failure-and-first5-recovery-20261030.json",
-    "original_ACT_first5_media_evidence_url": "verification/grasp-original-ACT-first5-closed-and-three-view-20261030.json"
+    "original_ACT_first5_media_evidence_url": "verification/grasp-original-ACT-first5-closed-and-three-view-20261030.json",
+    "source_pose_paired20_evidence_url": "verification/grasp-BrownS-pose-paired20-and-CPU-fallback-20261030.json"
   },
-  "evidence_note": "原始ACT冻结150：首5已外部核验，5抓起/2终点，剩余145正在Pro6000运行。固定保持DP的120Hz手物核验已完成124/150、暂未发现交叉，完整SSR/全量视觉仍待闭合。训练分配8张低优GPU。 保留原117段视频并新增原始ACT实际首试次3视角，正式仍0/21。",
+  "evidence_note": "4个Pro6000云任务运行，训练分配8卡、观察到7个优化器；原始ACT首5已核验5抓起/2终点，剩余145运行。固定保持DP手物审计140/150暂未发现交叉；最后10局下载中4个姿态文件被截断，已加入完整长度/原哈希检查并仅重读缺失文件，不重跑策略。 保留66个版本、120段实际视频，正式仍0/21。",
   "offline_DP_probe": {
     "observations": 4,
     "source_episodes": 1,
