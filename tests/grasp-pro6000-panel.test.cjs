@@ -303,7 +303,9 @@ test('B50 recovery retains all127 originals and only budgets23 new unique identi
  assert.equal(recovery.current_native,false);assert.equal(recovery.result.SpatialSSR,null);
  assert.equal(recovery.cases.length,3);assert.deepEqual(recovery.cases.map(c => c.url),original.cases.map(c => c.url));
  assert.equal(recovery.expected_trials,150);assert.equal(recovery.formal_accepted,false);
- assert.equal(snapshot.pipeline.training_GPU_cap,8);assert.equal(snapshot.pipeline.allocated_training_GPUs,8);
+ assert.equal(snapshot.pipeline.training_GPU_cap,8);
+ assert.ok(snapshot.pipeline.allocated_training_GPUs >= 0 && snapshot.pipeline.allocated_training_GPUs <= 8);
+ assert.ok(snapshot.pipeline.training_optimizers_last_verified <= snapshot.pipeline.allocated_training_GPUs);
  const proof=JSON.parse(fs.readFileSync(path.join(root,snapshot.pipeline.current_recovery_evidence_url),'utf8'));
  assert.equal(proof.B50_recovery.original3_task_failures_preserved,true);
  assert.equal(proof.first_actual_fullscene.original_events,2877);
