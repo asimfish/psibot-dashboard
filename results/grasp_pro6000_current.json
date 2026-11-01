@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-01T20:24:08.253596+00:00",
+  "updated_utc": "2026-11-01T21:49:33.137174+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -573,7 +573,7 @@
       },
       "next": "先让预声明20局专家修复同时通过真实抬升与手内/手物/桌面几何、RGB和视觉，再采新百条并训练两方法；旧74局和缺失76局身份保留，不重复已完成Native。",
       "name": "250ml 棕色容量瓶",
-      "status_note": "原新150分母内共74局闭合、62抓起/20终点20mm，仍缺76局。原23局CPU复核：19抓起/7终点，但7个候选均有非法交叉，位姿与碰撞代理0。根因推进到专家源：首单元7/7末段已有拇指与食指交叉，原源停止新训练准入；20局闭合力度修复试采已提交。旧其他23/62局单独保留。",
+      "status_note": "原150分母仍仅74局闭合、62抓起/20终点，缺失76保留；原23局必要位姿与碰撞代理0。专家源首7尾帧均相交，后续全局闭合力度20局：14原生成功/20终点，但20/20仍手内相交；四组修复失败均保留，原源后续训练准入继续关闭。",
       "latest_source_development": {
         "method": "ACT",
         "trials": 15,
@@ -646,7 +646,7 @@
       "source_self_repair20": {
         "tag": "qual-brownV-handSelf-close20-m6-p120-20261101cc",
         "job_id": "job-sncnic5mxkqd",
-        "status": "PENDING",
+        "status": "SUCCEEDED",
         "closure_scales": [
           0.99,
           0.975,
@@ -663,7 +663,37 @@
         ],
         "all_required_source_quality_components_pending": true,
         "source_training_allowed": false,
-        "formal_accepted": false
+        "formal_accepted": false,
+        "Native_successes": 14,
+        "terminal20mm": 20,
+        "source_episodes_with_positive_self_witness": 20,
+        "all4_settings_rejected": true,
+        "rows": [
+          {
+            "label": "BrownV_c099",
+            "Native_successes": 5,
+            "terminal20": 5,
+            "self_positive": 5
+          },
+          {
+            "label": "BrownV_c0975",
+            "Native_successes": 5,
+            "terminal20": 5,
+            "self_positive": 5
+          },
+          {
+            "label": "BrownV_c095",
+            "Native_successes": 4,
+            "terminal20": 5,
+            "self_positive": 5
+          },
+          {
+            "label": "BrownV_c090",
+            "Native_successes": 0,
+            "terminal20": 5,
+            "self_positive": 5
+          }
+        ]
       }
     },
     {
@@ -851,9 +881,9 @@
         "strict_crossings": 0,
         "geometry_scope": "Original100 hand/target surface checks only; scene/table source safety is not certified."
       },
-      "next": "闭合新源全部100条的真实抬升、手物/手内/桌面120Hz几何、RGB、写入器和视觉；不把源成功率当成策略验收。保留首采失败与旧DP200k开发失败。",
+      "next": "取得精确旧作业替换授权并保留其已完成ACT封存后，在同4卡训练新源三DP100k/三ACT32k。全部预动作/RGB/训练95统计门仍在优化前执行；完成后开发15局和冻结新正式测试分别验收，原失败不改。",
       "name": "50ml 玻璃烧杯",
-      "status_note": "旧DP200k已知开发15仍为15抓起/3终点20mm，未过6/15门槛。+5mm源首次作业失败、0闭合单元；新版本已观察46/47抓起，8单元已送审。试采5局及新首单元5局的终点563个非豁免手部组合均无交叉；全程120Hz手内交叉审计继续，不能以终点抽查准入训练。",
+      "status_note": "+5mm净空新源已形成100条合格开发示范：104次原始尝试103成功；按预声明整单元规则排除[6,30,54,78]并补4，得到100/100原生与终点达标。记录范围内120Hz手物/手内/手桌、RGB证明和234张原视角抽查闭合；同名跨任务缓存问题已用真实解码复现并修复。新4卡DP/ACT三种子训练已演练，等待8卡内替换；尚未新增策略通过。",
       "development_source_physics5": {
         "Native_successes": 5,
         "terminal_held": 5,
@@ -1036,7 +1066,7 @@
       "new_clearance_source100": {
         "tag": "src100-b50-clearance5mm-m6-p120-20261101cc-r2",
         "job_id": "job-gwsii4roxl95",
-        "status": "RUNNING",
+        "status": "SUCCEEDED",
         "grasp_offset_m": [
           -0.0653,
           -0.13,
@@ -1079,18 +1109,27 @@
         "partition_and_generator_RNG_differ_from_failed_attempt": true,
         "progress": {
           "expected_episodes": 100,
-          "completed": 47,
-          "Native_successes": 46,
-          "terminal20mm": 47,
-          "checked_utc": "2026-11-01T20:13:47.436296+00:00",
+          "completed": 100,
+          "Native_successes": 99,
+          "terminal20mm": 100,
+          "checked_utc": "2026-11-01T21:25:21.501031+00:00",
           "source_training_allowed": false
         },
-        "CPU_recorded_input_cells_downloaded": 8,
-        "CPU_checked_utc": "2026-11-01T20:15:41.348693+00:00",
+        "CPU_recorded_input_cells_downloaded": 24,
+        "CPU_checked_utc": "2026-11-01T21:25:21.501031+00:00",
         "target_and_table_CPU_workers": 12,
         "self_CPU_workers": 4,
-        "all100_target_self_scene_RGB_writer_and_visual_admission_pending": true,
-        "source_training_allowed": false
+        "all100_target_self_scene_RGB_writer_and_visual_admission_pending": false,
+        "source_training_allowed": false,
+        "all100_physical_quality_passed": false,
+        "source_numeric_scope": "Recorded hand/EEF against target, table and non-exempt self pairs only; not a missing full arm/scene or policy SSR certificate.",
+        "all120_states": 287800,
+        "hand_target_crossing_states": 0,
+        "hand_table_crossing_states": 0,
+        "hand_self_positive_source_episodes": 0,
+        "all100_self_120Hz_complete": true,
+        "original_failure_source_pool_id": 6,
+        "original_failure_reason": "Original orientation loss0.0607079 exceeds unchanged0.05; lift0.285875m and terminal8.0333mm passed. Failure remains failure."
       },
       "development_original_DP200_source15": {
         "job_id": "job-3xmlqxk30kua",
@@ -1174,7 +1213,128 @@
           "all_120Hz_frames_certified": false,
           "evidence_SHA256": "6d2fa92e0a8c55af8b15c23f631b56d8778ea46aa88937bcf2bc947875aa405e"
         }
-      ]
+      ],
+      "source_supplement4": {
+        "tag": "src4-b50-clearance5mm-supplement-p120-20261101cc-r2",
+        "job_id": "job-clhnab75ga2b",
+        "status": "SUCCEEDED",
+        "source_episodes": 4,
+        "Native_successes": 4,
+        "terminal20mm": 4,
+        "original120_states": 11512,
+        "all_recorded_hand_target_self_table_clean": true,
+        "actual_fixed_stills_reviewed": 72,
+        "first_failed_job_id": "job-urmkcoy54tuk",
+        "first_failure_missing_project_rows_with_zero_Native_episodes": true,
+        "missing_rows_embedded_in_private_PRE_before_resubmission": true,
+        "source_training_allowed": false,
+        "formal_accepted": false
+      },
+      "qualified_clearance_source100": {
+        "source_pool_attempts": 104,
+        "source_pool_Native_successes": 103,
+        "source_pool_terminal20mm": 104,
+        "selected_demonstrations": 100,
+        "selected_Native_successes": 100,
+        "selected_terminal20mm": 100,
+        "selected_cells": 27,
+        "source_pool_all104_outcomes_retained": true,
+        "excluded_whole_original_cell": "cell06_gpu2",
+        "excluded_source_pool_ids": [
+          6,
+          30,
+          54,
+          78
+        ],
+        "one_failure_and_three_successes_excluded_as_whole_cell": true,
+        "original104_distinct_XY": true,
+        "source_XY_half_extent_cm": 3,
+        "selection_uses_no_policy_test_outcomes": true,
+        "source_GPU_line": "Zenith Pro6000",
+        "actual_virtualized_GPU_name": "NVIDIA RPBZZZ6",
+        "source_NODE_SHA256": "344d8ddb6abe9f77f885b4daaf6023d2828ff365bac71b582fb9291028743b73",
+        "BOS_receipts": [
+          {
+            "key": "liyufeng/pro6000-bulk/data/grasp_pro6000_cc/curated/B50_clearance5mm_source104_to100_20261101/SOURCE_POOL104_AND_SELECTION.json",
+            "SHA256": "d88343fbaa0fab61e37263bccf0869a8381b6f4195cf29f87bb9d2240fafeee3",
+            "bytes": 974782
+          },
+          {
+            "key": "liyufeng/pro6000-bulk/data/grasp_pro6000_cc/curated/B50_clearance5mm_source104_to100_20261101/NODE.json",
+            "SHA256": "344d8ddb6abe9f77f885b4daaf6023d2828ff365bac71b582fb9291028743b73",
+            "bytes": 5015
+          }
+        ],
+        "all_selected_recorded_hand_EEF_target_self_table_components_clean": true,
+        "raw100_states": 287800,
+        "supplement4_states": 11512,
+        "full_missing_scene_or_formal_SSR_not_claimed": true,
+        "producer_full_video_decodes_curated300": true,
+        "total_sampled_original_stills": 234,
+        "curated_sampled_original_stills": 198,
+        "excluded_original_stills": 36,
+        "source_training_allowed": true,
+        "development_training_only": true,
+        "training_data_preaction_loader_gate_still_mandatory_before_updates": true,
+        "formal_accepted": false
+      },
+      "qualified_source_training": {
+        "tag": "train-D100A32-b50Clearance-six-sealed-20261101cc",
+        "status": "HELD_EIGHT_TRAINING_GPU",
+        "training_GPUs": 4,
+        "DP_steps": 100000,
+        "ACT_steps": 32000,
+        "fixed_seeds": [
+          26121921,
+          26121923,
+          26121925
+        ],
+        "actual_original_GPU_placements": [
+          {
+            "kind": "dp",
+            "object": "glass_beaker_50ml",
+            "seed": 26121921,
+            "GPU": 0
+          },
+          {
+            "kind": "dp",
+            "object": "glass_beaker_50ml",
+            "seed": 26121923,
+            "GPU": 1
+          },
+          {
+            "kind": "dp",
+            "object": "glass_beaker_50ml",
+            "seed": 26121925,
+            "GPU": 2
+          },
+          {
+            "kind": "act",
+            "object": "glass_beaker_50ml",
+            "seed": 26121921,
+            "GPU": 3
+          },
+          {
+            "kind": "act",
+            "object": "glass_beaker_50ml",
+            "seed": 26121923,
+            "GPU": 3
+          },
+          {
+            "kind": "act",
+            "object": "glass_beaker_50ml",
+            "seed": 26121925,
+            "GPU": 3
+          }
+        ],
+        "source_review_SHA256": "0e88e6f52e9311cd68729152653491484252d667b54cd1be32bdb74e6821c92e",
+        "PRE_SHA256": "ac3be75addcf4275198e9848a3b59c7615bd9a70ce6026b7f6c042b01d23a256",
+        "actual_staged_and_inline_checks_passed": true,
+        "new_training_job_created": false,
+        "pending_exact_old_job_replacement_authorization": true,
+        "no_running_job_cancelled": true,
+        "formal150_automatic_release": false
+      }
     },
     {
       "object": "mortar",
@@ -1866,7 +2026,7 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "250ml 透明容量瓶",
-      "status_note": "新三DP100k原源开发15：11抓起/1终点20mm；ACT32k为15抓起/0终点。补查原专家源首7局末段，7/7存在拇指与食指非法交叉，原手物零交叉不能证明手内安全，新训练源准入已撤回。正在运行的预算对照保留开发身份，未取消或预先计入验收；优先检查已有低闭合记录并修复源。",
+      "status_note": "原源手内交叉问题仍阻止新正式准入；旧预算训练保留开发身份。拇指闭合20局全部抓起，却全部有轨迹手内交叉，已拒绝。原记录关节/几何反事实筛出张角修复候选，新20局已启动：8/8抓起，未把运动学抽查当作真实仿真或安全通过。",
       "next": "先复用已有c0.98/c0.96源记录定位手内安全闭合量，结合N1颈部偏移做预声明小批验证；源手内/手物/桌面、抬升和RGB视觉合格后才准入新训练与正式策略验收。",
       "source120_closed": {
         "episodes": 100,
@@ -1914,6 +2074,90 @@
         "formal_accepted": false,
         "new_source_hand_self_defect_found": true,
         "automatically_admitted_to_formal_evaluation": false
+      },
+      "thumb_flex_source20": {
+        "tag": "qual-f250N1-thumbflex20-m8-p120-20261101cc",
+        "job_id": "job-89um3x177mqm",
+        "status": "SUCCEEDED",
+        "Native_successes": 20,
+        "terminal20mm": 20,
+        "all20_have_positive_self_witness": true,
+        "rows": [
+          {
+            "label": "F250N1_thumb090",
+            "Native_successes": 5,
+            "terminal20": 5,
+            "terminal_self_positive": 5,
+            "full_self_positive": null,
+            "source_training_allowed": false
+          },
+          {
+            "label": "F250N1_thumb080",
+            "Native_successes": 5,
+            "terminal20": 5,
+            "terminal_self_positive": 5,
+            "full_self_positive": null,
+            "source_training_allowed": false
+          },
+          {
+            "label": "F250N1_thumb070",
+            "Native_successes": 5,
+            "terminal20": 5,
+            "terminal_self_positive": 5,
+            "full_self_positive": null,
+            "source_training_allowed": false
+          },
+          {
+            "label": "F250N1_thumb060",
+            "Native_successes": 5,
+            "terminal20": 5,
+            "terminal_self_positive": 0,
+            "full_self_positive": 5,
+            "source_training_allowed": false
+          }
+        ],
+        "source_training_allowed": false
+      },
+      "thumb_spread_flex_source20": {
+        "tag": "qual-f250N1-thumbspread20-m8-p120-20261101cc",
+        "job_id": "job-ycwll4dzxwxf",
+        "status": "RUNNING",
+        "last_progress": {
+          "eps": 8,
+          "succ": 8,
+          "t20": 8
+        },
+        "checked_utc": "2026-11-01T21:47:07.253764+00:00",
+        "settings": [
+          {
+            "spread": 1.22,
+            "flex": 0.6
+          },
+          {
+            "spread": 1.12,
+            "flex": 0.6
+          },
+          {
+            "spread": 1.22,
+            "flex": 0.5
+          },
+          {
+            "spread": 1.12,
+            "flex": 0.5
+          }
+        ],
+        "source_episodes_per_setting": 5,
+        "other_four_finger_targets_bitwise_unchanged": true,
+        "original8s_expert_and24s_cap_unchanged": true,
+        "kinematic_ranking_only": {
+          "sampled_original_poses": 79,
+          "original31_hit_witness_exactly_reproduced": true,
+          "spread_minus03_minus04_had_no_selected_pair_crossings": true,
+          "actual_native_success_not_predicted": true
+        },
+        "all_original_source_geometry_and_visual_gates_pending": true,
+        "source_training_allowed": false,
+        "formal_accepted": false
       }
     },
     {
@@ -2421,11 +2665,11 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 273,
-    "active_registered_jobs": 4,
+    "registered_jobs": 277,
+    "active_registered_jobs": 3,
     "BOS_mount_count": 2,
-    "state": "EIGHT_REAL_OPTIMIZERS_SOURCE_SELF_REPAIR_AND_DURABLE_SOURCE_RECOVERY",
-    "state_note": "8张训练卡的8个优化器持续更新；B50新源46/47抓起、8个小单元送审。BrownV专家首7局末段均有手内交叉，20局修复试采已提交；旧测试自然技术失败，封存结果保留。正式仍0/21、0/42。 新补查：F250原源7/7尾帧也有手内交叉；大透明瓶7尾帧阴性仅属初筛。",
+    "state": "B50_SOURCE100_QUALIFIED_F250_CAUSAL_REPAIR_TRAINING_SLOT_PENDING",
+    "state_note": "8张训练卡已分配，最近采样8个优化器更新；B50新100条开发源已准入，新4卡六模型训练已演练，等待同卡替换且不增加第9张训练卡。F250张角修复已观察8/8抓起，仍需完整源审计。正式仍0/21、0/42。",
     "prepared_not_submitted": [
       {
         "tag": "eval-m6-dp-b50-20261025cc",
@@ -2438,9 +2682,15 @@
         "name": "F250旧来源异常测试",
         "state": "HOLD_PRODUCER_BOS_IMMUTABILITY",
         "progress_note": "旧ACT种子21/23出现生产日志与BOS存档哈希不符，旧测试继续挂起；新三ACT批次使用生产端内容封存。DP100k种子21也有来源不符，旧DP测试未放行。"
+      },
+      {
+        "tag": "train-D100A32-b50Clearance-six-sealed-20261101cc",
+        "name": "50ml合格新源 · DP/ACT三种子训练",
+        "state": "HOLD_EIGHT_TRAINING_GPU_REPLACEMENT",
+        "progress_note": "100条开发训练示范已准入；新4卡训练已演练，DP各一张、三个ACT共第四张卡。等待旧作业4卡替换，不额外占用第9张训练卡，尚未创建作业。"
       }
     ],
-    "checked_utc": "2026-11-01T20:16:06.624497+00:00",
+    "checked_utc": "2026-11-01T21:49:33.137174+00:00",
     "jobs": [
       {
         "tag": "qual-mortar-p120-smoke4-20261028cc",
@@ -4500,36 +4750,40 @@
         "tag": "train-A64-f250S3-D200-f250S21-sealed-20261101cc",
         "job_id": "job-u1iiwcgozjb9",
         "status": "RUNNING",
-        "name": "F250 三ACT64k与一个DP200k",
-        "progress_note": "4个优化器真实更新至 11350/30580/30120/30300 步；采样 2026-11-01T20:13:09.067231+00:00。新训练尚未完成，未增加验收通过数。",
+        "name": "已运行4卡预算训练",
+        "progress_note": "优化器步数 23600/63200/62600/62930；采样 2026-11-01T21:43:24.086863+00:00。F250源问题已撤回后续准入，保留本作业开发记录。",
         "training_progress": [
           {
             "method": "dp",
             "object_alias": "clear_volume",
             "seed": 26121921,
             "GPU": 0,
-            "updates": 11350
+            "updates": 23600,
+            "return_code": null
           },
           {
             "method": "act",
             "object_alias": "clear_volume",
             "seed": 26121921,
             "GPU": 1,
-            "updates": 30580
+            "updates": 63200,
+            "return_code": null
           },
           {
             "method": "act",
             "object_alias": "clear_volume",
             "seed": 26121923,
             "GPU": 2,
-            "updates": 30120
+            "updates": 62600,
+            "return_code": null
           },
           {
             "method": "act",
             "object_alias": "clear_volume",
             "seed": 26121925,
             "GPU": 3,
-            "updates": 30300
+            "updates": 62930,
+            "return_code": null
           }
         ]
       },
@@ -4537,45 +4791,49 @@
         "tag": "train-D200-f250S23S25-clearLS21S23-sealed-20261101cc",
         "job_id": "job-8grtqzrugqxp",
         "status": "RUNNING",
-        "name": "F250 两DP200k与大透明瓶两DP200k",
-        "progress_note": "4个优化器真实更新至 10750/10800/10750/10800 步；采样 2026-11-01T20:12:54.906861+00:00。新训练尚未完成，未增加验收通过数。",
+        "name": "已运行4卡预算训练",
+        "progress_note": "优化器步数 22950/23000/23000/23000；采样 2026-11-01T21:43:10.949430+00:00。F250源问题已撤回后续准入，保留本作业开发记录。",
         "training_progress": [
           {
             "method": "dp",
             "object_alias": "clear_volume",
             "seed": 26121923,
             "GPU": 0,
-            "updates": 10750
+            "updates": 22950,
+            "return_code": null
           },
           {
             "method": "dp",
             "object_alias": "clear_volume",
             "seed": 26121925,
             "GPU": 1,
-            "updates": 10800
+            "updates": 23000,
+            "return_code": null
           },
           {
             "method": "dp",
             "object_alias": "clear_reagen",
             "seed": 26121921,
             "GPU": 2,
-            "updates": 10750
+            "updates": 23000,
+            "return_code": null
           },
           {
             "method": "dp",
             "object_alias": "clear_reagen",
             "seed": 26121923,
             "GPU": 3,
-            "updates": 10800
+            "updates": 23000,
+            "return_code": null
           }
         ]
       },
       {
         "tag": "src100-b50-clearance5mm-m6-p120-20261101cc-r2",
         "job_id": "job-gwsii4roxl95",
-        "status": "RUNNING",
-        "name": "50ml净空源100 · 小单元持久保存",
-        "progress_note": "已观察47局/46抓起，8个闭合单元原始输入已下载送审。每4–5局保存一次，四张卡各最多一个原生子进程；尚未准入训练。",
+        "status": "SUCCEEDED",
+        "name": "50ml净空源100 · 原始结果保留",
+        "progress_note": "原100条已完整封存：99原生成功/100终点20mm。287800个原120Hz状态的手物/手桌与全程手内检查完成，均无交叉；原倾斜失败6保留，原100不冒报100成功。",
         "Native_progress": {
           "eps": 47,
           "succ": 46,
@@ -4585,21 +4843,47 @@
       {
         "tag": "qual-brownV-handSelf-close20-m6-p120-20261101cc",
         "job_id": "job-sncnic5mxkqd",
-        "status": "PENDING",
-        "name": "棕色容量瓶 · 夹手修复专家试采20局",
-        "progress_note": "四个预声明闭合力度各5局，原物体/抓取位置/抬升目标/物理保持。源手内、手物和桌面均须审计；无自动训练或正式验收信用。"
+        "status": "SUCCEEDED",
+        "name": "棕色容量瓶 · 全局闭合力度试采20",
+        "progress_note": "四设置分别5/5、5/5、4/5、0/5原生成功；20/20末段均有非豁免手内交叉，四组均拒绝。没有新100条采集或新训练放行。"
+      },
+      {
+        "tag": "src4-b50-clearance5mm-supplement-p120-20261101cc",
+        "job_id": "job-urmkcoy54tuk",
+        "status": "FAILED",
+        "name": "50ml补采4 · 缺位置表的技术失败",
+        "progress_note": "因容器缺少位置表，0原生采集；原失败保留。新编号把冻结原位置表内嵌并重新执行实际构建与路径测试。"
+      },
+      {
+        "tag": "src4-b50-clearance5mm-supplement-p120-20261101cc-r2",
+        "job_id": "job-clhnab75ga2b",
+        "status": "SUCCEEDED",
+        "name": "50ml补采4 · 全部源组件闭合",
+        "progress_note": "4/4原生成功、4/4终点20mm，11512原120Hz状态手内/手物/手桌均无交叉；12视频生产端全解码，72固定原视角图已直接审阅。"
+      },
+      {
+        "tag": "qual-f250N1-thumbflex20-m8-p120-20261101cc",
+        "job_id": "job-89um3x177mqm",
+        "status": "SUCCEEDED",
+        "name": "250ml容量瓶 · 拇指闭合试采20",
+        "progress_note": "20/20抓起与终点达标，但20/20存在手内交叉。c0.6虽末帧0/5交叉，完整轨迹5/5仍相交；四设置全部拒绝准入。"
+      },
+      {
+        "tag": "qual-f250N1-thumbspread20-m8-p120-20261101cc",
+        "job_id": "job-ycwll4dzxwxf",
+        "status": "RUNNING",
+        "name": "250ml容量瓶 · 拇指张角/闭合修复20",
+        "progress_note": "已观察8/8原生成功，8终点20mm；四组原始8秒专家动作修复继续，全程源几何与视觉未闭合前不准入训练。"
       }
     ],
-    "progress_note": "8张训练卡的8个优化器持续更新；B50新源46/47抓起、8个小单元送审。BrownV专家首7局末段均有手内交叉，20局修复试采已提交；旧测试自然技术失败，封存结果保留。正式仍0/21、0/42。 新补查：F250原源7/7尾帧也有手内交叉；大透明瓶7尾帧阴性仅属初筛。",
+    "progress_note": "8张训练卡已分配，最近采样8个优化器更新；B50新100条开发源已准入，新4卡六模型训练已演练，等待同卡替换且不增加第9张训练卡。F250张角修复已观察8/8抓起，仍需完整源审计。正式仍0/21、0/42。",
     "DP_repair_note": "原始DP100k正式150已外部闭合：149成功、44成功且终点20mm，SSR上限29.3%低于论文37%。三种子固定200k预算已训练完成，现做封存模型开发诊断；不使用保持或目标参考冒充原始基线。",
     "b50_reset_note": "B50源/测试重置修复沿用冻结设置。原始DP100k与ACT分开核验，不与固定保持变体混算。新问题是DP终点精度不足、ACT接近阶段手指与桌面相交；物体成功抓起也不能记为完整通过。",
     "failure_diagnosis": [
-      "原新150分母内共74局闭合、62抓起/20终点20mm，仍缺76局。原23局CPU复核：19抓起/7终点，但7个候选均有非法交叉，位姿与碰撞代理0。根因推进到专家源：首单元7/7末段已有拇指与食指交叉，原源停止新训练准入；20局闭合力度修复试采已提交。旧其他23/62局单独保留。",
-      "新三DP100k原源开发15：11抓起/1终点20mm；ACT32k为15抓起/0终点。补查原专家源首7局末段，7/7存在拇指与食指非法交叉，原手物零交叉不能证明手内安全，新训练源准入已撤回。正在运行的预算对照保留开发身份，未取消或预先计入验收；优先检查已有低闭合记录并修复源。",
-      "旧DP200k已知开发15仍为15抓起/3终点20mm，未过6/15门槛。+5mm源首次作业失败、0闭合单元；新版本已观察46/47抓起，8单元已送审。试采5局及新首单元5局的终点563个非豁免手部组合均无交叉；全程120Hz手内交叉审计继续，不能以终点抽查准入训练。",
-      "8张训练GPU已实际分配，5个DP与3个ACT优化器均有持续更新证据；两组各4卡，统计采集/测试卡之外的真实训练。DP样本约1.1万步、ACT约3万步；单时点利用率会随验证和检查点波动。两组均为新初始化预算对照，未宣称全状态续训。分配上限8卡（含待创建训练）。",
-      "B50首采失败的85条仅是日志计数，四个大单元都未封存。新版本改成24个4–5局小单元、各卡最多一个Native，及时持久保存并并行审计。",
-      "手物零交叉不证明手内零交叉；终点20mm数量不等于完整SpatialSSR。候选源与正式策略分别验证，不放宽论文阈值、测试范围或失败保留规则。"
+      "+5mm净空新源已形成100条合格开发示范：104次原始尝试103成功；按预声明整单元规则排除[6,30,54,78]并补4，得到100/100原生与终点达标。记录范围内120Hz手物/手内/手桌、RGB证明和234张原视角抽查闭合；同名跨任务缓存问题已用真实解码复现并修复。新4卡DP/ACT三种子训练已演练，等待8卡内替换；尚未新增策略通过。",
+      "原源手内交叉问题仍阻止新正式准入；旧预算训练保留开发身份。拇指闭合20局全部抓起，却全部有轨迹手内交叉，已拒绝。原记录关节/几何反事实筛出张角修复候选，新20局已启动：8/8抓起，未把运动学抽查当作真实仿真或安全通过。",
+      "原150分母仍仅74局闭合、62抓起/20终点，缺失76保留；原23局必要位姿与碰撞代理0。专家源首7尾帧均相交，后续全局闭合力度20局：14原生成功/20终点，但20/20仍手内相交；四组修复失败均保留，原源后续训练准入继续关闭。",
+      "训练源成功率和安全组件只决定开发训练准入，不充当策略SR或完整SpatialSSR；论文20mm及每物体DP/ACT门槛、原正式分母和不同GPU结果区分均保留。"
     ],
     "expert_replay_prefix": {
       "prefix_seconds": 23.966666666666665,
@@ -4675,7 +4959,7 @@
     "training_budget_evidence": "verification/grasp_source15_followthrough_20261028.json",
     "submitted_jobs": 234,
     "training_optimizer_active_GPUs_observed": 8,
-    "training_utilization_note": "8张训练GPU已实际分配，5个DP与3个ACT优化器均有持续更新证据；两组各4卡，统计采集/测试卡之外的真实训练。DP样本约1.1万步、ACT约3万步；单时点利用率会随验证和检查点波动。两组均为新初始化预算对照，未宣称全状态续训。分配上限8卡（含待创建训练）。",
+    "training_utilization_note": "训练分配8卡；实时优化器状态与各步数见下面带时间戳证据。旧F250三个ACT64k接近完成，停止剩余旧DP并换B50新源须获精确授权；无作业被取消。新B50三个DP各一张卡，三个ACT共第四张卡，不宣称尚未测得的吞吐提升。",
     "training_GPU_allocation_cap": 8,
     "training_allocated_GPUs": 8,
     "training_optimizers_last_verified": 8,
@@ -4754,7 +5038,7 @@
     "allocated_training_GPUs": 8,
     "current_recovery_evidence_url": "verification/grasp-B50-remaining23-and-source-provenance-20261030.json",
     "observed_optimizer_GPUs": 8,
-    "observed_optimizer_GPU_note": "8张训练GPU已实际分配，5个DP与3个ACT优化器均有持续更新证据；两组各4卡，统计采集/测试卡之外的真实训练。DP样本约1.1万步、ACT约3万步；单时点利用率会随验证和检查点波动。两组均为新初始化预算对照，未宣称全状态续训。分配上限8卡（含待创建训练）。",
+    "observed_optimizer_GPU_note": "训练分配8卡；实时优化器状态与各步数见下面带时间戳证据。旧F250三个ACT64k接近完成，停止剩余旧DP并换B50新源须获精确授权；无作业被取消。新B50三个DP各一张卡，三个ACT共第四张卡，不宣称尚未测得的吞吐提升。",
     "sealed_continuation_evidence_url": "verification/grasp-sealed-models-and-original-source15-20261030.json",
     "original_ACT150_OOD_integrity_evidence_url": "verification/grasp-original-ACT150-OOD-and-output-integrity-20261030.json",
     "firstcell_recovery_evidence_url": "verification/grasp-ACT150-technical-failure-and-first5-recovery-20261030.json",
@@ -4786,12 +5070,12 @@
         "tag": "train-A64-f250S3-D200-f250S21-sealed-20261101cc",
         "job_id": "job-u1iiwcgozjb9",
         "status": "RUNNING",
-        "sample_utc": "2026-11-01T20:13:09.067231+00:00",
+        "sample_utc": "2026-11-01T21:43:24.086863+00:00",
         "updates": [
-          11350,
-          30580,
-          30120,
-          30300
+          23600,
+          63200,
+          62600,
+          62930
         ],
         "runs": [
           {
@@ -4799,48 +5083,52 @@
             "object_alias": "clear_volume",
             "seed": 26121921,
             "GPU": 0,
-            "updates": 11350
+            "updates": 23600,
+            "return_code": null
           },
           {
             "method": "act",
             "object_alias": "clear_volume",
             "seed": 26121921,
             "GPU": 1,
-            "updates": 30580
+            "updates": 63200,
+            "return_code": null
           },
           {
             "method": "act",
             "object_alias": "clear_volume",
             "seed": 26121923,
             "GPU": 2,
-            "updates": 30120
+            "updates": 62600,
+            "return_code": null
           },
           {
             "method": "act",
             "object_alias": "clear_volume",
             "seed": 26121925,
             "GPU": 3,
-            "updates": 30300
+            "updates": 62930,
+            "return_code": null
           }
         ],
         "utilization_percent": [
-          96,
-          53,
-          81,
-          46
+          99,
+          79,
+          88,
+          82
         ],
-        "evidence_SHA256": "ad3f57270492924f1a13e956b72cc4ce189947e5fbbad03f695f4dbd10f00bab"
+        "evidence_SHA256": "617764dba101f03422281535d73171c454df96ee999a416c6371353a3ae1235c"
       },
       {
         "tag": "train-D200-f250S23S25-clearLS21S23-sealed-20261101cc",
         "job_id": "job-8grtqzrugqxp",
         "status": "RUNNING",
-        "sample_utc": "2026-11-01T20:12:54.906861+00:00",
+        "sample_utc": "2026-11-01T21:43:10.949430+00:00",
         "updates": [
-          10750,
-          10800,
-          10750,
-          10800
+          22950,
+          23000,
+          23000,
+          23000
         ],
         "runs": [
           {
@@ -4848,42 +5136,47 @@
             "object_alias": "clear_volume",
             "seed": 26121923,
             "GPU": 0,
-            "updates": 10750
+            "updates": 22950,
+            "return_code": null
           },
           {
             "method": "dp",
             "object_alias": "clear_volume",
             "seed": 26121925,
             "GPU": 1,
-            "updates": 10800
+            "updates": 23000,
+            "return_code": null
           },
           {
             "method": "dp",
             "object_alias": "clear_reagen",
             "seed": 26121921,
             "GPU": 2,
-            "updates": 10750
+            "updates": 23000,
+            "return_code": null
           },
           {
             "method": "dp",
             "object_alias": "clear_reagen",
             "seed": 26121923,
             "GPU": 3,
-            "updates": 10800
+            "updates": 23000,
+            "return_code": null
           }
         ],
         "utilization_percent": [
           92,
           99,
-          99,
+          96,
           99
         ],
-        "evidence_SHA256": "4963a21a392056f435105ae65eacc33b053654a944c4e5e9a81a7f177fca8e70"
+        "evidence_SHA256": "26dcdcfc37a67de8c0704ad403643b7e89ff5ddd87e6b25a38d42ff31fdf1710"
       }
     ],
-    "latest_source_self_and_durable_recovery_evidence_url": "verification/grasp-source-self-repair-durable-20261101.json"
+    "latest_source_self_and_durable_recovery_evidence_url": "verification/grasp-source-self-repair-durable-20261101.json",
+    "latest_qualified_source104_evidence_url": "verification/grasp-b50-qualified-source104-20261101.json"
   },
-  "evidence_note": "8张训练卡的8个优化器持续更新；B50新源46/47抓起、8个小单元送审。BrownV专家首7局末段均有手内交叉，20局修复试采已提交；旧测试自然技术失败，封存结果保留。正式仍0/21、0/42。 新补查：F250原源7/7尾帧也有手内交叉；大透明瓶7尾帧阴性仅属初筛。",
+  "evidence_note": "8张训练卡已分配，最近采样8个优化器更新；B50新100条开发源已准入，新4卡六模型训练已演练，等待同卡替换且不增加第9张训练卡。F250张角修复已观察8/8抓起，仍需完整源审计。正式仍0/21、0/42。",
   "offline_DP_probe": {
     "observations": 4,
     "source_episodes": 1,
