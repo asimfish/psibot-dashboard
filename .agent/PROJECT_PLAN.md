@@ -51,3 +51,7 @@ T-007 publication result: exact53/472 fixed snapshot deployed at https://asimfis
 
 ## T-947 isolated threshold study
 Publish a separate Ours threshold panel, preserving all previous V13 results. Independent calibration/validation/held-out splits, eight simple threshold arms and raw15Hz scores. Candidate publication is not scientific completion or proof that thresholds explain all failures.
+
+## T-1195 hand-history diagnostic publication
+
+Four new whole13-W8 selected controls independently retained their original F/75-second outcomes. Publish their full videos beside the four previously accepted ARM8/HAND30 cases, keeping all prior outcomes/statistics unchanged. Distinguish insufficient transfer, relative cup/wrist motion, late language switching and incomplete release; selected cases cannot establish population SR or causal repair. Actual derived-media/browser and exact public-generation gates passed (T1221/e005c3d4); post-merge public deployment closure remains separately tracked.
