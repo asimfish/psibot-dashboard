@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-01T20:16:06.624497+00:00",
+  "updated_utc": "2026-11-01T20:24:08.253596+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -1654,7 +1654,19 @@
         "strict_120Hz_hand_target_crossing_poses": 0,
         "development_training_allowed": true,
         "full_visual_passed": false,
-        "formal_accepted": false
+        "formal_accepted": false,
+        "new_hand_self_terminal_preflight": {
+          "source_tails_checked": 7,
+          "positive_tails": 0,
+          "unfiltered_robot_pairs": 563,
+          "full_120Hz_self_safety_not_certified": true,
+          "evidence_SHA256": "f49e44b6d0d3aa7a72bd8d54c38312573f57d8094f46e8e31240886f09617aec",
+          "BOS_readback": {
+            "key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/CPU_post/F250_ClearL_original_source_self_preflight_20261101/clear_reagent_bottle_large_RESULT.json",
+            "SHA256": "f49e44b6d0d3aa7a72bd8d54c38312573f57d8094f46e8e31240886f09617aec",
+            "bytes": 19319
+          }
+        }
       },
       "next": "先做相同原输入的新旧模型与动作阶段对照，再投小样本闭环；保留全部失败。",
       "source_versions": [
@@ -1854,8 +1866,8 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "250ml 透明容量瓶",
-      "status_note": "新三DP100k原源开发15已关闭：11/15抓起、1/15成功且终点20mm；同源ACT32k为15/15抓起但终点0/15。训练与权重封存已完成，当前主要差距是闭环终点精度，不能计正式验收。 新预算对照已运行：三ACT64k与三DP200k覆盖全部三个冻结种子；源手内交叉仍须补核，训练完成不等于通过。",
-      "next": "保留三个固定种子和同五源位置的全部结果，围绕抓取后闭环精度做小样本诊断；达到预先门槛再投独立泛化150。",
+      "status_note": "新三DP100k原源开发15：11抓起/1终点20mm；ACT32k为15抓起/0终点。补查原专家源首7局末段，7/7存在拇指与食指非法交叉，原手物零交叉不能证明手内安全，新训练源准入已撤回。正在运行的预算对照保留开发身份，未取消或预先计入验收；优先检查已有低闭合记录并修复源。",
+      "next": "先复用已有c0.98/c0.96源记录定位手内安全闭合量，结合N1颈部偏移做预声明小批验证；源手内/手物/桌面、抬升和RGB视觉合格后才准入新训练与正式策略验收。",
       "source120_closed": {
         "episodes": 100,
         "Native_successes": 100,
@@ -1863,8 +1875,26 @@
         "cells": 16,
         "actual120Hz_states": 287800,
         "strict_hand_target_crossing_poses": 0,
-        "development_training_allowed": true,
-        "full_scene_and_policy_visual_accepted": false
+        "development_training_allowed": false,
+        "full_scene_and_policy_visual_accepted": false,
+        "historical_development_training_allowed_before_hand_self_audit": true,
+        "new_hand_self_preflight": {
+          "source_tails_checked": 7,
+          "positive_tails": 7,
+          "pair": [
+            "hand2_link_1_3",
+            "hand2_link_2_2"
+          ],
+          "unfiltered_robot_pairs": 563,
+          "new_training_admission_revoked": true,
+          "all100_source_tails_not_audited": true,
+          "evidence_SHA256": "03297130c411b8cc98f247ac2e6fb30725522dfbc8fcbcd5689659cc4dcc93d5",
+          "BOS_readback": {
+            "key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/CPU_post/F250_ClearL_original_source_self_preflight_20261101/clear_volumetric_flask_250ml_RESULT.json",
+            "SHA256": "03297130c411b8cc98f247ac2e6fb30725522dfbc8fcbcd5689659cc4dcc93d5",
+            "bytes": 25847
+          }
+        }
       },
       "budget_diagnostic_training": {
         "ACT_seeds": [
@@ -1881,7 +1911,9 @@
         "DP_updates_each": 200000,
         "status": "RUNNING",
         "source_hand_self_admission_not_certified": true,
-        "formal_accepted": false
+        "formal_accepted": false,
+        "new_source_hand_self_defect_found": true,
+        "automatically_admitted_to_formal_evaluation": false
       }
     },
     {
@@ -2393,7 +2425,7 @@
     "active_registered_jobs": 4,
     "BOS_mount_count": 2,
     "state": "EIGHT_REAL_OPTIMIZERS_SOURCE_SELF_REPAIR_AND_DURABLE_SOURCE_RECOVERY",
-    "state_note": "8张训练卡的8个优化器持续更新；B50新源46/47抓起、8个小单元送审。BrownV专家首7局末段均有手内交叉，20局修复试采已提交；旧测试自然技术失败，封存结果保留。正式仍0/21、0/42。",
+    "state_note": "8张训练卡的8个优化器持续更新；B50新源46/47抓起、8个小单元送审。BrownV专家首7局末段均有手内交叉，20局修复试采已提交；旧测试自然技术失败，封存结果保留。正式仍0/21、0/42。 新补查：F250原源7/7尾帧也有手内交叉；大透明瓶7尾帧阴性仅属初筛。",
     "prepared_not_submitted": [
       {
         "tag": "eval-m6-dp-b50-20261025cc",
@@ -4558,11 +4590,12 @@
         "progress_note": "四个预声明闭合力度各5局，原物体/抓取位置/抬升目标/物理保持。源手内、手物和桌面均须审计；无自动训练或正式验收信用。"
       }
     ],
-    "progress_note": "8张训练卡的8个优化器持续更新；B50新源46/47抓起、8个小单元送审。BrownV专家首7局末段均有手内交叉，20局修复试采已提交；旧测试自然技术失败，封存结果保留。正式仍0/21、0/42。",
+    "progress_note": "8张训练卡的8个优化器持续更新；B50新源46/47抓起、8个小单元送审。BrownV专家首7局末段均有手内交叉，20局修复试采已提交；旧测试自然技术失败，封存结果保留。正式仍0/21、0/42。 新补查：F250原源7/7尾帧也有手内交叉；大透明瓶7尾帧阴性仅属初筛。",
     "DP_repair_note": "原始DP100k正式150已外部闭合：149成功、44成功且终点20mm，SSR上限29.3%低于论文37%。三种子固定200k预算已训练完成，现做封存模型开发诊断；不使用保持或目标参考冒充原始基线。",
     "b50_reset_note": "B50源/测试重置修复沿用冻结设置。原始DP100k与ACT分开核验，不与固定保持变体混算。新问题是DP终点精度不足、ACT接近阶段手指与桌面相交；物体成功抓起也不能记为完整通过。",
     "failure_diagnosis": [
       "原新150分母内共74局闭合、62抓起/20终点20mm，仍缺76局。原23局CPU复核：19抓起/7终点，但7个候选均有非法交叉，位姿与碰撞代理0。根因推进到专家源：首单元7/7末段已有拇指与食指交叉，原源停止新训练准入；20局闭合力度修复试采已提交。旧其他23/62局单独保留。",
+      "新三DP100k原源开发15：11抓起/1终点20mm；ACT32k为15抓起/0终点。补查原专家源首7局末段，7/7存在拇指与食指非法交叉，原手物零交叉不能证明手内安全，新训练源准入已撤回。正在运行的预算对照保留开发身份，未取消或预先计入验收；优先检查已有低闭合记录并修复源。",
       "旧DP200k已知开发15仍为15抓起/3终点20mm，未过6/15门槛。+5mm源首次作业失败、0闭合单元；新版本已观察46/47抓起，8单元已送审。试采5局及新首单元5局的终点563个非豁免手部组合均无交叉；全程120Hz手内交叉审计继续，不能以终点抽查准入训练。",
       "8张训练GPU已实际分配，5个DP与3个ACT优化器均有持续更新证据；两组各4卡，统计采集/测试卡之外的真实训练。DP样本约1.1万步、ACT约3万步；单时点利用率会随验证和检查点波动。两组均为新初始化预算对照，未宣称全状态续训。分配上限8卡（含待创建训练）。",
       "B50首采失败的85条仅是日志计数，四个大单元都未封存。新版本改成24个4–5局小单元、各卡最多一个Native，及时持久保存并并行审计。",
@@ -4850,7 +4883,7 @@
     ],
     "latest_source_self_and_durable_recovery_evidence_url": "verification/grasp-source-self-repair-durable-20261101.json"
   },
-  "evidence_note": "8张训练卡的8个优化器持续更新；B50新源46/47抓起、8个小单元送审。BrownV专家首7局末段均有手内交叉，20局修复试采已提交；旧测试自然技术失败，封存结果保留。正式仍0/21、0/42。",
+  "evidence_note": "8张训练卡的8个优化器持续更新；B50新源46/47抓起、8个小单元送审。BrownV专家首7局末段均有手内交叉，20局修复试采已提交；旧测试自然技术失败，封存结果保留。正式仍0/21、0/42。 新补查：F250原源7/7尾帧也有手内交叉；大透明瓶7尾帧阴性仅属初筛。",
   "offline_DP_probe": {
     "observations": 4,
     "source_episodes": 1,
