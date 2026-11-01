@@ -14,3 +14,5 @@
 | T-942 | review | codex-v13-loss-threshold | `v13_comparison/` | [.agent/tasks/T-942.md](tasks/T-942.md) | Add old chest baseline, four training losses and native completion threshold calibration |
 
 | T-947 | review | codex-ours-threshold-sweep | `ours_threshold_sweep/`, one index link | [.agent/tasks/T-947.md](tasks/T-947.md) | Eight-arm threshold tuning progress and frame-level switching evidence |
+
+| T-1195 | review | codex-t947-caseiso-once-20261101 | `arm8_hand30_job4/wholew8_control/` and parent navigation | [.agent/tasks/T-1195.md](tasks/T-1195.md) | Exact matched four-case public generation and full videos independently accepted; Pages closure tracked separately. |
