@@ -16,3 +16,5 @@
 | T-947 | review | codex-ours-threshold-sweep | `ours_threshold_sweep/`, one index link | [.agent/tasks/T-947.md](tasks/T-947.md) | Eight-arm threshold tuning progress and frame-level switching evidence |
 
 | T-1195 | review | codex-t947-caseiso-once-20261101 | `arm8_hand30_job4/wholew8_control/` and parent navigation | [.agent/tasks/T-1195.md](tasks/T-1195.md) | Exact matched four-case public generation and full videos independently accepted; Pages closure tracked separately. |
+
+| T-1224 | review | codex-t947-hybrid8-once-20261101 | `arm8_hand30_job4/hybrid8_actual8/` and parent navigation | [.agent/tasks/T-1224.md](tasks/T-1224.md) | Eight selected original cases; Ours1S3F/Mem02S2F; private actual media/browser accepted; exact public generation and rollout tracked separately. |

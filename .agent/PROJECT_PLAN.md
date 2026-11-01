@@ -55,3 +55,7 @@ Publish a separate Ours threshold panel, preserving all previous V13 results. In
 ## T-1195 hand-history diagnostic publication
 
 Four new whole13-W8 selected controls independently retained their original F/75-second outcomes. Publish their full videos beside the four previously accepted ARM8/HAND30 cases, keeping all prior outcomes/statistics unchanged. Distinguish insufficient transfer, relative cup/wrist motion, late language switching and incomplete release; selected cases cannot establish population SR or causal repair. Actual derived-media/browser and exact public-generation gates passed (T1221/e005c3d4); post-merge public deployment closure remains separately tracked.
+
+## T-1224 eight-case hybrid diagnostic publication
+
+One four-Pro job completed eight independent single-environment diagnostic cases. Complete custody and original science/control/recording evidence were independently accepted; original Ours1S3F and Mem02S2F are preserved. Eight full annotated videos and18 real KF images passed actual derived-media and real-browser review. Publish a separate four-scene Ours/Mem0 page with the accepted physical-count excerpt and clear historical-spill semantics. Each method has only four selected cases; previous formal100 results and all old media remain unchanged. Exact public-generation review and post-merge Pages/public-byte closure remain separate release gates. Five selected physical failures and the larger T-947 diagnosis remain open.
