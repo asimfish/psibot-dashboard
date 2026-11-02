@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-02T01:09:22.286220+00:00",
+  "updated_utc": "2026-11-02T01:41:46.536101+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -571,9 +571,9 @@
           "evidence_SHA256": "d95bfa49f88e1881fa5498bc545741ef0413435408083a93e0fa40200824d3f2"
         }
       },
-      "next": "完成新100条源审计再训练DP/ACT；较小闭合的20局备用规格保持挂起，当前不重复采集。",
+      "next": "按B50、F250、BrownV的既定顺序在8张训练卡内接续；新模型先做固定小测，再决定正式独立泛化与完整SSR/视觉验收。",
       "name": "250ml 棕色容量瓶",
-      "status_note": "新spread1.02/flex0.6源已采齐100/100抓起、100/100终点20mm，完整120Hz几何、原写入和新100条视觉审计继续；未把专家采集计为DP/ACT验收。旧源失败与候选拒绝均保留。",
+      "status_note": "新BrownV100条完整287800原120Hz手内/手物/手桌均无违规，300原视频证明和144张预声明原图抽查闭合，已准入开发训练。DP/ACT各三种子的六模型包预检通过、仍挂起等8卡内接续；未新增策略验收。旧源缺陷与失败保留。",
       "latest_source_development": {
         "method": "ACT",
         "trials": 15,
@@ -742,16 +742,18 @@
         "thumb_flex_scale": 0.6,
         "original4_other_finger_targets_preserved": true,
         "actual_source_builder_and_staged_gates_passed": true,
-        "complete_new100_geometry_RGB_visual_gates_pending": true,
-        "source_training_allowed": false,
+        "complete_new100_geometry_RGB_visual_gates_pending": false,
+        "source_training_allowed": true,
         "formal_accepted": false,
-        "checked_utc": "2026-11-02T00:54:00Z",
+        "checked_utc": "2026-11-02T01:41:46.536101+00:00",
         "last_logged_progress": {
           "eps": 100,
           "succ": 100,
           "t20": 100
         },
-        "full120Hz_numeric_partial": {
+        "evidence_url": "verification/grasp-brownv-source100-admission-wrist20-20261102.json",
+        "full100_geometry_and_original_visual_admission_pending": false,
+        "prior_partial_snapshot_before_full_admission": {
           "utc": "2026-11-02T00:11:32.254705+00:00",
           "input_cells": 12,
           "input_episodes": 52,
@@ -766,8 +768,55 @@
           "self_positive_episodes": 0,
           "source_training_allowed": false
         },
-        "evidence_url": "verification/grasp-f250-source100-admission-and-drift-20261102.json",
-        "full100_geometry_and_original_visual_admission_pending": true
+        "development_training_only": true,
+        "source_episodes": 100,
+        "Native_successes": 100,
+        "terminal20mm": 100,
+        "strict_original120Hz_states": 287800,
+        "hand_target_crossing_states": 0,
+        "hand_self_positive_episodes": 0,
+        "hand_table_crossing_states": 0,
+        "source_ids_exact_once": 100,
+        "original_source_cells": 24,
+        "producer_full_video_decodes": 300,
+        "directly_reviewed_source_episodes": 8,
+        "directly_reviewed_original_stills": 144,
+        "source_review_SHA256": "4d9f2d13453ec1d4adf4216fd8f3ded7aeb307f033a9c87fac6df95c0967e44d",
+        "source_admission_BOS_receipt": {
+          "key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/CPU_post/BrownV_open102_f060_source100_20261101/source_training_admission/SOURCE_REVIEW.json",
+          "bytes": 12582,
+          "SHA256": "4d9f2d13453ec1d4adf4216fd8f3ded7aeb307f033a9c87fac6df95c0967e44d",
+          "all_actual_bytes_streamed": true,
+          "maximum_buffer_bytes": 1048576
+        },
+        "sampled_visual_only": true,
+        "full_visual_passed": false
+      },
+      "new_safe_source_training": {
+        "tag": "train-D100A32-brownVThumb-six-sealed-20261102cc",
+        "state": "STAGED_HELD_SAFE8GPU_AFTER_F250_SUBMITTED_AND_B50_TERMINAL",
+        "DP_seeds": [
+          26121921,
+          26121923,
+          26121925
+        ],
+        "ACT_seeds": [
+          26121921,
+          26121923,
+          26121925
+        ],
+        "DP_updates_each": 100000,
+        "ACT_updates_each": 32000,
+        "training_GPUs": 4,
+        "cloud_job_created": false,
+        "source_review_SHA256": "4d9f2d13453ec1d4adf4216fd8f3ded7aeb307f033a9c87fac6df95c0967e44d",
+        "PRE_SHA256": "ac3be75addcf4275198e9848a3b59c7615bd9a70ce6026b7f6c042b01d23a256",
+        "source_NODE_and_24_protocols_pinned": true,
+        "budget_watcher_PID": 3546218,
+        "cloud_stop_cancel_restart_calls": 0,
+        "formal150_automatically_released": false,
+        "formal_accepted": false,
+        "evidence_url": "verification/grasp-brownv-source100-admission-wrist20-20261102.json"
       }
     },
     {
@@ -1773,9 +1822,9 @@
         "lift_components_full100_verified": true,
         "terminal_lift_min_m": -0.026144325733184814
       },
-      "next": "核对20局每个设置的抬起、120Hz手内/手物/手桌及原图，再决定能否采集100；不重采已保存旧轨迹。",
+      "next": "完成四个手腕方向各5局原生采集，再核对完整120Hz手内/手物/手桌与原图；只允许完全合格候选扩大100条，不改位置目标或论文门槛。",
       "name": "小棕色试剂瓶",
-      "status_note": "新拇指修复20局均抓起与终点20mm，但四组完整手物交叉7/4/2/8状态，手与桌面另有1493/1486/1497/1498状态交叉；均拒绝。接下来定位小指与桌面碰撞的接近/抓取姿态，不盲目继续减拇指闭合。无合格新100条或正式通过。",
+      "status_note": "仅调拇指的旧20局全部抓起，但四组完整手物/手桌审计均拒绝。原20个桌面相交姿态的离线方向筛选支持尝试小角度手腕旋转；首轮入口字段错误在采集前退出、0条有效轨迹，已保留并修复。相同配置与种子的恢复20局正在运行，未计新通过。",
       "source_lower_grip_geometry20": [
         {
           "setting": "z10_m6",
@@ -1857,8 +1906,8 @@
       "thumb_contact_repair20": {
         "tag": "qual-brownS-c65thumb20-m10-p120-20261101cc",
         "job_id": "job-kmwqlp5vbmml",
-        "status": "RUNNING",
-        "checked_utc": "2026-11-02T00:11:09.468985+00:00",
+        "status": "SUCCEEDED",
+        "checked_utc": "2026-11-02T01:41:46.536101+00:00",
         "maximum_source_trials": 20,
         "relative_thumb_scales": [
           0.95,
@@ -1880,14 +1929,25 @@
         "actual_original_Main_function_and_four_builders_and_staged_gates_passed": true,
         "previous5_Native5_terminal20_with9_thumb_crossing_states_retained": true,
         "last_logged_progress": {
-          "eps": 3,
-          "succ": 3,
-          "t20": 3
+          "eps": 20,
+          "succ": 20,
+          "t20": 20
         },
-        "complete_geometry_and_visual_pending": true,
+        "complete_geometry_and_visual_pending": false,
         "source_training_allowed": false,
         "formal_accepted": false,
-        "evidence_url": "verification/grasp-f250-source100-progress-20261102.json"
+        "evidence_url": "verification/grasp-brownv-source100-admission-wrist20-20261102.json",
+        "previous_progress_sample_retained": {
+          "status": "RUNNING",
+          "checked_utc": "2026-11-02T00:11:09.468985+00:00",
+          "last_logged_progress": {
+            "eps": 3,
+            "succ": 3,
+            "t20": 3
+          }
+        },
+        "complete_numeric_rejected": true,
+        "all4_source_candidates_rejected": true
       },
       "thumb_contact_repair20_latest": {
         "tag": "qual-brownS-c65thumb20-m10-p120-20261101cc",
@@ -1914,6 +1974,72 @@
         "all4_source_candidates_rejected": true,
         "original_complete_report_SHA256": "52221f8c57c26973158f825e98446b037788f3285893eec71aa3e951824eccd6",
         "evidence_url": "verification/grasp-f250-source100-admission-and-drift-20261102.json"
+      },
+      "wrist_thumb_repair20": {
+        "tag": "qual-brownS-c65wrist20-m10-p120-20261102cc-r2",
+        "job_id": "job-plymjn2li9jz",
+        "status": "RUNNING",
+        "checked_utc": "2026-11-02T01:40:00.215256+00:00",
+        "maximum_source_trials": 20,
+        "source_ids": [
+          7,
+          12,
+          15,
+          17,
+          18
+        ],
+        "seed_base": 26963731,
+        "original_source_seed_map_preserved_in_recovery": true,
+        "local_EEF_directions": [
+          "x+5deg",
+          "x+10deg",
+          "z+5deg",
+          "z+10deg"
+        ],
+        "euler_deg": [
+          [
+            -85,
+            0,
+            -88
+          ],
+          [
+            -80,
+            0,
+            -88
+          ],
+          [
+            -90,
+            5,
+            -88
+          ],
+          [
+            -90,
+            10,
+            -88
+          ]
+        ],
+        "fixed_relative_thumb_scale": 0.85,
+        "other5_motor_targets_unchanged": true,
+        "source_position_offset_and_lift_height_unchanged": true,
+        "original_Main_quaternion_and_hand_CPU_cases": 4,
+        "CPU_negative_cases_rejected": 13,
+        "successful_runtime_install_paths_executed": 4,
+        "actual4_builders_and_staged_inline_gates_passed": true,
+        "original_failures_retained": true,
+        "prior_zero_episode_startup": {
+          "tag": "qual-brownS-c65wrist20-m10-p120-20261102cc",
+          "job_id": "job-qdtm6qstkbmj",
+          "cloud_status": "SUCCEEDED",
+          "qualification_exit_code": 3,
+          "source_episodes": 0,
+          "unscored_Native_process_starts": 4,
+          "actual_error": "AttributeError: GraspMPTaskCfg has no lift_height; correct runtime field lift_height_desired",
+          "technical_recovery_only": true
+        },
+        "offline_screen_scope": "Only20 copied positive table witness poses; zero copied-pose crossing in four selected directions is not source quality, actual IK or policy safety.",
+        "source_training_allowed": false,
+        "formal_accepted": false,
+        "evidence_url": "verification/grasp-brownv-source100-admission-wrist20-20261102.json"
       }
     },
     {
@@ -2996,11 +3122,11 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 282,
-    "active_registered_jobs": 2,
+    "registered_jobs": 292,
+    "active_registered_jobs": 3,
     "BOS_mount_count": 2,
-    "state": "TWO_SOURCE_PILOTS_CLEAN_ACT64_PRECISION_FAILED",
-    "state_note": "F250两组及BrownV一组专家试采已通过完整记录范围内120Hz几何与270原图审阅，两个新100条采集已提交；B50合格100条训练包仍待8卡内接续。旧源ACT64k已知15局：15抓起/1终点20mm，未解决SSR精度。训练分配8卡、最近5个DP优化器更新；正式仍0/21、0/42。",
+    "state": "THREE_NEW_DEVELOPMENT_SOURCES_QUALIFIED_TRAINING_HELD_WRIST20_RECOVERY",
+    "state_note": "B50、F250、BrownV三份新100条开发源已准入，均不继承为策略验收；各六模型训练包预检完成、按8卡预算接续。最近8卡分配、5个DP更新、3卡空闲，替换旧作业的授权仍待答。BrownS手腕20局修复入口后恢复运行，完整源审计继续；正式0/21、0/42。",
     "prepared_not_submitted": [
       {
         "tag": "eval-m6-dp-b50-20261025cc",
@@ -3019,9 +3145,21 @@
         "name": "50ml合格新源 · DP/ACT三种子训练",
         "state": "HOLD_EIGHT_TRAINING_GPU_REPLACEMENT",
         "progress_note": "100条开发训练示范已准入；新4卡训练已演练，DP各一张、三个ACT共第四张卡。等待旧作业4卡替换，不额外占用第9张训练卡，尚未创建作业。"
+      },
+      {
+        "tag": "train-D100A32-f250Thumb-six-sealed-20261102cc",
+        "name": "F250合格新源 · DP/ACT三种子训练",
+        "state": "HELD_SAFE_EIGHT_TRAINING_GPU",
+        "progress_note": "合格100条源和4卡六模型包预检通过；按既定顺序及8训练卡预算接续，未创建新训练作业。"
+      },
+      {
+        "tag": "train-D100A32-brownVThumb-six-sealed-20261102cc",
+        "name": "BrownV合格新源 · DP/ACT三种子训练",
+        "state": "HELD_SAFE_EIGHT_TRAINING_GPU",
+        "progress_note": "合格100条源和4卡六模型包预检通过；按既定顺序及8训练卡预算接续，未创建新训练作业。"
       }
     ],
-    "checked_utc": "2026-11-02T01:09:22.286220+00:00",
+    "checked_utc": "2026-11-02T01:41:46.536101+00:00",
     "jobs": [
       {
         "tag": "qual-mortar-p120-smoke4-20261028cc",
@@ -5082,14 +5220,14 @@
         "job_id": "job-u1iiwcgozjb9",
         "status": "RUNNING",
         "name": "已运行4卡预算训练",
-        "progress_note": "原训练日志：[49450, 64000, 64000, 64000]步；只描述训练，非验收。",
+        "progress_note": "原训练日志：[55400, 64000, 64000, 64000]步；仅训练进度，非验收。",
         "training_progress": [
           {
             "method": "dp",
             "object_alias": "clear_volume",
             "seed": 26121921,
             "GPU": 0,
-            "updates": 49450,
+            "updates": 55400,
             "return_code": null
           },
           {
@@ -5117,21 +5255,21 @@
             "return_code": 0
           }
         ],
-        "progress_sample_utc": "2026-11-02T00:54:00.857635+00:00"
+        "progress_sample_utc": "2026-11-02T01:38:09.623978+00:00"
       },
       {
         "tag": "train-D200-f250S23S25-clearLS21S23-sealed-20261101cc",
         "job_id": "job-8grtqzrugqxp",
         "status": "RUNNING",
         "name": "已运行4卡预算训练",
-        "progress_note": "原训练日志：[48750, 48850, 48850, 48800]步；只描述训练，非验收。",
+        "progress_note": "原训练日志：[54750, 54850, 54850, 54800]步；仅训练进度，非验收。",
         "training_progress": [
           {
             "method": "dp",
             "object_alias": "clear_volume",
             "seed": 26121923,
             "GPU": 0,
-            "updates": 48750,
+            "updates": 54750,
             "return_code": null
           },
           {
@@ -5139,7 +5277,7 @@
             "object_alias": "clear_volume",
             "seed": 26121925,
             "GPU": 1,
-            "updates": 48850,
+            "updates": 54850,
             "return_code": null
           },
           {
@@ -5147,7 +5285,7 @@
             "object_alias": "clear_reagen",
             "seed": 26121921,
             "GPU": 2,
-            "updates": 48850,
+            "updates": 54850,
             "return_code": null
           },
           {
@@ -5155,11 +5293,11 @@
             "object_alias": "clear_reagen",
             "seed": 26121923,
             "GPU": 3,
-            "updates": 48800,
+            "updates": 54800,
             "return_code": null
           }
         ],
-        "progress_sample_utc": "2026-11-02T00:53:46.253297+00:00"
+        "progress_sample_utc": "2026-11-02T01:37:53.789385+00:00"
       },
       {
         "tag": "src100-b50-clearance5mm-m6-p120-20261101cc-r2",
@@ -5240,7 +5378,7 @@
         "job_id": "job-gkqbezedlfs0",
         "status": "SUCCEEDED",
         "name": "棕色容量瓶 · 合格设置扩大采集100",
-        "progress_note": "已采齐100/100抓取与终点分量；新100条完整几何与原图审计继续，尚未准入训练或策略验收。",
+        "progress_note": "100条原生抓取/终点与287800原120Hz手内/手物/手桌、300视频证明及144原图抽查闭合，准入开发训练；六模型包挂起，非策略通过。",
         "progress_sample_utc": "2026-11-02T00:55:36.209603+00:00",
         "Native_progress": {
           "eps": 100,
@@ -5260,16 +5398,38 @@
           "t20": 20
         },
         "progress_note": "20/20采集分量成功；四组手物及手桌完整审计均未过，全部拒绝，无合格新源或策略通过。"
+      },
+      {
+        "tag": "qual-brownS-c65wrist20-m10-p120-20261102cc",
+        "job_id": "job-qdtm6qstkbmj",
+        "name": "小棕瓶 · 手腕修复首轮入口失败",
+        "status": "SUCCEEDED",
+        "qualification_status": "FAILED_BEFORE_SOURCE_CAPTURE",
+        "qualification_exit_code": 3,
+        "Native_progress": {
+          "eps": 0,
+          "succ": 0,
+          "t20": 0
+        },
+        "progress_note": "平台作业关闭，四组安装检查字段错误，0条有效源；失败保留。仅修运行时字段，恢复作业另列。"
+      },
+      {
+        "tag": "qual-brownS-c65wrist20-m10-p120-20261102cc-r2",
+        "job_id": "job-plymjn2li9jz",
+        "name": "小棕瓶 · 四个手腕方向20局恢复",
+        "status": "RUNNING",
+        "progress_sample_utc": "2026-11-02T01:40:00.215256+00:00",
+        "progress_note": "同原配置/种子恢复，仅修安装检查字段；四方向各5局。原位置目标与抬升高度不变；等待实际采集与完整审计，不计通过。"
       }
     ],
-    "progress_note": "F250新100条完整287800原120Hz手内/手物/手桌及144原图抽查闭合，已准入开发训练；6模型包预检通过，等8卡内接续。BrownV100采齐待审；BrownS20虽全抓起，四组完整手物/手桌审计均拒绝。旧ACT15局物体横移主要解释水平误差。正式0/21、0/42。",
+    "progress_note": "B50、F250、BrownV三份新100条开发源已准入，均不继承为策略验收；各六模型训练包预检完成、按8卡预算接续。最近8卡分配、5个DP更新、3卡空闲，替换旧作业的授权仍待答。BrownS手腕20局修复入口后恢复运行，完整源审计继续；正式0/21、0/42。",
     "DP_repair_note": "原始DP100k正式150已外部闭合：149成功、44成功且终点20mm，SSR上限29.3%低于论文37%。三种子固定200k预算已训练完成，现做封存模型开发诊断；不使用保持或目标参考冒充原始基线。",
     "b50_reset_note": "B50源/测试重置修复沿用冻结设置。原始DP100k与ACT分开核验，不与固定保持变体混算。新问题是DP终点精度不足、ACT接近阶段手指与桌面相交；物体成功抓起也不能记为完整通过。",
     "failure_diagnosis": [
-      "+5mm净空新源已形成100条合格开发示范：104次原始尝试103成功；按预声明整单元规则排除[6,30,54,78]并补4，得到100/100原生与终点达标。记录范围内120Hz手物/手内/手桌、RGB证明和234张原视角抽查闭合；同名跨任务缓存问题已用真实解码复现并修复。新4卡DP/ACT三种子训练已演练，等待8卡内替换；尚未新增策略通过。",
-      "拇指张角/闭合修复20局中两组源设置各5/5通过完整记录范围内120Hz手内/手物/手桌检查，并审阅180原图；选spread1.22/flex0.5扩大100条，日志36/36成功，新100尚未准入训练。旧源ACT64k三种子15/15抓起、仅1/15终点20mm，单纯加长训练未解决精度，正式仍未通过。",
-      "接近与闭合均固定拇指张角的新20局全部抓起；三设置15局仍相交，最后spread1.02/flex0.6的5/5原生、终点及完整记录范围120Hz手内/手物/手桌通过，90原图已审阅。已提交同型号Pro6000新100条采集，原失败及原正式150缺失76均保留；尚无新策略验收。",
-      "源数据准入与策略验收分别记账：已知源15局不当独立泛化，终点20mm不当完整SpatialSSR；原21物体DP/ACT论文门槛、±3cm源与±3/4/5/6cm测试口径及全部失败保留。"
+      "三份新100条源（B50、F250、BrownV）已按各自原始证据准入开发训练，记录范围手/EEF安全与抽样原图通过；模型尚未完成新训练，不称正式通过。",
+      "BrownS旧20局虽都抓起，完整手物与手桌均拒绝。离线20桌面见证仅筛选方向；四小角度新试采首轮在记录前因字段错误退出，原失败保留，实际配置接口红绿检查通过后用独立恢复编号继续。",
+      "旧ACT64k15局多数水平终点误差伴随物体位移；源0原像素teacher forcing预测接近专家，仍需新源模型闭环验证，不能靠加长训练或改变目标替代修复。",
+      "源±3cm与测试±3/4/5/6cm、21对象各自论文SR/SpatialSSR和原始失败均保留；已知源小测与终点分量不当完整独立泛化或SSR。"
     ],
     "expert_replay_prefix": {
       "prefix_seconds": 23.966666666666665,
@@ -5345,7 +5505,7 @@
     "training_budget_evidence": "verification/grasp_source15_followthrough_20261028.json",
     "submitted_jobs": 234,
     "training_optimizer_active_GPUs_observed": 5,
-    "training_utilization_note": "8张训练卡已分配；3个ACT64k完成并经全字节封存，最近采样5个DP优化器仍在更新，另3张已分配卡空闲。B50新源4卡六模型等待8卡内替换授权；另已设自然终止后核对全部训练配额再自动接续，不停止任何作业。",
+    "training_utilization_note": "B50、F250、BrownV三份新100条开发源已准入，均不继承为策略验收；各六模型训练包预检完成、按8卡预算接续。最近8卡分配、5个DP更新、3卡空闲，替换旧作业的授权仍待答。BrownS手腕20局修复入口后恢复运行，完整源审计继续；正式0/21、0/42。",
     "training_GPU_allocation_cap": 8,
     "training_allocated_GPUs": 8,
     "training_optimizers_last_verified": 5,
@@ -5417,14 +5577,15 @@
       "小棕瓶250原始池在241次记录后被控制器墙钟时限终止；241次原生成功和终点统计不等于241份完整安全轨迹。全部16单元BOS身份已清点，缺9个原始位置；首单元仅前15局完整时钟与采集器状态通过，末尾不完整回合继续保留。",
       "棕色250ml容量瓶新正式150已放行，采用固定三ACT32k和全新、不重叠的±3/4/5/6cm位置；旧23局单列，不与新150拼接。实际新仿真USD、全场景120Hz和视觉仍需逐项闭合。",
       "CPU实测：两帧真实阳性记录从冷启动16.75s到静态索引复用后三次中位3.25s，数值行完全相同。发现一个确定非法交叉即可判该次零交叉条件为假；无交叉必须检查完整时钟。该测速不代表150次端到端已加速5倍。",
-      "原始DP100k正式150仍为149成功/44成功且终点20mm，SSR最多29.3%低于论文37%；固定200k预算诊断继续。透明250ml瓶新DP100k三模型待封存后跑固定源15，不把来源异常旧模型或训练完成计入验收。"
+      "原始DP100k正式150仍为149成功/44成功且终点20mm，SSR最多29.3%低于论文37%；固定200k预算诊断继续。透明250ml瓶新DP100k三模型待封存后跑固定源15，不把来源异常旧模型或训练完成计入验收。",
+      "前次状态（2026-11-02T01:09:22.286220+00:00）：+5mm净空新源已形成100条合格开发示范：104次原始尝试103成功；按预声明整单元规则排除[6,30,54,78]并补4，得到100/100原生与终点达标。记录范围内120Hz手物/手内/手桌、RGB证明和234张原视角抽查闭合；同名跨任务缓存问题已用真实解码复现并修复。新4卡DP/ACT三种子训练已演练，等待8卡内替换；尚未新增策略通过。；拇指张角/闭合修复20局中两组源设置各5/5通过完整记录范围内120Hz手内/手物/手桌检查，并审阅180原图；选spread1.22/flex0.5扩大100条，日志36/36成功，新100尚未准入训练。旧源ACT64k三种子15/15抓起、仅1/15终点20mm，单纯加长训练未解决精度，正式仍未通过。；接近与闭合均固定拇指张角的新20局全部抓起；三设置15局仍相交，最后spread1.02/flex0.6的5/5原生、终点及完整记录范围120Hz手内/手物/手桌通过，90原图已审阅。已提交同型号Pro6000新100条采集，原失败及原正式150缺失76均保留；尚无新策略验收。；源数据准入与策略验收分别记账：已知源15局不当独立泛化，终点20mm不当完整SpatialSSR；原21物体DP/ACT论文门槛、±3cm源与±3/4/5/6cm测试口径及全部失败保留。"
     ],
     "previous_audit_evidence": "verification/grasp-B50-source-physics-and-B100-retest-20261030.json",
     "training_GPU_cap": 8,
     "allocated_training_GPUs": 8,
     "current_recovery_evidence_url": "verification/grasp-B50-remaining23-and-source-provenance-20261030.json",
     "observed_optimizer_GPUs": 5,
-    "observed_optimizer_GPU_note": "8张训练卡已分配；3个ACT64k完成并经全字节封存，最近采样5个DP优化器仍在更新，另3张已分配卡空闲。B50新源4卡六模型等待8卡内替换授权；另已设自然终止后核对全部训练配额再自动接续，不停止任何作业。",
+    "observed_optimizer_GPU_note": "B50、F250、BrownV三份新100条开发源已准入，均不继承为策略验收；各六模型训练包预检完成、按8卡预算接续。最近8卡分配、5个DP更新、3卡空闲，替换旧作业的授权仍待答。BrownS手腕20局修复入口后恢复运行，完整源审计继续；正式0/21、0/42。",
     "sealed_continuation_evidence_url": "verification/grasp-sealed-models-and-original-source15-20261030.json",
     "original_ACT150_OOD_integrity_evidence_url": "verification/grasp-original-ACT150-OOD-and-output-integrity-20261030.json",
     "firstcell_recovery_evidence_url": "verification/grasp-ACT150-technical-failure-and-first5-recovery-20261030.json",
@@ -5456,12 +5617,10 @@
         "tag": "train-A64-f250S3-D200-f250S21-sealed-20261101cc",
         "job_id": "job-u1iiwcgozjb9",
         "status": "RUNNING",
-        "checked_utc": "2026-11-02T00:55:26.361904+00:00",
-        "captured_original_file": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/pro6000_codex_20261026/diagnosis_compare_20261027/Panel_F250_safe_source_admission_and_ACT_drift_20261102/captured_frontier/train-A64-f250S3-D200-f250S21-sealed-20261101cc.json",
-        "captured_original_SHA256": "c31fe7c8fdd6f66180efc80ab39a50f557d6277ac2ad2139e6172ddd5eb711d5",
-        "sample_utc": "2026-11-02T00:54:00.857635+00:00",
+        "checked_utc": "2026-11-02T01:39:54.635350+00:00",
+        "sample_utc": "2026-11-02T01:38:09.623978+00:00",
         "updates": [
-          49450,
+          55400,
           64000,
           64000,
           64000
@@ -5472,7 +5631,7 @@
             "object_alias": "clear_volume",
             "seed": 26121921,
             "GPU": 0,
-            "updates": 49450,
+            "updates": 55400,
             "return_code": null
           },
           {
@@ -5501,26 +5660,24 @@
           }
         ],
         "utilization_percent": [
-          99,
+          93,
           0,
           0,
           0
         ],
-        "original_progress_log": "2026-11-02T08:54:00.857635504+08:00 stdout F GRASP_CC_TRAIN_PROGRESS [[\"dp\", \"clear_volume\", 26121921, 0, 49450, null], [\"act\", \"clear_volume\", 26121921, 1, 64000, 0], [\"act\", \"clear_volume\", 26121923, 2, 64000, 0], [\"act\", \"clear_volume\", 26121925, 3, 64000, 0]] 0, 40304 MiB, 99 % | 1, 0 MiB, 0 % | 2, 0 MiB, 0 % | 3, 0 MiB, 0 %"
+        "original_progress_log": "2026-11-02T09:38:09.623978919+08:00 stdout F GRASP_CC_TRAIN_PROGRESS [[\"dp\", \"clear_volume\", 26121921, 0, 55400, null], [\"act\", \"clear_volume\", 26121921, 1, 64000, 0], [\"act\", \"clear_volume\", 26121923, 2, 64000, 0], [\"act\", \"clear_volume\", 26121925, 3, 64000, 0]] 0, 40304 MiB, 93 % | 1, 0 MiB, 0 % | 2, 0 MiB, 0 % | 3, 0 MiB, 0 %"
       },
       {
         "tag": "train-D200-f250S23S25-clearLS21S23-sealed-20261101cc",
         "job_id": "job-8grtqzrugqxp",
         "status": "RUNNING",
-        "checked_utc": "2026-11-02T00:55:29.046253+00:00",
-        "captured_original_file": "/home/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/pro6000_codex_20261026/diagnosis_compare_20261027/Panel_F250_safe_source_admission_and_ACT_drift_20261102/captured_frontier/train-D200-f250S23S25-clearLS21S23-sealed-20261101cc.json",
-        "captured_original_SHA256": "b17087ce91b7137c8b0876e5f77254e25defdfb2b39b66c9ebb8f49c51c036b6",
-        "sample_utc": "2026-11-02T00:53:46.253297+00:00",
+        "checked_utc": "2026-11-02T01:39:57.519648+00:00",
+        "sample_utc": "2026-11-02T01:37:53.789385+00:00",
         "updates": [
-          48750,
-          48850,
-          48850,
-          48800
+          54750,
+          54850,
+          54850,
+          54800
         ],
         "runs": [
           {
@@ -5528,7 +5685,7 @@
             "object_alias": "clear_volume",
             "seed": 26121923,
             "GPU": 0,
-            "updates": 48750,
+            "updates": 54750,
             "return_code": null
           },
           {
@@ -5536,7 +5693,7 @@
             "object_alias": "clear_volume",
             "seed": 26121925,
             "GPU": 1,
-            "updates": 48850,
+            "updates": 54850,
             "return_code": null
           },
           {
@@ -5544,7 +5701,7 @@
             "object_alias": "clear_reagen",
             "seed": 26121921,
             "GPU": 2,
-            "updates": 48850,
+            "updates": 54850,
             "return_code": null
           },
           {
@@ -5552,17 +5709,17 @@
             "object_alias": "clear_reagen",
             "seed": 26121923,
             "GPU": 3,
-            "updates": 48800,
+            "updates": 54800,
             "return_code": null
           }
         ],
         "utilization_percent": [
-          96,
-          96,
+          93,
           99,
-          93
+          93,
+          99
         ],
-        "original_progress_log": "2026-11-02T08:53:46.253297692+08:00 stdout F GRASP_CC_TRAIN_PROGRESS [[\"dp\", \"clear_volume\", 26121923, 0, 48750, null], [\"dp\", \"clear_volume\", 26121925, 1, 48850, null], [\"dp\", \"clear_reagen\", 26121921, 2, 48850, null], [\"dp\", \"clear_reagen\", 26121923, 3, 48800, null]] 0, 40696 MiB, 96 % | 1, 40304 MiB, 96 % | 2, 42170 MiB, 99 % | 3, 42264 MiB, 93 %"
+        "original_progress_log": "2026-11-02T09:37:53.789385745+08:00 stdout F GRASP_CC_TRAIN_PROGRESS [[\"dp\", \"clear_volume\", 26121923, 0, 54750, null], [\"dp\", \"clear_volume\", 26121925, 1, 54850, null], [\"dp\", \"clear_reagen\", 26121921, 2, 54850, null], [\"dp\", \"clear_reagen\", 26121923, 3, 54800, null]] 0, 40696 MiB, 93 % | 1, 40304 MiB, 99 % | 2, 42170 MiB, 93 % | 3, 42264 MiB, 99 %"
       }
     ],
     "latest_source_self_and_durable_recovery_evidence_url": "verification/grasp-source-self-repair-durable-20261101.json",
@@ -5597,8 +5754,14 @@
         "object": "clear_volumetric_flask_250ml",
         "tag": "train-D100A32-f250Thumb-six-sealed-20261102cc",
         "state": "QUALIFIED_SOURCE_SIX_MODELS_STAGED_HELD_AFTER_B50_AND_SAFE8GPU"
+      },
+      {
+        "object": "brown_volumetric_flask_250ml",
+        "tag": "train-D100A32-brownVThumb-six-sealed-20261102cc",
+        "state": "QUALIFIED_SOURCE_SIX_MODELS_STAGED_HELD_AFTER_F250_AND_SAFE8GPU"
       }
-    ]
+    ],
+    "latest_brownv_source100_and_wrist20_evidence_url": "verification/grasp-brownv-source100-admission-wrist20-20261102.json"
   },
   "evidence_note": "F250两组及BrownV一组专家试采已通过完整记录范围内120Hz几何与270原图审阅，两个新100条采集已提交；B50合格100条训练包仍待8卡内接续。旧源ACT64k已知15局：15抓起/1终点20mm，未解决SSR精度。训练分配8卡、最近5个DP优化器更新；正式仍0/21、0/42。",
   "offline_DP_probe": {
