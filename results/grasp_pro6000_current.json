@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-02T01:41:46.536101+00:00",
+  "updated_utc": "2026-11-02T03:50:11.346246+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -1532,9 +1532,9 @@
       },
       "object_accepted": false,
       "full_visual_passed": false,
-      "next": "沿失败轨迹诊断接触后状态与保持段输出，不盲目重复正式150。",
+      "next": "定位原已记录的手桌接近姿态，修复专家源后再验完整原轨迹，不用5/5抓起绕过几何门槛。",
       "name": "研钵（论文 Crucible）",
-      "status_note": "最新三种子DP100k及运动采样ACT各完整15次：均6/15抓起、0/15成功且终点20mm。离线运动误差改善未解决闭环终点，全部失败保留。",
+      "status_note": "新增5条源均抓起、终点20mm，完整手内和目标表面检查为零，但762个原120Hz手桌相交状态仍拒绝准入。旧DP/ACT开发各6/15抓起、0/15终点20mm的失败保留。",
       "source100_c0490": {
         "episodes": 100,
         "native_successes": 100,
@@ -1670,6 +1670,20 @@
           26121923,
           26121925
         ]
+      },
+      "prior_status_before_source120_pilot": {
+        "status_note": "最新三种子DP100k及运动采样ACT各完整15次：均6/15抓起、0/15成功且终点20mm。离线运动误差改善未解决闭环终点，全部失败保留。",
+        "next": "沿失败轨迹诊断接触后状态与保持段输出，不盲目重复正式150。"
+      },
+      "original_source5_full_observation_rejection": {
+        "label": "Mortar_c049_zplus2_m8",
+        "Native": 5,
+        "terminal20": 5,
+        "all_required_numeric_components_clean": false,
+        "hand_target_crossing_states": 0,
+        "hand_table_crossing_states": 762,
+        "hand_self_all_clean": true,
+        "evidence_url": "verification/grasp-three-clean-pilots-source100-20261102.json"
       }
     },
     {
@@ -1777,9 +1791,9 @@
         "episodes": 10,
         "strict_crossing_poses": 0
       },
-      "next": "比较源示范、模型终点预测与实际执行，区分学习误差、视觉分布差异及执行误差；不盲目启动正式150次。",
+      "next": "完成已运行的100条原3cm源采集及随单元并行的几何/写入/视觉检查；合格后再训DP/ACT，不将5条专家高分继承为策略SR或SSR。",
       "name": "大棕色试剂瓶",
-      "status_note": "DP100k开发13/15抓起、0/15终点≤20mm；ACT32k单种子5/5抓起、0/5终点合格。全部开发单元已CPU/BOS校验，终点偏差仍未解决，不计验收。",
+      "status_note": "原专家设置5条源完整120Hz手内/手物/手桌均零违规，5/5抓起及终点20mm，90张三视角原图已审阅。新100条采集已运行，完整新100仍需准入；旧策略终点SSR问题保留。",
       "source": {
         "episodes": 100,
         "native_successes": 100,
@@ -1792,6 +1806,161 @@
         "development_training_allowed": true,
         "actual_terminal_lift_min_m": 0.28491830825805664,
         "full_visual_passed": false
+      },
+      "prior_status_before_source120_pilot": {
+        "status_note": "DP100k开发13/15抓起、0/15终点≤20mm；ACT32k单种子5/5抓起、0/5终点合格。全部开发单元已CPU/BOS校验，终点偏差仍未解决，不计验收。",
+        "next": "比较源示范、模型终点预测与实际执行，区分学习误差、视觉分布差异及执行误差；不盲目启动正式150次。"
+      },
+      "original_source5_full_observation_pilot": {
+        "label": "BrownL_c06_m10",
+        "Native": 5,
+        "terminal20": 5,
+        "all_required_numeric_components_clean": true,
+        "hand_target_crossing_states": 0,
+        "hand_table_crossing_states": 0,
+        "hand_self_all_clean": true,
+        "directly_reviewed_original_stills": 90,
+        "visual_review_SHA256": "a1a184b28828f0cb291d3a6eb0b26c754d310ca182b575d648bbcc8d9b113aa2",
+        "source100_collection_admitted": true,
+        "evidence_url": "verification/grasp-three-clean-pilots-source100-20261102.json"
+      },
+      "new_observer_rich_source100": {
+        "object": "brown_reagent_bottle_large",
+        "tag": "src100-brownl-original-fullCapture-p120-20261102cc",
+        "job_id": "job-amssp3fzxa3c",
+        "status": "RUNNING",
+        "status_checked_utc": "2026-11-02T03:43:00.105892+00:00",
+        "maximum_new_source_trials": 100,
+        "source_half_extent_cm": 3,
+        "motion_steps": 300,
+        "original_lift_goal_m": 0.3,
+        "durable_cells": 24,
+        "maximum_episodes_per_cell": 5,
+        "maximum_live_Native": 4,
+        "one_Native_per_GPU": true,
+        "staged_and_inline_and_actual_builder_gates_passed": true,
+        "stage_receipt_SHA256": "190d303a72f09da3a9ef0a7dca0c5dc5ea9e7abde3dea9e42b43fc7ab10a43ea",
+        "source_training_allowed": false,
+        "formal_accepted": false,
+        "CPU_followers": {
+          "recorded_CPU": {
+            "utc": "2026-11-02T03:38:00.333493+00:00",
+            "pid": 1131727,
+            "runner_SHA256": "58481e9b8df6447c3c2e73a467716819e853c19264ee981bb41485cb68af0fd2",
+            "Native_calls": 0,
+            "create_calls": 0,
+            "source_training_allowed": false,
+            "process_exists": true,
+            "FAILED": false,
+            "last_status": {
+              "utc": "2026-11-02T03:53:11.449460+00:00",
+              "state": "WAIT_IMMUTABLE_SOURCE_CELL_CLOSURE",
+              "source_training_allowed": false,
+              "formal_accepted": false,
+              "no_Native_calls": true,
+              "cell": "cell00_gpu0",
+              "cells_downloaded": 0
+            }
+          },
+          "media": {
+            "utc": "2026-11-02T03:38:00.836396+00:00",
+            "pid": 1131886,
+            "runner_SHA256": "1914a7469bc64c283282eef00df43f693d61db7e27ff98948080a997251c99ec",
+            "Native_calls": 0,
+            "create_calls": 0,
+            "source_training_allowed": false
+          },
+          "recorded_self_CPU_r3": {
+            "utc": "2026-11-02T03:52:26.123466+00:00",
+            "pid": 1345755,
+            "runner_SHA256": "4cfc8ed7e073269edcc492807a2694bd621c9b42cdfb10dea33ebcb3af4f7e59",
+            "Native_calls": 0,
+            "source_training_allowed": false,
+            "process_exists": true,
+            "FAILED": false,
+            "last_status": {
+              "utc": "2026-11-02T03:53:26.235042+00:00",
+              "submitted_cells": 0,
+              "closed_cells": 0,
+              "CPU_workers": 2,
+              "source_training_allowed": false
+            }
+          }
+        },
+        "first_CPU_self_failure_preserved": "/data/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/pro6000_codex_20261026/diagnosis_compare_20261027/BrownL_original_full_source100_20261102/recorded_self_CPU/FAILED.json",
+        "self_recovery_CPU_red_green": {
+          "passed": true,
+          "utc": "2026-11-02T03:44:34.432647+00:00",
+          "cause": "Copied original input SHA identity guard was retained after adapting each new source loader. It correctly rejected mismatched loader metadata before any self query.",
+          "old_failure_preserved": "/data/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/pro6000_codex_20261026/diagnosis_compare_20261027/BrownL_original_full_source100_20261102/recorded_self_CPU/FAILED.json",
+          "original_FAILED_runner_SHA256": "110190c81f1091404a131c612b1384284a23a663de6b6ff0d1ae4e922c39c021",
+          "expected_input_SHA256": "58481e9b8df6447c3c2e73a467716819e853c19264ee981bb41485cb68af0fd2",
+          "actual_input_SHA256": "58481e9b8df6447c3c2e73a467716819e853c19264ee981bb41485cb68af0fd2",
+          "stale_original_input_guard_reproduced_and_rejected": true,
+          "mutated_current_input_bytes_rejected": true,
+          "current_input_bytes_and_PID_receipt_exact": true,
+          "source_geometry_algorithm_unchanged": true,
+          "first_attempt_self_query_processes": 0,
+          "Native_calls": 0,
+          "source_training_allowed": false
+        },
+        "previous_self_r2": {
+          "utc": "2026-11-02T03:44:34.432647+00:00",
+          "pid": 1230628,
+          "runner_SHA256": "cafb1fba761b28a7432498081793fde989b5aefaaa75d86e730b23930c090f7e",
+          "Native_calls": 0,
+          "create_calls": 0,
+          "source_training_allowed": false,
+          "process_exists": false,
+          "FAILED": true,
+          "failure": {
+            "utc": "2026-11-02T03:44:34.495536+00:00",
+            "error_type": "FileExistsError",
+            "message": "[Errno 17] File exists: '/dev/shm/grasp_BrownL_original_full_source100_20261102_CPU/self_CPU_readbacks'",
+            "no_Native_calls": true,
+            "source_training_allowed": false
+          }
+        },
+        "self_r3_actual_main_setup_gate": {
+          "passed": true,
+          "utc": "2026-11-02T03:52:26.123466+00:00",
+          "actual_main_setup_cases": [
+            {
+              "case": "fresh_actual_identity",
+              "result": "FULL_ACTUAL_MAIN_INITIALIZES_AND_WAITS_FOR_ORIGINAL_CLOSURES",
+              "Native_calls": 0,
+              "actual_audit_processes": 0
+            },
+            {
+              "case": "stale_PID_SHA",
+              "result": "REJECTED_AssertionError",
+              "Native_calls": 0,
+              "actual_audit_processes": 0
+            },
+            {
+              "case": "one_byte_changed_loader",
+              "result": "REJECTED_AssertionError",
+              "Native_calls": 0,
+              "actual_audit_processes": 0
+            },
+            {
+              "case": "existing_readback_dir",
+              "result": "REJECTED_FileExistsError",
+              "Native_calls": 0,
+              "actual_audit_processes": 0
+            }
+          ],
+          "input_loader_SHA256": "58481e9b8df6447c3c2e73a467716819e853c19264ee981bb41485cb68af0fd2",
+          "first_failure": "Stale original input SHA guard rejected adapted current loader before audit.",
+          "second_failure": "Old first-attempt RAM readback directory existed; r2 retained strict mkdir guard and refused reuse before audit.",
+          "both_failed_namespaces_and_logs_preserved": true,
+          "third_recovery_new_RAM_and_output_namespaces": true,
+          "geometry_algorithm_and_query_inputs_unchanged": true,
+          "Native_calls": 0,
+          "source_training_allowed": false
+        },
+        "self_recovery_note": "Original stale input SHA rejected before audit. Second attempt kept strict RAM readback-dir refusal and exited on existing first-attempt dir. Third attempt uses distinct RAM/output namespaces, validates actual loader bytes+PID receipt, and executes full actual setup with positive wait plus3negative cases before launching. Both prior failures retained; Native and geometry unchanged.",
+        "evidence_url": "verification/grasp-three-clean-pilots-source100-20261102.json"
       }
     },
     {
@@ -1822,9 +1991,9 @@
         "lift_components_full100_verified": true,
         "terminal_lift_min_m": -0.026144325733184814
       },
-      "next": "完成四个手腕方向各5局原生采集，再核对完整120Hz手内/手物/手桌与原图；只允许完全合格候选扩大100条，不改位置目标或论文门槛。",
+      "next": "检查相交发生的原运动阶段及实际指节，不将只减小拇指闭合继续当作已修复；保留全部原失败及预声明候选顺序。",
       "name": "小棕色试剂瓶",
-      "status_note": "仅调拇指的旧20局全部抓起，但四组完整手物/手桌审计均拒绝。原20个桌面相交姿态的离线方向筛选支持尝试小角度手腕旋转；首轮入口字段错误在采集前退出、0条有效轨迹，已保留并修复。相同配置与种子的恢复20局正在运行，未计新通过。",
+      "status_note": "四手腕20局完整审计全部拒绝。固定+x10°后拇指20局也全部拒绝：0.80/0.75/0.70仍手物相交264/278/285状态、手桌为零，0.65有1条原生失败。未准入新100条，全部旧源和策略失败保留。",
       "source_lower_grip_geometry20": [
         {
           "setting": "z10_m6",
@@ -1978,8 +2147,8 @@
       "wrist_thumb_repair20": {
         "tag": "qual-brownS-c65wrist20-m10-p120-20261102cc-r2",
         "job_id": "job-plymjn2li9jz",
-        "status": "RUNNING",
-        "checked_utc": "2026-11-02T01:40:00.215256+00:00",
+        "status": "SUCCEEDED",
+        "checked_utc": "2026-11-02T02:06:30.715621+00:00",
         "maximum_source_trials": 20,
         "source_ids": [
           7,
@@ -1991,10 +2160,10 @@
         "seed_base": 26963731,
         "original_source_seed_map_preserved_in_recovery": true,
         "local_EEF_directions": [
-          "x+5deg",
-          "x+10deg",
-          "z+5deg",
-          "z+10deg"
+          "x+5",
+          "x+10",
+          "z+5",
+          "z+10"
         ],
         "euler_deg": [
           [
@@ -2039,7 +2208,131 @@
         "offline_screen_scope": "Only20 copied positive table witness poses; zero copied-pose crossing in four selected directions is not source quality, actual IK or policy safety.",
         "source_training_allowed": false,
         "formal_accepted": false,
-        "evidence_url": "verification/grasp-brownv-source100-admission-wrist20-20261102.json"
+        "evidence_url": "verification/grasp-three-clean-pilots-source100-20261102.json",
+        "maximum_source_Native": 20,
+        "labels": [
+          "BrownS_rx5_t085",
+          "BrownS_rx10_t085",
+          "BrownS_rz5_t085",
+          "BrownS_rz10_t085"
+        ],
+        "fixed_thumb_scale": 0.85,
+        "global_close_scale": 0.65,
+        "source_position_goal_offset_lift_height_unchanged": true,
+        "CPU_original_Main_Euler_and_hand_cases": 4,
+        "offline_table_screen": {
+          "original_witnesses": 20,
+          "baseline_crossings": 20,
+          "all4_selected_directions_crossings": 0,
+          "scope": "Copied poses only; not actual IK, source or policy certification"
+        },
+        "CPU_numeric_follower_PID": 3675940,
+        "CPU_writer_visual_follower_PID": 3675942,
+        "source_episodes": 20,
+        "Native": 20,
+        "terminal20": 20,
+        "full_numeric_and_original_visual_pending": false,
+        "actual_runtime_field_bug_fixed": true,
+        "original_cfg_API_red_green_and_all4_positive_install_paths_passed": true,
+        "first_zero_episode_failure": {
+          "tag": "qual-brownS-c65wrist20-m10-p120-20261102cc",
+          "job_id": "job-qdtm6qstkbmj",
+          "cloud_status": "SUCCEEDED",
+          "qualification_exit_code": 3,
+          "source_episodes": 0,
+          "unscored_Native_process_starts": 4,
+          "cause": "New validation used registry lift_height rather than actual GraspMPTaskCfg.lift_height_desired",
+          "all4_original_console_manifests_retained": true,
+          "BOS_summary_closed": true,
+          "not_policy_score": true
+        },
+        "all4_numeric_rejected": true,
+        "results": [
+          {
+            "label": "BrownS_rz5_t085",
+            "Native": 5,
+            "terminal20": 5,
+            "hand_target_crossings": 11760,
+            "hand_table_crossings": 842,
+            "all_numeric_clean": false
+          },
+          {
+            "label": "BrownS_rx5_t085",
+            "Native": 5,
+            "terminal20": 5,
+            "hand_target_crossings": 2239,
+            "hand_table_crossings": 0,
+            "all_numeric_clean": false
+          },
+          {
+            "label": "BrownS_rz10_t085",
+            "Native": 5,
+            "terminal20": 5,
+            "hand_target_crossings": 9865,
+            "hand_table_crossings": 431,
+            "all_numeric_clean": false
+          },
+          {
+            "label": "BrownS_rx10_t085",
+            "Native": 5,
+            "terminal20": 5,
+            "hand_target_crossings": 269,
+            "hand_table_crossings": 0,
+            "all_numeric_clean": false
+          }
+        ],
+        "all_results_BOS_closed": true
+      },
+      "prior_status_before_source120_pilot": {
+        "status_note": "仅调拇指的旧20局全部抓起，但四组完整手物/手桌审计均拒绝。原20个桌面相交姿态的离线方向筛选支持尝试小角度手腕旋转；首轮入口字段错误在采集前退出、0条有效轨迹，已保留并修复。相同配置与种子的恢复20局正在运行，未计新通过。",
+        "next": "完成四个手腕方向各5局原生采集，再核对完整120Hz手内/手物/手桌与原图；只允许完全合格候选扩大100条，不改位置目标或论文门槛。"
+      },
+      "wristx10_thumb_relief20": {
+        "tag": "qual-brownS-x10thumbRelief20-m10-p120-20261102cc",
+        "job_id": "job-n3eqqgo2xwhg",
+        "state": "SUCCEEDED_SOURCE20_FULL_NUMERIC_FOLLOWING",
+        "rows": [
+          {
+            "label": "BrownS_x10_t065",
+            "Native": 4,
+            "terminal20": 5,
+            "hand_target_crossings": null,
+            "hand_table_crossings": null,
+            "all_numeric_clean": false
+          },
+          {
+            "label": "BrownS_x10_t080",
+            "Native": 5,
+            "terminal20": 5,
+            "hand_target_crossings": 264,
+            "hand_table_crossings": 0,
+            "all_numeric_clean": false
+          },
+          {
+            "label": "BrownS_x10_t075",
+            "Native": 5,
+            "terminal20": 5,
+            "hand_target_crossings": 278,
+            "hand_table_crossings": 0,
+            "all_numeric_clean": false
+          },
+          {
+            "label": "BrownS_x10_t070",
+            "Native": 5,
+            "terminal20": 5,
+            "hand_target_crossings": 285,
+            "hand_table_crossings": 0,
+            "all_numeric_clean": false
+          }
+        ],
+        "CPU_followers": [
+          703686,
+          703688
+        ],
+        "source_training_allowed": false,
+        "formal_accepted": false,
+        "evidence_url": "verification/grasp-three-clean-pilots-source100-20261102.json",
+        "all4_numeric_rejected": true
       }
     },
     {
@@ -2066,7 +2359,7 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "大透明试剂瓶",
-      "status_note": "最终DP100k三种子源验证14/15抓起、0/15成功且终点20mm；原策略输入另5次均抓起但终点0/5。原状态与RGB配对支持目标位置反馈导致漂移，尚未部署或证明修复。 两个冻结DP种子21/23正在按200k预算训练；第三种子25尚待后续同预算，未做挑种子验收。",
+      "status_note": "原专家设置5条源完整120Hz手内/手物/手桌均零违规，5/5抓起及终点20mm，90张三视角原图已审阅。新100条采集已运行，完整新100仍需准入；旧策略终点SSR问题保留。原旧100条287800保存状态追加手部自碰均阴性，不能代替旧100桌面或全手臂安全证明；旧两个DP200k仍训练中。",
       "source": {
         "tag": "src100-clearLA-c045-m12-p120-20261028cc",
         "episodes": 100,
@@ -2089,7 +2382,7 @@
           }
         }
       },
-      "next": "先做相同原输入的新旧模型与动作阶段对照，再投小样本闭环；保留全部失败。",
+      "next": "完成已运行的100条原3cm源采集及随单元并行的几何/写入/视觉检查；合格后再训DP/ACT，不将5条专家高分继承为策略SR或SSR。",
       "source_versions": [
         {
           "episodes": 100,
@@ -2119,6 +2412,203 @@
           "job_id": "job-714yglp6j8k2",
           "training_positions_not_heldout": true
         }
+      },
+      "prior_status_before_source120_pilot": {
+        "status_note": "最终DP100k三种子源验证14/15抓起、0/15成功且终点20mm；原策略输入另5次均抓起但终点0/5。原状态与RGB配对支持目标位置反馈导致漂移，尚未部署或证明修复。 两个冻结DP种子21/23正在按200k预算训练；第三种子25尚待后续同预算，未做挑种子验收。",
+        "next": "先做相同原输入的新旧模型与动作阶段对照，再投小样本闭环；保留全部失败。"
+      },
+      "original_source5_full_observation_pilot": {
+        "label": "ClearL_c045_m12",
+        "Native": 5,
+        "terminal20": 5,
+        "all_required_numeric_components_clean": true,
+        "hand_target_crossing_states": 0,
+        "hand_table_crossing_states": 0,
+        "hand_self_all_clean": true,
+        "directly_reviewed_original_stills": 90,
+        "visual_review_SHA256": "42c7b9f1fcb93235b89c23ec3a4d5a4618d92e756ee90a73be135ceb2ba6c4ba",
+        "source100_collection_admitted": true,
+        "evidence_url": "verification/grasp-three-clean-pilots-source100-20261102.json"
+      },
+      "new_observer_rich_source100": {
+        "object": "clear_reagent_bottle_large",
+        "tag": "src100-clearl-original-fullCapture-p120-20261102cc",
+        "job_id": "job-1iv7ghgb0ghr",
+        "status": "RUNNING",
+        "status_checked_utc": "2026-11-02T03:43:03.015176+00:00",
+        "maximum_new_source_trials": 100,
+        "source_half_extent_cm": 3,
+        "motion_steps": 360,
+        "original_lift_goal_m": 0.3,
+        "durable_cells": 24,
+        "maximum_episodes_per_cell": 5,
+        "maximum_live_Native": 4,
+        "one_Native_per_GPU": true,
+        "staged_and_inline_and_actual_builder_gates_passed": true,
+        "stage_receipt_SHA256": "365c4f7c123a15b6c5dad45b3e11da9edd47b42d1ef99b62b2d84af3801c95d8",
+        "source_training_allowed": false,
+        "formal_accepted": false,
+        "CPU_followers": {
+          "recorded_CPU": {
+            "utc": "2026-11-02T03:38:00.164935+00:00",
+            "pid": 1131644,
+            "runner_SHA256": "bb1d42b9a63d6fac4d54618524fa82655abacf37508b753e226f2e6efb99b121",
+            "Native_calls": 0,
+            "create_calls": 0,
+            "source_training_allowed": false,
+            "process_exists": true,
+            "FAILED": false,
+            "last_status": {
+              "utc": "2026-11-02T03:53:11.528403+00:00",
+              "state": "WAIT_IMMUTABLE_SOURCE_CELL_CLOSURE",
+              "source_training_allowed": false,
+              "formal_accepted": false,
+              "no_Native_calls": true,
+              "cell": "cell00_gpu0",
+              "cells_downloaded": 0
+            }
+          },
+          "media": {
+            "utc": "2026-11-02T03:38:00.667543+00:00",
+            "pid": 1131804,
+            "runner_SHA256": "beb4d5b3fe8c407002db46ecb3d613a9169f662f674a77e80dd3aea3350dcb9f",
+            "Native_calls": 0,
+            "create_calls": 0,
+            "source_training_allowed": false
+          },
+          "recorded_self_CPU_r3": {
+            "utc": "2026-11-02T03:52:26.128351+00:00",
+            "pid": 1345756,
+            "runner_SHA256": "ebe195e654f273120a610b2a56dbfb0dda5aa405e317a6dee62b1d09fa37f483",
+            "Native_calls": 0,
+            "source_training_allowed": false,
+            "process_exists": true,
+            "FAILED": false,
+            "last_status": {
+              "utc": "2026-11-02T03:53:26.250503+00:00",
+              "submitted_cells": 0,
+              "closed_cells": 0,
+              "CPU_workers": 2,
+              "source_training_allowed": false
+            }
+          }
+        },
+        "first_CPU_self_failure_preserved": "/data/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/pro6000_codex_20261026/diagnosis_compare_20261027/ClearL_original_full_source100_20261102/recorded_self_CPU/FAILED.json",
+        "self_recovery_CPU_red_green": {
+          "passed": true,
+          "utc": "2026-11-02T03:44:34.434833+00:00",
+          "cause": "Copied original input SHA identity guard was retained after adapting each new source loader. It correctly rejected mismatched loader metadata before any self query.",
+          "old_failure_preserved": "/data/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/pro6000_codex_20261026/diagnosis_compare_20261027/ClearL_original_full_source100_20261102/recorded_self_CPU/FAILED.json",
+          "original_FAILED_runner_SHA256": "bef6f8e5d71a34d241c4648df2167e2709985dd702e6da5d3e726366a3988d3d",
+          "expected_input_SHA256": "bb1d42b9a63d6fac4d54618524fa82655abacf37508b753e226f2e6efb99b121",
+          "actual_input_SHA256": "bb1d42b9a63d6fac4d54618524fa82655abacf37508b753e226f2e6efb99b121",
+          "stale_original_input_guard_reproduced_and_rejected": true,
+          "mutated_current_input_bytes_rejected": true,
+          "current_input_bytes_and_PID_receipt_exact": true,
+          "source_geometry_algorithm_unchanged": true,
+          "first_attempt_self_query_processes": 0,
+          "Native_calls": 0,
+          "source_training_allowed": false
+        },
+        "previous_self_r2": {
+          "utc": "2026-11-02T03:44:34.434833+00:00",
+          "pid": 1230629,
+          "runner_SHA256": "cd3457bbcebf94d91097972e270785bea51c052dd2515fb4651f915580c40f6f",
+          "Native_calls": 0,
+          "create_calls": 0,
+          "source_training_allowed": false,
+          "process_exists": false,
+          "FAILED": true,
+          "failure": {
+            "utc": "2026-11-02T03:44:34.508277+00:00",
+            "error_type": "FileExistsError",
+            "message": "[Errno 17] File exists: '/dev/shm/grasp_ClearL_original_full_source100_20261102_CPU/self_CPU_readbacks'",
+            "no_Native_calls": true,
+            "source_training_allowed": false
+          }
+        },
+        "self_r3_actual_main_setup_gate": {
+          "passed": true,
+          "utc": "2026-11-02T03:52:26.128351+00:00",
+          "actual_main_setup_cases": [
+            {
+              "case": "fresh_actual_identity",
+              "result": "FULL_ACTUAL_MAIN_INITIALIZES_AND_WAITS_FOR_ORIGINAL_CLOSURES",
+              "Native_calls": 0,
+              "actual_audit_processes": 0
+            },
+            {
+              "case": "stale_PID_SHA",
+              "result": "REJECTED_AssertionError",
+              "Native_calls": 0,
+              "actual_audit_processes": 0
+            },
+            {
+              "case": "one_byte_changed_loader",
+              "result": "REJECTED_AssertionError",
+              "Native_calls": 0,
+              "actual_audit_processes": 0
+            },
+            {
+              "case": "existing_readback_dir",
+              "result": "REJECTED_FileExistsError",
+              "Native_calls": 0,
+              "actual_audit_processes": 0
+            }
+          ],
+          "input_loader_SHA256": "bb1d42b9a63d6fac4d54618524fa82655abacf37508b753e226f2e6efb99b121",
+          "first_failure": "Stale original input SHA guard rejected adapted current loader before audit.",
+          "second_failure": "Old first-attempt RAM readback directory existed; r2 retained strict mkdir guard and refused reuse before audit.",
+          "both_failed_namespaces_and_logs_preserved": true,
+          "third_recovery_new_RAM_and_output_namespaces": true,
+          "geometry_algorithm_and_query_inputs_unchanged": true,
+          "Native_calls": 0,
+          "source_training_allowed": false
+        },
+        "self_recovery_note": "Original stale input SHA rejected before audit. Second attempt kept strict RAM readback-dir refusal and exited on existing first-attempt dir. Third attempt uses distinct RAM/output namespaces, validates actual loader bytes+PID receipt, and executes full actual setup with positive wait plus3negative cases before launching. Both prior failures retained; Native and geometry unchanged.",
+        "evidence_url": "verification/grasp-three-clean-pilots-source100-20261102.json"
+      },
+      "original100_saved_hand_self_component": {
+        "original_first_cell_source_episodes": 7,
+        "source_ids": [
+          0,
+          16,
+          32,
+          48,
+          64,
+          80,
+          96
+        ],
+        "state": "ALL100_ORIGINAL_RECORDED_HAND_SELF_COMPONENT_CLOSED",
+        "original_states": 20146,
+        "Native_calls": 0,
+        "all100_not_certified": true,
+        "all100_follow_PID": 3799785,
+        "all100_component_scope": "Original120Hz hand/EEF self only, no missing scene/target/full-arm/visual certificate",
+        "all100_partial": {
+          "utc": "2026-11-02T02:15:52.063460+00:00",
+          "closed_cells": 16,
+          "source_episodes": 100,
+          "positive_episodes": 0,
+          "source_training_allowed": false
+        },
+        "reuse_first7_without_repeat": true,
+        "all100_original_states": 287800,
+        "all100_positive_self_episodes": 0,
+        "all100_hand_EEF_self_component_clean": true,
+        "all100_report_SHA256": "5da43e0da5bd7fedda76a7f8e7697ad1d442916947b08a7aa930ce43db6586cd",
+        "all100_BOS_receipt": {
+          "passed": true,
+          "receipt": {
+            "key": "liyufeng/pro6000-bulk/results/grasp_pro6000_cc/CPU_post/ClearL_all100_recorded_self_CPU_20261102/ALL100_RECORDED_HAND_SELF_COMPONENTS.json",
+            "SHA256": "5da43e0da5bd7fedda76a7f8e7697ad1d442916947b08a7aa930ce43db6586cd",
+            "bytes": 350019
+          },
+          "source_training_allowed": false,
+          "formal_accepted": false
+        },
+        "scope": "All100 saved hand/EEF self only. Missing original table/full-arm/full-visual domains not inferred.",
+        "evidence_url": "verification/grasp-three-clean-pilots-source100-20261102.json"
       }
     },
     {
@@ -2993,9 +3483,9 @@
         "lifted": 100,
         "strict_crossings": 0
       },
-      "next": "核对模型终点命令与实际末端轨迹，区分策略偏差与执行误差；当前模型不盲跑正式150。",
+      "next": "按4个云作业上限启动已入队的修复源100；完整数值、原始写入和抽样视觉准入后训练DP/ACT。旧正式及开发失败全部保留。",
       "name": "漏斗",
-      "status_note": "原始DP100k恢复源碰撞配置后，三种子开发15条全部关闭：8/15抓起、0/15终点20mm；旧配置为9/15、0/15。目标物体碰撞配置不是这次终点误差的充分解释。保留旧正式结果，不计验收。",
+      "status_note": "原专家5条虽都抓起，5条终点均手内相交。四组拇指展开/闭合修复各5条，完整120Hz手内/手物/手桌均阴性；按预声明顺序选择spread1.02/flex0.6，并完成90原图审阅。新100条已入队；保持原0.2m抬升目标，尚未训练或通过新策略。",
       "latest_source_development": {
         "method": "DP",
         "trials": 15,
@@ -3012,6 +3502,201 @@
         "all_original_models_positions_and_thresholds_retained": true,
         "full_SpatialSSR": null,
         "formal_accepted": false
+      },
+      "prior_status_before_source120_pilot": {
+        "status_note": "原始DP100k恢复源碰撞配置后，三种子开发15条全部关闭：8/15抓起、0/15终点20mm；旧配置为9/15、0/15。目标物体碰撞配置不是这次终点误差的充分解释。保留旧正式结果，不计验收。",
+        "next": "核对模型终点命令与实际末端轨迹，区分策略偏差与执行误差；当前模型不盲跑正式150。"
+      },
+      "original_source5_self_rejection": {
+        "label": "Funnel_original_m6",
+        "Native": 5,
+        "terminal20": 5,
+        "all_required_numeric_components_clean": false,
+        "hand_target_crossing_states": null,
+        "hand_table_crossing_states": null,
+        "hand_self_all_clean": null,
+        "reason": "All5 terminal saved hand/EEF self witnesses positive. Other missing full-domain counts remain null, not zero.",
+        "evidence_url": "verification/grasp-three-clean-pilots-source100-20261102.json"
+      },
+      "thumb_open_spread_source20": {
+        "tag": "qual-funnel-thumbOpen20-m6-p120-20261102cc",
+        "job_id": "job-47absaxf1re4",
+        "state": "SUCCEEDED_SOURCE20_FULL_NUMERIC_FOLLOWING",
+        "rows": [
+          {
+            "label": "Funnel_s102_f060",
+            "Native": 5,
+            "terminal20": 5,
+            "hand_target_crossings": 0,
+            "hand_table_crossings": 0,
+            "all_numeric_clean": true
+          },
+          {
+            "label": "Funnel_s102_f050",
+            "Native": 5,
+            "terminal20": 5,
+            "hand_target_crossings": 0,
+            "hand_table_crossings": 0,
+            "all_numeric_clean": true
+          },
+          {
+            "label": "Funnel_s112_f050",
+            "Native": 5,
+            "terminal20": 5,
+            "hand_target_crossings": 0,
+            "hand_table_crossings": 0,
+            "all_numeric_clean": true
+          },
+          {
+            "label": "Funnel_s122_f050",
+            "Native": 5,
+            "terminal20": 5,
+            "hand_target_crossings": 0,
+            "hand_table_crossings": 0,
+            "all_numeric_clean": true
+          }
+        ],
+        "CPU_followers": [
+          692735,
+          692736
+        ],
+        "source_training_allowed": false,
+        "formal_accepted": false,
+        "selected_label": "Funnel_s102_f060",
+        "directly_reviewed_original_stills": 90,
+        "visual_review_SHA256": "689a31b2e2e8e0eac26ea773b4051e820cbf45058812291c0232dc2a2aaad7f2",
+        "source100_collection_admitted": true,
+        "all4_numeric_clean": true,
+        "evidence_url": "verification/grasp-three-clean-pilots-source100-20261102.json"
+      },
+      "new_observer_rich_source100": {
+        "object": "funnel",
+        "tag": "src100-funnel-open102-f060-m6-p120-20261102cc",
+        "job_id": null,
+        "status": "QUEUED_NOT_YET_SUBMITTED",
+        "status_checked_utc": "2026-11-02T03:43:05.644823+00:00",
+        "maximum_new_source_trials": 100,
+        "source_half_extent_cm": 3,
+        "motion_steps": 180,
+        "original_lift_goal_m": 0.2,
+        "durable_cells": 24,
+        "maximum_episodes_per_cell": 5,
+        "maximum_live_Native": 4,
+        "one_Native_per_GPU": true,
+        "staged_and_inline_and_actual_builder_gates_passed": true,
+        "stage_receipt_SHA256": "a717b3bdefeec6668195593d96430108b9b144a514bba00642e4adda5afaad10",
+        "source_training_allowed": false,
+        "formal_accepted": false,
+        "CPU_followers": {
+          "recorded_CPU": {
+            "utc": "2026-11-02T03:38:00.256503+00:00",
+            "pid": 1131689,
+            "runner_SHA256": "dc0e5a6cffa7925bb4f78d43e32ffaa9c1bbce1f9dea8b98ad68ab19fcff8709",
+            "Native_calls": 0,
+            "create_calls": 0,
+            "source_training_allowed": false,
+            "process_exists": true,
+            "FAILED": false
+          },
+          "media": {
+            "utc": "2026-11-02T03:38:00.759145+00:00",
+            "pid": 1131854,
+            "runner_SHA256": "9eaa2b7b952fa24aa3dbdbeda795426ad74b1a6e80db31ba412df1874c93de31",
+            "Native_calls": 0,
+            "create_calls": 0,
+            "source_training_allowed": false
+          },
+          "recorded_self_CPU_r3": {
+            "utc": "2026-11-02T03:52:26.132813+00:00",
+            "pid": 1345757,
+            "runner_SHA256": "4365ae5d8b4dd409e1948cde2622457b7bae153476a99309e8c612ca01ab2123",
+            "Native_calls": 0,
+            "source_training_allowed": false,
+            "process_exists": true,
+            "FAILED": false,
+            "last_status": {
+              "utc": "2026-11-02T03:53:26.257563+00:00",
+              "submitted_cells": 0,
+              "closed_cells": 0,
+              "CPU_workers": 2,
+              "source_training_allowed": false
+            }
+          }
+        },
+        "first_CPU_self_failure_preserved": "/data/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/pro6000_codex_20261026/diagnosis_compare_20261027/Funnel_open102_f060_source100_20261102/recorded_self_CPU/FAILED.json",
+        "self_recovery_CPU_red_green": {
+          "passed": true,
+          "utc": "2026-11-02T03:44:34.436423+00:00",
+          "cause": "Copied original input SHA identity guard was retained after adapting each new source loader. It correctly rejected mismatched loader metadata before any self query.",
+          "old_failure_preserved": "/data/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/pro6000_codex_20261026/diagnosis_compare_20261027/Funnel_open102_f060_source100_20261102/recorded_self_CPU/FAILED.json",
+          "original_FAILED_runner_SHA256": "67974c4becb52d170b515ee797640fc05e539d408510e46aff807f53fedbde57",
+          "expected_input_SHA256": "dc0e5a6cffa7925bb4f78d43e32ffaa9c1bbce1f9dea8b98ad68ab19fcff8709",
+          "actual_input_SHA256": "dc0e5a6cffa7925bb4f78d43e32ffaa9c1bbce1f9dea8b98ad68ab19fcff8709",
+          "stale_original_input_guard_reproduced_and_rejected": true,
+          "mutated_current_input_bytes_rejected": true,
+          "current_input_bytes_and_PID_receipt_exact": true,
+          "source_geometry_algorithm_unchanged": true,
+          "first_attempt_self_query_processes": 0,
+          "Native_calls": 0,
+          "source_training_allowed": false
+        },
+        "previous_self_r2": {
+          "utc": "2026-11-02T03:44:34.436423+00:00",
+          "pid": 1230630,
+          "runner_SHA256": "e222c8ba65078da7ab69f8857d64878ea9ccbf2469a0ab5683ebb0063b948705",
+          "Native_calls": 0,
+          "create_calls": 0,
+          "source_training_allowed": false,
+          "process_exists": false,
+          "FAILED": true,
+          "failure": {
+            "utc": "2026-11-02T03:44:34.491625+00:00",
+            "error_type": "FileExistsError",
+            "message": "[Errno 17] File exists: '/dev/shm/grasp_Funnel_open102_f060_source100_20261102_CPU/self_CPU_readbacks'",
+            "no_Native_calls": true,
+            "source_training_allowed": false
+          }
+        },
+        "self_r3_actual_main_setup_gate": {
+          "passed": true,
+          "utc": "2026-11-02T03:52:26.132813+00:00",
+          "actual_main_setup_cases": [
+            {
+              "case": "fresh_actual_identity",
+              "result": "FULL_ACTUAL_MAIN_INITIALIZES_AND_WAITS_FOR_ORIGINAL_CLOSURES",
+              "Native_calls": 0,
+              "actual_audit_processes": 0
+            },
+            {
+              "case": "stale_PID_SHA",
+              "result": "REJECTED_AssertionError",
+              "Native_calls": 0,
+              "actual_audit_processes": 0
+            },
+            {
+              "case": "one_byte_changed_loader",
+              "result": "REJECTED_AssertionError",
+              "Native_calls": 0,
+              "actual_audit_processes": 0
+            },
+            {
+              "case": "existing_readback_dir",
+              "result": "REJECTED_FileExistsError",
+              "Native_calls": 0,
+              "actual_audit_processes": 0
+            }
+          ],
+          "input_loader_SHA256": "dc0e5a6cffa7925bb4f78d43e32ffaa9c1bbce1f9dea8b98ad68ab19fcff8709",
+          "first_failure": "Stale original input SHA guard rejected adapted current loader before audit.",
+          "second_failure": "Old first-attempt RAM readback directory existed; r2 retained strict mkdir guard and refused reuse before audit.",
+          "both_failed_namespaces_and_logs_preserved": true,
+          "third_recovery_new_RAM_and_output_namespaces": true,
+          "geometry_algorithm_and_query_inputs_unchanged": true,
+          "Native_calls": 0,
+          "source_training_allowed": false
+        },
+        "self_recovery_note": "Original stale input SHA rejected before audit. Second attempt kept strict RAM readback-dir refusal and exited on existing first-attempt dir. Third attempt uses distinct RAM/output namespaces, validates actual loader bytes+PID receipt, and executes full actual setup with positive wait plus3negative cases before launching. Both prior failures retained; Native and geometry unchanged.",
+        "evidence_url": "verification/grasp-three-clean-pilots-source100-20261102.json"
       }
     },
     {
@@ -3122,11 +3807,11 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 292,
-    "active_registered_jobs": 3,
+    "registered_jobs": 298,
+    "active_registered_jobs": 4,
     "BOS_mount_count": 2,
-    "state": "THREE_NEW_DEVELOPMENT_SOURCES_QUALIFIED_TRAINING_HELD_WRIST20_RECOVERY",
-    "state_note": "B50、F250、BrownV三份新100条开发源已准入，均不继承为策略验收；各六模型训练包预检完成、按8卡预算接续。最近8卡分配、5个DP更新、3卡空闲，替换旧作业的授权仍待答。BrownS手腕20局修复入口后恢复运行，完整源审计继续；正式0/21、0/42。",
+    "state": "THREE_SAFE100_SOURCES_HELD_AND_THREE_NEW_SOURCE100_PIPELINES",
+    "state_note": "B50/F250/BrownV三份100条源已准入开发训练，六模型包各已预检但仍等8卡内接续。新增BrownL/ClearL各5条及漏斗修复首组5条通过完整记录范围几何和90原图检查：两个新100条采集中，漏斗100条排队。8张训练卡当前5个DP更新、3卡空闲；替换旧作业授权仍待答。正式0/21、0/42。",
     "prepared_not_submitted": [
       {
         "tag": "eval-m6-dp-b50-20261025cc",
@@ -3157,9 +3842,15 @@
         "name": "BrownV合格新源 · DP/ACT三种子训练",
         "state": "HELD_SAFE_EIGHT_TRAINING_GPU",
         "progress_note": "合格100条源和4卡六模型包预检通过；按既定顺序及8训练卡预算接续，未创建新训练作业。"
+      },
+      {
+        "tag": "src100-funnel-open102-f060-m6-p120-20261102cc",
+        "name": "漏斗修复源100条 · 等现有名额",
+        "state": "QUEUED_SAFE_FOUR_JOB_CAP",
+        "progress_note": "完整5条数值和90原图通过，构建及staged/inline已通过；等待4个作业名额内提交，未称已运行。"
       }
     ],
-    "checked_utc": "2026-11-02T01:41:46.536101+00:00",
+    "checked_utc": "2026-11-02T03:43:05.645617+00:00",
     "jobs": [
       {
         "tag": "qual-mortar-p120-smoke4-20261028cc",
@@ -5220,14 +5911,14 @@
         "job_id": "job-u1iiwcgozjb9",
         "status": "RUNNING",
         "name": "已运行4卡预算训练",
-        "progress_note": "原训练日志：[55400, 64000, 64000, 64000]步；仅训练进度，非验收。",
+        "progress_note": "原日志采样2026-11-02T11:40:33.708875858+08:00；各GPU更新[72000, 64000, 64000, 64000]。原8卡预算不变；已完成ACT保留封存，未停止云作业。",
         "training_progress": [
           {
             "method": "dp",
             "object_alias": "clear_volume",
             "seed": 26121921,
             "GPU": 0,
-            "updates": 55400,
+            "updates": 72000,
             "return_code": null
           },
           {
@@ -5255,21 +5946,22 @@
             "return_code": 0
           }
         ],
-        "progress_sample_utc": "2026-11-02T01:38:09.623978+00:00"
+        "progress_sample_utc": "2026-11-02T11:40:33.708875858+08:00",
+        "checked_utc": "2026-11-02T03:42:54.828454+00:00"
       },
       {
         "tag": "train-D200-f250S23S25-clearLS21S23-sealed-20261101cc",
         "job_id": "job-8grtqzrugqxp",
         "status": "RUNNING",
         "name": "已运行4卡预算训练",
-        "progress_note": "原训练日志：[54750, 54850, 54850, 54800]步；仅训练进度，非验收。",
+        "progress_note": "原日志采样2026-11-02T11:42:15.110936204+08:00；各GPU更新[71550, 71700, 71700, 71650]。原8卡预算不变；已完成ACT保留封存，未停止云作业。",
         "training_progress": [
           {
             "method": "dp",
             "object_alias": "clear_volume",
             "seed": 26121923,
             "GPU": 0,
-            "updates": 54750,
+            "updates": 71550,
             "return_code": null
           },
           {
@@ -5277,7 +5969,7 @@
             "object_alias": "clear_volume",
             "seed": 26121925,
             "GPU": 1,
-            "updates": 54850,
+            "updates": 71700,
             "return_code": null
           },
           {
@@ -5285,7 +5977,7 @@
             "object_alias": "clear_reagen",
             "seed": 26121921,
             "GPU": 2,
-            "updates": 54850,
+            "updates": 71700,
             "return_code": null
           },
           {
@@ -5293,11 +5985,12 @@
             "object_alias": "clear_reagen",
             "seed": 26121923,
             "GPU": 3,
-            "updates": 54800,
+            "updates": 71650,
             "return_code": null
           }
         ],
-        "progress_sample_utc": "2026-11-02T01:37:53.789385+00:00"
+        "progress_sample_utc": "2026-11-02T11:42:15.110936204+08:00",
+        "checked_utc": "2026-11-02T03:42:57.428569+00:00"
       },
       {
         "tag": "src100-b50-clearance5mm-m6-p120-20261101cc-r2",
@@ -5417,12 +6110,66 @@
         "tag": "qual-brownS-c65wrist20-m10-p120-20261102cc-r2",
         "job_id": "job-plymjn2li9jz",
         "name": "小棕瓶 · 四个手腕方向20局恢复",
-        "status": "RUNNING",
+        "status": "SUCCEEDED",
         "progress_sample_utc": "2026-11-02T01:40:00.215256+00:00",
-        "progress_note": "同原配置/种子恢复，仅修安装检查字段；四方向各5局。原位置目标与抬升高度不变；等待实际采集与完整审计，不计通过。"
+        "progress_note": "20条抓起及终点均到位，但四个完整几何候选全部拒绝，详见对象栏；不计正式通过。"
+      },
+      {
+        "tag": "src100-brownl-original-fullCapture-p120-20261102cc",
+        "job_id": "job-amssp3fzxa3c",
+        "status": "RUNNING",
+        "name": "brown_reagent_bottle_large · 新完整记录100条专家源",
+        "checked_utc": "2026-11-02T03:43:00.105892+00:00",
+        "progress_note": "24个4或5条耐久单元、原3cm位置，每GPU最多一个采集进程；先写BOS再CPU核验。全部100尚未准入训练；不计策略成功率。",
+        "evidence_url": "verification/grasp-three-clean-pilots-source100-20261102.json"
+      },
+      {
+        "tag": "src100-clearl-original-fullCapture-p120-20261102cc",
+        "job_id": "job-1iv7ghgb0ghr",
+        "status": "RUNNING",
+        "name": "clear_reagent_bottle_large · 新完整记录100条专家源",
+        "checked_utc": "2026-11-02T03:43:03.015176+00:00",
+        "progress_note": "24个4或5条耐久单元、原3cm位置，每GPU最多一个采集进程；先写BOS再CPU核验。全部100尚未准入训练；不计策略成功率。",
+        "evidence_url": "verification/grasp-three-clean-pilots-source100-20261102.json"
+      },
+      {
+        "tag": "qual-fourOriginal-fullCapture20-20261102cc",
+        "name": "四个原专家源完整记录20条",
+        "status": "SUCCEEDED",
+        "Native_progress": {
+          "eps": 20,
+          "succ": 20,
+          "t20": 20
+        },
+        "progress_note": "专家源试采已关闭，分对象完整检查及失败保留见对象栏；该计数不是策略SR或SSR。",
+        "evidence_url": "verification/grasp-three-clean-pilots-source100-20261102.json"
+      },
+      {
+        "tag": "qual-funnel-thumbOpen20-m6-p120-20261102cc",
+        "name": "漏斗拇指展开闭合20条",
+        "status": "SUCCEEDED",
+        "Native_progress": {
+          "eps": 20,
+          "succ": 20,
+          "t20": 20
+        },
+        "progress_note": "专家源试采已关闭，分对象完整检查及失败保留见对象栏；该计数不是策略SR或SSR。",
+        "evidence_url": "verification/grasp-three-clean-pilots-source100-20261102.json"
+      },
+      {
+        "tag": "qual-brownS-x10thumbRelief20-m10-p120-20261102cc",
+        "name": "BrownS固定手腕拇指闭合20条",
+        "status": "SUCCEEDED",
+        "Native_progress": {
+          "eps": 20,
+          "succ": 19,
+          "t20": 20
+        },
+        "progress_note": "专家源试采已关闭，分对象完整检查及失败保留见对象栏；该计数不是策略SR或SSR。",
+        "evidence_url": "verification/grasp-three-clean-pilots-source100-20261102.json"
       }
     ],
-    "progress_note": "B50、F250、BrownV三份新100条开发源已准入，均不继承为策略验收；各六模型训练包预检完成、按8卡预算接续。最近8卡分配、5个DP更新、3卡空闲，替换旧作业的授权仍待答。BrownS手腕20局修复入口后恢复运行，完整源审计继续；正式0/21、0/42。",
+    "progress_note": "B50/F250/BrownV三份100条源已准入开发训练，六模型包各已预检但仍等8卡内接续。新增BrownL/ClearL各5条及漏斗修复首组5条通过完整记录范围几何和90原图检查：两个新100条采集中，漏斗100条排队。8张训练卡当前5个DP更新、3卡空闲；替换旧作业授权仍待答。正式0/21、0/42。",
     "DP_repair_note": "原始DP100k正式150已外部闭合：149成功、44成功且终点20mm，SSR上限29.3%低于论文37%。三种子固定200k预算已训练完成，现做封存模型开发诊断；不使用保持或目标参考冒充原始基线。",
     "b50_reset_note": "B50源/测试重置修复沿用冻结设置。原始DP100k与ACT分开核验，不与固定保持变体混算。新问题是DP终点精度不足、ACT接近阶段手指与桌面相交；物体成功抓起也不能记为完整通过。",
     "failure_diagnosis": [
@@ -5505,7 +6252,7 @@
     "training_budget_evidence": "verification/grasp_source15_followthrough_20261028.json",
     "submitted_jobs": 234,
     "training_optimizer_active_GPUs_observed": 5,
-    "training_utilization_note": "B50、F250、BrownV三份新100条开发源已准入，均不继承为策略验收；各六模型训练包预检完成、按8卡预算接续。最近8卡分配、5个DP更新、3卡空闲，替换旧作业的授权仍待答。BrownS手腕20局修复入口后恢复运行，完整源审计继续；正式0/21、0/42。",
+    "training_utilization_note": "原日志显示5个DP约71.5k–72k更新，三ACT各64k已结束且GPU1/2/3空闲。未停止/取消/重启云作业。",
     "training_GPU_allocation_cap": 8,
     "training_allocated_GPUs": 8,
     "training_optimizers_last_verified": 5,
@@ -5578,14 +6325,15 @@
       "棕色250ml容量瓶新正式150已放行，采用固定三ACT32k和全新、不重叠的±3/4/5/6cm位置；旧23局单列，不与新150拼接。实际新仿真USD、全场景120Hz和视觉仍需逐项闭合。",
       "CPU实测：两帧真实阳性记录从冷启动16.75s到静态索引复用后三次中位3.25s，数值行完全相同。发现一个确定非法交叉即可判该次零交叉条件为假；无交叉必须检查完整时钟。该测速不代表150次端到端已加速5倍。",
       "原始DP100k正式150仍为149成功/44成功且终点20mm，SSR最多29.3%低于论文37%；固定200k预算诊断继续。透明250ml瓶新DP100k三模型待封存后跑固定源15，不把来源异常旧模型或训练完成计入验收。",
-      "前次状态（2026-11-02T01:09:22.286220+00:00）：+5mm净空新源已形成100条合格开发示范：104次原始尝试103成功；按预声明整单元规则排除[6,30,54,78]并补4，得到100/100原生与终点达标。记录范围内120Hz手物/手内/手桌、RGB证明和234张原视角抽查闭合；同名跨任务缓存问题已用真实解码复现并修复。新4卡DP/ACT三种子训练已演练，等待8卡内替换；尚未新增策略通过。；拇指张角/闭合修复20局中两组源设置各5/5通过完整记录范围内120Hz手内/手物/手桌检查，并审阅180原图；选spread1.22/flex0.5扩大100条，日志36/36成功，新100尚未准入训练。旧源ACT64k三种子15/15抓起、仅1/15终点20mm，单纯加长训练未解决精度，正式仍未通过。；接近与闭合均固定拇指张角的新20局全部抓起；三设置15局仍相交，最后spread1.02/flex0.6的5/5原生、终点及完整记录范围120Hz手内/手物/手桌通过，90原图已审阅。已提交同型号Pro6000新100条采集，原失败及原正式150缺失76均保留；尚无新策略验收。；源数据准入与策略验收分别记账：已知源15局不当独立泛化，终点20mm不当完整SpatialSSR；原21物体DP/ACT论文门槛、±3cm源与±3/4/5/6cm测试口径及全部失败保留。"
+      "前次状态（2026-11-02T01:09:22.286220+00:00）：+5mm净空新源已形成100条合格开发示范：104次原始尝试103成功；按预声明整单元规则排除[6,30,54,78]并补4，得到100/100原生与终点达标。记录范围内120Hz手物/手内/手桌、RGB证明和234张原视角抽查闭合；同名跨任务缓存问题已用真实解码复现并修复。新4卡DP/ACT三种子训练已演练，等待8卡内替换；尚未新增策略通过。；拇指张角/闭合修复20局中两组源设置各5/5通过完整记录范围内120Hz手内/手物/手桌检查，并审阅180原图；选spread1.22/flex0.5扩大100条，日志36/36成功，新100尚未准入训练。旧源ACT64k三种子15/15抓起、仅1/15终点20mm，单纯加长训练未解决精度，正式仍未通过。；接近与闭合均固定拇指张角的新20局全部抓起；三设置15局仍相交，最后spread1.02/flex0.6的5/5原生、终点及完整记录范围120Hz手内/手物/手桌通过，90原图已审阅。已提交同型号Pro6000新100条采集，原失败及原正式150缺失76均保留；尚无新策略验收。；源数据准入与策略验收分别记账：已知源15局不当独立泛化，终点20mm不当完整SpatialSSR；原21物体DP/ACT论文门槛、±3cm源与±3/4/5/6cm测试口径及全部失败保留。",
+      "新完整记录源检查发现原漏斗5/5手内相交、研钵手桌762状态；四个漏斗拇指候选均通过记录域检查。三份新100的CPU自碰读入器保留了旧输入SHA，保护检查在查询前拒绝；保留失败后以新r2固定真实输入字节及PID SHA恢复，不重采、不改几何算法。r2严格保留旧RAM目录拒绝导致第二次启动退出；r3使用独立目录，实际完整main初始化与等待路径及3负例已执行后运行，前两次失败均保留。"
     ],
     "previous_audit_evidence": "verification/grasp-B50-source-physics-and-B100-retest-20261030.json",
     "training_GPU_cap": 8,
     "allocated_training_GPUs": 8,
     "current_recovery_evidence_url": "verification/grasp-B50-remaining23-and-source-provenance-20261030.json",
     "observed_optimizer_GPUs": 5,
-    "observed_optimizer_GPU_note": "B50、F250、BrownV三份新100条开发源已准入，均不继承为策略验收；各六模型训练包预检完成、按8卡预算接续。最近8卡分配、5个DP更新、3卡空闲，替换旧作业的授权仍待答。BrownS手腕20局修复入口后恢复运行，完整源审计继续；正式0/21、0/42。",
+    "observed_optimizer_GPU_note": "原日志显示5个DP约71.5k–72k更新，三ACT各64k已结束且GPU1/2/3空闲。未停止/取消/重启云作业。",
     "sealed_continuation_evidence_url": "verification/grasp-sealed-models-and-original-source15-20261030.json",
     "original_ACT150_OOD_integrity_evidence_url": "verification/grasp-original-ACT150-OOD-and-output-integrity-20261030.json",
     "firstcell_recovery_evidence_url": "verification/grasp-ACT150-technical-failure-and-first5-recovery-20261030.json",
@@ -5617,10 +6365,10 @@
         "tag": "train-A64-f250S3-D200-f250S21-sealed-20261101cc",
         "job_id": "job-u1iiwcgozjb9",
         "status": "RUNNING",
-        "checked_utc": "2026-11-02T01:39:54.635350+00:00",
-        "sample_utc": "2026-11-02T01:38:09.623978+00:00",
+        "checked_utc": "2026-11-02T03:42:54.828454+00:00",
+        "sample_utc": "2026-11-02T11:40:33.708875858+08:00",
         "updates": [
-          55400,
+          72000,
           64000,
           64000,
           64000
@@ -5631,7 +6379,7 @@
             "object_alias": "clear_volume",
             "seed": 26121921,
             "GPU": 0,
-            "updates": 55400,
+            "updates": 72000,
             "return_code": null
           },
           {
@@ -5665,19 +6413,19 @@
           0,
           0
         ],
-        "original_progress_log": "2026-11-02T09:38:09.623978919+08:00 stdout F GRASP_CC_TRAIN_PROGRESS [[\"dp\", \"clear_volume\", 26121921, 0, 55400, null], [\"act\", \"clear_volume\", 26121921, 1, 64000, 0], [\"act\", \"clear_volume\", 26121923, 2, 64000, 0], [\"act\", \"clear_volume\", 26121925, 3, 64000, 0]] 0, 40304 MiB, 93 % | 1, 0 MiB, 0 % | 2, 0 MiB, 0 % | 3, 0 MiB, 0 %"
+        "original_progress_log": "2026-11-02T11:40:33.708875858+08:00 stdout F GRASP_CC_TRAIN_PROGRESS [[\"dp\", \"clear_volume\", 26121921, 0, 72000, null], [\"act\", \"clear_volume\", 26121921, 1, 64000, 0], [\"act\", \"clear_volume\", 26121923, 2, 64000, 0], [\"act\", \"clear_volume\", 26121925, 3, 64000, 0]] 0, 40304 MiB, 93 % | 1, 0 MiB, 0 % | 2, 0 MiB, 0 % | 3, 0 MiB, 0 %"
       },
       {
         "tag": "train-D200-f250S23S25-clearLS21S23-sealed-20261101cc",
         "job_id": "job-8grtqzrugqxp",
         "status": "RUNNING",
-        "checked_utc": "2026-11-02T01:39:57.519648+00:00",
-        "sample_utc": "2026-11-02T01:37:53.789385+00:00",
+        "checked_utc": "2026-11-02T03:42:57.428569+00:00",
+        "sample_utc": "2026-11-02T11:42:15.110936204+08:00",
         "updates": [
-          54750,
-          54850,
-          54850,
-          54800
+          71550,
+          71700,
+          71700,
+          71650
         ],
         "runs": [
           {
@@ -5685,7 +6433,7 @@
             "object_alias": "clear_volume",
             "seed": 26121923,
             "GPU": 0,
-            "updates": 54750,
+            "updates": 71550,
             "return_code": null
           },
           {
@@ -5693,7 +6441,7 @@
             "object_alias": "clear_volume",
             "seed": 26121925,
             "GPU": 1,
-            "updates": 54850,
+            "updates": 71700,
             "return_code": null
           },
           {
@@ -5701,7 +6449,7 @@
             "object_alias": "clear_reagen",
             "seed": 26121921,
             "GPU": 2,
-            "updates": 54850,
+            "updates": 71700,
             "return_code": null
           },
           {
@@ -5709,17 +6457,17 @@
             "object_alias": "clear_reagen",
             "seed": 26121923,
             "GPU": 3,
-            "updates": 54800,
+            "updates": 71650,
             "return_code": null
           }
         ],
         "utilization_percent": [
-          93,
           99,
-          93,
+          96,
+          99,
           99
         ],
-        "original_progress_log": "2026-11-02T09:37:53.789385745+08:00 stdout F GRASP_CC_TRAIN_PROGRESS [[\"dp\", \"clear_volume\", 26121923, 0, 54750, null], [\"dp\", \"clear_volume\", 26121925, 1, 54850, null], [\"dp\", \"clear_reagen\", 26121921, 2, 54850, null], [\"dp\", \"clear_reagen\", 26121923, 3, 54800, null]] 0, 40696 MiB, 93 % | 1, 40304 MiB, 99 % | 2, 42170 MiB, 93 % | 3, 42264 MiB, 99 %"
+        "original_progress_log": "2026-11-02T11:42:15.110936204+08:00 stdout F GRASP_CC_TRAIN_PROGRESS [[\"dp\", \"clear_volume\", 26121923, 0, 71550, null], [\"dp\", \"clear_volume\", 26121925, 1, 71700, null], [\"dp\", \"clear_reagen\", 26121921, 2, 71700, null], [\"dp\", \"clear_reagen\", 26121923, 3, 71650, null]] 0, 40696 MiB, 99 % | 1, 40304 MiB, 96 % | 2, 42170 MiB, 99 % | 3, 42264 MiB, 99 %"
       }
     ],
     "latest_source_self_and_durable_recovery_evidence_url": "verification/grasp-source-self-repair-durable-20261101.json",
@@ -5761,9 +6509,10 @@
         "state": "QUALIFIED_SOURCE_SIX_MODELS_STAGED_HELD_AFTER_F250_AND_SAFE8GPU"
       }
     ],
-    "latest_brownv_source100_and_wrist20_evidence_url": "verification/grasp-brownv-source100-admission-wrist20-20261102.json"
+    "latest_brownv_source100_and_wrist20_evidence_url": "verification/grasp-brownv-source100-admission-wrist20-20261102.json",
+    "latest_clean_pilots_source100_evidence_url": "verification/grasp-three-clean-pilots-source100-20261102.json"
   },
-  "evidence_note": "F250两组及BrownV一组专家试采已通过完整记录范围内120Hz几何与270原图审阅，两个新100条采集已提交；B50合格100条训练包仍待8卡内接续。旧源ACT64k已知15局：15抓起/1终点20mm，未解决SSR精度。训练分配8卡、最近5个DP优化器更新；正式仍0/21、0/42。",
+  "evidence_note": "B50/F250/BrownV三份100条源已准入开发训练，六模型包各已预检但仍等8卡内接续。新增BrownL/ClearL各5条及漏斗修复首组5条通过完整记录范围几何和90原图检查：两个新100条采集中，漏斗100条排队。8张训练卡当前5个DP更新、3卡空闲；替换旧作业授权仍待答。正式0/21、0/42。",
   "offline_DP_probe": {
     "observations": 4,
     "source_episodes": 1,
