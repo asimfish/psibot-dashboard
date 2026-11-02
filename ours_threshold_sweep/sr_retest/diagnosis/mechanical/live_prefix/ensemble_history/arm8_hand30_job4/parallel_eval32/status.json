@@ -1,9 +1,9 @@
 {
   "schema": "parallel_evaluation_status_v1",
-  "snapshot_at": "2026-11-02T12:05:18.183959+00:00",
+  "snapshot_at": "2026-11-02T15:39:30.771897+00:00",
   "snapshot_kind": "saved_status_not_live",
-  "phase": "running",
-  "summary": "首批4条已运行结束，原始记录均为75秒超时，待独立验收；第二批4个独立仿真已启动。Mem0 顺序等待。",
+  "phase": "ended_audit_not_completed",
+  "summary": "运行已结束：29条完整S/F记录、3条未裁定；原始独立审计未启动，没有本轮最终成功率。",
   "cohort": {
     "total": 32,
     "per_method": 16,
@@ -19,7 +19,8 @@
     "methods": "ours_then_mem0_after_positive_cleanup",
     "whole_cohort_waves_per_method": 4,
     "shared_GPU_access": true,
-    "hardware_exclusivity_claimed": false
+    "hardware_exclusivity_claimed": false,
+    "within_one_App_multi_environment_used": false
   },
   "science": {
     "A_XY_jitter_half_range_cm": 1,
@@ -33,7 +34,19 @@
   },
   "results": {
     "accepted_outcomes_available": false,
-    "success_rate": null
+    "success_rate": null,
+    "provisional_runtime_counts": {
+      "ours": {
+        "S": 6,
+        "F": 10,
+        "U": 0
+      },
+      "mem0": {
+        "S": 9,
+        "F": 4,
+        "U": 3
+      }
+    }
   },
   "cases": [
     {
@@ -46,17 +59,22 @@
         "evidence": null,
         "provisional_runtime": {
           "outcome": "F",
-          "reason": "task_timeout_75simsec",
-          "elapsed_sim_seconds": 75,
-          "rollout_wall_seconds": 1132.5129752750508,
-          "original_result_sha256": "bc172bc1653b207a6d3825786e2c38119c69cf308a4517c21d44adf94f51192b"
+          "original_RESULT_present": true,
+          "original_status": "task_timeout_75simsec",
+          "original_RESULT_sha256": "bc172bc1653b207a6d3825786e2c38119c69cf308a4517c21d44adf94f51192b"
         }
       },
       "mem0": {
-        "status": "pending_acceptance",
+        "status": "runtime_closed_pending_audit",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "S",
+          "original_RESULT_present": true,
+          "original_status": "task_success",
+          "original_RESULT_sha256": "33737ea36f0e56a6d40c9c450e24d4330ccf691e625d948ca59dbea1d9e77eb0"
+        }
       }
     },
     {
@@ -69,17 +87,22 @@
         "evidence": null,
         "provisional_runtime": {
           "outcome": "F",
-          "reason": "task_timeout_75simsec",
-          "elapsed_sim_seconds": 75,
-          "rollout_wall_seconds": 1151.009573129937,
-          "original_result_sha256": "870242b31fe0f3e32a731d5b8f658fa3ecb8fc43fd2ebf55581c639d21c7f2ef"
+          "original_RESULT_present": true,
+          "original_status": "task_timeout_75simsec",
+          "original_RESULT_sha256": "870242b31fe0f3e32a731d5b8f658fa3ecb8fc43fd2ebf55581c639d21c7f2ef"
         }
       },
       "mem0": {
-        "status": "pending_acceptance",
+        "status": "runtime_closed_pending_audit",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "S",
+          "original_RESULT_present": true,
+          "original_status": "task_success",
+          "original_RESULT_sha256": "02e9e88c4bb1847203312f38b1da1097d74ce47450397acf2633d914f50592a7"
+        }
       }
     },
     {
@@ -92,17 +115,22 @@
         "evidence": null,
         "provisional_runtime": {
           "outcome": "F",
-          "reason": "task_timeout_75simsec",
-          "elapsed_sim_seconds": 75,
-          "rollout_wall_seconds": 1146.8132305229083,
-          "original_result_sha256": "d022cae07b90e511a8b3f2a165d2e6b1e94d5887936c4d8cf52aba502ad28b65"
+          "original_RESULT_present": true,
+          "original_status": "task_timeout_75simsec",
+          "original_RESULT_sha256": "d022cae07b90e511a8b3f2a165d2e6b1e94d5887936c4d8cf52aba502ad28b65"
         }
       },
       "mem0": {
-        "status": "pending_acceptance",
+        "status": "runtime_closed_pending_audit",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "S",
+          "original_RESULT_present": true,
+          "original_status": "task_success",
+          "original_RESULT_sha256": "6ae5abb5dce5d4aed4917a029a228007635caf3896652f3f5cf0483f608be436"
+        }
       }
     },
     {
@@ -115,209 +143,358 @@
         "evidence": null,
         "provisional_runtime": {
           "outcome": "F",
-          "reason": "task_timeout_75simsec",
-          "elapsed_sim_seconds": 75,
-          "rollout_wall_seconds": 1147.3304961407557,
-          "original_result_sha256": "b114621fd6fa14f5b8c82a1a4ad00e7e6bf82853f840eee774b5066285855232"
+          "original_RESULT_present": true,
+          "original_status": "task_timeout_75simsec",
+          "original_RESULT_sha256": "b114621fd6fa14f5b8c82a1a4ad00e7e6bf82853f840eee774b5066285855232"
         }
       },
       "mem0": {
-        "status": "pending_acceptance",
+        "status": "runtime_closed_pending_audit",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "S",
+          "original_RESULT_present": true,
+          "original_status": "task_success",
+          "original_RESULT_sha256": "bba3db1a662e41feb8d7e39302028070b028bc96506a375acf1faeba3784dc51"
+        }
       }
     },
     {
       "episode": 4,
       "side": "left",
       "ours": {
-        "status": "initializing",
+        "status": "runtime_closed_pending_audit",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "F",
+          "original_RESULT_present": true,
+          "original_status": "task_timeout_75simsec",
+          "original_RESULT_sha256": "142ec381b86922ddaa4eacbc340c8403d40840b1dc12eb861610d77f90d30a11"
+        }
       },
       "mem0": {
-        "status": "pending_acceptance",
+        "status": "runtime_closed_pending_audit",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "S",
+          "original_RESULT_present": true,
+          "original_status": "task_success",
+          "original_RESULT_sha256": "9a59b8c275ab2df9c794c7abf69b316a8a2a8d689211910de0530a232fc8de3f"
+        }
       }
     },
     {
       "episode": 5,
       "side": "left",
       "ours": {
-        "status": "initializing",
+        "status": "runtime_closed_pending_audit",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "S",
+          "original_RESULT_present": true,
+          "original_status": "task_success",
+          "original_RESULT_sha256": "6329a62b8d3c57d7f7679c9430951ab11e40ef7bae427918966c19026cac7be0"
+        }
       },
       "mem0": {
-        "status": "pending_acceptance",
+        "status": "runtime_closed_pending_audit",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "F",
+          "original_RESULT_present": true,
+          "original_status": "task_timeout_75simsec",
+          "original_RESULT_sha256": "b228bfb3d4e7916b5dccf4d14ecf3166d90b7dea5fe837879695ebaa7f712d88"
+        }
       }
     },
     {
       "episode": 6,
       "side": "left",
       "ours": {
-        "status": "initializing",
+        "status": "runtime_closed_pending_audit",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "F",
+          "original_RESULT_present": true,
+          "original_status": "task_timeout_75simsec",
+          "original_RESULT_sha256": "47714410e6119e09bb8e4b5d5ee7d1844082c6b551d1cd5dadee3630f146e74d"
+        }
       },
       "mem0": {
-        "status": "pending_acceptance",
+        "status": "runtime_closed_pending_audit",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "S",
+          "original_RESULT_present": true,
+          "original_status": "task_success",
+          "original_RESULT_sha256": "05e5a8ea51aa7682b6660d45c809c593d0aad6ea84848073ed0b2dd5506365cd"
+        }
       }
     },
     {
       "episode": 7,
       "side": "left",
       "ours": {
-        "status": "initializing",
+        "status": "runtime_closed_pending_audit",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "S",
+          "original_RESULT_present": true,
+          "original_status": "task_success",
+          "original_RESULT_sha256": "c171d1ea736d2cbc0f95b961dcfc5960f64967133d211bed14355a1aea2f74cf"
+        }
       },
       "mem0": {
-        "status": "pending_acceptance",
+        "status": "runtime_closed_pending_audit",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "S",
+          "original_RESULT_present": true,
+          "original_status": "task_success",
+          "original_RESULT_sha256": "7b84f8c2ac7f7142c4409fa0cb838c03ba89cf14070f389722cf0a6b7f95ad66"
+        }
       }
     },
     {
       "episode": 50,
       "side": "right",
       "ours": {
-        "status": "pending_acceptance",
+        "status": "runtime_closed_pending_audit",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "F",
+          "original_RESULT_present": true,
+          "original_status": "task_timeout_75simsec",
+          "original_RESULT_sha256": "03a0b326ee2fb2d3293af1a2d8fbb588b162247db95182a6c0fc987548623df9"
+        }
       },
       "mem0": {
-        "status": "pending_acceptance",
+        "status": "runtime_closed_pending_audit",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "S",
+          "original_RESULT_present": true,
+          "original_status": "task_success",
+          "original_RESULT_sha256": "c72fbe85e1c4c3593979a5e6ba266ec94a80933a8df243ad74d10ce092870197"
+        }
       }
     },
     {
       "episode": 51,
       "side": "right",
       "ours": {
-        "status": "pending_acceptance",
+        "status": "runtime_closed_pending_audit",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "F",
+          "original_RESULT_present": true,
+          "original_status": "task_timeout_75simsec",
+          "original_RESULT_sha256": "49179f0750bb5917bc23b72907c99a87b298c4d42fbd202d36d2d1a81cbf0a47"
+        }
       },
       "mem0": {
-        "status": "pending_acceptance",
+        "status": "runtime_closed_pending_audit",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "F",
+          "original_RESULT_present": true,
+          "original_status": "task_timeout_75simsec",
+          "original_RESULT_sha256": "ada2d37760048246b30282ba9b233bf92f287196ea4251b6c58cc90f6503e11d"
+        }
       }
     },
     {
       "episode": 52,
       "side": "right",
       "ours": {
-        "status": "pending_acceptance",
+        "status": "runtime_closed_pending_audit",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "S",
+          "original_RESULT_present": true,
+          "original_status": "task_success",
+          "original_RESULT_sha256": "926688cf8348cb92072fdcbea4fe12beb08770e6fe1283ab49fe7227e85a8d0b"
+        }
       },
       "mem0": {
-        "status": "pending_acceptance",
+        "status": "runtime_closed_pending_audit",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "F",
+          "original_RESULT_present": true,
+          "original_status": "task_timeout_75simsec",
+          "original_RESULT_sha256": "1a3475a1caaa46720feb7dc6630ce39f8318978224f36614fb8ac769b5feecc1"
+        }
       }
     },
     {
       "episode": 53,
       "side": "right",
       "ours": {
-        "status": "pending_acceptance",
+        "status": "runtime_closed_pending_audit",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "F",
+          "original_RESULT_present": true,
+          "original_status": "task_timeout_75simsec",
+          "original_RESULT_sha256": "62b311a8f619ee0c45d7aa8629b5ed745ff27d66f5d585f29db4ca860cfde54c"
+        }
       },
       "mem0": {
-        "status": "pending_acceptance",
+        "status": "runtime_closed_pending_audit",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "S",
+          "original_RESULT_present": true,
+          "original_status": "task_success",
+          "original_RESULT_sha256": "7bb521669e234b48f46ac755f58994a6ae805c67c7f847687f1d864dd1ab7754"
+        }
       }
     },
     {
       "episode": 54,
       "side": "right",
       "ours": {
-        "status": "pending_acceptance",
+        "status": "runtime_closed_pending_audit",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "S",
+          "original_RESULT_present": true,
+          "original_status": "task_success",
+          "original_RESULT_sha256": "0982428a0e8307d89f386edd82d91b7d46caa23770a1b712af27b62344ac49c3"
+        }
       },
       "mem0": {
-        "status": "pending_acceptance",
+        "status": "unresolved",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "U",
+          "original_RESULT_present": true,
+          "original_status": "physical_or_policy_failure",
+          "original_RESULT_sha256": "1f760426af726c80ce60a5eaa3686f84197fb7ed62cfe4296aa0cc93d45c4830"
+        }
       }
     },
     {
       "episode": 55,
       "side": "right",
       "ours": {
-        "status": "pending_acceptance",
+        "status": "runtime_closed_pending_audit",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "S",
+          "original_RESULT_present": true,
+          "original_status": "task_success",
+          "original_RESULT_sha256": "15db0b39bbd12e3a3b3b8d31fe48a9848ebbaea65d2082b1cb31011b92bfa5dd"
+        }
       },
       "mem0": {
-        "status": "pending_acceptance",
+        "status": "unresolved",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "U",
+          "original_RESULT_present": false,
+          "original_status": null,
+          "original_RESULT_sha256": null
+        }
       }
     },
     {
       "episode": 56,
       "side": "right",
       "ours": {
-        "status": "pending_acceptance",
+        "status": "runtime_closed_pending_audit",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "S",
+          "original_RESULT_present": true,
+          "original_status": "task_success",
+          "original_RESULT_sha256": "138fbee1f268ad9850123c6a9285836c87359aaac638b7efdbf461682a17b562"
+        }
       },
       "mem0": {
-        "status": "pending_acceptance",
+        "status": "runtime_closed_pending_audit",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "F",
+          "original_RESULT_present": true,
+          "original_status": "task_timeout_75simsec",
+          "original_RESULT_sha256": "7b6f0cb355fe3fa4975f56901de087dbbafbbae6a6c1d6226dc3352e487b9240"
+        }
       }
     },
     {
       "episode": 57,
       "side": "right",
       "ours": {
-        "status": "pending_acceptance",
+        "status": "runtime_closed_pending_audit",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "F",
+          "original_RESULT_present": true,
+          "original_status": "task_timeout_75simsec",
+          "original_RESULT_sha256": "7346c7391ec9b443fac54b04a236260fcd9f8a0c39d81808a45d9f4d417c6a8a"
+        }
       },
       "mem0": {
-        "status": "pending_acceptance",
+        "status": "unresolved",
         "outcome": null,
         "physical_SR": null,
-        "evidence": null
+        "evidence": null,
+        "provisional_runtime": {
+          "outcome": "U",
+          "original_RESULT_present": false,
+          "original_status": null,
+          "original_RESULT_sha256": null
+        }
       }
     }
   ],
@@ -342,10 +519,34 @@
     "topology_equivalence_claimed": false
   },
   "progress": {
-    "runtime_closed": 4,
-    "currently_running": 4,
+    "runtime_closed": 32,
+    "complete_producer_SF_recordings": 29,
+    "unresolved": 3,
+    "currently_running": 0,
     "accepted": 0,
-    "remaining_including_running": 28,
     "runtime_closed_is_not_accepted": true
+  },
+  "runtime": {
+    "running": false,
+    "end_at": "2026-11-02T14:41:22.667610+00:00",
+    "elapsed_wall_seconds": 11080.926845312119,
+    "scope": "launch_to_terminal_excludes_preparation"
+  },
+  "stop_diagnostic": {
+    "first_unresolved": {
+      "method": "mem0",
+      "episode": 54,
+      "elapsed_sim_seconds": 72.13333333333334,
+      "reason": "planner_response_rejected: missing_next_subtask_prefix",
+      "HTTP": 503,
+      "actions_retried": false
+    },
+    "peer_cleanup_unresolved_episodes": [
+      55,
+      57
+    ],
+    "peer_original_RESULT_present": false,
+    "original_independent_audit_started": false,
+    "new_final_REPORT_present": false
   }
 }

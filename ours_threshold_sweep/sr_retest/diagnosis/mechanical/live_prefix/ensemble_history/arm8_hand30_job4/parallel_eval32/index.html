@@ -6,28 +6,28 @@
 </style></head><body><main>
 <div class="eyebrow">SAFELAB · 诊断记录</div><h1>并行评测进度</h1>
 <div class="snapshot">状态快照 · 非实时更新</div>
-<p class="muted"><time datetime="2026-11-02T12:05:18.183959+00:00">2026-11-02 12:05:18 UTC</time></p>
+<p class="muted"><time datetime="2026-11-02T15:39:30.771897+00:00">2026-11-02 15:39:30 UTC</time></p>
 <p class="intro">本轮预先固定32条诊断：Ours、Mem0 各16条，每个方法左侧8条、右侧8条。结果尚未完成验收，不显示本轮成功率。</p>
-<section class="state" aria-label="快照状态"><strong>评测运行中 · 4条结束，待独立验收</strong><p>首批4条已运行结束，原始记录均为75秒超时，待独立验收；第二批4个独立仿真已启动。Mem0 顺序等待。</p><p>本轮尚无完成独立验收的结果，原始超时记录不作为最终成功率。</p></section>
+<section class="state" aria-label="快照状态"><strong>运行已结束 · 独立验收未完成</strong><p>Ours：原始6成功、10失败；Mem0：原始9成功、4失败、3未裁定。以上均待独立验收，不作为最终成功率。</p><p>Mem0 EP054 的 Planner 输出缺少规定前缀，返回HTTP503并触发整批停止；EP055、EP057在清理时中断，保留未裁定，未补造原始RESULT。</p><p>原始独立审计未启动。运行启动至停止约3小时5分钟，不含前期准备；模型、仿真和方法worker已有退出记录。</p></section>
 <div class="facts" aria-label="本轮配置"><div class="fact"><b>32条</b><span>固定诊断样本 · 非100条正式统计</span></div><div class="fact"><b>4个 App</b><span>每波独立 N1 仿真</span></div><div class="fact"><b>2张卡</b><span>模型与仿真分卡 · 两方法顺序运行</span></div><div class="fact"><b>P30 / H4</b><span>ARM W8 · HAND W30</span></div></div>
-<section class="panel" aria-labelledby="cases-title"><div class="panel-head"><h2 id="cases-title">逐场景结果</h2><p>同一场景配对比较两个方法。待验收不等于失败；没有已验收结果时不添加视频或结论。</p></div>
-<table><thead><tr><th scope="col">原场景编号</th><th scope="col">Ours</th><th scope="col">Mem0</th></tr></thead><tbody><tr><th scope="row"><span class="episode">EP000</span><span class="side">左侧</span></th><td><span class="pending">运行结束·待验收</span></td><td><span class="pending">待验收</span></td></tr>
-<tr><th scope="row"><span class="episode">EP001</span><span class="side">左侧</span></th><td><span class="pending">运行结束·待验收</span></td><td><span class="pending">待验收</span></td></tr>
-<tr><th scope="row"><span class="episode">EP002</span><span class="side">左侧</span></th><td><span class="pending">运行结束·待验收</span></td><td><span class="pending">待验收</span></td></tr>
-<tr><th scope="row"><span class="episode">EP003</span><span class="side">左侧</span></th><td><span class="pending">运行结束·待验收</span></td><td><span class="pending">待验收</span></td></tr>
-<tr><th scope="row"><span class="episode">EP004</span><span class="side">左侧</span></th><td><span class="pending">初始化中</span></td><td><span class="pending">待验收</span></td></tr>
-<tr><th scope="row"><span class="episode">EP005</span><span class="side">左侧</span></th><td><span class="pending">初始化中</span></td><td><span class="pending">待验收</span></td></tr>
-<tr><th scope="row"><span class="episode">EP006</span><span class="side">左侧</span></th><td><span class="pending">初始化中</span></td><td><span class="pending">待验收</span></td></tr>
-<tr><th scope="row"><span class="episode">EP007</span><span class="side">左侧</span></th><td><span class="pending">初始化中</span></td><td><span class="pending">待验收</span></td></tr>
-<tr><th scope="row"><span class="episode">EP050</span><span class="side">右侧</span></th><td><span class="pending">待验收</span></td><td><span class="pending">待验收</span></td></tr>
-<tr><th scope="row"><span class="episode">EP051</span><span class="side">右侧</span></th><td><span class="pending">待验收</span></td><td><span class="pending">待验收</span></td></tr>
-<tr><th scope="row"><span class="episode">EP052</span><span class="side">右侧</span></th><td><span class="pending">待验收</span></td><td><span class="pending">待验收</span></td></tr>
-<tr><th scope="row"><span class="episode">EP053</span><span class="side">右侧</span></th><td><span class="pending">待验收</span></td><td><span class="pending">待验收</span></td></tr>
-<tr><th scope="row"><span class="episode">EP054</span><span class="side">右侧</span></th><td><span class="pending">待验收</span></td><td><span class="pending">待验收</span></td></tr>
-<tr><th scope="row"><span class="episode">EP055</span><span class="side">右侧</span></th><td><span class="pending">待验收</span></td><td><span class="pending">待验收</span></td></tr>
-<tr><th scope="row"><span class="episode">EP056</span><span class="side">右侧</span></th><td><span class="pending">待验收</span></td><td><span class="pending">待验收</span></td></tr>
-<tr><th scope="row"><span class="episode">EP057</span><span class="side">右侧</span></th><td><span class="pending">待验收</span></td><td><span class="pending">待验收</span></td></tr></tbody></table></section>
+<section class="panel" aria-labelledby="cases-title"><div class="panel-head"><h2 id="cases-title">逐场景原始记录 · 待验收</h2><p>同一场景配对比较两个方法。S/F来自运行器原始记录；U不算失败。整批独立验收未完成，本页不发布最终成功率或新验收视频。</p></div>
+<table><thead><tr><th scope="col">原场景编号</th><th scope="col">Ours</th><th scope="col">Mem0</th></tr></thead><tbody><tr><th scope="row"><span class="episode">EP000</span><span class="side">左侧</span></th><td><span class="pending">原始失败·待验收</span></td><td><span class="pending">原始成功·待验收</span></td></tr>
+<tr><th scope="row"><span class="episode">EP001</span><span class="side">左侧</span></th><td><span class="pending">原始失败·待验收</span></td><td><span class="pending">原始成功·待验收</span></td></tr>
+<tr><th scope="row"><span class="episode">EP002</span><span class="side">左侧</span></th><td><span class="pending">原始失败·待验收</span></td><td><span class="pending">原始成功·待验收</span></td></tr>
+<tr><th scope="row"><span class="episode">EP003</span><span class="side">左侧</span></th><td><span class="pending">原始失败·待验收</span></td><td><span class="pending">原始成功·待验收</span></td></tr>
+<tr><th scope="row"><span class="episode">EP004</span><span class="side">左侧</span></th><td><span class="pending">原始失败·待验收</span></td><td><span class="pending">原始成功·待验收</span></td></tr>
+<tr><th scope="row"><span class="episode">EP005</span><span class="side">左侧</span></th><td><span class="pending">原始成功·待验收</span></td><td><span class="pending">原始失败·待验收</span></td></tr>
+<tr><th scope="row"><span class="episode">EP006</span><span class="side">左侧</span></th><td><span class="pending">原始失败·待验收</span></td><td><span class="pending">原始成功·待验收</span></td></tr>
+<tr><th scope="row"><span class="episode">EP007</span><span class="side">左侧</span></th><td><span class="pending">原始成功·待验收</span></td><td><span class="pending">原始成功·待验收</span></td></tr>
+<tr><th scope="row"><span class="episode">EP050</span><span class="side">右侧</span></th><td><span class="pending">原始失败·待验收</span></td><td><span class="pending">原始成功·待验收</span></td></tr>
+<tr><th scope="row"><span class="episode">EP051</span><span class="side">右侧</span></th><td><span class="pending">原始失败·待验收</span></td><td><span class="pending">原始失败·待验收</span></td></tr>
+<tr><th scope="row"><span class="episode">EP052</span><span class="side">右侧</span></th><td><span class="pending">原始成功·待验收</span></td><td><span class="pending">原始失败·待验收</span></td></tr>
+<tr><th scope="row"><span class="episode">EP053</span><span class="side">右侧</span></th><td><span class="pending">原始失败·待验收</span></td><td><span class="pending">原始成功·待验收</span></td></tr>
+<tr><th scope="row"><span class="episode">EP054</span><span class="side">右侧</span></th><td><span class="pending">原始成功·待验收</span></td><td><span class="pending">未裁定 U</span></td></tr>
+<tr><th scope="row"><span class="episode">EP055</span><span class="side">右侧</span></th><td><span class="pending">原始成功·待验收</span></td><td><span class="pending">未裁定 U</span></td></tr>
+<tr><th scope="row"><span class="episode">EP056</span><span class="side">右侧</span></th><td><span class="pending">原始成功·待验收</span></td><td><span class="pending">原始失败·待验收</span></td></tr>
+<tr><th scope="row"><span class="episode">EP057</span><span class="side">右侧</span></th><td><span class="pending">原始失败·待验收</span></td><td><span class="pending">未裁定 U</span></td></tr></tbody></table></section>
 <section class="historical" aria-label="历史诊断单独查看"><b>历史8条诊断，单独查看</b><p>Ours 1/4（25%）；Mem0 2/4（50%）。这是此前的小样本记录，不与本轮32条合并，也不代表100条正式成功率。</p><a href="https://asimfish.github.io/psibot-dashboard/ours_threshold_sweep/sr_retest/diagnosis/mechanical/live_prefix/ensemble_history/arm8_hand30_job4/hybrid8_actual8/">查看历史完整视频与逐案记录 ↗</a></section>
-<details><summary>场景、方法与统计范围</summary><ul><li>原场景A的XY扰动半范围1cm，B与杯垫固定；使用30k检查点。</li><li>P30预测、H4执行；ARM历史窗8、HAND历史窗30，原判据与最大75秒模拟时长保持不变。</li><li>每个独立 N1 App 只运行一个场景；每方法16条，分4波运行。Ours 模型进程完整退出后，再运行 Mem0。</li><li>分配2张物理卡，在保留既有工作负载的前提下执行完整资源预算检查；不宣称硬件独占或独立吞吐提升。</li><li>本页只展示已保存的状态快照。逐案结果、录像与审计证据仅在真实可用并完成验收后加入。</li><li>本轮为预选诊断样本；不替换原100条统计，不据此声称并行与单路轨迹等价或因果修复。</li></ul></details>
+<details><summary>场景、方法与统计范围</summary><ul><li>原场景A的XY扰动半范围1cm，B与杯垫固定；使用30k检查点。</li><li>P30预测、H4执行；ARM历史窗8、HAND历史窗30，原判据与最大75秒模拟时长保持不变。</li><li>本轮实际是4个单环境App并发，每个进程只有1个环境；每方法16条，分4波运行。Ours模型退出后顺序运行Mem0。尚未采用同一个App内的多环境批量评测。</li><li>分配2张物理卡，在保留既有工作负载的前提下执行完整资源预算检查；不宣称硬件独占或独立吞吐提升。</li><li>本页只展示已保存的状态快照。逐案结果、录像与审计证据仅在真实可用并完成验收后加入。</li><li>本轮为预选诊断样本；不替换原100条统计，不据此声称并行与单路轨迹等价或因果修复。</li></ul></details>
 <footer><a href="status.json">下载此状态快照</a><a href="https://github.com/asimfish/sim-eval-scale/tree/bce52569b626d71fee179905f81926c1aac6fab7">调度工具来源 · sim-eval-scale @ bce52569</a></footer>
 </main></body></html>
