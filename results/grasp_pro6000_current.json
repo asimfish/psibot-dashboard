@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-01T23:13:08.247728+00:00",
+  "updated_utc": "2026-11-02T00:11:32.254705+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -573,7 +573,7 @@
       },
       "next": "完成新100条源审计再训练DP/ACT；较小闭合的20局备用规格保持挂起，当前不重复采集。",
       "name": "250ml 棕色容量瓶",
-      "status_note": "接近与闭合均固定拇指张角的新20局全部抓起；三设置15局仍相交，最后spread1.02/flex0.6的5/5原生、终点及完整记录范围120Hz手内/手物/手桌通过，90原图已审阅。已提交同型号Pro6000新100条采集，原失败及原正式150缺失76均保留；尚无新策略验收。",
+      "status_note": "接近与闭合同时固定拇指张角的5/5试采已通过完整记录几何及90原图；新100条已记录62条，62抓起、62终点20mm。完整100源准入未闭合；原失败与旧正式150缺失76均保留，无新策略验收。",
       "latest_source_development": {
         "method": "ACT",
         "trials": 15,
@@ -745,7 +745,28 @@
         "complete_new100_geometry_RGB_visual_gates_pending": true,
         "source_training_allowed": false,
         "formal_accepted": false,
-        "checked_utc": "2026-11-01T23:10:54.463171+00:00"
+        "checked_utc": "2026-11-02T00:11:07.305216+00:00",
+        "last_logged_progress": {
+          "eps": 62,
+          "succ": 62,
+          "t20": 62
+        },
+        "full120Hz_numeric_partial": {
+          "utc": "2026-11-02T00:11:32.254705+00:00",
+          "input_cells": 12,
+          "input_episodes": 52,
+          "Native": 52,
+          "terminal20": 52,
+          "target_checked_episodes": 36,
+          "target_checked_states": 103608,
+          "target_crossing_states": 0,
+          "table_cells": 10,
+          "table_crossing_states": 0,
+          "self_checked_episodes": 36,
+          "self_positive_episodes": 0,
+          "source_training_allowed": false
+        },
+        "evidence_url": "verification/grasp-f250-source100-progress-20261102.json"
       }
     },
     {
@@ -1751,9 +1772,9 @@
         "lift_components_full100_verified": true,
         "terminal_lift_min_m": -0.026144325733184814
       },
-      "next": "保留完整与不完整原记录，依据已定位手指接触改进专家抓取，再做小批鉴定；不把241次抓起当作安全源。",
+      "next": "核对20局每个设置的抬起、120Hz手内/手物/手桌及原图，再决定能否采集100；不重采已保存旧轨迹。",
       "name": "小棕色试剂瓶",
-      "status_note": "250池241次原生成功记录保留，墙钟技术失败且缺9位置。首单元完整15局/43170原始120Hz姿态已审，仅2局无手物交叉；CPU数值已BOS归档。尚无安全100源，禁止训练。",
+      "status_note": "旧250池241次抓起和不安全源全部保留。已针对c0.65/z05/10秒原5/5成功组的9个拇指相交姿态，启动仅调整拇指闭合的20局：四预声明幅度、同5困难XY，其他5电机不变。新结果仍待完整几何和视觉，不准入训练。",
       "source_lower_grip_geometry20": [
         {
           "setting": "z10_m6",
@@ -1831,6 +1852,41 @@
           0,
           13
         ]
+      },
+      "thumb_contact_repair20": {
+        "tag": "qual-brownS-c65thumb20-m10-p120-20261101cc",
+        "job_id": "job-kmwqlp5vbmml",
+        "status": "RUNNING",
+        "checked_utc": "2026-11-02T00:11:09.468985+00:00",
+        "maximum_source_trials": 20,
+        "relative_thumb_scales": [
+          0.95,
+          0.9,
+          0.85,
+          0.8
+        ],
+        "original_global_closure": 0.65,
+        "original_source_rows": [
+          7,
+          12,
+          15,
+          17,
+          18
+        ],
+        "motion_steps": 300,
+        "total_duration_s": 24,
+        "other5_motor_targets_unchanged": true,
+        "actual_original_Main_function_and_four_builders_and_staged_gates_passed": true,
+        "previous5_Native5_terminal20_with9_thumb_crossing_states_retained": true,
+        "last_logged_progress": {
+          "eps": 3,
+          "succ": 3,
+          "t20": 3
+        },
+        "complete_geometry_and_visual_pending": true,
+        "source_training_allowed": false,
+        "formal_accepted": false,
+        "evidence_url": "verification/grasp-f250-source100-progress-20261102.json"
       }
     },
     {
@@ -2078,8 +2134,8 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "250ml 透明容量瓶",
-      "status_note": "拇指张角/闭合修复20局中两组源设置各5/5通过完整记录范围内120Hz手内/手物/手桌检查，并审阅180原图；选spread1.22/flex0.5扩大100条，日志45/45成功，新100尚未准入训练。旧源ACT64k三种子15/15抓起、仅1/15终点20mm，单纯加长训练未解决精度，正式仍未通过。",
-      "next": "完成新100条的全源几何、RGB与视觉准入，再在训练预算内重训DP/ACT；旧ACT64k终点失败沿已存动作/状态继续定位，不重复投正式150。",
+      "status_note": "新修复源100/100抓起、100/100终点20mm，24个原始单元和300视频证明闭合，8位置144原图已审阅。完整120Hz几何审计仍在继续，尚未准入训练。旧ACT64k仍仅1/15终点20mm；已用原USD与原标签将3/5尾段失败定位为指令自身仍有水平误差，尚未修复或验收通过。",
+      "next": "完成新100条剩余完整几何后再准入DP/ACT训练；继续定位旧ACT的水平指令偏差，保留全部失败，不重复投正式150。",
       "source120_closed": {
         "episodes": 100,
         "Native_successes": 100,
@@ -2247,25 +2303,53 @@
       "new_clean_source100": {
         "tag": "src100-f250N1-spread122-f050-m8-p120-20261101cc",
         "job_id": "job-fcxl291k39s9",
-        "status": "RUNNING",
-        "checked_utc": "2026-11-01T23:10:51.810643+00:00",
+        "status": "SUCCEEDED",
+        "checked_utc": "2026-11-02T00:11:32.254705+00:00",
         "maximum_episodes": 100,
         "last_logged_progress": {
-          "eps": 45,
-          "succ": 45,
-          "t20": 45
+          "eps": 100,
+          "succ": 100,
+          "t20": 100
         },
-        "durable_cells_at_previous_input_read": 6,
-        "durable_episodes_at_previous_input_read": 28,
+        "durable_cells_at_previous_input_read": 24,
+        "durable_episodes_at_previous_input_read": 100,
         "source_XY_half_extent_cm": 3,
         "motion_steps": 240,
         "total_duration_s": 24,
         "thumb_spread": 1.22,
         "thumb_flex_scale": 0.5,
         "source_GPU_line": "Zenith Pro6000",
-        "complete_new100_geometry_RGB_visual_gates_pending": true,
         "source_training_allowed": false,
-        "formal_accepted": false
+        "formal_accepted": false,
+        "all24_immutable_input_gates_closed": true,
+        "all100_original_source_ids_exact_once": true,
+        "producer_full_video_decodes": 300,
+        "all24_writer_and_GPU_proofs_independently_SHA_read": true,
+        "actual_reviewed_source_episodes": 8,
+        "actual_reviewed_original_stills": 144,
+        "sampled_visual_passed": true,
+        "full120Hz_numeric_partial": {
+          "utc": "2026-11-02T00:11:32.254705+00:00",
+          "input_cells": 24,
+          "input_episodes": 100,
+          "Native": 100,
+          "terminal20": 100,
+          "target_checked_episodes": 52,
+          "target_checked_states": 149656,
+          "target_crossing_states": 0,
+          "table_cells": 23,
+          "table_crossing_states": 0,
+          "self_checked_episodes": 84,
+          "self_positive_episodes": 0,
+          "source_training_allowed": false
+        },
+        "evidence_url": "verification/grasp-f250-source100-progress-20261102.json",
+        "complete_new100_source_admission_pending": true,
+        "remaining_source100_gates": [
+          "full100_hand_target",
+          "full100_hand_self",
+          "full100_hand_table"
+        ]
       },
       "ACT64_source15_development": {
         "tag": "dev-A64-f250N1-sealed3-source15-20261101cc",
@@ -2289,6 +2373,30 @@
           "0515bc8a217016237e0f778d525c6f8962829d28b7a7c669c3e90b948414bd8f"
         ],
         "formal150_gate_passed": false
+      },
+      "ACT64_recorded_precision_diagnosis": {
+        "scope": "原始旧源ACT64种子21的已知5位置诊断；不是新策略或正式SSR。",
+        "original_USD_FK_validated_policy_observations": 3591,
+        "original_expert_label_observations": 5034,
+        "maximum_measured_FK_residual_mm": 0.0016625330075151256,
+        "commanded_FK_tail_median_errors_mm": [
+          42.20473590672856,
+          17.845062601876663,
+          34.66513244341698,
+          18.852354089560272,
+          25.639616456775578
+        ],
+        "three_of5_commanded_targets_still_outside20mm": true,
+        "original_expert_labels_equal_recorded_IK_targets": true,
+        "original_expert_command_FK_median_error_mm_range": [
+          0.21947786189436524,
+          0.2615763416585354
+        ],
+        "Native_calls": 0,
+        "CUDA_calls": 0,
+        "fix_proven": false,
+        "formal_accepted": false,
+        "evidence_url": "verification/grasp-f250-source100-progress-20261102.json"
       }
     },
     {
@@ -2796,7 +2904,7 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 280,
+    "registered_jobs": 282,
     "active_registered_jobs": 4,
     "BOS_mount_count": 2,
     "state": "TWO_SOURCE_PILOTS_CLEAN_ACT64_PRECISION_FAILED",
@@ -2821,7 +2929,7 @@
         "progress_note": "100条开发训练示范已准入；新4卡训练已演练，DP各一张、三个ACT共第四张卡。等待旧作业4卡替换，不额外占用第9张训练卡，尚未创建作业。"
       }
     ],
-    "checked_utc": "2026-11-01T23:13:08.247728+00:00",
+    "checked_utc": "2026-11-02T00:11:32.254705+00:00",
     "jobs": [
       {
         "tag": "qual-mortar-p120-smoke4-20261028cc",
@@ -4882,14 +4990,14 @@
         "job_id": "job-u1iiwcgozjb9",
         "status": "RUNNING",
         "name": "已运行4卡预算训练",
-        "progress_note": "优化器步数 35250/64000/64000/64000；采样 2026-11-01T23:09:40.116706+00:00。首作业3个ACT已完成封存，余5个DP更新；未停止作业。",
+        "progress_note": "优化器步数43450/64000/64000/64000；采样2026-11-02T00:09:52.067033+00:00。3个ACT已封存，5个DP继续；未停止作业。",
         "training_progress": [
           {
             "method": "dp",
             "object_alias": "clear_volume",
             "seed": 26121921,
             "GPU": 0,
-            "updates": 35250,
+            "updates": 43450,
             "return_code": null
           },
           {
@@ -4923,14 +5031,14 @@
         "job_id": "job-8grtqzrugqxp",
         "status": "RUNNING",
         "name": "已运行4卡预算训练",
-        "progress_note": "优化器步数 34650/34700/34700/34700；采样 2026-11-01T23:09:28.198920+00:00。首作业3个ACT已完成封存，余5个DP更新；未停止作业。",
+        "progress_note": "优化器步数42800/42850/42850/42850；采样2026-11-02T00:09:38.586719+00:00。3个ACT已封存，5个DP继续；未停止作业。",
         "training_progress": [
           {
             "method": "dp",
             "object_alias": "clear_volume",
             "seed": 26121923,
             "GPU": 0,
-            "updates": 34650,
+            "updates": 42800,
             "return_code": null
           },
           {
@@ -4938,7 +5046,7 @@
             "object_alias": "clear_volume",
             "seed": 26121925,
             "GPU": 1,
-            "updates": 34700,
+            "updates": 42850,
             "return_code": null
           },
           {
@@ -4946,7 +5054,7 @@
             "object_alias": "clear_reagen",
             "seed": 26121921,
             "GPU": 2,
-            "updates": 34700,
+            "updates": 42850,
             "return_code": null
           },
           {
@@ -4954,7 +5062,7 @@
             "object_alias": "clear_reagen",
             "seed": 26121923,
             "GPU": 3,
-            "updates": 34700,
+            "updates": 42850,
             "return_code": null
           }
         ]
@@ -5009,10 +5117,15 @@
       {
         "tag": "src100-f250N1-spread122-f050-m8-p120-20261101cc",
         "job_id": "job-fcxl291k39s9",
-        "status": "RUNNING",
+        "status": "SUCCEEDED",
         "name": "250ml透明容量瓶 · 合格设置扩大采集100",
-        "progress_note": "日志采样45/100条，45原生成功、45终点20mm；已封存条数见带时间的旧输入记录，新100几何/RGB/视觉继续。",
-        "progress_sample_utc": "2026-11-01T23:10:51.810643+00:00"
+        "progress_note": "采集100/100抓起且终点20mm，原始单元/300视频证明及144原图审阅已闭合，完整几何继续。",
+        "progress_sample_utc": "2026-11-02T00:11:04.636254+00:00",
+        "Native_progress": {
+          "eps": 100,
+          "succ": 100,
+          "t20": 100
+        }
       },
       {
         "tag": "dev-A64-f250N1-sealed3-source15-20261101cc",
@@ -5033,10 +5146,29 @@
         "job_id": "job-gkqbezedlfs0",
         "status": "RUNNING",
         "name": "棕色容量瓶 · 合格设置扩大采集100",
-        "progress_note": "5局源检查和90原图审阅闭合后，100条采集已完成实际构建/调度演练并提交。采集仍为±3cm、原6秒动作后保持到24秒；新100尚未准入训练。"
+        "progress_note": "原预声明源试采继续，原始成功计数只描述采集进度；完整几何/视觉及策略验收未闭合。",
+        "progress_sample_utc": "2026-11-02T00:11:07.305216+00:00",
+        "Native_progress": {
+          "eps": 62,
+          "succ": 62,
+          "t20": 62
+        }
+      },
+      {
+        "tag": "qual-brownS-c65thumb20-m10-p120-20261101cc",
+        "job_id": "job-kmwqlp5vbmml",
+        "name": "小棕瓶 · 拇指接触修复20局",
+        "status": "RUNNING",
+        "progress_sample_utc": "2026-11-02T00:11:09.468985+00:00",
+        "Native_progress": {
+          "eps": 3,
+          "succ": 3,
+          "t20": 3
+        },
+        "progress_note": "原预声明源试采继续，原始成功计数只描述采集进度；完整几何/视觉及策略验收未闭合。"
       }
     ],
-    "progress_note": "F250两组及BrownV一组专家试采已通过完整记录范围内120Hz几何与270原图审阅，两个新100条采集已提交；B50合格100条训练包仍待8卡内接续。旧源ACT64k已知15局：15抓起/1终点20mm，未解决SSR精度。训练分配8卡、最近5个DP优化器更新；正式仍0/21、0/42。",
+    "progress_note": "F250新源已采齐100/100，24原始单元/300视频证明与144原图审阅闭合，完整几何仍未结束；BrownV新100已记录62条，小棕瓶20局拇指修复已接上运行。8卡训练仍分配、5个DP更新；B50替换授权待答。正式仍0/21、0/42。",
     "DP_repair_note": "原始DP100k正式150已外部闭合：149成功、44成功且终点20mm，SSR上限29.3%低于论文37%。三种子固定200k预算已训练完成，现做封存模型开发诊断；不使用保持或目标参考冒充原始基线。",
     "b50_reset_note": "B50源/测试重置修复沿用冻结设置。原始DP100k与ACT分开核验，不与固定保持变体混算。新问题是DP终点精度不足、ACT接近阶段手指与桌面相交；物体成功抓起也不能记为完整通过。",
     "failure_diagnosis": [
@@ -5230,9 +5362,9 @@
         "tag": "train-A64-f250S3-D200-f250S21-sealed-20261101cc",
         "job_id": "job-u1iiwcgozjb9",
         "status": "RUNNING",
-        "sample_utc": "2026-11-01T23:09:40.116706+00:00",
+        "sample_utc": "2026-11-02T00:09:52.067033+00:00",
         "updates": [
-          35250,
+          43450,
           64000,
           64000,
           64000
@@ -5243,7 +5375,7 @@
             "object_alias": "clear_volume",
             "seed": 26121921,
             "GPU": 0,
-            "updates": 35250,
+            "updates": 43450,
             "return_code": null
           },
           {
@@ -5272,23 +5404,24 @@
           }
         ],
         "utilization_percent": [
-          93,
+          96,
           0,
           0,
           0
         ],
-        "evidence_SHA256": "832d54905d330d1777c47a69cb3b8cb5a90faff2c2c388ba1bbff73aec7ec92c"
+        "evidence_SHA256": "bb769414a6f313984ad265988f40d7c55271df6f2389181efc6e8933e95c23af",
+        "evidence_file": "Panel_F250_source100_progress_20261102/captured_frontier/train-A64-f250S3-D200-f250S21-sealed-20261101cc.json"
       },
       {
         "tag": "train-D200-f250S23S25-clearLS21S23-sealed-20261101cc",
         "job_id": "job-8grtqzrugqxp",
         "status": "RUNNING",
-        "sample_utc": "2026-11-01T23:09:28.198920+00:00",
+        "sample_utc": "2026-11-02T00:09:38.586719+00:00",
         "updates": [
-          34650,
-          34700,
-          34700,
-          34700
+          42800,
+          42850,
+          42850,
+          42850
         ],
         "runs": [
           {
@@ -5296,7 +5429,7 @@
             "object_alias": "clear_volume",
             "seed": 26121923,
             "GPU": 0,
-            "updates": 34650,
+            "updates": 42800,
             "return_code": null
           },
           {
@@ -5304,7 +5437,7 @@
             "object_alias": "clear_volume",
             "seed": 26121925,
             "GPU": 1,
-            "updates": 34700,
+            "updates": 42850,
             "return_code": null
           },
           {
@@ -5312,7 +5445,7 @@
             "object_alias": "clear_reagen",
             "seed": 26121921,
             "GPU": 2,
-            "updates": 34700,
+            "updates": 42850,
             "return_code": null
           },
           {
@@ -5320,17 +5453,18 @@
             "object_alias": "clear_reagen",
             "seed": 26121923,
             "GPU": 3,
-            "updates": 34700,
+            "updates": 42850,
             "return_code": null
           }
         ],
         "utilization_percent": [
           93,
-          94,
-          93,
+          99,
+          99,
           99
         ],
-        "evidence_SHA256": "13b91a4034860557aa4bab8f0dd1d11f5d262d19c2ff5669a676150d034c15d0"
+        "evidence_SHA256": "92b969fdc3bd2de0f106d58bd01fb5405f770b7535812d0badd31b342993d7bf",
+        "evidence_file": "Panel_F250_source100_progress_20261102/captured_frontier/train-D200-f250S23S25-clearLS21S23-sealed-20261101cc.json"
       }
     ],
     "latest_source_self_and_durable_recovery_evidence_url": "verification/grasp-source-self-repair-durable-20261101.json",
@@ -5352,7 +5486,8 @@
       "scope": "Latency for these two hand-target source audits only, not global simulation/training throughput.",
       "extra_Native_calls": 0
     },
-    "latest_clean_pilot_ACT64_evidence_url": "verification/grasp-clean-pilots-act64-20261101.json"
+    "latest_clean_pilot_ACT64_evidence_url": "verification/grasp-clean-pilots-act64-20261101.json",
+    "latest_f250_source100_evidence_url": "verification/grasp-f250-source100-progress-20261102.json"
   },
   "evidence_note": "F250两组及BrownV一组专家试采已通过完整记录范围内120Hz几何与270原图审阅，两个新100条采集已提交；B50合格100条训练包仍待8卡内接续。旧源ACT64k已知15局：15抓起/1终点20mm，未解决SSR精度。训练分配8卡、最近5个DP优化器更新；正式仍0/21、0/42。",
   "offline_DP_probe": {
