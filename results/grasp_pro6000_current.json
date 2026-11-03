@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-03T13:29:31.246555+00:00",
+  "updated_utc": "2026-11-03T14:49:00.287359+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -573,7 +573,7 @@
       },
       "next": "保持原24秒终点和冻结世界目标，分离后段策略保持偏差与MP/IL控制链路差异；不重复已有测试，不以中途达标、动作保持或移动目标改算通过。DP100k继续。",
       "name": "250ml 棕色容量瓶",
-      "status_note": "合格新源ACT32k三种子15次全部抓起，但成功且24秒终点20mm仅3/15（20%，每种子1/5），低于其论文Spatial SSR25%的组件上界要求。另12次曾抓起并进入20mm后逸出；54张原始三相机抽样未见明显渲染异常，完整几何/SSR仍未知。",
+      "status_note": "合格新源ACT32k三种子15次全部抓起，但成功且24秒终点20mm仅3/15（20%，每种子1/5），低于其论文Spatial SSR25%的组件上界要求。另12次曾抓起并进入20mm后逸出；54张原始三相机抽样未见明显渲染异常，完整几何/SSR仍未知。 新增原指令定位：12次终点失败的末条模型指令FK本身也均超20mm，不能仅凭跟踪误差解释；因果机制仍待受控对照。",
       "latest_source_development": {
         "method": "ACT",
         "trials": 15,
@@ -3489,9 +3489,9 @@
         "lifted": 100,
         "strict_crossings": 0
       },
-      "next": "8卡配对训练按原固定队列继续；三个ACT种子模型/统计实际字节全部闭合后立即运行固定源验证15次，不等待DP。实际构建器、声明门及7种模型异常检查通过；开发位置不能计独立泛化或正式通过。",
+      "next": "收齐原ACT三种子150次独立±3/4/5/6cm测试，按冻结目标与24秒终点，继续全场景/自碰撞/视觉核验；等待DP100k完成后独立评估。",
       "name": "漏斗",
-      "status_note": "新100条专家源已完成：100/100抓起、100/100终点20mm；287800原120Hz记录在手/EEF自身、物体及实际桌面检查域均零交叉。300原视频解码证明与144张三视角抽样原图已核对，已准入开发训练；DP/ACT各3种子训练包已演练，仍等8卡预算内接续。此次采集已实际跑通每卡2独立环境，保留原0.2m抬升目标及原种子链；尚无匹配单环境对照加速比。",
+      "status_note": "合格新源三个原始ACT32k的15次源验证全部抓起、5次终点20mm；43107个120Hz手/目标状态零表面穿越，54帧原图抽查无明显异常。全新独立150次已实际RUNNING；源验证和手/目标组件不等于完整SSR，DP100k继续。",
       "latest_source_development": {
         "method": "DP",
         "trials": 15,
@@ -3801,11 +3801,11 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 239,
-    "active_registered_jobs": 2,
+    "registered_jobs": 241,
+    "active_registered_jobs": 3,
     "BOS_mount_count": 2,
-    "state": "EIGHT_OPTIMIZERS_BROWNV_ACT_COMPLETE_POSTGRASP_PRECISION_DRIFT",
-    "state_note": "8张训练卡实际维持8优化器并自动补位；新BrownV三个ACT32k完成，固定源验证15次为15/15抓起、3/15成功且终点20mm（20%），完整SSR仍未知，低于该物体论文ACT Spatial SSR25%的组件上界要求。全部12条终点失败曾抓起并进入20mm后逸出。Funnel/BrownL/ClearL模型完成即测试、保存轨迹核对和按物体论文门槛的后处理继续。正式仍0/21、0/42。",
+    "state": "EIGHT_OPTIMIZERS_FUNNEL_ORIGINAL_ACT150_INDEPENDENT2_RUNNING",
+    "state_note": "8张训练卡各1优化器；Funnel新源ACT15次全部抓起、5次终点20mm，全部43107个120Hz手/物体状态零表面穿越；54张固定原帧已查看，完整SSR仍待全场景/自碰撞及完整视觉核对。三个原始ACT32k模型的全新150次独立测试已RUNNING，范围±3/4/5/6cm，先每卡1环境首轮闭合再扩到最多2环境/卡。正式仍0/21、0/42。",
     "prepared_not_submitted": [
       {
         "tag": "eval-m6-dp-b50-20261025cc",
@@ -3820,7 +3820,7 @@
         "progress_note": "旧ACT种子21/23出现生产日志与BOS存档哈希不符，旧测试继续挂起；新三ACT批次使用生产端内容封存。DP100k种子21也有来源不符，旧DP测试未放行。"
       }
     ],
-    "checked_utc": "2026-11-03T13:29:31.246555+00:00",
+    "checked_utc": "2026-11-03T14:49:00.287359+00:00",
     "jobs": [
       {
         "tag": "qual-mortar-p120-smoke4-20261028cc",
@@ -6330,15 +6330,15 @@
         "name": "BrownV＋BrownL · 12模型自动补位训练",
         "job_id": "job-qj10mhciyq5i",
         "status": "RUNNING",
-        "checked_utc": "2026-11-03T13:29:31.246555+00:00",
-        "evidence_url": "verification/grasp-brownv-act-holding-frontier-20261103.json",
+        "checked_utc": "2026-11-03T14:49:00.287359+00:00",
+        "evidence_url": "verification/grasp-funnel-source15-formal150-started-20261103.json",
         "training_progress": [
           {
             "method": "dp",
             "object_alias": "brown_volume",
             "seed": 26121921,
             "GPU": 0,
-            "updates": 43600,
+            "updates": 54150,
             "return_code": null
           },
           {
@@ -6346,7 +6346,7 @@
             "object_alias": "brown_volume",
             "seed": 26121923,
             "GPU": 1,
-            "updates": 43550,
+            "updates": 54100,
             "return_code": null
           },
           {
@@ -6354,7 +6354,7 @@
             "object_alias": "brown_volume",
             "seed": 26121925,
             "GPU": 2,
-            "updates": 43700,
+            "updates": 54300,
             "return_code": null
           },
           {
@@ -6386,33 +6386,41 @@
             "object_alias": "brown_reagen",
             "seed": 26121921,
             "GPU": 3,
-            "updates": 17720,
+            "updates": 32000,
+            "return_code": 0
+          },
+          {
+            "method": "act",
+            "object_alias": "brown_reagen",
+            "seed": 26121923,
+            "GPU": 3,
+            "updates": 13210,
             "return_code": null
           }
         ],
-        "progress_sample_utc": "2026-11-03T21:28:51.318323584+08:00",
+        "progress_sample_utc": "2026-11-03T22:47:05.473636186+08:00",
         "per_GPU_utilization_periodic_mean": [
-          96.33333333333333,
-          95.6,
           97,
-          48.53333333333333
+          96.93333333333334,
+          96.4,
+          34.733333333333334
         ],
-        "progress_note": "原固定模型队列维持4优化器；BrownV三ACT已完成并在同卡接续BrownL。原15次周期采样逐卡均值[96.33, 95.6, 97, 48.53]%，窗口2026-11-03T21:00:46.307745267+08:00至2026-11-03T21:28:51.318323584+08:00；非连续遥测，无匹配加速比。"
+        "progress_note": "原固定模型队列，每卡1优化器；BrownV三ACT及BrownL首ACT已完成，BrownL第二ACT接续。逐卡15次离散采样均值[97, 96.93, 96.4, 34.73]%，窗口2026-11-03T22:19:00.676384506+08:00至2026-11-03T22:47:05.473636186+08:00；非连续遥测，无匹配加速比。"
       },
       {
         "tag": "train-D100A32-funnel-clearL-queued12-20261103cc",
         "name": "Funnel＋ClearL · 12模型自动补位训练",
         "job_id": "job-loovox9oe1ct",
         "status": "RUNNING",
-        "checked_utc": "2026-11-03T13:29:31.246555+00:00",
-        "evidence_url": "verification/grasp-brownv-act-holding-frontier-20261103.json",
+        "checked_utc": "2026-11-03T14:49:00.287359+00:00",
+        "evidence_url": "verification/grasp-funnel-source15-formal150-started-20261103.json",
         "training_progress": [
           {
             "method": "dp",
             "object_alias": "funnel",
             "seed": 26121921,
             "GPU": 0,
-            "updates": 35250,
+            "updates": 45800,
             "return_code": null
           },
           {
@@ -6420,7 +6428,7 @@
             "object_alias": "funnel",
             "seed": 26121923,
             "GPU": 1,
-            "updates": 35200,
+            "updates": 45750,
             "return_code": null
           },
           {
@@ -6428,7 +6436,7 @@
             "object_alias": "funnel",
             "seed": 26121925,
             "GPU": 2,
-            "updates": 35150,
+            "updates": 45700,
             "return_code": null
           },
           {
@@ -6452,18 +6460,26 @@
             "object_alias": "funnel",
             "seed": 26121925,
             "GPU": 3,
-            "updates": 27540,
+            "updates": 32000,
+            "return_code": 0
+          },
+          {
+            "method": "act",
+            "object_alias": "clear_reagen",
+            "seed": 26121921,
+            "GPU": 3,
+            "updates": 22490,
             "return_code": null
           }
         ],
-        "progress_sample_utc": "2026-11-03T21:28:31.915232853+08:00",
+        "progress_sample_utc": "2026-11-03T22:46:48.058301574+08:00",
         "per_GPU_utilization_periodic_mean": [
-          89.66666666666667,
-          97.33333333333333,
-          97.46666666666667,
-          38.8
+          97.06666666666666,
+          97.8,
+          96.46666666666667,
+          33.333333333333336
         ],
-        "progress_note": "原固定模型队列维持4优化器；Funnel前两ACT已完成，第三ACT继续。原15次周期采样逐卡均值[89.67, 97.33, 97.47, 38.8]%，窗口2026-11-03T21:00:26.857108778+08:00至2026-11-03T21:28:31.915232853+08:00；非连续遥测，无匹配加速比。"
+        "progress_note": "原固定模型队列，每卡1优化器；Funnel三ACT已完成，ClearL首ACT接续。逐卡15次离散采样均值[97.07, 97.8, 96.47, 33.33]%，窗口2026-11-03T22:18:42.352922424+08:00至2026-11-03T22:46:48.058301574+08:00；非连续遥测，无匹配加速比。"
       },
       {
         "tag": "dev-D100-b50-safe3-exec4-source15-20261103cc",
@@ -6579,9 +6595,36 @@
         },
         "progress_note": "基线8控制步与38步等待各两次重复，四组均4/5抓起；同一行98都失败。去掉新增30步后全部实际EEF/手部指令逐值相同。失败跟踪误差7.7→3.2mm但仅抬起约1cm，否定等待单独修复；拒绝源准入。",
         "source_training_allowed": false
+      },
+      {
+        "tag": "dev-A32-funnel-safe3-early-source15-20261103cc",
+        "name": "Funnel · 新源ACT32k源验证15次",
+        "job_id": "job-ftdhl45sj901",
+        "status": "SUCCEEDED",
+        "checked_utc": "2026-11-03T14:49:00.287359+00:00",
+        "evidence_url": "verification/grasp-funnel-source15-formal150-started-20261103.json",
+        "Native_progress": {
+          "eps": 15,
+          "succ": 15,
+          "t20": 5
+        },
+        "progress_note": "固定三种子各5次：抓起15/15，终点20mm5/15；全43107个120Hz手/目标状态零表面穿越，原视频6段完整解码且54帧已审阅。仅源验证与这些组件；完整SSR和独立泛化未由此授予。",
+        "formal_accepted": false
+      },
+      {
+        "tag": "eval-A32-funnel-safe3-unseen150-N2-20261103cc",
+        "name": "Funnel · 原始ACT32k三种子独立正式150次",
+        "job_id": "job-2iwo43quy1mh",
+        "status": "RUNNING",
+        "checked_utc": "2026-11-03T14:49:00.287610+00:00",
+        "evidence_url": "verification/grasp-funnel-source15-formal150-started-20261103.json",
+        "expected_trials": 150,
+        "progress_note": "全新冻结150位置，三种子各50次，测试范围±3/4/5/6cm、采集±3cm。已启动前单元，先每卡1环境首轮，再最多2个独立环境/卡（总上限8）；未声称已到8并发或实测加速。原ACT4、24秒冻结世界目标和物理不变。等待完整聚合计数及SSR/视觉，当前不报完成成功率。",
+        "formal_accepted": false,
+        "reported_SpatialSSR_percent": null
       }
     ],
-    "progress_note": "8张训练卡实际维持8优化器并自动补位；新BrownV三个ACT32k完成，固定源验证15次为15/15抓起、3/15成功且终点20mm（20%），完整SSR仍未知，低于该物体论文ACT Spatial SSR25%的组件上界要求。全部12条终点失败曾抓起并进入20mm后逸出。Funnel/BrownL/ClearL模型完成即测试、保存轨迹核对和按物体论文门槛的后处理继续。正式仍0/21、0/42。",
+    "progress_note": "8张训练卡各1优化器；Funnel新源ACT15次全部抓起、5次终点20mm，全部43107个120Hz手/物体状态零表面穿越；54张固定原帧已查看，完整SSR仍待全场景/自碰撞及完整视觉核对。三个原始ACT32k模型的全新150次独立测试已RUNNING，范围±3/4/5/6cm，先每卡1环境首轮闭合再扩到最多2环境/卡。正式仍0/21、0/42。",
     "DP_repair_note": "原始DP100k正式150已外部闭合：149成功、44成功且终点20mm，SSR上限29.3%低于论文37%。三种子固定200k预算已训练完成，现做封存模型开发诊断；不使用保持或目标参考冒充原始基线。",
     "b50_reset_note": "B50源/测试重置修复沿用冻结设置。原始DP100k与ACT分开核验，不与固定保持变体混算。新问题是DP终点精度不足、ACT接近阶段手指与桌面相交；物体成功抓起也不能记为完整通过。",
     "failure_diagnosis": [
@@ -6662,9 +6705,9 @@
     "training_GPUs_provisioned": 8,
     "training_jobs_with_optimizer_progress": 2,
     "training_budget_evidence": "verification/grasp_source15_followthrough_20261028.json",
-    "submitted_jobs": 232,
+    "submitted_jobs": 234,
     "training_optimizer_active_GPUs_observed": 8,
-    "training_utilization_note": "8张训练卡实际维持8优化器并自动补位；新BrownV三个ACT32k完成，固定源验证15次为15/15抓起、3/15成功且终点20mm（20%），完整SSR仍未知，低于该物体论文ACT Spatial SSR25%的组件上界要求。全部12条终点失败曾抓起并进入20mm后逸出。Funnel/BrownL/ClearL模型完成即测试、保存轨迹核对和按物体论文门槛的后处理继续。正式仍0/21、0/42。",
+    "training_utilization_note": "8张训练卡各1优化器；Funnel新源ACT15次全部抓起、5次终点20mm，全部43107个120Hz手/物体状态零表面穿越；54张固定原帧已查看，完整SSR仍待全场景/自碰撞及完整视觉核对。三个原始ACT32k模型的全新150次独立测试已RUNNING，范围±3/4/5/6cm，先每卡1环境首轮闭合再扩到最多2环境/卡。正式仍0/21、0/42。",
     "training_GPU_allocation_cap": 8,
     "training_allocated_GPUs": 8,
     "training_optimizers_last_verified": 8,
@@ -6745,7 +6788,7 @@
     "allocated_training_GPUs": 8,
     "current_recovery_evidence_url": "verification/grasp-B50-remaining23-and-source-provenance-20261030.json",
     "observed_optimizer_GPUs": 8,
-    "observed_optimizer_GPU_note": "8张训练卡实际维持8优化器并自动补位；新BrownV三个ACT32k完成，固定源验证15次为15/15抓起、3/15成功且终点20mm（20%），完整SSR仍未知，低于该物体论文ACT Spatial SSR25%的组件上界要求。全部12条终点失败曾抓起并进入20mm后逸出。Funnel/BrownL/ClearL模型完成即测试、保存轨迹核对和按物体论文门槛的后处理继续。正式仍0/21、0/42。",
+    "observed_optimizer_GPU_note": "8张训练卡各1优化器；Funnel新源ACT15次全部抓起、5次终点20mm，全部43107个120Hz手/物体状态零表面穿越；54张固定原帧已查看，完整SSR仍待全场景/自碰撞及完整视觉核对。三个原始ACT32k模型的全新150次独立测试已RUNNING，范围±3/4/5/6cm，先每卡1环境首轮闭合再扩到最多2环境/卡。正式仍0/21、0/42。",
     "sealed_continuation_evidence_url": "verification/grasp-sealed-models-and-original-source15-20261030.json",
     "original_ACT150_OOD_integrity_evidence_url": "verification/grasp-original-ACT150-OOD-and-output-integrity-20261030.json",
     "firstcell_recovery_evidence_url": "verification/grasp-ACT150-technical-failure-and-first5-recovery-20261030.json",
@@ -6777,14 +6820,14 @@
         "tag": "train-D100A32-brownV-brownL-queued12-20261103cc",
         "job_id": "job-qj10mhciyq5i",
         "status": "RUNNING",
-        "checked_utc": "2026-11-03T13:29:20.523657+00:00",
+        "checked_utc": "2026-11-03T14:48:51.795987+00:00",
         "latest_actual_runs": [
           [
             "dp",
             "brown_volume",
             26121921,
             0,
-            43600,
+            54150,
             null
           ],
           [
@@ -6792,7 +6835,7 @@
             "brown_volume",
             26121923,
             1,
-            43550,
+            54100,
             null
           ],
           [
@@ -6800,7 +6843,7 @@
             "brown_volume",
             26121925,
             2,
-            43700,
+            54300,
             null
           ],
           [
@@ -6832,18 +6875,26 @@
             "brown_reagen",
             26121921,
             3,
-            17720,
+            32000,
+            0
+          ],
+          [
+            "act",
+            "brown_reagen",
+            26121923,
+            3,
+            13210,
             null
           ]
         ],
         "periodic_sample_count": 15,
-        "periodic_window_start": "2026-11-03T21:00:46.307745267+08:00",
-        "periodic_window_end": "2026-11-03T21:28:51.318323584+08:00",
+        "periodic_window_start": "2026-11-03T22:19:00.676384506+08:00",
+        "periodic_window_end": "2026-11-03T22:47:05.473636186+08:00",
         "per_GPU_periodic_sample_mean_percent": [
-          96.33333333333333,
-          95.6,
           97,
-          48.53333333333333
+          96.93333333333334,
+          96.4,
+          34.733333333333334
         ],
         "scope": "Discrete15 two-minute snapshots per GPU. No continuous telemetry or matched-workload speedup claim."
       },
@@ -6851,14 +6902,14 @@
         "tag": "train-D100A32-funnel-clearL-queued12-20261103cc",
         "job_id": "job-loovox9oe1ct",
         "status": "RUNNING",
-        "checked_utc": "2026-11-03T13:29:24.023646+00:00",
+        "checked_utc": "2026-11-03T14:48:54.516283+00:00",
         "latest_actual_runs": [
           [
             "dp",
             "funnel",
             26121921,
             0,
-            35250,
+            45800,
             null
           ],
           [
@@ -6866,7 +6917,7 @@
             "funnel",
             26121923,
             1,
-            35200,
+            45750,
             null
           ],
           [
@@ -6874,7 +6925,7 @@
             "funnel",
             26121925,
             2,
-            35150,
+            45700,
             null
           ],
           [
@@ -6898,18 +6949,26 @@
             "funnel",
             26121925,
             3,
-            27540,
+            32000,
+            0
+          ],
+          [
+            "act",
+            "clear_reagen",
+            26121921,
+            3,
+            22490,
             null
           ]
         ],
         "periodic_sample_count": 15,
-        "periodic_window_start": "2026-11-03T21:00:26.857108778+08:00",
-        "periodic_window_end": "2026-11-03T21:28:31.915232853+08:00",
+        "periodic_window_start": "2026-11-03T22:18:42.352922424+08:00",
+        "periodic_window_end": "2026-11-03T22:46:48.058301574+08:00",
         "per_GPU_periodic_sample_mean_percent": [
-          89.66666666666667,
-          97.33333333333333,
-          97.46666666666667,
-          38.8
+          97.06666666666666,
+          97.8,
+          96.46666666666667,
+          33.333333333333336
         ],
         "scope": "Discrete15 two-minute snapshots per GPU. No continuous telemetry or matched-workload speedup claim."
       }
@@ -7058,38 +7117,38 @@
     "current_training_utilization": {
       "allocated_training_GPUs": 8,
       "active_optimizer_GPUs": 8,
-      "sample_method": "每组实际两分钟周期快照各15次，窗口逐项保留；不声称连续利用率或匹配工作量加速比。",
+      "sample_method": "每组实际两分钟周期快照各15次；不是连续遥测或匹配工作量加速比。",
       "jobs": [
         {
           "tag": "train-D100A32-brownV-brownL-queued12-20261103cc",
           "job_id": "job-qj10mhciyq5i",
           "sample_count": 15,
-          "start": "2026-11-03T21:00:46.307745267+08:00",
-          "end": "2026-11-03T21:28:51.318323584+08:00",
+          "start": "2026-11-03T22:19:00.676384506+08:00",
+          "end": "2026-11-03T22:47:05.473636186+08:00",
           "per_GPU_periodic_sample_mean_percent": [
-            96.33333333333333,
-            95.6,
             97,
-            48.53333333333333
+            96.93333333333334,
+            96.4,
+            34.733333333333334
           ],
-          "job_mean_percent": 84.36666666666667
+          "job_mean_percent": 81.26666666666668
         },
         {
           "tag": "train-D100A32-funnel-clearL-queued12-20261103cc",
           "job_id": "job-loovox9oe1ct",
           "sample_count": 15,
-          "start": "2026-11-03T21:00:26.857108778+08:00",
-          "end": "2026-11-03T21:28:31.915232853+08:00",
+          "start": "2026-11-03T22:18:42.352922424+08:00",
+          "end": "2026-11-03T22:46:48.058301574+08:00",
           "per_GPU_periodic_sample_mean_percent": [
-            89.66666666666667,
-            97.33333333333333,
-            97.46666666666667,
-            38.8
+            97.06666666666666,
+            97.8,
+            96.46666666666667,
+            33.333333333333336
           ],
-          "job_mean_percent": 80.81666666666668
+          "job_mean_percent": 81.16666666666667
         }
       ],
-      "evidence_url": "verification/grasp-brownv-act-holding-frontier-20261103.json"
+      "evidence_url": "verification/grasp-funnel-source15-formal150-started-20261103.json"
     },
     "latest_training_backfill_evidence_url": "verification/grasp-training-backfill-20261103.json",
     "stop_permission_pending": false,
@@ -7325,6 +7384,42 @@
           }
         ],
         "evidence_url": "verification/grasp-completed-dp-precision-frontier-20261103.json"
+      },
+      {
+        "allocated_training_GPUs": 8,
+        "active_optimizer_GPUs": 8,
+        "sample_method": "每组实际两分钟周期快照各15次，窗口逐项保留；不声称连续利用率或匹配工作量加速比。",
+        "jobs": [
+          {
+            "tag": "train-D100A32-brownV-brownL-queued12-20261103cc",
+            "job_id": "job-qj10mhciyq5i",
+            "sample_count": 15,
+            "start": "2026-11-03T21:00:46.307745267+08:00",
+            "end": "2026-11-03T21:28:51.318323584+08:00",
+            "per_GPU_periodic_sample_mean_percent": [
+              96.33333333333333,
+              95.6,
+              97,
+              48.53333333333333
+            ],
+            "job_mean_percent": 84.36666666666667
+          },
+          {
+            "tag": "train-D100A32-funnel-clearL-queued12-20261103cc",
+            "job_id": "job-loovox9oe1ct",
+            "sample_count": 15,
+            "start": "2026-11-03T21:00:26.857108778+08:00",
+            "end": "2026-11-03T21:28:31.915232853+08:00",
+            "per_GPU_periodic_sample_mean_percent": [
+              89.66666666666667,
+              97.33333333333333,
+              97.46666666666667,
+              38.8
+            ],
+            "job_mean_percent": 80.81666666666668
+          }
+        ],
+        "evidence_url": "verification/grasp-brownv-act-holding-frontier-20261103.json"
       }
     ],
     "latest_eight_GPU_DP_exec4_evidence_url": "verification/grasp-eight-gpu-dp-exec4-20261103.json",
@@ -7429,25 +7524,27 @@
         73
       ],
       "all3_models_still_required_before_each_object_release": true,
-      "actual_closed_models": 5,
+      "actual_closed_models": 7,
       "released_objects": [
-        "brown_volumetric_flask_250ml"
+        "brown_volumetric_flask_250ml",
+        "funnel"
       ],
       "no_wait_for_DP": true,
       "not_independent_OOD_or_formal": true,
-      "evidence_url": "verification/grasp-brownv-act-holding-frontier-20261103.json",
+      "evidence_url": "verification/grasp-funnel-source15-formal150-started-20261103.json",
       "completed_development_objects": [
-        "brown_volumetric_flask_250ml"
+        "brown_volumetric_flask_250ml",
+        "funnel"
       ],
       "latest_result": {
-        "object": "brown_volumetric_flask_250ml",
+        "object": "funnel",
         "trials": 15,
         "Native_successes": 15,
-        "success_terminal20mm": 3,
+        "success_terminal20mm": 5,
         "not_independent_OOD_or_formal": true
       }
     },
-    "latest_precision_frontier_evidence_url": "verification/grasp-brownv-act-holding-frontier-20261103.json",
+    "latest_precision_frontier_evidence_url": "verification/grasp-funnel-source15-formal150-started-20261103.json",
     "latest_saved_ACT_trace_diagnosis": {
       "object": "brown_volumetric_flask_250ml",
       "trials": 15,
@@ -7511,9 +7608,68 @@
       "missing_geometry_not_certified": true,
       "full_SpatialSSR": null,
       "evidence_url": "verification/grasp-brownv-act-holding-frontier-20261103.json"
+    },
+    "latest_funnel_source15_and_independent150_evidence_url": "verification/grasp-funnel-source15-formal150-started-20261103.json",
+    "funnel_source15_geometry_and_visual": {
+      "trials": 15,
+      "Native_successes": 15,
+      "success_terminal20mm": 5,
+      "all120Hz_scored_states": 43107,
+      "hand_target_crossing_states": 0,
+      "all15_original_outcomes_retained": true,
+      "sampled_original_visual_frames": 54,
+      "all6_original_video_decodes_clean": true,
+      "full_scene_self_and_full_visual_certified": false,
+      "full_SpatialSSR": null,
+      "formal_accepted": false,
+      "evidence_url": "verification/grasp-funnel-source15-formal150-started-20261103.json"
+    },
+    "funnel_original_ACT32_new150": {
+      "tag": "eval-A32-funnel-safe3-unseen150-N2-20261103cc",
+      "job_id": "job-2iwo43quy1mh",
+      "status": "RUNNING",
+      "expected_trials": 150,
+      "training_seeds": [
+        26121921,
+        26121923,
+        26121925
+      ],
+      "each_seed_expected": 50,
+      "test_half_extent_cm": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "collection_half_extent_cm": 3,
+      "source_test_GPU": "Zenith Pro6000/NVIDIA RPBZZZ6",
+      "execution_family": "independent",
+      "maximum_processes_per_GPU": 2,
+      "maximum_workers": 8,
+      "initial_original_one_world_per_GPU_wave": true,
+      "actual8_workers_or_measured_speedup_not_claimed": true,
+      "all3_models_and_plan_and12cell_RNG_layout_frozen": true,
+      "staged_and_inline_and_shared_passed": true,
+      "producer_SR": null,
+      "full_SpatialSSR": null,
+      "formal_accepted": false,
+      "evidence_url": "verification/grasp-funnel-source15-formal150-started-20261103.json"
+    },
+    "BrownV_original_command_tracking": {
+      "trials": 15,
+      "terminal_precision_failures": 12,
+      "original_policy_clocks_validated": 10773,
+      "last_command_FK_already_outside20mm_in_failed_cases": 12,
+      "last30_command_median_outside20mm_in_failed_cases": 11,
+      "tracking_Z_gap_mm_range": [
+        7.2792227607358795,
+        7.6232228525568475
+      ],
+      "scope": "原指令FK与同时实测状态对照，不是理想伺服反事实；模型为何发出偏移仍待因果对照。旧残差和初始图像记忆已实际失败，不盲目重复。",
+      "evidence_url": "verification/grasp-funnel-source15-formal150-started-20261103.json"
     }
   },
-  "evidence_note": "截至2026-11-03T13:29:31.246555+00:00：6份合格100条专家源；8张训练卡实际维持8优化器并自动补位；新BrownV三个ACT32k完成，固定源验证15次为15/15抓起、3/15成功且终点20mm（20%），完整SSR仍未知，低于该物体论文ACT Spatial SSR25%的组件上界要求。全部12条终点失败曾抓起并进入20mm后逸出。Funnel/BrownL/ClearL模型完成即测试、保存轨迹核对和按物体论文门槛的后处理继续。正式仍0/21、0/42。",
+  "evidence_note": "截至2026-11-03T14:49:00.287359+00:00：6份合格100条专家源；8张训练卡各1优化器；Funnel新源ACT15次全部抓起、5次终点20mm，全部43107个120Hz手/物体状态零表面穿越；54张固定原帧已查看，完整SSR仍待全场景/自碰撞及完整视觉核对。三个原始ACT32k模型的全新150次独立测试已RUNNING，范围±3/4/5/6cm，先每卡1环境首轮闭合再扩到最多2环境/卡。正式仍0/21、0/42。",
   "offline_DP_probe": {
     "observations": 4,
     "source_episodes": 1,
