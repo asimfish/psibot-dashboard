@@ -130,7 +130,9 @@
   function fleet() {
     const jobs=fleetJobs(),telemetry=data.fleet_gpu_telemetry||[],hostFilter=$('hostFilter').value,showAll=$('allGpus').checked;
     const readHost=host=>telemetry.find(r=>r.host===host),known=telemetry.reduce((s,h)=>s+(h.gpus?.length||0),0);
-    const training=[...jobs.values()].filter(r=>r.kind==='训练').length,testing=jobs.size-training;
+    const cloud=(data.low_priority_jobs||[]).filter(j=>j.execution_class==='low_priority'&&Array.isArray(j.gpus)&&Array.isArray(j.tasks));
+    const localTraining=[...jobs.values()].filter(r=>r.kind==='训练').length;
+    const training=localTraining+cloud.reduce((n,j)=>n+j.tasks.length,0),testing=jobs.size-localTraining;
     $('fleetSummary').innerHTML=[[training,'PickPlace 训练卡'],[testing,'PickPlace 测试卡'],[known||'—','已采样显卡（含共享作业）']].map(([n,t])=>`<div><strong>${n}</strong><span>${t}</span></div>`).join('');
     $('fleet').innerHTML=Object.keys(hostNames).filter(h=>hostFilter==='all'||hostFilter===h).map(host=>{
       const sample=readHost(host),all=[...(sample?.gpus||[])],own=[...jobs.values()].filter(j=>j.host===host);
@@ -142,6 +144,10 @@
       const activity=own.length?[training?training+' 个训练作业正在更新':'',own.length-training?(own.length-training)+' 个原生测试作业正在执行':''].filter(Boolean).join(' · '):trainInfo?.status_label||workerInfo?.status_label||'等待作业状态同步';
       return `<article class="host" data-host="${esc(host)}" ${sample?.source_updated_at?`data-sampled-at="${esc(sample.source_updated_at)}" data-sample-failed="${!sample.fresh}"`:''}><div class="host-heading"><div><h3>${esc(hostNames[host])}</h3><span class="small">${own.length} 张卡有 PickPlace 当前作业 · ${sample?.gpus?.length||'—'} 张卡已采样</span></div><div class="host-resources">CPU ${pct(sample?.cpu_percent)}<span>内存可用 ${finite(sample?.memory_available_gib)?sample.memory_available_gib+' / '+sample.memory_total_gib+' GiB':'—'}</span></div></div><p class="small">${esc(activity)}</p>${primary.length?gpuTable(host,primary,jobs):'<p class="muted">当前没有已绑定的 PickPlace 显卡作业。</p>'}${!showAll&&other.length?`<details class="other-gpus"><summary>查看其他 ${other.length} 张显卡</summary>${gpuTable(host,other,jobs)}</details>`:''}<div class="host-sample"><span class="sample-status">${sample?.fresh?'GPU 采样已同步':'GPU 数据待同步'}</span><span>采样：${date(sample?.source_updated_at)}</span></div></article>`;
     }).join('');
+    if(hostFilter==='all'||hostFilter==='volc-pro6000')for(const job of cloud) {
+      const taskMap=new Map(job.tasks.map(t=>['volc-pro6000:'+t.gpu,{...t,host:'volc-pro6000'}]));
+      $('fleet').innerHTML+=`<article class="host" data-host="volc-pro6000" data-job="${esc(job.job_id)}" data-sampled-at="${esc(job.source_updated_at)}" data-sample-failed="false"><div class="host-heading"><div><h3>Pro6000 低优训练 · ${esc(job.title)}</h3><span class="small">${esc(job.job_id)} · 分配 ${esc(job.allocated_gpus)} 张卡</span></div></div>${gpuTable('volc-pro6000',job.gpus,taskMap)}<div class="host-sample">采样：${date(job.source_updated_at)}</div></article>`;
+    }
     const history=[];
     for(const r of data.candidate_progress||[])if(!r.active)history.push([r.host,label(r.object),r.method.toUpperCase(),r.status_label]);
     for(const [host,rows] of [['5090',data.candidate_cross_card_screening],['volc-pro6000',data.candidate_pro6000_testing]])for(const r of rows||[])if(!r.active)history.push([host,label(r.object),'ACT · +'+r.added_cm+'cm',r.status_label]);
