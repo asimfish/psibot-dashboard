@@ -36,20 +36,22 @@ function wilson95(success,n){
 }
 function formalIssues(e){
  const issues=[],count=x=>Number.isInteger(x)&&x>=0;
+ const conserved=x=>x&&count(x.success)&&count(x.unknown)&&x.success+x.unknown<=x.trials&&(!Object.hasOwn(x,'failure')||count(x.failure)&&x.success+x.failure+x.unknown===x.trials);
  if(e.protocol_version!==PROTOCOL||!['A','B'].includes(e.stage))issues.push('非v1阶段A/B');
  if(![4,8].includes(e.horizon))issues.push('仅4/8步');
- if(e.metric_role==='assisted'||/诊断/.test(e.kind||''))issues.push('诊断或辅助指标');
+ if(['assisted','rescored_v1.1_candidate'].includes(e.metric_role)||/诊断/.test(e.kind||''))issues.push('诊断或辅助指标');
  const n=e.stage==='B'?500:100;
- if(e.trials!==n||e.completed!==n||!count(e.success)||!count(e.unknown)||e.success+e.unknown>n)issues.push('未完成或分母无效');
+ if(e.evaluation_started===false||e.trials!==n||e.completed!==n||!conserved(e))issues.push('未完成或分母无效');
  if(e.topology?.num_envs_actual!==1||!Number.isInteger(e.topology?.procs_per_gpu)||e.topology.procs_per_gpu<1||!safeText(e.topology?.gpu_type,150)||!e.topology?.gpu_type?.trim())issues.push('拓扑待核验');
  if(e.preprocess_resize?.implementation!=='training_tensor'||e.preprocess_resize?.mode!=='bilinear'||e.preprocess_resize?.antialias!==true||!e.preprocess_resize?.source)issues.push('预处理未对齐');
  if(!e.condition_version||!/^sha256:[a-f0-9]{64}$/.test(e.scene_list_hash||''))issues.push('条件版本或场景哈希缺失');
  const splits=e.lr_split,lr=splits&&[splits.left,splits.right];
- if(!lr||lr.some(x=>!x||x.trials!==n/2||!count(x.success)||!count(x.unknown)||x.success+x.unknown>x.trials)||lr.reduce((a,x)=>a+x.success,0)!==e.success||lr.reduce((a,x)=>a+x.unknown,0)!==e.unknown)issues.push('左右拆分不完整');
+ if(!lr||lr.some(x=>!x||x.trials!==n/2||!conserved(x))||lr.reduce((a,x)=>a+x.success,0)!==e.success||lr.reduce((a,x)=>a+x.unknown,0)!==e.unknown)issues.push('左右拆分不完整');
  const seeds=e.seed_results;
- if(!Array.isArray(seeds)||seeds.length!==(e.stage==='B'?5:1)||new Set(seeds.map(x=>x.seed)).size!==seeds.length||!seeds.some(x=>x.seed===0)||seeds.some(x=>!count(x.seed)||x.trials!==100||!count(x.success)||!count(x.unknown)||x.success+x.unknown>100)||seeds.reduce((a,x)=>a+x.success,0)!==e.success||seeds.reduce((a,x)=>a+x.unknown,0)!==e.unknown)issues.push('逐seed记录不完整');
- const hist=Object.entries(e.phase_hist||{}),total=hist.reduce((a,[,v])=>a+v,0),mean=hist.reduce((a,[k,v])=>a+Number(k)*v,0)/n;
- if(!hist.length||hist.some(([k,v])=>!/^\d+$/.test(k)||!count(v))||total!==n||!Number.isFinite(e.mean_phase)||Math.abs(mean-e.mean_phase)>1e-6)issues.push('阶段统计不完整');
+ if(!Array.isArray(seeds)||seeds.length!==(e.stage==='B'?5:1)||new Set(seeds.map(x=>x.seed)).size!==seeds.length||!seeds.some(x=>x.seed===0)||seeds.some(x=>!count(x.seed)||x.trials!==100||!conserved(x))||seeds.reduce((a,x)=>a+x.success,0)!==e.success||seeds.reduce((a,x)=>a+x.unknown,0)!==e.unknown)issues.push('逐seed记录不完整');
+ const validTrials=e.trials-e.unknown,hist=Object.entries(e.phase_hist||{}),total=hist.reduce((a,[,v])=>a+v,0),mean=validTrials>0?hist.reduce((a,[k,v])=>a+Number(k)*v,0)/validTrials:null;
+ if(!e.phase_hist||typeof e.phase_hist!=='object'||Array.isArray(e.phase_hist)||hist.some(([k,v])=>!/^\d+$/.test(k)||!count(v))||total!==validTrials||(validTrials===0?e.mean_phase!==null:!Number.isFinite(e.mean_phase)||Math.abs(mean-e.mean_phase)>1e-6))issues.push('阶段统计不完整');
+ if(e.unknown_reasons!=null){const reasons=Object.values(e.unknown_reasons);if(typeof e.unknown_reasons!=='object'||Array.isArray(e.unknown_reasons)||reasons.some(v=>!count(v))||reasons.reduce((a,v)=>a+v,0)!==e.unknown)issues.push('unknown原因计数不守恒');}
  if(!['expert_replay','open_loop','render_multiframe','smoke20'].every(k=>e.admission?.[k]?.passed===true&&e.admission[k].report))issues.push('准入证据缺失');
  return issues;
 }
@@ -65,7 +67,7 @@ function formalComparisons(board){
  return [...groups.values()].sort((a,b)=>Number(a.task)-Number(b.task)||a.dataset.localeCompare(b.dataset)||a.method.localeCompare(b.method)||a.stage.localeCompare(b.stage));
 }
 function resultFor(evaluations,horizon){
- let rows=evaluations.filter(e=>e.metric_role!=='assisted'&&e.formal_score_eligible!==false&&e.horizon===horizon&&e.success!==null&&e.completed===e.trials&&!/诊断/.test(e.kind));
+ let rows=evaluations.filter(e=>e.protocol_version!=='SafeLab-Eval-v1.1'&&!['assisted','rescored_v1.1_candidate'].includes(e.metric_role)&&e.formal_score_eligible!==false&&e.horizon===horizon&&e.success!==null&&e.completed===e.trials&&!/诊断/.test(e.kind));
  const priority=Math.max(...rows.map(e=>e.display_priority||0));rows=rows.filter(e=>(e.display_priority||0)===priority);
  if(!rows.length)return null;
  const five=rows.filter(e=>e.kind==='自主闭环 · 5-seed');
@@ -73,7 +75,7 @@ function resultFor(evaluations,horizon){
  return {success:chosen.reduce((s,e)=>s+e.success,0),trials:chosen.reduce((s,e)=>s+e.trials,0),unknown:chosen.reduce((s,e)=>s+e.unknown,0),label:five.length?five.length+'轮汇总':chosen[0].result_label||chosen[0].kind,protocol:chosen[0].protocol,rows:chosen,reported:false};
 }
 function progressFor(evaluations,horizon){
- const rows=evaluations.filter(e=>e.metric_role!=='assisted'&&e.formal_score_eligible!==false&&e.horizon===horizon&&e.success===null&&Number.isInteger(e.completed)&&Number.isInteger(e.trials)&&e.trials>0&&e.completed>=0&&e.completed<=e.trials);
+ const rows=evaluations.filter(e=>e.protocol_version!=='SafeLab-Eval-v1.1'&&!['assisted','rescored_v1.1_candidate'].includes(e.metric_role)&&e.formal_score_eligible!==false&&e.horizon===horizon&&e.success===null&&Number.isInteger(e.completed)&&Number.isInteger(e.trials)&&e.trials>0&&e.completed>=0&&e.completed<=e.trials);
  return rows.sort((a,b)=>(b.display_priority||0)-(a.display_priority||0)||String(b.updated_at||'').localeCompare(String(a.updated_at||'')))[0]||null;
 }
 function buildBoard(data,edits=[]){
@@ -81,7 +83,7 @@ function buildBoard(data,edits=[]){
  const rows=[];
  for(const record of data.records){
   for(const w of record.weights.length?record.weights:[null]){
-   const evaluations=w?data.evaluations.filter(e=>e.record===record.id&&e.checkpoint===w.step):[];
+   const evaluations=w?data.evaluations.filter(e=>!/candidate|drift/i.test(e.metric_role||'')&&e.record===record.id&&e.checkpoint===w.step):[];
    const h4=resultFor(evaluations,4),h8=resultFor(evaluations,8),h30=resultFor(evaluations,30);
    const pending=evaluations.filter(e=>e.success===null);
    let state=pending.length?'evaluating':h4||h8||evaluations.some(e=>e.success!==null)?'results':/历史.*核验/.test(w?.status||'')?'verify':w?'untested':/训练中/.test(record.delivery)?'training':'verify';
