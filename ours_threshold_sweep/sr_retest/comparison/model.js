@@ -27,8 +27,45 @@ function parseIssue(issue){
  const m=/```safelab-handoff\s*\n([\s\S]*?)\n```/.exec(issue.body);if(!m)return null;
  try{const edit=validateEdit(JSON.parse(m[1]));return {...edit,issue:issue.number,author:issue.user.login,updated:issue.updated_at,url:'https://github.com/asimfish/safelab-handoff/issues/'+issue.number,trusted:['OWNER','MEMBER','COLLABORATOR'].includes(issue.author_association)||labels.includes('safelab-approved')};}catch{return null;}
 }
+// Scores never migrate into v1 by inference. Evidence and complete denominators are required.
+const PROTOCOL='SafeLab-Eval-v1';
+function wilson95(success,n){
+ if(!Number.isInteger(n)||n<1||!Number.isInteger(success)||success<0||success>n)return null;
+ const z=1.959963984540054,p=success/n,d=1+z*z/n,c=(p+z*z/(2*n))/d,h=z*Math.sqrt(p*(1-p)/n+z*z/(4*n*n))/d;
+ return {low:Math.max(0,c-h),high:Math.min(1,c+h),confidence:0.95};
+}
+function formalIssues(e){
+ const issues=[],count=x=>Number.isInteger(x)&&x>=0;
+ if(e.protocol_version!==PROTOCOL||!['A','B'].includes(e.stage))issues.push('非v1阶段A/B');
+ if(![4,8].includes(e.horizon))issues.push('仅4/8步');
+ if(e.metric_role==='assisted'||/诊断/.test(e.kind||''))issues.push('诊断或辅助指标');
+ const n=e.stage==='B'?500:100;
+ if(e.trials!==n||e.completed!==n||!count(e.success)||!count(e.unknown)||e.success+e.unknown>n)issues.push('未完成或分母无效');
+ if(e.topology?.num_envs_actual!==1||!Number.isInteger(e.topology?.procs_per_gpu)||e.topology.procs_per_gpu<1||!safeText(e.topology?.gpu_type,150)||!e.topology?.gpu_type?.trim())issues.push('拓扑待核验');
+ if(e.preprocess_resize?.implementation!=='training_tensor'||e.preprocess_resize?.mode!=='bilinear'||e.preprocess_resize?.antialias!==true||!e.preprocess_resize?.source)issues.push('预处理未对齐');
+ if(!e.condition_version||!/^sha256:[a-f0-9]{64}$/.test(e.scene_list_hash||''))issues.push('条件版本或场景哈希缺失');
+ const splits=e.lr_split,lr=splits&&[splits.left,splits.right];
+ if(!lr||lr.some(x=>!x||x.trials!==n/2||!count(x.success)||!count(x.unknown)||x.success+x.unknown>x.trials)||lr.reduce((a,x)=>a+x.success,0)!==e.success||lr.reduce((a,x)=>a+x.unknown,0)!==e.unknown)issues.push('左右拆分不完整');
+ const seeds=e.seed_results;
+ if(!Array.isArray(seeds)||seeds.length!==(e.stage==='B'?5:1)||new Set(seeds.map(x=>x.seed)).size!==seeds.length||!seeds.some(x=>x.seed===0)||seeds.some(x=>!count(x.seed)||x.trials!==100||!count(x.success)||!count(x.unknown)||x.success+x.unknown>100)||seeds.reduce((a,x)=>a+x.success,0)!==e.success||seeds.reduce((a,x)=>a+x.unknown,0)!==e.unknown)issues.push('逐seed记录不完整');
+ const hist=Object.entries(e.phase_hist||{}),total=hist.reduce((a,[,v])=>a+v,0),mean=hist.reduce((a,[k,v])=>a+Number(k)*v,0)/n;
+ if(!hist.length||hist.some(([k,v])=>!/^\d+$/.test(k)||!count(v))||total!==n||!Number.isFinite(e.mean_phase)||Math.abs(mean-e.mean_phase)>1e-6)issues.push('阶段统计不完整');
+ if(!['expert_replay','open_loop','render_multiframe','smoke20'].every(k=>e.admission?.[k]?.passed===true&&e.admission[k].report))issues.push('准入证据缺失');
+ return issues;
+}
+function formalComparisons(board){
+ const groups=new Map();
+ for(const e of evaluationIndex(board)){
+  if(formalIssues(e).length)continue;
+  // Dataset, view, scene list, stage and condition are separate comparison cohorts.
+  const cohort=JSON.stringify([e.task,e.dataset,e.camera,e.stage,e.condition_version,e.scene_list_hash,e.metric||'original_physical',e.preprocess_resize]);
+  const key=cohort+'|'+e.method,prior=groups.get(key);
+  if(!prior||e.success/e.trials>prior.success/prior.trials||e.success/e.trials===prior.success/prior.trials&&e.mean_phase>prior.mean_phase)groups.set(key,{...e,wilson95:wilson95(e.success,e.trials)});
+ }
+ return [...groups.values()].sort((a,b)=>Number(a.task)-Number(b.task)||a.dataset.localeCompare(b.dataset)||a.method.localeCompare(b.method)||a.stage.localeCompare(b.stage));
+}
 function resultFor(evaluations,horizon){
- let rows=evaluations.filter(e=>e.metric_role!=='assisted'&&e.horizon===horizon&&e.success!==null&&e.completed===e.trials&&!/诊断/.test(e.kind));
+ let rows=evaluations.filter(e=>e.metric_role!=='assisted'&&e.formal_score_eligible!==false&&e.horizon===horizon&&e.success!==null&&e.completed===e.trials&&!/诊断/.test(e.kind));
  const priority=Math.max(...rows.map(e=>e.display_priority||0));rows=rows.filter(e=>(e.display_priority||0)===priority);
  if(!rows.length)return null;
  const five=rows.filter(e=>e.kind==='自主闭环 · 5-seed');
@@ -36,7 +73,7 @@ function resultFor(evaluations,horizon){
  return {success:chosen.reduce((s,e)=>s+e.success,0),trials:chosen.reduce((s,e)=>s+e.trials,0),unknown:chosen.reduce((s,e)=>s+e.unknown,0),label:five.length?five.length+'轮汇总':chosen[0].result_label||chosen[0].kind,protocol:chosen[0].protocol,rows:chosen,reported:false};
 }
 function progressFor(evaluations,horizon){
- const rows=evaluations.filter(e=>e.metric_role!=='assisted'&&e.horizon===horizon&&e.success===null&&Number.isInteger(e.completed)&&Number.isInteger(e.trials)&&e.trials>0&&e.completed>=0&&e.completed<=e.trials);
+ const rows=evaluations.filter(e=>e.metric_role!=='assisted'&&e.formal_score_eligible!==false&&e.horizon===horizon&&e.success===null&&Number.isInteger(e.completed)&&Number.isInteger(e.trials)&&e.trials>0&&e.completed>=0&&e.completed<=e.trials);
  return rows.sort((a,b)=>(b.display_priority||0)-(a.display_priority||0)||String(b.updated_at||'').localeCompare(String(a.updated_at||'')))[0]||null;
 }
 function buildBoard(data,edits=[]){
@@ -80,7 +117,7 @@ function issueBody(edit){validateEdit(edit);return '## SafeLab 共享交接记�
 function evaluationIndex(board){
  const index=[];
  for(const row of board.rows){
-  for(const e of row.evaluations)index.push({...e,rowKey:row.key,task:row.task,camera:row.camera,method:row.method,phase:e.success===null?'progress':'formal'});
+  for(const e of row.evaluations)index.push({...e,rowKey:row.key,task:row.task,camera:row.camera,method:row.method,phase:e.success===null?'progress':formalIssues(e).length?'legacy':'formal'});
   for(const horizon of [4,8,30]){const score=row['h'+horizon];if(score?.reported)index.push({id:'shared-'+row.shared.issue+'-'+horizon,rowKey:row.key,task:row.task,dataset:row.dataset,camera:row.camera,method:row.method,checkpoint:row.step,horizon,success:score.success,trials:score.trials,unknown:score.unknown,completed:score.trials,status:'团队填报',kind:'团队共享评测',phase:'reported',protocol:score.protocol,source:row.shared.url,report_url:row.shared.url,note:'团队填报成绩；原始验收证据请见共享交接单。'});}
  }
  for(const d of board.diagnostics){
@@ -91,6 +128,6 @@ function evaluationIndex(board){
 }
 function pendingRows(board){return board.rows.filter(r=>r.path&&r.state==='untested');}
 function handoffPacket(board,row){const d=board.datasets.find(d=>d.id===row.dataset);return {task:row.task,method:row.method,dataset_version:d?.version||row.dataset,training_dataset:d?.path||row.shared?.data_path||null,camera:row.camera,checkpoint_step:row.step,checkpoint_path:row.path,delivery_document:row.doc||null,training_run:row.run||null,normalization_hash:row.record?.norm||null,training_config:row.training,owner:row.owner,execution_horizons_to_test:[4,8],test_protocol:'请根据该数据版本的交付文档确认泛化、控制频率和成功验收条件，不沿用其他版本',availability:row.availability,shared_handoff:row.shared?.url||null};}
-const api={STATES,CAMERAS,TASKS,VERSIONS,key,parseScore,validateEdit,parseIssue,resultFor,progressFor,buildBoard,issueBody,evaluationIndex,pendingRows,handoffPacket};
+const api={PROTOCOL,wilson95,formalIssues,formalComparisons,STATES,CAMERAS,TASKS,VERSIONS,key,parseScore,validateEdit,parseIssue,resultFor,progressFor,buildBoard,issueBody,evaluationIndex,pendingRows,handoffPacket};
 if(typeof module!=='undefined')module.exports=api;root.HandoffModel=api;
 })(typeof window==='undefined'?globalThis:window);
