@@ -20,6 +20,8 @@
       if (cs.length !== 4 || new Set(cs.map(c => c.added_cm)).size !== 4 || cs.some(c => ![0,1,2,3].includes(c.added_cm))) throw Error('泛化档位不完整');
       if (cs.some(c => c.complete && (c.episodes !== 50 || !Number.isFinite(c.sr_percent) || !Number.isFinite(c.terminal_spatial_ssr20_percent)))) throw Error('测试结果不完整');
       if (cs.some(c => c.paper_ssr_percent != null && (!c.complete || !finite(c.paper_ssr_percent) || c.paper_ssr_percent < 0 || c.paper_ssr_percent > 100 || c.paper_ssr_percent !== c.terminal_spatial_ssr20_percent))) throw Error('空间 SSR 绑定数据无效');
+      const accepted=o.methods[m].accepted_result;
+      if(accepted && (!accepted.performance_accepted||accepted.closed_trials!==200||!/^[a-f0-9]{64}$/.test(accepted.checkpoint_sha256)||accepted.curves?.length!==4||new Set(accepted.curves.map(c=>c.added_cm)).size!==4||accepted.curves.some(c=>![0,1,2,3].includes(c.added_cm)||c.episodes!==50||c.videos!==50||!finite(c.sr_percent)||!finite(c.ssr_percent)||c.sr_percent<0||c.sr_percent>100||c.ssr_percent<0||c.ssr_percent>c.sr_percent)))throw Error('最新验收候选数据不完整');
       const ref=o.methods[m].paper_reference;
       if(ref && [ref.sr_percent,ref.ssr_percent].some(v=>!finite(v)||v<0||v>100)) throw Error('论文参考值无效');
     }
@@ -57,17 +59,30 @@
     const transfers = m.transfer_total_bytes ? `<p class="small">训练数据传输 ${(m.transfer_bytes/2**20).toFixed(0)} / ${(m.transfer_total_bytes/2**20).toFixed(0)} MiB · 传输进度 ${(m.transfer_bytes/m.transfer_total_bytes*100).toFixed(1)}%</p>` : '';
     return `<p><strong>${esc(m.status_label)}</strong>${update !== null ? ` · 优化器 ${update.toLocaleString()} / ${m.required_updates.toLocaleString()} 次更新` : ''}</p>${update !== null ? `<progress max="${m.required_updates}" value="${update}" aria-label="优化器训练进度"></progress>` : ''}${transfers}${typeof m.train_loss === 'number' ? `<p class="small">最近有限训练 loss：${m.train_loss.toPrecision(4)} · 训练误差不等于成功率</p>` : ''}${m.progress_stalled ? '<p class="note">进展计数超过30分钟未前进，需要检查。监管服务心跳不计作训练进展。</p>' : ''}`;
   }
+  function displayConditions(m) {
+    const result=m.accepted_result;
+    if(!result?.performance_accepted||result.curves?.length!==4)return m.conditions;
+    return [...result.curves].sort((a,b)=>a.added_cm-b.added_cm).map(c=>({
+      added_cm:c.added_cm,xy_half_range_cm:3+c.added_cm,complete:true,episodes:c.episodes,
+      sr_percent:c.sr_percent,terminal_spatial_ssr20_percent:c.ssr_percent,paper_ssr_percent:c.ssr_percent,
+      successes:Math.round(c.sr_percent/2),spatial_safe_successes:Math.round(c.ssr_percent/2),
+      test_gpu:c.test_gpu,same_gpu:null,raw_sha256:c.raw_sha256,receipt_sha256:result.review_sha256,accepted:true
+    }));
+  }
+  function visibleStatus(m) {
+    return m.status_label.replace('；表内四档为首轮基线',m.accepted_result?.performance_accepted?'；表内为最新验收候选':'；表内四档为首轮基线');
+  }
   function detail() {
-    const o = data.objects.find(o=>o.id === selected), m = o.methods[method];
+    const o = data.objects.find(o=>o.id === selected), m = o.methods[method], cs=displayConditions(m), accepted=m.accepted_result?.performance_accepted;
     $('objectTitle').textContent = o.label + ' · ' + method.toUpperCase();
     for(const k of ['dp','act']) {$ (k).classList.toggle('active', method === k); $(k).setAttribute('aria-pressed', method === k);}
-    $('modelStatus').textContent = m.verified_model ? '模型核验完成 · 原生测试另行验收' : m.status_label;
+    $('modelStatus').textContent = accepted ? '已通过 SR / SSR 四档验收' : m.verified_model ? '模型核验完成 · 原生测试另行验收' : m.status_label;
     $('modelStatus').className = 'pill ' + (m.verified_model ? 'pass' : 'pending');
     $('trainingDetails').innerHTML = train(m);
     $('reference').textContent = `采集 ${o.source_episodes} 条 · XY ±3cm · ${o.collection_gpu}。` + (m.paper_reference ? `论文 Table 20 参考：SR ${pct(m.paper_reference.sr_percent)} / SSR ${pct(m.paper_reference.ssr_percent)}（3 seeds × 50）。` : '论文 Table 20 无精确对应行。');
-    $('conditions').innerHTML = m.conditions.map(c => `<article class="condition"><h3>+${c.added_cm}cm</h3><small>测试 XY ±${c.xy_half_range_cm}cm${c.added_cm === 0 ? ' · 采集范围对照' : ''}</small>${c.complete ? `<div class="scores">${pct(c.sr_percent)}</div><small>SR · ${c.successes}/50 成功</small><div class="bar"><span style="width:${c.sr_percent}%"></span></div><div class="scores">${pct(c.terminal_spatial_ssr20_percent)}</div><small>${spatialLabel(c)} · ${c.spatial_safe_successes}/50</small><div class="bar ssr"><span style="width:${c.terminal_spatial_ssr20_percent}%"></span></div><p class="small">实际范围外 ${c.settled_outside_count}/50<br>范围外 SR ${pct(c.outside_sr_percent)} / SSR20 ${pct(c.outside_spatial_ssr20_percent)}</p><div class="hardware ${c.same_gpu ? 'pass' : 'pending'}">${esc(c.test_gpu || '测试显卡待核验')} · ${c.same_gpu === true ? '采集同型号' : c.same_gpu === false ? '跨型号 · 选定档位需复核' : '同型号状态待核验'}</div>` : `<div class="state"><span class="pill pending">${esc(c.status_label)}</span><p class="small">完整50次结束后显示 SR / SSR20</p></div>`}</article>`).join('');
+    $('conditions').innerHTML = cs.map(c => `<article class="condition"><h3>+${c.added_cm}cm</h3><small>测试 XY ±${c.xy_half_range_cm}cm${c.added_cm === 0 ? ' · 采集范围对照' : ''}</small>${c.complete ? `<div class="scores">${pct(c.sr_percent)}</div><small>SR · ${c.successes}/50 成功</small><div class="bar"><span style="width:${c.sr_percent}%"></span></div><div class="scores">${pct(c.terminal_spatial_ssr20_percent)}</div><small>${spatialLabel(c)} · ${c.spatial_safe_successes}/50</small><div class="bar ssr"><span style="width:${c.terminal_spatial_ssr20_percent}%"></span></div>${Number.isInteger(c.settled_outside_count)?`<p class="small">实际范围外 ${c.settled_outside_count}/50<br>范围外 SR ${pct(c.outside_sr_percent)} / SSR20 ${pct(c.outside_spatial_ssr20_percent)}</p>`:''}<div class="hardware ${c.accepted || c.same_gpu ? 'pass' : 'pending'}">${esc(c.test_gpu || '测试显卡待核验')} · ${c.accepted ? '该候选四档已验收' : c.same_gpu === true ? '采集同型号' : c.same_gpu === false ? '跨型号 · 选定档位需复核' : '同型号状态待核验'}</div>` : `<div class="state"><span class="pill pending">${esc(c.status_label)}</span><p class="small">完整50次结束后显示 SR / SSR20</p></div>`}</article>`).join('');
     const primary=data.protocol.primary_added_cm;
-    const cell=m.conditions.find(c=>c.added_cm===primary),ref=m.paper_reference;
+    const cell=cs.find(c=>c.added_cm===primary),ref=m.paper_reference;
     const blockers=[];
     if(m.conditions.filter(c=>c.complete).length!==4)blockers.push('四档50次尚未全部完成');
     if(!cell?.complete)blockers.push('共同档位50次待完成');
@@ -80,19 +95,19 @@
       if(cell.sr_percent<ref.sr_percent)blockers.push(`SR ${pct(cell.sr_percent)} / 目标 ${pct(ref.sr_percent)}`);
       if(spatialBound(cell)&&cell.paper_ssr_percent<ref.ssr_percent)blockers.push(`SSR ${pct(cell.paper_ssr_percent)} / 目标 ${pct(ref.ssr_percent)}`);
     }
-    $('acceptance').textContent = `当前 ${m.conditions.filter(c=>c.complete).length}/4 档完整测试。${primary===2?'共同档位 +2cm（XY ±5cm）。':'共同档位待位置覆盖核验。'}${blockers.length?'待验收：'+blockers.join('；')+'。':'当前方法已满足本轮 SR / 空间 SSR 参考门槛；物体验收还需 DP / ACT 均达标。'}`;
+    $('acceptance').textContent = accepted ? `已验收候选 ${m.accepted_result.checkpoint_sha256.slice(0,8)}：+2cm SR ${pct(m.accepted_result.sr_percent)} / SSR ${pct(m.accepted_result.ssr_percent)}，四档各50次。首轮基线独立保留在历史页。` : `当前 ${m.conditions.filter(c=>c.complete).length}/4 档完整测试。${primary===2?'共同档位 +2cm（XY ±5cm）。':'共同档位待位置覆盖核验。'}${blockers.length?'待验收：'+blockers.join('；')+'。':'当前方法已满足本轮 SR / 空间 SSR 参考门槛；物体验收还需 DP / ACT 均达标。'}`;
     const bound=data.objects.reduce((n,o)=>n+Object.values(o.methods).reduce((s,m)=>s+m.conditions.filter(spatialBound).length,0),0);
     $('ssrBinding').textContent=bound?`${bound} 组完整50次已绑定本地论文空间域实现：原生任务成功、空间记录有效、终态物体到原生放置目标的三维距离 ≤20mm，分母50。按每组原始记录和模型 SHA 核验后计分；未完整或未绑定的组继续标为待核验。`:'当前数据尚未携带已审阅的空间 SSR 绑定；测试格暂显示终态空间 SSR20，完整50次及绑定核验后签发。';
     $('commonCondition').textContent=primary===2?'首轮完整曲线按实际位置覆盖选定共同 +2cm（XY ±5cm）：所有物体和方法采用同一档位，完整四档与原始跨卡结果保留。最终验收逐项检查采集同型号显卡、SR 和已绑定空间 SSR 的论文门槛。':'按实际落在采集范围外的覆盖率选择共同泛化档位，保留完整曲线；统一档位的采集同型号显卡复核与论文 SSR 核验分别记录。';
-    $('evidence').innerHTML = `<p>模型 SHA256：${esc(m.model_sha256 || '模型未完成')}</p>` + m.conditions.filter(c=>c.complete).map(c=>`<p>+${c.added_cm}cm · 原始记录 SHA256：${esc(c.raw_sha256)}<br>结果核验记录 SHA256：${esc(c.receipt_sha256)}</p>`).join('');
+    $('evidence').innerHTML = `<p>模型 SHA256：${esc(accepted?m.accepted_result.checkpoint_sha256:(m.model_sha256 || '模型未完成'))}</p>` + cs.filter(c=>c.complete).map(c=>`<p>+${c.added_cm}cm · 原始记录 SHA256：${esc(c.raw_sha256)}<br>结果核验记录 SHA256：${esc(c.receipt_sha256)}</p>`).join('');
   }
   function matrix() {
     const stage = $('stage').value;
     let html = '';
     for(const o of data.objects) for(const k of ['dp','act']) {
-      const m = o.methods[k], n = m.conditions.filter(c=>c.complete).length;
+      const m = o.methods[k], cs=displayConditions(m), n = cs.filter(c=>c.complete).length;
       if(stage==='training' && m.verified_model || stage==='testing' && n===4 || stage==='complete' && n!==4) continue;
-      html += `<tr data-task="${esc(o.id)}-${k}"><td><button data-object="${esc(o.id)}" data-method="${k}">${esc(o.label)}<span class="cell-label">${k.toUpperCase()} · 采集 ${esc(o.collection_gpu)}</span></button></td><td class="paper-sr">${m.paper_reference?`<strong>${pct(m.paper_reference.sr_percent)}</strong>`:'—<span class="cell-label">论文未对应</span>'}</td><td class="paper-ssr">${m.paper_reference?`<strong>${pct(m.paper_reference.ssr_percent)}</strong>`:'—<span class="cell-label">论文未对应</span>'}</td><td><span class="pill ${m.verified_model ? 'pass' : 'pending'}">${esc(m.status_label)}</span>${m.optimizer_updates !== null ? `<span class="cell-label">${m.optimizer_updates.toLocaleString()}/${m.required_updates.toLocaleString()}</span>` : ''}</td>` + m.conditions.map(c=>`<td>${c.complete ? `<strong>${pct(c.sr_percent)} / ${pct(c.terminal_spatial_ssr20_percent)}</strong><span class="cell-label">50次 · ${spatialBound(c)?'空间 SSR 已绑定':'SSR 绑定待核验'} · 范围外 ${c.settled_outside_count}次</span><span class="cell-label">${c.same_gpu === true ? '采集同型号' : c.same_gpu === false ? '跨型号需复核' : '显卡待核验'}</span>` : `<span class="pill pending">${esc(c.status_label)}</span>`}</td>`).join('') + '</tr>';
+      html += `<tr data-task="${esc(o.id)}-${k}"><td><button data-object="${esc(o.id)}" data-method="${k}">${esc(o.label)}<span class="cell-label">${k.toUpperCase()} · 采集 ${esc(o.collection_gpu)}</span></button></td><td class="paper-sr">${m.paper_reference?`<strong>${pct(m.paper_reference.sr_percent)}</strong>`:'—<span class="cell-label">论文未对应</span>'}</td><td class="paper-ssr">${m.paper_reference?`<strong>${pct(m.paper_reference.ssr_percent)}</strong>`:'—<span class="cell-label">论文未对应</span>'}</td><td><span class="pill ${m.verified_model ? 'pass' : 'pending'}">${esc(visibleStatus(m))}</span>${m.optimizer_updates !== null ? `<span class="cell-label">${m.optimizer_updates.toLocaleString()}/${m.required_updates.toLocaleString()}</span>` : ''}</td>` + cs.map(c=>`<td>${c.complete ? `<strong>${pct(c.sr_percent)} / ${pct(c.terminal_spatial_ssr20_percent)}</strong><span class="cell-label">50次 · ${spatialBound(c)?'空间 SSR 已绑定':'SSR 绑定待核验'}${Number.isInteger(c.settled_outside_count)?' · 范围外 '+c.settled_outside_count+'次':''}</span><span class="cell-label">${c.accepted ? '最新验收候选' : c.same_gpu === true ? '采集同型号' : c.same_gpu === false ? '跨型号需复核' : '显卡待核验'}</span>` : `<span class="pill pending">${esc(c.status_label)}</span>`}</td>`).join('') + '</tr>';
     }
     $('matrix').innerHTML = html;
     $('emptyMatrix').hidden = !!html;
@@ -146,7 +161,7 @@
     }).join('');
     if(hostFilter==='all'||hostFilter==='volc-pro6000')for(const job of cloud) {
       const taskMap=new Map(job.tasks.map(t=>['volc-pro6000:'+t.gpu,{...t,host:'volc-pro6000'}]));
-      $('fleet').innerHTML+=`<article class="host" data-host="volc-pro6000" data-job="${esc(job.job_id)}" data-sampled-at="${esc(job.source_updated_at)}" data-sample-failed="false"><div class="host-heading"><div><h3>Pro6000 低优训练 · ${esc(job.title)}</h3><span class="small">${esc(job.job_id)} · 分配 ${esc(job.allocated_gpus)} 张卡</span></div></div>${gpuTable('volc-pro6000',job.gpus,taskMap)}<div class="host-sample">采样：${date(job.source_updated_at)}</div></article>`;
+      $('fleet').innerHTML+=`<article class="host" data-host="volc-pro6000" data-job="${esc(job.job_id)}" data-sampled-at="${esc(job.source_updated_at)}" data-sample-failed="false"><div class="host-heading"><div><h3>Pro6000 低优训练 · ${esc(job.title)}</h3><span class="small">${esc(job.job_id)} · 分配 ${esc(job.allocated_gpus)} 张卡</span></div></div>${gpuTable('volc-pro6000',job.gpus,taskMap)}<div class="host-sample"><span class="sample-status">GPU 采样已同步</span><span>采样：${date(job.source_updated_at)}</span></div></article>`;
     }
     const history=[];
     for(const r of data.candidate_progress||[])if(!r.active)history.push([r.host,label(r.object),r.method.toUpperCase(),r.status_label]);
