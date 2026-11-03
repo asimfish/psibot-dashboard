@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-03T11:19:54.045453+00:00",
+  "updated_utc": "2026-11-03T13:29:31.246555+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -571,9 +571,9 @@
           "evidence_SHA256": "d95bfa49f88e1881fa5498bc545741ef0413435408083a93e0fa40200824d3f2"
         }
       },
-      "next": "8卡配对训练按原固定队列继续；三个ACT种子模型/统计实际字节全部闭合后立即运行固定源验证15次，不等待DP。实际构建器、声明门及7种模型异常检查通过；开发位置不能计独立泛化或正式通过。",
+      "next": "保持原24秒终点和冻结世界目标，分离后段策略保持偏差与MP/IL控制链路差异；不重复已有测试，不以中途达标、动作保持或移动目标改算通过。DP100k继续。",
       "name": "250ml 棕色容量瓶",
-      "status_note": "新BrownV100条完整287800原120Hz手内/手物/手桌均无违规，300原视频证明和144张预声明原图抽查闭合，已准入开发训练。DP/ACT各三种子的六模型包预检通过、仍挂起等8卡内接续；未新增策略验收。旧源缺陷与失败保留。",
+      "status_note": "合格新源ACT32k三种子15次全部抓起，但成功且24秒终点20mm仅3/15（20%，每种子1/5），低于其论文Spatial SSR25%的组件上界要求。另12次曾抓起并进入20mm后逸出；54张原始三相机抽样未见明显渲染异常，完整几何/SSR仍未知。",
       "latest_source_development": {
         "method": "ACT",
         "trials": 15,
@@ -1547,9 +1547,9 @@
       },
       "object_accepted": false,
       "full_visual_passed": false,
-      "next": "8秒/12秒动作各两次重复对照已运行，姿态/六电机/五位置/种子/24秒截止固定；先验证滑脱/跟踪假设，再做完整几何和原视觉，通过后才扩采。",
+      "next": "沿保存的接触/闭合姿态证据重新区分失败机制；保持六电机和冻结目标，不再盲目加长动作或等待。",
       "name": "研钵（论文 Crucible）",
-      "status_note": "手腕12mm组4/5抓起；四成功轨迹手内/手与目标/手与桌面组件干净，失败行98存在3个拇指交叉时刻。顺序20条为15/20抓起，行98各顺序仍失败且另有行83失败；拇指20条仍16/20。均拒绝源训练准入。",
+      "status_note": "整体12秒动作0/10抓起，8秒对照8/10；仅增加1秒闭合前等待仍与基线各8/10。后者实际其余EEF/手指令逐值相同，行98均失败，跟踪误差改善仍只抬约1cm；两类源修复均拒绝，不能把EEF终点达标算抓起。",
       "source100_c0490": {
         "episodes": 100,
         "native_successes": 100,
@@ -3801,11 +3801,11 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 237,
-    "active_registered_jobs": 3,
+    "registered_jobs": 239,
+    "active_registered_jobs": 2,
     "BOS_mount_count": 2,
-    "state": "EIGHT_OPTIMIZERS_COMPLETED_DP_PRECISION_DIAGNOSIS_AND_EARLY_ACT_PREPARED",
-    "state_note": "8张训练卡实际保持8优化器；两组首ACT均完成并在同卡补位，BrownV已接续第三种子。最近15次周期采样中6张DP卡均值约96%–98%，ACT约48%/52%；非连续遥测、无匹配加速比。新B50/F250 DP开发15次全部完成，抓起15/15、13/15，成功且终点20mm仅4/15、0/15。四种新源ACT后续测试已通过构建器门，等各三模型字节闭合即试跑。正式仍0/21、0/42。",
+    "state": "EIGHT_OPTIMIZERS_BROWNV_ACT_COMPLETE_POSTGRASP_PRECISION_DRIFT",
+    "state_note": "8张训练卡实际维持8优化器并自动补位；新BrownV三个ACT32k完成，固定源验证15次为15/15抓起、3/15成功且终点20mm（20%），完整SSR仍未知，低于该物体论文ACT Spatial SSR25%的组件上界要求。全部12条终点失败曾抓起并进入20mm后逸出。Funnel/BrownL/ClearL模型完成即测试、保存轨迹核对和按物体论文门槛的后处理继续。正式仍0/21、0/42。",
     "prepared_not_submitted": [
       {
         "tag": "eval-m6-dp-b50-20261025cc",
@@ -3820,7 +3820,7 @@
         "progress_note": "旧ACT种子21/23出现生产日志与BOS存档哈希不符，旧测试继续挂起；新三ACT批次使用生产端内容封存。DP100k种子21也有来源不符，旧DP测试未放行。"
       }
     ],
-    "checked_utc": "2026-11-03T11:19:54.045453+00:00",
+    "checked_utc": "2026-11-03T13:29:31.246555+00:00",
     "jobs": [
       {
         "tag": "qual-mortar-p120-smoke4-20261028cc",
@@ -6330,15 +6330,15 @@
         "name": "BrownV＋BrownL · 12模型自动补位训练",
         "job_id": "job-qj10mhciyq5i",
         "status": "RUNNING",
-        "checked_utc": "2026-11-03T11:19:48.930716+00:00",
-        "evidence_url": "verification/grasp-completed-dp-precision-frontier-20261103.json",
+        "checked_utc": "2026-11-03T13:29:31.246555+00:00",
+        "evidence_url": "verification/grasp-brownv-act-holding-frontier-20261103.json",
         "training_progress": [
           {
             "method": "dp",
             "object_alias": "brown_volume",
             "seed": 26121921,
             "GPU": 0,
-            "updates": 26000,
+            "updates": 43600,
             "return_code": null
           },
           {
@@ -6346,7 +6346,7 @@
             "object_alias": "brown_volume",
             "seed": 26121923,
             "GPU": 1,
-            "updates": 25950,
+            "updates": 43550,
             "return_code": null
           },
           {
@@ -6354,7 +6354,7 @@
             "object_alias": "brown_volume",
             "seed": 26121925,
             "GPU": 2,
-            "updates": 26000,
+            "updates": 43700,
             "return_code": null
           },
           {
@@ -6378,33 +6378,41 @@
             "object_alias": "brown_volume",
             "seed": 26121925,
             "GPU": 3,
-            "updates": 3840,
+            "updates": 32000,
+            "return_code": 0
+          },
+          {
+            "method": "act",
+            "object_alias": "brown_reagen",
+            "seed": 26121921,
+            "GPU": 3,
+            "updates": 17720,
             "return_code": null
           }
         ],
-        "progress_sample_utc": "2026-11-03T19:18:27.667593629+08:00",
+        "progress_sample_utc": "2026-11-03T21:28:51.318323584+08:00",
         "per_GPU_utilization_periodic_mean": [
-          97.07,
-          95.87,
-          97.67,
-          48.4
+          96.33333333333333,
+          95.6,
+          97,
+          48.53333333333333
         ],
-        "progress_note": "实际4优化器保持更新；首ACT完成后在同卡接续已由原日志验证。最近15次逐卡周期采样均值[97.07, 95.87, 97.67, 48.4]%，窗口2026-11-03T18:50:22.616322009+08:00至2026-11-03T19:18:27.667593629+08:00；无连续遥测或匹配加速比。"
+        "progress_note": "原固定模型队列维持4优化器；BrownV三ACT已完成并在同卡接续BrownL。原15次周期采样逐卡均值[96.33, 95.6, 97, 48.53]%，窗口2026-11-03T21:00:46.307745267+08:00至2026-11-03T21:28:51.318323584+08:00；非连续遥测，无匹配加速比。"
       },
       {
         "tag": "train-D100A32-funnel-clearL-queued12-20261103cc",
         "name": "Funnel＋ClearL · 12模型自动补位训练",
         "job_id": "job-loovox9oe1ct",
         "status": "RUNNING",
-        "checked_utc": "2026-11-03T11:19:50.419149+00:00",
-        "evidence_url": "verification/grasp-completed-dp-precision-frontier-20261103.json",
+        "checked_utc": "2026-11-03T13:29:31.246555+00:00",
+        "evidence_url": "verification/grasp-brownv-act-holding-frontier-20261103.json",
         "training_progress": [
           {
             "method": "dp",
             "object_alias": "funnel",
             "seed": 26121921,
             "GPU": 0,
-            "updates": 17600,
+            "updates": 35250,
             "return_code": null
           },
           {
@@ -6412,7 +6420,7 @@
             "object_alias": "funnel",
             "seed": 26121923,
             "GPU": 1,
-            "updates": 17600,
+            "updates": 35200,
             "return_code": null
           },
           {
@@ -6420,7 +6428,7 @@
             "object_alias": "funnel",
             "seed": 26121925,
             "GPU": 2,
-            "updates": 17550,
+            "updates": 35150,
             "return_code": null
           },
           {
@@ -6436,18 +6444,26 @@
             "object_alias": "funnel",
             "seed": 26121923,
             "GPU": 3,
-            "updates": 13790,
+            "updates": 32000,
+            "return_code": 0
+          },
+          {
+            "method": "act",
+            "object_alias": "funnel",
+            "seed": 26121925,
+            "GPU": 3,
+            "updates": 27540,
             "return_code": null
           }
         ],
-        "progress_sample_utc": "2026-11-03T19:18:08.790370862+08:00",
+        "progress_sample_utc": "2026-11-03T21:28:31.915232853+08:00",
         "per_GPU_utilization_periodic_mean": [
-          96.4,
-          96.73,
-          96.33,
-          51.73
+          89.66666666666667,
+          97.33333333333333,
+          97.46666666666667,
+          38.8
         ],
-        "progress_note": "实际4优化器保持更新；首ACT完成后在同卡接续已由原日志验证。最近15次逐卡周期采样均值[96.4, 96.73, 96.33, 51.73]%，窗口2026-11-03T18:50:03.914057651+08:00至2026-11-03T19:18:08.790370862+08:00；无连续遥测或匹配加速比。"
+        "progress_note": "原固定模型队列维持4优化器；Funnel前两ACT已完成，第三ACT继续。原15次周期采样逐卡均值[89.67, 97.33, 97.47, 38.8]%，窗口2026-11-03T21:00:26.857108778+08:00至2026-11-03T21:28:31.915232853+08:00；非连续遥测，无匹配加速比。"
       },
       {
         "tag": "dev-D100-b50-safe3-exec4-source15-20261103cc",
@@ -6523,14 +6539,49 @@
         "tag": "qual-mortar-wrist12-time8v12-20-p120-20261103cc",
         "name": "Mortar · 8秒/12秒动作重复对照20条",
         "job_id": "job-1wmqreq7egy6",
-        "status": "RUNNING",
-        "checked_utc": "2026-11-03T11:19:54.045453+00:00",
-        "evidence_url": "verification/grasp-completed-dp-precision-frontier-20261103.json",
-        "progress_note": "固定手腕+12mm、同五位置/种子/六电机/24秒截止；8秒与12秒各重复两组。仅检验跟踪误差与滑脱假设；结果及完整120Hz几何/原视觉仍待，不准入源或训练。",
+        "status": "SUCCEEDED",
+        "checked_utc": "2026-11-03T13:29:31.246555+00:00",
+        "evidence_url": "verification/grasp-brownv-act-holding-frontier-20261103.json",
+        "progress_note": "8秒两组各4/5抓起，12秒两组均0/5。全部20条仅EEF终点满足20mm，不等于抓起或SSR。整体放慢使抓取恶化，拒绝该源修复。",
+        "source_training_allowed": false,
+        "Native_progress": {
+          "eps": 20,
+          "succ": 8,
+          "t20": 20
+        }
+      },
+      {
+        "tag": "dev-A32-brownv-safe3-early-source15-20261103cc",
+        "name": "BrownV · 新源ACT32k源验证15次",
+        "job_id": "job-a3c84pob04ox",
+        "status": "SUCCEEDED",
+        "checked_utc": "2026-11-03T13:29:31.246555+00:00",
+        "evidence_url": "verification/grasp-brownv-act-holding-frontier-20261103.json",
+        "Native_progress": {
+          "eps": 15,
+          "succ": 15,
+          "t20": 3
+        },
+        "progress_note": "三个固定种子各5次均抓起，各仅1次终点20mm；该同一源行39达标，另12次曾达标后逸出。源验证20%组件上界低于本物体论文Spatial SSR25%；非独立OOD，不认证完整SSR/视觉，不计正式通过。",
+        "formal_accepted": false
+      },
+      {
+        "tag": "qual-mortar-wrist12-dwell38-paired20-p120-20261103cc",
+        "name": "Mortar · 仅增加闭合前等待20次",
+        "job_id": "job-heahwd39dbx4",
+        "status": "SUCCEEDED",
+        "checked_utc": "2026-11-03T13:29:31.246555+00:00",
+        "evidence_url": "verification/grasp-brownv-act-holding-frontier-20261103.json",
+        "Native_progress": {
+          "eps": 20,
+          "succ": 16,
+          "t20": 20
+        },
+        "progress_note": "基线8控制步与38步等待各两次重复，四组均4/5抓起；同一行98都失败。去掉新增30步后全部实际EEF/手部指令逐值相同。失败跟踪误差7.7→3.2mm但仅抬起约1cm，否定等待单独修复；拒绝源准入。",
         "source_training_allowed": false
       }
     ],
-    "progress_note": "8张训练卡实际保持8优化器；两组首ACT均完成并在同卡补位，BrownV已接续第三种子。最近15次周期采样中6张DP卡均值约96%–98%，ACT约48%/52%；非连续遥测、无匹配加速比。新B50/F250 DP开发15次全部完成，抓起15/15、13/15，成功且终点20mm仅4/15、0/15。四种新源ACT后续测试已通过构建器门，等各三模型字节闭合即试跑。正式仍0/21、0/42。",
+    "progress_note": "8张训练卡实际维持8优化器并自动补位；新BrownV三个ACT32k完成，固定源验证15次为15/15抓起、3/15成功且终点20mm（20%），完整SSR仍未知，低于该物体论文ACT Spatial SSR25%的组件上界要求。全部12条终点失败曾抓起并进入20mm后逸出。Funnel/BrownL/ClearL模型完成即测试、保存轨迹核对和按物体论文门槛的后处理继续。正式仍0/21、0/42。",
     "DP_repair_note": "原始DP100k正式150已外部闭合：149成功、44成功且终点20mm，SSR上限29.3%低于论文37%。三种子固定200k预算已训练完成，现做封存模型开发诊断；不使用保持或目标参考冒充原始基线。",
     "b50_reset_note": "B50源/测试重置修复沿用冻结设置。原始DP100k与ACT分开核验，不与固定保持变体混算。新问题是DP终点精度不足、ACT接近阶段手指与桌面相交；物体成功抓起也不能记为完整通过。",
     "failure_diagnosis": [
@@ -6611,9 +6662,9 @@
     "training_GPUs_provisioned": 8,
     "training_jobs_with_optimizer_progress": 2,
     "training_budget_evidence": "verification/grasp_source15_followthrough_20261028.json",
-    "submitted_jobs": 230,
+    "submitted_jobs": 232,
     "training_optimizer_active_GPUs_observed": 8,
-    "training_utilization_note": "8张训练卡实际保持8优化器；两组首ACT均完成并在同卡补位，BrownV已接续第三种子。最近15次周期采样中6张DP卡均值约96%–98%，ACT约48%/52%；非连续遥测、无匹配加速比。新B50/F250 DP开发15次全部完成，抓起15/15、13/15，成功且终点20mm仅4/15、0/15。四种新源ACT后续测试已通过构建器门，等各三模型字节闭合即试跑。正式仍0/21、0/42。",
+    "training_utilization_note": "8张训练卡实际维持8优化器并自动补位；新BrownV三个ACT32k完成，固定源验证15次为15/15抓起、3/15成功且终点20mm（20%），完整SSR仍未知，低于该物体论文ACT Spatial SSR25%的组件上界要求。全部12条终点失败曾抓起并进入20mm后逸出。Funnel/BrownL/ClearL模型完成即测试、保存轨迹核对和按物体论文门槛的后处理继续。正式仍0/21、0/42。",
     "training_GPU_allocation_cap": 8,
     "training_allocated_GPUs": 8,
     "training_optimizers_last_verified": 8,
@@ -6694,7 +6745,7 @@
     "allocated_training_GPUs": 8,
     "current_recovery_evidence_url": "verification/grasp-B50-remaining23-and-source-provenance-20261030.json",
     "observed_optimizer_GPUs": 8,
-    "observed_optimizer_GPU_note": "8张训练卡实际保持8优化器；两组首ACT均完成并在同卡补位，BrownV已接续第三种子。最近15次周期采样中6张DP卡均值约96%–98%，ACT约48%/52%；非连续遥测、无匹配加速比。新B50/F250 DP开发15次全部完成，抓起15/15、13/15，成功且终点20mm仅4/15、0/15。四种新源ACT后续测试已通过构建器门，等各三模型字节闭合即试跑。正式仍0/21、0/42。",
+    "observed_optimizer_GPU_note": "8张训练卡实际维持8优化器并自动补位；新BrownV三个ACT32k完成，固定源验证15次为15/15抓起、3/15成功且终点20mm（20%），完整SSR仍未知，低于该物体论文ACT Spatial SSR25%的组件上界要求。全部12条终点失败曾抓起并进入20mm后逸出。Funnel/BrownL/ClearL模型完成即测试、保存轨迹核对和按物体论文门槛的后处理继续。正式仍0/21、0/42。",
     "sealed_continuation_evidence_url": "verification/grasp-sealed-models-and-original-source15-20261030.json",
     "original_ACT150_OOD_integrity_evidence_url": "verification/grasp-original-ACT150-OOD-and-output-integrity-20261030.json",
     "firstcell_recovery_evidence_url": "verification/grasp-ACT150-technical-failure-and-first5-recovery-20261030.json",
@@ -6726,14 +6777,14 @@
         "tag": "train-D100A32-brownV-brownL-queued12-20261103cc",
         "job_id": "job-qj10mhciyq5i",
         "status": "RUNNING",
-        "checked_utc": "2026-11-03T11:19:48.930716+00:00",
+        "checked_utc": "2026-11-03T13:29:20.523657+00:00",
         "latest_actual_runs": [
           [
             "dp",
             "brown_volume",
             26121921,
             0,
-            26000,
+            43600,
             null
           ],
           [
@@ -6741,7 +6792,7 @@
             "brown_volume",
             26121923,
             1,
-            25950,
+            43550,
             null
           ],
           [
@@ -6749,7 +6800,7 @@
             "brown_volume",
             26121925,
             2,
-            26000,
+            43700,
             null
           ],
           [
@@ -6773,247 +6824,41 @@
             "brown_volume",
             26121925,
             3,
-            3840,
+            32000,
+            0
+          ],
+          [
+            "act",
+            "brown_reagen",
+            26121921,
+            3,
+            17720,
             null
           ]
         ],
         "periodic_sample_count": 15,
-        "periodic_window_start": "2026-11-03T18:50:22.616322009+08:00",
-        "periodic_window_end": "2026-11-03T19:18:27.667593629+08:00",
+        "periodic_window_start": "2026-11-03T21:00:46.307745267+08:00",
+        "periodic_window_end": "2026-11-03T21:28:51.318323584+08:00",
         "per_GPU_periodic_sample_mean_percent": [
-          97.07,
-          95.87,
-          97.67,
-          48.4
+          96.33333333333333,
+          95.6,
+          97,
+          48.53333333333333
         ],
-        "actual_post_optimizer_exit_reuse": {
-          "path": "/data/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/pro6000_codex_20261026/diagnosis_compare_20261027/Training_backfill_paired_sources_20261103/train-D100A32-brownV-brownL-queued12-20261103cc_ACTUAL_GPU_REUSE_AFTER_EXIT_R2.json",
-          "SHA256": "3a6559dd0ae0eadf02bb553c8d17468a7e27abd18aae5685dd89df2a0f8ce504",
-          "data": {
-            "passed": true,
-            "utc": "2026-11-03T09:48:18.408019+00:00",
-            "tag": "train-D100A32-brownV-brownL-queued12-20261103cc",
-            "job_id": "job-qj10mhciyq5i",
-            "original_first_four_admissions": [
-              {
-                "utc": "2026-11-03T16:05:51.404610756+08:00",
-                "kind": "dp",
-                "object": "brown_volumetric_flask_250ml",
-                "seed": 26121921,
-                "gpu": 0,
-                "active_optimizers": 1,
-                "remaining_models": 11,
-                "maximum_one_optimizer_per_GPU": true
-              },
-              {
-                "utc": "2026-11-03T16:05:51.405290332+08:00",
-                "kind": "dp",
-                "object": "brown_volumetric_flask_250ml",
-                "seed": 26121923,
-                "gpu": 1,
-                "active_optimizers": 2,
-                "remaining_models": 10,
-                "maximum_one_optimizer_per_GPU": true
-              },
-              {
-                "utc": "2026-11-03T16:05:51.405922484+08:00",
-                "kind": "dp",
-                "object": "brown_volumetric_flask_250ml",
-                "seed": 26121925,
-                "gpu": 2,
-                "active_optimizers": 3,
-                "remaining_models": 9,
-                "maximum_one_optimizer_per_GPU": true
-              },
-              {
-                "utc": "2026-11-03T16:05:51.694256749+08:00",
-                "kind": "act",
-                "object": "brown_volumetric_flask_250ml",
-                "seed": 26121921,
-                "gpu": 3,
-                "active_optimizers": 4,
-                "remaining_models": 8,
-                "maximum_one_optimizer_per_GPU": true
-              }
-            ],
-            "actual_fifth_admission": {
-              "utc": "2026-11-03T17:36:19.690684045+08:00",
-              "kind": "act",
-              "object": "brown_volumetric_flask_250ml",
-              "seed": 26121923,
-              "gpu": 3,
-              "active_optimizers": 4,
-              "remaining_models": 7,
-              "maximum_one_optimizer_per_GPU": true
-            },
-            "previous_optimizer_on_same_GPU": {
-              "utc": "2026-11-03T16:05:51.694256749+08:00",
-              "kind": "act",
-              "object": "brown_volumetric_flask_250ml",
-              "seed": 26121921,
-              "gpu": 3,
-              "active_optimizers": 4,
-              "remaining_models": 8,
-              "maximum_one_optimizer_per_GPU": true
-            },
-            "post_reassignment_actual_progress": [
-              {
-                "utc": "2026-11-03T17:44:10.9385977+08:00",
-                "runs": [
-                  [
-                    "dp",
-                    "brown_volume",
-                    26121921,
-                    0,
-                    13250,
-                    null
-                  ],
-                  [
-                    "dp",
-                    "brown_volume",
-                    26121923,
-                    1,
-                    13200,
-                    null
-                  ],
-                  [
-                    "dp",
-                    "brown_volume",
-                    26121925,
-                    2,
-                    13250,
-                    null
-                  ],
-                  [
-                    "act",
-                    "brown_volume",
-                    26121921,
-                    3,
-                    32000,
-                    0
-                  ],
-                  [
-                    "act",
-                    "brown_volume",
-                    26121923,
-                    3,
-                    2720,
-                    null
-                  ]
-                ],
-                "gpus": [
-                  {
-                    "GPU": 0,
-                    "memory_MiB": 43412,
-                    "util_percent": 99
-                  },
-                  {
-                    "GPU": 1,
-                    "memory_MiB": 43182,
-                    "util_percent": 99
-                  },
-                  {
-                    "GPU": 2,
-                    "memory_MiB": 43274,
-                    "util_percent": 99
-                  },
-                  {
-                    "GPU": 3,
-                    "memory_MiB": 7362,
-                    "util_percent": 31
-                  }
-                ]
-              },
-              {
-                "utc": "2026-11-03T17:46:11.276993335+08:00",
-                "runs": [
-                  [
-                    "dp",
-                    "brown_volume",
-                    26121921,
-                    0,
-                    13500,
-                    null
-                  ],
-                  [
-                    "dp",
-                    "brown_volume",
-                    26121923,
-                    1,
-                    13500,
-                    null
-                  ],
-                  [
-                    "dp",
-                    "brown_volume",
-                    26121925,
-                    2,
-                    13500,
-                    null
-                  ],
-                  [
-                    "act",
-                    "brown_volume",
-                    26121921,
-                    3,
-                    32000,
-                    0
-                  ],
-                  [
-                    "act",
-                    "brown_volume",
-                    26121923,
-                    3,
-                    3430,
-                    null
-                  ]
-                ],
-                "gpus": [
-                  {
-                    "GPU": 0,
-                    "memory_MiB": 43412,
-                    "util_percent": 99
-                  },
-                  {
-                    "GPU": 1,
-                    "memory_MiB": 43182,
-                    "util_percent": 96
-                  },
-                  {
-                    "GPU": 2,
-                    "memory_MiB": 43274,
-                    "util_percent": 99
-                  },
-                  {
-                    "GPU": 3,
-                    "memory_MiB": 7362,
-                    "util_percent": 34
-                  }
-                ]
-              }
-            ],
-            "actual_GPU_reuse_after_optimizer_exit": true,
-            "previous_optimizer_exit_code": 0,
-            "new_optimizer_actual_updates_positive": true,
-            "no_optimizer_overlap_per_GPU": true,
-            "no_gap_or_throughput_speedup_claimed": true,
-            "no_cloud_create_stop_cancel_restart_calls": true,
-            "formal_accepted": false
-          }
-        }
+        "scope": "Discrete15 two-minute snapshots per GPU. No continuous telemetry or matched-workload speedup claim."
       },
       {
         "tag": "train-D100A32-funnel-clearL-queued12-20261103cc",
         "job_id": "job-loovox9oe1ct",
         "status": "RUNNING",
-        "checked_utc": "2026-11-03T11:19:50.419149+00:00",
+        "checked_utc": "2026-11-03T13:29:24.023646+00:00",
         "latest_actual_runs": [
           [
             "dp",
             "funnel",
             26121921,
             0,
-            17600,
+            35250,
             null
           ],
           [
@@ -7021,7 +6866,7 @@
             "funnel",
             26121923,
             1,
-            17600,
+            35200,
             null
           ],
           [
@@ -7029,7 +6874,7 @@
             "funnel",
             26121925,
             2,
-            17550,
+            35150,
             null
           ],
           [
@@ -7045,167 +6890,28 @@
             "funnel",
             26121923,
             3,
-            13790,
+            32000,
+            0
+          ],
+          [
+            "act",
+            "funnel",
+            26121925,
+            3,
+            27540,
             null
           ]
         ],
         "periodic_sample_count": 15,
-        "periodic_window_start": "2026-11-03T18:50:03.914057651+08:00",
-        "periodic_window_end": "2026-11-03T19:18:08.790370862+08:00",
+        "periodic_window_start": "2026-11-03T21:00:26.857108778+08:00",
+        "periodic_window_end": "2026-11-03T21:28:31.915232853+08:00",
         "per_GPU_periodic_sample_mean_percent": [
-          96.4,
-          96.73,
-          96.33,
-          51.73
+          89.66666666666667,
+          97.33333333333333,
+          97.46666666666667,
+          38.8
         ],
-        "actual_post_optimizer_exit_reuse": {
-          "path": "/data/liyufeng/ops/grasp_ssr_ood_multiserver_20261009/pro6000_codex_20261026/diagnosis_compare_20261027/Training_backfill_paired_sources_20261103/train-D100A32-funnel-clearL-queued12-20261103cc_ACTUAL_GPU_REUSE_AFTER_EXIT_R2.json",
-          "SHA256": "835960a4a854ae524da62d0a5a77ac83c39bfbf8bf832f28734d3ae596ea4330",
-          "data": {
-            "passed": true,
-            "utc": "2026-11-03T10:41:27.374754+00:00",
-            "tag": "train-D100A32-funnel-clearL-queued12-20261103cc",
-            "job_id": "job-loovox9oe1ct",
-            "original_first_four_admissions": [
-              {
-                "utc": "2026-11-03T17:07:44.745261165+08:00",
-                "kind": "dp",
-                "object": "funnel",
-                "seed": 26121921,
-                "gpu": 0,
-                "active_optimizers": 1,
-                "remaining_models": 11,
-                "maximum_one_optimizer_per_GPU": true
-              },
-              {
-                "utc": "2026-11-03T17:07:44.745930765+08:00",
-                "kind": "dp",
-                "object": "funnel",
-                "seed": 26121923,
-                "gpu": 1,
-                "active_optimizers": 2,
-                "remaining_models": 10,
-                "maximum_one_optimizer_per_GPU": true
-              },
-              {
-                "utc": "2026-11-03T17:07:44.746526214+08:00",
-                "kind": "dp",
-                "object": "funnel",
-                "seed": 26121925,
-                "gpu": 2,
-                "active_optimizers": 3,
-                "remaining_models": 9,
-                "maximum_one_optimizer_per_GPU": true
-              },
-              {
-                "utc": "2026-11-03T17:07:45.027404845+08:00",
-                "kind": "act",
-                "object": "funnel",
-                "seed": 26121921,
-                "gpu": 3,
-                "active_optimizers": 4,
-                "remaining_models": 8,
-                "maximum_one_optimizer_per_GPU": true
-              }
-            ],
-            "actual_fifth_admission": {
-              "utc": "2026-11-03T18:38:51.915444322+08:00",
-              "kind": "act",
-              "object": "funnel",
-              "seed": 26121923,
-              "gpu": 3,
-              "active_optimizers": 4,
-              "remaining_models": 7,
-              "maximum_one_optimizer_per_GPU": true
-            },
-            "previous_optimizer_on_same_GPU": {
-              "utc": "2026-11-03T17:07:45.027404845+08:00",
-              "kind": "act",
-              "object": "funnel",
-              "seed": 26121921,
-              "gpu": 3,
-              "active_optimizers": 4,
-              "remaining_models": 8,
-              "maximum_one_optimizer_per_GPU": true
-            },
-            "post_reassignment_actual_progress": [
-              {
-                "utc": "2026-11-03T18:40:01.991847839+08:00",
-                "runs": [
-                  [
-                    "dp",
-                    "funnel",
-                    26121921,
-                    0,
-                    12450,
-                    null
-                  ],
-                  [
-                    "dp",
-                    "funnel",
-                    26121923,
-                    1,
-                    12400,
-                    null
-                  ],
-                  [
-                    "dp",
-                    "funnel",
-                    26121925,
-                    2,
-                    12400,
-                    null
-                  ],
-                  [
-                    "act",
-                    "funnel",
-                    26121921,
-                    3,
-                    32000,
-                    0
-                  ],
-                  [
-                    "act",
-                    "funnel",
-                    26121923,
-                    3,
-                    360,
-                    null
-                  ]
-                ],
-                "gpus": [
-                  {
-                    "GPU": 0,
-                    "memory_MiB": 43266,
-                    "util_percent": 92
-                  },
-                  {
-                    "GPU": 1,
-                    "memory_MiB": 43472,
-                    "util_percent": 92
-                  },
-                  {
-                    "GPU": 2,
-                    "memory_MiB": 43282,
-                    "util_percent": 99
-                  },
-                  {
-                    "GPU": 3,
-                    "memory_MiB": 7362,
-                    "util_percent": 34
-                  }
-                ]
-              }
-            ],
-            "actual_GPU_reuse_after_optimizer_exit": true,
-            "previous_optimizer_exit_code": 0,
-            "new_optimizer_actual_updates_positive": true,
-            "no_optimizer_overlap_per_GPU": true,
-            "no_gap_or_throughput_speedup_claimed": true,
-            "no_cloud_create_stop_cancel_restart_calls": true,
-            "formal_accepted": false
-          }
-        }
+        "scope": "Discrete15 two-minute snapshots per GPU. No continuous telemetry or matched-workload speedup claim."
       }
     ],
     "latest_source_self_and_durable_recovery_evidence_url": "verification/grasp-source-self-repair-durable-20261101.json",
@@ -7352,38 +7058,38 @@
     "current_training_utilization": {
       "allocated_training_GPUs": 8,
       "active_optimizer_GPUs": 8,
-      "sample_method": "原两分钟定时nvidia-smi快照；各15次、窗口逐项保留，非连续遥测，不声称匹配训练加速比。",
+      "sample_method": "每组实际两分钟周期快照各15次，窗口逐项保留；不声称连续利用率或匹配工作量加速比。",
       "jobs": [
         {
           "tag": "train-D100A32-brownV-brownL-queued12-20261103cc",
           "job_id": "job-qj10mhciyq5i",
           "sample_count": 15,
-          "start": "2026-11-03T18:50:22.616322009+08:00",
-          "end": "2026-11-03T19:18:27.667593629+08:00",
+          "start": "2026-11-03T21:00:46.307745267+08:00",
+          "end": "2026-11-03T21:28:51.318323584+08:00",
           "per_GPU_periodic_sample_mean_percent": [
-            97.07,
-            95.87,
-            97.67,
-            48.4
+            96.33333333333333,
+            95.6,
+            97,
+            48.53333333333333
           ],
-          "job_mean_percent": 84.752
+          "job_mean_percent": 84.36666666666667
         },
         {
           "tag": "train-D100A32-funnel-clearL-queued12-20261103cc",
           "job_id": "job-loovox9oe1ct",
           "sample_count": 15,
-          "start": "2026-11-03T18:50:03.914057651+08:00",
-          "end": "2026-11-03T19:18:08.790370862+08:00",
+          "start": "2026-11-03T21:00:26.857108778+08:00",
+          "end": "2026-11-03T21:28:31.915232853+08:00",
           "per_GPU_periodic_sample_mean_percent": [
-            96.4,
-            96.73,
-            96.33,
-            51.73
+            89.66666666666667,
+            97.33333333333333,
+            97.46666666666667,
+            38.8
           ],
-          "job_mean_percent": 85.297
+          "job_mean_percent": 80.81666666666668
         }
       ],
-      "evidence_url": "verification/grasp-completed-dp-precision-frontier-20261103.json"
+      "evidence_url": "verification/grasp-brownv-act-holding-frontier-20261103.json"
     },
     "latest_training_backfill_evidence_url": "verification/grasp-training-backfill-20261103.json",
     "stop_permission_pending": false,
@@ -7583,6 +7289,42 @@
           }
         ],
         "evidence_url": "verification/grasp-eight-gpu-dp-exec4-20261103.json"
+      },
+      {
+        "allocated_training_GPUs": 8,
+        "active_optimizer_GPUs": 8,
+        "sample_method": "原两分钟定时nvidia-smi快照；各15次、窗口逐项保留，非连续遥测，不声称匹配训练加速比。",
+        "jobs": [
+          {
+            "tag": "train-D100A32-brownV-brownL-queued12-20261103cc",
+            "job_id": "job-qj10mhciyq5i",
+            "sample_count": 15,
+            "start": "2026-11-03T18:50:22.616322009+08:00",
+            "end": "2026-11-03T19:18:27.667593629+08:00",
+            "per_GPU_periodic_sample_mean_percent": [
+              97.07,
+              95.87,
+              97.67,
+              48.4
+            ],
+            "job_mean_percent": 84.752
+          },
+          {
+            "tag": "train-D100A32-funnel-clearL-queued12-20261103cc",
+            "job_id": "job-loovox9oe1ct",
+            "sample_count": 15,
+            "start": "2026-11-03T18:50:03.914057651+08:00",
+            "end": "2026-11-03T19:18:08.790370862+08:00",
+            "per_GPU_periodic_sample_mean_percent": [
+              96.4,
+              96.73,
+              96.33,
+              51.73
+            ],
+            "job_mean_percent": 85.297
+          }
+        ],
+        "evidence_url": "verification/grasp-completed-dp-precision-frontier-20261103.json"
       }
     ],
     "latest_eight_GPU_DP_exec4_evidence_url": "verification/grasp-eight-gpu-dp-exec4-20261103.json",
@@ -7687,15 +7429,91 @@
         73
       ],
       "all3_models_still_required_before_each_object_release": true,
-      "actual_closed_models": 3,
-      "released_objects": [],
+      "actual_closed_models": 5,
+      "released_objects": [
+        "brown_volumetric_flask_250ml"
+      ],
       "no_wait_for_DP": true,
       "not_independent_OOD_or_formal": true,
-      "evidence_url": "verification/grasp-completed-dp-precision-frontier-20261103.json"
+      "evidence_url": "verification/grasp-brownv-act-holding-frontier-20261103.json",
+      "completed_development_objects": [
+        "brown_volumetric_flask_250ml"
+      ],
+      "latest_result": {
+        "object": "brown_volumetric_flask_250ml",
+        "trials": 15,
+        "Native_successes": 15,
+        "success_terminal20mm": 3,
+        "not_independent_OOD_or_formal": true
+      }
     },
-    "latest_precision_frontier_evidence_url": "verification/grasp-completed-dp-precision-frontier-20261103.json"
+    "latest_precision_frontier_evidence_url": "verification/grasp-brownv-act-holding-frontier-20261103.json",
+    "latest_saved_ACT_trace_diagnosis": {
+      "object": "brown_volumetric_flask_250ml",
+      "trials": 15,
+      "Native_successes": 15,
+      "success_terminal20mm": 3,
+      "all12_precision_failures_previously_joint_lift_and20": true,
+      "median_terminal_EEF_error_mm": 31.253667942351242,
+      "all3_seeds_same_precision_success_row39": true,
+      "early6s_goal_response_mean_gains": [
+        1.0705395560037907,
+        1.1086461094112052,
+        1.0222569847354777
+      ],
+      "note": "原15条、模型/统计及全部120Hz时钟均核对。末端早期随目标位置变化，不能说策略完全忽略位置；抓起后继续漂移，模型保持偏差与控制链路的因果机制仍待分离。没有改冻结目标、动作或24秒终点。",
+      "evidence_url": "verification/grasp-brownv-act-holding-frontier-20261103.json"
+    },
+    "saved_result_monitor_recovery": {
+      "actual_JSON_string_tuple_keys_regression_passed": true,
+      "malformed_count_negative_cases": 8,
+      "original_failed_logs_preserved": true,
+      "already_submitted_BrownV_recovered_without_replay": true,
+      "cloud_jobs_stopped_cancelled_restarted": 0,
+      "evidence_url": "verification/grasp-brownv-act-holding-frontier-20261103.json"
+    },
+    "private_saved_geometry_qualification": {
+      "original_control_cases": 5,
+      "original120Hz_scored_rows": 14369,
+      "original30Hz_common_rows": 3593,
+      "all_common_pose_predicates_bitexact": true,
+      "per_object_paper_development_component_counts": {
+        "brown_volumetric_flask_250ml": {
+          "Native_successes": 10,
+          "success_terminal20mm": 4,
+          "paper_ACT_SR": 65,
+          "paper_ACT_SpatialSSR": 25,
+          "note": "Compute-priority screen only: terminal20 is an upper bound on complete SpatialSSR. This does not grant acceptance or independent OOD credit."
+        },
+        "brown_reagent_bottle_large": {
+          "Native_successes": 11,
+          "success_terminal20mm": 5,
+          "paper_ACT_SR": 73,
+          "paper_ACT_SpatialSSR": 33,
+          "note": "Compute-priority screen only: terminal20 is an upper bound on complete SpatialSSR. This does not grant acceptance or independent OOD credit."
+        },
+        "clear_reagent_bottle_large": {
+          "Native_successes": 11,
+          "success_terminal20mm": 5,
+          "paper_ACT_SR": 72,
+          "paper_ACT_SpatialSSR": 32,
+          "note": "Compute-priority screen only: terminal20 is an upper bound on complete SpatialSSR. This does not grant acceptance or independent OOD credit."
+        },
+        "funnel": {
+          "Native_successes": 9,
+          "success_terminal20mm": 3,
+          "paper_ACT_SR": 58,
+          "paper_ACT_SpatialSSR": 18,
+          "note": "Compute-priority screen only: terminal20 is an upper bound on complete SpatialSSR. This does not grant acceptance or independent OOD credit."
+        }
+      },
+      "BrownV_expensive_geometry_skipped_after_component_failure": true,
+      "missing_geometry_not_certified": true,
+      "full_SpatialSSR": null,
+      "evidence_url": "verification/grasp-brownv-act-holding-frontier-20261103.json"
+    }
   },
-  "evidence_note": "截至2026-11-03T11:19:54.045453+00:00：6份合格100条专家源；8张训练卡实际保持8优化器；两组首ACT均完成并在同卡补位，BrownV已接续第三种子。最近15次周期采样中6张DP卡均值约96%–98%，ACT约48%/52%；非连续遥测、无匹配加速比。新B50/F250 DP开发15次全部完成，抓起15/15、13/15，成功且终点20mm仅4/15、0/15。四种新源ACT后续测试已通过构建器门，等各三模型字节闭合即试跑。正式仍0/21、0/42。",
+  "evidence_note": "截至2026-11-03T13:29:31.246555+00:00：6份合格100条专家源；8张训练卡实际维持8优化器并自动补位；新BrownV三个ACT32k完成，固定源验证15次为15/15抓起、3/15成功且终点20mm（20%），完整SSR仍未知，低于该物体论文ACT Spatial SSR25%的组件上界要求。全部12条终点失败曾抓起并进入20mm后逸出。Funnel/BrownL/ClearL模型完成即测试、保存轨迹核对和按物体论文门槛的后处理继续。正式仍0/21、0/42。",
   "offline_DP_probe": {
     "observations": 4,
     "source_episodes": 1,
