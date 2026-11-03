@@ -32,7 +32,8 @@
   function freshness() {
     if (!data) return;
     const age = Date.now() - Date.parse(data.source_updated_at), pubAge = Date.now() - Date.parse(data.published_at);
-    const stale = age > 1200000 || pubAge > 1200000;
+    const staleMs = Math.max(1200, (Number.isFinite(data.publish_seconds) ? data.publish_seconds : 600) + 180) * 1000;
+    const stale = age > staleMs || pubAge > staleMs;
     $('connection').textContent = stale ? '进度来源已过期 · 等待恢复同步' : origin === 'live' ? (lastError ? '更新连接暂时失败 · 保留上次数据' : '持续监管 · 自动更新') : (lastError ? '自动更新暂不可用 · 显示页面快照' : '页面发布时的快照 · 正在连接自动更新');
     document.querySelector('.freshness').classList.toggle('stale', stale || lastError || origin !== 'live');
     $('updated').textContent = `来源更新：${date(data.source_updated_at)} · 网页同步：${date(data.published_at)}（北京时间）`;
@@ -149,7 +150,7 @@
   }
   function render() {
     const t = data.totals;
-    $('stats').innerHTML = [[`${t.verified_models} / ${t.required_models}`,'模型核验完成','DP + ACT · 最终预算与模型校验'],[`${t.complete_cells} / ${t.required_cells}`,'完整测试组','每物体 × 方法 × 四档泛化'],[`${t.complete_trials.toLocaleString()} / ${t.required_trials.toLocaleString()}`,'已核验原生试次','每组 50 次 · 含成功与失败'],[`${t.same_gpu_cells} / ${t.complete_cells}`,'完整组使用采集同型号卡','最终验收：同型号卡及 SR / 空间 SSR 门槛']].map(([v,l,s])=>`<div class="card stat"><strong>${v}</strong><span>${l}</span><small>${s}</small></div>`).join('');
+    $('stats').innerHTML = [[`${Number.isInteger(t.formal_accepted_method_pairs) ? t.formal_accepted_method_pairs : '—'} / 26`,'方法正式验收','SR 与空间 SSR 均达标 · 四档完整50次'],[`${Number.isInteger(t.formal_accepted_objects) ? t.formal_accepted_objects : '—'} / 13`,'物体完整验收','该物体 DP 与 ACT 均已通过'],[`${t.complete_trials.toLocaleString()} / ${t.required_trials.toLocaleString()}`,'已核验原生试次','每组 50 次 · 含成功与失败'],[`${t.same_gpu_cells} / ${t.complete_cells}`,'完整组使用采集同型号卡','最终验收：同型号卡及 SR / 空间 SSR 门槛']].map(([v,l,s])=>`<div class="card stat"><strong>${v}</strong><span>${l}</span><small>${s}</small></div>`).join('');
     menu(); detail(); matrix(); fleet(); freshness();
     $('alerts').innerHTML = data.alerts.map(a=>`<li>${esc(a)}</li>`).join('');
     $('controllers').innerHTML = data.controllers.map(c=>`<div><strong>${esc(c.role)}</strong><span class="pill ${c.active ? 'pass' : 'pending'}">${c.active ? '运行中' : '未确认运行'}</span></div>`).join('');
