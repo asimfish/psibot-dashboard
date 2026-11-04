@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-04T08:57:30.249294+00:00",
+  "updated_utc": "2026-11-04T14:31:02.534434+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -1834,9 +1834,9 @@
         "episodes": 10,
         "strict_crossing_poses": 0
       },
-      "next": "8卡配对训练按原固定队列继续；三个ACT种子模型/统计实际字节全部闭合后立即运行固定源验证15次，不等待DP。实际构建器、声明门及7种模型异常检查通过；开发位置不能计独立泛化或正式通过。",
+      "next": "先修复并重新鉴定专家终点，再采100条；现有训练自然结束，避免重复用旧EEF到位宣称新物体口径合格。",
       "name": "大棕色试剂瓶",
-      "status_note": "新100条专家源已完成：100/100抓起、100/100终点20mm；287800原120Hz记录在手/EEF自身、物体及实际桌面检查域均零交叉。300原视频解码证明与144张三视角抽样原图已核对，已准入开发训练；DP/ACT各3种子训练包已演练，仍等8卡预算内接续。",
+      "status_note": "旧专家源100/100抓起、100/100 EEF终点到位，但按用户新物体终点口径重算为0/100，中位误差24.2mm。专家抬升终点修正实验已准备；新源须通过物体终点、全程几何及视觉后才能作为新合格源。已运行训练保留。",
       "source": {
         "episodes": 100,
         "native_successes": 100,
@@ -1949,6 +1949,13 @@
         "all_frame_visual_certified": false,
         "full_arm_certified": false,
         "evidence_url": "verification/grasp-six-source100-multienv-20261102.json"
+      },
+      "source_primary_object24_admission": false,
+      "source_object24_recheck": {
+        "n": 100,
+        "passed": 0,
+        "median_error_mm": 24.2146,
+        "previous_terminal20_quantity": "EEF; historical source gate"
       }
     },
     {
@@ -2441,7 +2448,7 @@
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "大透明试剂瓶",
-      "status_note": "新100条专家源已完成：100/100抓起、100/100终点20mm；287800原120Hz记录在手/EEF自身、物体及实际桌面检查域均零交叉。300原视频解码证明与144张三视角抽样原图已核对，已准入开发训练；DP/ACT各3种子训练包已演练，仍等8卡预算内接续。",
+      "status_note": "旧专家源100/100抓起、100/100 EEF终点到位，但按用户新物体终点口径重算为0/100，中位误差23.0mm。专家抬升终点修正实验已准备；新源须通过物体终点、全程几何及视觉后才能作为新合格源。已运行训练保留。",
       "source": {
         "tag": "src100-clearLA-c045-m12-p120-20261028cc",
         "episodes": 100,
@@ -2464,7 +2471,7 @@
           }
         }
       },
-      "next": "8卡配对训练按原固定队列继续；三个ACT种子模型/统计实际字节全部闭合后立即运行固定源验证15次，不等待DP。实际构建器、声明门及7种模型异常检查通过；开发位置不能计独立泛化或正式通过。",
+      "next": "先修复并重新鉴定专家终点，再采100条；现有训练自然结束，避免重复用旧EEF到位宣称新物体口径合格。",
       "source_versions": [
         {
           "episodes": 100,
@@ -2636,6 +2643,13 @@
         "all_frame_visual_certified": false,
         "full_arm_certified": false,
         "evidence_url": "verification/grasp-six-source100-multienv-20261102.json"
+      },
+      "source_primary_object24_admission": false,
+      "source_object24_recheck": {
+        "n": 100,
+        "passed": 0,
+        "median_error_mm": 23.0319,
+        "previous_terminal20_quantity": "EEF; historical source gate"
       }
     },
     {
@@ -3552,14 +3566,33 @@
         "primary_object_SpatialSSR": null
       },
       "ACT": {
-        "SR": 77.3,
+        "SR": 84,
         "SpatialSSR_reported": 35.3,
         "trials": 150,
         "penetration_trials": 1,
         "penetration_in_failure_only": true,
-        "formal_accepted": false,
+        "formal_accepted": true,
         "legacy_reported_position_quantity": "EEF; supplemental after user20261104 decision",
-        "primary_object_SpatialSSR": null
+        "primary_object_SpatialSSR": 42,
+        "legacy_before_object24": {
+          "SR": 77.3,
+          "SpatialSSR_reported": 35.3,
+          "trials": 150,
+          "penetration_trials": 1,
+          "penetration_in_failure_only": true,
+          "formal_accepted": false,
+          "legacy_reported_position_quantity": "EEF; supplemental after user20261104 decision",
+          "primary_object_SpatialSSR": null
+        },
+        "visual_review_passed": true,
+        "acceptance_evidence_url": "verification/grasp-funnel-act-object24-formal150-20261104.json",
+        "training_seed": 26121921,
+        "evaluation_seeds": [
+          26905301,
+          26905302,
+          26905303
+        ],
+        "formal_evaluation_status": "PASSED_OBJECT24_FROZEN_FORMAL150"
       },
       "object_accepted": false,
       "full_visual_passed": false,
@@ -3569,9 +3602,9 @@
         "lifted": 100,
         "strict_crossings": 0
       },
-      "next": "收齐原ACT三种子150次独立±3/4/5/6cm测试，按冻结目标与24秒终点，继续全场景/自碰撞/视觉核验；等待DP100k完成后独立评估。",
+      "next": "保持ACT正式结果与视频，完成DP精度训练、50回合筛选，再以新3评测seed×50正式测试；两个方法都通过才计一个物体。",
       "name": "漏斗",
-      "status_note": "Funnel ACT26121921物体终点分量24/50，按新口径选模；新3个评测seed×50正式测试已启动，完整SSR与视觉待完成。DP仍待提升精度。",
+      "status_note": "ACT 已通过：单检查点×3个新评测seed×50，SR84.0%、物体24秒SSR42.0%（论文58/18）。150回合三视角共450段原录像完整解码，900张关键帧及细看样本已复核；几何交叉回合按失败计入SSR。DP继续100k/400k精度对照。",
       "latest_source_development": {
         "method": "DP",
         "trials": 15,
@@ -3881,15 +3914,15 @@
   "penetration_threshold_user_confirmed": false,
   "expanded_plus4_plus5_cm_user_confirmed": false,
   "5090_results_included": false,
-  "evidence_scope_note": "Geometric statistics are saved-pose hand/target authored-surface audits; no broader geometry scope or full visual pass is inferred.",
+  "evidence_scope_note": "当前Funnel ACT物体终点与全程几何合取已解析150个SSR判定；不将只做位置分量的其他对象计作完整SSR。",
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
     "registered_jobs": 245,
-    "active_registered_jobs": 2,
+    "active_registered_jobs": 4,
     "BOS_mount_count": 2,
-    "state": "OBJECT24_R4_FORMAL_RUNNING_PRECISION16CARD_RELEASE",
-    "state_note": "用户2026-11-04决定物体终点20mm为主口径，EEF仅补充。r3的16对照case成功/失败一致，但动作与图像一致性门未过，未执行正式150回合。r4保留模型与新case，使用每卡1进程基线，Funnel ACT26121921正式150及BrownV筛选50。低优上限升16卡，DP100k/400k与ACT精度训练包已解除旧训练依赖；正式仍0/21、0/42。",
+    "state": "FUNNEL_ACT_FORMAL_ACCEPTED_1_OF42",
+    "state_note": "Funnel ACT 已通过：SR84.0%、物体口径SSR42.0%。当前方法通过1/42，DP+ACT完整物体0/21。后台继续DP训练量对照、精度筛选与专家源修正，低优上限16卡。",
     "prepared_not_submitted": [
       {
         "tag": "eval-m6-dp-b50-20261025cc",
@@ -3904,7 +3937,7 @@
         "progress_note": "旧ACT种子21/23出现生产日志与BOS存档哈希不符，旧测试继续挂起；新三ACT批次使用生产端内容封存。DP100k种子21也有来源不符，旧DP测试未放行。"
       }
     ],
-    "checked_utc": "2026-11-04T08:57:30.249294+00:00",
+    "checked_utc": "2026-11-04T14:31:02.534434+00:00",
     "jobs": [
       {
         "tag": "qual-mortar-p120-smoke4-20261028cc",
@@ -6495,7 +6528,7 @@
         "tag": "train-D100A32-funnel-clearL-queued12-20261103cc",
         "name": "Funnel＋ClearL · 12模型自动补位训练",
         "job_id": "job-loovox9oe1ct",
-        "status": "RUNNING",
+        "status": "SUCCEEDED",
         "checked_utc": "2026-11-03T14:49:00.287359+00:00",
         "evidence_url": "verification/grasp-funnel-source15-formal150-started-20261103.json",
         "training_progress": [
@@ -6736,19 +6769,125 @@
       {
         "tag": "eval-FunnelACT-BrownVscreen-object24-N4-20261104cc-r4",
         "job_id": "job-orzeyo8n4ee6",
-        "status": "RUNNING",
+        "status": "SUCCEEDED",
         "name": "Funnel ACT正式150 / BrownV ACT筛选50 · 物体终点20mm",
         "progress_note": "按物体口径选Funnel26121921，B50DP退出正式；4张低优Pro6000，每卡1进程基线。不重跑已完成对照，不降低并行检查容差，物理/模型/位置/计分冻结；完整安全和视觉未结束。"
+      },
+      {
+        "tag": "train-precision-object24-D100D400-A32A100-N4-20261104cc",
+        "job_id": "job-pwijf5pp5w7m",
+        "status": "FAILED",
+        "name": "train-precision-object24-D100D400-A32A100-N4-20261104cc",
+        "execution_class": "low_priority",
+        "allocated_GPUs": 4,
+        "progress_note": "4卡低优；冻结物体终点口径。原生异常与策略失败分开，模型完成后自动接50回合筛选。"
+      },
+      {
+        "tag": "train-precision-object24-D100D400-A32A100-N4-20261104cc-r2",
+        "job_id": "job-g6tpow66bqj6",
+        "status": "RUNNING",
+        "name": "train-precision-object24-D100D400-A32A100-N4-20261104cc-r2",
+        "execution_class": "low_priority",
+        "allocated_GPUs": 4,
+        "progress_note": "4卡低优；冻结物体终点口径。原生异常与策略失败分开，模型完成后自动接50回合筛选。 最近采样均值：GPU96.5%，显存46.1GiB/卡。",
+        "GPU_util_mean": 96.54166666666667,
+        "GPU_memory_MiB_mean": 47203.5,
+        "GPU_samples": 12,
+        "GPU_sample_utc": "2026-11-04T14:30:11.092262+00:00"
+      },
+      {
+        "tag": "train-precision-F250-BrownL-ClearL-D100D400-A32A100-N4-20261104cc",
+        "job_id": "job-kn9heg3roqpl",
+        "status": "RUNNING",
+        "name": "train-precision-F250-BrownL-ClearL-D100D400-A32A100-N4-20261104cc",
+        "execution_class": "low_priority",
+        "allocated_GPUs": 4,
+        "progress_note": "4卡低优；冻结物体终点口径。原生异常与策略失败分开，模型完成后自动接50回合筛选。 最近采样均值：GPU68.8%，显存26.5GiB/卡。",
+        "GPU_util_mean": 68.8125,
+        "GPU_memory_MiB_mean": 27118.5,
+        "GPU_samples": 12,
+        "GPU_sample_utc": "2026-11-04T14:29:07.358379+00:00"
+      },
+      {
+        "tag": "eval-FunnelACT-BrownVscreen-object24-capture-N4-20261104cc-r5",
+        "job_id": "job-igt3wqa8y2eo",
+        "status": "SUCCEEDED",
+        "name": "eval-FunnelACT-BrownVscreen-object24-capture-N4-20261104cc-r5",
+        "execution_class": "low_priority",
+        "allocated_GPUs": 4,
+        "progress_note": "4卡低优；冻结物体终点口径。原生异常与策略失败分开，模型完成后自动接50回合筛选。"
+      },
+      {
+        "tag": "screen-precision-existing-Funnel-BrownV-DP100-N4-20261104cc",
+        "job_id": "job-nb0pgo7vikqx",
+        "status": "FAILED",
+        "name": "screen-precision-existing-Funnel-BrownV-DP100-N4-20261104cc",
+        "execution_class": "low_priority",
+        "allocated_GPUs": 4,
+        "progress_note": "4卡低优；冻结物体终点口径。原生异常与策略失败分开，模型完成后自动接50回合筛选。"
+      },
+      {
+        "tag": "screen-precision-f250-act-u32000-s26121921-20261104cc",
+        "job_id": "job-s38uq1yy6ql1",
+        "status": "SUCCEEDED",
+        "name": "screen-precision-f250-act-u32000-s26121921-20261104cc",
+        "execution_class": "low_priority",
+        "allocated_GPUs": 4,
+        "progress_note": "4卡低优；冻结物体终点口径。原生异常与策略失败分开，模型完成后自动接50回合筛选。"
+      },
+      {
+        "tag": "screen-precision-clearL-act-u32000-s26121921-20261104cc",
+        "job_id": "job-chkx88ou7h3h",
+        "status": "SUCCEEDED",
+        "name": "screen-precision-clearL-act-u32000-s26121921-20261104cc",
+        "execution_class": "low_priority",
+        "allocated_GPUs": 4,
+        "progress_note": "4卡低优；冻结物体终点口径。原生异常与策略失败分开，模型完成后自动接50回合筛选。"
+      },
+      {
+        "tag": "src-endpoint-object24-BrownL-ClearL-N4-20261104cc",
+        "job_id": "job-asteas2wi7pt",
+        "status": "FAILED",
+        "name": "src-endpoint-object24-BrownL-ClearL-N4-20261104cc",
+        "execution_class": "low_priority",
+        "allocated_GPUs": 4,
+        "progress_note": "已自然FAILED：首reset KeyError后SDK退出挂住，0有效回合；修正版r2已准备，原始故障记录保留。"
+      },
+      {
+        "tag": "src-endpoint-object24-B50-F250-BrownV-Funnel-N4-20261104cc",
+        "job_id": "job-6twti2oa917r",
+        "status": "RUNNING",
+        "name": "src-endpoint-object24-B50-F250-BrownV-Funnel-N4-20261104cc",
+        "execution_class": "low_priority",
+        "allocated_GPUs": 4,
+        "progress_note": "采集规格已发现首个reset必需字段缺失；修正r2通过真实reset与致命错误清理回归，待旧任务终止后重提。原失败保留。最近采样GPU4.4%、显存20.0GiB/卡。",
+        "GPU_util_mean": 4.354166666666667,
+        "GPU_memory_MiB_mean": 20481.5,
+        "GPU_samples": 12,
+        "GPU_sample_utc": "2026-11-04T14:30:37.329681+00:00"
+      },
+      {
+        "tag": "screen-precision-b50-act-u32000-s26121921-20261104cc",
+        "job_id": "job-tykgqllq3iay",
+        "status": "RUNNING",
+        "name": "screen-precision-b50-act-u32000-s26121921-20261104cc",
+        "execution_class": "low_priority",
+        "allocated_GPUs": 4,
+        "progress_note": "B50 ACT32k best/last各50回合筛选；完成后按物体终点统计。每卡独立基线进程；最近采样GPU58.0%、显存10.4GiB/卡。",
+        "GPU_util_mean": 57.958333333333336,
+        "GPU_memory_MiB_mean": 10602.75,
+        "GPU_samples": 12,
+        "GPU_sample_utc": "2026-11-04T14:30:39.923559+00:00"
       }
     ],
-    "progress_note": "用户2026-11-04决定物体终点20mm为主口径，EEF仅补充。r2漏斗8个对照回合正常关闭，BrownV因入口白名单退出；修复后r3复用这8局，BrownV首局也已正常关闭。Funnel ACT26121921新3×50正式、BrownV ACT26121921新50筛选继续推进；B50 DP已移除。正式仍0/21、0/42。",
+    "progress_note": "Funnel ACT按3个新评测seed完成正式150回合；DP尚未通过，因此尚不计完整物体。采集框外62回合也达到论文目标。",
     "DP_repair_note": "以物体终点精度为主线：B50 DP100k/400k同源对照，每臂保存final EMA及raw，固定50个新case筛选；下一训练包用全局共享队列、每卡2模型，ACT workers=8/prefetch=4。",
     "b50_reset_note": "B50源/测试重置修复沿用冻结设置。原始DP100k与ACT分开核验，不与固定保持变体混算。新问题是DP终点精度不足、ACT接近阶段手指与桌面相交；物体成功抓起也不能记为完整通过。",
     "failure_diagnosis": [
-      "物体口径24秒误差是当前主判据；中途曾进入20mm和旧EEF终点分量均不能替代。",
-      "Funnel ACT选模：物体终点24/50、10/50、16/50，选26121921；旧50局是选模证据，正式结论等待新三个评测seed各50局及安全/视觉。",
-      "B50 DP最佳物体分量8/50=16%，低于论文37%，本轮不再跑正式150；优先100k/400k对照，每臂保留raw与EMA。",
-      "旧测试在本轮授权前自然FAILED、0Native；r2的Funnel8局已关闭，但BrownV被入口白名单拒绝。r3已修复该入口并复用全部8局，BrownV首局正常关闭；两份训练job均未取消。"
+      "Funnel ACT已过数值及规定范围视觉核验；DP还未达物体终点精度目标，100k/400k对照继续。",
+      "BrownL与ClearL旧源的100/100终点指标是EEF；新物体口径均0/100，专家终点修正优先于重复训练。",
+      "新采集规格曾漏reset字段，且原生异常后的SDK退出挂住；修正版已通过240条实际reset配置与5秒故障清理回归，原失败记录保留。",
+      "四进程/GPU的旧DP筛选发生SIGBUS，原因未确认；中断回合不算策略失败或正式成绩。"
     ],
     "expert_replay_prefix": {
       "prefix_seconds": 23.966666666666665,
@@ -6902,7 +7041,11 @@
       "三份新100条源（B50、F250、BrownV）已按各自原始证据准入开发训练，记录范围手/EEF安全与抽样原图通过；模型尚未完成新训练，不称正式通过。",
       "BrownS旧20局虽都抓起，完整手物与手桌均拒绝。离线20桌面见证仅筛选方向；四小角度新试采首轮在记录前因字段错误退出，原失败保留，实际配置接口红绿检查通过后用独立恢复编号继续。",
       "旧ACT64k15局多数水平终点误差伴随物体位移；源0原像素teacher forcing预测接近专家，仍需新源模型闭环验证，不能靠加长训练或改变目标替代修复。",
-      "源±3cm与测试±3/4/5/6cm、21对象各自论文SR/SpatialSSR和原始失败均保留；已知源小测与终点分量不当完整独立泛化或SSR。"
+      "源±3cm与测试±3/4/5/6cm、21对象各自论文SR/SpatialSSR和原始失败均保留；已知源小测与终点分量不当完整独立泛化或SSR。",
+      "物体口径24秒误差是当前主判据；中途曾进入20mm和旧EEF终点分量均不能替代。",
+      "Funnel ACT选模：物体终点24/50、10/50、16/50，选26121921；旧50局是选模证据，正式结论等待新三个评测seed各50局及安全/视觉。",
+      "B50 DP最佳物体分量8/50=16%，低于论文37%，本轮不再跑正式150；优先100k/400k对照，每臂保留raw与EMA。",
+      "旧测试在本轮授权前自然FAILED、0Native；r2的Funnel8局已关闭，但BrownV被入口白名单拒绝。r3已修复该入口并复用全部8局，BrownV首局正常关闭；两份训练job均未取消。"
     ],
     "previous_audit_evidence": "verification/grasp-B50-source-physics-and-B100-retest-20261030.json",
     "training_GPU_cap": 8,
@@ -7817,9 +7960,267 @@
       ],
       "CPU_dispatch_and_finite_model_closure_passed": true,
       "GPU_speedup_not_yet_measured": true
-    }
+    },
+    "allocated_GPUs": 16,
+    "GPU_cap": 16,
+    "execution_class": "low_priority",
+    "formal_Funnel_ACT": {
+      "utc": "2026-11-04T14:26:10.981378+00:00",
+      "schema": "grasp.frozen.object24.method.acceptance.v1",
+      "object": "funnel",
+      "method": "ACT",
+      "job_id": "job-igt3wqa8y2eo",
+      "selected_training_seed": 26121921,
+      "selected_checkpoint": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/pro6000-bulk/checkpoints/grasp_pro6000_cc/sealed/train-D100A32-funnel-clearL-queued12-20261103cc/funnel/act_s26121921/006c1959f9875f4598e1b2efebe0443e5cbc49c43e01765b8f67882569cd13bf/policy_best.ckpt",
+      "one_checkpoint_three_fresh_evaluation_seeds": true,
+      "evaluation_seeds": [
+        26905301,
+        26905302,
+        26905303
+      ],
+      "episodes_per_seed": 50,
+      "source_and_test_GPU": "Zenith Pro6000",
+      "primary_metric": "Native success AND object residual to settled initial xyz+[0,0,lift_height]<=20mm at actual24s termination AND zero full-episode nonadjacent authored-surface crossings",
+      "duration_s": 24,
+      "defer_success_done_until_timeout": true,
+      "lift_height_m": 0.2,
+      "threshold_mm": 20,
+      "user_metric_decision": "用户 2026-11-04 决定",
+      "Native_successes": 126,
+      "SR": 84,
+      "object24_only": 71,
+      "SSR_successes": 63,
+      "SpatialSSR": 42,
+      "by_evaluation_seed": [
+        {
+          "evaluation_seed": 26905301,
+          "n": 50,
+          "Native_successes": 43,
+          "object24": 29,
+          "EEF24": 31,
+          "SSR_numerator_lower_bound": 23,
+          "SSR_numerator_upper_bound": 23,
+          "SSR_unresolved": 0,
+          "SR_percent": 86,
+          "SSR_percent": 46
+        },
+        {
+          "evaluation_seed": 26905302,
+          "n": 50,
+          "Native_successes": 42,
+          "object24": 20,
+          "EEF24": 21,
+          "SSR_numerator_lower_bound": 19,
+          "SSR_numerator_upper_bound": 19,
+          "SSR_unresolved": 0,
+          "SR_percent": 84,
+          "SSR_percent": 38
+        },
+        {
+          "evaluation_seed": 26905303,
+          "n": 50,
+          "Native_successes": 41,
+          "object24": 22,
+          "EEF24": 24,
+          "SSR_numerator_lower_bound": 21,
+          "SSR_numerator_upper_bound": 21,
+          "SSR_unresolved": 0,
+          "SR_percent": 82,
+          "SSR_percent": 42
+        }
+      ],
+      "paper_SR": 58,
+      "paper_SpatialSSR": 18,
+      "all_position_eligible_episodes_full_geometry_resolved": 71,
+      "position_passing_episodes_excluded_for_surface_crossings": 8,
+      "all150_collision_statistics_complete": false,
+      "collision_statistics_on_position_failures_not_inferred": true,
+      "generalization": [
+        {
+          "extra_cm": 0,
+          "n": 39,
+          "Native": 39,
+          "object24": 21,
+          "SSR": 18
+        },
+        {
+          "extra_cm": 1,
+          "n": 39,
+          "Native": 39,
+          "object24": 24,
+          "SSR": 22
+        },
+        {
+          "extra_cm": 2,
+          "n": 36,
+          "Native": 28,
+          "object24": 19,
+          "SSR": 17
+        },
+        {
+          "extra_cm": 3,
+          "n": 36,
+          "Native": 20,
+          "object24": 7,
+          "SSR": 6
+        },
+        {
+          "outside_collection_box": false,
+          "n": 88,
+          "Native": 88,
+          "object24": 53,
+          "SSR": 49
+        },
+        {
+          "outside_collection_box": true,
+          "n": 62,
+          "Native": 38,
+          "object24": 18,
+          "SSR": 14
+        }
+      ],
+      "visual_review": {
+        "utc": "2026-11-04T14:26:10.977795+00:00",
+        "reviewer": "assistant direct original RGB image inspection",
+        "all150_cases_in_six_original_resolution_review_grids": true,
+        "three_cameras": [
+          "head_camera",
+          "third_camera",
+          "chest_camera"
+        ],
+        "overview_frames": [
+          210,
+          690
+        ],
+        "overview_original_frames": 900,
+        "decoded_original_videos": 450,
+        "decode_errors": 0,
+        "detail_selected_cases": 11,
+        "detail_original_frames": 126,
+        "early_support_frames": [
+          0,
+          3,
+          15
+        ],
+        "obvious_glass_material_or_mesh_corruption_seen": false,
+        "selected_frame_visual_review_passed": true,
+        "every_video_frame_semantically_reviewed": false,
+        "microscopic_collision_decisions_from_original120Hz_geometry": true,
+        "known_surface_crossing_episodes_not_waived": true,
+        "penetration_tolerance_waiver_used": false,
+        "original_RGB_not_modified": true,
+        "review_grids": [
+          "head_camera_frame210_ALL150.png",
+          "head_camera_frame690_ALL150.png",
+          "third_camera_frame210_ALL150.png",
+          "third_camera_frame690_ALL150.png",
+          "chest_camera_frame210_ALL150.png",
+          "chest_camera_frame690_ALL150.png"
+        ]
+      },
+      "formal_method_accepted": true,
+      "both_methods_object_accepted": false,
+      "total_formal_methods_accepted": 1,
+      "total_objects_both_methods_accepted": 0,
+      "total_objects": 21,
+      "total_methods": 42,
+      "source_geometry_and_source_object24_qualified": true,
+      "other_GPU_line_results_used": false,
+      "formal_failures_or_support_intersections_removed_from_denominator": false,
+      "threshold_or_geometry_predicate_relaxed": false
+    },
+    "precision_screens": [
+      {
+        "utc": "2026-11-04T14:13:39.605080+00:00",
+        "pid": 3499055,
+        "tag": "screen-precision-clearL-act-u32000-s26121921-20261104cc",
+        "planned": 100,
+        "closed": 100,
+        "workloads": [
+          {
+            "label": "policy_best_ckpt",
+            "checkpoint": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/grasp/training/train-precision-F250-BrownL-ClearL-D100D400-A32A100-N4-20261104cc/clear_reagent_bottle_large/act_s26121921_u32000/policy_best.ckpt",
+            "expected": 50,
+            "n": 50,
+            "evaluation_seeds": [
+              26907531
+            ],
+            "native_success": 42,
+            "object_first": 0,
+            "object_any_lifted": 5,
+            "object_terminal": 1,
+            "EEF_first": 0,
+            "EEF_any_lifted": 15,
+            "EEF_terminal": 5
+          },
+          {
+            "label": "policy_last_ckpt",
+            "checkpoint": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/grasp/training/train-precision-F250-BrownL-ClearL-D100D400-A32A100-N4-20261104cc/clear_reagent_bottle_large/act_s26121921_u32000/policy_last.ckpt",
+            "expected": 50,
+            "n": 50,
+            "evaluation_seeds": [
+              26907531
+            ],
+            "native_success": 45,
+            "object_first": 0,
+            "object_any_lifted": 4,
+            "object_terminal": 2,
+            "EEF_first": 0,
+            "EEF_any_lifted": 13,
+            "EEF_terminal": 10
+          }
+        ],
+        "formal_accepted": false,
+        "geometry_and_visual_pending": true,
+        "new_Native_calls": 0
+      },
+      {
+        "utc": "2026-11-04T14:01:11.394851+00:00",
+        "pid": 3499053,
+        "tag": "screen-precision-f250-act-u32000-s26121921-20261104cc",
+        "planned": 100,
+        "closed": 100,
+        "workloads": [
+          {
+            "label": "policy_best_ckpt",
+            "checkpoint": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/grasp/training/train-precision-F250-BrownL-ClearL-D100D400-A32A100-N4-20261104cc/clear_volumetric_flask_250ml/act_s26121921_u32000/policy_best.ckpt",
+            "expected": 50,
+            "n": 50,
+            "evaluation_seeds": [
+              26907511
+            ],
+            "native_success": 44,
+            "object_first": 0,
+            "object_any_lifted": 38,
+            "object_terminal": 5,
+            "EEF_first": 0,
+            "EEF_any_lifted": 38,
+            "EEF_terminal": 3
+          },
+          {
+            "label": "policy_last_ckpt",
+            "checkpoint": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/grasp/training/train-precision-F250-BrownL-ClearL-D100D400-A32A100-N4-20261104cc/clear_volumetric_flask_250ml/act_s26121921_u32000/policy_last.ckpt",
+            "expected": 50,
+            "n": 50,
+            "evaluation_seeds": [
+              26907511
+            ],
+            "native_success": 43,
+            "object_first": 0,
+            "object_any_lifted": 12,
+            "object_terminal": 3,
+            "EEF_first": 0,
+            "EEF_any_lifted": 14,
+            "EEF_terminal": 3
+          }
+        ],
+        "formal_accepted": false,
+        "geometry_and_visual_pending": true,
+        "new_Native_calls": 0
+      }
+    ]
   },
-  "evidence_note": "用户2026-11-04决定物体终点20mm为主口径，EEF仅补充。r2漏斗8个对照回合正常关闭，BrownV因入口白名单退出；修复后r3复用这8局，BrownV首局也已正常关闭。Funnel ACT26121921新3×50正式、BrownV ACT26121921新50筛选继续推进；B50 DP已移除。正式仍0/21、0/42。",
+  "evidence_note": "用户2026-11-04决定物体位置口径。Funnel ACT 1/42方法通过，DP仍待验收；两个方法都完成才计入0/21物体数。历史69条结果及141个原视频引用保留，新增本次正式成功/失败六路原视频。",
   "offline_DP_probe": {
     "observations": 4,
     "source_episodes": 1,
@@ -8136,6 +8537,128 @@
     }
   },
   "runs": [
+    {
+      "candidate": "pro6000-Funnel-ACT-object24-formal150-r5-20261104",
+      "object": "funnel",
+      "method": "ACT",
+      "display_name": "Pro6000 · ACT26121921 · 新3评测seed×50 · 已通过",
+      "current_native": false,
+      "development": false,
+      "formal_accepted": true,
+      "paper_ssr_percent": 42,
+      "reported_SpatialSSR_percent": 42,
+      "primary_metric_position": "object",
+      "progress": {
+        "episode_num": 150,
+        "episode_success_num": 126,
+        "success_rate": 0.84
+      },
+      "expected_trials": 150,
+      "job_id": "job-igt3wqa8y2eo",
+      "protocol": {
+        "method": "act",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "±3 / 4 / 5 / 6cm",
+        "duration_label": "24s",
+        "seed": "训练26121921；评测26905301 / 26905302 / 26905303",
+        "primary_position": "object",
+        "defer_success_done_until_timeout": true,
+        "note": "冻结前选择单一检查点，再用3个全新评测seed各50回合。主口径为物体到静置初始xyz+[0,0,lift_height]≤20mm，并要求原生成功和全程网格无交叉。8个物体终点达标但有交叉的回合按SSR失败计入；全部150回合保留。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": 26121921
+        },
+        "last": {
+          "global_step": 32000
+        }
+      },
+      "metric_note": "正式 SR84.0% / 物体口径 SpatialSSR42.0%，各评测seed SSR46/38/42%。采集框外62回合SR61.3%、SSR22.6%；总SR偏高与88个框内回合有关。EEF终点76/150仅作补充。视觉为450段完整解码、全150回合900张关键帧及11例细看；未宣称逐帧人工审阅。",
+      "result": {
+        "SR": 84,
+        "SpatialSSR": 42,
+        "trials": 150,
+        "successes": 126,
+        "success_terminal20mm": 71,
+        "SSR_successes": 63,
+        "formal_accepted": true,
+        "visual_review_passed": true,
+        "formal_evaluation_status": "PASSED_OBJECT24_FROZEN_FORMAL150",
+        "evidence_url": "verification/grasp-funnel-act-object24-formal150-20261104.json"
+      },
+      "cases": [
+        {
+          "episode": 1,
+          "evaluation_seed": 26905301,
+          "camera": "head_camera",
+          "url": "assets/grasp/pro6000_Funnel_ACT_object24_formal150_20261104/seed26905301_ep001_head_camera.mp4",
+          "SHA256": "7be514113eb9f328061891c23a34cd8db247982103ba83f319e6f226cb4a9028",
+          "bytes": 1617955,
+          "success": true,
+          "terminal_translation_passed": true,
+          "caption": "正式通过示例；实际原录像，训练/测试均Pro6000；主口径为物体24秒终点。"
+        },
+        {
+          "episode": 1,
+          "evaluation_seed": 26905301,
+          "camera": "third_camera",
+          "url": "assets/grasp/pro6000_Funnel_ACT_object24_formal150_20261104/seed26905301_ep001_third_camera.mp4",
+          "SHA256": "f39243cd5fd0a8198d48a9ade8c68353c30b7fb9de5bd81390b99e4ca86b8117",
+          "bytes": 1202921,
+          "success": true,
+          "terminal_translation_passed": true,
+          "caption": "正式通过示例；实际原录像，训练/测试均Pro6000；主口径为物体24秒终点。"
+        },
+        {
+          "episode": 1,
+          "evaluation_seed": 26905301,
+          "camera": "chest_camera",
+          "url": "assets/grasp/pro6000_Funnel_ACT_object24_formal150_20261104/seed26905301_ep001_chest_camera.mp4",
+          "SHA256": "76040f9822fc3dccf24aab7c40ca92b03f9f92cc85ced6a13bff64cfd48acab8",
+          "bytes": 928046,
+          "success": true,
+          "terminal_translation_passed": true,
+          "caption": "正式通过示例；实际原录像，训练/测试均Pro6000；主口径为物体24秒终点。"
+        },
+        {
+          "episode": 4,
+          "evaluation_seed": 26905301,
+          "camera": "head_camera",
+          "url": "assets/grasp/pro6000_Funnel_ACT_object24_formal150_20261104/seed26905301_ep004_head_camera.mp4",
+          "SHA256": "a676e085bb885428f3dba797482487354a44857cb29c2f286bb3782e87c23331",
+          "bytes": 1351887,
+          "success": false,
+          "terminal_translation_passed": false,
+          "caption": "原生失败示例，保留在150回合分母；实际原录像，训练/测试均Pro6000；主口径为物体24秒终点。"
+        },
+        {
+          "episode": 4,
+          "evaluation_seed": 26905301,
+          "camera": "third_camera",
+          "url": "assets/grasp/pro6000_Funnel_ACT_object24_formal150_20261104/seed26905301_ep004_third_camera.mp4",
+          "SHA256": "65d595f41fd8382398856c0fabcaf23570e9235c855f8fe32336149e644674c0",
+          "bytes": 1127681,
+          "success": false,
+          "terminal_translation_passed": false,
+          "caption": "原生失败示例，保留在150回合分母；实际原录像，训练/测试均Pro6000；主口径为物体24秒终点。"
+        },
+        {
+          "episode": 4,
+          "evaluation_seed": 26905301,
+          "camera": "chest_camera",
+          "url": "assets/grasp/pro6000_Funnel_ACT_object24_formal150_20261104/seed26905301_ep004_chest_camera.mp4",
+          "SHA256": "9857c56c179e4ba78fa2a58f44e7e040cf840f3b3e9bcc5008714162b1d85a3f",
+          "bytes": 1217429,
+          "success": false,
+          "terminal_translation_passed": false,
+          "caption": "原生失败示例，保留在150回合分母；实际原录像，训练/测试均Pro6000；主口径为物体24秒终点。"
+        }
+      ]
+    },
     {
       "candidate": "pro6000-eval-m6-dp-funnel-20261025cc",
       "object": "funnel",
@@ -14783,6 +15306,16 @@
     {
       "object": "funnel",
       "method": "ACT",
+      "n": 150,
+      "Native_successes": 126,
+      "object_terminal20": 71,
+      "EEF_terminal20": 76,
+      "role": "新3评测seed正式150回合，已通过",
+      "note": "完整物体口径SSR63/150=42.0%；论文58/18。框外62回合SR61.3%、SSR22.6%。"
+    },
+    {
+      "object": "funnel",
+      "method": "ACT",
       "training_seed": 26121921,
       "n": 50,
       "Native_successes": 44,
@@ -14812,5 +15345,7 @@
       "role": "旧15用于候选；r4新50筛选",
       "note": "三个训练seed各1/5，同分取26121921；筛选达SR65%及物体分量25%后再用全新3×50正式测试。"
     }
-  ]
+  ],
+  "methods_formally_accepted": 1,
+  "total_methods": 42
 }

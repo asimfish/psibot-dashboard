@@ -1,0 +1,221 @@
+{
+  "utc": "2026-11-04T14:26:10.981378+00:00",
+  "schema": "grasp.frozen.object24.method.acceptance.v1",
+  "object": "funnel",
+  "method": "ACT",
+  "job_id": "job-igt3wqa8y2eo",
+  "selected_training_seed": 26121921,
+  "selected_checkpoint": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/pro6000-bulk/checkpoints/grasp_pro6000_cc/sealed/train-D100A32-funnel-clearL-queued12-20261103cc/funnel/act_s26121921/006c1959f9875f4598e1b2efebe0443e5cbc49c43e01765b8f67882569cd13bf/policy_best.ckpt",
+  "one_checkpoint_three_fresh_evaluation_seeds": true,
+  "evaluation_seeds": [
+    26905301,
+    26905302,
+    26905303
+  ],
+  "episodes_per_seed": 50,
+  "source_and_test_GPU": "Zenith Pro6000",
+  "primary_metric": "Native success AND object residual to settled initial xyz+[0,0,lift_height]<=20mm at actual24s termination AND zero full-episode nonadjacent authored-surface crossings",
+  "duration_s": 24,
+  "defer_success_done_until_timeout": true,
+  "lift_height_m": 0.2,
+  "threshold_mm": 20,
+  "user_metric_decision": "用户 2026-11-04 决定",
+  "Native_successes": 126,
+  "SR": 84,
+  "object24_only": 71,
+  "SSR_successes": 63,
+  "SpatialSSR": 42,
+  "by_evaluation_seed": [
+    {
+      "evaluation_seed": 26905301,
+      "n": 50,
+      "Native_successes": 43,
+      "object24": 29,
+      "EEF24": 31,
+      "SSR_numerator_lower_bound": 23,
+      "SSR_numerator_upper_bound": 23,
+      "SSR_unresolved": 0,
+      "SR_percent": 86,
+      "SSR_percent": 46
+    },
+    {
+      "evaluation_seed": 26905302,
+      "n": 50,
+      "Native_successes": 42,
+      "object24": 20,
+      "EEF24": 21,
+      "SSR_numerator_lower_bound": 19,
+      "SSR_numerator_upper_bound": 19,
+      "SSR_unresolved": 0,
+      "SR_percent": 84,
+      "SSR_percent": 38
+    },
+    {
+      "evaluation_seed": 26905303,
+      "n": 50,
+      "Native_successes": 41,
+      "object24": 22,
+      "EEF24": 24,
+      "SSR_numerator_lower_bound": 21,
+      "SSR_numerator_upper_bound": 21,
+      "SSR_unresolved": 0,
+      "SR_percent": 82,
+      "SSR_percent": 42
+    }
+  ],
+  "paper_SR": 58,
+  "paper_SpatialSSR": 18,
+  "all_position_eligible_episodes_full_geometry_resolved": 71,
+  "position_passing_episodes_excluded_for_surface_crossings": 8,
+  "all150_collision_statistics_complete": false,
+  "collision_statistics_on_position_failures_not_inferred": true,
+  "generalization": [
+    {
+      "extra_cm": 0,
+      "n": 39,
+      "Native": 39,
+      "object24": 21,
+      "SSR": 18
+    },
+    {
+      "extra_cm": 1,
+      "n": 39,
+      "Native": 39,
+      "object24": 24,
+      "SSR": 22
+    },
+    {
+      "extra_cm": 2,
+      "n": 36,
+      "Native": 28,
+      "object24": 19,
+      "SSR": 17
+    },
+    {
+      "extra_cm": 3,
+      "n": 36,
+      "Native": 20,
+      "object24": 7,
+      "SSR": 6
+    },
+    {
+      "outside_collection_box": false,
+      "n": 88,
+      "Native": 88,
+      "object24": 53,
+      "SSR": 49
+    },
+    {
+      "outside_collection_box": true,
+      "n": 62,
+      "Native": 38,
+      "object24": 18,
+      "SSR": 14
+    }
+  ],
+  "visual_review": {
+    "utc": "2026-11-04T14:26:10.977795+00:00",
+    "reviewer": "assistant direct original RGB image inspection",
+    "all150_cases_in_six_original_resolution_review_grids": true,
+    "three_cameras": [
+      "head_camera",
+      "third_camera",
+      "chest_camera"
+    ],
+    "overview_frames": [
+      210,
+      690
+    ],
+    "overview_original_frames": 900,
+    "decoded_original_videos": 450,
+    "decode_errors": 0,
+    "detail_selected_cases": 11,
+    "detail_original_frames": 126,
+    "early_support_frames": [
+      0,
+      3,
+      15
+    ],
+    "obvious_glass_material_or_mesh_corruption_seen": false,
+    "selected_frame_visual_review_passed": true,
+    "every_video_frame_semantically_reviewed": false,
+    "microscopic_collision_decisions_from_original120Hz_geometry": true,
+    "known_surface_crossing_episodes_not_waived": true,
+    "penetration_tolerance_waiver_used": false,
+    "original_RGB_not_modified": true,
+    "review_grids": [
+      "head_camera_frame210_ALL150.png",
+      "head_camera_frame690_ALL150.png",
+      "third_camera_frame210_ALL150.png",
+      "third_camera_frame690_ALL150.png",
+      "chest_camera_frame210_ALL150.png",
+      "chest_camera_frame690_ALL150.png"
+    ]
+  },
+  "formal_method_accepted": true,
+  "both_methods_object_accepted": false,
+  "total_formal_methods_accepted": 1,
+  "total_objects_both_methods_accepted": 0,
+  "total_objects": 21,
+  "total_methods": 42,
+  "source_geometry_and_source_object24_qualified": true,
+  "other_GPU_line_results_used": false,
+  "formal_failures_or_support_intersections_removed_from_denominator": false,
+  "threshold_or_geometry_predicate_relaxed": false,
+  "published_formal_videos": [
+    {
+      "case": 1,
+      "evaluation_seed": 26905301,
+      "evaluation_episode": 1,
+      "camera": "head_camera",
+      "bytes": 1617955,
+      "url": "assets/grasp/pro6000_Funnel_ACT_object24_formal150_20261104/seed26905301_ep001_head_camera.mp4",
+      "SHA256": "7be514113eb9f328061891c23a34cd8db247982103ba83f319e6f226cb4a9028"
+    },
+    {
+      "case": 1,
+      "evaluation_seed": 26905301,
+      "evaluation_episode": 1,
+      "camera": "third_camera",
+      "bytes": 1202921,
+      "url": "assets/grasp/pro6000_Funnel_ACT_object24_formal150_20261104/seed26905301_ep001_third_camera.mp4",
+      "SHA256": "f39243cd5fd0a8198d48a9ade8c68353c30b7fb9de5bd81390b99e4ca86b8117"
+    },
+    {
+      "case": 1,
+      "evaluation_seed": 26905301,
+      "evaluation_episode": 1,
+      "camera": "chest_camera",
+      "bytes": 928046,
+      "url": "assets/grasp/pro6000_Funnel_ACT_object24_formal150_20261104/seed26905301_ep001_chest_camera.mp4",
+      "SHA256": "76040f9822fc3dccf24aab7c40ca92b03f9f92cc85ced6a13bff64cfd48acab8"
+    },
+    {
+      "case": 4,
+      "evaluation_seed": 26905301,
+      "evaluation_episode": 4,
+      "camera": "head_camera",
+      "bytes": 1351887,
+      "url": "assets/grasp/pro6000_Funnel_ACT_object24_formal150_20261104/seed26905301_ep004_head_camera.mp4",
+      "SHA256": "a676e085bb885428f3dba797482487354a44857cb29c2f286bb3782e87c23331"
+    },
+    {
+      "case": 4,
+      "evaluation_seed": 26905301,
+      "evaluation_episode": 4,
+      "camera": "third_camera",
+      "bytes": 1127681,
+      "url": "assets/grasp/pro6000_Funnel_ACT_object24_formal150_20261104/seed26905301_ep004_third_camera.mp4",
+      "SHA256": "65d595f41fd8382398856c0fabcaf23570e9235c855f8fe32336149e644674c0"
+    },
+    {
+      "case": 4,
+      "evaluation_seed": 26905301,
+      "evaluation_episode": 4,
+      "camera": "chest_camera",
+      "bytes": 1217429,
+      "url": "assets/grasp/pro6000_Funnel_ACT_object24_formal150_20261104/seed26905301_ep004_chest_camera.mp4",
+      "SHA256": "9857c56c179e4ba78fa2a58f44e7e040cf840f3b3e9bcc5008714162b1d85a3f"
+    }
+  ]
+}
