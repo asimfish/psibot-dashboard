@@ -26,7 +26,7 @@ function renderPro6000(snapshot) {
   add(root, 'p', snapshot.acceptance_metric, 'note');
   if (snapshot.primary_metric_frontier?.length) {
     const current = add(root, 'details'); current.open = true;
-    add(current, 'summary', '物体口径：选模与当前测试（分量不等于完整SSR）');
+    add(current, 'summary', '物体口径：正式验收与选模（位置分量单列）');
     const entries = add(current, 'ul');
     for (const row of snapshot.primary_metric_frontier) {
       const object = snapshot.objects.find(o => o.object === row.object);
