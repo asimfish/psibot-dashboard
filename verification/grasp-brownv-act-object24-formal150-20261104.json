@@ -1,0 +1,171 @@
+{
+  "utc": "2026-11-04T23:35:49.643123+00:00",
+  "schema": "grasp.frozen.object24.method.acceptance.v1",
+  "object": "brown_volumetric_flask_250ml",
+  "method": "ACT",
+  "job_id": "job-90qpiir0x14j",
+  "selected_training_seed": 26121921,
+  "selected_checkpoint": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/grasp/training/train-precision-object24-D100D400-A32A100-N4-20261104cc-r2/brown_volumetric_flask_250ml/act_s26121921_u32000/policy_best.ckpt",
+  "one_checkpoint_three_fresh_evaluation_seeds": true,
+  "evaluation_seeds": [
+    26909801,
+    26909802,
+    26909803
+  ],
+  "episodes_per_seed": 50,
+  "source_and_test_GPU": "Zenith Pro6000",
+  "primary_metric": "Native success AND object residual to settled initial xyz+[0,0,lift_height]<=20mm at actual24s termination AND zero full-episode nonadjacent authored-surface crossings",
+  "duration_s": 24,
+  "defer_success_done_until_timeout": true,
+  "threshold_mm": 20,
+  "user_metric_decision": "用户 2026-11-04 决定",
+  "Native_successes": 128,
+  "SR": 85.33333333333334,
+  "object24_only": 43,
+  "SSR_successes": 41,
+  "SpatialSSR": 27.333333333333332,
+  "by_evaluation_seed": [
+    {
+      "evaluation_seed": 26909801,
+      "n": 50,
+      "Native_successes": 43,
+      "object24": 19,
+      "EEF24": 18,
+      "SSR_successes": 18,
+      "SR_percent": 86,
+      "SSR_percent": 36
+    },
+    {
+      "evaluation_seed": 26909802,
+      "n": 50,
+      "Native_successes": 41,
+      "object24": 9,
+      "EEF24": 9,
+      "SSR_successes": 8,
+      "SR_percent": 82,
+      "SSR_percent": 16
+    },
+    {
+      "evaluation_seed": 26909803,
+      "n": 50,
+      "Native_successes": 44,
+      "object24": 15,
+      "EEF24": 12,
+      "SSR_successes": 15,
+      "SR_percent": 88,
+      "SSR_percent": 30
+    }
+  ],
+  "SR_seed_SD": 3.0550504633038935,
+  "SSR_seed_SD": 10.263202878893768,
+  "paper_SR": 65,
+  "paper_SpatialSSR": 25,
+  "all_position_eligible_episodes_full_geometry_resolved": 43,
+  "position_passing_episodes_excluded_for_surface_crossings": 2,
+  "all150_joint_SSR_decisions_exact": true,
+  "unresolved_joint_SSR_decisions": 0,
+  "all150_collision_statistics_complete": false,
+  "collision_statistics_on_position_failures_not_inferred": true,
+  "geometry_episodes_completed_at_metric_close": 108,
+  "negative_position_episodes_additional_full_geometry_continues": true,
+  "logical_short_circuit_does_not_change_frozen_predicate": true,
+  "generalization": [
+    {
+      "extra_cm": 1,
+      "n": 39,
+      "Native": 38,
+      "object24": 13,
+      "SSR": 13
+    },
+    {
+      "outside_collection_box": false,
+      "n": 81,
+      "Native": 81,
+      "object24": 25,
+      "SSR": 23
+    },
+    {
+      "outside_collection_box": true,
+      "n": 69,
+      "Native": 47,
+      "object24": 18,
+      "SSR": 18
+    },
+    {
+      "extra_cm": 2,
+      "n": 36,
+      "Native": 29,
+      "object24": 10,
+      "SSR": 10
+    },
+    {
+      "extra_cm": 0,
+      "n": 39,
+      "Native": 39,
+      "object24": 16,
+      "SSR": 15
+    },
+    {
+      "extra_cm": 3,
+      "n": 36,
+      "Native": 22,
+      "object24": 4,
+      "SSR": 3
+    }
+  ],
+  "visual_review": {
+    "utc": "2026-11-04T23:35:49.508263+00:00",
+    "reviewer": "assistant direct original RGB image inspection",
+    "all150_cases_in_six_original_resolution_review_grids": true,
+    "three_cameras": [
+      "head_camera",
+      "third_camera",
+      "chest_camera"
+    ],
+    "overview_frames": [
+      210,
+      690
+    ],
+    "overview_original_frames": 900,
+    "decoded_original_videos": 450,
+    "decode_errors": 0,
+    "detail_selected_cases": 12,
+    "detail_original_frames": 108,
+    "early_support_frames": [
+      0,
+      3,
+      15
+    ],
+    "obvious_glass_material_or_mesh_corruption_seen": false,
+    "selected_frame_visual_review_passed": true,
+    "every_video_frame_semantically_reviewed": false,
+    "microscopic_collision_decisions_from_original120Hz_geometry": true,
+    "known_surface_crossing_episodes_not_waived": true,
+    "penetration_tolerance_waiver_used": false,
+    "original_RGB_not_modified": true,
+    "observed": "Brown volumetric flask retains coherent shape and dark brown material in all reviewed views; no obvious missing material or gross mesh corruption. Failed grasps and known geometric violations retain their original outcomes.",
+    "review_grids": [
+      "head_camera_frame210_ALL150.png",
+      "head_camera_frame690_ALL150.png",
+      "third_camera_frame210_ALL150.png",
+      "third_camera_frame690_ALL150.png",
+      "chest_camera_frame210_ALL150.png",
+      "chest_camera_frame690_ALL150.png"
+    ],
+    "detail_grids": [
+      "head_camera_EARLY_SUPPORT.png",
+      "third_camera_EARLY_SUPPORT.png",
+      "chest_camera_EARLY_SUPPORT.png"
+    ]
+  },
+  "formal_method_accepted": true,
+  "both_methods_object_accepted": false,
+  "total_formal_methods_accepted": 2,
+  "total_objects_both_methods_accepted": 0,
+  "total_objects": 21,
+  "total_methods": 42,
+  "source_geometry_scope": "Original qualified development source hand/self/target and hand-table; source target-table not certified by that older gate. Formal rollout full-scene safety is checked independently.",
+  "other_GPU_line_results_used": false,
+  "formal_failures_or_support_intersections_removed_from_denominator": false,
+  "threshold_or_geometry_predicate_relaxed": false
+}
