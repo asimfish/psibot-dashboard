@@ -17,6 +17,7 @@ function renderPro6000(snapshot) {
       snapshot.objects.some(o => o.object_accepted !== (o.DP.formal_accepted && o.ACT.formal_accepted)) ||
       snapshot.objects.some(o => o.object_accepted && !o.full_visual_passed) ||
       snapshot.objects.filter(o => o.object_accepted).length !== snapshot.objects_both_methods_formally_accepted ||
+      (typeof snapshot.methods_formally_accepted === 'number' && snapshot.methods_formally_accepted !== snapshot.objects.reduce((n, o) => n + Number(o.DP.formal_accepted) + Number(o.ACT.formal_accepted), 0)) ||
       snapshot['5090_results_included'] !== false) {
     add(root, 'p', 'Pro6000 验收快照不一致，暂不显示通过数量。', 'note');
     return;
@@ -25,7 +26,7 @@ function renderPro6000(snapshot) {
   add(root, 'p', snapshot.acceptance_metric, 'note');
   if (snapshot.primary_metric_frontier?.length) {
     const current = add(root, 'details'); current.open = true;
-    add(current, 'summary', '物体口径：选模与当前测试（分量不等于完整SSR）');
+    add(current, 'summary', '物体口径：正式验收与选模（位置分量单列）');
     const entries = add(current, 'ul');
     for (const row of snapshot.primary_metric_frontier) {
       const object = snapshot.objects.find(o => o.object === row.object);
@@ -35,6 +36,7 @@ function renderPro6000(snapshot) {
   const metrics = add(root, 'div', undefined, 'status-grid');
   for (const [title, value] of [
     ['DP + ACT 完整通过', snapshot.objects_both_methods_formally_accepted + ' / 21'],
+    ['DP / ACT 方法通过', (snapshot.methods_formally_accepted || 0) + ' / 42'],
     ['已登记活跃作业（快照）', String(snapshot.pipeline.active_registered_jobs)],
     ['排队或挂起', String(snapshot.pipeline.prepared_not_submitted.length)],
     ['采集与测试主线', 'Zenith Pro6000']
@@ -75,11 +77,11 @@ function renderPro6000(snapshot) {
   }
   const measured = add(root, 'details');
   measured.open = false;
-  add(measured, 'summary', '历史版本实测（保留原EEF口径，作为补充）');
+  add(measured, 'summary', '版本实测（物体主口径与历史EEF口径补充）');
   const wrap = add(measured, 'div', undefined, 'table-wrap');
   const table = add(wrap, 'table');
   const header = add(add(table, 'thead'), 'tr');
-  ['物体 / 方法', '论文 SR / SSR', '实测 SR', '历史EEF口径 SSR / 位置分量', '模型详情'].forEach(t => add(header, 'th', t));
+  ['物体 / 方法', '论文 SR / SSR', '实测 SR', 'SSR / 位置分量（见版本口径）', '模型详情'].forEach(t => add(header, 'th', t));
   const body = add(table, 'tbody');
   for (const run of snapshot.runs) {
     const object = snapshot.objects.find(o => o.object === run.object);
@@ -95,13 +97,13 @@ function renderPro6000(snapshot) {
     add(row, 'td', partial ? (run.current_native ? '进行中' : '未完成') + '（已核验' + trials + '/' + run.expected_trials + '，成功' + run.progress.episode_success_num + '）' :
       percent(sr) + '（' + run.progress.episode_success_num + '/' + trials + '）');
     add(row, 'td', typeof ssr === 'number' ?
-      percent(ssr) + '（轨迹后处理，完整视觉待审）' :
+      percent(ssr) + (run.formal_accepted && run.primary_metric_position === 'object' ? '（物体，正式验收通过）' : '（历史EEF，轨迹后处理，视觉待审）') :
       percent(result.success_and_terminal_dP20) + '（仅成功且终点≤20mm，非完整SSR）');
     const link = add(add(row, 'td'), 'a', '在选择器中查看');
     link.href = '#' + new URLSearchParams({object: object.paper_id, method: run.method, run: run.candidate});
     link.addEventListener('click', () => document.getElementById('browser').scrollIntoView());
   }
-  add(measured, 'p', '漏斗 ACT：+0 / +1 / +2 / +3cm 分组 SR 为 100 / 89.7 / 69.4 / 47.2%。SR 偏高的范围复核待确认；不能据此把物体记为通过。', 'muted');
+  add(measured, 'p', '当前漏斗 ACT：+0 / +1 / +2 / +3cm 分组 SR 为100 / 100 / 77.8 / 55.6%；其中真正框外62回合SR61.3%、SSR22.6%。DP尚未通过。', 'muted');
   add(measured, 'p', snapshot.pipeline.b50_reset_note || '研钵旧 ACT 有145/150试次表面交叉；B50旧测试重置异常须先关闭。失败试次全部保留。', 'muted');
   const all = add(root, 'details');
   add(all, 'summary', '21 个物体的当前源数据、论文目标和下一步');
