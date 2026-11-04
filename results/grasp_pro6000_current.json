@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-04T07:06:50.655194+00:00",
+  "updated_utc": "2026-11-04T08:57:30.249294+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -3885,11 +3885,11 @@
   "schema": "grasp.pro6000.acceptance.snapshot.v1",
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
-    "registered_jobs": 243,
-    "active_registered_jobs": 3,
+    "registered_jobs": 245,
+    "active_registered_jobs": 2,
     "BOS_mount_count": 2,
-    "state": "OBJECT24_USER_DECISION_FUNNEL21_FORMAL_BROWNV50_R2_RUNNING",
-    "state_note": "用户2026-11-04决定以物体终点20mm为主口径，EEF仅补充。旧测试0回合后因BOS符号链接失败；r2直接使用现成环境，首个Native回合已正常关闭。Funnel ACT26121921新3×50正式测试，BrownV ACT26121921新50次筛选；B50 DP已移除。正式仍0/21、0/42。",
+    "state": "OBJECT24_R4_FORMAL_RUNNING_PRECISION16CARD_RELEASE",
+    "state_note": "用户2026-11-04决定物体终点20mm为主口径，EEF仅补充。r3的16对照case成功/失败一致，但动作与图像一致性门未过，未执行正式150回合。r4保留模型与新case，使用每卡1进程基线，Funnel ACT26121921正式150及BrownV筛选50。低优上限升16卡，DP100k/400k与ACT精度训练包已解除旧训练依赖；正式仍0/21、0/42。",
     "prepared_not_submitted": [
       {
         "tag": "eval-m6-dp-b50-20261025cc",
@@ -3904,7 +3904,7 @@
         "progress_note": "旧ACT种子21/23出现生产日志与BOS存档哈希不符，旧测试继续挂起；新三ACT批次使用生产端内容封存。DP100k种子21也有来源不符，旧DP测试未放行。"
       }
     ],
-    "checked_utc": "2026-11-04T07:06:50.655194+00:00",
+    "checked_utc": "2026-11-04T08:57:30.249294+00:00",
     "jobs": [
       {
         "tag": "qual-mortar-p120-smoke4-20261028cc",
@@ -6413,7 +6413,7 @@
         "tag": "train-D100A32-brownV-brownL-queued12-20261103cc",
         "name": "BrownV＋BrownL · 12模型自动补位训练",
         "job_id": "job-qj10mhciyq5i",
-        "status": "RUNNING",
+        "status": "SUCCEEDED",
         "checked_utc": "2026-11-03T14:49:00.287359+00:00",
         "evidence_url": "verification/grasp-funnel-source15-formal150-started-20261103.json",
         "training_progress": [
@@ -6489,7 +6489,7 @@
           96.4,
           34.733333333333334
         ],
-        "progress_note": "原固定模型队列，每卡1优化器；BrownV三ACT及BrownL首ACT已完成，BrownL第二ACT接续。逐卡15次离散采样均值[97, 96.93, 96.4, 34.73]%，窗口2026-11-03T22:19:00.676384506+08:00至2026-11-03T22:47:05.473636186+08:00；非连续遥测，无匹配加速比。"
+        "progress_note": "全部12个训练模型自然完成，未调用取消。"
       },
       {
         "tag": "train-D100A32-funnel-clearL-queued12-20261103cc",
@@ -6711,11 +6711,11 @@
       {
         "tag": "eval-FunnelACT-BrownVscreen-object24-N4-20261104cc-r2",
         "job_id": "job-8szl0m6fhir5",
-        "status": "RUNNING",
+        "status": "FAILED",
         "execution_class": "low_priority",
         "allocated_GPUs": 4,
         "name": "Funnel ACT正式150 + BrownV ACT筛选50 · 物体口径r2",
-        "progress_note": "首个单进程Native回合已关闭；先完成每卡1进程对照，再每卡4个独立进程。Funnel训练seed26121921，评测seed26905301/302/303各50；BrownV训练seed26121921，评测seed26906401共50。"
+        "progress_note": "Funnel8个单进程对照正常关闭；BrownV8次均在物理启动前被入口白名单拒绝，无正式回合。修复后r3复用Funnel8局；全部失败记录保留。"
       },
       {
         "tag": "eval-FunnelACT-B50DP-frozen24-3eval-N4-20261103cc",
@@ -6723,16 +6723,32 @@
         "status": "FAILED",
         "name": "旧测试环境复制失败 · 0 Native",
         "progress_note": "完整447行日志：环境复制4220.5秒，图形库符号链接在BOS上不支持，Native0局；在本轮授权前已自然FAILED，无需cancel。"
+      },
+      {
+        "tag": "eval-FunnelACT-BrownVscreen-object24-N4-20261104cc-r3",
+        "job_id": "job-5vtdrf65c13t",
+        "status": "FAILED",
+        "execution_class": "low_priority",
+        "allocated_GPUs": 4,
+        "name": "Funnel正式150 + BrownV筛选50 · 原计划续跑",
+        "progress_note": "复用8个Funnel串行对照、完成8个BrownV串行及16个并行对照，16组成功/失败均一致；图像/动作容差未过，保留失败证据，正式回合0。"
+      },
+      {
+        "tag": "eval-FunnelACT-BrownVscreen-object24-N4-20261104cc-r4",
+        "job_id": "job-orzeyo8n4ee6",
+        "status": "RUNNING",
+        "name": "Funnel ACT正式150 / BrownV ACT筛选50 · 物体终点20mm",
+        "progress_note": "按物体口径选Funnel26121921，B50DP退出正式；4张低优Pro6000，每卡1进程基线。不重跑已完成对照，不降低并行检查容差，物理/模型/位置/计分冻结；完整安全和视觉未结束。"
       }
     ],
-    "progress_note": "用户2026-11-04决定以物体终点20mm为主口径，EEF仅补充。旧测试0回合后因BOS符号链接失败；r2直接使用现成环境，首个Native回合已正常关闭。Funnel ACT26121921新3×50正式测试，BrownV ACT26121921新50次筛选；B50 DP已移除。正式仍0/21、0/42。",
+    "progress_note": "用户2026-11-04决定物体终点20mm为主口径，EEF仅补充。r2漏斗8个对照回合正常关闭，BrownV因入口白名单退出；修复后r3复用这8局，BrownV首局也已正常关闭。Funnel ACT26121921新3×50正式、BrownV ACT26121921新50筛选继续推进；B50 DP已移除。正式仍0/21、0/42。",
     "DP_repair_note": "以物体终点精度为主线：B50 DP100k/400k同源对照，每臂保存final EMA及raw，固定50个新case筛选；下一训练包用全局共享队列、每卡2模型，ACT workers=8/prefetch=4。",
     "b50_reset_note": "B50源/测试重置修复沿用冻结设置。原始DP100k与ACT分开核验，不与固定保持变体混算。新问题是DP终点精度不足、ACT接近阶段手指与桌面相交；物体成功抓起也不能记为完整通过。",
     "failure_diagnosis": [
       "物体口径24秒误差是当前主判据；中途曾进入20mm和旧EEF终点分量均不能替代。",
       "Funnel ACT选模：物体终点24/50、10/50、16/50，选26121921；旧50局是选模证据，正式结论等待新三个评测seed各50局及安全/视觉。",
       "B50 DP最佳物体分量8/50=16%，低于论文37%，本轮不再跑正式150；优先100k/400k对照，每臂保留raw与EMA。",
-      "旧job已自然FAILED、完整日志0 Native，故未额外调用cancel。r2首个真实回合正常关闭，共享环境启动通过；两个训练job未取消。"
+      "旧测试在本轮授权前自然FAILED、0Native；r2的Funnel8局已关闭，但BrownV被入口白名单拒绝。r3已修复该入口并复用全部8局，BrownV首局正常关闭；两份训练job均未取消。"
     ],
     "expert_replay_prefix": {
       "prefix_seconds": 23.966666666666665,
@@ -6808,7 +6824,7 @@
     "training_budget_evidence": "verification/grasp_source15_followthrough_20261028.json",
     "submitted_jobs": 234,
     "training_optimizer_active_GPUs_observed": 4,
-    "training_utilization_note": "用户2026-11-04决定以物体终点20mm为主口径，EEF仅补充。旧测试0回合后因BOS符号链接失败；r2直接使用现成环境，首个Native回合已正常关闭。Funnel ACT26121921新3×50正式测试，BrownV ACT26121921新50次筛选；B50 DP已移除。正式仍0/21、0/42。",
+    "training_utilization_note": "用户2026-11-04决定物体终点20mm为主口径，EEF仅补充。r2漏斗8个对照回合正常关闭，BrownV因入口白名单退出；修复后r3复用这8局，BrownV首局也已正常关闭。Funnel ACT26121921新3×50正式、BrownV ACT26121921新50筛选继续推进；B50 DP已移除。正式仍0/21、0/42。",
     "training_GPU_allocation_cap": 8,
     "training_allocated_GPUs": 8,
     "training_optimizers_last_verified": 4,
@@ -7783,10 +7799,27 @@
       "primary_position": "object",
       "formal_episodes": 150,
       "screening_episodes": 50,
-      "job_id": "job-8szl0m6fhir5"
+      "job_id": "job-5vtdrf65c13t",
+      "reused_Funnel_serial_pilots": 8
+    },
+    "next_training_pack": {
+      "tag": "train-precision-object24-D100D400-A32A100-N4-20261104cc",
+      "GPUs": 4,
+      "models": 8,
+      "per_GPU_maximum": 2,
+      "global_pending_queue": true,
+      "DP_EMA_and_raw_each_arm": true,
+      "ACT_workers": 8,
+      "ACT_prefetch": 4,
+      "after": [
+        "job-qj10mhciyq5i",
+        "job-loovox9oe1ct"
+      ],
+      "CPU_dispatch_and_finite_model_closure_passed": true,
+      "GPU_speedup_not_yet_measured": true
     }
   },
-  "evidence_note": "用户2026-11-04决定以物体终点20mm为主口径，EEF仅补充。旧测试0回合后因BOS符号链接失败；r2直接使用现成环境，首个Native回合已正常关闭。Funnel ACT26121921新3×50正式测试，BrownV ACT26121921新50次筛选；B50 DP已移除。正式仍0/21、0/42。",
+  "evidence_note": "用户2026-11-04决定物体终点20mm为主口径，EEF仅补充。r2漏斗8个对照回合正常关闭，BrownV因入口白名单退出；修复后r3复用这8局，BrownV首局也已正常关闭。Funnel ACT26121921新3×50正式、BrownV ACT26121921新50筛选继续推进；B50 DP已移除。正式仍0/21、0/42。",
   "offline_DP_probe": {
     "observations": 4,
     "source_episodes": 1,
@@ -14755,7 +14788,7 @@
       "Native_successes": 44,
       "object_terminal20": 24,
       "EEF_terminal20": 22,
-      "role": "旧50回合用于选模；新3×50正在运行",
+      "role": "旧50用于选模；r4新3×50正式测试",
       "note": "三个检查点物体分量24/50、10/50、16/50，按最大值选26121921；碰撞和完整视觉仍须逐项核验。"
     },
     {
@@ -14776,7 +14809,7 @@
       "Native_successes": 15,
       "object_terminal20": 3,
       "EEF_terminal20": 3,
-      "role": "原源验证15回合；新50回合筛选正在排程",
+      "role": "旧15用于候选；r4新50筛选",
       "note": "三个训练seed各1/5，同分取26121921；筛选达SR65%及物体分量25%后再用全新3×50正式测试。"
     }
   ]

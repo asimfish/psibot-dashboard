@@ -74,7 +74,7 @@ function renderPro6000(snapshot) {
     }
   }
   const measured = add(root, 'details');
-  measured.open = true;
+  measured.open = false;
   add(measured, 'summary', '历史版本实测（保留原EEF口径，作为补充）');
   const wrap = add(measured, 'div', undefined, 'table-wrap');
   const table = add(wrap, 'table');
