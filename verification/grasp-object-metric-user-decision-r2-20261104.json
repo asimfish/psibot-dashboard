@@ -1,0 +1,112 @@
+{
+  "utc": "2026-11-04T08:57:30.249294+00:00",
+  "user_decision": "用户 2026-11-04 决定",
+  "primary": {
+    "position": "object",
+    "clock": "actual24s termination",
+    "defer_success_done_until_timeout": true,
+    "threshold_mm": 20,
+    "object_goal": "settled initial xyz+[0,0,lift_height]",
+    "user_decision": "用户 2026-11-04 决定",
+    "EEF_secondary": true
+  },
+  "selection": {
+    "Funnel_ACT": 26121921,
+    "B50_DP_removed": true,
+    "BrownV_ACT": 26121921,
+    "primary_position": "object",
+    "formal_episodes": 150,
+    "screening_episodes": 50,
+    "job_id": "job-orzeyo8n4ee6"
+  },
+  "frontier": [
+    {
+      "object": "funnel",
+      "method": "ACT",
+      "training_seed": 26121921,
+      "n": 50,
+      "Native_successes": 44,
+      "object_terminal20": 24,
+      "EEF_terminal20": 22,
+      "role": "旧50用于选模；r4新3×50正式测试",
+      "note": "三个检查点物体分量24/50、10/50、16/50，按最大值选26121921；碰撞和完整视觉仍须逐项核验。"
+    },
+    {
+      "object": "glass_beaker_50ml",
+      "method": "DP",
+      "training_seed": 26121921,
+      "n": 50,
+      "Native_successes": 49,
+      "object_terminal20": 8,
+      "EEF_terminal20": 21,
+      "role": "低于论文37%，移出本轮正式测试",
+      "note": "原EEF分量42%保留为补充，物体分量仅16%；下一步100k/400k训练量对照。"
+    },
+    {
+      "object": "brown_volumetric_flask_250ml",
+      "method": "ACT",
+      "n": 15,
+      "Native_successes": 15,
+      "object_terminal20": 3,
+      "EEF_terminal20": 3,
+      "role": "旧15用于候选；r4新50筛选",
+      "note": "三个训练seed各1/5，同分取26121921；筛选达SR65%及物体分量25%后再用全新3×50正式测试。"
+    }
+  ],
+  "old_job": {
+    "id": "job-200hbz0lvp9n",
+    "terminal": "FAILED",
+    "Native_launches": 0,
+    "cancel_called": false
+  },
+  "r2_job": {
+    "id": "job-8szl0m6fhir5",
+    "GPUs": 4,
+    "execution_class": "low_priority",
+    "first_real_Native_closed": true,
+    "first_real_Native_completed_utc": "2026-11-04T06:57:40.264329+00:00",
+    "formal_completed": 0,
+    "status": "FAILED_AFTER8_FUNNEL_SERIAL_PILOTS",
+    "failure": "BrownV object missing from native fluid-parity allowlist; pre-physics"
+  },
+  "formal_objects": 0,
+  "formal_methods": 0,
+  "all69_historical_run_records_unchanged": true,
+  "media_reference_count": 141,
+  "media_rehashed_or_redecoded": false,
+  "r3_resume": {
+    "job_id": "job-5vtdrf65c13t",
+    "GPUs": 4,
+    "execution_class": "low_priority",
+    "reused_completed_Funnel_pilots": 8,
+    "first_BrownV_Native_closed": true,
+    "formal_completed": 0,
+    "all_prior_attempts_preserved": true,
+    "status": "FAILED_PILOT_CONCORDANCE"
+  },
+  "queued_training": {
+    "tag": "train-precision-object24-D100D400-A32A100-N4-20261104cc",
+    "GPUs": 4,
+    "models": 8,
+    "per_GPU_maximum": 2,
+    "global_pending_queue": true,
+    "DP_EMA_and_raw_each_arm": true,
+    "ACT_workers": 8,
+    "ACT_prefetch": 4,
+    "after": [],
+    "CPU_dispatch_and_finite_model_closure_passed": true,
+    "GPU_speedup_not_yet_measured": true,
+    "resource_cap": 16,
+    "submission_operation_id": "xf2wbrjbny2vseug16b5c4bvc"
+  },
+  "r4_baseline": {
+    "job_id": "job-orzeyo8n4ee6",
+    "GPUs": 4,
+    "execution_class": "low_priority",
+    "processes_per_GPU": 1,
+    "new_pilots": 0,
+    "formal_episodes": 150,
+    "screen_episodes": 50,
+    "criterion_changed": false
+  }
+}

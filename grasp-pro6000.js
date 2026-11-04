@@ -22,6 +22,16 @@ function renderPro6000(snapshot) {
     return;
   }
   add(root, 'p', '核验时间：' + snapshot.updated_utc + ' · ' + snapshot.pipeline.state_note, 'muted');
+  add(root, 'p', snapshot.acceptance_metric, 'note');
+  if (snapshot.primary_metric_frontier?.length) {
+    const current = add(root, 'details'); current.open = true;
+    add(current, 'summary', '物体口径：选模与当前测试（分量不等于完整SSR）');
+    const entries = add(current, 'ul');
+    for (const row of snapshot.primary_metric_frontier) {
+      const object = snapshot.objects.find(o => o.object === row.object);
+      add(entries, 'li', `${object.name} ${row.method}：抓起${row.Native_successes}/${row.n}；物体终点20mm ${row.object_terminal20}/${row.n}；EEF补充${row.EEF_terminal20}/${row.n}。${row.role}。${row.note}`);
+    }
+  }
   const metrics = add(root, 'div', undefined, 'status-grid');
   for (const [title, value] of [
     ['DP + ACT 完整通过', snapshot.objects_both_methods_formally_accepted + ' / 21'],
@@ -64,12 +74,12 @@ function renderPro6000(snapshot) {
     }
   }
   const measured = add(root, 'details');
-  measured.open = true;
-  add(measured, 'summary', '各版本实测结果（完整验收状态另列）');
+  measured.open = false;
+  add(measured, 'summary', '历史版本实测（保留原EEF口径，作为补充）');
   const wrap = add(measured, 'div', undefined, 'table-wrap');
   const table = add(wrap, 'table');
   const header = add(add(table, 'thead'), 'tr');
-  ['物体 / 方法', '论文 SR / SSR', '实测 SR', '已报告 SSR / 位置分量', '模型详情'].forEach(t => add(header, 'th', t));
+  ['物体 / 方法', '论文 SR / SSR', '实测 SR', '历史EEF口径 SSR / 位置分量', '模型详情'].forEach(t => add(header, 'th', t));
   const body = add(table, 'tbody');
   for (const run of snapshot.runs) {
     const object = snapshot.objects.find(o => o.object === run.object);
