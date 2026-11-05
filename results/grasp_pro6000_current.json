@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-04T23:46:30.775137+00:00",
+  "updated_utc": "2026-11-05T00:00:56.888990+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -3966,7 +3966,7 @@
         "progress_note": "旧ACT种子21/23出现生产日志与BOS存档哈希不符，旧测试继续挂起；新三ACT批次使用生产端内容封存。DP100k种子21也有来源不符，旧DP测试未放行。"
       }
     ],
-    "checked_utc": "2026-11-04T23:43:59.229093+00:00",
+    "checked_utc": "2026-11-04T23:59:59.946542+00:00",
     "jobs": [
       {
         "tag": "qual-mortar-p120-smoke4-20261028cc",
@@ -6924,17 +6924,24 @@
       },
       {
         "tag": "train-BrownV-ACT6seeds-A32A100-3perGPU-20261104cc",
-        "job_id": null,
+        "job_id": "job-xbibc8uczxn8",
         "name": "BrownV ACT · 6个新seed ×32k/100k",
-        "status": "PROVISIONING",
-        "progress_note": "4卡，每卡3模型，全局补位；每模型训练完自动50回合筛选。创建已受理，尚未取得job ID。"
+        "status": "FAILED",
+        "progress_note": "RGB解码阶段提前退出，未启动优化器；绑定当前运行环境ffmpeg后以新r2恢复，同数据/seed/预算，未取消训练。"
       },
       {
         "tag": "screen-precision-funnel-dp-u100000-s26121921-20261104cc-r2",
-        "job_id": null,
+        "job_id": "job-fe3wnjnvtfjy",
         "name": "Funnel DP100k · 启动故障诊断续测",
+        "status": "RUNNING",
+        "progress_note": "4卡low_priority，每卡4独立进程，已实际关闭Native回合；同一EMA/raw与冻结100回合，原SIGBUS记录保留。"
+      },
+      {
+        "tag": "train-BrownV-ACT6seeds-A32A100-3perGPU-20261104cc-r2",
+        "job_id": null,
+        "name": "BrownV ACT · 6个新seed ×32k/100k · 解码修复r2",
         "status": "PROVISIONING",
-        "progress_note": "同一EMA/raw及冻结100回合，每卡4独立进程；保留SIGBUS原记录，新增原生故障栈采集。"
+        "progress_note": "4卡，每卡3模型，共12模型；真实RGB24解码RED/GREEN通过，保持逐帧FP32一致。训练后自动每模型50回合筛选，优化器进度待核验。"
       }
     ],
     "progress_note": "正式150回合：SR85.3%、物体口径SpatialSSR27.3%，达到论文65%/25%；三个评测seed SSR36/16/30%。43个位置达标回合全程几何已审完，2个违规回合不计SSR，保留150分母。其余位置失败回合的补充几何统计继续，不将未知安全标成安全。450段原视频完整解码，900张总览及108张早期支撑细节帧已直接复核，未宣称逐帧人工审阅。 Funnel DP优先筛选；BrownL/ClearL重采各100条有物体—桌面交叉，先定位初始接触，暂不准入重训。",
@@ -7436,8 +7443,8 @@
       }
     ],
     "current_training_utilization": {
-      "utc": "2026-11-04T23:42:09.703327+00:00",
-      "cloud_state_utc": "2026-11-04T23:41:55.317311+00:00",
+      "utc": "2026-11-04T23:59:57.324586+00:00",
+      "cloud_state_utc": "2026-11-04T23:58:59.668284+00:00",
       "jobs": [
         {
           "job_id": "job-g6tpow66bqj6",
@@ -7445,9 +7452,9 @@
           "GPUs": 4,
           "execution_class": "low_priority",
           "samples": 12,
-          "sample_start": "2026-11-04T23:17:31.956470+00:00",
-          "sample_end": "2026-11-04T23:39:34.865664+00:00",
-          "GPU_util_mean": 47.729166666666664,
+          "sample_start": "2026-11-04T23:35:34.372582+00:00",
+          "sample_end": "2026-11-04T23:57:37.766433+00:00",
+          "GPU_util_mean": 47.979166666666664,
           "MiB_mean": 21887,
           "last_GPU_rows": [
             [
@@ -7464,7 +7471,7 @@
             ],
             [
               2,
-              99,
+              98,
               43872,
               97887
             ],
@@ -7484,9 +7491,9 @@
           "GPUs": 4,
           "execution_class": "low_priority",
           "samples": 12,
-          "sample_start": "2026-11-04T23:15:52.546873+00:00",
-          "sample_end": "2026-11-04T23:37:55.626161+00:00",
-          "GPU_util_mean": 24.0625,
+          "sample_start": "2026-11-04T23:35:55.272154+00:00",
+          "sample_end": "2026-11-04T23:57:58.595106+00:00",
+          "GPU_util_mean": 24.229166666666668,
           "MiB_mean": 10842,
           "last_GPU_rows": [
             [
@@ -7523,97 +7530,81 @@
           "GPUs": 4,
           "execution_class": "low_priority",
           "samples": 12,
-          "sample_start": "2026-11-04T23:40:00.053432+00:00",
-          "sample_end": "2026-11-04T23:41:50.066161+00:00",
-          "GPU_util_mean": 95.64583333333333,
-          "MiB_mean": 44008.75,
+          "sample_start": "2026-11-04T23:57:40.262435+00:00",
+          "sample_end": "2026-11-04T23:59:30.279077+00:00",
+          "GPU_util_mean": 96.875,
+          "MiB_mean": 65995.75,
           "last_GPU_rows": [
             [
               0,
               97,
-              44431,
+              66677,
               97887
             ],
             [
               1,
               96,
-              43804,
+              65705,
               97887
             ],
             [
               2,
-              97,
-              43996,
+              98,
+              65960,
               97887
             ],
             [
               3,
-              96,
-              43804,
+              97,
+              65641,
               97887
             ]
           ],
           "recent_workload_events": [
-            "2026-11-05T07:29:58.383089834+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell08_gpu0 GPU 0 active 3 archive_only False",
-            "2026-11-05T07:29:59.384022992+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell09_gpu1 GPU 1 active 3 archive_only False",
-            "2026-11-05T07:30:00.385082105+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell10_gpu2 GPU 2 active 3 archive_only False",
-            "2026-11-05T07:30:01.386117465+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell11_gpu3 GPU 3 active 3 archive_only False",
-            "2026-11-05T07:30:02.38710942+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell12_gpu0 GPU 0 active 4 archive_only False",
-            "2026-11-05T07:30:03.388237661+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell13_gpu1 GPU 1 active 4 archive_only False",
-            "2026-11-05T07:30:04.389108273+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell14_gpu2 GPU 2 active 4 archive_only False",
-            "2026-11-05T07:30:05.395444201+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell15_gpu3 GPU 3 active 4 archive_only False"
-          ],
-          "missing_closed_output_does_not_prove_zero_Native": true
-        },
-        {
-          "job_id": "job-xbibc8uczxn8",
-          "status": "UNKNOWN",
-          "GPUs": 4,
-          "execution_class": "low_priority",
-          "samples": 0,
-          "sample_start": null,
-          "sample_end": null,
-          "GPU_util_mean": null,
-          "MiB_mean": null,
-          "last_GPU_rows": null,
-          "recent_workload_events": [
-            "2026-11-05T07:40:58.423368522+08:00 stderr F Traceback (most recent call last):"
+            "2026-11-05T07:46:06.324578426+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell00_gpu0 GPU 0 active 5 archive_only False",
+            "2026-11-05T07:46:07.326195218+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell01_gpu1 GPU 1 active 5 archive_only False",
+            "2026-11-05T07:46:08.327201306+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell02_gpu2 GPU 2 active 5 archive_only False",
+            "2026-11-05T07:46:09.328901445+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell03_gpu3 GPU 3 active 5 archive_only False",
+            "2026-11-05T07:46:10.330367906+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell04_gpu0 GPU 0 active 6 archive_only False",
+            "2026-11-05T07:46:11.33123787+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell05_gpu1 GPU 1 active 6 archive_only False",
+            "2026-11-05T07:46:12.332392715+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell06_gpu2 GPU 2 active 6 archive_only False",
+            "2026-11-05T07:46:13.333448612+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell07_gpu3 GPU 3 active 6 archive_only False"
           ],
           "missing_closed_output_does_not_prove_zero_Native": true
         },
         {
           "job_id": "job-fe3wnjnvtfjy",
-          "status": "UNKNOWN",
+          "status": "RUNNING",
           "GPUs": 4,
           "execution_class": "low_priority",
-          "samples": 3,
-          "sample_start": "2026-11-04T23:41:19.133477+00:00",
-          "sample_end": "2026-11-04T23:41:39.216172+00:00",
-          "GPU_util_mean": 0,
-          "MiB_mean": 18.416666666666668,
+          "samples": 12,
+          "sample_start": "2026-11-04T23:57:39.380301+00:00",
+          "sample_end": "2026-11-04T23:59:29.400227+00:00",
+          "GPU_util_mean": 95.35416666666667,
+          "MiB_mean": 56338.25,
           "last_GPU_rows": [
             [
               0,
-              0,
-              212,
+              93,
+              56985,
               97887
             ],
             [
               1,
-              0,
-              4,
+              95,
+              56230,
               97887
             ],
             [
               2,
-              0,
-              4,
+              93,
+              56070,
               97887
             ],
             [
               3,
-              0,
-              1,
+              97,
+              56068,
               97887
             ]
           ],
@@ -7631,7 +7622,7 @@
         }
       ],
       "physical_GPUs": 20,
-      "pending_reserved_GPUs": 0,
+      "pending_reserved_GPUs": 4,
       "cap": 20,
       "scheduler_PID": 995760,
       "status_reads_from_existing_shared_cache": true,
@@ -8184,7 +8175,7 @@
       "CPU_dispatch_and_finite_model_closure_passed": true,
       "GPU_speedup_not_yet_measured": true
     },
-    "allocated_GPUs": 16,
+    "allocated_GPUs": 20,
     "GPU_cap": 20,
     "execution_class": "low_priority",
     "formal_Funnel_ACT": {
@@ -8479,7 +8470,9 @@
       "SpatialSSR": 27.333333333333332,
       "evidence_url": "verification/grasp-brownv-act-object24-formal150-20261104.json",
       "full_joint_decisions_url": "verification/grasp-brownv-act-object24-joint150-20261104.json"
-    }
+    },
+    "known_running_allocated_GPUs": 16,
+    "pending_creation_reserved_GPUs": 4
   },
   "evidence_note": "主口径保持用户2026-11-04决定：物体实际24秒终点20mm + 原生成功 + 全程几何无交叉。Funnel ACT与BrownV ACT通过；完整物体0/21。全部历史结果及原视频保留；新BrownV150与旧中断队列不混算。",
   "offline_DP_probe": {
