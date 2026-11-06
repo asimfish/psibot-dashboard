@@ -1,0 +1,9 @@
+# SafeLab all-task comparison
+
+Read-only consumer for safelab-handoff/data.json, media/index.json and long_task_videos/data.json (including SHA-bound per-task assets). Every indexed manifest is SHA-checked. Original video playback has no crossorigin or canvas readback. JSON timelines are fetched with omitted credentials, a finite timeout, public-host allowlist,12MB cap, redirect rejection and SHA verification. Text uses DOM textContent. No simulation, model invocation or GPU allocation.
+
+Each matrix configuration preserves checkpoint, horizon, record/dataset, condition, camera and stage. Protocols v1.1/v1.2/v1.3 remain distinct; missing metrics stay unpublished, incomplete evaluations stay pending. Diagnostic media never grants formal score eligibility. Inventory rows do not claim a run started. Legacy source clips over2MB remain visibly labelled; new exports should follow≤2MB, original resolution and full duration.
+
+New media arrives via the shared media/index.json. Full precise pairing additionally needs protocol_version,oracle_version,stage,condition_version,scene_list_hash,dataset,policy_camera,render_config_hash,scene_id or scene_index,side/order,seed,horizon. Missing fields prohibit exact pairing. Fixed scenes0,1,50,51 never substitute other scene IDs. Library camera selection is independent. Four-way simulation-clock playback uses the common valid interval, coordinated play/pause/seek/rate and drift correction. Missing model switching scores/physical target mappings remain unpublished instead of inferred from motion.
+
+Verification: node --test safelab_all_tasks/model.test.cjs. verification.json binds real-media candidate tests across four tasks and an explicitly synthetic metadata fixture controlling four actual native video decoders. That fixture is not evidence that four scientific method cases have been published. Online evidence is recorded separately after deployment.
