@@ -1,0 +1,27 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>七任务分类修正与核对</title><link rel="stylesheet" href="style.css"><main><a href="./">← 视频页</a><h1>七任务分类修正记录</h1><p>首版错误：导出器只统计pad事件；冻结v1.3实际统计每个杯子首次正确上pan。此前成功轨迹的逐帧阶段因此为0。阶段刚推进时立即使用下一目标，也把正确上秤的释放误判为错目标。首版错目标计数已撤回。</p><p>修正：逐tick重放冻结oracle 84da94e1…，逐杯区分尚待上秤与称完返回本杯垫子。释放确认需连续0.25秒无手接触，且最近命名支撑不是期望目标；释放推进v1.1或v1.3则豁免。后来重新抓起或正确放置会撤销此前候选。失败标记取最后未恢复事件；超时无决定性事件时取最后有效进展。v1.3不要求顺序，不把v1.1顺序单独认定为v1.3失败。</p><p>已核对300槽位：285条有完整原始日志，阶段最大值、最终值及事件与冻结oracle100%一致；16条成功全部最终到4。15条unknown保持未知，不伪造曲线。成功数未更改：Mem-0为5、TTC为11、pi0.5为0。现象标签不能证明模型失败根因。</p><p><a href="classification-audit.json">全部300槽位核对表</a> · <a href="independent-checks.json">独立核对详情</a></p><h2>新分类计数（每配置100条）</h2><pre>{
+  &quot;mem0_30k&quot;: {
+    &quot;other&quot;: 30,
+    &quot;stuck&quot;: 36,
+    &quot;toppled&quot;: 26,
+    &quot;success&quot;: 5,
+    &quot;no_release&quot;: 1,
+    &quot;no_grasp&quot;: 2
+  },
+  &quot;ours_aligned_30k&quot;: {
+    &quot;toppled&quot;: 29,
+    &quot;stuck&quot;: 20,
+    &quot;other&quot;: 20,
+    &quot;success&quot;: 11,
+    &quot;wrong_target&quot;: 16,
+    &quot;no_grasp&quot;: 1,
+    &quot;no_release&quot;: 2,
+    &quot;unknown&quot;: 1
+  },
+  &quot;pi05_40k&quot;: {
+    &quot;toppled&quot;: 43,
+    &quot;no_grasp&quot;: 21,
+    &quot;wrong_target&quot;: 11,
+    &quot;stuck&quot;: 11,
+    &quot;unknown&quot;: 14
+  }
+}</pre><h2>20条随机错目标核对</h2><p>随机种子1263，从全部27条错目标中抽20条。独立脚本重新读取原始tick，核对坐标、最近支撑、逐杯期望目标及全后续日志无重新抓起或正确放置。以下为CPU日志核对，不冒充人工逐视频判读；坐标单位m，tick为120Hz。20条全部通过。</p><div class="scroll"><table><tr><th>方法</th><th>场景</th><th>释放tick</th><th>期望</th><th>实际最近目标</th><th>释放坐标</th><th>确认时距期望(m)</th><th>通过</th></tr><tr><td>ours_aligned_30k</td><td>89</td><td>20740</td><td>pad_C</td><td>pan</td><td>-0.9704,-5.2018,1.0514</td><td>0.2418</td><td>True</td></tr><tr><td>pi05_40k</td><td>68</td><td>28850</td><td>pad_D</td><td>pan</td><td>-0.9726,-5.1971,1.0514</td><td>0.2908</td><td>True</td></tr><tr><td>pi05_40k</td><td>74</td><td>27786</td><td>pad_D</td><td>pan</td><td>-0.9641,-5.1894,1.0514</td><td>0.3022</td><td>True</td></tr><tr><td>pi05_40k</td><td>80</td><td>28734</td><td>pad_D</td><td>pan</td><td>-0.9638,-5.1845,1.0514</td><td>0.3053</td><td>True</td></tr><tr><td>pi05_40k</td><td>48</td><td>28801</td><td>pad_D</td><td>pan</td><td>-0.9623,-5.1886,1.0514</td><td>0.3041</td><td>True</td></tr><tr><td>ours_aligned_30k</td><td>35</td><td>3818</td><td>pad_A</td><td>pan</td><td>-0.9538,-5.1827,1.0514</td><td>0.3298</td><td>True</td></tr><tr><td>ours_aligned_30k</td><td>94</td><td>19961</td><td>pad_B</td><td>pan</td><td>-0.9934,-5.2020,1.0514</td><td>0.2374</td><td>True</td></tr><tr><td>ours_aligned_30k</td><td>22</td><td>26541</td><td>pad_A</td><td>pan</td><td>-0.9469,-5.1790,1.0514</td><td>0.3330</td><td>True</td></tr><tr><td>ours_aligned_30k</td><td>27</td><td>28079</td><td>pad_A</td><td>pan</td><td>-0.9509,-5.1874,1.0514</td><td>0.3350</td><td>True</td></tr><tr><td>ours_aligned_30k</td><td>19</td><td>3683</td><td>pad_A</td><td>pan</td><td>-0.9526,-5.1858,1.0514</td><td>0.3327</td><td>True</td></tr><tr><td>pi05_40k</td><td>26</td><td>28676</td><td>pad_D</td><td>pan</td><td>-0.9680,-5.1924,1.0514</td><td>0.2972</td><td>True</td></tr><tr><td>pi05_40k</td><td>1</td><td>28048</td><td>pad_D</td><td>pan</td><td>-0.9654,-5.1940,1.0514</td><td>0.2985</td><td>True</td></tr><tr><td>ours_aligned_30k</td><td>25</td><td>3380</td><td>pad_A</td><td>pan</td><td>-0.9589,-5.1864,1.0514</td><td>0.3282</td><td>True</td></tr><tr><td>ours_aligned_30k</td><td>12</td><td>25004</td><td>pad_A</td><td>pan</td><td>-0.9512,-5.1790,1.0514</td><td>0.3296</td><td>True</td></tr><tr><td>pi05_40k</td><td>75</td><td>28702</td><td>pad_D</td><td>pan</td><td>-0.9708,-5.1934,1.0514</td><td>0.2944</td><td>True</td></tr><tr><td>pi05_40k</td><td>97</td><td>10304</td><td>pan</td><td>pad_C</td><td>-1.2078,-5.2372,0.9754</td><td>0.2426</td><td>True</td></tr><tr><td>pi05_40k</td><td>17</td><td>28802</td><td>pad_D</td><td>pan</td><td>-0.9638,-5.1962,1.0514</td><td>0.2985</td><td>True</td></tr><tr><td>ours_aligned_30k</td><td>59</td><td>28880</td><td>pad_B</td><td>pan</td><td>-0.9899,-5.1709,1.0514</td><td>0.2298</td><td>True</td></tr><tr><td>ours_aligned_30k</td><td>10</td><td>4138</td><td>pad_A</td><td>pan</td><td>-0.9592,-5.1862,1.0514</td><td>0.3279</td><td>True</td></tr><tr><td>ours_aligned_30k</td><td>41</td><td>5676</td><td>pad_A</td><td>pan</td><td>-0.9544,-5.1515,1.0514</td><td>0.3106</td><td>True</td></tr></table></div><p>旧素材保留归档；视频页只引用重新叠字的repair_v2视频。五/十任务旧分类发布已阻断，须通过任务专用oracle和释放时序检查后恢复。</p></main></html>
