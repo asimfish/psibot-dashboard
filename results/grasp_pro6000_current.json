@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-05T00:00:56.888990+00:00",
+  "updated_utc": "2026-11-06T17:49:27.988268+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -2856,7 +2856,7 @@
         "primary_object_SpatialSSR": null
       },
       "ACT": {
-        "formal_accepted": false,
+        "formal_accepted": true,
         "development_original_sealed32k_source15": {
           "trials": 15,
           "native_successes": 15,
@@ -2866,13 +2866,35 @@
           "formal_accepted": false
         },
         "legacy_reported_position_quantity": "EEF; supplemental after user20261104 decision",
-        "primary_object_SpatialSSR": null
+        "primary_object_SpatialSSR": 29.333333333333332,
+        "SR": 80.66666666666666,
+        "SpatialSSR": 29.333333333333332,
+        "trials": 150,
+        "successes": 121,
+        "completed_trials": 150,
+        "completed_native_successes": 121,
+        "success_terminal20mm": 44,
+        "SSR_successes": 44,
+        "visual_review_passed": true,
+        "formal_evaluation_status": "PASSED_OBJECT24_FORMAL150_AUTHORIZED_NORMAL_CONTACT",
+        "evidence_url": "verification/grasp-f250-act-object24-formal150-physics-20261106.json",
+        "primary_metric_position": "object",
+        "all150_joint_SSR_decisions_exact": true,
+        "position_eligible_full_geometry_resolved": 44,
+        "all150_collision_statistics_complete": false,
+        "job_id": "job-b8a1qg0h0wih",
+        "selected_training_seed": 26122002,
+        "evaluation_seeds": [
+          26915401,
+          26915402,
+          26915403
+        ]
       },
       "object_accepted": false,
       "full_visual_passed": false,
       "name": "250ml 透明容量瓶",
-      "status_note": "新源DP100k三种子标准预测8/执行4测试已闭合：13/15抓起、0/15成功且终点20mm；新ACT为15/15与1/15。DP所有15条从未同时抓起24cm并进入20mm，完整SSR/玻璃视觉仍未认证。",
-      "next": "结合原EEF与物体XY漂移排查闭环精度；该失败与B50后段逸出不同，不能用同一未经验证的修复或盲目重测150局。",
+      "status_note": "正式150回合：SR80.7%、物体口径SpatialSSR29.3%，达到论文64%/24%。单一预选ACT检查点，3个全新评测seed各50，SSR分别32/36/20%。44个终点候选全程其余碰撞对已闭合；手—目标视觉相交经实际碰撞形状及首次相交25N判据区分正常接触，全程净接触力峰值另列。原严格视觉判定保留。900张原视频抽查帧玻璃渲染正常；未宣称逐帧人工审阅450段视频。 DP尚未通过。",
+      "next": "DP 240k续训到400k，最终EMA/raw快筛通过后再做50回合；800k闸门仍关闭。",
       "source120_closed": {
         "episodes": 100,
         "Native_successes": 100,
@@ -3948,10 +3970,10 @@
   "paper_url": "https://changwinde.github.io/SafeLab/assets/docs/safelab_icml2026.pdf",
   "pipeline": {
     "registered_jobs": 245,
-    "active_registered_jobs": 5,
+    "active_registered_jobs": 4,
     "BOS_mount_count": 2,
-    "state": "FUNNEL_ACT_FORMAL_ACCEPTED_1_OF42",
-    "state_note": "2/42方法通过（Funnel ACT、BrownV ACT）；0/21双方法物体通过。实际运行卡数与创建中预留分别显示。",
+    "state": "THREE_ACT_METHODS_PASSED_OBJECT_PAIRS_PENDING",
+    "state_note": "3/42方法通过（Funnel ACT、BrownV ACT、F250 ACT）；0/21双方法物体通过。",
     "prepared_not_submitted": [
       {
         "tag": "eval-m6-dp-b50-20261025cc",
@@ -3966,7 +3988,7 @@
         "progress_note": "旧ACT种子21/23出现生产日志与BOS存档哈希不符，旧测试继续挂起；新三ACT批次使用生产端内容封存。DP100k种子21也有来源不符，旧DP测试未放行。"
       }
     ],
-    "checked_utc": "2026-11-04T23:59:59.946542+00:00",
+    "checked_utc": "2026-11-06T17:50:31.062744+00:00",
     "jobs": [
       {
         "tag": "qual-mortar-p120-smoke4-20261028cc",
@@ -6814,7 +6836,7 @@
       {
         "tag": "train-precision-object24-D100D400-A32A100-N4-20261104cc-r2",
         "job_id": "job-g6tpow66bqj6",
-        "status": "RUNNING",
+        "status": "STOPPED",
         "name": "train-precision-object24-D100D400-A32A100-N4-20261104cc-r2",
         "execution_class": "low_priority",
         "allocated_GPUs": 4,
@@ -6827,7 +6849,7 @@
       {
         "tag": "train-precision-F250-BrownL-ClearL-D100D400-A32A100-N4-20261104cc",
         "job_id": "job-kn9heg3roqpl",
-        "status": "RUNNING",
+        "status": "STOPPED",
         "name": "train-precision-F250-BrownL-ClearL-D100D400-A32A100-N4-20261104cc",
         "execution_class": "low_priority",
         "allocated_GPUs": 4,
@@ -6912,7 +6934,7 @@
         "tag": "screen-precision-f250-dp-u100000-s26121921-20261104cc",
         "job_id": "job-g9sfwcvz275w",
         "name": "F250 DP100k · EMA/raw各50筛选",
-        "status": "RUNNING",
+        "status": "SUCCEEDED",
         "progress_note": "4卡low_priority，每卡4独立进程；物体终点主口径，完整结果未出。"
       },
       {
@@ -6933,25 +6955,62 @@
         "tag": "screen-precision-funnel-dp-u100000-s26121921-20261104cc-r2",
         "job_id": "job-fe3wnjnvtfjy",
         "name": "Funnel DP100k · 启动故障诊断续测",
-        "status": "RUNNING",
+        "status": "SUCCEEDED",
         "progress_note": "4卡low_priority，每卡4独立进程，已实际关闭Native回合；同一EMA/raw与冻结100回合，原SIGBUS记录保留。"
       },
       {
         "tag": "train-BrownV-ACT6seeds-A32A100-3perGPU-20261104cc-r2",
         "job_id": null,
         "name": "BrownV ACT · 6个新seed ×32k/100k · 解码修复r2",
-        "status": "PROVISIONING",
-        "progress_note": "4卡，每卡3模型，共12模型；真实RGB24解码RED/GREEN通过，保持逐帧FP32一致。训练后自动每模型50回合筛选，优化器进度待核验。"
+        "status": "UNVERIFIED_HISTORICAL",
+        "progress_note": "4卡，每卡3模型，共12模型；真实RGB24解码RED/GREEN通过，保持逐帧FP32一致。训练后自动每模型50回合筛选，优化器进度待核验。",
+        "historical_status": "PROVISIONING"
+      },
+      {
+        "job_id": "job-e4fvv160czpj",
+        "tag": "train-DP-paper400-Funnel-F250-resume240-paired4-20261106cc-r3",
+        "name": "train-DP-paper400-Funnel-F250-resume240-paired4-20261106cc-r3",
+        "status": "RUNNING",
+        "progress_note": "4卡 low_priority；GPU利用率96.9%，显存45.0GiB/卡。",
+        "execution_class": "low_priority",
+        "allocated_GPUs": 4
+      },
+      {
+        "job_id": "job-eqj73yuojk8c",
+        "tag": "screen-precision-BrownL-qualified100-ACT32-group2-source3mm-quick16-fourmodels64-20261106cc",
+        "name": "screen-precision-BrownL-qualified100-ACT32-group2-source3mm-quick16-fourmodels64-20261106cc",
+        "status": "RUNNING",
+        "progress_note": "4卡 low_priority；GPU利用率49.4%，显存35.7GiB/卡。",
+        "execution_class": "low_priority",
+        "allocated_GPUs": 4
+      },
+      {
+        "job_id": "job-6klpwo6u0yws",
+        "tag": "screen-precision-BrownL-qualified100-ACT32-group3-source3mm-quick16-fourmodels64-20261106cc",
+        "name": "screen-precision-BrownL-qualified100-ACT32-group3-source3mm-quick16-fourmodels64-20261106cc",
+        "status": "RUNNING",
+        "progress_note": "4卡 low_priority；GPU利用率75.3%，显存36.0GiB/卡。",
+        "execution_class": "low_priority",
+        "allocated_GPUs": 4
+      },
+      {
+        "job_id": "job-310prh3m53vd",
+        "tag": "train-DP-paper400-BrownV4seeds-globalqueue-20261106cc",
+        "name": "train-DP-paper400-BrownV4seeds-globalqueue-20261106cc",
+        "status": "RUNNING",
+        "progress_note": "4卡 low_priority；GPU利用率96.4%，显存42.5GiB/卡。",
+        "execution_class": "low_priority",
+        "allocated_GPUs": 4
       }
     ],
-    "progress_note": "正式150回合：SR85.3%、物体口径SpatialSSR27.3%，达到论文65%/25%；三个评测seed SSR36/16/30%。43个位置达标回合全程几何已审完，2个违规回合不计SSR，保留150分母。其余位置失败回合的补充几何统计继续，不将未知安全标成安全。450段原视频完整解码，900张总览及108张早期支撑细节帧已直接复核，未宣称逐帧人工审阅。 Funnel DP优先筛选；BrownL/ClearL重采各100条有物体—桌面交叉，先定位初始接触，暂不准入重训。",
+    "progress_note": "正式150回合：SR80.7%、物体口径SpatialSSR29.3%，达到论文64%/24%。单一预选ACT检查点，3个全新评测seed各50，SSR分别32/36/20%。44个终点候选全程其余碰撞对已闭合；手—目标视觉相交经实际碰撞形状及首次相交25N判据区分正常接触，全程净接触力峰值另列。原严格视觉判定保留。900张原视频抽查帧玻璃渲染正常；未宣称逐帧人工审阅450段视频。 DP精度仍是物体双方法通过的瓶颈。",
     "DP_repair_note": "以物体终点精度为主线：B50 DP100k/400k同源对照，每臂保存final EMA及raw，固定50个新case筛选；下一训练包用全局共享队列、每卡2模型，ACT workers=8/prefetch=4。",
     "b50_reset_note": "B50源/测试重置修复沿用冻结设置。原始DP100k与ACT分开核验，不与固定保持变体混算。新问题是DP终点精度不足、ACT接近阶段手指与桌面相交；物体成功抓起也不能记为完整通过。",
     "failure_diagnosis": [
-      "Funnel ACT已过数值及规定范围视觉核验；DP还未达物体终点精度目标，100k/400k对照继续。",
-      "BrownL与ClearL旧源的100/100终点指标是EEF；新物体口径均0/100，专家终点修正优先于重复训练。",
-      "新采集规格曾漏reset字段，且原生异常后的SDK退出挂住；修正版已通过240条实际reset配置与5秒故障清理回归，原失败记录保留。",
-      "四进程/GPU的旧DP筛选发生SIGBUS，原因未确认；中断回合不算策略失败或正式成绩。"
+      "F250原视觉相交经物理证据及用户首次相交25N判据闭合；原150正式分母与轨迹不变，开发筛选未计入验收。",
+      "DP色相修正在实际历史训练副本中已存在，中心裁剪A/B无改善；Funnel/F250续训400k及BrownV四种子训练继续，800k仍需快筛改善。",
+      "BrownL源100条均达到物体终点且几何通过；策略未学会专家约18mm手臂补偿，第一批4模型终点7/3/2/2（各50）。其余8模型先16回合筛选。",
+      "ClearL训练解码器硬编码每单元5条而新源每单元1条；修复已过新旧布局、异常数据与真实视频解码CPU回归，新任务排队。"
     ],
     "expert_replay_prefix": {
       "prefix_seconds": 23.966666666666665,
@@ -7027,7 +7086,7 @@
     "training_budget_evidence": "verification/grasp_source15_followthrough_20261028.json",
     "submitted_jobs": 234,
     "training_optimizer_active_GPUs_observed": 4,
-    "training_utilization_note": "用户2026-11-04决定物体终点20mm为主口径，EEF仅补充。r2漏斗8个对照回合正常关闭，BrownV因入口白名单退出；修复后r3复用这8局，BrownV首局也已正常关闭。Funnel ACT26121921新3×50正式、BrownV ACT26121921新50筛选继续推进；B50 DP已移除。正式仍0/21、0/42。",
+    "training_utilization_note": "DP生产端采样约97%利用率、43–45GiB/卡；筛选每卡4个独立进程。精确采样值、时间和启动阶段标识见快照。",
     "training_GPU_allocation_cap": 8,
     "training_allocated_GPUs": 8,
     "training_optimizers_last_verified": 4,
@@ -7109,7 +7168,11 @@
       "物体口径24秒误差是当前主判据；中途曾进入20mm和旧EEF终点分量均不能替代。",
       "Funnel ACT选模：物体终点24/50、10/50、16/50，选26121921；旧50局是选模证据，正式结论等待新三个评测seed各50局及安全/视觉。",
       "B50 DP最佳物体分量8/50=16%，低于论文37%，本轮不再跑正式150；优先100k/400k对照，每臂保留raw与EMA。",
-      "旧测试在本轮授权前自然FAILED、0Native；r2的Funnel8局已关闭，但BrownV被入口白名单拒绝。r3已修复该入口并复用全部8局，BrownV首局正常关闭；两份训练job均未取消。"
+      "旧测试在本轮授权前自然FAILED、0Native；r2的Funnel8局已关闭，但BrownV被入口白名单拒绝。r3已修复该入口并复用全部8局，BrownV首局正常关闭；两份训练job均未取消。",
+      "Funnel ACT已过数值及规定范围视觉核验；DP还未达物体终点精度目标，100k/400k对照继续。",
+      "BrownL与ClearL旧源的100/100终点指标是EEF；新物体口径均0/100，专家终点修正优先于重复训练。",
+      "新采集规格曾漏reset字段，且原生异常后的SDK退出挂住；修正版已通过240条实际reset配置与5秒故障清理回归，原失败记录保留。",
+      "四进程/GPU的旧DP筛选发生SIGBUS，原因未确认；中断回合不算策略失败或正式成绩。"
     ],
     "previous_audit_evidence": "verification/grasp-B50-source-physics-and-B100-retest-20261030.json",
     "training_GPU_cap": 8,
@@ -7442,192 +7505,136 @@
         "evidence_url": "verification/grasp-six-source100-multienv-20261102.json"
       }
     ],
-    "current_training_utilization": {
-      "utc": "2026-11-04T23:59:57.324586+00:00",
-      "cloud_state_utc": "2026-11-04T23:58:59.668284+00:00",
-      "jobs": [
-        {
-          "job_id": "job-g6tpow66bqj6",
-          "status": "RUNNING",
-          "GPUs": 4,
-          "execution_class": "low_priority",
-          "samples": 12,
-          "sample_start": "2026-11-04T23:35:34.372582+00:00",
-          "sample_end": "2026-11-04T23:57:37.766433+00:00",
-          "GPU_util_mean": 47.979166666666664,
-          "MiB_mean": 21887,
-          "last_GPU_rows": [
-            [
-              0,
-              99,
-              43676,
-              97887
-            ],
-            [
-              1,
-              0,
-              0,
-              97887
-            ],
-            [
-              2,
-              98,
-              43872,
-              97887
-            ],
-            [
-              3,
-              0,
-              0,
-              97887
-            ]
+    "current_training_utilization": [
+      {
+        "job_id": "job-e4fvv160czpj",
+        "tag": "train-DP-paper400-Funnel-F250-resume240-paired4-20261106cc-r3",
+        "GPU_util_mean": 96.85416666666667,
+        "MiB_mean": 46117,
+        "last_GPU_rows": [
+          [
+            0,
+            96,
+            45352,
+            97887
           ],
-          "recent_workload_events": [],
-          "missing_closed_output_does_not_prove_zero_Native": true
-        },
-        {
-          "job_id": "job-kn9heg3roqpl",
-          "status": "RUNNING",
-          "GPUs": 4,
-          "execution_class": "low_priority",
-          "samples": 12,
-          "sample_start": "2026-11-04T23:35:55.272154+00:00",
-          "sample_end": "2026-11-04T23:57:58.595106+00:00",
-          "GPU_util_mean": 24.229166666666668,
-          "MiB_mean": 10842,
-          "last_GPU_rows": [
-            [
-              0,
-              99,
-              43368,
-              97887
-            ],
-            [
-              1,
-              0,
-              0,
-              97887
-            ],
-            [
-              2,
-              0,
-              0,
-              97887
-            ],
-            [
-              3,
-              0,
-              0,
-              97887
-            ]
+          [
+            1,
+            99,
+            45208,
+            97887
           ],
-          "recent_workload_events": [],
-          "missing_closed_output_does_not_prove_zero_Native": true
-        },
-        {
-          "job_id": "job-g9sfwcvz275w",
-          "status": "RUNNING",
-          "GPUs": 4,
-          "execution_class": "low_priority",
-          "samples": 12,
-          "sample_start": "2026-11-04T23:57:40.262435+00:00",
-          "sample_end": "2026-11-04T23:59:30.279077+00:00",
-          "GPU_util_mean": 96.875,
-          "MiB_mean": 65995.75,
-          "last_GPU_rows": [
-            [
-              0,
-              97,
-              66677,
-              97887
-            ],
-            [
-              1,
-              96,
-              65705,
-              97887
-            ],
-            [
-              2,
-              98,
-              65960,
-              97887
-            ],
-            [
-              3,
-              97,
-              65641,
-              97887
-            ]
+          [
+            2,
+            96,
+            47150,
+            97887
           ],
-          "recent_workload_events": [
-            "2026-11-05T07:46:06.324578426+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell00_gpu0 GPU 0 active 5 archive_only False",
-            "2026-11-05T07:46:07.326195218+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell01_gpu1 GPU 1 active 5 archive_only False",
-            "2026-11-05T07:46:08.327201306+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell02_gpu2 GPU 2 active 5 archive_only False",
-            "2026-11-05T07:46:09.328901445+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell03_gpu3 GPU 3 active 5 archive_only False",
-            "2026-11-05T07:46:10.330367906+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell04_gpu0 GPU 0 active 6 archive_only False",
-            "2026-11-05T07:46:11.33123787+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell05_gpu1 GPU 1 active 6 archive_only False",
-            "2026-11-05T07:46:12.332392715+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell06_gpu2 GPU 2 active 6 archive_only False",
-            "2026-11-05T07:46:13.333448612+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell07_gpu3 GPU 3 active 6 archive_only False"
+          [
+            3,
+            99,
+            46758,
+            97887
+          ]
+        ]
+      },
+      {
+        "job_id": "job-eqj73yuojk8c",
+        "tag": "screen-precision-BrownL-qualified100-ACT32-group2-source3mm-quick16-fourmodels64-20261106cc",
+        "GPU_util_mean": 49.4375,
+        "MiB_mean": 36525.375,
+        "last_GPU_rows": [
+          [
+            0,
+            2,
+            8395,
+            97887
           ],
-          "missing_closed_output_does_not_prove_zero_Native": true
-        },
-        {
-          "job_id": "job-fe3wnjnvtfjy",
-          "status": "RUNNING",
-          "GPUs": 4,
-          "execution_class": "low_priority",
-          "samples": 12,
-          "sample_start": "2026-11-04T23:57:39.380301+00:00",
-          "sample_end": "2026-11-04T23:59:29.400227+00:00",
-          "GPU_util_mean": 95.35416666666667,
-          "MiB_mean": 56338.25,
-          "last_GPU_rows": [
-            [
-              0,
-              93,
-              56985,
-              97887
-            ],
-            [
-              1,
-              95,
-              56230,
-              97887
-            ],
-            [
-              2,
-              93,
-              56070,
-              97887
-            ],
-            [
-              3,
-              97,
-              56068,
-              97887
-            ]
+          [
+            1,
+            0,
+            6630,
+            97887
           ],
-          "recent_workload_events": [
-            "2026-11-05T07:41:27.733520744+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell08_gpu0 GPU 0 active 3 archive_only False",
-            "2026-11-05T07:41:28.734538573+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell09_gpu1 GPU 1 active 3 archive_only False",
-            "2026-11-05T07:41:29.735618994+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell10_gpu2 GPU 2 active 3 archive_only False",
-            "2026-11-05T07:41:30.736686293+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell11_gpu3 GPU 3 active 3 archive_only False",
-            "2026-11-05T07:41:31.737562072+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell12_gpu0 GPU 0 active 4 archive_only False",
-            "2026-11-05T07:41:32.738700803+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell13_gpu1 GPU 1 active 4 archive_only False",
-            "2026-11-05T07:41:33.739554271+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell14_gpu2 GPU 2 active 4 archive_only False",
-            "2026-11-05T07:41:34.768693367+08:00 stdout F GRASP_INDEPENDENT_ADMIT cell15_gpu3 GPU 3 active 4 archive_only False"
+          [
+            2,
+            2,
+            7298,
+            97887
           ],
-          "missing_closed_output_does_not_prove_zero_Native": true
-        }
-      ],
-      "physical_GPUs": 20,
-      "pending_reserved_GPUs": 4,
-      "cap": 20,
-      "scheduler_PID": 995760,
-      "status_reads_from_existing_shared_cache": true,
-      "GET_jobs_calls": 0
-    },
+          [
+            3,
+            1,
+            6964,
+            97887
+          ]
+        ]
+      },
+      {
+        "job_id": "job-6klpwo6u0yws",
+        "tag": "screen-precision-BrownL-qualified100-ACT32-group3-source3mm-quick16-fourmodels64-20261106cc",
+        "GPU_util_mean": 75.3,
+        "MiB_mean": 36876.7,
+        "last_GPU_rows": [
+          [
+            0,
+            2,
+            12365,
+            97887
+          ],
+          [
+            1,
+            1,
+            10971,
+            97887
+          ],
+          [
+            2,
+            1,
+            10698,
+            97887
+          ],
+          [
+            3,
+            1,
+            10695,
+            97887
+          ]
+        ]
+      },
+      {
+        "job_id": "job-310prh3m53vd",
+        "tag": "train-DP-paper400-BrownV4seeds-globalqueue-20261106cc",
+        "GPU_util_mean": 96.39583333333333,
+        "MiB_mean": 43529,
+        "last_GPU_rows": [
+          [
+            0,
+            99,
+            43606,
+            97887
+          ],
+          [
+            1,
+            96,
+            43452,
+            97887
+          ],
+          [
+            2,
+            92,
+            43606,
+            97887
+          ],
+          [
+            3,
+            99,
+            43452,
+            97887
+          ]
+        ]
+      }
+    ],
     "latest_training_backfill_evidence_url": "verification/grasp-training-backfill-20261103.json",
     "stop_permission_pending": false,
     "completed_new_safe_source_ACT15": [
@@ -8175,7 +8182,7 @@
       "CPU_dispatch_and_finite_model_closure_passed": true,
       "GPU_speedup_not_yet_measured": true
     },
-    "allocated_GPUs": 20,
+    "allocated_GPUs": 16,
     "GPU_cap": 20,
     "execution_class": "low_priority",
     "formal_Funnel_ACT": {
@@ -8472,7 +8479,28 @@
       "full_joint_decisions_url": "verification/grasp-brownv-act-object24-joint150-20261104.json"
     },
     "known_running_allocated_GPUs": 16,
-    "pending_creation_reserved_GPUs": 4
+    "pending_creation_reserved_GPUs": 0,
+    "formal_F250_ACT": {
+      "SR": 80.66666666666666,
+      "SpatialSSR": 29.333333333333332,
+      "trials": 150,
+      "successes": 121,
+      "completed_trials": 150,
+      "completed_native_successes": 121,
+      "success_terminal20mm": 44,
+      "SSR_successes": 44,
+      "formal_accepted": true,
+      "visual_review_passed": true,
+      "formal_evaluation_status": "PASSED_OBJECT24_FORMAL150_AUTHORIZED_NORMAL_CONTACT",
+      "evidence_url": "verification/grasp-f250-act-object24-formal150-physics-20261106.json",
+      "primary_object_SpatialSSR": 29.333333333333332,
+      "primary_metric_position": "object",
+      "all150_joint_SSR_decisions_exact": true,
+      "position_eligible_full_geometry_resolved": 44,
+      "all150_collision_statistics_complete": false,
+      "full_joint_decisions_url": "verification/grasp-f250-act-object24-formal150-physics-20261106.json",
+      "release_index_key": "liyufeng/grasp/release/20261106/RELEASE_INDEX.json"
+    }
   },
   "evidence_note": "主口径保持用户2026-11-04决定：物体实际24秒终点20mm + 原生成功 + 全程几何无交叉。Funnel ACT与BrownV ACT通过；完整物体0/21。全部历史结果及原视频保留；新BrownV150与旧中断队列不混算。",
   "offline_DP_probe": {
@@ -15800,9 +15828,358 @@
           "SHA256": "ce273d044cfe790d816901d19da73477d0e176a3180ed2bfce49350f49b6bce0"
         }
       ]
+    },
+    {
+      "candidate": "pro6000-F250-ACT-object24-formal150-physics-20261106",
+      "object": "clear_volumetric_flask_250ml",
+      "method": "ACT",
+      "display_name": "Pro6000 · ACT26122002 · 新3评测seed×50 · 已通过",
+      "current_native": false,
+      "development": false,
+      "formal_accepted": true,
+      "primary_metric_position": "object",
+      "paper_ssr_percent": 24,
+      "reported_SpatialSSR_percent": 29.333333333333332,
+      "progress": {
+        "episode_num": 150,
+        "episode_success_num": 121,
+        "success_rate": 0.8066666666666666
+      },
+      "expected_trials": 150,
+      "job_id": "job-b8a1qg0h0wih",
+      "protocol": {
+        "method": "act",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "±3 / 4 / 5 / 6cm",
+        "duration_label": "24s",
+        "seed": "训练26122002；评测26915401 / 26915402 / 26915403",
+        "primary_position": "object",
+        "defer_success_done_until_timeout": true,
+        "note": "源采集±3cm；测试+0/+1/+2/+3cm。原正式轨迹计分，物理复现用于接触判定；复现轨迹未替换原成绩，不宣称逐位一致。",
+        "checkpoint_sha256": "663643485417b1cdb8cc306cdb533ded6af0f63dc13a0da205f7b2af29c621ea"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": 26122002
+        },
+        "last": {
+          "global_step": 32000
+        }
+      },
+      "result": {
+        "SR": 80.66666666666666,
+        "SpatialSSR": 29.333333333333332,
+        "trials": 150,
+        "successes": 121,
+        "completed_trials": 150,
+        "completed_native_successes": 121,
+        "success_terminal20mm": 44,
+        "SSR_successes": 44,
+        "formal_accepted": true,
+        "visual_review_passed": true,
+        "formal_evaluation_status": "PASSED_OBJECT24_FORMAL150_AUTHORIZED_NORMAL_CONTACT",
+        "evidence_url": "verification/grasp-f250-act-object24-formal150-physics-20261106.json",
+        "primary_object_SpatialSSR": 29.333333333333332,
+        "primary_metric_position": "object",
+        "all150_joint_SSR_decisions_exact": true,
+        "position_eligible_full_geometry_resolved": 44,
+        "all150_collision_statistics_complete": false
+      },
+      "metric_note": "正式150回合：SR80.7%、物体口径SpatialSSR29.3%，达到论文64%/24%。单一预选ACT检查点，3个全新评测seed各50，SSR分别32/36/20%。44个终点候选全程其余碰撞对已闭合；手—目标视觉相交经实际碰撞形状及首次相交25N判据区分正常接触，全程净接触力峰值另列。原严格视觉判定保留。900张原视频抽查帧玻璃渲染正常；未宣称逐帧人工审阅450段视频。",
+      "cases": [
+        {
+          "episode": 1,
+          "global_formal_case": 1,
+          "evaluation_seed": 26915401,
+          "training_seed": 26122002,
+          "camera": "head_camera",
+          "bytes": 1234835,
+          "success": true,
+          "terminal_translation_passed": false,
+          "SSR_passed": false,
+          "object_translation_error_mm": 37.77324713333032,
+          "source_job_id": "job-b8a1qg0h0wih",
+          "source_BOS_key": "liyufeng/grasp/results/eval-precision-F250-ACT32-selected6-object24-fresh150-HD4to8-20261105cc/F250_ACT/selected_checkpoint150/cell00_gpu0/native_run/native_rgb/episode_001_head_camera.mp4",
+          "caption": "抓取成功但终点超过20mm；原始录像，Pro6000采集和测试；物体24秒终点。首次视觉相交按用户确认的25N辅助判定，全程峰值另列。",
+          "url": "assets/grasp/pro6000_F250_ACT_object24_formal150_20261106/seed26915401_ep001_head_camera.mp4",
+          "SHA256": "a777c2d673c11b558cb0eebf425018ca22e417d9355e04f1b2bb870741206d88",
+          "full_original_decode_passed": true,
+          "frames": 720
+        },
+        {
+          "episode": 1,
+          "global_formal_case": 1,
+          "evaluation_seed": 26915401,
+          "training_seed": 26122002,
+          "camera": "third_camera",
+          "bytes": 1288503,
+          "success": true,
+          "terminal_translation_passed": false,
+          "SSR_passed": false,
+          "object_translation_error_mm": 37.77324713333032,
+          "source_job_id": "job-b8a1qg0h0wih",
+          "source_BOS_key": "liyufeng/grasp/results/eval-precision-F250-ACT32-selected6-object24-fresh150-HD4to8-20261105cc/F250_ACT/selected_checkpoint150/cell00_gpu0/native_run/native_rgb/episode_001_third_camera.mp4",
+          "caption": "抓取成功但终点超过20mm；原始录像，Pro6000采集和测试；物体24秒终点。首次视觉相交按用户确认的25N辅助判定，全程峰值另列。",
+          "url": "assets/grasp/pro6000_F250_ACT_object24_formal150_20261106/seed26915401_ep001_third_camera.mp4",
+          "SHA256": "ae54abf984deea6281474f541245cd675e51e8461d6dafd91ba98714fd9912e5",
+          "full_original_decode_passed": true,
+          "frames": 720
+        },
+        {
+          "episode": 1,
+          "global_formal_case": 1,
+          "evaluation_seed": 26915401,
+          "training_seed": 26122002,
+          "camera": "chest_camera",
+          "bytes": 639060,
+          "success": true,
+          "terminal_translation_passed": false,
+          "SSR_passed": false,
+          "object_translation_error_mm": 37.77324713333032,
+          "source_job_id": "job-b8a1qg0h0wih",
+          "source_BOS_key": "liyufeng/grasp/results/eval-precision-F250-ACT32-selected6-object24-fresh150-HD4to8-20261105cc/F250_ACT/selected_checkpoint150/cell00_gpu0/native_run/native_rgb/episode_001_chest_camera.mp4",
+          "caption": "抓取成功但终点超过20mm；原始录像，Pro6000采集和测试；物体24秒终点。首次视觉相交按用户确认的25N辅助判定，全程峰值另列。",
+          "url": "assets/grasp/pro6000_F250_ACT_object24_formal150_20261106/seed26915401_ep001_chest_camera.mp4",
+          "SHA256": "2b3d08596b812341eaec897dadb19b1e79d5dfd75ca67be4b36dfcd9c30da557",
+          "full_original_decode_passed": true,
+          "frames": 720
+        },
+        {
+          "episode": 2,
+          "global_formal_case": 2,
+          "evaluation_seed": 26915401,
+          "training_seed": 26122002,
+          "camera": "head_camera",
+          "bytes": 1456176,
+          "success": true,
+          "terminal_translation_passed": true,
+          "SSR_passed": true,
+          "object_translation_error_mm": 14.328164547440755,
+          "source_job_id": "job-b8a1qg0h0wih",
+          "source_BOS_key": "liyufeng/grasp/results/eval-precision-F250-ACT32-selected6-object24-fresh150-HD4to8-20261105cc/F250_ACT/selected_checkpoint150/cell00_gpu0/native_run/native_rgb/episode_002_head_camera.mp4",
+          "caption": "正式SSR通过示例；原始录像，Pro6000采集和测试；物体24秒终点。首次视觉相交按用户确认的25N辅助判定，全程峰值另列。",
+          "url": "assets/grasp/pro6000_F250_ACT_object24_formal150_20261106/seed26915401_ep002_head_camera.mp4",
+          "SHA256": "5adebde75b561c66945214bec891a9b8954fbe0e1045c2547aef950dab32bf65",
+          "full_original_decode_passed": true,
+          "frames": 719
+        },
+        {
+          "episode": 2,
+          "global_formal_case": 2,
+          "evaluation_seed": 26915401,
+          "training_seed": 26122002,
+          "camera": "third_camera",
+          "bytes": 1273536,
+          "success": true,
+          "terminal_translation_passed": true,
+          "SSR_passed": true,
+          "object_translation_error_mm": 14.328164547440755,
+          "source_job_id": "job-b8a1qg0h0wih",
+          "source_BOS_key": "liyufeng/grasp/results/eval-precision-F250-ACT32-selected6-object24-fresh150-HD4to8-20261105cc/F250_ACT/selected_checkpoint150/cell00_gpu0/native_run/native_rgb/episode_002_third_camera.mp4",
+          "caption": "正式SSR通过示例；原始录像，Pro6000采集和测试；物体24秒终点。首次视觉相交按用户确认的25N辅助判定，全程峰值另列。",
+          "url": "assets/grasp/pro6000_F250_ACT_object24_formal150_20261106/seed26915401_ep002_third_camera.mp4",
+          "SHA256": "7112ba1a4d1e27b6bb4964db0e397ad5d0452b06d2c5060d8463c3d3a04a4e8f",
+          "full_original_decode_passed": true,
+          "frames": 719
+        },
+        {
+          "episode": 2,
+          "global_formal_case": 2,
+          "evaluation_seed": 26915401,
+          "training_seed": 26122002,
+          "camera": "chest_camera",
+          "bytes": 634290,
+          "success": true,
+          "terminal_translation_passed": true,
+          "SSR_passed": true,
+          "object_translation_error_mm": 14.328164547440755,
+          "source_job_id": "job-b8a1qg0h0wih",
+          "source_BOS_key": "liyufeng/grasp/results/eval-precision-F250-ACT32-selected6-object24-fresh150-HD4to8-20261105cc/F250_ACT/selected_checkpoint150/cell00_gpu0/native_run/native_rgb/episode_002_chest_camera.mp4",
+          "caption": "正式SSR通过示例；原始录像，Pro6000采集和测试；物体24秒终点。首次视觉相交按用户确认的25N辅助判定，全程峰值另列。",
+          "url": "assets/grasp/pro6000_F250_ACT_object24_formal150_20261106/seed26915401_ep002_chest_camera.mp4",
+          "SHA256": "5583c056416dc3ac919e6da901c68e2f702f48f9b6290cdaa7c5b22b7dcbd061",
+          "full_original_decode_passed": true,
+          "frames": 719
+        },
+        {
+          "episode": 13,
+          "global_formal_case": 13,
+          "evaluation_seed": 26915401,
+          "training_seed": 26122002,
+          "camera": "head_camera",
+          "bytes": 1236910,
+          "success": false,
+          "terminal_translation_passed": false,
+          "SSR_passed": false,
+          "object_translation_error_mm": 308.6951867807908,
+          "source_job_id": "job-b8a1qg0h0wih",
+          "source_BOS_key": "liyufeng/grasp/results/eval-precision-F250-ACT32-selected6-object24-fresh150-HD4to8-20261105cc/F250_ACT/selected_checkpoint150/cell02_gpu2/native_run/native_rgb/episode_004_head_camera.mp4",
+          "caption": "原生抓取失败；原始录像，Pro6000采集和测试；物体24秒终点。首次视觉相交按用户确认的25N辅助判定，全程峰值另列。",
+          "url": "assets/grasp/pro6000_F250_ACT_object24_formal150_20261106/seed26915401_ep013_head_camera.mp4",
+          "SHA256": "613c5c525f1ab5742191bce051d9f6f1f4d0f854dac5150fe153cc35be98eb08",
+          "full_original_decode_passed": true,
+          "frames": 719
+        },
+        {
+          "episode": 13,
+          "global_formal_case": 13,
+          "evaluation_seed": 26915401,
+          "training_seed": 26122002,
+          "camera": "third_camera",
+          "bytes": 1194840,
+          "success": false,
+          "terminal_translation_passed": false,
+          "SSR_passed": false,
+          "object_translation_error_mm": 308.6951867807908,
+          "source_job_id": "job-b8a1qg0h0wih",
+          "source_BOS_key": "liyufeng/grasp/results/eval-precision-F250-ACT32-selected6-object24-fresh150-HD4to8-20261105cc/F250_ACT/selected_checkpoint150/cell02_gpu2/native_run/native_rgb/episode_004_third_camera.mp4",
+          "caption": "原生抓取失败；原始录像，Pro6000采集和测试；物体24秒终点。首次视觉相交按用户确认的25N辅助判定，全程峰值另列。",
+          "url": "assets/grasp/pro6000_F250_ACT_object24_formal150_20261106/seed26915401_ep013_third_camera.mp4",
+          "SHA256": "35d9252d688f34e1d09913b812128ecc371b12b02eb387728a43e03b6f70cdb8",
+          "full_original_decode_passed": true,
+          "frames": 719
+        },
+        {
+          "episode": 13,
+          "global_formal_case": 13,
+          "evaluation_seed": 26915401,
+          "training_seed": 26122002,
+          "camera": "chest_camera",
+          "bytes": 1090331,
+          "success": false,
+          "terminal_translation_passed": false,
+          "SSR_passed": false,
+          "object_translation_error_mm": 308.6951867807908,
+          "source_job_id": "job-b8a1qg0h0wih",
+          "source_BOS_key": "liyufeng/grasp/results/eval-precision-F250-ACT32-selected6-object24-fresh150-HD4to8-20261105cc/F250_ACT/selected_checkpoint150/cell02_gpu2/native_run/native_rgb/episode_004_chest_camera.mp4",
+          "caption": "原生抓取失败；原始录像，Pro6000采集和测试；物体24秒终点。首次视觉相交按用户确认的25N辅助判定，全程峰值另列。",
+          "url": "assets/grasp/pro6000_F250_ACT_object24_formal150_20261106/seed26915401_ep013_chest_camera.mp4",
+          "SHA256": "ac8430153ab2ea7593aac70def4e649e140b81ddf34a6775383a9c16caab6228",
+          "full_original_decode_passed": true,
+          "frames": 719
+        },
+        {
+          "episode": 1,
+          "global_formal_case": 51,
+          "evaluation_seed": 26915402,
+          "training_seed": 26122002,
+          "camera": "head_camera",
+          "bytes": 1510695,
+          "success": true,
+          "terminal_translation_passed": true,
+          "SSR_passed": true,
+          "object_translation_error_mm": 15.01945061760159,
+          "source_job_id": "job-b8a1qg0h0wih",
+          "source_BOS_key": "liyufeng/grasp/results/eval-precision-F250-ACT32-selected6-object24-fresh150-HD4to8-20261105cc/F250_ACT/selected_checkpoint150/cell11_gpu3/native_run/native_rgb/episode_001_head_camera.mp4",
+          "caption": "正式SSR通过示例；原始录像，Pro6000采集和测试；物体24秒终点。首次视觉相交按用户确认的25N辅助判定，全程峰值另列。",
+          "url": "assets/grasp/pro6000_F250_ACT_object24_formal150_20261106/seed26915402_ep001_head_camera.mp4",
+          "SHA256": "8ba45ddf85cbcb81daa38359c53a0fc7930d47bb660655822d466ad9e936b928",
+          "full_original_decode_passed": true,
+          "frames": 720
+        },
+        {
+          "episode": 1,
+          "global_formal_case": 51,
+          "evaluation_seed": 26915402,
+          "training_seed": 26122002,
+          "camera": "third_camera",
+          "bytes": 1316256,
+          "success": true,
+          "terminal_translation_passed": true,
+          "SSR_passed": true,
+          "object_translation_error_mm": 15.01945061760159,
+          "source_job_id": "job-b8a1qg0h0wih",
+          "source_BOS_key": "liyufeng/grasp/results/eval-precision-F250-ACT32-selected6-object24-fresh150-HD4to8-20261105cc/F250_ACT/selected_checkpoint150/cell11_gpu3/native_run/native_rgb/episode_001_third_camera.mp4",
+          "caption": "正式SSR通过示例；原始录像，Pro6000采集和测试；物体24秒终点。首次视觉相交按用户确认的25N辅助判定，全程峰值另列。",
+          "url": "assets/grasp/pro6000_F250_ACT_object24_formal150_20261106/seed26915402_ep001_third_camera.mp4",
+          "SHA256": "d3cca16dd4f6ea01334f0617c207b5441ce932568936de45787372936b65a01a",
+          "full_original_decode_passed": true,
+          "frames": 720
+        },
+        {
+          "episode": 1,
+          "global_formal_case": 51,
+          "evaluation_seed": 26915402,
+          "training_seed": 26122002,
+          "camera": "chest_camera",
+          "bytes": 642785,
+          "success": true,
+          "terminal_translation_passed": true,
+          "SSR_passed": true,
+          "object_translation_error_mm": 15.01945061760159,
+          "source_job_id": "job-b8a1qg0h0wih",
+          "source_BOS_key": "liyufeng/grasp/results/eval-precision-F250-ACT32-selected6-object24-fresh150-HD4to8-20261105cc/F250_ACT/selected_checkpoint150/cell11_gpu3/native_run/native_rgb/episode_001_chest_camera.mp4",
+          "caption": "正式SSR通过示例；原始录像，Pro6000采集和测试；物体24秒终点。首次视觉相交按用户确认的25N辅助判定，全程峰值另列。",
+          "url": "assets/grasp/pro6000_F250_ACT_object24_formal150_20261106/seed26915402_ep001_chest_camera.mp4",
+          "SHA256": "2dffcef5c3bc0f2ade7afc39011448e3d4d1504826f8869f30c47c39cceb1c19",
+          "full_original_decode_passed": true,
+          "frames": 720
+        },
+        {
+          "episode": 2,
+          "global_formal_case": 102,
+          "evaluation_seed": 26915403,
+          "training_seed": 26122002,
+          "camera": "head_camera",
+          "bytes": 1442390,
+          "success": true,
+          "terminal_translation_passed": true,
+          "SSR_passed": true,
+          "object_translation_error_mm": 17.303944728413796,
+          "source_job_id": "job-b8a1qg0h0wih",
+          "source_BOS_key": "liyufeng/grasp/results/eval-precision-F250-ACT32-selected6-object24-fresh150-HD4to8-20261105cc/F250_ACT/selected_checkpoint150/cell22_gpu2/native_run/native_rgb/episode_002_head_camera.mp4",
+          "caption": "正式SSR通过示例；原始录像，Pro6000采集和测试；物体24秒终点。首次视觉相交按用户确认的25N辅助判定，全程峰值另列。",
+          "url": "assets/grasp/pro6000_F250_ACT_object24_formal150_20261106/seed26915403_ep002_head_camera.mp4",
+          "SHA256": "13d0a47a3d1612b6097ae4ab74f09dd02dd3d4d40a9b52dc2d22a36e3a73d9a1",
+          "full_original_decode_passed": true,
+          "frames": 719
+        },
+        {
+          "episode": 2,
+          "global_formal_case": 102,
+          "evaluation_seed": 26915403,
+          "training_seed": 26122002,
+          "camera": "third_camera",
+          "bytes": 1217775,
+          "success": true,
+          "terminal_translation_passed": true,
+          "SSR_passed": true,
+          "object_translation_error_mm": 17.303944728413796,
+          "source_job_id": "job-b8a1qg0h0wih",
+          "source_BOS_key": "liyufeng/grasp/results/eval-precision-F250-ACT32-selected6-object24-fresh150-HD4to8-20261105cc/F250_ACT/selected_checkpoint150/cell22_gpu2/native_run/native_rgb/episode_002_third_camera.mp4",
+          "caption": "正式SSR通过示例；原始录像，Pro6000采集和测试；物体24秒终点。首次视觉相交按用户确认的25N辅助判定，全程峰值另列。",
+          "url": "assets/grasp/pro6000_F250_ACT_object24_formal150_20261106/seed26915403_ep002_third_camera.mp4",
+          "SHA256": "a0ea3049b2fe7b778882219715f76526ae5fbe1f42fa6f2aa235e09d593c21f5",
+          "full_original_decode_passed": true,
+          "frames": 719
+        },
+        {
+          "episode": 2,
+          "global_formal_case": 102,
+          "evaluation_seed": 26915403,
+          "training_seed": 26122002,
+          "camera": "chest_camera",
+          "bytes": 632595,
+          "success": true,
+          "terminal_translation_passed": true,
+          "SSR_passed": true,
+          "object_translation_error_mm": 17.303944728413796,
+          "source_job_id": "job-b8a1qg0h0wih",
+          "source_BOS_key": "liyufeng/grasp/results/eval-precision-F250-ACT32-selected6-object24-fresh150-HD4to8-20261105cc/F250_ACT/selected_checkpoint150/cell22_gpu2/native_run/native_rgb/episode_002_chest_camera.mp4",
+          "caption": "正式SSR通过示例；原始录像，Pro6000采集和测试；物体24秒终点。首次视觉相交按用户确认的25N辅助判定，全程峰值另列。",
+          "url": "assets/grasp/pro6000_F250_ACT_object24_formal150_20261106/seed26915403_ep002_chest_camera.mp4",
+          "SHA256": "d63009d85d71da930af1c9f52c04172f557909de023eef9111cea818703c07c9",
+          "full_original_decode_passed": true,
+          "frames": 719
+        }
+      ]
     }
   ],
-  "geometry_distance_metric_note": "交叉见证的平面端点分离量不是实体穿透深度。严格零交叉判据不变；历史depth字段保留原报告，不用于放宽门槛。",
+  "geometry_distance_metric_note": "交叉见证的平面端点分离量不是实体穿透深度。严格零交叉判据不变；历史depth字段保留原报告，不用于放宽门槛。 F250新增用户确认的正常接触判定：视觉相交须有实际碰撞形状和首次相交25N的辅助证据；其余碰撞对保持原检查。",
   "primary_metric_contract": {
     "position": "object",
     "clock": "actual24s termination",
@@ -15813,6 +16190,16 @@
     "EEF_secondary": true
   },
   "primary_metric_frontier": [
+    {
+      "object": "clear_volumetric_flask_250ml",
+      "method": "ACT",
+      "n": 150,
+      "Native_successes": 121,
+      "object_terminal20": 44,
+      "EEF_terminal20": 33,
+      "role": "新3评测seed正式150回合，已通过",
+      "note": "正式150回合：SR80.7%、物体口径SpatialSSR29.3%，达到论文64%/24%。单一预选ACT检查点，3个全新评测seed各50，SSR分别32/36/20%。44个终点候选全程其余碰撞对已闭合；手—目标视觉相交经实际碰撞形状及首次相交25N判据区分正常接触，全程净接触力峰值另列。原严格视觉判定保留。900张原视频抽查帧玻璃渲染正常；未宣称逐帧人工审阅450段视频。 +0/+1/+2/+3cm分组SR100/94.9/77.8/47.2%；实际框外63回合SR54.0%。"
+    },
     {
       "object": "brown_volumetric_flask_250ml",
       "method": "ACT",
@@ -15866,6 +16253,26 @@
       "note": "三个训练seed各1/5，同分取26121921；筛选达SR65%及物体分量25%后再用全新3×50正式测试。"
     }
   ],
-  "methods_formally_accepted": 2,
-  "total_methods": 42
+  "methods_formally_accepted": 3,
+  "total_methods": 42,
+  "normal_contact_policy_F250": {
+    "schema": "grasp.F250.first_visual_contact.force_policy.v1",
+    "utc": "2026-11-06T15:45:23.067168+00:00",
+    "user_confirmed": true,
+    "authority": "User explicit reply2026-11-06: 首次相交时用25N（推荐）",
+    "scope": "F250 hand-target physical-contact exception diagnostic",
+    "threshold_N": 25,
+    "force_clock": "First visual intersection of the investigated hand-target pair, joined to original120Hz recorded SDK contact clock",
+    "force_quantity": "Resultant physical contact force of that hand actor against exact target, including normal and friction",
+    "whole_episode_peak": "Record separately; not substituted as onset threshold",
+    "collision_shape_penetration_rule": "Must be <= max(resolved restOffset,1mm); actual runtime contact separations required, not authored visual hull inference",
+    "other_pair_geometry_unchanged": true,
+    "normal_contact_classification_requires_positive_actual_physics_evidence": true,
+    "original_result_preserved": true,
+    "does_not_grant_automatic_formal_acceptance": true,
+    "force_missing_or_visual_crossing_not_reproduced": "UNKNOWN, no exemption",
+    "Native_calls": 0,
+    "GPU_calls": 0,
+    "API_calls": 0
+  }
 }
