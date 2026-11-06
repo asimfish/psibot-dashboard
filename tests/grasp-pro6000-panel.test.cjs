@@ -32,7 +32,7 @@ const render = data => {
   return {container, created};
 };
 
-test('all21 object pairs remain incomplete while two ACT methods pass', () => {
+test('all21 object pairs remain incomplete while three ACT methods pass', () => {
   const {container, created} = render(copy());
   assert.match(container.textContent, /0 \/ 21/);
   assert.match(container.textContent, /为什么还没有完整通过/);
@@ -166,8 +166,8 @@ test('only the new snapshot adds browser versions; every existing dataset remain
   const references=snapshot.runs.flatMap(r => r.cases);
   const media=[...new Map(references.map(c => [c.url,c])).values()];
   for (const c of references) assert.equal(media.find(m => m.url===c.url).SHA256,c.SHA256);
-  assert.equal(media.filter(c=>!c.url.includes('pro6000_Funnel_ACT_object24_formal150_20261104') && !c.url.includes('pro6000_BrownV_ACT_object24_formal150_20261104')).length,141);
-  assert.equal(media.length,159);
+  assert.equal(media.filter(c=>!c.url.includes('pro6000_Funnel_ACT_object24_formal150_20261104') && !c.url.includes('pro6000_BrownV_ACT_object24_formal150_20261104') && !c.url.includes('pro6000_F250_ACT_object24_formal150_20261106')).length,141);
+  assert.equal(media.length,174);
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_Mortar_paired_source5_20261029/')).length, 6);
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_Mortar_source5_20261029/')).length, 3);
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_fresh_B100_20261027/')).length, 6);
@@ -175,7 +175,7 @@ test('only the new snapshot adds browser versions; every existing dataset remain
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_ClearL_source15_20261028/')).length, 6);
   assert.equal(media.filter(clip => clip.url.includes('/pro6000_BrownV_formal150_20261028/')).length, 3);
   for (const clip of media) {
-    assert.match(clip.url, /^assets\/grasp\/(?:pro6000_BrownV_ACT_object24_formal150_20261104\/seed2690980[123]_ep(?:001|014|003)_(?:chest|head|third)_camera|pro6000_Funnel_ACT_object24_formal150_20261104\/seed26905301_ep(?:001|004)_(?:chest|head|third)_camera|pro6000_fresh_B100_20261027\/trial(?:02|06)_s\d+_(?:chest|head|third)_camera|pro6000_formal_B100_20261028\/formal150_trial(?:000|001)_s26121921_(?:success|failure)_(?:chest|head|third)|pro6000_ClearL_source15_20261028\/clearL_ACT_source15_s26121921_ep(?:001|003)_(?:chest|head|third)_camera|pro6000_BrownV_formal150_20261028\/formal150_trial001_s26121921_(?:chest|head|third)_camera|pro6000_Mortar_source5_20261029\/source42_s26121921_failure_(?:chest|head|third)|pro6000_Mortar_paired_source5_20261029\/(?:state_noise|clean_control)_source42_s26121921_failure_(?:chest|head|third)|pro6000_F500_source15_20261029\/(?:terminal_failure_s26121921_ep005|terminal_pass_s26121925_ep002)_(?:chest|head|third)|pro6000_F500_DP100_source15_20261029\/(?:dropped_terminal|held_terminal_error)_(?:chest|head|third)|pro6000_F500_context_source20_20261029\/(?:initial_current|current_current_control)_(?:chest|head|third)|pro6000_F1000_ACT32_source15_20261029\/(?:minimum_terminal_error|maximum_terminal_error)_(?:chest|head|third)|pro6000_F500_raw_goal_pair_20261030\/(?:raw_predicted|fixed_mean)_(?:minimum_terminal_error|maximum_terminal_error)_(?:chest|head|third)|pro6000_F500_FK_aux_pair_20261030\/(?:FK_aux|FK_zero_control)_(?:minimum_terminal_error|maximum_terminal_error)_(?:chest|head|third)|pro6000_B50_source_physics_20261030\/B50_source_physics_(?:minimum_terminal_error|maximum_terminal_error)_(?:chest|head|third)|pro6000_hold_and_DP_closed_20261030\/(?:B50_ACT_hold|B50_DP_original|F1000_DP100|B50_DP_hold|F500_ACT_anchor|F500_ACT_zero_control)_(?:minimum_terminal_error|maximum_terminal_error|terminal_drop|paired_first_position)_(?:chest|head|third)|pro6000_B50_formal_firsttrial_20261030\/first_formal_(?:chest|head|third)|pro6000_B50_original_ACT_firsttrial_20261030\/first_ACT_(?:chest|head|third)_camera|pro6000_B50_DP100_source15_20261031\/s261219(?:21|23|25)_ep001_(?:chest|head|third)_camera|pro6000_B50_DP100_formal150_20261031\/trial(?:001|035|051|101)_(?:chest|head|third)_camera)\.mp4$/);
+    assert.match(clip.url, /^assets\/grasp\/(?:pro6000_F250_ACT_object24_formal150_20261106\/seed2691540[123]_ep(?:001|002|013)_(?:chest|head|third)_camera|pro6000_BrownV_ACT_object24_formal150_20261104\/seed2690980[123]_ep(?:001|014|003)_(?:chest|head|third)_camera|pro6000_Funnel_ACT_object24_formal150_20261104\/seed26905301_ep(?:001|004)_(?:chest|head|third)_camera|pro6000_fresh_B100_20261027\/trial(?:02|06)_s\d+_(?:chest|head|third)_camera|pro6000_formal_B100_20261028\/formal150_trial(?:000|001)_s26121921_(?:success|failure)_(?:chest|head|third)|pro6000_ClearL_source15_20261028\/clearL_ACT_source15_s26121921_ep(?:001|003)_(?:chest|head|third)_camera|pro6000_BrownV_formal150_20261028\/formal150_trial001_s26121921_(?:chest|head|third)_camera|pro6000_Mortar_source5_20261029\/source42_s26121921_failure_(?:chest|head|third)|pro6000_Mortar_paired_source5_20261029\/(?:state_noise|clean_control)_source42_s26121921_failure_(?:chest|head|third)|pro6000_F500_source15_20261029\/(?:terminal_failure_s26121921_ep005|terminal_pass_s26121925_ep002)_(?:chest|head|third)|pro6000_F500_DP100_source15_20261029\/(?:dropped_terminal|held_terminal_error)_(?:chest|head|third)|pro6000_F500_context_source20_20261029\/(?:initial_current|current_current_control)_(?:chest|head|third)|pro6000_F1000_ACT32_source15_20261029\/(?:minimum_terminal_error|maximum_terminal_error)_(?:chest|head|third)|pro6000_F500_raw_goal_pair_20261030\/(?:raw_predicted|fixed_mean)_(?:minimum_terminal_error|maximum_terminal_error)_(?:chest|head|third)|pro6000_F500_FK_aux_pair_20261030\/(?:FK_aux|FK_zero_control)_(?:minimum_terminal_error|maximum_terminal_error)_(?:chest|head|third)|pro6000_B50_source_physics_20261030\/B50_source_physics_(?:minimum_terminal_error|maximum_terminal_error)_(?:chest|head|third)|pro6000_hold_and_DP_closed_20261030\/(?:B50_ACT_hold|B50_DP_original|F1000_DP100|B50_DP_hold|F500_ACT_anchor|F500_ACT_zero_control)_(?:minimum_terminal_error|maximum_terminal_error|terminal_drop|paired_first_position)_(?:chest|head|third)|pro6000_B50_formal_firsttrial_20261030\/first_formal_(?:chest|head|third)|pro6000_B50_original_ACT_firsttrial_20261030\/first_ACT_(?:chest|head|third)_camera|pro6000_B50_DP100_source15_20261031\/s261219(?:21|23|25)_ep001_(?:chest|head|third)_camera|pro6000_B50_DP100_formal150_20261031\/trial(?:001|035|051|101)_(?:chest|head|third)_camera)\.mp4$/);
     // Data-only panel updates retain producer digests; do not reread/re-hash every unchanged clip.
     assert.ok(fs.existsSync(path.join(root,clip.url)));
     assert.match(clip.SHA256, /^[0-9a-f]{64}$/);
@@ -513,8 +513,8 @@ test('object-metric selection excludes B50 DP and preserves fresh evaluation see
   assert.equal(choice.Funnel_ACT,26121921);assert.equal(choice.B50_DP_removed,true);
   assert.equal(choice.formal_episodes,150);assert.equal(choice.screening_episodes,50);
   assert.equal(snapshot.objects_both_methods_formally_accepted,0);
-  assert.ok(snapshot.objects.every(o=>!o.DP.formal_accepted && (['funnel','brown_volumetric_flask_250ml'].includes(o.object) ? o.ACT.formal_accepted : !o.ACT.formal_accepted)));
-  assert.equal(snapshot.methods_formally_accepted,2);
+  assert.ok(snapshot.objects.every(o=>!o.DP.formal_accepted && (['funnel','brown_volumetric_flask_250ml','clear_volumetric_flask_250ml'].includes(o.object) ? o.ACT.formal_accepted : !o.ACT.formal_accepted)));
+  assert.equal(snapshot.methods_formally_accepted,3);
 });
 
 
@@ -532,8 +532,8 @@ test('Funnel ACT formal object24 result preserves all150 and never accepts DP',(
  assert.equal(p.visual_review.decoded_original_videos,450);assert.equal(p.visual_review.overview_original_frames,900);
  assert.equal(p.visual_review.every_video_frame_semantically_reviewed,false);
  assert.equal(p.threshold_or_geometry_predicate_relaxed,false);
- const t=render(copy()).container.textContent;assert.match(t,/2 \/ 42/);assert.match(t,/0 \/ 21/);assert.match(t,/42\.0%（物体，正式验收通过）/);
- const bad=copy();bad.methods_formally_accepted=3;assert.match(render(bad).container.textContent,/暂不显示通过数量/);
+ const t=render(copy()).container.textContent;assert.match(t,/3 \/ 42/);assert.match(t,/0 \/ 21/);assert.match(t,/42\.0%（物体，正式验收通过）/);
+ const bad=copy();bad.methods_formally_accepted=4;assert.match(render(bad).container.textContent,/暂不显示通过数量/);
 });
 
 
@@ -553,4 +553,55 @@ test('BrownV formal SSR resolves every eligible full trajectory without deleting
  assert.equal(proof.threshold_or_geometry_predicate_relaxed,false);
  assert.equal(proof.visual_review.decoded_original_videos,450);assert.equal(proof.visual_review.detail_original_frames,108);
  assert.equal(r.cases.length,12);assert.ok(r.cases.some(c=>c.success===false));
+});
+
+test('F250 formal150 resolves physics and original geometry without applying an episode-wide25N cap',()=>{
+ const object=snapshot.objects.find(o=>o.object==='clear_volumetric_flask_250ml');
+ const run=snapshot.runs.find(r=>r.job_id==='job-b8a1qg0h0wih');
+ const proof=JSON.parse(fs.readFileSync(path.join(root,run.result.evidence_url),'utf8'));
+ assert.equal(object.ACT.formal_accepted,true);assert.equal(object.DP.formal_accepted,false);
+ assert.equal(object.object_accepted,false);assert.equal(snapshot.methods_formally_accepted,3);
+ assert.equal(new Set(proof.joint_decisions.map(r=>`${r.evaluation_seed}:${r.evaluation_episode}`)).size,150);
+ assert.equal(proof.joint_decisions.filter(r=>r.Native_success).length,121);
+ const eligible=proof.joint_decisions.filter(r=>r.Native_success&&r.object24);
+ assert.equal(eligible.length,44);assert.ok(eligible.every(r=>r.full_geometry_resolved&&r.SSR));
+ assert.ok(proof.joint_decisions.every(r=>!r.SSR||(r.Native_success&&r.object24&&r.full_geometry_resolved)));
+ assert.deepEqual(proof.evaluation_seeds.map(r=>[r.evaluation_seed,r.n,r.confirmed_full_SSR]),[[26915401,50,16],[26915402,50,18],[26915403,50,10]]);
+ assert.equal(proof.normal_contact_policy.threshold_N,25);assert.equal(proof.normal_contact_policy.user_confirmed,true);
+ assert.match(proof.normal_contact_policy.force_clock,/First visual intersection/);
+ assert.equal(proof.physics.length,44);
+ assert.ok(proof.physics.every(r=>r.maximum_reported_penetration_m<=.001));
+ assert.ok(proof.physics.every(r=>r.first_visual_pair_resultant_force_N===null||r.first_visual_pair_resultant_force_N<=25));
+ assert.ok(proof.physics.some(r=>r.whole_episode_HAND_TARGET_NET_peak_N>25));
+ assert.equal(proof.whole_episode_force_peaks_supplementary,true);
+ assert.equal(proof.original_strict_visual_results_retained,true);
+ assert.equal(proof.original_scores_not_replaced_by_replay,true);
+ assert.equal(proof.replay_bitwise_equivalence_not_claimed,true);
+ assert.equal(run.cases.length,15);assert.ok(run.cases.some(r=>!r.success));
+ assert.ok(run.cases.some(r=>r.success&&!r.terminal_translation_passed));
+ assert.match(render(copy()).container.textContent,/29\.3%（物体，正式验收通过）/);
+});
+
+test('the model metric card shows measured SSR only for a completed accepted object-metric run',()=>{
+ const script=fs.readFileSync(path.join(root,'grasp.js'),'utf8');
+ const current=JSON.parse(fs.readFileSync(path.join(root,'results/grasp_acceptance_current.json'),'utf8'));
+ const accepted=snapshot.runs.find(r=>r.job_id==='job-b8a1qg0h0wih');
+ for(const formalAccepted of [true,false]){
+  const run=JSON.parse(JSON.stringify(accepted));run.formal_accepted=formalAccepted;
+  const nodes=new Map(),element=()=>({innerHTML:'',textContent:'',value:'',hidden:false,
+   classList:{toggle(){}},setAttribute(){},querySelectorAll(){return [];},scrollIntoView(){}});
+  const node=id=>{if(!nodes.has(id))nodes.set(id,element());return nodes.get(id);};
+  const context={URL,URLSearchParams,fixtureCurrent:current,fixtureRuns:[run],
+   location:{href:'https://asimfish.github.io/psibot-dashboard/grasp.html'},
+   window:{addEventListener(){}},document:{getElementById:node}};
+  vm.runInNewContext(script.slice(0,script.indexOf('async function start()'))+
+   `;current=fixtureCurrent;allObjects=current.objects;allRuns=fixtureRuns;objectId='clear_volumetric_flask_250ml';method='ACT';runId='${run.candidate}';render();`,context);
+  if(formalAccepted){
+   assert.match(node('runDetails').innerHTML,/实测 Spatial SSR<strong>29\.3%/);
+   assert.match(node('runDetails').innerHTML,/44 \/ 150 集 · 论文目标 24%/);
+  }else{
+   assert.doesNotMatch(node('runDetails').innerHTML,/实测 Spatial SSR/);
+   assert.match(node('runDetails').innerHTML,/论文 Spatial SSR<strong>24(?:\.0)?%/);
+  }
+ }
 });
