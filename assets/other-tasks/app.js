@@ -71,3 +71,35 @@ function render(data,archived){if(!data||data.schema_version!==1||!Array.isArray
 async function fetchStatus(url){const controller=new AbortController(),t=setTimeout(()=>controller.abort(),12000);try{const r=await fetch(url+(url.includes('?')?'&':'?')+'t='+Date.now(),{cache:'no-store',signal:controller.signal});if(!r.ok)throw new Error('unavailable');return await r.json();}finally{clearTimeout(t);}}
 async function refresh(){try{render(await fetchStatus(live),false);}catch{try{render(await fetchStatus('results/other_tasks_current.json'),true);}catch{$('load-error').hidden=false;$('load-error').textContent='进度暂不可读取；保留已显示的快照，请稍后刷新。';$('freshness').textContent='读取失败 · 当前状态未知';}}}
 for(const id of['task-filter','robot-filter'])$(id).addEventListener('change',renderRows);$('search').addEventListener('input',renderRows);refresh();setInterval(refresh,60000);
+
+
+// T-537: read-only camera/duration audit; original acceptance data stays separate.
+async function renderViewDurationAudit(){
+ const section=node('section');section.id='view-duration-audit';section.className='panel';
+ section.append(node('h2','视角与时长核对 · 2026-11-14'));
+ (document.querySelector('main')||document.body).append(section);
+ const prefix='https://raw.githubusercontent.com/asimfish/psibot-dashboard/feature/t-537-other-task-acceptance/audits/view-duration-nov14/';
+ try{
+  const r=await fetch(prefix+'audit_public.json',{cache:'no-store'});if(!r.ok)throw new Error('unavailable');const d=await r.json();
+  if(d.schema_version!==1||!Array.isArray(d.accepted_rows)||!Array.isArray(d.figures))throw new Error('invalid');
+  section.append(node('p',d.acceptance_note));
+  const wrap=node('div',null,'table-wrap'),table=node('table'),head=node('tr');
+  for(const label of['已验收项目','本体','实际策略输入','原图 → 策略','示范首末跨度：中位 / 最短 / 最长','评测时限'])head.append(node('th',label));
+  const thead=node('thead');thead.append(head);table.append(thead);const tbody=node('tbody');
+  for(const row of d.accepted_rows){
+   const tr=node('tr'),t=row.training_duration;
+   for(const value of[row.object+' '+row.method,row.robot,row.cameras.join(' / ')+(row.wrist_camera?'':'（无腕部）'),'640×480 → 224×224',[t.median_s,t.min_s,t.max_s].map(v=>Number(v).toFixed(3)).join(' / ')+' 秒',row.evaluation_limit_s+' 秒'])tr.append(node('td',value));
+   tbody.append(tr);
+  }
+  table.append(tbody);wrap.append(table);section.append(wrap);
+  section.append(node('p','Press：每相机45个已人工核查的事件样本，整机完整0/45、按钮交互可辨0/45。不是全100条示范全程无遮挡率。旧RGB实际7.5Hz；新采集按30Hz。'));
+  const findings=node('ul');for(const text of d.findings)findings.append(node('li',text));section.append(findings);
+  for(const item of d.figures){
+   if(typeof item.url!=='string'||!item.url.startsWith(prefix)||!/^https:\/\//.test(item.url))continue;
+   const figure=node('figure'),image=node('img');image.src=item.url;image.alt=item.task+' 实际示范相机对照';image.loading='lazy';image.decoding='async';image.style.maxWidth='100%';image.style.height='auto';
+   figure.append(node('h3',item.task),image,node('figcaption',item.caption));section.append(figure);
+  }
+  const details=node('details');details.append(node('summary','核对范围与尚未证明的部分'));const list=node('ul');for(const text of d.not_proven||[])list.append(node('li',text));details.append(list);section.append(details);
+ }catch{section.append(node('p','审计图表暂不可读，原验收与训练状态不变。'));}
+}
+renderViewDurationAudit();
