@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "updated_utc": "2026-11-14T18:27:24.937056+00:00",
+  "accepted_methods": 3,
+  "paired_objects": 0,
+  "accepted_rows": [
+    {
+      "object": "漏斗",
+      "id": "Funnel",
+      "method": "ACT",
+      "robot": "PsiBot · arm2 / hand2（aoyi 6关节）",
+      "cameras": [
+        "chest_camera",
+        "head_camera",
+        "third_camera"
+      ],
+      "native_resolution": [
+        640,
+        480
+      ],
+      "policy_resolution": null,
+      "policy_resolution_note": "旧验收模型的实际输入张量尺寸仍待绑定确认；当前训练解码链为224×224，不能直接替代旧模型证据",
+      "duration_s": {
+        "min": 23.966666666666665,
+        "median": 23.966666666666665,
+        "max": 24.0
+      },
+      "duration_definition": "每条示范记录帧数 / 30Hz",
+      "expert_motion_s": 6.0,
+      "eval_timeout_s": 24,
+      "source_episodes": 100,
+      "RGB_Hz": 30,
+      "all_frame_full_visibility_fraction": null,
+      "sampled_episode_count": 1,
+      "samples_per_camera": 3,
+      "sample_times": "首帧 / 配置抓取结束 / 末帧",
+      "sampled_fully_in_frame": {
+        "chest_camera": 2,
+        "head_camera": 3,
+        "third_camera": 3
+      },
+      "sampled_completely_unoccluded": {
+        "chest_camera": 1,
+        "head_camera": 1,
+        "third_camera": 1
+      },
+      "manual_review": "抬升后胸前相机目标离开画面；头部相机抽查目标在画面内，抓取时有手部正常遮挡。第三相机目标较小、仍在画面内；抓取时手遮住部分目标。",
+      "image": "images/Funnel_training_views.jpg",
+      "acceptance_unchanged": true
+    },
+    {
+      "object": "棕色容量瓶 250ml",
+      "id": "BrownV",
+      "method": "ACT",
+      "robot": "PsiBot · arm2 / hand2（aoyi 6关节）",
+      "cameras": [
+        "chest_camera",
+        "head_camera",
+        "third_camera"
+      ],
+      "native_resolution": [
+        640,
+        480
+      ],
+      "policy_resolution": null,
+      "policy_resolution_note": "旧验收模型的实际输入张量尺寸仍待绑定确认；当前训练解码链为224×224，不能直接替代旧模型证据",
+      "duration_s": {
+        "min": 23.966666666666665,
+        "median": 23.966666666666665,
+        "max": 24.0
+      },
+      "duration_definition": "每条示范记录帧数 / 30Hz",
+      "expert_motion_s": 6.0,
+      "eval_timeout_s": 24,
+      "source_episodes": 100,
+      "RGB_Hz": 30,
+      "all_frame_full_visibility_fraction": null,
+      "sampled_episode_count": 1,
+      "samples_per_camera": 3,
+      "sample_times": "首帧 / 配置抓取结束 / 末帧",
+      "sampled_fully_in_frame": {
+        "chest_camera": 2,
+        "head_camera": 2,
+        "third_camera": 3
+      },
+      "sampled_completely_unoccluded": {
+        "chest_camera": 1,
+        "head_camera": 1,
+        "third_camera": 1
+      },
+      "manual_review": "抬升后胸前相机目标离开画面；头部相机末帧瓶颈超出上边界，且有手部遮挡。第三相机目标较小、仍在画面内；抓取时手遮住部分目标。",
+      "image": "images/BrownV_training_views.jpg",
+      "acceptance_unchanged": true
+    },
+    {
+      "object": "透明容量瓶 250ml",
+      "id": "F250",
+      "method": "ACT",
+      "robot": "PsiBot · arm2 / hand2（aoyi 6关节）",
+      "cameras": [
+        "chest_camera",
+        "head_camera",
+        "third_camera"
+      ],
+      "native_resolution": [
+        640,
+        480
+      ],
+      "policy_resolution": null,
+      "policy_resolution_note": "旧验收模型的实际输入张量尺寸仍待绑定确认；当前训练解码链为224×224，不能直接替代旧模型证据",
+      "duration_s": {
+        "min": 23.966666666666665,
+        "median": 23.966666666666665,
+        "max": 24.0
+      },
+      "duration_definition": "每条示范记录帧数 / 30Hz",
+      "expert_motion_s": 8.0,
+      "eval_timeout_s": 24,
+      "source_episodes": 100,
+      "RGB_Hz": 30,
+      "all_frame_full_visibility_fraction": null,
+      "sampled_episode_count": 1,
+      "samples_per_camera": 3,
+      "sample_times": "首帧 / 配置抓取结束 / 末帧",
+      "sampled_fully_in_frame": {
+        "chest_camera": 2,
+        "head_camera": 2,
+        "third_camera": 3
+      },
+      "sampled_completely_unoccluded": {
+        "chest_camera": 1,
+        "head_camera": 1,
+        "third_camera": 1
+      },
+      "manual_review": "抬升后胸前相机目标离开画面；头部相机末帧瓶颈超出上边界，且有手部遮挡。第三相机目标较小、仍在画面内；抓取时手遮住部分目标。",
+      "image": "images/F250_training_views.jpg",
+      "acceptance_unchanged": true
+    }
+  ],
+  "acceptance_note": "本表核对原已验收 ACT 模型使用的原始训练源；不更换模型、不重采、不重训，也不增加验收数。3项旧视角均有需向用户说明的问题，重验决定待用户看表后确定。",
+  "scope_note": "每个源100条示范的时长已全量读取。图像及可见性只人工核对每个物体1条示范的3个时刻，不能作为100条全程完整可见率。",
+  "all_frame_visibility_complete": false,
+  "paths_redacted": true
+}
