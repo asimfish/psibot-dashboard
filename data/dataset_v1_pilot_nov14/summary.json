@@ -1,0 +1,69 @@
+{
+  "version": "v1-pilot",
+  "updated_utc": "2026-11-14",
+  "task": "Press the centrifuge button",
+  "robot": "PsiBot",
+  "sample_count": 2,
+  "production_authorized": false,
+  "force_contract": "max_hand_link_target_pair_force_l2_per_physics_step_episode_max",
+  "force_threshold_N": 50,
+  "RGB_Hz": 29.999998435378156,
+  "state_Hz": 29.999998435378156,
+  "physics_force_Hz": 120,
+  "cameras": [
+    "head_rgb",
+    "wrist_rgb",
+    "side_rgb"
+  ],
+  "scene": {
+    "closed_room_m": [
+      3,
+      3,
+      2.8
+    ],
+    "centrifuge_tilt_deg": 0,
+    "lid": "closed",
+    "rotor_visibility": "occluded by closed lid"
+  },
+  "episodes": [
+    {
+      "episode_s": 5.941666976548731,
+      "F_peak_N": 5.412983749801128,
+      "clock_120Hz": true,
+      "control_and_RGB_timestamp_30Hz": true,
+      "states_finite": true,
+      "sample": 1,
+      "native_success": true,
+      "force_limit_N": 50,
+      "formal_acceptance": false
+    },
+    {
+      "episode_s": 5.941666976548731,
+      "F_peak_N": 6.331591547031903,
+      "clock_120Hz": true,
+      "control_and_RGB_timestamp_30Hz": true,
+      "states_finite": true,
+      "sample": 2,
+      "native_success": true,
+      "force_limit_N": 50,
+      "formal_acceptance": false
+    }
+  ],
+  "renderer": {
+    "maximum_N1_N16_pixel_difference_8bit": 136,
+    "maximum_neighbor_light_pixel_difference_8bit": 134,
+    "pixel_requirement_8bit": 1,
+    "pixel_requirement_pass": false,
+    "N16_FPS_ratios": [
+      0.9870891096347556,
+      0.7924194278756631
+    ]
+  },
+  "pending": [
+    "N16 raw-pixel consistency",
+    "full collision acceptance policy",
+    "new evaluator integration and same-tick policy RGB comparison",
+    "user visual approval"
+  ],
+  "formal_accepted": 0
+}
