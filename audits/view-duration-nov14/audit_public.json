@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "at": 1794657503.183383,
+  "title": "剩余任务：视角与时长审计",
+  "acceptance_note": "用户已批准重采重训：新设置已验收0项；旧视角Press ACT/DP共2项待新设置重验，原指标与证据保留。",
+  "accepted_rows": [
+    {
+      "identity": "psibot/press/high_speed_centrifuge",
+      "object": "离心机按钮",
+      "robot": "PsiBot",
+      "method": "ACT",
+      "cameras": [
+        "head_camera",
+        "chest_camera",
+        "third_camera"
+      ],
+      "original_resolution_hw": [
+        480,
+        640
+      ],
+      "policy_resolution_hw": [
+        224,
+        224
+      ],
+      "wrist_camera": false,
+      "demonstrations": 100,
+      "training_duration": {
+        "median_s": 36.80000191926956,
+        "min_s": 36.80000191926956,
+        "max_s": 36.93333525955677,
+        "definition": "first-to-last recorded RGB observation span; not full reset+terminal wall time",
+        "evidence_status": "100actualHDFfirst/lasttimestampsreadback"
+      },
+      "evaluation_limit_s": 40.0,
+      "evaluation_time_evidence": "frozenclock16,120Hz,300targets;sourceEPISODE_SECONDS=40;execution4targets/query",
+      "actual_training_RGB_Hz": 7.5,
+      "registered_acceptance_unchanged": true,
+      "view_status": "视角有问题；原登记保留，待用户决定新场景重采重验",
+      "visibility": [
+        {
+          "camera": "head_camera",
+          "sampled_frames": 45,
+          "full_apparatus_visible": 0,
+          "button_contact_readable": 0,
+          "percent": 0.0,
+          "scope": "5sourceepisodes x9contact-eventframes;notfull100episoderate",
+          "whole_dataset_unoccluded_rate": null
+        },
+        {
+          "camera": "chest_camera",
+          "sampled_frames": 45,
+          "full_apparatus_visible": 0,
+          "button_contact_readable": 0,
+          "percent": 0.0,
+          "scope": "5sourceepisodes x9contact-eventframes;notfull100episoderate",
+          "whole_dataset_unoccluded_rate": null
+        },
+        {
+          "camera": "third_camera",
+          "sampled_frames": 45,
+          "full_apparatus_visible": 0,
+          "button_contact_readable": 0,
+          "percent": 0.0,
+          "scope": "5sourceepisodes x9contact-eventframes;notfull100episoderate",
+          "whole_dataset_unoccluded_rate": null
+        }
+      ],
+      "status": "旧视角结果，待新设置重验"
+    },
+    {
+      "identity": "psibot/press/high_speed_centrifuge",
+      "object": "离心机按钮",
+      "robot": "PsiBot",
+      "method": "DP",
+      "cameras": [
+        "head_camera",
+        "chest_camera",
+        "third_camera"
+      ],
+      "original_resolution_hw": [
+        480,
+        640
+      ],
+      "policy_resolution_hw": [
+        224,
+        224
+      ],
+      "wrist_camera": false,
+      "demonstrations": 100,
+      "training_duration": {
+        "median_s": 36.80000191926956,
+        "min_s": 36.80000191926956,
+        "max_s": 36.93333525955677,
+        "definition": "first-to-last recorded RGB observation span; not full reset+terminal wall time",
+        "evidence_status": "100actualHDFfirst/lasttimestampsreadback"
+      },
+      "evaluation_limit_s": 40.0,
+      "evaluation_time_evidence": "frozenclock16,120Hz,300targets;sourceEPISODE_SECONDS=40;execution4targets/query",
+      "actual_training_RGB_Hz": 7.5,
+      "registered_acceptance_unchanged": true,
+      "view_status": "视角有问题；原登记保留，待用户决定新场景重采重验",
+      "visibility": [
+        {
+          "camera": "head_camera",
+          "sampled_frames": 45,
+          "full_apparatus_visible": 0,
+          "button_contact_readable": 0,
+          "percent": 0.0,
+          "scope": "5sourceepisodes x9contact-eventframes;notfull100episoderate",
+          "whole_dataset_unoccluded_rate": null
+        },
+        {
+          "camera": "chest_camera",
+          "sampled_frames": 45,
+          "full_apparatus_visible": 0,
+          "button_contact_readable": 0,
+          "percent": 0.0,
+          "scope": "5sourceepisodes x9contact-eventframes;notfull100episoderate",
+          "whole_dataset_unoccluded_rate": null
+        },
+        {
+          "camera": "third_camera",
+          "sampled_frames": 45,
+          "full_apparatus_visible": 0,
+          "button_contact_readable": 0,
+          "percent": 0.0,
+          "scope": "5sourceepisodes x9contact-eventframes;notfull100episoderate",
+          "whole_dataset_unoccluded_rate": null
+        }
+      ],
+      "status": "旧视角结果，待新设置重验"
+    }
+  ],
+  "figures": [
+    {
+      "task": "Press",
+      "url": "https://raw.githubusercontent.com/asimfish/psibot-dashboard/feature/t-537-other-task-acceptance/audits/view-duration-nov14/press.webp",
+      "caption": "正式100条中的源示范135：首帧、真实按压峰值事件、末帧；640×480原始RGB。ACT和DP均用这三个视角缩放到224×224。"
+    },
+    {
+      "task": "Cabinet",
+      "url": "https://raw.githubusercontent.com/asimfish/psibot-dashboard/feature/t-537-other-task-acceptance/audits/view-duration-nov14/cabinet.webp",
+      "caption": "当前Raw16原始回放：首帧、抓握指令阶段、末帧。抓握阶段不是独立接触证明。"
+    },
+    {
+      "task": "Cabinet旧训练对照",
+      "url": "https://raw.githubusercontent.com/asimfish/psibot-dashboard/feature/t-537-other-task-acceptance/audits/view-duration-nov14/cabinetlegacy.webp",
+      "caption": "FR3旧训练图像：首帧、抓握指令阶段、末帧。含历史图像预处理，不冒充Raw16。"
+    },
+    {
+      "task": "Handover",
+      "url": "https://raw.githubusercontent.com/asimfish/psibot-dashboard/feature/t-537-other-task-acceptance/audits/view-duration-nov14/handover.webp",
+      "caption": "PsiBot旧示范0：首帧、接收手抓握指令阶段、源示范末帧。画面原样保留，未改相机。"
+    },
+    {
+      "task": "Stack100",
+      "url": "https://raw.githubusercontent.com/asimfish/psibot-dashboard/feature/t-537-other-task-acceptance/audits/view-duration-nov14/stack100.webp",
+      "caption": "PsiBot真实训练VDS：首帧、抓握指令阶段、训练末帧。不是其他任务图片。"
+    }
+  ],
+  "findings": [
+    "两项Press实际本体均为PsiBot，非FR3；均使用head/chest/third全部三路，没有腕部相机。",
+    "Press头部/胸前在边界裁切设备，第三视角机壳遮挡交互；135个已人工核查事件子帧中，每相机整机完整及按钮可辨均0/45。不可把该样本比例冒充全100条全帧比例。",
+    "旧Press实际记录7.5Hz，单条首末观测跨度约36.8秒；已直接核对source135时间戳36.9333秒。新数据30Hz是新版本要求，不能把旧文件标成30Hz。",
+    "Handover旧示范的操作阶段，胸前相机中容器被上边界裁切，头部被双手遮挡。",
+    "Stack100抓握阶段源杯靠头部画面右边缘；第三视角目标很小。源杯与目标位姿的全量可见率仍需绑定后计算。",
+    "FR3开柜三路是历史接口名，不代表已有腕部视角。Raw100扩量及未提交的旧视角训练恢复暂缓；已受理或运行的作业未取消。"
+  ],
+  "not_proven": [
+    "完整无挡的全100示范逐帧比例尚未计算，不以在画面内或重投影代替无遮挡。",
+    "画面倾斜感不能单独证明设备物理基座倾斜；需结合基座平面与重力方向核对。",
+    "非Press的抓握锚点按动作指令选取，不是传感器已证明的接触时刻。"
+  ],
+  "next_scene": {
+    "roles": [
+      "head",
+      "wrist",
+      "side"
+    ],
+    "raw_RGB_Hz": 30,
+    "physics_Hz": 120,
+    "physics_steps_per_sample": 4,
+    "press_expert_target_s": 6,
+    "cabinet_expert_target_s": [
+      6,
+      10
+    ],
+    "evaluation_horizon": "newversionparameter;requiresconfirmedprotocol",
+    "old_normalizer_finetune": "retainparentnormalizer;freshtrainingfittrainfoldonly"
+  },
+  "needs_user_decision": [
+    "是否按新场景对Press两项重采重训重验；原登记当前保持。",
+    "新Press正式评测时限：建议30Hz、300目标=10秒，专家示范≤6秒；不自行把旧40秒结果改写。"
+  ],
+  "web_preview": "WebP preview; original lossless PNG and source records retained in handoff",
+  "new_setting_accepted_method_items": 0,
+  "old_view_pending_revalidation_method_items": 2
+}
