@@ -1,6 +1,6 @@
 {
   "version": "v1-pilot",
-  "updated_utc": "2026-11-14",
+  "updated_utc": "2026-11-15",
   "task": "Press the centrifuge button",
   "robot": "PsiBot",
   "sample_count": 2,
@@ -52,18 +52,142 @@
   "renderer": {
     "maximum_N1_N16_pixel_difference_8bit": 136,
     "maximum_neighbor_light_pixel_difference_8bit": 134,
-    "pixel_requirement_8bit": 1,
-    "pixel_requirement_pass": false,
     "N16_FPS_ratios": [
       0.9870891096347556,
       0.7924194278756631
-    ]
+    ],
+    "maximum_difference_is_descriptive_only": true,
+    "criterion": "Control p99.9 and mean absolute RGB-channel differences <=2x matched N1repeat noise floor",
+    "criterion_authority": "Coordinator2026-11-14 20:30UTC",
+    "noise_floor_scope": "same-process same-seed N1repeat",
+    "noise_comparisons": [
+      {
+        "camera": "head_rgb",
+        "comparison": "N1_N16",
+        "N1_noise_floor": {
+          "max_LSB": 66,
+          "p99_9_channel_LSB": 8.0,
+          "mean_channel_LSB": 0.19058051215277777,
+          "p99_9_pixel_max_LSB": 8.0
+        },
+        "control": {
+          "max_LSB": 104,
+          "p99_9_channel_LSB": 13.0,
+          "mean_channel_LSB": 0.31857855902777776,
+          "p99_9_pixel_max_LSB": 14.0
+        },
+        "passes_coordinator_two_times_noise_floor": true
+      },
+      {
+        "camera": "head_rgb",
+        "comparison": "neighbor_lights",
+        "N1_noise_floor": {
+          "max_LSB": 66,
+          "p99_9_channel_LSB": 8.0,
+          "mean_channel_LSB": 0.19058051215277777,
+          "p99_9_pixel_max_LSB": 8.0
+        },
+        "control": {
+          "max_LSB": 80,
+          "p99_9_channel_LSB": 10.0,
+          "mean_channel_LSB": 0.2684505208333333,
+          "p99_9_pixel_max_LSB": 11.0
+        },
+        "passes_coordinator_two_times_noise_floor": true
+      },
+      {
+        "camera": "wrist_rgb",
+        "comparison": "N1_N16",
+        "N1_noise_floor": {
+          "max_LSB": 48,
+          "p99_9_channel_LSB": 8.0,
+          "mean_channel_LSB": 0.22648980034722221,
+          "p99_9_pixel_max_LSB": 8.0
+        },
+        "control": {
+          "max_LSB": 136,
+          "p99_9_channel_LSB": 74.0,
+          "mean_channel_LSB": 2.456118706597222,
+          "p99_9_pixel_max_LSB": 78.0
+        },
+        "passes_coordinator_two_times_noise_floor": false
+      },
+      {
+        "camera": "wrist_rgb",
+        "comparison": "neighbor_lights",
+        "N1_noise_floor": {
+          "max_LSB": 48,
+          "p99_9_channel_LSB": 8.0,
+          "mean_channel_LSB": 0.22648980034722221,
+          "p99_9_pixel_max_LSB": 8.0
+        },
+        "control": {
+          "max_LSB": 64,
+          "p99_9_channel_LSB": 23.0,
+          "mean_channel_LSB": 0.8716373697916666,
+          "p99_9_pixel_max_LSB": 24.0
+        },
+        "passes_coordinator_two_times_noise_floor": false
+      },
+      {
+        "camera": "side_rgb",
+        "comparison": "N1_N16",
+        "N1_noise_floor": {
+          "max_LSB": 55,
+          "p99_9_channel_LSB": 7.0,
+          "mean_channel_LSB": 0.21741861979166666,
+          "p99_9_pixel_max_LSB": 8.0
+        },
+        "control": {
+          "max_LSB": 116,
+          "p99_9_channel_LSB": 56.0,
+          "mean_channel_LSB": 1.9611740451388888,
+          "p99_9_pixel_max_LSB": 59.0
+        },
+        "passes_coordinator_two_times_noise_floor": false
+      },
+      {
+        "camera": "side_rgb",
+        "comparison": "neighbor_lights",
+        "N1_noise_floor": {
+          "max_LSB": 55,
+          "p99_9_channel_LSB": 7.0,
+          "mean_channel_LSB": 0.21741861979166666,
+          "p99_9_pixel_max_LSB": 8.0
+        },
+        "control": {
+          "max_LSB": 104,
+          "p99_9_channel_LSB": 47.0,
+          "mean_channel_LSB": 1.0824153645833334,
+          "p99_9_pixel_max_LSB": 49.0
+        },
+        "passes_coordinator_two_times_noise_floor": false
+      }
+    ],
+    "all_views_pass": false,
+    "original_capture_cross_process_repeat_controls_pass": false,
+    "FPS_cause": "New N16 runs12.43/12.76FPS; old reference12.59/16.10FPS. Per-camera timings unavailable; causal bottleneck not established."
   },
   "pending": [
-    "N16 raw-pixel consistency",
+    "8distinct-condition controller stability",
+    "N16noise-floor consistency in wrist and side views",
+    "rendering speed within10percent of reference",
     "full collision acceptance policy",
     "new evaluator integration and same-tick policy RGB comparison",
     "user visual approval"
   ],
-  "formal_accepted": 0
+  "formal_accepted": 0,
+  "stability_validation": {
+    "status": "PENDING_EIGHT_DISTINCT_INITIAL_CONDITIONS",
+    "planned": 8,
+    "completed": 0,
+    "controller_and_scene_frozen": true,
+    "earlier_prototype_peak_N": [
+      63.8233309,
+      241.5623063,
+      24.6663486,
+      197.9944319
+    ],
+    "earlier_failures_are_not_current_control_stability_results": true
+  }
 }
