@@ -1,3 +1,3 @@
 Refs: T-1292
 
-Only two current-control safe samples are shown. Earlier prototypes exceeded50N. Eight distinct-condition validation is pending; no configuration freeze for production, mass collection or formal acceptance. Renderer criterion now compares p99.9/mean against2x N1repeat noise; head passes in the later diagnostic, wrist/side do not. Original two matched controls also do not pass. Historical media and400-row data remain unchanged.
+Eight distinct-condition episodes passed task success,50N,finite state,30HzRGB/state and120Hzforce checks. Force5.58–15.32N, duration5.942s. Configuration is frozen for independent single-environment processes only. N16wrist/side noise comparisons and oneFPSreference remain unresolved; fullcollision/evaluator/user approval remain pending. No100production, dataset acceptance or HFchange. Original two videos remain the view/speed previews.
