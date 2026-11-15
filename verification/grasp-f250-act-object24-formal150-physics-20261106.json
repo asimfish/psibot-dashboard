@@ -45,7 +45,7 @@
       "SSR_confirmed_lower_bound_percent": 20.0
     }
   ],
-  "primary_metric": "Object24<=20mm at actual24s;settledinitial+[0,0,lift_height];defer=True",
+  "primary_metric": "Spatial SSR: only object position residual to settled initial xyz+[0,0,lift_height] <=20mm at actual24s termination. Native SR is separate; force and geometry remain independent diagnostics.",
   "EEF_terminal20": 33,
   "normal_contact_policy": {
     "schema": "grasp.F250.first_visual_contact.force_policy.v1",
@@ -65,7 +65,8 @@
     "force_missing_or_visual_crossing_not_reproduced": "UNKNOWN, no exemption",
     "Native_calls": 0,
     "GPU_calls": 0,
-    "API_calls": 0
+    "API_calls": 0,
+    "used_in_Spatial_SSR_after_user20261108": false
   },
   "physics": [
     {
@@ -3258,5 +3259,86 @@
   "pending_creation_reserved_GPUs": 0,
   "Native_calls": 0,
   "GPU_calls": 0,
-  "API_calls": 0
+  "API_calls": 0,
+  "formal_method_accepted": true,
+  "SSR_successes": 44,
+  "SpatialSSR": 29.333333333333332,
+  "SR": 80.66666666666666,
+  "by_evaluation_seed": [
+    {
+      "evaluation_seed": 26915401,
+      "n": 50,
+      "Native": 43,
+      "object24": 16,
+      "confirmed_full_SSR": 16,
+      "SR_percent": 86.0,
+      "SSR_confirmed_lower_bound_percent": 32.0,
+      "SSR_successes": 16,
+      "SSR_percent": 32.0
+    },
+    {
+      "evaluation_seed": 26915402,
+      "n": 50,
+      "Native": 41,
+      "object24": 18,
+      "confirmed_full_SSR": 18,
+      "SR_percent": 82.0,
+      "SSR_confirmed_lower_bound_percent": 36.0,
+      "SSR_successes": 18,
+      "SSR_percent": 36.0
+    },
+    {
+      "evaluation_seed": 26915403,
+      "n": 50,
+      "Native": 37,
+      "object24": 10,
+      "confirmed_full_SSR": 10,
+      "SR_percent": 74.0,
+      "SSR_confirmed_lower_bound_percent": 20.0,
+      "SSR_successes": 10,
+      "SSR_percent": 20.0
+    }
+  ],
+  "legacy_strict_metric_before_user_20261108": {
+    "primary_metric": "Object24<=20mm at actual24s;settledinitial+[0,0,lift_height];defer=True",
+    "SSR_successes": 44,
+    "SpatialSSR": 29.333333333333332,
+    "by_evaluation_seed": [
+      {
+        "evaluation_seed": 26915401,
+        "n": 50,
+        "Native": 43,
+        "object24": 16,
+        "confirmed_full_SSR": 16,
+        "SR_percent": 86.0,
+        "SSR_confirmed_lower_bound_percent": 32.0
+      },
+      {
+        "evaluation_seed": 26915402,
+        "n": 50,
+        "Native": 41,
+        "object24": 18,
+        "confirmed_full_SSR": 18,
+        "SR_percent": 82.0,
+        "SSR_confirmed_lower_bound_percent": 36.0
+      },
+      {
+        "evaluation_seed": 26915403,
+        "n": 50,
+        "Native": 37,
+        "object24": 10,
+        "confirmed_full_SSR": 10,
+        "SR_percent": 74.0,
+        "SSR_confirmed_lower_bound_percent": 20.0
+      }
+    ]
+  },
+  "metric_updated_utc": "2026-11-15T11:00:15.529246+00:00",
+  "user_metric_decision": "User2026-11-08: SSR by domain; grasp Spatial is object position only. Coordinator2026-11-14 authorizes registered numeric correction.",
+  "metric_domain": "Spatial",
+  "collision_and_force_used_in_SSR": false,
+  "Native_used_in_SSR": false,
+  "denominator": 150,
+  "evaluation_data_and_checkpoint_unchanged": true,
+  "acceptance_status_unchanged": true
 }

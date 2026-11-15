@@ -14,16 +14,16 @@
   ],
   "episodes_per_seed": 50,
   "source_and_test_GPU": "Zenith Pro6000",
-  "primary_metric": "Native success AND object residual to settled initial xyz+[0,0,lift_height]<=20mm at actual24s termination AND zero full-episode nonadjacent authored-surface crossings",
+  "primary_metric": "Spatial SSR: only object position residual to settled initial xyz+[0,0,lift_height] <=20mm at actual24s termination. Native SR is separate; force and geometry remain independent diagnostics.",
   "duration_s": 24,
   "defer_success_done_until_timeout": true,
   "threshold_mm": 20,
-  "user_metric_decision": "用户 2026-11-04 决定",
+  "user_metric_decision": "User2026-11-08: SSR by domain; grasp Spatial is object position only. Coordinator2026-11-14 authorizes registered numeric correction.",
   "Native_successes": 128,
   "SR": 85.33333333333334,
   "object24_only": 43,
-  "SSR_successes": 41,
-  "SpatialSSR": 27.333333333333332,
+  "SSR_successes": 43,
+  "SpatialSSR": 28.666666666666668,
   "by_evaluation_seed": [
     {
       "evaluation_seed": 26909801,
@@ -31,9 +31,9 @@
       "Native_successes": 43,
       "object24": 19,
       "EEF24": 18,
-      "SSR_successes": 18,
+      "SSR_successes": 19,
       "SR_percent": 86,
-      "SSR_percent": 36
+      "SSR_percent": 38.0
     },
     {
       "evaluation_seed": 26909802,
@@ -41,9 +41,9 @@
       "Native_successes": 41,
       "object24": 9,
       "EEF24": 9,
-      "SSR_successes": 8,
+      "SSR_successes": 9,
       "SR_percent": 82,
-      "SSR_percent": 16
+      "SSR_percent": 18.0
     },
     {
       "evaluation_seed": 26909803,
@@ -53,11 +53,11 @@
       "EEF24": 12,
       "SSR_successes": 15,
       "SR_percent": 88,
-      "SSR_percent": 30
+      "SSR_percent": 30.0
     }
   ],
   "SR_seed_SD": 3.0550504633038935,
-  "SSR_seed_SD": 10.263202878893768,
+  "SSR_seed_SD": 10.066445913694333,
   "paper_SR": 65,
   "paper_SpatialSSR": 25,
   "all_position_eligible_episodes_full_geometry_resolved": 43,
@@ -75,42 +75,48 @@
       "n": 39,
       "Native": 38,
       "object24": 13,
-      "SSR": 13
+      "SSR": 13,
+      "legacy_strict_SSR_successes": 13
     },
     {
       "outside_collection_box": false,
       "n": 81,
       "Native": 81,
       "object24": 25,
-      "SSR": 23
+      "SSR": 25,
+      "legacy_strict_SSR_successes": 23
     },
     {
       "outside_collection_box": true,
       "n": 69,
       "Native": 47,
       "object24": 18,
-      "SSR": 18
+      "SSR": 18,
+      "legacy_strict_SSR_successes": 18
     },
     {
       "extra_cm": 2,
       "n": 36,
       "Native": 29,
       "object24": 10,
-      "SSR": 10
+      "SSR": 10,
+      "legacy_strict_SSR_successes": 10
     },
     {
       "extra_cm": 0,
       "n": 39,
       "Native": 39,
       "object24": 16,
-      "SSR": 15
+      "SSR": 16,
+      "legacy_strict_SSR_successes": 15
     },
     {
       "extra_cm": 3,
       "n": 36,
       "Native": 22,
       "object24": 4,
-      "SSR": 3
+      "SSR": 4,
+      "legacy_strict_SSR_successes": 3
     }
   ],
   "visual_review": {
@@ -167,5 +173,94 @@
   "source_geometry_scope": "Original qualified development source hand/self/target and hand-table; source target-table not certified by that older gate. Formal rollout full-scene safety is checked independently.",
   "other_GPU_line_results_used": false,
   "formal_failures_or_support_intersections_removed_from_denominator": false,
-  "threshold_or_geometry_predicate_relaxed": false
+  "threshold_or_geometry_predicate_relaxed": false,
+  "legacy_strict_metric_before_user_20261108": {
+    "primary_metric": "Native success AND object residual to settled initial xyz+[0,0,lift_height]<=20mm at actual24s termination AND zero full-episode nonadjacent authored-surface crossings",
+    "SSR_successes": 41,
+    "SpatialSSR": 27.333333333333332,
+    "by_evaluation_seed": [
+      {
+        "evaluation_seed": 26909801,
+        "n": 50,
+        "Native_successes": 43,
+        "object24": 19,
+        "EEF24": 18,
+        "SSR_successes": 18,
+        "SR_percent": 86,
+        "SSR_percent": 36
+      },
+      {
+        "evaluation_seed": 26909802,
+        "n": 50,
+        "Native_successes": 41,
+        "object24": 9,
+        "EEF24": 9,
+        "SSR_successes": 8,
+        "SR_percent": 82,
+        "SSR_percent": 16
+      },
+      {
+        "evaluation_seed": 26909803,
+        "n": 50,
+        "Native_successes": 44,
+        "object24": 15,
+        "EEF24": 12,
+        "SSR_successes": 15,
+        "SR_percent": 88,
+        "SSR_percent": 30
+      }
+    ],
+    "generalization": [
+      {
+        "extra_cm": 1,
+        "n": 39,
+        "Native": 38,
+        "object24": 13,
+        "SSR": 13
+      },
+      {
+        "outside_collection_box": false,
+        "n": 81,
+        "Native": 81,
+        "object24": 25,
+        "SSR": 23
+      },
+      {
+        "outside_collection_box": true,
+        "n": 69,
+        "Native": 47,
+        "object24": 18,
+        "SSR": 18
+      },
+      {
+        "extra_cm": 2,
+        "n": 36,
+        "Native": 29,
+        "object24": 10,
+        "SSR": 10
+      },
+      {
+        "extra_cm": 0,
+        "n": 39,
+        "Native": 39,
+        "object24": 16,
+        "SSR": 15
+      },
+      {
+        "extra_cm": 3,
+        "n": 36,
+        "Native": 22,
+        "object24": 4,
+        "SSR": 3
+      }
+    ],
+    "SSR_seed_SD": 10.263202878893768
+  },
+  "metric_updated_utc": "2026-11-15T11:00:15.529246+00:00",
+  "metric_domain": "Spatial",
+  "collision_and_force_used_in_SSR": false,
+  "Native_used_in_SSR": false,
+  "denominator": 150,
+  "evaluation_data_and_checkpoint_unchanged": true,
+  "acceptance_status_unchanged": true
 }

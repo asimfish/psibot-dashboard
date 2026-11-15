@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-06T17:49:27.988268+00:00",
+  "updated_utc": "2026-11-15T11:00:15.529246+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -238,18 +238,18 @@
       },
       "ACT": {
         "SR": 85.33333333333334,
-        "SpatialSSR": 27.333333333333332,
+        "SpatialSSR": 28.666666666666668,
         "trials": 150,
         "successes": 128,
         "success_terminal20mm": 43,
         "completed_trials": 150,
         "completed_native_successes": 128,
-        "SSR_successes": 41,
+        "SSR_successes": 43,
         "formal_accepted": true,
         "visual_review_passed": true,
         "formal_evaluation_status": "PASSED_OBJECT24_FROZEN_FORMAL150",
         "evidence_url": "verification/grasp-brownv-act-object24-formal150-20261104.json",
-        "primary_object_SpatialSSR": 27.333333333333332,
+        "primary_object_SpatialSSR": 28.666666666666668,
         "primary_metric_position": "object",
         "all150_joint_SSR_decisions_exact": true,
         "position_eligible_full_geometry_resolved": 43,
@@ -263,7 +263,16 @@
           26909802,
           26909803
         ],
-        "partial_is_not_formal_result": false
+        "partial_is_not_formal_result": false,
+        "legacy_strict_metric_before_user_20261108": {
+          "SpatialSSR": 27.333333333333332,
+          "primary_object_SpatialSSR": 27.333333333333332,
+          "SSR_successes": 41
+        },
+        "SpatialSSR_definition": "Spatial SSR: only object position residual to settled initial xyz+[0,0,lift_height] <=20mm at actual24s termination. Native SR is separate; force and geometry remain independent diagnostics.",
+        "Native_used_in_SSR": false,
+        "force_and_collision_used_in_SSR": false,
+        "metric_updated_utc": "2026-11-15T11:00:15.529246+00:00"
       },
       "object_accepted": false,
       "full_visual_passed": false,
@@ -2888,7 +2897,16 @@
           26915401,
           26915402,
           26915403
-        ]
+        ],
+        "legacy_strict_metric_before_user_20261108": {
+          "SpatialSSR": 29.333333333333332,
+          "primary_object_SpatialSSR": 29.333333333333332,
+          "SSR_successes": 44
+        },
+        "SpatialSSR_definition": "Spatial SSR: only object position residual to settled initial xyz+[0,0,lift_height] <=20mm at actual24s termination. Native SR is separate; force and geometry remain independent diagnostics.",
+        "Native_used_in_SSR": false,
+        "force_and_collision_used_in_SSR": false,
+        "metric_updated_utc": "2026-11-15T11:00:15.529246+00:00"
       },
       "object_accepted": false,
       "full_visual_passed": false,
@@ -3624,7 +3642,7 @@
         "penetration_in_failure_only": true,
         "formal_accepted": true,
         "legacy_reported_position_quantity": "EEF; supplemental after user20261104 decision",
-        "primary_object_SpatialSSR": 42,
+        "primary_object_SpatialSSR": 47.333333333333336,
         "legacy_before_object24": {
           "SR": 77.3,
           "SpatialSSR_reported": 35.3,
@@ -3643,7 +3661,16 @@
           26905302,
           26905303
         ],
-        "formal_evaluation_status": "PASSED_OBJECT24_FROZEN_FORMAL150"
+        "formal_evaluation_status": "PASSED_OBJECT24_FROZEN_FORMAL150",
+        "legacy_strict_metric_before_user_20261108": {
+          "primary_object_SpatialSSR": 42
+        },
+        "SpatialSSR": 47.333333333333336,
+        "SSR_successes": 71,
+        "SpatialSSR_definition": "Spatial SSR: only object position residual to settled initial xyz+[0,0,lift_height] <=20mm at actual24s termination. Native SR is separate; force and geometry remain independent diagnostics.",
+        "Native_used_in_SSR": false,
+        "force_and_collision_used_in_SSR": false,
+        "metric_updated_utc": "2026-11-15T11:00:15.529246+00:00"
       },
       "object_accepted": false,
       "full_visual_passed": false,
@@ -3961,7 +3988,7 @@
   ],
   "objects_both_methods_formally_accepted": 0,
   "total_objects": 21,
-  "acceptance_metric": "用户 2026-11-04 决定：Spatial SSR 主口径为实际24秒终止时物体位置到静置初始xyz+[0,0,lift_height]的欧氏距离≤20mm；仍需Native成功、适用全程碰撞检查与完整视觉。EEF仅补充。",
+  "acceptance_metric": "Spatial SSR: only object position residual to settled initial xyz+[0,0,lift_height] <=20mm at actual24s termination. Native SR is separate; force and geometry remain independent diagnostics.",
   "penetration_threshold_user_confirmed": false,
   "expanded_plus4_plus5_cm_user_confirmed": false,
   "5090_results_included": false,
@@ -16186,8 +16213,13 @@
     "defer_success_done_until_timeout": true,
     "threshold_mm": 20,
     "object_goal": "settled initial xyz+[0,0,lift_height]",
-    "user_decision": "用户 2026-11-04 决定",
-    "EEF_secondary": true
+    "user_decision": "User2026-11-08 Spatial domain metric",
+    "EEF_secondary": true,
+    "Native_used_in_SSR": false,
+    "force_used_in_SSR": false,
+    "collision_used_in_SSR": false,
+    "SR_reported_separately": true,
+    "visual_review_independent": true
   },
   "primary_metric_frontier": [
     {
@@ -16198,7 +16230,8 @@
       "object_terminal20": 44,
       "EEF_terminal20": 33,
       "role": "新3评测seed正式150回合，已通过",
-      "note": "正式150回合：SR80.7%、物体口径SpatialSSR29.3%，达到论文64%/24%。单一预选ACT检查点，3个全新评测seed各50，SSR分别32/36/20%。44个终点候选全程其余碰撞对已闭合；手—目标视觉相交经实际碰撞形状及首次相交25N判据区分正常接触，全程净接触力峰值另列。原严格视觉判定保留。900张原视频抽查帧玻璃渲染正常；未宣称逐帧人工审阅450段视频。 +0/+1/+2/+3cm分组SR100/94.9/77.8/47.2%；实际框外63回合SR54.0%。"
+      "note": "SR 80.67%；Spatial SSR 44/150=29.33%，只按实际24秒终止时物体误差≤20mm。原严格联合分数29.33%保留在证据中；力、几何和视角独立报告。未重测、未换检查点、验收状态不变。",
+      "legacy_strict_note": "正式150回合：SR80.7%、物体口径SpatialSSR29.3%，达到论文64%/24%。单一预选ACT检查点，3个全新评测seed各50，SSR分别32/36/20%。44个终点候选全程其余碰撞对已闭合；手—目标视觉相交经实际碰撞形状及首次相交25N判据区分正常接触，全程净接触力峰值另列。原严格视觉判定保留。900张原视频抽查帧玻璃渲染正常；未宣称逐帧人工审阅450段视频。 +0/+1/+2/+3cm分组SR100/94.9/77.8/47.2%；实际框外63回合SR54.0%。"
     },
     {
       "object": "brown_volumetric_flask_250ml",
@@ -16208,7 +16241,8 @@
       "object_terminal20": 43,
       "EEF_terminal20": 39,
       "role": "新3评测seed正式150回合，已通过",
-      "note": "完整物体口径SSR41/150=27.3%；论文65/25。43个位置达标回合均完成全程几何；2次违规按SSR失败。"
+      "note": "SR 85.33%；Spatial SSR 43/150=28.67%，只按实际24秒终止时物体误差≤20mm。原严格联合分数27.33%保留在证据中；力、几何和视角独立报告。未重测、未换检查点、验收状态不变。",
+      "legacy_strict_note": "完整物体口径SSR41/150=27.3%；论文65/25。43个位置达标回合均完成全程几何；2次违规按SSR失败。"
     },
     {
       "object": "funnel",
@@ -16218,7 +16252,8 @@
       "object_terminal20": 71,
       "EEF_terminal20": 76,
       "role": "新3评测seed正式150回合，已通过",
-      "note": "完整物体口径SSR63/150=42.0%；论文58/18。框外62回合SR61.3%、SSR22.6%。"
+      "note": "SR 84.00%；Spatial SSR 71/150=47.33%，只按实际24秒终止时物体误差≤20mm。原严格联合分数42.00%保留在证据中；力、几何和视角独立报告。未重测、未换检查点、验收状态不变。",
+      "legacy_strict_note": "完整物体口径SSR63/150=42.0%；论文58/18。框外62回合SR61.3%、SSR22.6%。"
     },
     {
       "object": "funnel",
@@ -16274,5 +16309,6 @@
     "Native_calls": 0,
     "GPU_calls": 0,
     "API_calls": 0
-  }
+  },
+  "metric_updated_utc": "2026-11-15T11:00:15.529246+00:00"
 }

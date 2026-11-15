@@ -14,17 +14,17 @@
   ],
   "episodes_per_seed": 50,
   "source_and_test_GPU": "Zenith Pro6000",
-  "primary_metric": "Native success AND object residual to settled initial xyz+[0,0,lift_height]<=20mm at actual24s termination AND zero full-episode nonadjacent authored-surface crossings",
+  "primary_metric": "Spatial SSR: only object position residual to settled initial xyz+[0,0,lift_height] <=20mm at actual24s termination. Native SR is separate; force and geometry remain independent diagnostics.",
   "duration_s": 24,
   "defer_success_done_until_timeout": true,
   "lift_height_m": 0.2,
   "threshold_mm": 20,
-  "user_metric_decision": "用户 2026-11-04 决定",
+  "user_metric_decision": "User2026-11-08: SSR by domain; grasp Spatial is object position only. Coordinator2026-11-14 authorizes registered numeric correction.",
   "Native_successes": 126,
   "SR": 84,
   "object24_only": 71,
-  "SSR_successes": 63,
-  "SpatialSSR": 42,
+  "SSR_successes": 71,
+  "SpatialSSR": 47.333333333333336,
   "by_evaluation_seed": [
     {
       "evaluation_seed": 26905301,
@@ -32,11 +32,12 @@
       "Native_successes": 43,
       "object24": 29,
       "EEF24": 31,
-      "SSR_numerator_lower_bound": 23,
-      "SSR_numerator_upper_bound": 23,
+      "SSR_numerator_lower_bound": 29,
+      "SSR_numerator_upper_bound": 29,
       "SSR_unresolved": 0,
       "SR_percent": 86,
-      "SSR_percent": 46
+      "SSR_percent": 58.0,
+      "SSR_successes": 29
     },
     {
       "evaluation_seed": 26905302,
@@ -44,11 +45,12 @@
       "Native_successes": 42,
       "object24": 20,
       "EEF24": 21,
-      "SSR_numerator_lower_bound": 19,
-      "SSR_numerator_upper_bound": 19,
+      "SSR_numerator_lower_bound": 20,
+      "SSR_numerator_upper_bound": 20,
       "SSR_unresolved": 0,
       "SR_percent": 84,
-      "SSR_percent": 38
+      "SSR_percent": 40.0,
+      "SSR_successes": 20
     },
     {
       "evaluation_seed": 26905303,
@@ -56,11 +58,12 @@
       "Native_successes": 41,
       "object24": 22,
       "EEF24": 24,
-      "SSR_numerator_lower_bound": 21,
-      "SSR_numerator_upper_bound": 21,
+      "SSR_numerator_lower_bound": 22,
+      "SSR_numerator_upper_bound": 22,
       "SSR_unresolved": 0,
       "SR_percent": 82,
-      "SSR_percent": 42
+      "SSR_percent": 44.0,
+      "SSR_successes": 22
     }
   ],
   "paper_SR": 58,
@@ -75,42 +78,48 @@
       "n": 39,
       "Native": 39,
       "object24": 21,
-      "SSR": 18
+      "SSR": 21,
+      "legacy_strict_SSR_successes": 18
     },
     {
       "extra_cm": 1,
       "n": 39,
       "Native": 39,
       "object24": 24,
-      "SSR": 22
+      "SSR": 24,
+      "legacy_strict_SSR_successes": 22
     },
     {
       "extra_cm": 2,
       "n": 36,
       "Native": 28,
       "object24": 19,
-      "SSR": 17
+      "SSR": 19,
+      "legacy_strict_SSR_successes": 17
     },
     {
       "extra_cm": 3,
       "n": 36,
       "Native": 20,
       "object24": 7,
-      "SSR": 6
+      "SSR": 7,
+      "legacy_strict_SSR_successes": 6
     },
     {
       "outside_collection_box": false,
       "n": 88,
       "Native": 88,
       "object24": 53,
-      "SSR": 49
+      "SSR": 53,
+      "legacy_strict_SSR_successes": 49
     },
     {
       "outside_collection_box": true,
       "n": 62,
       "Native": 38,
       "object24": 18,
-      "SSR": 14
+      "SSR": 18,
+      "legacy_strict_SSR_successes": 14
     }
   ],
   "visual_review": {
@@ -248,5 +257,99 @@
       "object24_and_surface_safe": 21,
       "unsafe": 6
     }
-  ]
+  ],
+  "legacy_strict_metric_before_user_20261108": {
+    "primary_metric": "Native success AND object residual to settled initial xyz+[0,0,lift_height]<=20mm at actual24s termination AND zero full-episode nonadjacent authored-surface crossings",
+    "SSR_successes": 63,
+    "SpatialSSR": 42,
+    "by_evaluation_seed": [
+      {
+        "evaluation_seed": 26905301,
+        "n": 50,
+        "Native_successes": 43,
+        "object24": 29,
+        "EEF24": 31,
+        "SSR_numerator_lower_bound": 23,
+        "SSR_numerator_upper_bound": 23,
+        "SSR_unresolved": 0,
+        "SR_percent": 86,
+        "SSR_percent": 46
+      },
+      {
+        "evaluation_seed": 26905302,
+        "n": 50,
+        "Native_successes": 42,
+        "object24": 20,
+        "EEF24": 21,
+        "SSR_numerator_lower_bound": 19,
+        "SSR_numerator_upper_bound": 19,
+        "SSR_unresolved": 0,
+        "SR_percent": 84,
+        "SSR_percent": 38
+      },
+      {
+        "evaluation_seed": 26905303,
+        "n": 50,
+        "Native_successes": 41,
+        "object24": 22,
+        "EEF24": 24,
+        "SSR_numerator_lower_bound": 21,
+        "SSR_numerator_upper_bound": 21,
+        "SSR_unresolved": 0,
+        "SR_percent": 82,
+        "SSR_percent": 42
+      }
+    ],
+    "generalization": [
+      {
+        "extra_cm": 0,
+        "n": 39,
+        "Native": 39,
+        "object24": 21,
+        "SSR": 18
+      },
+      {
+        "extra_cm": 1,
+        "n": 39,
+        "Native": 39,
+        "object24": 24,
+        "SSR": 22
+      },
+      {
+        "extra_cm": 2,
+        "n": 36,
+        "Native": 28,
+        "object24": 19,
+        "SSR": 17
+      },
+      {
+        "extra_cm": 3,
+        "n": 36,
+        "Native": 20,
+        "object24": 7,
+        "SSR": 6
+      },
+      {
+        "outside_collection_box": false,
+        "n": 88,
+        "Native": 88,
+        "object24": 53,
+        "SSR": 49
+      },
+      {
+        "outside_collection_box": true,
+        "n": 62,
+        "Native": 38,
+        "object24": 18,
+        "SSR": 14
+      }
+    ]
+  },
+  "metric_updated_utc": "2026-11-15T11:00:15.529246+00:00",
+  "metric_domain": "Spatial",
+  "collision_and_force_used_in_SSR": false,
+  "Native_used_in_SSR": false,
+  "denominator": 150,
+  "evaluation_data_and_checkpoint_unchanged": true,
+  "acceptance_status_unchanged": true
 }
