@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-16T14:45:06.656909+00:00",
+  "updated_utc": "2026-11-16T18:17:25.879829+00:00",
   "objects": [
     {
       "object": "glass_beaker_100ml",
@@ -950,17 +950,17 @@
         "primary_object_SpatialSSR": null
       },
       "ACT": {
-        "SR": 95.33333333333334,
-        "SpatialSSR_reported": null,
+        "SR": 90,
+        "SpatialSSR_reported": 29.333333333333332,
         "trials": 150,
-        "formal_accepted": false,
+        "formal_accepted": true,
         "historical_before_fresh_original_ACT150": {
           "SR": 2.7,
           "SpatialSSR_reported": 0.0,
           "trials": 150,
           "formal_accepted": false
         },
-        "formal_evaluation_status": "CLOSED_FAILED_ALLSCENE_POSE_COLLISION_PROXY",
+        "formal_evaluation_status": "PASSED_SPATIAL_OBJECT24_FORMAL150",
         "formal_evaluation_expected_trials": 150,
         "completed_trials": 150,
         "development_original_ACT32k_source15": {
@@ -971,9 +971,9 @@
           "full_SpatialSSR": null,
           "formal_accepted": false
         },
-        "completed_native_successes": 143,
-        "completed_success_terminal20mm": 54,
-        "SpatialSSR": null,
+        "completed_native_successes": 135,
+        "completed_success_terminal20mm": 44,
+        "SpatialSSR": 29.333333333333332,
         "success_terminal20mm_percent": 36.0,
         "visual_representative_review": {
           "trials": 19,
@@ -1052,7 +1052,124 @@
           "formal_accepted": false
         },
         "legacy_reported_position_quantity": "EEF; supplemental after user20261104 decision",
-        "primary_object_SpatialSSR": null
+        "primary_object_SpatialSSR": 29.333333333333332,
+        "legacy_before_B50_ACT_nov16": {
+          "SR": 95.33333333333334,
+          "SpatialSSR_reported": null,
+          "trials": 150,
+          "formal_accepted": false,
+          "historical_before_fresh_original_ACT150": {
+            "SR": 2.7,
+            "SpatialSSR_reported": 0.0,
+            "trials": 150,
+            "formal_accepted": false
+          },
+          "formal_evaluation_status": "CLOSED_FAILED_ALLSCENE_POSE_COLLISION_PROXY",
+          "formal_evaluation_expected_trials": 150,
+          "completed_trials": 150,
+          "development_original_ACT32k_source15": {
+            "trials": 15,
+            "native_successes": 15,
+            "success_terminal20mm": 3,
+            "same_five_known_XY_repeated_for_three_models": true,
+            "full_SpatialSSR": null,
+            "formal_accepted": false
+          },
+          "completed_native_successes": 143,
+          "completed_success_terminal20mm": 54,
+          "SpatialSSR": null,
+          "success_terminal20mm_percent": 36.0,
+          "visual_representative_review": {
+            "trials": 19,
+            "original_videos": 57,
+            "all7_task_failures_included": true,
+            "sampled_visible_anomalies": 0,
+            "numerical_safety_passed": false
+          },
+          "fullscene_trajectory_checked_poses": 155194,
+          "fullscene_strict_crossing_trials_so_far": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            13,
+            19,
+            21,
+            24,
+            25,
+            27,
+            28,
+            29,
+            30,
+            31,
+            33,
+            35,
+            38,
+            39,
+            40,
+            41,
+            42,
+            47,
+            48,
+            49,
+            50,
+            55,
+            56,
+            57,
+            58,
+            60,
+            61,
+            66,
+            76,
+            78,
+            79,
+            86,
+            87,
+            88,
+            96,
+            106,
+            115,
+            118,
+            126,
+            127,
+            128,
+            130,
+            132,
+            135,
+            146,
+            148,
+            149,
+            150
+          ],
+          "SpatialSSR_upper_bound_percent": 0,
+          "pose_collision_proxy": {
+            "trials": 150,
+            "Native_successes": 143,
+            "success_terminal20mm": 54,
+            "eligible_fullscene120Hz_states": 155194,
+            "all54_eligible_trials_with_nonfiltered_crossings": true,
+            "safe_successes": 0,
+            "percent": 0,
+            "full_paper_SpatialSSR": null,
+            "formal_accepted": false
+          },
+          "legacy_reported_position_quantity": "EEF; supplemental after user20261104 decision",
+          "primary_object_SpatialSSR": null
+        },
+        "SSR_successes": 44,
+        "visual_review_passed": true,
+        "training_seed": 26125708,
+        "evaluation_seeds": [
+          26941711,
+          26941712,
+          26941713
+        ],
+        "Native_used_in_SSR": false,
+        "force_and_collision_used_in_SSR": false,
+        "primary_metric_position": "object",
+        "acceptance_evidence_url": "verification/grasp-b50-act-object24-formal150-20261116.json"
       },
       "object_accepted": false,
       "full_visual_passed": false,
@@ -1062,9 +1179,9 @@
         "strict_crossings": 0,
         "geometry_scope": "Original100 hand/target surface checks only; scene/table source safety is not certified."
       },
-      "next": "沿保存的完整24秒轨迹定位后段精度丢失；保持冻结世界目标、原动作和成功门，不以中途20mm或动作保持替代终点。",
+      "next": "补DP；继续同GPU型号、±3/4/5/6cm测试。",
       "name": "50ml 玻璃烧杯",
-      "status_note": "B50 DP旧26121921物体终点仅8/50（16%），低于37%目标，移出本轮正式；保留EEF21/50作补充，优先训练量对照。ACT也未完整通过。",
+      "status_note": "ACT正式150通过：SR90.0%、SpatialSSR29.33%（论文63/23）。DP仍训练中；不是双方法通过。旧正式失败结果和全部失败回合保留。",
       "development_source_physics5": {
         "Native_successes": 5,
         "terminal_held": 5,
@@ -4041,40 +4158,25 @@
     "registered_jobs": 245,
     "active_registered_jobs": 3,
     "BOS_mount_count": 2,
-    "state": "FIRST_OBJECT_BOTH_METHODS_ACCEPTED",
-    "state_note": "4/42方法通过；漏斗DP和ACT均通过，1/21物体双方法通过。",
-    "prepared_not_submitted": [
-      {
-        "name": "酒精灯与带塞锥形瓶20回合专家试采",
-        "state": "WAITING_RESOURCE_RELEASE",
-        "progress_note": "4种专家设置×5个位置；30Hz三相机与120Hz完整状态/目标配对力/真实接触间距直接写桶。最近准入空闲5卡，未达到6卡条件，尚未创建。"
-      }
-    ],
+    "state": "FIVE_METHODS_ONE_PAIRED_OBJECT_ACCEPTED",
+    "state_note": "5/42方法、1/21双方法物体通过。",
+    "prepared_not_submitted": [],
     "checked_utc": "2026-11-16T14:45:06.656909+00:00",
     "jobs": [
       {
-        "tag": "screen-Grasp-auto-persistent4-N4-20261115cc-B50-formal150-b02-coldN1",
-        "job_id": "job-jq73yn0kmu91",
+        "job_id": "job-f4a285yz16se",
+        "name": "六源12个DP训练队列",
         "status": "RUNNING",
-        "name": "B50 formal150",
-        "progress_note": "已核验49/150回合；正式回合未结束前不登记最终成功率。"
+        "progress_note": "BrownL/ClearL已有10k完整检查点，其余依次训练；B50输入缓存问题转独立修复包。"
       },
       {
-        "tag": "screen-Grasp-auto-persistent4-N4-20261115cc-HoldNoiseRaw6000-fresh50-b02-coldN1",
-        "job_id": "job-6c8hai14om96",
+        "job_id": "job-sqixpeudfjyf",
+        "name": "B50八个DP训练",
         "status": "RUNNING",
-        "name": "HoldNoiseRaw6000 fresh50",
-        "progress_note": "已核验0/100回合；正式回合未结束前不登记最终成功率。"
-      },
-      {
-        "tag": "screen-Grasp-auto-persistent4-N4-20261115cc-HoldNoiseRaw6000-fresh50-b03-coldN1",
-        "job_id": "job-e4zj83qy8t6g",
-        "status": "RUNNING",
-        "name": "HoldNoiseRaw6000 fresh50",
-        "progress_note": "已核验0/50回合；正式回合未结束前不登记最终成功率。"
+        "progress_note": "8模型已过真实更新检查，每卡2模型；尚未验收。"
       }
     ],
-    "progress_note": "新增Funnel DP正式通过；B50 ACT另一个候选继续正式150；已通过方法停止新增选模，先推进未通过对象。",
+    "progress_note": "两批4卡DP训练在运行；14个缺源物体的试采请求尚在创建/准入，未计入合格源。",
     "DP_repair_note": "只使用last/EMA与继承的normalizer。Funnel已形成首个双方法结果，剩余DP逐物体做同源诊断、快筛和新3×50正式测试。",
     "b50_reset_note": "B50已修复静置后放置并完成真实reset对照；旧异常测试保留，不覆盖。当前候选仍等待完整正式150。",
     "failure_diagnosis": [
@@ -5575,10 +5677,10 @@
       "full_joint_decisions_url": "verification/grasp-f250-act-object24-formal150-physics-20261106.json",
       "release_index_key": "liyufeng/grasp/release/20261106/RELEASE_INDEX.json"
     },
-    "active_provider_jobs_with_ID": 3,
-    "submitted_operations_without_jobID": 0
+    "active_provider_jobs_with_ID": 2,
+    "submitted_operations_without_jobID": 2
   },
-  "evidence_note": "当前4/42方法、1/21双方法物体通过。新增Funnel DP85.33%/30.00%；Funnel ACT84.00%/47.33%、BrownV ACT85.33%/28.67%、F250 ACT80.67%/29.33%。历史EEF及联合几何分数、失败和原视频均保留。",
+  "evidence_note": "5/42方法、1/21双方法物体通过。新增B50 ACT90.0%/29.33%；Funnel DP85.33%/30.0%、ACT84.0%/47.33%；BrownV ACT85.33%/28.67%、F250 ACT80.67%/29.33%。全部为原冻结视角，待用户审阅未撤销；新视角设置验收0。",
   "offline_DP_probe": {
     "observations": 4,
     "source_episodes": 1,
@@ -13441,6 +13543,128 @@
           "bytes": 1408641
         }
       ]
+    },
+    {
+      "candidate": "pro6000-B50-ACT-object24-formal150-20261116",
+      "object": "glass_beaker_50ml",
+      "method": "ACT",
+      "display_name": "Pro6000 · B50 ACT LAST26125708 · 新3评测seed×50 · 正式通过",
+      "current_native": false,
+      "development": false,
+      "formal_accepted": true,
+      "primary_metric_position": "object",
+      "paper_ssr_percent": 23,
+      "reported_SpatialSSR_percent": 29.333333333333332,
+      "progress": {
+        "episode_num": 150,
+        "episode_success_num": 135,
+        "success_rate": 0.9
+      },
+      "expected_trials": 150,
+      "job_id": "job-jq73yn0kmu91",
+      "protocol": {
+        "method": "act",
+        "collection_gpu_model": "NVIDIA RTX PRO 6000",
+        "test_gpu_model": "NVIDIA RTX PRO 6000",
+        "range_label": "±3 / 4 / 5 / 6cm",
+        "duration_label": "24s",
+        "seed": "训练26125708；评测26941711 / 26941712 / 26941713",
+        "checkpoint_sha256": "903246d8fe48e1b103c60238638ba3579cb189963c77f79467343dc2d6943f32",
+        "primary_position": "object",
+        "defer_success_done_until_timeout": true,
+        "note": "ACT Ta4、无temporal aggregation；40k LAST，沿用父normalizer。SpatialSSR仅看物体实际终止位置20mm，NativeSR独立；正式冷启动单环境。"
+      },
+      "train": {
+        "dataset": {
+          "episodes": 100
+        },
+        "training": {
+          "seed": 26125708
+        },
+        "last": {
+          "global_step": 40000
+        }
+      },
+      "metric_note": "SR90.0%、SSR29.33%，论文63/23。逐seed SR86/92/92%、SSR36/28/24%。+3cm档SR66.67%、SSR11.11%；泛化困难档和全部失败均保留。216张分层关键帧未见明显穿模或玻璃材质异常，非全150视频逐帧审阅。",
+      "result": {
+        "SR": 90,
+        "SpatialSSR": 29.333333333333332,
+        "trials": 150,
+        "successes": 135,
+        "SSR_successes": 44,
+        "success_terminal20mm": 44,
+        "formal_accepted": true,
+        "visual_review_passed": true,
+        "evidence_url": "verification/grasp-b50-act-object24-formal150-20261116.json"
+      },
+      "cases": [
+        {
+          "episode": 29,
+          "evaluation_seed": 26941712,
+          "camera": "chest_camera",
+          "url": "assets/grasp/pro6000_B50_ACT_formal150_20261116/seed26941712_ep029_chest_camera.mp4",
+          "success": true,
+          "terminal_translation_passed": true,
+          "caption": "真实正式150原录像；成功且终点达标；采集和测试均Pro6000。",
+          "SHA256": "3b20377530479515a969dc25464c7140cad245f31daa3c546401a6655ed2413e",
+          "bytes": 524046
+        },
+        {
+          "episode": 29,
+          "evaluation_seed": 26941712,
+          "camera": "head_camera",
+          "url": "assets/grasp/pro6000_B50_ACT_formal150_20261116/seed26941712_ep029_head_camera.mp4",
+          "success": true,
+          "terminal_translation_passed": true,
+          "caption": "真实正式150原录像；成功且终点达标；采集和测试均Pro6000。",
+          "SHA256": "164ca9bd88fc85616c7646337f7955d09ab4f9060b2b252cf989e1ff83cd9e3a",
+          "bytes": 1152905
+        },
+        {
+          "episode": 29,
+          "evaluation_seed": 26941712,
+          "camera": "third_camera",
+          "url": "assets/grasp/pro6000_B50_ACT_formal150_20261116/seed26941712_ep029_third_camera.mp4",
+          "success": true,
+          "terminal_translation_passed": true,
+          "caption": "真实正式150原录像；成功且终点达标；采集和测试均Pro6000。",
+          "SHA256": "7cdc05f1c0a4203307f8b7737e36eefb9dac8f620d5970134d9416d3f1a7d83b",
+          "bytes": 1148520
+        },
+        {
+          "episode": 13,
+          "evaluation_seed": 26941712,
+          "camera": "chest_camera",
+          "url": "assets/grasp/pro6000_B50_ACT_formal150_20261116/seed26941712_ep013_chest_camera.mp4",
+          "success": false,
+          "terminal_translation_passed": false,
+          "caption": "真实正式150原录像；保留原生失败及原始结果；采集和测试均Pro6000。",
+          "SHA256": "deceab618bc6ce153966c5daa32ba436343c932222f94cbad129e8ab0b58e2d4",
+          "bytes": 1096913
+        },
+        {
+          "episode": 13,
+          "evaluation_seed": 26941712,
+          "camera": "head_camera",
+          "url": "assets/grasp/pro6000_B50_ACT_formal150_20261116/seed26941712_ep013_head_camera.mp4",
+          "success": false,
+          "terminal_translation_passed": false,
+          "caption": "真实正式150原录像；保留原生失败及原始结果；采集和测试均Pro6000。",
+          "SHA256": "829489476b22ec03e9e57b053e3789eb142c3d0072ea958016e421fc3176a7c6",
+          "bytes": 980101
+        },
+        {
+          "episode": 13,
+          "evaluation_seed": 26941712,
+          "camera": "third_camera",
+          "url": "assets/grasp/pro6000_B50_ACT_formal150_20261116/seed26941712_ep013_third_camera.mp4",
+          "success": false,
+          "terminal_translation_passed": false,
+          "caption": "真实正式150原录像；保留原生失败及原始结果；采集和测试均Pro6000。",
+          "SHA256": "e08d3d96f8df59ca9a7ffe234c13fd8df28939da3060ec853737cac20d8ea86f",
+          "bytes": 1422022
+        }
+      ]
     }
   ],
   "geometry_distance_metric_note": "几何与力保留为独立诊断；不纳入用户2026-11-08确定的SpatialSSR。图像抽查不证明逐物理步的亚毫米穿透不存在。",
@@ -13459,6 +13683,16 @@
     "visual_review_independent": true
   },
   "primary_metric_frontier": [
+    {
+      "object": "glass_beaker_50ml",
+      "method": "ACT",
+      "n": 150,
+      "Native_successes": 135,
+      "object_terminal20": 44,
+      "EEF_terminal20": null,
+      "role": "新3评测seed正式150通过",
+      "note": "只按物体实际终点20mm；旧正式ACT86.67%/20.67%失败保留。"
+    },
     {
       "object": "funnel",
       "method": "DP",
@@ -13535,7 +13769,7 @@
       "note": "三个训练seed各1/5，同分取26121921；筛选达SR65%及物体分量25%后再用全新3×50正式测试。"
     }
   ],
-  "methods_formally_accepted": 4,
+  "methods_formally_accepted": 5,
   "total_methods": 42,
   "normal_contact_policy_F250": {
     "schema": "grasp.F250.first_visual_contact.force_policy.v1",
