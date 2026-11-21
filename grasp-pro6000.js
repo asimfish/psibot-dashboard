@@ -30,14 +30,14 @@ function renderPro6000(snapshot) {
     const entries = add(current, 'ul');
     for (const row of snapshot.primary_metric_frontier) {
       const object = snapshot.objects.find(o => o.object === row.object);
-      add(entries, 'li', `${object.name} ${row.method}：抓起${row.Native_successes}/${row.n}；物体终点20mm ${row.object_terminal20}/${row.n}；EEF补充${row.EEF_terminal20}/${row.n}。${row.role}。${row.note}`);
+      add(entries, 'li', `${object.name} ${row.method}：抓起${row.Native_successes}/${row.n}；物体终点20mm ${row.object_terminal20}/${row.n}；EEF补充${Number.isInteger(row.EEF_terminal20) ? row.EEF_terminal20 + '/' + row.n : '未汇总'}。${row.role}。${row.note}`);
     }
   }
   const metrics = add(root, 'div', undefined, 'status-grid');
   for (const [title, value] of [
     ['DP + ACT 完整通过', snapshot.objects_both_methods_formally_accepted + ' / 21'],
     ['DP / ACT 方法通过', (snapshot.methods_formally_accepted || 0) + ' / 42'],
-    ['已登记活跃作业（快照）', String(snapshot.pipeline.active_registered_jobs)],
+    ['运行作业与已提交意图（快照）', String(snapshot.pipeline.active_registered_jobs)],
     ['排队或挂起', String(snapshot.pipeline.prepared_not_submitted.length)],
     ['采集与测试主线', 'Zenith Pro6000']
   ]) {
@@ -65,7 +65,7 @@ function renderPro6000(snapshot) {
   if (snapshot.pipeline.failure_diagnosis?.length) {
     const diagnosis = add(root, 'details');
     diagnosis.open = true;
-    add(diagnosis, 'summary', '为什么还没有完整通过：失败证据与下一项验证');
+    add(diagnosis, 'summary', '未通过项目：失败证据与下一项验证');
     const entries = add(diagnosis, 'ul');
     for (const item of snapshot.pipeline.failure_diagnosis) add(entries, 'li', item);
     if (snapshot.pipeline.failure_diagnosis_history?.length) {
@@ -103,7 +103,9 @@ function renderPro6000(snapshot) {
     link.href = '#' + new URLSearchParams({object: object.paper_id, method: run.method, run: run.candidate});
     link.addEventListener('click', () => document.getElementById('browser').scrollIntoView());
   }
-  add(measured, 'p', '当前漏斗 ACT：+0 / +1 / +2 / +3cm 分组 SR 为100 / 100 / 77.8 / 55.6%；其中真正框外62回合SR61.3%、SSR22.6%。DP尚未通过。', 'muted');
+  add(measured, 'p', '漏斗已双方法通过。DP：+0 / +1 / +2 / +3cm 分组 SR97.4 / 97.4 / 75.0 / 69.4%，SSR25.6 / 46.2 / 22.2 / 25.0%；正式汇总为85.3% / 30.0%。分档分母39 / 39 / 36 / 36，保留原冻结汇总口径。', 'muted');
+  const visualLink = add(measured, 'a', '查看漏斗 DP 三相机原视频、分seed成绩与分层视觉抽查');
+  visualLink.href = 'audits/grasp-funnel-dp-formal150-nov16/index.html';
   add(measured, 'p', snapshot.pipeline.b50_reset_note || '研钵旧 ACT 有145/150试次表面交叉；B50旧测试重置异常须先关闭。失败试次全部保留。', 'muted');
   const all = add(root, 'details');
   add(all, 'summary', '21 个物体的当前源数据、论文目标和下一步');
